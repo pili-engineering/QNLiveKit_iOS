@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1F45E2BA83BC92BA3FD1524C /* Pods_QNLiveKitDemo_QNLiveKitDemoUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 382946EB5F00B1F6B3437C07 /* Pods_QNLiveKitDemo_QNLiveKitDemoUITests.framework */; };
+		33444C07CC64DB14DB74F57A /* Pods_QNLiveKitDemoTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5A2899F26391AE2088C5854B /* Pods_QNLiveKitDemoTests.framework */; };
 		776B1BDF28378CCD00D85C73 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 776B1BDE28378CCD00D85C73 /* AppDelegate.m */; };
 		776B1BE228378CCD00D85C73 /* SceneDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 776B1BE128378CCD00D85C73 /* SceneDelegate.m */; };
 		776B1BE528378CCD00D85C73 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 776B1BE428378CCD00D85C73 /* ViewController.m */; };
@@ -17,6 +19,7 @@
 		776B1BFA28378CCF00D85C73 /* QNLiveKitDemoTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 776B1BF928378CCF00D85C73 /* QNLiveKitDemoTests.m */; };
 		776B1C0428378CCF00D85C73 /* QNLiveKitDemoUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 776B1C0328378CCF00D85C73 /* QNLiveKitDemoUITests.m */; };
 		776B1C0628378CCF00D85C73 /* QNLiveKitDemoUITestsLaunchTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 776B1C0528378CCF00D85C73 /* QNLiveKitDemoUITestsLaunchTests.m */; };
+		C5993B91A021CD7EDC4A0F36 /* Pods_QNLiveKitDemo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F467E60A07D600FCAAE77FD1 /* Pods_QNLiveKitDemo.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -34,23 +37,28 @@
 			remoteGlobalIDString = 776B1BD928378CCD00D85C73;
 			remoteInfo = QNLiveKitDemo;
 		};
-		776B1C3B28378D0700D85C73 /* PBXContainerItemProxy */ = {
+		776B1C68283C78D900D85C73 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
-			containerPortal = 776B1C3628378D0700D85C73 /* QNLiveKit_iOS.xcodeproj */;
+			containerPortal = 776B1C63283C78D800D85C73 /* QNLiveKit.xcodeproj */;
 			proxyType = 2;
-			remoteGlobalIDString = 776B1C1C28378D0600D85C73;
-			remoteInfo = QNLiveKit_iOS;
+			remoteGlobalIDString = 776B1C49283C78D800D85C73;
+			remoteInfo = QNLiveKit;
 		};
-		776B1C3D28378D0700D85C73 /* PBXContainerItemProxy */ = {
+		776B1C6A283C78D900D85C73 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
-			containerPortal = 776B1C3628378D0700D85C73 /* QNLiveKit_iOS.xcodeproj */;
+			containerPortal = 776B1C63283C78D800D85C73 /* QNLiveKit.xcodeproj */;
 			proxyType = 2;
-			remoteGlobalIDString = 776B1C2628378D0700D85C73;
-			remoteInfo = QNLiveKit_iOSTests;
+			remoteGlobalIDString = 776B1C53283C78D800D85C73;
+			remoteInfo = QNLiveKitTests;
 		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		078EC26835A6796B234936C4 /* Pods-QNLiveKitDemo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-QNLiveKitDemo.debug.xcconfig"; path = "Target Support Files/Pods-QNLiveKitDemo/Pods-QNLiveKitDemo.debug.xcconfig"; sourceTree = "<group>"; };
+		1B4CD739008C7D0755EFCAC9 /* Pods-QNLiveKitDemo-QNLiveKitDemoUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-QNLiveKitDemo-QNLiveKitDemoUITests.debug.xcconfig"; path = "Target Support Files/Pods-QNLiveKitDemo-QNLiveKitDemoUITests/Pods-QNLiveKitDemo-QNLiveKitDemoUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		382946EB5F00B1F6B3437C07 /* Pods_QNLiveKitDemo_QNLiveKitDemoUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_QNLiveKitDemo_QNLiveKitDemoUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		56C877B9E14F409F1ED0326F /* Pods-QNLiveKitDemoTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-QNLiveKitDemoTests.debug.xcconfig"; path = "Target Support Files/Pods-QNLiveKitDemoTests/Pods-QNLiveKitDemoTests.debug.xcconfig"; sourceTree = "<group>"; };
+		5A2899F26391AE2088C5854B /* Pods_QNLiveKitDemoTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_QNLiveKitDemoTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		776B1BDA28378CCD00D85C73 /* QNLiveKitDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = QNLiveKitDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		776B1BDD28378CCD00D85C73 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		776B1BDE28378CCD00D85C73 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -68,7 +76,11 @@
 		776B1BFF28378CCF00D85C73 /* QNLiveKitDemoUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = QNLiveKitDemoUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		776B1C0328378CCF00D85C73 /* QNLiveKitDemoUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = QNLiveKitDemoUITests.m; sourceTree = "<group>"; };
 		776B1C0528378CCF00D85C73 /* QNLiveKitDemoUITestsLaunchTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = QNLiveKitDemoUITestsLaunchTests.m; sourceTree = "<group>"; };
-		776B1C3628378D0700D85C73 /* QNLiveKit_iOS.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = QNLiveKit_iOS.xcodeproj; path = ../QNLiveKit_iOS/QNLiveKit_iOS.xcodeproj; sourceTree = "<group>"; };
+		776B1C63283C78D800D85C73 /* QNLiveKit.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = QNLiveKit.xcodeproj; path = ../QNLiveKit/QNLiveKit.xcodeproj; sourceTree = "<group>"; };
+		86543AFAB4A8EADB1F77D392 /* Pods-QNLiveKitDemoTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-QNLiveKitDemoTests.release.xcconfig"; path = "Target Support Files/Pods-QNLiveKitDemoTests/Pods-QNLiveKitDemoTests.release.xcconfig"; sourceTree = "<group>"; };
+		B31E3F409ADE08D9D13B003F /* Pods-QNLiveKitDemo-QNLiveKitDemoUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-QNLiveKitDemo-QNLiveKitDemoUITests.release.xcconfig"; path = "Target Support Files/Pods-QNLiveKitDemo-QNLiveKitDemoUITests/Pods-QNLiveKitDemo-QNLiveKitDemoUITests.release.xcconfig"; sourceTree = "<group>"; };
+		B86C108BE2C7758CCFFA24C9 /* Pods-QNLiveKitDemo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-QNLiveKitDemo.release.xcconfig"; path = "Target Support Files/Pods-QNLiveKitDemo/Pods-QNLiveKitDemo.release.xcconfig"; sourceTree = "<group>"; };
+		F467E60A07D600FCAAE77FD1 /* Pods_QNLiveKitDemo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_QNLiveKitDemo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -76,6 +88,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C5993B91A021CD7EDC4A0F36 /* Pods_QNLiveKitDemo.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -83,6 +96,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				33444C07CC64DB14DB74F57A /* Pods_QNLiveKitDemoTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -90,20 +104,46 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1F45E2BA83BC92BA3FD1524C /* Pods_QNLiveKitDemo_QNLiveKitDemoUITests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		2EDCB5774C61906547692C7C /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				078EC26835A6796B234936C4 /* Pods-QNLiveKitDemo.debug.xcconfig */,
+				B86C108BE2C7758CCFFA24C9 /* Pods-QNLiveKitDemo.release.xcconfig */,
+				1B4CD739008C7D0755EFCAC9 /* Pods-QNLiveKitDemo-QNLiveKitDemoUITests.debug.xcconfig */,
+				B31E3F409ADE08D9D13B003F /* Pods-QNLiveKitDemo-QNLiveKitDemoUITests.release.xcconfig */,
+				56C877B9E14F409F1ED0326F /* Pods-QNLiveKitDemoTests.debug.xcconfig */,
+				86543AFAB4A8EADB1F77D392 /* Pods-QNLiveKitDemoTests.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
+		709BCB3C3EEF0783D89437CF /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				F467E60A07D600FCAAE77FD1 /* Pods_QNLiveKitDemo.framework */,
+				382946EB5F00B1F6B3437C07 /* Pods_QNLiveKitDemo_QNLiveKitDemoUITests.framework */,
+				5A2899F26391AE2088C5854B /* Pods_QNLiveKitDemoTests.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		776B1BD128378CCD00D85C73 = {
 			isa = PBXGroup;
 			children = (
-				776B1C3628378D0700D85C73 /* QNLiveKit_iOS.xcodeproj */,
+				776B1C63283C78D800D85C73 /* QNLiveKit.xcodeproj */,
 				776B1BDC28378CCD00D85C73 /* QNLiveKitDemo */,
 				776B1BF828378CCF00D85C73 /* QNLiveKitDemoTests */,
 				776B1C0228378CCF00D85C73 /* QNLiveKitDemoUITests */,
 				776B1BDB28378CCD00D85C73 /* Products */,
+				2EDCB5774C61906547692C7C /* Pods */,
+				709BCB3C3EEF0783D89437CF /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -152,11 +192,11 @@
 			path = QNLiveKitDemoUITests;
 			sourceTree = "<group>";
 		};
-		776B1C3728378D0700D85C73 /* Products */ = {
+		776B1C64283C78D800D85C73 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				776B1C3C28378D0700D85C73 /* QNLiveKit_iOS.framework */,
-				776B1C3E28378D0700D85C73 /* QNLiveKit_iOSTests.xctest */,
+				776B1C69283C78D900D85C73 /* QNLiveKit.framework */,
+				776B1C6B283C78D900D85C73 /* QNLiveKitTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -168,9 +208,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 776B1C0928378CCF00D85C73 /* Build configuration list for PBXNativeTarget "QNLiveKitDemo" */;
 			buildPhases = (
+				6F1C7006CAF4B30D42D97E5D /* [CP] Check Pods Manifest.lock */,
 				776B1BD628378CCD00D85C73 /* Sources */,
 				776B1BD728378CCD00D85C73 /* Frameworks */,
 				776B1BD828378CCD00D85C73 /* Resources */,
+				620698CB770F1A7703408378 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -185,6 +227,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 776B1C0C28378CCF00D85C73 /* Build configuration list for PBXNativeTarget "QNLiveKitDemoTests" */;
 			buildPhases = (
+				13EDBE65027689701E1D8CF6 /* [CP] Check Pods Manifest.lock */,
 				776B1BF128378CCF00D85C73 /* Sources */,
 				776B1BF228378CCF00D85C73 /* Frameworks */,
 				776B1BF328378CCF00D85C73 /* Resources */,
@@ -203,9 +246,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 776B1C0F28378CCF00D85C73 /* Build configuration list for PBXNativeTarget "QNLiveKitDemoUITests" */;
 			buildPhases = (
+				D248E88356D1E11FCB0F6E00 /* [CP] Check Pods Manifest.lock */,
 				776B1BFB28378CCF00D85C73 /* Sources */,
 				776B1BFC28378CCF00D85C73 /* Frameworks */,
 				776B1BFD28378CCF00D85C73 /* Resources */,
+				16D826405EE74FA9CA6D0584 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -252,8 +297,8 @@
 			projectDirPath = "";
 			projectReferences = (
 				{
-					ProductGroup = 776B1C3728378D0700D85C73 /* Products */;
-					ProjectRef = 776B1C3628378D0700D85C73 /* QNLiveKit_iOS.xcodeproj */;
+					ProductGroup = 776B1C64283C78D800D85C73 /* Products */;
+					ProjectRef = 776B1C63283C78D800D85C73 /* QNLiveKit.xcodeproj */;
 				},
 			);
 			projectRoot = "";
@@ -266,18 +311,18 @@
 /* End PBXProject section */
 
 /* Begin PBXReferenceProxy section */
-		776B1C3C28378D0700D85C73 /* QNLiveKit_iOS.framework */ = {
+		776B1C69283C78D900D85C73 /* QNLiveKit.framework */ = {
 			isa = PBXReferenceProxy;
 			fileType = wrapper.framework;
-			path = QNLiveKit_iOS.framework;
-			remoteRef = 776B1C3B28378D0700D85C73 /* PBXContainerItemProxy */;
+			path = QNLiveKit.framework;
+			remoteRef = 776B1C68283C78D900D85C73 /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
-		776B1C3E28378D0700D85C73 /* QNLiveKit_iOSTests.xctest */ = {
+		776B1C6B283C78D900D85C73 /* QNLiveKitTests.xctest */ = {
 			isa = PBXReferenceProxy;
 			fileType = wrapper.cfbundle;
-			path = QNLiveKit_iOSTests.xctest;
-			remoteRef = 776B1C3D28378D0700D85C73 /* PBXContainerItemProxy */;
+			path = QNLiveKitTests.xctest;
+			remoteRef = 776B1C6A283C78D900D85C73 /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
 /* End PBXReferenceProxy section */
@@ -308,6 +353,109 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		13EDBE65027689701E1D8CF6 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-QNLiveKitDemoTests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		16D826405EE74FA9CA6D0584 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-QNLiveKitDemo-QNLiveKitDemoUITests/Pods-QNLiveKitDemo-QNLiveKitDemoUITests-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-QNLiveKitDemo-QNLiveKitDemoUITests/Pods-QNLiveKitDemo-QNLiveKitDemoUITests-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-QNLiveKitDemo-QNLiveKitDemoUITests/Pods-QNLiveKitDemo-QNLiveKitDemoUITests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		620698CB770F1A7703408378 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-QNLiveKitDemo/Pods-QNLiveKitDemo-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-QNLiveKitDemo/Pods-QNLiveKitDemo-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-QNLiveKitDemo/Pods-QNLiveKitDemo-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		6F1C7006CAF4B30D42D97E5D /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-QNLiveKitDemo-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		D248E88356D1E11FCB0F6E00 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-QNLiveKitDemo-QNLiveKitDemoUITests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		776B1BD628378CCD00D85C73 /* Sources */ = {
@@ -487,12 +635,14 @@
 		};
 		776B1C0A28378CCF00D85C73 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 078EC26835A6796B234936C4 /* Pods-QNLiveKitDemo.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = W2TP34G2MM;
+				ENABLE_BITCODE = NO;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = QNLiveKitDemo/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -514,12 +664,14 @@
 		};
 		776B1C0B28378CCF00D85C73 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = B86C108BE2C7758CCFFA24C9 /* Pods-QNLiveKitDemo.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = W2TP34G2MM;
+				ENABLE_BITCODE = NO;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = QNLiveKitDemo/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -541,6 +693,7 @@
 		};
 		776B1C0D28378CCF00D85C73 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 56C877B9E14F409F1ED0326F /* Pods-QNLiveKitDemoTests.debug.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
@@ -559,6 +712,7 @@
 		};
 		776B1C0E28378CCF00D85C73 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 86543AFAB4A8EADB1F77D392 /* Pods-QNLiveKitDemoTests.release.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
@@ -577,6 +731,7 @@
 		};
 		776B1C1028378CCF00D85C73 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 1B4CD739008C7D0755EFCAC9 /* Pods-QNLiveKitDemo-QNLiveKitDemoUITests.debug.xcconfig */;
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
@@ -593,6 +748,7 @@
 		};
 		776B1C1128378CCF00D85C73 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = B31E3F409ADE08D9D13B003F /* Pods-QNLiveKitDemo-QNLiveKitDemoUITests.release.xcconfig */;
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
