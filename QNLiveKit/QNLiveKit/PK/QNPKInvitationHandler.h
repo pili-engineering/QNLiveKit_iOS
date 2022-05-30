@@ -6,10 +6,11 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "PKInvitation.h"
+
+@class pkInvitation;
 
 NS_ASSUME_NONNULL_BEGIN
-
-@class PKInvitation;
 
 //pk邀请监听
 @protocol PKInvitationHandlerListener <NSObject>

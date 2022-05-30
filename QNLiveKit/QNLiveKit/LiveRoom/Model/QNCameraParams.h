@@ -19,6 +19,10 @@ NS_ASSUME_NONNULL_BEGIN
 //码率
 @property (nonatomic, assign)NSInteger bitrate;
 
+@property (nonatomic, assign) BOOL isMaster;
+
+@property (nonatomic, copy) NSString *tag;
+
 @end
 
 NS_ASSUME_NONNULL_END

@@ -24,7 +24,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 @property (nonatomic, copy)NSString *extensions;
 //连麦类型  用户向主播连麦  / 主播跨房连麦
-@property (nonatomic, copy)int linkType;
+@property (nonatomic, assign)int linkType;
 
 @end
 

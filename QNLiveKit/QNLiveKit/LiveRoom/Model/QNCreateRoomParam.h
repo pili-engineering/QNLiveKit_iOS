@@ -13,14 +13,12 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface QNCreateRoomParam : NSObject
 
-@property (nonatomic, copy)NSString *app_id;
 @property (nonatomic, copy)NSString *title;
 //公告
 @property (nonatomic, copy)NSString *notice;
 //封面图片
 @property (nonatomic, copy)NSString *cover_url;
 @property (nonatomic, copy)NSString *extension;
-
 
 @end
 

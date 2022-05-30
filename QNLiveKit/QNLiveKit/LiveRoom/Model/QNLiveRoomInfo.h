@@ -16,15 +16,27 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface QNLiveRoomInfo : NSObject
 @property (nonatomic, copy)NSString *chatId;
-@property (nonatomic, copy)NSString *coverUrl;
-@property (nonatomic, copy)NSString *liveId;
+@property (nonatomic, copy)NSString *cover_url;
+@property (nonatomic, copy)NSString *live_id;
 @property (nonatomic, copy)NSString *notice;
-@property (nonatomic, copy)NSString *onlineCount;
-@property (nonatomic, assign)QNLiveRoomStatus status;
-@property (nonatomic, copy)NSString *roomId;
+@property (nonatomic, copy)NSString *total_count;
+@property (nonatomic, assign)QNLiveRoomStatus live_status;
 @property (nonatomic, copy)NSString *title;
-@property (nonatomic, copy)NSString *extensions;
-@property (nonatomic, strong)QNLiveUser *roomHost;
+@property (nonatomic, strong)NSDictionary *extends;
+@property (nonatomic, strong)QNLiveUser *anchor_info;
+@property (nonatomic, copy)NSString *room_token;
+@property (nonatomic, copy)NSString *pk_id;
+@property (nonatomic, copy)NSString *online_count;
+@property (nonatomic, copy)NSString *start_time;
+@property (nonatomic, copy)NSString *end_time;
+@property (nonatomic, copy)NSString *chat_id;
+@property (nonatomic, copy)NSString *push_url;
+@property (nonatomic, copy)NSString *hls_url;
+@property (nonatomic, copy)NSString *rtmp_url;
+@property (nonatomic, copy)NSString *flv_url;
+@property (nonatomic, copy)NSString *pv;
+@property (nonatomic, copy)NSString *uv;
+@property (nonatomic, copy)NSString *total_mics;
 
 @end
 

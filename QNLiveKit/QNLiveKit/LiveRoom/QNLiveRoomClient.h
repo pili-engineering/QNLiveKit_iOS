@@ -6,11 +6,30 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "QNRoomLifeCycleListener.h"
+#import "QNLiveRoomEngine.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
-@class QNLiveUser,QNLiveService;
+@class QNLiveUser,QNLiveRoomInfo;
+
+/// 房间生命周期
+@protocol QNRoomLifeCycleListener <NSObject>
+
+/// 进入房间回调
+/// @param user 用户
+- (void)onRoomEnter:(QNLiveUser *)user;
+
+/// 加入房间回调
+/// @param roomInfo 房间信息
+- (void)onRoomJoined:(QNLiveRoomInfo *)roomInfo;
+
+/// 离开回调
+- (void)onRoomLeave:(QNLiveUser *)user;
+
+/// 销毁回调
+- (void)onRoomClose;
+
+@end
 
 @interface QNLiveRoomClient : NSObject
 
@@ -29,19 +48,23 @@ NS_ASSUME_NONNULL_BEGIN
 /// @param lifeCycleListener listener
 - (void)removeRoomLifeCycleListener:(id<QNRoomLifeCycleListener>)lifeCycleListener;
 
-/// 加入房间
-/// @param user 用户
+/// 开始直播
+/// @param roomId 房间号
+/// @param callBack 回调
+- (void)startLive:(NSString *)roomId callBack:(void (^)(void))callBack;
+
+/// 加入直播
 /// @param roomId 房间id
 /// @param callBack 回调
-- (void)joinRoom:(QNLiveUser *)user roomId:(NSString *)roomId callBack:(void (^)(void))callBack;
+- (void)joinRoom:(NSString *)roomId callBack:(void (^)(QNLiveRoomInfo * roomInfo))callBack;
 
-/// 离开房间
+/// 离开直播
 /// @param callBack 回调
-- (void)leaveRoom:(void (^)(void))callBack;
+- (void)leaveRoom:(NSString *)roomId callBack:(void (^)(void))callBack;
 
-/// 关闭房间
+/// 关闭直播
 /// @param callBack 回调
-- (void)closeRoom:(void (^)(void))callBack;
+- (void)closeRoom:(NSString *)roomId callBack:(void (^)(void))callBack;
 
 @end
 
