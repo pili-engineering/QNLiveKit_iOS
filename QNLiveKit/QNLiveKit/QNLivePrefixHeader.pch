@@ -8,8 +8,33 @@
 #ifndef QNLivePrefixHeader_pch
 #define QNLivePrefixHeader_pch
 
-//token
-#define QNLiveToken [[NSUserDefaults standardUserDefaults] stringForKey:QN_Live_Token_Key]
+#define QN_LOGIN_TOKEN_KEY @"QN_LOGIN_TOKEN"
+#define QN_USER_AVATAR_KEY @"QN_USER_AVATAR"
+#define QN_ACCOUNT_ID_KEY @"QN_ACCOUNT_ID"
+#define QN_NICKNAME_KEY @"QN_NICKNAME"
+#define QN_IM_APPID @"cigzypnhoyno"
+#define APPSERVER @"http://seallive.qiniuapi.com/"
+#define QN_IM_USER_ID_KEY @"QN_IM_USER_ID"
+#define QN_IM_USER_NAME_KEY @"QN_IM_USER_NAME"
+#define QN_IM_USER_PASSWORD_KEY @"QN_IM_USER_PASSWORD"
+#define Live_Token @"Live_Token"//直播token
+
+//get登录token
+#define QN_Login_token  [[NSUserDefaults standardUserDefaults] stringForKey:QN_LOGIN_TOKEN_KEY]
+//get头像
+#define QN_User_avatar  [[NSUserDefaults standardUserDefaults] stringForKey:QN_USER_AVATAR_KEY]
+//get用户ID
+#define QN_User_id  [[NSUserDefaults standardUserDefaults] stringForKey:QN_ACCOUNT_ID_KEY]
+//get用户昵称
+#define QN_User_nickname  [[NSUserDefaults standardUserDefaults] stringForKey:QN_NICKNAME_KEY]
+//getIM userid
+#define QN_IM_userId  [[NSUserDefaults standardUserDefaults] stringForKey:QN_IM_USER_ID_KEY]
+//get IM userName
+#define QN_IM_userName  [[NSUserDefaults standardUserDefaults] stringForKey:QN_IM_USER_NAME_KEY]
+//get IM psw
+#define QN_IM_psw  [[NSUserDefaults standardUserDefaults] stringForKey:QN_IM_USER_PASSWORD_KEY]
+//get直播token
+#define QN_Live_Token [[NSUserDefaults standardUserDefaults] stringForKey:Live_Token]
 
 #pragma mark ----------API
 //线上
@@ -19,6 +44,8 @@
 
 
 #import <QNRTCKit/QNRTCKit.h>
+#import "NSObject+QNKeyValue.h"
+
 
 
 #endif /* QNLivePrefixHeader_pch */

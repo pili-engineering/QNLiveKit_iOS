@@ -30,7 +30,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, assign)NSInteger mHeight;
 
 //图像的填充模式, 默认设置填充模式将继承 QNMergeStreamConfiguration 中数值
-@property (nonatomic, strong)QNVideoFillModeType fillMode;
+@property (nonatomic, assign)QNVideoFillModeType fillMode;
 @end
 
 @interface QNMergeOption : NSObject

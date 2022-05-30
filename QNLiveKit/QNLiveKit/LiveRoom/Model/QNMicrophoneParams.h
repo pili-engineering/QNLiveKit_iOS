@@ -5,7 +5,7 @@
 //  Created by 郭茜 on 2022/5/24.
 //
 
-#import <Foundation/Foundation.h>
+#import <UIKit/UIKit.h>
 
 NS_ASSUME_NONNULL_BEGIN
 
@@ -17,7 +17,13 @@ NS_ASSUME_NONNULL_BEGIN
 
 @property (nonatomic, assign)NSInteger mChannelCount;
 
+@property (nonatomic, assign) CGFloat volume;
+
 @property (nonatomic, assign)NSInteger mBitrate;
+
+@property (nonatomic, assign) BOOL isMaster;
+
+@property (nonatomic, copy) NSString *tag;
 
 @end
 

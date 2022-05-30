@@ -16,6 +16,8 @@ typedef void (^FailureBlock)(NSError *error);
 
 + (void)getRequestWithAction:(NSString *)action params:(nonnull NSDictionary *)params success:(SuccessBlock)success failure:(FailureBlock)failure;
 + (void)postRequestWithAction:(NSString *)action params:(NSDictionary *)params success:(SuccessBlock)success failure:(FailureBlock)failure;
++ (void)deleteRequestWithAction:(NSString *)action params:(NSDictionary *)params success:(SuccessBlock)success failure:(FailureBlock)failure;
++ (void)putRequestWithAction:(NSString *)action params:(NSDictionary *)params success:(SuccessBlock)success failure:(FailureBlock)failure;
 
 @end
 

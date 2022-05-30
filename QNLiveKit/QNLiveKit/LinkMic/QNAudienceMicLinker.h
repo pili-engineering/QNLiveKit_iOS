@@ -32,7 +32,7 @@ NS_ASSUME_NONNULL_BEGIN
 - (void)removeLinkMicListener:(id<LinkMicListener>)listener;
 
 //开始上麦
-- (void)startLink:(QNCameraParams *)cameraParams microphoneParams(QNMicrophoneParams *)microphoneParams extensions:(NSString *)extensions callBack:(void (^)(void))callBack;
+- (void)startLink:(QNCameraParams *)cameraParams microphoneParams:(QNMicrophoneParams *)microphoneParams extensions:(NSString *)extensions callBack:(void (^)(void))callBack;
 
 //我是不是麦上用户
 - (void)isLinked:(BOOL)isLinked;

@@ -28,6 +28,9 @@ NS_ASSUME_NONNULL_BEGIN
 //获取当前房间
 - (QNLiveRoomInfo *)getRoomInfo;
 
+//房间心跳
+- (void)roomHeartBeart:(NSString *)roomId;
+
 //刷新房间信息
 - (void)refreshRoomInfo:(void (^)(QNLiveRoomInfo *roomInfo))callBack;
 

@@ -7,7 +7,6 @@
 
 #import <QNLiveKit/QNLiveKit.h>
 #import "QNLiveRoomClient.h"
-#import "QNPullClientListener.h"
 #import <PLPlayerKit/PLPlayerKit.h>
 #import "QNLiveTypeDefines.h"
 

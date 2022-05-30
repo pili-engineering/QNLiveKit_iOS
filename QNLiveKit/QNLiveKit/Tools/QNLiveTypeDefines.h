@@ -10,16 +10,14 @@
 
 //直播房间状态
 typedef NS_ENUM(NSUInteger, QNLiveRoomStatus) {
-    
-    QNLiveRoomStatus,
-        
+    QNLiveRoomStatusPrepare = 0,
+    QNLiveRoomStatusOn = 1,
+    QNLiveRoomStatusOff = 2,
 };
 
 //房间推流状态
 typedef NS_ENUM(NSUInteger, QNRoomConnectionState) {
-    
-    QNRoomConnectionState,
-        
+    QNRoomConnectionStatef,        
 };
 
 #endif /* QNLiveTypeDefines_h */

@@ -7,7 +7,6 @@
 
 #import <QNLiveKit/QNLiveKit.h>
 #import "QNLiveService.h"
-#import "QNChatRoomServiceListener.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
