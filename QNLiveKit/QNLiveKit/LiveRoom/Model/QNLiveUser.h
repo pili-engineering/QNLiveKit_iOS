@@ -10,11 +10,12 @@
 NS_ASSUME_NONNULL_BEGIN
 
 @interface QNLiveUser : NSObject
-@property (nonatomic, copy)NSString *anchor_id;
-@property (nonatomic, copy)NSString *nickname;
+@property (nonatomic, copy)NSString *user_id;
+@property (nonatomic, copy)NSString *nick;
 @property (nonatomic, strong)NSArray <Extension *> *extension;
 @property (nonatomic, copy)NSString *avatar;
-@property (nonatomic, copy)NSString *qnImUid;
+@property (nonatomic, copy)NSString *im_userid;
+@property (nonatomic, copy)NSString *im_username;
 @end
 
 NS_ASSUME_NONNULL_END

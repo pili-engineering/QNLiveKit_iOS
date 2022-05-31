@@ -10,6 +10,7 @@
 #import "QNLiveListCell.h"
 #import "QNCreateLiveController.h"
 
+
 @interface QNLiveListController ()<UICollectionViewDelegate,UICollectionViewDataSource>
 
 @property (nonatomic, strong) UICollectionView *collectionView;
@@ -62,6 +63,7 @@
 - (void)addLiveRoom {
     
     QNCreateLiveController *vc = [QNCreateLiveController new];
+    vc.modalPresentationStyle = UIModalPresentationFullScreen;
     [self presentViewController:vc animated:YES completion:nil];
 }
 

@@ -46,6 +46,11 @@ FOUNDATION_EXPORT const unsigned char QNLiveKitVersionString[];
 #import "QNPublicChatService.h"
 #import "QNRoomService.h"
 #import "QNLiveTypeDefines.h"
+#import "OnlineUserSlot.h"
+#import "QNInternalViewSlot.h"
+#import "RoomHostSlot.h"
+#import "BottomMenuSlot.h"
+#import "ItemSlot.h"
 
 // In this header, you should import all the public headers of your framework using statements like #import <QNLiveKit/PublicHeader.h>
 

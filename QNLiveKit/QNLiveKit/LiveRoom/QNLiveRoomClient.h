@@ -15,6 +15,7 @@ NS_ASSUME_NONNULL_BEGIN
 /// 房间生命周期
 @protocol QNRoomLifeCycleListener <NSObject>
 
+@optional
 /// 进入房间回调
 /// @param user 用户
 - (void)onRoomEnter:(QNLiveUser *)user;
@@ -51,7 +52,7 @@ NS_ASSUME_NONNULL_BEGIN
 /// 开始直播
 /// @param roomId 房间号
 /// @param callBack 回调
-- (void)startLive:(NSString *)roomId callBack:(void (^)(void))callBack;
+- (void)startLive:(NSString *)roomId callBack:(void (^)(QNLiveRoomInfo * roomInfo))callBack;
 
 /// 加入直播
 /// @param roomId 房间id
@@ -62,7 +63,7 @@ NS_ASSUME_NONNULL_BEGIN
 /// @param callBack 回调
 - (void)leaveRoom:(NSString *)roomId callBack:(void (^)(void))callBack;
 
-/// 关闭直播
+/// 停止直播
 /// @param callBack 回调
 - (void)closeRoom:(NSString *)roomId callBack:(void (^)(void))callBack;
 

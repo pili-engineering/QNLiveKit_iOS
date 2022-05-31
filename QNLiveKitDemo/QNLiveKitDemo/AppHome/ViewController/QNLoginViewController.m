@@ -129,7 +129,7 @@
         QNLoginInfoModel *loginModel = [QNLoginInfoModel mj_objectWithKeyValues:responseData];
         [self saveLoginInfoToUserDefaults:loginModel];
         [self connectionIMWithImToken:loginModel.imConfig];
-        [self initQNLiveWithUserID:loginModel.accountId deviceID:@""];
+        [self initQNLiveWithUserID:loginModel.accountId deviceID:@"1111"];
         
     } failure:^(NSError *error) {
         
@@ -142,16 +142,10 @@
 //初始化QNLive
 - (void)initQNLiveWithUserID:(NSString *)userId deviceID:(NSString *)deviceID {
     
-    NSString *action = [NSString stringWithFormat:@"/v1/auth_token?userID=%@&deviceID=%@",userId,deviceID];
+    NSString *action = [NSString stringWithFormat:@"live/auth_token?userID=%@&deviceID=%@",userId,deviceID];
     [QNNetworkUtil getRequestWithAction:action params:nil success:^(NSDictionary *responseData) {
-            
-        NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
-        [defaults setObject:responseData[@"access_token"] forKey:QN_Live_Token];
-        [defaults synchronize];
         
-        [QNLiveRoomEngine initWithToken:@"" callBack:^{
-            
-        }];
+        [QNLiveRoomEngine initWithToken:responseData[@"accessToken"]];
         
         } failure:^(NSError *error) {
         

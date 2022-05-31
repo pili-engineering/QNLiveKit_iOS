@@ -7,7 +7,7 @@
 
 #import "QNLivePushClient.h"
 
-@interface QNLivePushClient ()<QNPushClientListener,QNRTCClientDelegate>
+@interface QNLivePushClient ()<QNRTCClientDelegate>
 
 @property (nonatomic, weak) id <QNPushClientListener> pushClientListener;
 
@@ -80,7 +80,7 @@ static QNLivePushClient *client;
 
 /// 是否禁止本地摄像头推流
 - (void)muteLocalCamera:(BOOL)muted {
-    [self.localVideoTrack updateMute:mute];
+    [self.localVideoTrack updateMute:muted];
     if ([self.pushClientListener respondsToSelector:@selector(onCameraStatusChange:)]) {
         [self.pushClientListener onCameraStatusChange:!muted];
     }
@@ -88,7 +88,7 @@ static QNLivePushClient *client;
 
 /// 是否禁止本地麦克风推流
 - (void)muteLocalMicrophone:(BOOL)muted{
-    [self.localAudioTrack updateMute:mute];
+    [self.localAudioTrack updateMute:muted];
     if ([self.pushClientListener respondsToSelector:@selector(onMicrophoneStatusChange:)]) {
         [self.pushClientListener onMicrophoneStatusChange:!muted];
     }
@@ -102,20 +102,20 @@ static QNLivePushClient *client;
 }
 
 //取消发布tracks
-- (void)unpublish:(NSArray<QNTrack *> *)tracks {
+- (void)unpublish:(NSArray<QNLocalTrack *> *)tracks {
     [self.rtcClient publish:tracks];
 }
 
-- (void)setPushClientListener:(id<QNPushClientListener>)pushClientListener {
-    self.pushClientListener = pushClientListener;
+- (void)addPushClientListener:(id<QNPushClientListener>)listener {
+    self.pushClientListener = listener;
 }
 
-- (void)setAudioFrameListener:(id<QNMicrophoneAudioTrackDataDelegate>)listener {
+- (void)addAudioFrameListener:(id<QNMicrophoneAudioTrackDataDelegate>)listener {
     self.localAudioTrack.audioDelegate = listener;
 }
 
-- (void)setVideoFrameListener:(id<QNCameraTrackVideoDataDelegate>)listener {
-    self.localVideoTrack.videoDelegate = self;
+- (void)addVideoFrameListener:(id<QNCameraTrackVideoDataDelegate>)listener {
+    self.localVideoTrack.videoDelegate = listener;
 }
 
 #pragma mark --------QNRTCClientDelegate
@@ -145,26 +145,8 @@ static QNLivePushClient *client;
         _localVideoTrack.videoFrameRate = 15;
         _localVideoTrack.previewMirrorFrontFacing = NO;
         [_localVideoTrack startCapture];
-        [_localVideoTrack play:self.preview];
     }
     return _localVideoTrack;
-}
-
-//本地录制轨道默认参数
-- (QNScreenVideoTrack *)localScreenTrack {
-    if (!_localScreenTrack) {
-        if (![QNScreenVideoTrack isScreenRecorderAvailable]) {
-//            [MBProgressHUD showText:@"当前设备不支持屏幕录制"];
-            return nil;
-        }
-        CGSize videoEncodeSize = CGSizeMake(540, 960);
-        QNScreenVideoTrackConfig * screenConfig = [[QNScreenVideoTrackConfig alloc] initWithSourceTag:@"screen" bitrate:400*1000 videoEncodeSize:videoEncodeSize];
-        _localScreenTrack = [QNRTC createScreenVideoTrackWithConfig:screenConfig];
-        _localScreenTrack.screenRecorderFrameRate = 15;
-        _localScreenTrack.screenDelegate = self;
-
-    }
-    return _localScreenTrack;
 }
 
 @end

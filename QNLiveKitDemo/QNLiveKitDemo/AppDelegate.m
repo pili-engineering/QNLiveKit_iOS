@@ -148,6 +148,4 @@
     [[UINavigationBar appearance] setBarTintColor:[UIColor colorWithHexString:@"007AFF"]];
 }
 
-
-
 @end

@@ -36,8 +36,7 @@
 #define QN_IM_USER_ID_KEY @"QN_IM_USER_ID"
 #define QN_IM_USER_NAME_KEY @"QN_IM_USER_NAME"
 #define QN_IM_USER_PASSWORD_KEY @"QN_IM_USER_PASSWORD"
-
-#define QN_Live_Token @"QN_Live_Token"
+#define Live_Token @"Live_Token"//直播token
 
 
 //get登录token
@@ -55,11 +54,14 @@
 //get IM psw
 #define QN_IM_psw  [[NSUserDefaults standardUserDefaults] stringForKey:QN_IM_USER_PASSWORD_KEY]
 
+#define QN_Live_Token [[NSUserDefaults standardUserDefaults] stringForKey:Live_Token]
+
+
 //线上
-#define MAINAPI @"https://niucube-api.qiniu.com/v1/%@"
+//#define MAINAPI @"https://niucube-api.qiniu.com/v1/%@"
 
 //测试
-//#define MAINAPI @"http://10.200.20.28:5080/v1/%@"
+#define MAINAPI @"http://10.200.20.28:5080/v1/%@"
 
 #define QN_APP_ID_KEY @"QN_APP_ID"
 #define QN_SET_CONFIG_KEY @"QN_SET_CONFIG"

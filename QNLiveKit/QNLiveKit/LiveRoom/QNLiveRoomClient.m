@@ -25,26 +25,27 @@
 }
 
 //开始直播
-- (void)startLive:(NSString *)roomId callBack:(nonnull void (^)(void))callBack {
-    NSMutableDictionary *param = [NSMutableDictionary dictionary];
-    param[@"live_id"] = roomId;
-    [QNLiveNetworkUtil putRequestWithAction:@"live/room" params:param success:^(NSDictionary * _Nonnull responseData) {
+- (void)startLive:(NSString *)roomId callBack:(void (^)(QNLiveRoomInfo * roomInfo))callBack {
+    NSString *action = [NSString stringWithFormat:@"client/live/room/%@",roomId];
+    [QNLiveNetworkUtil putRequestWithAction:action params:@{} success:^(NSDictionary * _Nonnull responseData) {
         
+        QNLiveRoomInfo *model = [QNLiveRoomInfo mj_objectWithKeyValues:responseData];
+
         if ([self.roomLifeCycleListener respondsToSelector:@selector(onRoomEnter:)]) {
             [self.roomLifeCycleListener onRoomEnter:[self selfUser]];
         }
-        callBack();
+        
+        callBack(model);
         
         } failure:^(NSError * _Nonnull error) {
-            callBack();
+            callBack(nil);
         }];
 }
 
 //加入直播
 - (void)joinRoom:(NSString *)roomId callBack:(void (^)(QNLiveRoomInfo * _Nonnull))callBack {
-    NSMutableDictionary *param = [NSMutableDictionary dictionary];
-    param[@"live_id"] = roomId;
-    [QNLiveNetworkUtil postRequestWithAction:@"/live/room/user" params:param success:^(NSDictionary * _Nonnull responseData) {
+    NSString *action = [NSString stringWithFormat:@"client/live/room/user/%@",roomId];
+    [QNLiveNetworkUtil postRequestWithAction:action params:@{} success:^(NSDictionary * _Nonnull responseData) {
         
         QNLiveRoomInfo *model = [QNLiveRoomInfo mj_objectWithKeyValues:responseData];
         
@@ -60,7 +61,7 @@
 
 //离开直播
 - (void)leaveRoom:(NSString *)roomId callBack:(void (^)(void))callBack{
-    NSString *action = [NSString stringWithFormat:@"/live/room/user?live_id=%@",roomId];
+    NSString *action = [NSString stringWithFormat:@"client//live/room/user/%@",roomId];
     [QNLiveNetworkUtil deleteRequestWithAction:action params:nil success:^(NSDictionary * _Nonnull responseData) {
         
         if ([self.roomLifeCycleListener respondsToSelector:@selector(onRoomLeave:)]) {
@@ -73,10 +74,10 @@
         }];
 }
 
-//关闭直播
+//停止直播
 - (void)closeRoom:(NSString *)roomId callBack:(void (^)(void))callBack {
-    NSString *action = [NSString stringWithFormat:@"/live/room?live_id=%@",roomId];
-    [QNLiveNetworkUtil deleteRequestWithAction:action params:nil success:^(NSDictionary * _Nonnull responseData) {
+    NSString *action = [NSString stringWithFormat:@"client//live/room/%@",roomId];
+    [QNLiveNetworkUtil deleteRequestWithAction:action params:@{} success:^(NSDictionary * _Nonnull responseData) {
         
         if ([self.roomLifeCycleListener respondsToSelector:@selector(onRoomClose)]) {
             [self.roomLifeCycleListener onRoomClose];
@@ -90,10 +91,11 @@
 
 - (QNLiveUser *)selfUser {
     QNLiveUser *user = [QNLiveUser new];
-    user.anchor_id = QN_User_id;
-    user.nickname = QN_User_nickname;
+    user.user_id = QN_User_id;
+    user.nick = QN_User_nickname;
     user.avatar = QN_User_avatar;
-    user.qnImUid = QN_IM_userId;
+    user.im_userid = QN_IM_userId;
+    user.im_username = QN_IM_userName;
     return user;
 }
 @end

@@ -25,8 +25,10 @@ NSInteger const Interval = 8;
                                                               @"text/plain",
                                                               @"image/jpeg",
                                                               @"image/png",
+                                                              @"text/javascript",
                                                               @"application/octet-stream",
                                                               @"text/json",
+                                                              @"multipart/form-data",
                                                               @"charset=utf-8",nil];
     
     manager.requestSerializer = [AFJSONRequestSerializer serializer];
@@ -34,9 +36,9 @@ NSInteger const Interval = 8;
     
     NSString *token = QN_Live_Token;
     if (token.length > 0) {
-        [manager.requestSerializer setValue:[@"Bearer " stringByAppendingString:token] forHTTPHeaderField:@"Authorization"];
+        [manager.requestSerializer setValue:token forHTTPHeaderField:@"Authorization"];
     }
-        [manager.requestSerializer setValue:@"application/json" forHTTPHeaderField:@"Content-Type"];
+    [manager.requestSerializer setValue:@"application/json" forHTTPHeaderField:@"Content-Type"];
 
 //    [manager.requestSerializer setValue:@"application/x-www-form-urlencoded" forHTTPHeaderField:@"Content-Type"];
     
@@ -50,6 +52,7 @@ NSInteger const Interval = 8;
     AFHTTPSessionManager *manager = [QNLiveNetworkUtil manager];
     
     [manager GET:requestUrl parameters:params headers:nil progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+        NSLog(@"\n GET\n action : %@ \n HTTPRequestHeaders:%@ \n params:%@ \n responseObject = %@",requestUrl,manager.requestSerializer.HTTPRequestHeaders,params,responseObject);
         [self dealSuccessResult:responseObject success:^(NSDictionary * _Nonnull responseData) {
             success(responseData);
                 } failure:^(NSError * _Nonnull error) {
@@ -57,6 +60,7 @@ NSInteger const Interval = 8;
                 }];
         
     } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+        NSLog(@"\n GET\n action : %@ \n HTTPRequestHeaders:%@ \n params:%@ \n error = %@",requestUrl,manager.requestSerializer.HTTPRequestHeaders,params,error);
         [self dealFailure:error failure:^(NSError * _Nonnull error) {
             failure(error);
         }];
@@ -104,7 +108,8 @@ NSInteger const Interval = 8;
     NSString *requestUrl = [[NSString alloc]initWithFormat:MAINAPI,action];
     
     [manager POST:requestUrl parameters:params headers:nil progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
-        
+        NSLog(@"\n POST\n action : %@ \n HTTPRequestHeaders:%@ \n params:%@ \n responseObject = %@",requestUrl,manager.requestSerializer.HTTPRequestHeaders,params,responseObject);
+
         [self dealSuccessResult:responseObject success:^(NSDictionary * _Nonnull responseData) {
             success(responseData);
                 } failure:^(NSError * _Nonnull error) {
@@ -112,6 +117,7 @@ NSInteger const Interval = 8;
                 }];
         
     } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+        NSLog(@"\n POST\n action : %@ \n HTTPRequestHeaders:%@ \n params:%@ \n error = %@",requestUrl,manager.requestSerializer.HTTPRequestHeaders,params,error);
         [self dealFailure:error failure:^(NSError * _Nonnull error) {
             failure(error);
         }];
@@ -163,7 +169,7 @@ NSInteger const Interval = 8;
     NSString *requestUrl = [[NSString alloc]initWithFormat:MAINAPI,action];
     
     [manager DELETE:requestUrl parameters:params headers:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
-        
+        NSLog(@"\n DELETE\n action : %@ \n HTTPRequestHeaders:%@ \n params:%@ \n responseObject = %@",requestUrl,manager.requestSerializer.HTTPRequestHeaders,params,responseObject);
         [self dealSuccessResult:responseObject success:^(NSDictionary * _Nonnull responseData) {
             success(responseData);
                 } failure:^(NSError * _Nonnull error) {
@@ -171,6 +177,7 @@ NSInteger const Interval = 8;
                 }];
         
     } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+        NSLog(@"\n DELETE\n action : %@ \n HTTPRequestHeaders:%@ \n params:%@ \n error = %@",requestUrl,manager.requestSerializer.HTTPRequestHeaders,params,error);
         [self dealFailure:error failure:^(NSError * _Nonnull error) {
             failure(error);
         }];
@@ -183,7 +190,7 @@ NSInteger const Interval = 8;
     NSString *requestUrl = [[NSString alloc]initWithFormat:MAINAPI,action];
     
     [manager PUT:requestUrl parameters:params headers:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
-        NSLog(@"\n action : %@ \n HTTPRequestHeaders:%@ \n params:%@ \n responseObject = %@",requestUrl,manager.requestSerializer.HTTPRequestHeaders,params,responseObject);
+        NSLog(@"\n PUT\n action : %@ \n HTTPRequestHeaders:%@ \n params:%@ \n responseObject = %@",requestUrl,manager.requestSerializer.HTTPRequestHeaders,params,responseObject);
         [self dealSuccessResult:responseObject success:^(NSDictionary * _Nonnull responseData) {
             success(responseData);
                 } failure:^(NSError * _Nonnull error) {
@@ -191,7 +198,7 @@ NSInteger const Interval = 8;
                 }];
         
     } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
-        NSLog(@"\n action : %@ \n HTTPRequestHeaders:%@ \n params:%@ \n error = %@",requestUrl,manager.requestSerializer.HTTPRequestHeaders,params,error);
+        NSLog(@"\n PUT\n action : %@ \n HTTPRequestHeaders:%@ \n params:%@ \n error = %@",requestUrl,manager.requestSerializer.HTTPRequestHeaders,params,error);
         [self dealFailure:error failure:^(NSError * _Nonnull error) {
             failure(error);
         }];
@@ -205,7 +212,7 @@ NSInteger const Interval = 8;
 //        [UIApplication sharedApplication].keyWindow.rootViewController = navigationController;
         return;
     }
-    if ([responseObject[@"code"] isEqualToNumber:@(0)]) {
+    if ([responseObject[@"code"] isEqualToNumber:@(200)]) {
         success(responseObject[@"data"] ?: nil);
     } else {
         failure(nil);
