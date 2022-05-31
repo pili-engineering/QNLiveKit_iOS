@@ -15,9 +15,10 @@ NS_ASSUME_NONNULL_BEGIN
 
 @protocol QNPushClientListener <NSObject>
 
+@optional
+
 /// 推流连接状态
 /// @param state 连接状态
-/// @param msg msg
 - (void)onConnectionStateChanged:(QNConnectionState)state;
 
 /// 房间状态
@@ -39,9 +40,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 @property (nonatomic, strong) QNMicrophoneAudioTrack *localAudioTrack;
 @property (nonatomic, strong) QNCameraVideoTrack *localVideoTrack;
-@property (nonatomic, strong) QNScreenVideoTrack *localScreenTrack;
 
-@property (nonatomic, strong) QNRemoteVideoTrack *remoteScreenTrack;
 @property (nonatomic, strong) QNRemoteVideoTrack *remoteCameraTrack;
 @property (nonatomic, strong) QNRemoteAudioTrack *remoteAudioTrack;
 
@@ -82,19 +81,19 @@ NS_ASSUME_NONNULL_BEGIN
 - (void)publishCameraAndMicrophone:(void (^)(BOOL onPublished, NSError *error))callBack;
 
 //取消发布tracks
-- (void)unpublish:(NSArray<QNTrack *> *)tracks;
+- (void)unpublish:(NSArray<QNLocalTrack *> *)tracks;
 
 /// 设置连接状态回调
 /// @param pushClientListener 回调
-- (void)setPushClientListener:(id<QNPushClientListener>)pushClientListener;
+- (void)addPushClientListener:(id<QNPushClientListener>)listener;
 
 /// 设置音频帧回调
 /// @param listener listener
-- (void)setAudioFrameListener:(id<QNMicrophoneAudioTrackDataDelegate>)listener;
+- (void)addAudioFrameListener:(id<QNMicrophoneAudioTrackDataDelegate>)listener;
 
 /// 设置视频帧回调
 /// @param listener listener
-- (void)setVideoFrameListener:(id<QNCameraTrackVideoDataDelegate>)listener;
+- (void)addVideoFrameListener:(id<QNCameraTrackVideoDataDelegate>)listener;
 
 @end
 

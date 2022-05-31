@@ -40,11 +40,12 @@
 //线上
 //#define MAINAPI @"https://niucube-api.qiniu.com/v1/%@"
 //测试
-#define MAINAPI @"http://10.200.20.28:5080/v1/%@"
+#define MAINAPI @"http://10.200.20.28:8099/%@"
 
 
 #import <QNRTCKit/QNRTCKit.h>
 #import "NSObject+QNKeyValue.h"
+#import "UIImage+QNImage.h"
 
 
 

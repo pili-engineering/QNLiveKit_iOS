@@ -57,13 +57,14 @@
 - (void)createLive {
     QNCreateRoomParam *params = [QNCreateRoomParam new];
     params.title = self.titleTf.text;
-    params.notice = @"";
-    params.cover_url = @"";
-    params.extension = @"";
+//    params.notice = @"";
+//    params.cover_url = @"";
+//    params.extension = @"";
     
     [QNLiveRoomEngine createRoom:params callBack:^(QNLiveRoomInfo * _Nonnull roomInfo) {
         QNLiveController *vc = [QNLiveController new];
         vc.roomInfo = roomInfo;
+        vc.modalPresentationStyle = UIModalPresentationFullScreen;
         [self presentViewController:vc animated:YES completion:nil];
     }];
 }

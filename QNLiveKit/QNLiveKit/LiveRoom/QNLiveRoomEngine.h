@@ -15,7 +15,7 @@ NS_ASSUME_NONNULL_BEGIN
 /// 房间业务管理
 @interface QNLiveRoomEngine : NSObject
 
-+ (void)initWithToken:(NSString *)token callBack:(void (^)(void))callBack;
++ (void)initWithToken:(NSString *)token;
 
 /// 绑定自己用户信息
 /// @param nickName 昵称
@@ -29,12 +29,10 @@ NS_ASSUME_NONNULL_BEGIN
 + (void)createRoom:(QNCreateRoomParam *)param callBack:(void (^)(QNLiveRoomInfo *roomInfo))callBack;
 
 /// 删除房间
-/// @param param 删除房间参数
 /// @param callBack 回调
-+ (void)deleteRoom:(QNDeleteRoomParam *)param callBack:(void (^)(void))callBack;
++ (void)deleteRoom:(NSString *)liveId callBack:(void (^)(void))callBack;
 
 /// 房间列表
-/// @param status 房间状态
 /// @param pageNumber 页数
 /// @param pageSize 页面大小
 /// @param callBack 回调房间列表

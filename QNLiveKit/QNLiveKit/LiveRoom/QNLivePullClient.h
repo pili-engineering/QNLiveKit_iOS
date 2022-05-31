@@ -14,6 +14,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 @protocol QNPullClientListener <NSObject>
 
+@optional
+
 - (void)onRoomStatusChange:(QNLiveRoomStatus)liveRoomStatus msg:(NSString *)msg;
 
 @end

@@ -15,11 +15,15 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
     [self setupBG];
 }
 
 - (void)setupBG {
+    self.view.backgroundColor = [UIColor whiteColor];
+    UIImageView *bg = [[UIImageView alloc]initWithImage:[UIImage imageNamed:@"live_bg"]];
+    bg.frame = self.view.frame;
+    [self.view addSubview:bg];
+    
     self.renderBackgroundView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, kScreenWidth, kScreenHeight)];
     [self.view insertSubview:self.renderBackgroundView atIndex:0];
     
@@ -27,8 +31,5 @@
     self.preview.frame = CGRectMake(0, 0, kScreenWidth, kScreenHeight);
     [self.renderBackgroundView addSubview:self.preview];
 }
-
-
-
 
 @end

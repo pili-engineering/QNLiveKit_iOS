@@ -10,6 +10,7 @@
 #import "QNSolutionListModel.h"
 #import <SDWebImage/SDWebImage.h>
 #import "MBProgressHUD+QNShow.h"
+#import "QNLiveListController.h"
 
 @interface QNHomeListView ()
 
@@ -73,7 +74,8 @@
 
 
 - (void)others {
-    [MBProgressHUD showText:@"敬请期待"];
+    QNLiveListController *vc = [QNLiveListController new];
+    [[self topViewController].navigationController pushViewController:vc animated:YES];
 }
 
 - (UIViewController * )topViewController {

@@ -270,6 +270,7 @@
 				77781C7D283E1EB2009DC71C /* QNIMSDK.framework */,
 				776B1BDD28378CCD00D85C73 /* AppDelegate.h */,
 				776B1BDE28378CCD00D85C73 /* AppDelegate.m */,
+				77781CF52845B700009DC71C /* Live */,
 				77781C82283E1EE6009DC71C /* Tools */,
 				77781CC72840C768009DC71C /* Personal */,
 				77781C54283E1E7E009DC71C /* AppHome */,
@@ -279,16 +280,6 @@
 				776B1BEE28378CCF00D85C73 /* Info.plist */,
 				776B1BEF28378CCF00D85C73 /* main.m */,
 				77781C9B283E1F9C009DC71C /* LiveDemoPrefixHeader.pch */,
-				77781CEB2844A667009DC71C /* QNCreateLiveController.h */,
-				77781CEC2844A667009DC71C /* QNCreateLiveController.m */,
-				77781CF22844BF00009DC71C /* QNBaseRTCController.h */,
-				77781CF32844BF00009DC71C /* QNBaseRTCController.m */,
-				77781CE42844948B009DC71C /* QNLiveListController.h */,
-				77781CE52844948C009DC71C /* QNLiveListController.m */,
-				77781CEE2844AC19009DC71C /* QNLiveController.h */,
-				77781CEF2844AC19009DC71C /* QNLiveController.m */,
-				77781CE828449B87009DC71C /* QNLiveListCell.h */,
-				77781CE928449B87009DC71C /* QNLiveListCell.m */,
 			);
 			path = QNLiveKitDemo;
 			sourceTree = "<group>";
@@ -423,6 +414,23 @@
 				77781CD52840C768009DC71C /* QNQuitLoginCell.h */,
 			);
 			path = Personal;
+			sourceTree = "<group>";
+		};
+		77781CF52845B700009DC71C /* Live */ = {
+			isa = PBXGroup;
+			children = (
+				77781CE42844948B009DC71C /* QNLiveListController.h */,
+				77781CE52844948C009DC71C /* QNLiveListController.m */,
+				77781CEB2844A667009DC71C /* QNCreateLiveController.h */,
+				77781CEC2844A667009DC71C /* QNCreateLiveController.m */,
+				77781CF22844BF00009DC71C /* QNBaseRTCController.h */,
+				77781CF32844BF00009DC71C /* QNBaseRTCController.m */,
+				77781CEE2844AC19009DC71C /* QNLiveController.h */,
+				77781CEF2844AC19009DC71C /* QNLiveController.m */,
+				77781CE828449B87009DC71C /* QNLiveListCell.h */,
+				77781CE928449B87009DC71C /* QNLiveListCell.m */,
+			);
+			path = Live;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -915,7 +923,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.qiiu.QNLiveKitDemo;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.qiniu.QiNiu-Solution-iOS";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -950,7 +958,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.qiiu.QNLiveKitDemo;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.qiniu.QiNiu-Solution-iOS";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				TARGETED_DEVICE_FAMILY = "1,2";
