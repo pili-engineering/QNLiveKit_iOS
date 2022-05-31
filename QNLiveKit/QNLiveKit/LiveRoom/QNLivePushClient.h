@@ -6,7 +6,6 @@
 //
 
 #import <QNLiveKit/QNLiveKit.h>
-#import "QNLiveRoomClient.h"
 #import <QNRTCKit/QNRTCKit.h>
 
 NS_ASSUME_NONNULL_BEGIN
@@ -36,7 +35,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 @end
 
-@interface QNLivePushClient : QNLiveRoomClient
+@interface QNLivePushClient : NSObject
 
 @property (nonatomic, strong) QNMicrophoneAudioTrack *localAudioTrack;
 @property (nonatomic, strong) QNCameraVideoTrack *localVideoTrack;
@@ -44,11 +43,10 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, strong) QNRemoteVideoTrack *remoteCameraTrack;
 @property (nonatomic, strong) QNRemoteAudioTrack *remoteAudioTrack;
 
-/// 创建实例
-+ (instancetype)createLivePushClient;
+- (instancetype)initWithToken:(NSString *)token;
 
 //加入直播
-- (void)joinLive:(NSString *)token;
+- (void)joinLive;
 
 /// 启动视频采集
 - (void)enableCamera;
@@ -84,7 +82,7 @@ NS_ASSUME_NONNULL_BEGIN
 - (void)unpublish:(NSArray<QNLocalTrack *> *)tracks;
 
 /// 设置连接状态回调
-/// @param pushClientListener 回调
+/// @param listener 回调
 - (void)addPushClientListener:(id<QNPushClientListener>)listener;
 
 /// 设置音频帧回调

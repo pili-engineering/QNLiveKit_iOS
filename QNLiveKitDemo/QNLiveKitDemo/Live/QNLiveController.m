@@ -10,6 +10,7 @@
 
 @interface QNLiveController ()<QNPushClientListener,QNRoomLifeCycleListener>
 @property (nonatomic, strong) QNLivePushClient *pushClient;
+@property (nonatomic, strong) QNLiveRoomClient *roomClient;
 @property (nonatomic, strong) RoomHostSlot *roomHostSlot;
 @property (nonatomic, strong) OnlineUserSlot *onlineUserSlot;
 @property (nonatomic, strong) BottomMenuSlot *bottomMenuSlot;
@@ -20,7 +21,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     __weak typeof(self)weakSelf = self;
-    [self.pushClient startLive:self.roomInfo.live_id callBack:^(QNLiveRoomInfo * _Nonnull roomInfo) {
+    [self.roomClient startLive:^(QNLiveRoomInfo * _Nonnull roomInfo) {
         weakSelf.roomInfo = roomInfo;
     }];
     
@@ -46,23 +47,31 @@
 //进入房间回调
 - (void)onRoomEnter:(QNLiveUser *)user{
     __weak typeof(self)weakSelf = self;
-    [self.pushClient joinRoom:self.roomInfo.live_id callBack:^(QNLiveRoomInfo * _Nonnull roomInfo) {
+    [self.roomClient joinRoom:^(QNLiveRoomInfo * _Nonnull roomInfo) {
         weakSelf.roomInfo = roomInfo;
     }];
 }
 
 //加入房间回调
 - (void)onRoomJoined:(QNLiveRoomInfo *)roomInfo {
-    [self.pushClient joinLive:roomInfo.room_token];
+    [self.pushClient joinLive];
 }
 
 - (QNLivePushClient *)pushClient {
     if (!_pushClient) {
-        _pushClient = [QNLivePushClient createLivePushClient];
+        _pushClient = [[QNLivePushClient alloc]initWithToken:self.roomInfo.room_token];
         [_pushClient addPushClientListener:self];
-        [_pushClient addRoomLifeCycleListener:self];
+        
     }
     return _pushClient;
+}
+
+- (QNLiveRoomClient *)roomClient {
+    if (!_roomClient) {
+        _roomClient = [[QNLiveRoomClient alloc]initWithLiveId:self.roomInfo.live_id];
+        [_roomClient addRoomLifeCycleListener:self];
+    }
+    return _roomClient;
 }
 
 - (RoomHostSlot *)roomHostSlot {

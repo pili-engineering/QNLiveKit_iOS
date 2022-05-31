@@ -25,10 +25,6 @@
     [defaults synchronize];
 }
 
-+ (void)updateUserInfo:(NSString *)nickName avatar:(NSString *)avatar callBack:(void (^)(void))callBack {
-    
-    
-}
 
 //创建房间
 + (void)createRoom:(QNCreateRoomParam *)param callBack:(void (^)(QNLiveRoomInfo * roomInfo))callBack {
@@ -45,7 +41,7 @@
 
 //删除房间
 + (void)deleteRoom:(NSString *)liveId callBack:(void (^)(void))callBack {
-    NSString *action = [NSString stringWithFormat:@"client/live/room/instance?live_id=%@",liveId];    
+    NSString *action = [NSString stringWithFormat:@"client/live/room/instance/%@",liveId];
     [QNLiveNetworkUtil deleteRequestWithAction:action params:nil success:^(NSDictionary * _Nonnull responseData) {
         callBack();
         } failure:^(NSError * _Nonnull error) {
@@ -59,17 +55,6 @@
     [QNLiveNetworkUtil getRequestWithAction:action params:nil success:^(NSDictionary * _Nonnull responseData) {
         NSArray <QNLiveRoomInfo *> *list = [QNLiveRoomInfo mj_objectArrayWithKeyValuesArray:responseData[@"list"]];
         callBack(list);
-        } failure:^(NSError * _Nonnull error) {
-            callBack(nil);
-        }];
-}
-
-//获取房间详情
-+ (void)getRoomInfo:(NSString *)roomId callBack:(void (^)(QNLiveRoomInfo * roomInfo))callBack {
-    NSString *action = [NSString stringWithFormat:@"client/live/room/info?live_id=%@",roomId];
-    [QNLiveNetworkUtil getRequestWithAction:action params:nil success:^(NSDictionary * _Nonnull responseData) {
-        QNLiveRoomInfo *model = [QNLiveRoomInfo mj_objectWithKeyValues:responseData];
-        callBack(model);
         } failure:^(NSError * _Nonnull error) {
             callBack(nil);
         }];

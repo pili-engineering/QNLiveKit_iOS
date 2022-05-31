@@ -44,7 +44,6 @@ FOUNDATION_EXPORT const unsigned char QNLiveKitVersionString[];
 #import "QNDanmakuService.h"
 #import "PubChatModel.h"
 #import "QNPublicChatService.h"
-#import "QNRoomService.h"
 #import "QNLiveTypeDefines.h"
 #import "OnlineUserSlot.h"
 #import "QNInternalViewSlot.h"

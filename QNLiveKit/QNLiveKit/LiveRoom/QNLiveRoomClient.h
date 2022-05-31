@@ -6,7 +6,6 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "QNLiveRoomEngine.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
@@ -24,6 +23,9 @@ NS_ASSUME_NONNULL_BEGIN
 /// @param roomInfo 房间信息
 - (void)onRoomJoined:(QNLiveRoomInfo *)roomInfo;
 
+//直播间某个属性变化
+- (BOOL)onRoomExtensions:(NSString *)extension;
+
 /// 离开回调
 - (void)onRoomLeave:(QNLiveUser *)user;
 
@@ -34,12 +36,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface QNLiveRoomClient : NSObject
 
-/// 注册需要的服务
-/// @param serviceClasses 服务列表
-- (void)registerService:(NSArray *)serviceClasses;
-
-/// 获取服务
-- (NSArray *)getService;
+//初始化
+- (instancetype)initWithLiveId:(NSString *)liveId;
 
 /// 添加房间生命周期监听
 /// @param lifeCycleListener listener
@@ -50,22 +48,48 @@ NS_ASSUME_NONNULL_BEGIN
 - (void)removeRoomLifeCycleListener:(id<QNRoomLifeCycleListener>)lifeCycleListener;
 
 /// 开始直播
-/// @param roomId 房间号
 /// @param callBack 回调
-- (void)startLive:(NSString *)roomId callBack:(void (^)(QNLiveRoomInfo * roomInfo))callBack;
+- (void)startLive:(void (^)(QNLiveRoomInfo * roomInfo))callBack;
 
 /// 加入直播
-/// @param roomId 房间id
 /// @param callBack 回调
-- (void)joinRoom:(NSString *)roomId callBack:(void (^)(QNLiveRoomInfo * roomInfo))callBack;
+- (void)joinRoom:(void (^)(QNLiveRoomInfo * roomInfo))callBack;
 
 /// 离开直播
 /// @param callBack 回调
-- (void)leaveRoom:(NSString *)roomId callBack:(void (^)(void))callBack;
+- (void)leaveRoom:(void (^)(void))callBack;
 
 /// 停止直播
 /// @param callBack 回调
-- (void)closeRoom:(NSString *)roomId callBack:(void (^)(void))callBack;
+- (void)closeRoom:(void (^)(void))callBack;
+
+/// 查询房间信息
+/// @param callBack 回调房间信息
+- (void)getRoomInfo:(void (^)(QNLiveRoomInfo *roomInfo))callBack;
+
+/// 获取房间所有用户
+/// @param pageNumber 页数
+/// @param pageSize 页面大小
+/// @param callBack 回调用户列表
+- (void)getUserListWithPageNumber:(NSInteger)pageNumber pageSize:(NSInteger)pageSize callBack:(void (^)(NSArray<QNLiveUser *> * list))callBack;
+
+//房间心跳
+- (void)roomHeartBeart;
+
+//更新直播扩展信息
+- (void)updateRoomExtension:(NSString *)extension callBack:(void (^)(void))callBack;
+
+//某个房间在线用户
+- (void)getOnlineUser:(NSString *)roomId callBack:(void (^)(NSArray <QNLiveUser *> *list))callBack;
+
+//获取自己的信息
+- (void)getSelfUser:(void (^)(QNLiveUser *user))callBack;
+
+//使用用户ID搜索房间用户
+- (void)searchUserByUserId:(NSString *)uid callBack:(void (^)(QNLiveUser *user))callBack;
+
+//使用用户im uid 搜索用户
+- (void)searchUserByIMUid:(NSString *)imUid callBack:(void (^)(QNLiveUser *user))callBack;
 
 @end
 
