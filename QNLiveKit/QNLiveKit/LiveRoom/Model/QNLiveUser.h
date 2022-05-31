@@ -16,6 +16,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, copy)NSString *avatar;
 @property (nonatomic, copy)NSString *im_userid;
 @property (nonatomic, copy)NSString *im_username;
+@property (nonatomic, copy)NSString *im_password;
 @end
 
 NS_ASSUME_NONNULL_END

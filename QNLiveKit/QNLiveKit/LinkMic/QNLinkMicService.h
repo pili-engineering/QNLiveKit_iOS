@@ -34,7 +34,7 @@ NS_ASSUME_NONNULL_BEGIN
 - (void)onUserCameraStatusChange:(QNMicLinker *)micLinker;
 
 /// 有人被踢
-- (void)onUserBeKick:(QNMicLinker *)micLinker msg:(NSString *)msg;
+- (void)onUserBeKick:(QNMicLinker *)micLinker;
 
 /// 有人扩展字段变化
 - (void)onUserExtension:(QNMicLinker *)micLinker extension:(NSString *)extension;
@@ -44,19 +44,31 @@ NS_ASSUME_NONNULL_BEGIN
 //连麦服务
 @interface QNLinkMicService : QNLiveService
 
-@property (nonatomic, weak)id<MicLinkerListener> delegate;
+@property (nonatomic, weak)id<MicLinkerListener> micLinkerListener;
 
 //获取当前房间所有连麦用户
-- (NSArray <QNMicLinker *> *)getAllLinker;
+- (void)getAllLinker:(void (^)(NSArray <QNMicLinker *> *list))callBack;
 
 //设置某人的连麦视频预览
 - (void)setUserPreview:(QNVideoView *)preview uid:(NSString *)uid;
 
+//上麦
+- (void)onMic:(BOOL)mic camera:(BOOL)camera extends:(NSString *)extends callBack:(void (^)(QNMicLinker *mic))callBack;
+
+//下麦
+- (void)downMicCallBack:(void (^)(QNMicLinker *mic))callBack;
+
+//获取用户麦位状态
+- (void)getMicStatus:(NSString *)uid type:(NSString *)type callBack:(void (^)(void))callBack;
+
 //踢人
-- (void)kickOutUser:(NSString *)uid msg:(NSString *)msg callBack:(void (^)(void))callBack;
+- (void)kickOutUser:(NSString *)uid callBack:(void (^)(QNMicLinker *mic))callBack;
+
+//开关麦 type:mic/camera  flag:on/off
+- (void)updateMicStatus:(NSString *)uid type:(NSString *)type flag:(BOOL)flag callBack:(void (^)(QNMicLinker *mic))callBack;
 
 //更新扩展字段
-- (void)updateExtension:(NSString *)extension micLinker:(QNMicLinker *)micLinker callBack:(void (^)(void))callBack;
+- (void)updateExtension:(NSString *)extension callBack:(void (^)(QNMicLinker *mic))callBack;
 
 //添加连麦监听
 - (void)addMicLinkerListener:(id<MicLinkerListener>)listener;
