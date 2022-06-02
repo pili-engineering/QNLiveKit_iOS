@@ -8,7 +8,8 @@
 #import "LiveChatRoom.h"
 #import "QNMessageBaseCell.h"
 #import "QNTextMessageCell.h"
-#import "QNIMTextMsgModel.h"
+#import "PubChatModel.h"
+#import "CreateSignalHandler.h"
 #import "QNIMModel.h"
 #import <MJExtension/MJExtension.h>
 #import <QNIMSDK/QNIMSDK.h>
@@ -236,20 +237,9 @@ static int clickPraiseBtnTimes  = 0 ;
 }
 
 - (void)touristSendMessage:(NSString *)text {
-    
-    QNIMModel *messageModel = [QNIMModel new];
-    messageModel.action = @"pubChatText";
-    
-    QNIMTextMsgModel *model = [QNIMTextMsgModel new];
-    
-    model.senderName = [[NSUserDefaults standardUserDefaults] objectForKey:QN_NICKNAME_KEY];
-    model.senderId = [[NSUserDefaults standardUserDefaults] objectForKey:QN_ACCOUNT_ID_KEY];
-    model.msgContent = text;
-    
-    messageModel.data = model.mj_keyValues;
-       
-    QNIMMessageObject *rcTextMessage = [[QNIMMessageObject alloc]initWithQNIMMessageText:messageModel.mj_JSONString fromId:model.senderId.longLongValue toId:0 type:QNIMMessageTypeGroup conversationId:0];
-            
+        
+    CreateSignalHandler *create = [[CreateSignalHandler alloc] initWithToId:@"0" roomId:@""];
+    QNIMMessageObject *rcTextMessage = [create createChatMessage:text];
     [self sendMessage:rcTextMessage];
     
 }

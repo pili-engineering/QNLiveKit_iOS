@@ -43,10 +43,10 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, strong) QNRemoteVideoTrack *remoteCameraTrack;
 @property (nonatomic, strong) QNRemoteAudioTrack *remoteAudioTrack;
 
-- (instancetype)initWithToken:(NSString *)token;
+//- (instancetype)init;
 
 //加入直播
-- (void)joinLive;
+- (void)joinLive:(NSString *)token;
 
 /// 启动视频采集
 - (void)enableCamera;

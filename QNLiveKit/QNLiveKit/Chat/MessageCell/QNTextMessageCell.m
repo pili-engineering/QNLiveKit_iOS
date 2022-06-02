@@ -7,7 +7,7 @@
 //
 
 #import "QNTextMessageCell.h"
-#import "QNIMTextMsgModel.h"
+#import "PubChatModel.h"
 #import "QNIMModel.h"
 #import <Masonry/Masonry.h>
 #import <QNIMSDK/QNIMSDK.h>
@@ -46,11 +46,10 @@ alpha:1.0]
 
 - (void)updateUI:(QNIMMessageObject *)model {
     
-        QNIMModel *msgmodel = [QNIMModel mj_objectWithKeyValues:model.content];
-        QNIMTextMsgModel *messageModel = [QNIMTextMsgModel mj_objectWithKeyValues:msgmodel.data];
+        PubChatModel *msgmodel = [PubChatModel mj_objectWithKeyValues:model.content];
             
-        NSString *userName = [messageModel.senderName stringByAppendingString:@"："];
-        NSString *sendMsgStr = messageModel.msgContent;
+        NSString *userName = [msgmodel.sendUser.nick stringByAppendingString:@"："];
+        NSString *sendMsgStr = msgmodel.content;
         
         NSString *str =[NSString stringWithFormat:@"%@%@",userName,sendMsgStr];
             

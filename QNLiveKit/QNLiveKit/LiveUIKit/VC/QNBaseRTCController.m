@@ -25,7 +25,7 @@
     [self.view addSubview:bg];
     
     self.renderBackgroundView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, SCREEN_W, SCREEN_H)];
-    [self.view insertSubview:self.renderBackgroundView atIndex:0];
+    [self.view insertSubview:self.renderBackgroundView atIndex:1];
     
     self.preview = [[QNGLKView alloc] init];
     self.preview.frame = CGRectMake(0, 0, SCREEN_W, SCREEN_H);
