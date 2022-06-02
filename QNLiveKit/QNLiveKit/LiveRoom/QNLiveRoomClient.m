@@ -40,8 +40,8 @@
         
         QNLiveRoomInfo *model = [QNLiveRoomInfo mj_objectWithKeyValues:responseData];
 
-        if ([self.roomLifeCycleListener respondsToSelector:@selector(onRoomEnter:)]) {
-            [self.roomLifeCycleListener onRoomEnter:[self selfUser]];
+        if ([self.roomLifeCycleListener respondsToSelector:@selector(onRoomJoined:)]) {
+            [self.roomLifeCycleListener onRoomJoined:model];
         }
         
         callBack(model);

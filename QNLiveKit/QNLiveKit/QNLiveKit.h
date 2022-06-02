@@ -50,6 +50,8 @@ FOUNDATION_EXPORT const unsigned char QNLiveKitVersionString[];
 #import "RoomHostSlot.h"
 #import "BottomMenuSlot.h"
 #import "ItemSlot.h"
+#import "QNLiveController.h"
+#import "QNBaseRTCController.h"
 
 // In this header, you should import all the public headers of your framework using statements like #import <QNLiveKit/PublicHeader.h>
 

@@ -47,11 +47,11 @@ NS_ASSUME_NONNULL_BEGIN
 /// @param lifeCycleListener listener
 - (void)removeRoomLifeCycleListener:(id<QNRoomLifeCycleListener>)lifeCycleListener;
 
-/// 开始直播
+/// 主播开始直播
 /// @param callBack 回调
 - (void)startLive:(void (^)(QNLiveRoomInfo * roomInfo))callBack;
 
-/// 加入直播
+/// 观众加入直播
 /// @param callBack 回调
 - (void)joinRoom:(void (^)(QNLiveRoomInfo * roomInfo))callBack;
 

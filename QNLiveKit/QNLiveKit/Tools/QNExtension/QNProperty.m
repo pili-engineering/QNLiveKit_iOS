@@ -127,7 +127,7 @@
             NSArray *cmps = [[indexKey stringByReplacingOccurrencesOfString:@"[" withString:@""] componentsSeparatedByString:@"]"];
             for (NSInteger i = 0; i<cmps.count - 1; i++) {
                 QNPropertyKey *subPropertyKey = [[QNPropertyKey alloc] init];
-                subPropertyKey.type = MJPropertyKeyTypeArray;
+                subPropertyKey.type = QNMJPropertyKeyTypeArray;
                 subPropertyKey.name = cmps[i];
                 [propertyKeys addObject:subPropertyKey];
             }

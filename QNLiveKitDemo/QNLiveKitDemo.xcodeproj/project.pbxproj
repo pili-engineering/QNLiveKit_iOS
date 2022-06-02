@@ -48,8 +48,6 @@
 		77781CE62844948C009DC71C /* QNLiveListController.m in Sources */ = {isa = PBXBuildFile; fileRef = 77781CE52844948C009DC71C /* QNLiveListController.m */; };
 		77781CEA28449B87009DC71C /* QNLiveListCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 77781CE928449B87009DC71C /* QNLiveListCell.m */; };
 		77781CED2844A667009DC71C /* QNCreateLiveController.m in Sources */ = {isa = PBXBuildFile; fileRef = 77781CEC2844A667009DC71C /* QNCreateLiveController.m */; };
-		77781CF02844AC19009DC71C /* QNLiveController.m in Sources */ = {isa = PBXBuildFile; fileRef = 77781CEF2844AC19009DC71C /* QNLiveController.m */; };
-		77781CF42844BF00009DC71C /* QNBaseRTCController.m in Sources */ = {isa = PBXBuildFile; fileRef = 77781CF32844BF00009DC71C /* QNBaseRTCController.m */; };
 		C5993B91A021CD7EDC4A0F36 /* Pods_QNLiveKitDemo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F467E60A07D600FCAAE77FD1 /* Pods_QNLiveKitDemo.framework */; };
 /* End PBXBuildFile section */
 
@@ -179,10 +177,6 @@
 		77781CE928449B87009DC71C /* QNLiveListCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = QNLiveListCell.m; sourceTree = "<group>"; };
 		77781CEB2844A667009DC71C /* QNCreateLiveController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = QNCreateLiveController.h; sourceTree = "<group>"; };
 		77781CEC2844A667009DC71C /* QNCreateLiveController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = QNCreateLiveController.m; sourceTree = "<group>"; };
-		77781CEE2844AC19009DC71C /* QNLiveController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = QNLiveController.h; sourceTree = "<group>"; };
-		77781CEF2844AC19009DC71C /* QNLiveController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = QNLiveController.m; sourceTree = "<group>"; };
-		77781CF22844BF00009DC71C /* QNBaseRTCController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = QNBaseRTCController.h; sourceTree = "<group>"; };
-		77781CF32844BF00009DC71C /* QNBaseRTCController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = QNBaseRTCController.m; sourceTree = "<group>"; };
 		86543AFAB4A8EADB1F77D392 /* Pods-QNLiveKitDemoTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-QNLiveKitDemoTests.release.xcconfig"; path = "Target Support Files/Pods-QNLiveKitDemoTests/Pods-QNLiveKitDemoTests.release.xcconfig"; sourceTree = "<group>"; };
 		B31E3F409ADE08D9D13B003F /* Pods-QNLiveKitDemo-QNLiveKitDemoUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-QNLiveKitDemo-QNLiveKitDemoUITests.release.xcconfig"; path = "Target Support Files/Pods-QNLiveKitDemo-QNLiveKitDemoUITests/Pods-QNLiveKitDemo-QNLiveKitDemoUITests.release.xcconfig"; sourceTree = "<group>"; };
 		B86C108BE2C7758CCFFA24C9 /* Pods-QNLiveKitDemo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-QNLiveKitDemo.release.xcconfig"; path = "Target Support Files/Pods-QNLiveKitDemo/Pods-QNLiveKitDemo.release.xcconfig"; sourceTree = "<group>"; };
@@ -423,10 +417,6 @@
 				77781CE52844948C009DC71C /* QNLiveListController.m */,
 				77781CEB2844A667009DC71C /* QNCreateLiveController.h */,
 				77781CEC2844A667009DC71C /* QNCreateLiveController.m */,
-				77781CF22844BF00009DC71C /* QNBaseRTCController.h */,
-				77781CF32844BF00009DC71C /* QNBaseRTCController.m */,
-				77781CEE2844AC19009DC71C /* QNLiveController.h */,
-				77781CEF2844AC19009DC71C /* QNLiveController.m */,
 				77781CE828449B87009DC71C /* QNLiveListCell.h */,
 				77781CE928449B87009DC71C /* QNLiveListCell.m */,
 			);
@@ -695,13 +685,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				77781CF02844AC19009DC71C /* QNLiveController.m in Sources */,
 				77781C95283E1EE7009DC71C /* UIApplication+LaunchScreen.m in Sources */,
 				77781C96283E1EE7009DC71C /* NSDate+QNCategory.m in Sources */,
 				77781C7C283E1E96009DC71C /* QNAppConficModel.m in Sources */,
 				77781C71283E1E7E009DC71C /* QNLoginInfoModel.m in Sources */,
 				77781C72283E1E7E009DC71C /* QNSolutionListModel.m in Sources */,
-				77781CF42844BF00009DC71C /* QNBaseRTCController.m in Sources */,
 				77781C94283E1EE7009DC71C /* QNDateStringTool.m in Sources */,
 				77781CDB2840C768009DC71C /* QNPersonalViewModel.m in Sources */,
 				77781CD82840C768009DC71C /* QNAppReleaseInfoCell.m in Sources */,

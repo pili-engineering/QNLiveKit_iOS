@@ -396,12 +396,12 @@ static const char MJReferenceReplacedKeyWhenCreatingKeyValuesKey = '\0';
                         // 当前propertyKey对应的字典或者数组
                         id tempInnerContainer = [propertyKey valueInObject:innerContainer];
                         if (tempInnerContainer == nil || [tempInnerContainer isKindOfClass:[NSNull class]]) {
-                            if (nextPropertyKey.type == MJPropertyKeyTypeDictionary) {
+                            if (nextPropertyKey.type == QNMJPropertyKeyTypeDictionary) {
                                 tempInnerContainer = [NSMutableDictionary dictionary];
                             } else {
                                 tempInnerContainer = [NSMutableArray array];
                             }
-                            if (propertyKey.type == MJPropertyKeyTypeDictionary) {
+                            if (propertyKey.type == QNMJPropertyKeyTypeDictionary) {
                                 innerContainer[propertyKey.name] = tempInnerContainer;
                             } else {
                                 innerContainer[propertyKey.name.intValue] = tempInnerContainer;
@@ -418,7 +418,7 @@ static const char MJReferenceReplacedKeyWhenCreatingKeyValuesKey = '\0';
                         
                         innerContainer = tempInnerContainer;
                     } else { // 最后一个key
-                        if (propertyKey.type == MJPropertyKeyTypeDictionary) {
+                        if (propertyKey.type == QNMJPropertyKeyTypeDictionary) {
                             innerContainer[propertyKey.name] = value;
                         } else {
                             innerContainer[propertyKey.name.intValue] = value;

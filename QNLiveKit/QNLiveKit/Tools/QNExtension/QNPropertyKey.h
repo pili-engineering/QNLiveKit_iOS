@@ -9,9 +9,9 @@
 #import <Foundation/Foundation.h>
 
 typedef enum {
-    MJPropertyKeyTypeDictionary = 0, // 字典的key
-    MJPropertyKeyTypeArray // 数组的key
-} MJPropertyKeyType;
+    QNMJPropertyKeyTypeDictionary = 0, // 字典的key
+    QNMJPropertyKeyTypeArray // 数组的key
+} QNMJPropertyKeyType;
 
 /**
  *  属性的key
@@ -20,7 +20,7 @@ typedef enum {
 /** key的名字 */
 @property (copy,   nonatomic) NSString *name;
 /** key的种类，可能是@"10"，可能是@"age" */
-@property (assign, nonatomic) MJPropertyKeyType type;
+@property (assign, nonatomic) QNMJPropertyKeyType type;
 
 /**
  *  根据当前的key，也就是name，从object（字典或者数组）中取值
