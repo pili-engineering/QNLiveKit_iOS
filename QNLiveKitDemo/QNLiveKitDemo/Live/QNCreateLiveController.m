@@ -7,7 +7,6 @@
 
 #import "QNCreateLiveController.h"
 #import <QNLiveKit/QNLiveKit.h>
-#import "QNLiveController.h"
 
 @interface QNCreateLiveController ()
 @property (nonatomic, strong) UITextField *titleTf;

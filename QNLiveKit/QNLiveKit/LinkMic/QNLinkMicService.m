@@ -9,7 +9,20 @@
 #import "QNLiveNetworkUtil.h"
 #import "QNMicLinker.h"
 
+@interface QNLinkMicService ()
+
+@property (nonatomic, copy) NSString *liveId;
+
+@end
+
 @implementation QNLinkMicService
+
+- (instancetype)initWithLiveId:(NSString *)liveId {
+    if (self = [super init]) {
+        self.liveId = liveId;
+    }
+    return self;
+}
 
 //获取当前房间所有连麦用户
 - (void)getAllLinker:(void (^)(NSArray <QNMicLinker *> *list))callBack {
@@ -27,23 +40,26 @@
 }
 
 //上麦
-- (void)onMic:(BOOL)mic camera:(BOOL)camera extends:(NSString *)extends callBack:(void (^)(QNMicLinker *mic))callBack{
+- (void)onMic:(BOOL)mic camera:(BOOL)camera extends:(NSString *)extends callBack:(void (^)(void))callBack{
     
     NSMutableDictionary *params = [NSMutableDictionary dictionary];
     params[@"live_id"] = self.liveId;
     params[@"mic"] = @(mic);
     params[@"camera"] = @(camera);
-    params[@"extends"] = extends;
-    [QNLiveNetworkUtil postRequestWithAction:@"client/mic" params:params success:^(NSDictionary * _Nonnull responseData) {
+//    if (extends.length > 0) {
+//        params[@"extends"] = extends;
+//    }
+    
+    [QNLiveNetworkUtil postRequestWithAction:@"client/mic/" params:params success:^(NSDictionary * _Nonnull responseData) {
         
         QNMicLinker *mic = [QNMicLinker mj_objectWithKeyValues:responseData];
         if ([self.micLinkerListener respondsToSelector:@selector(onUserJoinLink:)]) {
             [self.micLinkerListener onUserJoinLink:mic];
         }
-        callBack(mic);
+        callBack();
         
         } failure:^(NSError * _Nonnull error) {
-            callBack(nil);
+            callBack();
         }];
 }
 

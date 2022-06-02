@@ -44,6 +44,9 @@ NS_ASSUME_NONNULL_BEGIN
 //连麦服务
 @interface QNLinkMicService : QNLiveService
 
+//初始化
+- (instancetype)initWithLiveId:(NSString *)liveId;
+
 @property (nonatomic, weak)id<MicLinkerListener> micLinkerListener;
 
 //获取当前房间所有连麦用户
@@ -53,7 +56,7 @@ NS_ASSUME_NONNULL_BEGIN
 - (void)setUserPreview:(QNVideoView *)preview uid:(NSString *)uid;
 
 //上麦
-- (void)onMic:(BOOL)mic camera:(BOOL)camera extends:(NSString *)extends callBack:(void (^)(QNMicLinker *mic))callBack;
+- (void)onMic:(BOOL)mic camera:(BOOL)camera extends:(NSString *)extends callBack:(void (^)(void))callBack;
 
 //下麦
 - (void)downMicCallBack:(void (^)(QNMicLinker *mic))callBack;

@@ -6,7 +6,7 @@
 //
 
 #import <UIKit/UIKit.h>
-#import <QNLiveKit/QNLiveKit.h>
+#import <QNRTCKit/QNRTCKit.h>
 
 NS_ASSUME_NONNULL_BEGIN
 

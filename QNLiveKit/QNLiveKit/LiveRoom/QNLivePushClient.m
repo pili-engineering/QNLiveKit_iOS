@@ -13,25 +13,19 @@
 
 @property (nonatomic, strong) QNRTCClient *rtcClient;
 
-@property (nonatomic, copy) NSString *token;
 @end
 
 @implementation QNLivePushClient
 
-- (instancetype)initWithToken:(NSString *)token{
-    if (self = [super init]) {
-        self.token = token;
-        [QNRTC configRTC:[QNRTCConfiguration defaultConfiguration]];
-        self.rtcClient = [QNRTC createRTCClient];
-        self.rtcClient.delegate = self;
-    }
-    return self;
-}
+
 
 
 //加入直播
-- (void)joinLive {
-    [self.rtcClient join:self.token];
+- (void)joinLive:(NSString *)token {
+    [QNRTC configRTC:[QNRTCConfiguration defaultConfiguration]];
+    self.rtcClient = [QNRTC createRTCClient];
+    self.rtcClient.delegate = self;
+    [self.rtcClient join:token];
 }
 
 /// 启动视频采集

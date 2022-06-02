@@ -6,14 +6,20 @@
 //
 
 #import "QNLiveController.h"
-#import <QNLiveKit/QNLiveKit.h>
+#import "QNLivePushClient.h"
+#import "QNLiveRoomClient.h"
+#import "RoomHostSlot.h"
+#import "OnlineUserSlot.h"
+#import "BottomMenuSlot.h"
+#import "QNLinkMicService.h"
 
-@interface QNLiveController ()<QNPushClientListener,QNRoomLifeCycleListener>
+@interface QNLiveController ()<QNPushClientListener,QNRoomLifeCycleListener,MicLinkerListener>
 @property (nonatomic, strong) QNLivePushClient *pushClient;
 @property (nonatomic, strong) QNLiveRoomClient *roomClient;
 @property (nonatomic, strong) RoomHostSlot *roomHostSlot;
 @property (nonatomic, strong) OnlineUserSlot *onlineUserSlot;
 @property (nonatomic, strong) BottomMenuSlot *bottomMenuSlot;
+@property (nonatomic, strong) QNLinkMicService *linkService;
 @end
 
 @implementation QNLiveController
@@ -36,8 +42,9 @@
 - (void)onConnectionStateChanged:(QNConnectionState)state {
     if (state == QNConnectionStateConnected) {
         [self.pushClient setLocalPreView:self.preview];
+        __weak typeof(self)weakSelf = self;
         [self.pushClient publishCameraAndMicrophone:^(BOOL onPublished, NSError * _Nonnull error) {
-                    
+            [weakSelf.linkService onMic:YES camera:YES extends:@"" callBack:^{}];
         }];
     }
 }
@@ -46,16 +53,24 @@
 
 //加入房间回调
 - (void)onRoomJoined:(QNLiveRoomInfo *)roomInfo {
-    [self.pushClient joinLive];
+    [self.pushClient joinLive:roomInfo.room_token];
 }
 
 - (QNLivePushClient *)pushClient {
     if (!_pushClient) {
-        _pushClient = [[QNLivePushClient alloc]initWithToken:self.roomInfo.room_token];
+        _pushClient = [[QNLivePushClient alloc]init];
         [_pushClient addPushClientListener:self];
         
     }
     return _pushClient;
+}
+
+- (QNLinkMicService *)linkService {
+    if (!_linkService) {
+        _linkService = [[QNLinkMicService alloc] initWithLiveId:self.roomInfo.live_id];
+        _linkService.micLinkerListener = self;
+    }
+    return _linkService;
 }
 
 - (QNLiveRoomClient *)roomClient {

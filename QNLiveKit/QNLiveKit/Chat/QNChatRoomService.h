@@ -7,6 +7,7 @@
 
 #import <QNLiveKit/QNLiveKit.h>
 #import "QNLiveService.h"
+#import <QNIMSDK/QNIMSDK.h>
 
 NS_ASSUME_NONNULL_BEGIN
 
@@ -33,6 +34,11 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface QNChatRoomService : QNLiveService
 
+//初始化
+- (instancetype)initWithGroupId:(NSString *)groupId roomId:(NSString *)roomId;
+
+@property (nonatomic, weak)id<QNChatRoomServiceListener> chatRoomListener;
+
 //添加聊天监听
 - (void)addChatServiceListener:(id<QNChatRoomServiceListener>)listener;
 
@@ -40,9 +46,9 @@ NS_ASSUME_NONNULL_BEGIN
 - (void)removeChatServiceListener:(id<QNChatRoomServiceListener>)listener;
 
 //发c2c消息
-- (void)sendCustomC2CMsg:(NSString *)msg memberId:(NSString *)memberId callBack:(void (^)(void))callBack;
+- (void)sendCustomC2CMsg:(QNIMMessageObject *)msg memberId:(NSString *)memberId callBack:(void (^)(void))callBack;
 //发群消息
-- (void)sendCustomGroupMsg:(NSString *)msg groupId:(NSString *)groupId callBack:(void (^)(void))callBack;
+- (void)sendCustomGroupMsg:(NSString *)msg callBack:(void (^)(void))callBack;
 //踢人
 - (void)kickUser:(NSString *)msg memberId:(NSString *)memberId callBack:(void (^)(void))callBack;
 //禁言
