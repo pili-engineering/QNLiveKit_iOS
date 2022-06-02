@@ -12,9 +12,9 @@
 
 - (id)valueInObject:(id)object
 {
-    if ([object isKindOfClass:[NSDictionary class]] && self.type == MJPropertyKeyTypeDictionary) {
+    if ([object isKindOfClass:[NSDictionary class]] && self.type == QNMJPropertyKeyTypeDictionary) {
         return object[self.name];
-    } else if ([object isKindOfClass:[NSArray class]] && self.type == MJPropertyKeyTypeArray) {
+    } else if ([object isKindOfClass:[NSArray class]] && self.type == QNMJPropertyKeyTypeArray) {
         NSArray *array = object;
         NSUInteger index = self.name.intValue;
         if (index < array.count) return array[index];
