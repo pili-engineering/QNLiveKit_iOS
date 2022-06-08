@@ -48,8 +48,10 @@
 
 #import <QNRTCKit/QNRTCKit.h>
 #import "NSObject+QNKeyValue.h"
-#import "UIImage+QNImage.h"
-
+#import <Masonry/Masonry.h>
+#import "QNLiveTypeDefines.h"
+#import <SDWebImage/SDWebImage.h>
+#import "UIColor+QNColor.h"
 
 
 #endif /* QNLivePrefixHeader_pch */

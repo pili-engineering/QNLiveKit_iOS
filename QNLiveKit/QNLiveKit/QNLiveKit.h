@@ -35,7 +35,6 @@ FOUNDATION_EXPORT const unsigned char QNLiveKitVersionString[];
 #import "QNAnchorForwardMicLinker.h"
 #import "MixStreamAdapter.h"
 #import "QNPKSession.h"
-#import "PKInvitation.h"
 #import "QNPKService.h"
 #import "PKMixStreamAdapter.h"
 #import "QNPKInvitationHandler.h"
@@ -43,7 +42,6 @@ FOUNDATION_EXPORT const unsigned char QNLiveKitVersionString[];
 #import "DanmakuModel.h"
 #import "QNDanmakuService.h"
 #import "PubChatModel.h"
-#import "QNPublicChatService.h"
 #import "QNLiveTypeDefines.h"
 #import "OnlineUserSlot.h"
 #import "QNInternalViewSlot.h"
@@ -52,6 +50,9 @@ FOUNDATION_EXPORT const unsigned char QNLiveKitVersionString[];
 #import "ItemSlot.h"
 #import "QNLiveController.h"
 #import "QNBaseRTCController.h"
+#import "QNMixStreamManager.h"
+#import "QNMergeOption.h"
+#import "QNAudienceController.h"
 
 // In this header, you should import all the public headers of your framework using statements like #import <QNLiveKit/PublicHeader.h>
 

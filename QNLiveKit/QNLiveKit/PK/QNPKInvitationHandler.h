@@ -6,24 +6,23 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "PKInvitation.h"
 
-@class pkInvitation;
+@class LinkInvitation;
 
 NS_ASSUME_NONNULL_BEGIN
 
 //pk邀请监听
 @protocol PKInvitationHandlerListener <NSObject>
 //邀请已发送
-- (void)onReceivedApply:(pkInvitation *)invitation;
+- (void)onReceivedApply:(LinkInvitation *)invitation;
 //邀请已取消
-- (void)onApplyCanceled:(pkInvitation *)invitation;
+- (void)onApplyCanceled:(LinkInvitation *)invitation;
 //邀请超时
-- (void)onApplyTimeOut:(pkInvitation *)invitation;
+- (void)onApplyTimeOut:(LinkInvitation *)invitation;
 //邀请被接受
-- (void)onAccept:(pkInvitation *)invitation;
+- (void)onAccept:(LinkInvitation *)invitation;
 //邀请被拒绝
-- (void)onReject:(pkInvitation *)invitation;
+- (void)onReject:(LinkInvitation *)invitation;
 
 @end
 
@@ -34,7 +33,7 @@ NS_ASSUME_NONNULL_BEGIN
 - (void)removePKInvitationHandlerListener:(id<PKInvitationHandlerListener>)listener;
 
 //邀请/申请pk
-- (void)apply:(long long)expiration receiverRoomId:(NSString *)receiverRoomId receiverUid:(NSString *)receiverUid extensions:(NSString *)extensions callBack:(void (^)(PKInvitation *invitation))callBack;
+- (void)apply:(long long)expiration receiverRoomId:(NSString *)receiverRoomId receiverUid:(NSString *)receiverUid extensions:(NSString *)extensions callBack:(void (^)(LinkInvitation *invitation))callBack;
 //取消申请
 - (void)cancelApply:(NSString *)invitationId callBack:(void (^)(void))callBack;
 //接受pk

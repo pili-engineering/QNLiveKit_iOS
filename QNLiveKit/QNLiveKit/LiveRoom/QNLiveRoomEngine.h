@@ -17,6 +17,11 @@ NS_ASSUME_NONNULL_BEGIN
 
 + (void)initWithToken:(NSString *)token;
 
++ (void)updateUserInfo:(NSString *)avatar nick:(NSString *)nick;
+
+//获取自己的信息
++ (void)getSelfUser:(void (^)(QNLiveUser *user))callBack;
+
 /// 创建房间
 /// @param param 创建房间参数
 /// @param callBack 回调房间信息

@@ -7,6 +7,14 @@
 
 #import "QNMergeOption.h"
 
+@implementation  MicrophoneMergeOption
+
+@end
+
+@implementation  CameraMergeOption
+
+@end
+
 @implementation QNMergeOption
 
 @end

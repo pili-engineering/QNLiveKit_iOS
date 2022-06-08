@@ -9,6 +9,7 @@ target 'QNLiveKit' do
   pod 'QNRTCKit-iOS','4.0.0'
   pod 'PLPlayerKit', '3.4.7'
   pod 'Masonry', '1.1.0'
+  pod 'SDWebImage',' 5.12.2'
   pod 'MJExtension','3.4.1'
   pod 'YYCategories','1.0.4'
   pod 'AFNetworking','4.0.1'

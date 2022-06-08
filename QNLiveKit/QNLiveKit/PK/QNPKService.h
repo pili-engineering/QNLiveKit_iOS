@@ -29,6 +29,10 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface QNPKService : QNLiveService
 
+@property (nonatomic, weak)id<PKServiceListener> pkListener;
+
+- (instancetype)initWithRoomId:(NSString *)roomId ;
+
 //设置混流适配器
 - (void)setPKMixStreamAdapter:(PKMixStreamAdapter *)adapter;
 
@@ -39,7 +43,7 @@ NS_ASSUME_NONNULL_BEGIN
 - (void)removePKServiceListener:(id<PKServiceListener>)listener;
 
 //开始pk  timeoutTimestamp 等待对方流超时时间时间戳 毫秒
-- (void)start:(long long)timeoutTimestamp receiverRoomId:(NSString *)receiverRoomId receiverUid:(NSString *)receiverUid extensions:(NSString *)extensions callBack:(void (^)(QNPKSession *pkSession))callBack;
+- (void)startWithReceiverRoomId:(NSString *)receiverRoomId receiverUid:(NSString *)receiverUid extensions:(NSString *)extensions callBack:(void (^)(QNPKSession *pkSession))callBack;
 
 //同意跨房申请
 - (void)agreePK:(NSString *)relayID callBack:(void (^)(QNPKSession *pkSession))callBack;

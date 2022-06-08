@@ -25,7 +25,29 @@
     [defaults synchronize];
 }
 
++ (void)updateUserInfo:(NSString *)avatar nick:(NSString *)nick {
+    
+    NSMutableDictionary *params = [NSMutableDictionary new];
+    params[@"nick"] = nick;
+    params[@"avatar"] = avatar;
+    
+    [QNLiveNetworkUtil putRequestWithAction:@"client/user/user" params:params success:^(NSDictionary * _Nonnull responseData) {
+            
+        } failure:^(NSError * _Nonnull error) {
 
+        }];
+}
+
+//获取自己的信息
++ (void)getSelfUser:(void (^)(QNLiveUser * _Nonnull))callBack {
+    
+    [QNLiveNetworkUtil getRequestWithAction:@"client/user/profile" params:nil success:^(NSDictionary * _Nonnull responseData) {
+        QNLiveUser *user = [QNLiveUser mj_objectWithKeyValues:responseData];
+        callBack(user);
+        } failure:^(NSError * _Nonnull error) {
+            callBack(nil);
+        }];
+}
 //创建房间
 + (void)createRoom:(QNCreateRoomParam *)param callBack:(void (^)(QNLiveRoomInfo * roomInfo))callBack {
     

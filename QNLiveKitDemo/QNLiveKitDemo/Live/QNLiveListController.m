@@ -50,12 +50,12 @@
 }
 
 - (void)createButton {
-    UIButton *button = [[UIButton alloc]initWithFrame:CGRectMake((kScreenWidth - 150)/2, kScreenHeight - 100, 150, 40)];
+    UIButton *button = [[UIButton alloc]initWithFrame:CGRectMake((kScreenWidth - 200)/2, kScreenHeight - 100, 200, 40)];
     button.backgroundColor = [UIColor blueColor];
     [button setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
     button.clipsToBounds = YES;
     button.layer.cornerRadius = 20;
-    [button setTitle:@"创建直播房间" forState:UIControlStateNormal];
+    [button setImage:[UIImage imageNamed:@"create_live"] forState:UIControlStateNormal];
     [button addTarget:self action:@selector(addLiveRoom) forControlEvents:UIControlEventTouchUpInside];
     [self.view addSubview:button];
 }
@@ -65,27 +65,6 @@
     QNCreateLiveController *vc = [QNCreateLiveController new];
     vc.modalPresentationStyle = UIModalPresentationFullScreen;
     [self presentViewController:vc animated:YES completion:nil];
-}
-
-- (void)showIntoRoomWayAlertWithModel:(QNLiveRoomInfo *)model {
-    
-    UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"请选择进房方式" message:@"" preferredStyle:UIAlertControllerStyleAlert];
-
-    UIAlertAction *cancelBtn = [UIAlertAction actionWithTitle:@"拉流播放" style:UIAlertActionStyleCancel handler:^(UIAlertAction * _Nonnull action) {
-        
-        
-        
-    }];
-    [alertController addAction:cancelBtn];
-    
-    UIAlertAction *changeBtn = [UIAlertAction actionWithTitle:@"加入订阅" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
-        
-        
-        
-    }];
-    [alertController addAction:changeBtn];
-    
-    [self presentViewController:alertController animated:YES completion:nil];
 }
 
 - (NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView {
@@ -107,7 +86,11 @@
     [collectionView deselectItemAtIndexPath:indexPath animated:YES];
     
     QNLiveRoomInfo *model = self.rooms[indexPath.item];
-    [self showIntoRoomWayAlertWithModel:model];
+    
+    QNAudienceController *vc = [QNAudienceController new];
+    vc.roomInfo = model;
+    vc.modalPresentationStyle = UIModalPresentationFullScreen;
+    [self presentViewController:vc animated:YES completion:nil];
 }
 
 - (UICollectionView *)collectionView {

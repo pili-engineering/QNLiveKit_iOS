@@ -212,11 +212,8 @@ NSInteger const Interval = 8;
 //        [UIApplication sharedApplication].keyWindow.rootViewController = navigationController;
         return;
     }
-    if ([responseObject[@"code"] isEqualToNumber:@(200)]) {
-        success(responseObject[@"data"] ?: nil);
-    } else {
-        failure(nil);
-    }
+    success(responseObject[@"data"] ?: nil);
+
 }
 
 + (void)dealFailure:(NSError *)error failure:(FailureBlock)failure {

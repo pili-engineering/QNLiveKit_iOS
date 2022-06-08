@@ -11,7 +11,7 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-@protocol RCChatRoomViewDelegate <NSObject>
+@protocol LiveChatRoomViewDelegate <NSObject>
 
 -(void)didReceiveQuitMessageWithMessageModel:(QNIMMessageObject *)model;
 
@@ -23,7 +23,9 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface LiveChatRoom : UIView
 
-@property(nonatomic, weak) id<RCChatRoomViewDelegate> delegate;
+@property(nonatomic, weak) id<LiveChatRoomViewDelegate> delegate;
+
+@property(nonatomic, copy) NSString *groupId;
 
 /*!
  消息列表CollectionView和输入框都在这个view里
@@ -55,6 +57,7 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  数据模型
  */
+- (void)commentBtnPressed;
 
 - (void)sendMessage:(QNIMMessageObject *)messageContent;
 //展示message

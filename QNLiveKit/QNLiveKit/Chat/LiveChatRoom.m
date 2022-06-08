@@ -114,7 +114,7 @@ static int clickPraiseBtnTimes  = 0 ;
 /**
  发言按钮事件
  */
-- (void)commentBtnPressed:(id)sender {
+- (void)commentBtnPressed {
         [self.inputBar setHidden:NO];
         [self.inputBar  setInputBarStatus:RCCRBottomBarStatusKeyboard];
 
@@ -238,7 +238,7 @@ static int clickPraiseBtnTimes  = 0 ;
 
 - (void)touristSendMessage:(NSString *)text {
         
-    CreateSignalHandler *create = [[CreateSignalHandler alloc] initWithToId:@"0" roomId:@""];
+    CreateSignalHandler *create = [[CreateSignalHandler alloc] initWithToId:self.groupId roomId:@""];
     QNIMMessageObject *rcTextMessage = [create createChatMessage:text];
     [self sendMessage:rcTextMessage];
     
@@ -252,7 +252,7 @@ static int clickPraiseBtnTimes  = 0 ;
  */
 - (void)sendMessage:(QNIMMessageObject *)messageContent{
        
-//    [[QNIMChatService sharedOption] sendMessage:messageContent];
+    [[QNIMChatService sharedOption] sendMessage:messageContent];
     [self appendAndDisplayMessage:messageContent];
     [self.inputBar clearInputView];
     self.inputBar.hidden = YES;
@@ -320,7 +320,7 @@ static int clickPraiseBtnTimes  = 0 ;
 //}
 
 - (CGFloat)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout minimumLineSpacingForSectionAtIndex:(NSInteger)section {
-    return -5.f;
+    return 2.f;
 }
 
 #pragma mark - gesture and button action
@@ -362,7 +362,7 @@ static int clickPraiseBtnTimes  = 0 ;
     if (!_commentBtn) {
         _commentBtn = [[UIButton alloc] init];
         [_commentBtn addTarget:self
-                        action:@selector(commentBtnPressed:)
+                        action:@selector(commentBtnPressed)
               forControlEvents:UIControlEventTouchUpInside];
         [_commentBtn setImage:[UIImage imageNamed:@"feedback"] forState:UIControlStateNormal];
     }

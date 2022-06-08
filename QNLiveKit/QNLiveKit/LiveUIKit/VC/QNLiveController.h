@@ -10,11 +10,9 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-@class QNLiveRoomInfo;
-
 @interface QNLiveController : QNBaseRTCController
 
-@property (nonatomic,strong) QNLiveRoomInfo *roomInfo;
+
 
 @end
 

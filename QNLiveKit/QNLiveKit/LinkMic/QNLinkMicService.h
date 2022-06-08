@@ -56,7 +56,7 @@ NS_ASSUME_NONNULL_BEGIN
 - (void)setUserPreview:(QNVideoView *)preview uid:(NSString *)uid;
 
 //上麦
-- (void)onMic:(BOOL)mic camera:(BOOL)camera extends:(NSString *)extends callBack:(void (^)(void))callBack;
+- (void)onMic:(BOOL)mic camera:(BOOL)camera extends:(NSString *)extends callBack:(void (^)(NSString *rtcToken))callBack;
 
 //下麦
 - (void)downMicCallBack:(void (^)(QNMicLinker *mic))callBack;
