@@ -7,31 +7,14 @@
 
 #import "CreateSignalHandler.h"
 #import "QNInvitationModel.h"
-#import "QNDanmuMsgModel.h"
 #import "QNGiftMsgModel.h"
 #import "QNIMModel.h"
 #import <QNIMSDK/QNIMSDK.h>
 #import "PubChatModel.h"
 #import "QNMicLinker.h"
 #import "LinkOptionModel.h"
-
-static NSString * const liveroom_welcome = @"liveroom-welcome";
-static NSString * const liveroom_bye_bye = @"liveroom-bye-bye";
-static NSString * const liveroom_like = @"liveroom-like";
-static NSString * const liveroom_pubchat = @"liveroom-pubchat";
-static NSString * const liveroom_pubchat_custom = @"liveroom-pubchat-custom";
-static NSString * const liveroom_danmaku = @"liveroom_danmaku";
-
-static NSString * const liveroom_miclinker_join = @"liveroom_miclinker_join";
-static NSString * const liveroom_miclinker_left = @"liveroom_miclinker_left";
-static NSString * const liveroom_miclinker_kick = @"liveroom_miclinker_kick";//连麦踢人
-static NSString * const liveroom_miclinker_microphone_mute = @"liveroom_miclinker_microphone_mute";//本地麦克风状态
-static NSString * const liveroom_miclinker_camera_mute = @"liveroom_miclinker_camera_mute";//本地摄像头状态
-static NSString * const liveroom_miclinker_microphone_forbidden = @"liveroom_miclinker_microphone_forbidden";//管理员禁用
-static NSString * const liveroom_miclinker_camera_forbidden = @"liveroom_miclinker_camera_forbidden";
-static NSString * const liveroom_miclinker_extension_change = @"liveroom_miclinker_extension_change";
-
-
+#import "QNIMModel.h"
+#import "QNPKSession.h"
 
 @interface CreateSignalHandler ()
 
@@ -54,53 +37,85 @@ static NSString * const liveroom_miclinker_extension_change = @"liveroom_miclink
 //生成加入房间消息
 - (QNIMMessageObject *)createJoinRoomMessage {
     
-    QNIMMessageObject *message = [self messageWithAction:liveroom_welcome content:@"加入房间"];
+    PubChatModel *model = [self messageWithAction:liveroom_welcome content:@"加入房间"];
+    
+    QNIMModel *messageModel = [QNIMModel new];
+    messageModel.action = liveroom_welcome;
+    messageModel.data = model.mj_keyValues;
+    
+    QNIMMessageObject *message = [[QNIMMessageObject alloc]initWithQNIMMessageText:model.mj_JSONString fromId:QN_IM_userId.longLongValue toId:self.toId.longLongValue type:QNIMMessageTypeGroup conversationId:self.toId.longLongValue];
+    message.senderName = QN_User_nickname;
     return message;
 }
 
 //生成离开房间消息
 - (QNIMMessageObject *)createLeaveRoomMessage {
     
-    QNIMMessageObject *message = [self messageWithAction:@"liveroom_bye_bye" content:@"离开房间"];
+    PubChatModel *model = [self messageWithAction:liveroom_bye_bye content:@"离开房间"];
+    
+    QNIMModel *messageModel = [QNIMModel new];
+    messageModel.action = liveroom_welcome;
+    messageModel.data = model.mj_keyValues;
+    
+    QNIMMessageObject *message = [[QNIMMessageObject alloc]initWithQNIMMessageText:model.mj_JSONString fromId:QN_IM_userId.longLongValue toId:self.toId.longLongValue type:QNIMMessageTypeGroup conversationId:self.toId.longLongValue];
+    message.senderName = QN_User_nickname;
     return message;
 }
 
 //生成聊天消息
 - (QNIMMessageObject *)createChatMessage:(NSString *)content {
     
-    QNIMMessageObject *message = [self messageWithAction:@"liveroom_pubchat" content:content];
+    PubChatModel *model = [self messageWithAction:liveroom_pubchat content:content];
+    
+    QNIMModel *messageModel = [QNIMModel new];
+    messageModel.action = liveroom_pubchat;
+    messageModel.data = model.mj_keyValues;
+    
+    QNIMMessageObject *message = [[QNIMMessageObject alloc]initWithQNIMMessageText:model.mj_JSONString fromId:QN_IM_userId.longLongValue toId:self.toId.longLongValue type:QNIMMessageTypeGroup conversationId:self.toId.longLongValue];
+    message.senderName = QN_User_nickname;    
     return message;
 }
 
 //生成点赞消息
 - (QNIMMessageObject *)createLikeMessage:(NSString *)content {
     
-    QNIMMessageObject *message = [self messageWithAction:@"liveroom-like" content:content];
+    PubChatModel *model = [self messageWithAction:liveroom_like content:content];
+    
+    QNIMModel *messageModel = [QNIMModel new];
+    messageModel.action = liveroom_pubchat;
+    messageModel.data = model.mj_keyValues;
+    
+    QNIMMessageObject *message = [[QNIMMessageObject alloc]initWithQNIMMessageText:model.mj_JSONString fromId:QN_IM_userId.longLongValue toId:self.toId.longLongValue type:QNIMMessageTypeGroup conversationId:self.toId.longLongValue];
+    message.senderName = QN_User_nickname;
     return message;
 }
 
 //生成自定义消息
 - (QNIMMessageObject *)createCustomMessage:(NSString *)content {
     
-    QNIMMessageObject *message = [self messageWithAction:@"liveroom-pubchat-custom" content:content];
+    PubChatModel *model = [self messageWithAction:liveroom_pubchat_custom content:content];
+    
+    QNIMModel *messageModel = [QNIMModel new];
+    messageModel.action = liveroom_pubchat;
+    messageModel.data = model.mj_keyValues;
+    
+    QNIMMessageObject *message = [[QNIMMessageObject alloc]initWithQNIMMessageText:model.mj_JSONString fromId:QN_IM_userId.longLongValue toId:self.toId.longLongValue type:QNIMMessageTypeGroup conversationId:self.toId.longLongValue];
+    message.senderName = QN_User_nickname;
     return message;
 }
 
 //生成弹幕消息
 - (QNIMMessageObject *)createDanmuMessage:(NSString *)content {
 
-    DanmakuModel *model = [DanmakuModel new];
-    model.sendUser = self.user;
-    model.content = content;
-    model.senderRoomId = self.roomId;
-    model.action_danmu = liveroom_danmaku;
+    PubChatModel *model = [self messageWithAction:liveroom_danmaku content:content];
     
-    QNDanmuMsgModel *messageModel = [QNDanmuMsgModel new];
-    messageModel.action = liveroom_danmaku;
+    QNIMModel *messageModel = [QNIMModel new];
+    messageModel.action = liveroom_pubchat;
     messageModel.data = model.mj_keyValues;
     
-    QNIMMessageObject *message = [[QNIMMessageObject alloc]initWithQNIMMessageText:messageModel.mj_JSONString fromId:QN_IM_userId.longLongValue toId:self.toId.longLongValue type:QNIMMessageTypeGroup conversationId:self.toId.longLongValue];
+    QNIMMessageObject *message = [[QNIMMessageObject alloc]initWithQNIMMessageText:model.mj_JSONString fromId:QN_IM_userId.longLongValue toId:self.toId.longLongValue type:QNIMMessageTypeGroup conversationId:self.toId.longLongValue];
     message.senderName = QN_User_nickname;
+    
     return message;
 }
 
@@ -217,40 +232,74 @@ static NSString * const liveroom_miclinker_extension_change = @"liveroom_miclink
 }
 
 //发送邀请信令
-- (QNIMMessageObject *)createInviteMessageWithInvitationName:(NSString *)invitationName receiverId:(NSString *)receiverId {
+- (QNIMMessageObject *)createInviteMessageWithInvitationName:(NSString *)invitationName receiverId:(NSString *)receiverId receiveRoomId:(NSString *)receiveRoomId receiverIMId:(NSString *)receiverIMId {
     
-    QNIMMessageObject *message = [self createInviteMessageWithAction:@"invite_send" invitationName:invitationName receiverId:receiverId];
+    QNIMMessageObject *message = [self createInviteMessageWithAction:invite_send invitationName:invitationName receiverId:receiverId receiveRoomId:receiveRoomId receiverIMId:receiverIMId];
     return message;
 }
 
 //发送取消邀请信令
-- (QNIMMessageObject *)createCancelInviteMessageWithInvitationName:(NSString *)invitationName receiverId:(NSString *)receiverId {
+- (QNIMMessageObject *)createCancelInviteMessageWithInvitationName:(NSString *)invitationName receiverId:(NSString *)receiverId receiveRoomId:(NSString *)receiveRoomId receiverIMId:(NSString *)receiverIMId{
     
-    QNIMMessageObject *message = [self createInviteMessageWithAction:@"invite_cancel" invitationName:invitationName receiverId:receiverId];
+    QNIMMessageObject *message = [self createInviteMessageWithAction:invite_cancel invitationName:invitationName receiverId:receiverId receiveRoomId:receiveRoomId receiverIMId:receiverIMId];
     return message;
 }
 
 //发送接受邀请信令
-- (QNIMMessageObject *)createAcceptInviteMessageWithInvitationName:(NSString *)invitationName receiverId:(NSString *)receiverId {
+- (QNIMMessageObject *)createAcceptInviteMessageWithInvitationName:(NSString *)invitationName receiverId:(NSString *)receiverId receiveRoomId:(NSString *)receiveRoomId receiverIMId:(NSString *)receiverIMId {
     
-    QNIMMessageObject *message = [self createInviteMessageWithAction:@"invite_accept" invitationName:invitationName receiverId:receiverId];
+    QNIMMessageObject *message = [self createInviteMessageWithAction:invite_accept invitationName:invitationName receiverId:receiverId receiveRoomId:receiveRoomId receiverIMId:receiverIMId];
     return message;
 }
 
 //发送拒绝邀请信令
-- (QNIMMessageObject *)createRejectInviteMessageWithInvitationName:(NSString *)invitationName receiverId:(NSString *)receiverId {
+- (QNIMMessageObject *)createRejectInviteMessageWithInvitationName:(NSString *)invitationName receiverId:(NSString *)receiverId receiveRoomId:(NSString *)receiveRoomId receiverIMId:(NSString *)receiverIMId{
     
-    QNIMMessageObject *message = [self createInviteMessageWithAction:@"invite_reject" invitationName:invitationName receiverId:receiverId];
+    QNIMMessageObject *message = [self createInviteMessageWithAction:invite_reject invitationName:invitationName receiverId:receiverId receiveRoomId:receiveRoomId receiverIMId:receiverIMId];
     return message;
 }
 
+-(QNIMMessageObject *)createStartPKMessageWithReceiverId:(NSString *)receiverId receiveRoomId:(NSString *)receiveRoomId receiverIMId:(NSString *)receiverIMId relayId:(NSString *)relayId relayToken:(NSString *)relayToken {
+    
+    QNPKSession *session = [QNPKSession new];
+    session.relay_id = relayId;
+    session.relay_token = relayToken;
+    session.initiatorRoomId = self.roomId;
+    session.receiverRoomId = receiveRoomId;
+    session.initiator = self.user;
+    
+    QNLiveUser *user = [QNLiveUser new];
+    user.user_id = receiverId;
+    user.im_userid = receiverIMId;
+    
+    session.receiver = user;
+    
+    QNIMModel *model = [QNIMModel new];
+    model.action = liveroom_pk_start;
+    model.data = session.mj_keyValues;
+    
+    QNIMMessageObject *message = [[QNIMMessageObject alloc]initWithQNIMMessageText:model.mj_JSONString fromId:QN_IM_userId.longLongValue toId:receiverIMId.longLongValue type:QNIMMessageTypeSingle conversationId:receiverIMId.longLongValue];
+    message.senderName = QN_User_nickname;
+    return message;
+
+}
+
 //生成邀请信令
-- (QNIMMessageObject *)createInviteMessageWithAction:(NSString *)action invitationName:(NSString *)invitationName receiverId:(NSString *)receiverId {
+- (QNIMMessageObject *)createInviteMessageWithAction:(NSString *)action invitationName:(NSString *)invitationName receiverId:(NSString *)receiverId receiveRoomId:(NSString *)receiveRoomId receiverIMId:(NSString *)receiverIMId {
+    
+    QNLiveUser *receiver = [QNLiveUser new];
+    receiver.user_id = receiverId;
+    
+    LinkInvitation *link = [LinkInvitation new];
+    link.initiator = self.user;
+    link.receiver = receiver;
+    link.initiatorRoomId = self.roomId;
+    link.receiverRoomId = receiveRoomId;
     
     QNInvitationInfo *info = [QNInvitationInfo new];
     info.channelId = self.toId;
     info.initiatorUid = QN_User_id;
-    info.msg = [NSString stringWithFormat:@"用户 %@ 邀请你一起连麦，是否加入？",QN_User_nickname];
+    info.msg = link;
     info.receiver =  receiverId;
     info.timeStamp = [self getNowTimeTimestamp3];
     
@@ -262,23 +311,26 @@ static NSString * const liveroom_miclinker_extension_change = @"liveroom_miclink
     model.action = action;
     model.data = invitationData.mj_keyValues;
     
+    if ([invitationName isEqualToString:liveroom_pk_invitation]) {
+        QNIMMessageObject *message = [[QNIMMessageObject alloc]initWithQNIMMessageText:model.mj_JSONString fromId:QN_IM_userId.longLongValue toId:receiverIMId.longLongValue type:QNIMMessageTypeSingle conversationId:receiverIMId.longLongValue];
+        message.senderName = QN_User_nickname;
+        return message;
+    }
     QNIMMessageObject *message = [[QNIMMessageObject alloc]initWithQNIMMessageText:model.mj_JSONString fromId:QN_IM_userId.longLongValue toId:self.toId.longLongValue type:QNIMMessageTypeGroup conversationId:self.toId.longLongValue];
     message.senderName = QN_User_nickname;
     return message;
 }
 
-//生成进房/离房/点赞/聊天消息
-- (QNIMMessageObject *)messageWithAction:(NSString *)action content:(NSString *)content {
+//生成进房/离房/点赞/聊天/弹幕消息
+- (PubChatModel *)messageWithAction:(NSString *)action content:(NSString *)content {
     
-    PubChatModel *messageModel = [PubChatModel new];
-    messageModel.sendUser = self.user;
-    messageModel.content = content;
-    messageModel.senderRoomId = self.roomId;
-    messageModel.action = action;
+    PubChatModel *model = [PubChatModel new];
+    model.sendUser = self.user;
+    model.content = content;
+    model.senderRoomId = self.roomId;
+    model.action = action;
     
-    QNIMMessageObject *message = [[QNIMMessageObject alloc]initWithQNIMMessageText:messageModel.mj_JSONString fromId:QN_IM_userId.longLongValue toId:self.toId.longLongValue type:QNIMMessageTypeGroup conversationId:self.toId.longLongValue];
-    message.senderName = QN_User_nickname;
-    return message;
+    return model;
     
 }
 

@@ -10,15 +10,21 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-@class QNCameraParams,QNMicrophoneParams;
+@class QNCameraParams,QNMicrophoneParams,QNLiveRoomInfo,QNMergeOption;
 
 @protocol QNPushClientListener <NSObject>
 
 @optional
 
-/// 推流连接状态
+/// 房间连接状态
 /// @param state 连接状态
-- (void)onConnectionStateChanged:(QNConnectionState)state;
+- (void)onConnectionRoomStateChanged:(QNConnectionState)state;
+
+// 远端用户发布音/视频
+- (void)onUserPublishTracks:(NSArray<QNRemoteTrack *> *)tracks ofUserID:(NSString *)userID;
+
+// 有人离开rtc房间
+- (void)onUserLeaveRTC:(NSString *)userID;
 
 /// 房间状态
 /// @param liveRoomStatus status
@@ -37,17 +43,20 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface QNLivePushClient : NSObject
 
+@property (nonatomic, strong) QNRTCClient *rtcClient;
+
 @property (nonatomic, strong) QNMicrophoneAudioTrack *localAudioTrack;
 @property (nonatomic, strong) QNCameraVideoTrack *localVideoTrack;
 
 @property (nonatomic, strong) QNRemoteVideoTrack *remoteCameraTrack;
 @property (nonatomic, strong) QNRemoteAudioTrack *remoteAudioTrack;
 
-//- (instancetype)init;
+- (instancetype)initWithRoomInfo:(QNLiveRoomInfo *)roomInfo;
 
 //加入直播
 - (void)joinLive:(NSString *)token;
 
+- (void)LeaveLive;
 /// 启动视频采集
 - (void)enableCamera;
 
@@ -92,6 +101,8 @@ NS_ASSUME_NONNULL_BEGIN
 /// 设置视频帧回调
 /// @param listener listener
 - (void)addVideoFrameListener:(id<QNCameraTrackVideoDataDelegate>)listener;
+
+- (void)beginMixStream:(QNMergeOption *)option;
 
 @end
 

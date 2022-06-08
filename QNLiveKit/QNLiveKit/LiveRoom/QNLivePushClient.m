@@ -6,19 +6,32 @@
 //
 
 #import "QNLivePushClient.h"
+#import "QNMixStreamManager.h"
+#import "QNLiveRoomInfo.h"
+#import "QNMergeOption.h"
 
 @interface QNLivePushClient ()<QNRTCClientDelegate>
 
 @property (nonatomic, weak) id <QNPushClientListener> pushClientListener;
 
-@property (nonatomic, strong) QNRTCClient *rtcClient;
+@property (nonatomic, strong) QNMixStreamManager *mixManager;
+
+@property (nonatomic, strong) QNLiveRoomInfo *roomInfo;
+
+@property (nonatomic, strong) QNMergeOption *option;
+
+@property (nonatomic, assign) BOOL isMixing;
 
 @end
 
 @implementation QNLivePushClient
 
-
-
+- (instancetype)initWithRoomInfo:(QNLiveRoomInfo *)roomInfo {
+    if (self = [super init]) {
+        self.roomInfo = roomInfo;
+    }
+    return self;    
+}
 
 //加入直播
 - (void)joinLive:(NSString *)token {
@@ -26,6 +39,10 @@
     self.rtcClient = [QNRTC createRTCClient];
     self.rtcClient.delegate = self;
     [self.rtcClient join:token];
+}
+
+- (void)LeaveLive {
+    [self.rtcClient leave];
 }
 
 /// 启动视频采集
@@ -89,14 +106,26 @@
 
 //发布tracks
 - (void)publishCameraAndMicrophone:(void (^)(BOOL, NSError * _Nonnull))callBack {
+    
+    __weak typeof(self)weakSelf = self;
     [self.rtcClient publish:@[self.localAudioTrack,self.localVideoTrack] completeCallback:^(BOOL onPublished, NSError *error) {
+        if (weakSelf.option) {
+            [weakSelf.mixManager updateUserAudioMergeOptions:QN_User_id isNeed:YES];
+            CameraMergeOption *option = [CameraMergeOption new];
+            option.mX = 0;
+            option.mY = 0;
+            option.mWidth = 720;
+            option.mHeight = 1280;
+            option.mZ = 0;
+            [self.mixManager updateUserCameraMergeOptions:QN_User_id option:option];
+        }
         callBack(onPublished,error);
     }];
 }
 
 //取消发布tracks
 - (void)unpublish:(NSArray<QNLocalTrack *> *)tracks {
-    [self.rtcClient publish:tracks];
+    [self.rtcClient unpublish:tracks];
 }
 
 - (void)addPushClientListener:(id<QNPushClientListener>)listener {
@@ -111,11 +140,44 @@
     self.localVideoTrack.videoDelegate = listener;
 }
 
+- (void)beginMixStream:(QNMergeOption *)option {
+    self.option = option;
+}
+
 #pragma mark --------QNRTCClientDelegate
 
 - (void)RTCClient:(QNRTCClient *)client didConnectionStateChanged:(QNConnectionState)state disconnectedInfo:(QNConnectionDisconnectedInfo *)info {
-    if ([self.pushClientListener respondsToSelector:@selector(onConnectionStateChanged:)]) {
-        [self.pushClientListener onConnectionStateChanged:state];
+    
+    if ([self.pushClientListener respondsToSelector:@selector(onConnectionRoomStateChanged:)]) {
+            [self.pushClientListener onConnectionRoomStateChanged:state];
+        }
+        
+    if (self.option) {
+            [self.mixManager startMixStreamJob];
+        }
+    
+   
+}
+
+- (void)RTCClient:(QNRTCClient *)client didUserPublishTracks:(NSArray<QNRemoteTrack *> *)tracks ofUserID:(NSString *)userID  {
+    if ([self.pushClientListener respondsToSelector:@selector(onUserPublishTracks:ofUserID:)]) {
+        [self.pushClientListener onUserPublishTracks:tracks ofUserID:userID];
+    }
+    
+    if (self.option) {
+        [self.mixManager updateUserAudioMergeOptions:userID isNeed:YES];
+        CameraMergeOption *option = [CameraMergeOption new];
+        option.mX = 10;
+        option.mY = 300;
+        option.mWidth = 200;
+        option.mHeight = 200;
+        option.mZ = 1;
+        [self.mixManager updateUserCameraMergeOptions:userID option:option];
+    }
+}
+- (void)RTCClient:(QNRTCClient *)client didLeaveOfUserID:(NSString *)userID {
+    if ([self.pushClientListener respondsToSelector:@selector(onUserLeaveRTC:)]) {
+        [self.pushClientListener onUserLeaveRTC:userID];
     }
 }
 
@@ -140,6 +202,14 @@
         [_localVideoTrack startCapture];
     }
     return _localVideoTrack;
+}
+
+- (QNMixStreamManager *)mixManager {
+    if (!_mixManager) {
+        _mixManager = [[QNMixStreamManager alloc]initWithPushUrl:self.roomInfo.push_url client:self.rtcClient streamID:self.roomInfo.live_id];
+        [_mixManager setMixParams:self.option];
+    }
+    return _mixManager;
 }
 
 @end

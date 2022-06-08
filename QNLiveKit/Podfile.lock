@@ -22,6 +22,9 @@ PODS:
   - QNRTCKit-iOS (4.0.0):
     - QNRTCKit-iOS/Core (= 4.0.0)
   - QNRTCKit-iOS/Core (4.0.0)
+  - SDWebImage (5.12.2):
+    - SDWebImage/Core (= 5.12.2)
+  - SDWebImage/Core (5.12.2)
   - YYCategories (1.0.4):
     - YYCategories/no-arc (= 1.0.4)
   - YYCategories/no-arc (1.0.4)
@@ -32,6 +35,7 @@ DEPENDENCIES:
   - MJExtension (= 3.4.1)
   - PLPlayerKit (= 3.4.7)
   - QNRTCKit-iOS (= 4.0.0)
+  - SDWebImage (= 5.12.2)
   - YYCategories (= 1.0.4)
 
 SPEC REPOS:
@@ -41,6 +45,7 @@ SPEC REPOS:
     - MJExtension
     - PLPlayerKit
     - QNRTCKit-iOS
+    - SDWebImage
     - YYCategories
 
 SPEC CHECKSUMS:
@@ -49,8 +54,9 @@ SPEC CHECKSUMS:
   MJExtension: 21c5f6f8c4d5d8844b7ae8fbae08fed0b501f961
   PLPlayerKit: a4c6da506dc4ae368ae71a95b49e2256f33c0de7
   QNRTCKit-iOS: 9e6f1874b5800bb9a605786a51cf6e22e69975fe
+  SDWebImage: 240e5c12b592fb1268c1d03b8c90d90e8c2ffe82
   YYCategories: 6bcd4314c6661a561410dce4a793379ebd306abd
 
-PODFILE CHECKSUM: 72d1ec8fcb10cd42aa1294032cafff21e92b77d6
+PODFILE CHECKSUM: 1def7e179a0ea06755b64d91757c6f1ebf65e9bd
 
 COCOAPODS: 1.11.3

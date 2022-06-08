@@ -40,7 +40,7 @@
 }
 
 //上麦
-- (void)onMic:(BOOL)mic camera:(BOOL)camera extends:(NSString *)extends callBack:(void (^)(void))callBack{
+- (void)onMic:(BOOL)mic camera:(BOOL)camera extends:(NSString *)extends callBack:(void (^)(NSString *rtcToken))callBack{
     
     NSMutableDictionary *params = [NSMutableDictionary dictionary];
     params[@"live_id"] = self.liveId;
@@ -56,10 +56,10 @@
         if ([self.micLinkerListener respondsToSelector:@selector(onUserJoinLink:)]) {
             [self.micLinkerListener onUserJoinLink:mic];
         }
-        callBack();
+        callBack(responseData[@"rtc_token"]);
         
         } failure:^(NSError * _Nonnull error) {
-            callBack();
+            callBack(@"");
         }];
 }
 

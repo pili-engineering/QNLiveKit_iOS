@@ -8,7 +8,7 @@
 #import "RoomHostSlot.h"
 #import "QNLiveRoomInfo.h"
 #import "QNLiveUser.h"
-#import "UIImage+QNImage.h"
+#import <SDWebImage/SDWebImage.h>
 #import <UIKit/UIKit.h>
 
 static const CGFloat RoomNameLabel_W = 80;//名字宽 -
@@ -76,13 +76,7 @@ static const CGFloat People_Count_L = 5;//人数左间距
 
 - (void)updateWith:(QNLiveRoomInfo *)roomInfo {
 
-    if (roomInfo.anchor_info.avatar.length > 0) {
-        self.avatarView.image = [UIImage getImageFromURL:[NSURL URLWithString:roomInfo.anchor_info.avatar]];
-        //    [self.avatarView sd_setImageWithURL:[NSURL URLWithString:roomInfo.anchor_info.avatar]];
-    } else {
-        self.avatarView.image = [UIImage imageNamed:@"empty_image"];
-    }
-    
+    [self.avatarView sd_setImageWithURL:[NSURL URLWithString:roomInfo.anchor_info.avatar] placeholderImage:[UIImage imageNamed:@"titleImage"]];
     self.roomNameLabel.text = roomInfo.title ?: @"房间名";
     self.countLabel.text = roomInfo.total_count ?: @"0";
 }

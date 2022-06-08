@@ -7,6 +7,7 @@
 
 #import <Foundation/Foundation.h>
 #import "QNLiveTypeDefines.h"
+#import "QNLiveUser.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
@@ -15,7 +16,6 @@ NS_ASSUME_NONNULL_BEGIN
 //房间信息model
 
 @interface QNLiveRoomInfo : NSObject
-@property (nonatomic, copy)NSString *chatId;
 @property (nonatomic, copy)NSString *cover_url;
 @property (nonatomic, copy)NSString *live_id;
 @property (nonatomic, copy)NSString *notice;

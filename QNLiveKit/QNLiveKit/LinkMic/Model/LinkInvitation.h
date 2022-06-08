@@ -16,15 +16,13 @@ NS_ASSUME_NONNULL_BEGIN
 
 @property (nonatomic, strong)QNLiveUser *receiver;
 
-@property (nonatomic, copy)NSString *invitationId;
-
 @property (nonatomic, copy)NSString *initiatorRoomId;
 
 @property (nonatomic, copy)NSString *receiverRoomId;
 
 @property (nonatomic, copy)NSString *extensions;
 //连麦类型  用户向主播连麦  / 主播跨房连麦
-@property (nonatomic, assign)int linkType;
+@property (nonatomic, assign)QNLinkType linkType;
 
 @end
 

@@ -16,7 +16,7 @@ NS_ASSUME_NONNULL_BEGIN
 @protocol LinkMicListener <NSObject>
 
 // 连麦模式连接状态  连接成功后 连麦器会主动禁用推流器 改用rtc
-- (void)onConnectionStateChanged:(QNRoomConnectionState)state;
+//- (void)onConnectionStateChanged:(QNRoomConnectionState)state;
 //本地角色变化
 - (void)lonLocalRoleChange:(BOOL)isLinker;
 

@@ -16,8 +16,9 @@ typedef NS_ENUM(NSUInteger, QNLiveRoomStatus) {
 };
 
 //房间推流状态
-typedef NS_ENUM(NSUInteger, QNRoomConnectionState) {
-    QNRoomConnectionStatef,        
+typedef NS_ENUM(NSUInteger, QNLinkType) {
+    QNLinkTypeAudienceToMaster = 0,
+    QNLinkTypeMasterToMaster = 1,
 };
 
 #endif /* QNLiveTypeDefines_h */

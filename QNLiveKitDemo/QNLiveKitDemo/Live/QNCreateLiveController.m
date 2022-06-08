@@ -42,12 +42,10 @@
 }
 
 - (void)startButton {
-    UIButton *button = [[UIButton alloc]initWithFrame:CGRectMake((kScreenWidth - 150)/2, kScreenHeight - 100, 150, 40)];
-    button.backgroundColor = [UIColor blueColor];
-    [button setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
+    UIButton *button = [[UIButton alloc]initWithFrame:CGRectMake((kScreenWidth - 200)/2, kScreenHeight - 100, 200, 40)];
     button.clipsToBounds = YES;
     button.layer.cornerRadius = 20;
-    [button setTitle:@"开始直播" forState:UIControlStateNormal];
+    [button setImage:[UIImage imageNamed:@"begin_live"] forState:UIControlStateNormal];
     [button addTarget:self action:@selector(createLive) forControlEvents:UIControlEventTouchUpInside];
     [self.view addSubview:button];
 }

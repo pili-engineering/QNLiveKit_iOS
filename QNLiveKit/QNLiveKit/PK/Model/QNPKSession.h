@@ -12,6 +12,10 @@ NS_ASSUME_NONNULL_BEGIN
 @interface QNPKSession : NSObject
 //PK场次ID
 @property (nonatomic, copy)NSString *sessionId;
+//跨房会话ID
+@property (nonatomic, copy)NSString *relay_id;
+//跨房token
+@property (nonatomic, copy)NSString *relay_token;
 //发起方
 @property (nonatomic, strong)QNLiveUser *initiator;
 //接受方
@@ -22,8 +26,8 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, copy)NSString *receiverRoomId;
 //扩展字段
 @property (nonatomic, copy)NSString *extensions;
-//pk 状态 0邀请过程  1pk中 2结束 其他自定义状态比如惩罚时间
-@property (nonatomic, assign)NSInteger status;
+//跨房状态，此时的状态有：0，等待接收方同意；1，接收方已同意（目的房间不需要确认）
+@property (nonatomic, assign)NSInteger relay_status;
 //pk开始时间戳
 @property (nonatomic, assign)long long startTimeStamp;
 @end

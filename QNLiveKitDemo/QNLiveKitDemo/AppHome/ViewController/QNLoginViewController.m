@@ -128,8 +128,7 @@
         
         QNLoginInfoModel *loginModel = [QNLoginInfoModel mj_objectWithKeyValues:responseData];
         [self saveLoginInfoToUserDefaults:loginModel];
-        [self connectionIMWithImToken:loginModel.imConfig];
-        [self initQNLiveWithUserID:loginModel.accountId deviceID:@"1111"];
+        [self initQNLiveWithUser:loginModel deviceID:@"1111"];
         
     } failure:^(NSError *error) {
         
@@ -140,13 +139,25 @@
 }
 
 //初始化QNLive
-- (void)initQNLiveWithUserID:(NSString *)userId deviceID:(NSString *)deviceID {
+- (void)initQNLiveWithUser:(QNLoginInfoModel *)user deviceID:(NSString *)deviceID {
     
-    NSString *action = [NSString stringWithFormat:@"live/auth_token?userID=%@&deviceID=%@",userId,deviceID];
+    NSString *action = [NSString stringWithFormat:@"live/auth_token?userID=%@&deviceID=%@",user.accountId,deviceID];
     [QNNetworkUtil getRequestWithAction:action params:nil success:^(NSDictionary *responseData) {
         
         [QNLiveRoomEngine initWithToken:responseData[@"accessToken"]];
+        [QNLiveRoomEngine updateUserInfo:user.avatar nick:user.nickname];
         
+        [QNLiveRoomEngine getSelfUser:^(QNLiveUser *user) {
+            [self connectionIMWithImUserName:user.im_username imPassword:user.im_password];
+            NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+
+            [defaults setObject:user.im_userid forKey:QN_IM_USER_ID_KEY];
+            [defaults setObject:user.im_username forKey:QN_IM_USER_NAME_KEY];
+            [defaults setObject:user.im_password forKey:QN_IM_USER_PASSWORD_KEY];
+            [defaults synchronize];
+
+        }];
+
         } failure:^(NSError *error) {
         
         }];
@@ -160,11 +171,11 @@
     [defaults setObject:loginModel.accountId forKey:QN_ACCOUNT_ID_KEY];
     [defaults setObject:loginModel.nickname forKey:QN_NICKNAME_KEY];
     
-    if (loginModel.imConfig.imUid.length > 0) {
-        [defaults setObject:loginModel.imConfig.imUid forKey:QN_IM_USER_ID_KEY];
-        [defaults setObject:loginModel.imConfig.imUsername forKey:QN_IM_USER_NAME_KEY];
-        [defaults setObject:loginModel.imConfig.imPassword forKey:QN_IM_USER_PASSWORD_KEY];
-    }
+//    if (loginModel.imConfig.imUid.length > 0) {
+//        [defaults setObject:loginModel.imConfig.imUid forKey:QN_IM_USER_ID_KEY];
+//        [defaults setObject:loginModel.imConfig.imUsername forKey:QN_IM_USER_NAME_KEY];
+//        [defaults setObject:loginModel.imConfig.imPassword forKey:QN_IM_USER_PASSWORD_KEY];
+//    }
     [defaults synchronize];
         
     
@@ -174,12 +185,14 @@
     window.rootViewController = tabBarVc;
 }
 
-- (void)connectionIMWithImToken:(QNImconfigModel *)imConfig {
+- (void)connectionIMWithImUserName:(NSString *)imUsername imPassword:(NSString *)imPassword {
     
-    [[QNIMClient sharedClient] signInByName:imConfig.imUsername password:imConfig.imPassword completion:^(QNIMError * _Nonnull error) {
+    [[QNIMClient sharedClient] signInByName:imUsername password:imPassword completion:^(QNIMError * _Nonnull error) {
         
         NSLog(@"---七牛IM服务器连接状态-%li",[QNIMClient sharedClient].connectStatus);
-        ;
+        
+        
+        
     }];
        
 }
