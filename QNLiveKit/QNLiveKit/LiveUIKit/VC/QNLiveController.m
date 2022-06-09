@@ -29,9 +29,8 @@
 @property (nonatomic, strong) RoomHostSlot *roomHostSlot;
 @property (nonatomic, strong) OnlineUserSlot *onlineUserSlot;
 @property (nonatomic, strong) BottomMenuSlot *bottomMenuSlot;
-
-@property (nonatomic, copy) NSString *relayId;
 @property (nonatomic, strong) QNLiveRoomInfo *selectPkRoomInfo;
+@property (nonatomic, strong) QNPKSession *pkSession;//正在进行的pk
 @end
 
 @implementation QNLiveController
@@ -61,30 +60,51 @@
 - (void)onConnectionRoomStateChanged:(QNConnectionState)state {
     dispatch_async(dispatch_get_main_queue(), ^{
         if (state == QNConnectionStateConnected) {
+            [self.pushClient beginMixStream:self.option];
             self.preview.hidden = NO;
             [self.pushClient setLocalPreView:self.preview];
             [self.pushClient publishCameraAndMicrophone:^(BOOL onPublished, NSError * _Nonnull error) {
 
             }];
+
             [self.roomClient roomHeartBeart];
         }
     });
 }
 
-- (void)onUserPublishTracks:(NSArray<QNRemoteTrack *> *)tracks ofUserID:(NSString *)userID {
+- (void)didSubscribedRemoteVideoTracks:(NSArray<QNRemoteVideoTrack *> *)videoTracks audioTracks:(NSArray<QNRemoteAudioTrack *> *)audioTracks ofUserID:(NSString *)userID {
     dispatch_async(dispatch_get_main_queue(), ^{
-        for (QNRemoteTrack *track in tracks) {
-            if (track.kind == QNTrackKindVideo) {
-                self.pushClient.remoteCameraTrack = track;
-                RemoteUserVIew *remoteView = [[RemoteUserVIew alloc]initWithFrame:CGRectMake(SCREEN_W - 120, 120, 100, 100)];
-                remoteView.userId = userID;
-                remoteView.trackId = track.trackID;
-                [self.renderBackgroundView addSubview:remoteView];
-                [self.pushClient.remoteCameraTrack play:remoteView];
-            } else {
-                self.pushClient.remoteAudioTrack = track;
+        
+        for (QNRemoteVideoTrack *videoTrack in videoTracks) {
+            RemoteUserVIew *remoteView = [[RemoteUserVIew alloc]initWithFrame:CGRectMake(SCREEN_W - 120, 120, 100, 100)];
+            remoteView.userId = userID;
+            remoteView.trackId = videoTrack.trackID;
+            [self.renderBackgroundView addSubview:remoteView];
+            [videoTrack play:remoteView];
+            
+            if (self.pkSession) {
+                
+                self.preview.frame = CGRectMake(0, 130, SCREEN_W/2, SCREEN_W/1.5);
+                remoteView.frame = CGRectMake(SCREEN_W/2, 130, SCREEN_W/2, SCREEN_W/1.5);
+                [self.pkService PKStartedWithRelayID:self.pkSession.relay_id];
+                                    
+                CameraMergeOption *selfOption = [CameraMergeOption new];
+                selfOption.frame = CGRectMake(0, 0, 720/2, 419);
+                selfOption.mZ = 0;
+                [self.pushClient updateUserVideoMergeOptions:QN_User_id trackId:self.pushClient.localVideoTrack.trackID option:selfOption];
+                
+                CameraMergeOption *userOption = [CameraMergeOption new];
+                userOption.frame = CGRectMake(720/2, 0, 720/2, 419);
+                userOption.mZ = 1;
+                [self.pushClient updateUserVideoMergeOptions:userID trackId:videoTrack.trackID option:userOption];
             }
         }
+        
+        for (QNRemoteAudioTrack *audioTrack in audioTracks) {
+            [self.pushClient updateUserAudioMergeOptions:userID trackId:audioTrack.trackID isNeed:YES];
+        }
+        
+        
     });
 }
 
@@ -133,19 +153,29 @@
 //收到同意pk邀请
 - (void)onReceivePKInvitationAccept:(QNInvitationModel *)model {
     
-    __weak typeof(self)weakSelf = self;
-
     [self.pkService startWithReceiverRoomId:model.invitation.msg.initiatorRoomId receiverUid:model.invitation.msg.initiator.user_id extensions:@"" callBack:^(QNPKSession * _Nonnull pkSession) {
-        [weakSelf.chatService sendStartPKMessageWithReceiverId:weakSelf.selectPkRoomInfo.anchor_info.user_id receiveRoomId:weakSelf.selectPkRoomInfo.live_id receiverIMId:weakSelf.selectPkRoomInfo.anchor_info.im_userid relayId:pkSession.relay_id relayToken:pkSession.relay_token];
         
-        [self.pushClient joinLive:pkSession.relay_token];
+        [self.chatService sendStartPKMessageWithReceiverId:self.selectPkRoomInfo.anchor_info.user_id receiveRoomId:self.selectPkRoomInfo.live_id receiverIMId:self.selectPkRoomInfo.anchor_info.im_userid relayId:pkSession.relay_id relayToken:pkSession.relay_token];
+        
+        [self beginPK:pkSession];
     }];
     
 }
 
+- (void)beginPK:(QNPKSession *)pkSession {
+    
+    self.pkSession = pkSession;
+    
+    [self.pushClient stopMixStream];
+    [self.pushClient unpublish:@[self.pushClient.localAudioTrack,self.pushClient.localVideoTrack]];
+    
+    [self.pushClient joinLive:pkSession.relay_token];
+}
+
 //收到开始pk信令
 - (void)onReceiveStartPKSession:(QNPKSession *)pkSession {
-    [self.pushClient joinLive:pkSession.relay_token];
+
+    [self beginPK:pkSession];
 }
 
 //自己是否是房主
@@ -161,8 +191,9 @@
 
 //加入房间回调
 - (void)onRoomJoined:(QNLiveRoomInfo *)roomInfo {
+    
     [self.pushClient joinLive:roomInfo.room_token];    
-    [self.pushClient beginMixStream:self.option];
+    
 }
 
 - (RoomHostSlot *)roomHostSlot {

@@ -24,6 +24,10 @@
 
 @implementation QNBaseRTCController
 
+- (void)dealloc {
+    
+}
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self setupBG];

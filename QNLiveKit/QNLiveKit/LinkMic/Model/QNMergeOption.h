@@ -19,15 +19,10 @@ NS_ASSUME_NONNULL_BEGIN
 
 @property (nonatomic, assign)BOOL isNeed;
 
-@property (nonatomic, assign)NSInteger mX;
-
-@property (nonatomic, assign)NSInteger mY;
+@property (nonatomic, assign)CGRect frame;
 
 @property (nonatomic, assign)NSInteger mZ;
 
-@property (nonatomic, assign)int mWidth;
-
-@property (nonatomic, assign)int mHeight;
 
 @property (nonatomic, assign) int mixStreamY;
 //码率

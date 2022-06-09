@@ -44,6 +44,8 @@ NS_ASSUME_NONNULL_BEGIN
 //连麦服务
 @interface QNLinkMicService : QNLiveService
 
+@property (nonatomic, copy) NSString *liveId;
+
 //初始化
 - (instancetype)initWithLiveId:(NSString *)liveId;
 

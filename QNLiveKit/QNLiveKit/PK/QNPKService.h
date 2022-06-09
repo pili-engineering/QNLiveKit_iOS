@@ -45,8 +45,7 @@ NS_ASSUME_NONNULL_BEGIN
 //开始pk  timeoutTimestamp 等待对方流超时时间时间戳 毫秒
 - (void)startWithReceiverRoomId:(NSString *)receiverRoomId receiverUid:(NSString *)receiverUid extensions:(NSString *)extensions callBack:(void (^)(QNPKSession *pkSession))callBack;
 
-//同意跨房申请
-- (void)agreePK:(NSString *)relayID callBack:(void (^)(QNPKSession *pkSession))callBack;
+- (void)PKStartedWithRelayID:(NSString *)relayID;
 
 //结束pk
 - (void)stop:(void (^)(void))callBack;

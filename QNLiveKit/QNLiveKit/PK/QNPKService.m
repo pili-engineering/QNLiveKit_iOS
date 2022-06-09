@@ -55,23 +55,14 @@
         callBack(model);
         
         } failure:^(NSError * _Nonnull error) {
-            callBack(nil);
+
         }];
 }
 
-
-//同意跨房申请
-- (void)agreePK:(NSString *)relayID callBack:(void (^)(QNPKSession *pkSession))callBack {
-
-    NSString *action = [NSString stringWithFormat:@"client/relay/%@/agree",relayID];
-    [QNLiveNetworkUtil postRequestWithAction:action params:@{} success:^(NSDictionary * _Nonnull responseData) {
-        
-        QNPKSession *model = [QNPKSession mj_objectWithKeyValues:responseData];
-        
-        callBack(model);
-        
+- (void)PKStartedWithRelayID:(NSString *)relayID {
+    NSString *action = [NSString stringWithFormat:@"client/relay/%@/started",relayID];
+    [QNLiveNetworkUtil postRequestWithAction:action params:@{} success:^(NSDictionary * _Nonnull responseData) {        
         } failure:^(NSError * _Nonnull error) {
-            callBack(nil);
         }];
 }
 

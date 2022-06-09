@@ -47,7 +47,7 @@
 - (void)setItemModel:(QNLiveRoomInfo *)itemModel {
     self.model = itemModel;
     [_iconImageView sd_setImageWithURL:[NSURL URLWithString:itemModel.anchor_info.avatar] placeholderImage:[UIImage imageNamed:@"titleImage"]];
-    _titleLabel.text = itemModel.anchor_info.nick;
+    _titleLabel.text = [itemModel.anchor_info.nick stringByAppendingFormat:@"    %@",itemModel.title];
 }
 
 - (UIImageView *)iconImageView {

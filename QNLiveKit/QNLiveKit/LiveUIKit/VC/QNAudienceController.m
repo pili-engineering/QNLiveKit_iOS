@@ -78,15 +78,13 @@ PLPlayerDelegate
     dispatch_async(dispatch_get_main_queue(), ^{
         for (QNRemoteTrack *track in tracks) {
             if (track.kind == QNTrackKindVideo) {
-                self.pushClient.remoteCameraTrack = (QNRemoteVideoTrack *)track;
                 
                 RemoteUserVIew *remoteView = [[RemoteUserVIew alloc]initWithFrame:CGRectMake(0, 0, SCREEN_W, SCREEN_H)];
                 remoteView.userId = userID;
                 remoteView.trackId = track.trackID;
                 [self.renderBackgroundView insertSubview:remoteView atIndex:0];
-                [self.pushClient.remoteCameraTrack play:remoteView];
+                [(QNRemoteVideoTrack *)track play:remoteView];
             } else {
-                self.pushClient.remoteAudioTrack = (QNRemoteAudioTrack *)track;
             }
             
         }
