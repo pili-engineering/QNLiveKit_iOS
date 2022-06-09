@@ -59,6 +59,17 @@
         }];
 }
 
+- (void)getPKToken:(NSString *)relayID callBack:(nonnull void (^)(QNPKSession * _Nonnull))callBack{
+    NSString *action = [NSString stringWithFormat:@"client/relay/%@/token",relayID];
+    [QNLiveNetworkUtil getRequestWithAction:action params:@{} success:^(NSDictionary * _Nonnull responseData) {
+        
+        QNPKSession *model = [QNPKSession mj_objectWithKeyValues:responseData];
+        callBack(model);
+        
+        } failure:^(NSError * _Nonnull error) {
+        }];
+}
+
 - (void)PKStartedWithRelayID:(NSString *)relayID {
     NSString *action = [NSString stringWithFormat:@"client/relay/%@/started",relayID];
     [QNLiveNetworkUtil postRequestWithAction:action params:@{} success:^(NSDictionary * _Nonnull responseData) {        
@@ -67,8 +78,13 @@
 }
 
 //结束pk
-- (void)stop:(void (^)(void))callBack {
-    
+- (void)stopWithRelayID:(NSString *)relayID callBack:(void (^)(void))callBack {
+    NSString *action = [NSString stringWithFormat:@"client/relay/%@/stop",relayID];
+    [QNLiveNetworkUtil postRequestWithAction:action params:@{} success:^(NSDictionary * _Nonnull responseData) {
+        callBack();
+        } failure:^(NSError * _Nonnull error) {
+            callBack();
+        }];
 }
 
 - (QNLiveUser *)selfUser {

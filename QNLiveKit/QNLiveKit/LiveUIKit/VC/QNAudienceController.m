@@ -31,6 +31,11 @@ PLPlayerDelegate
 
 @implementation QNAudienceController
 
+- (void)viewDidDisappear:(BOOL)animated {
+    [self.roomClient leaveRoom:^{
+    }];
+}
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     __weak typeof(self)weakSelf = self;
@@ -40,6 +45,7 @@ PLPlayerDelegate
     [self.roomClient joinRoom:^(QNLiveRoomInfo * _Nonnull roomInfo) {
         weakSelf.roomInfo = roomInfo;
         [weakSelf playWithUrlStr:roomInfo.rtmp_url];
+        [weakSelf updateRoomInfo];
     }];
     
     [self chatRoomView];
@@ -51,6 +57,17 @@ PLPlayerDelegate
         [weakSelf.chatRoomView showMessage:msg];
     }];
     
+}
+
+- (void)updateRoomInfo {
+    __weak typeof(self)weakSelf = self;
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(3 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+        [weakSelf.roomClient getRoomInfo:^(QNLiveRoomInfo * _Nonnull roomInfo) {
+            weakSelf.roomInfo = roomInfo;
+            [weakSelf.roomHostSlot updateWith:roomInfo];
+            [weakSelf.onlineUserSlot updateWith:roomInfo];
+        }];
+    });
 }
 
 #pragma mark ---------QNPushClientListener
@@ -85,6 +102,7 @@ PLPlayerDelegate
                 [self.renderBackgroundView insertSubview:remoteView atIndex:0];
                 [(QNRemoteVideoTrack *)track play:remoteView];
             } else {
+                
             }
             
         }
@@ -145,7 +163,7 @@ PLPlayerDelegate
         _roomHostSlot = [[RoomHostSlot alloc]init];
         [_roomHostSlot createDefaultView:CGRectMake(20, 60, 135, 40) onView:self.view];
         [_roomHostSlot updateWith:self.roomInfo];;
-        _roomHostSlot.clickBlock = ^{
+        _roomHostSlot.clickBlock = ^(BOOL selected){
             NSLog(@"点击了房主头像");
         };
     }
@@ -157,7 +175,7 @@ PLPlayerDelegate
         _onlineUserSlot = [[OnlineUserSlot alloc]init];
         [_onlineUserSlot createDefaultView:CGRectMake(self.view.frame.size.width - 60, 60, 40, 40) onView:self.view];
         [_onlineUserSlot updateWith:self.roomInfo];
-        _onlineUserSlot.clickBlock = ^{
+        _onlineUserSlot.clickBlock = ^(BOOL selected){
             NSLog(@"点击了在线人数");
         };
     }
@@ -171,7 +189,7 @@ PLPlayerDelegate
         ItemSlot *pubchat = [[ItemSlot alloc]init];
         [pubchat normalImage:@"pub_chat" selectImage:@"pub_chat"];
         
-        pubchat.clickBlock = ^{
+        pubchat.clickBlock = ^(BOOL selected){
             [weakSelf.chatRoomView commentBtnPressed];
             NSLog(@"点击了公聊");
         };
@@ -179,7 +197,7 @@ PLPlayerDelegate
         
         ItemSlot *link = [[ItemSlot alloc]init];
         [link normalImage:@"link" selectImage:@"link"];
-        link.clickBlock = ^{
+        link.clickBlock = ^(BOOL selected){
             
             [weakSelf.chatService sendLinkMicInvitation:weakSelf.roomInfo.anchor_info.user_id];
             NSLog(@"点击了连麦");
@@ -188,14 +206,14 @@ PLPlayerDelegate
         
         ItemSlot *message = [[ItemSlot alloc]init];
         [message normalImage:@"message" selectImage:@"message"];
-        message.clickBlock = ^{
+        message.clickBlock = ^(BOOL selected){
             NSLog(@"点击了私信");
         };
         [slotList addObject:message];
         
         ItemSlot *close = [[ItemSlot alloc]init];
         [close normalImage:@"live_close" selectImage:@"live_close"];
-        close.clickBlock = ^{
+        close.clickBlock = ^(BOOL selected){
             [weakSelf dismissViewControllerAnimated:YES completion:nil];
             NSLog(@"点击了关闭");
         };
@@ -214,9 +232,12 @@ PLPlayerDelegate
     [_linkSLot createDefaultView:CGRectMake(0, SCREEN_H - 230, SCREEN_W, 230) onView:self.view];
     __weak typeof(self)weakSelf = self;
     _linkSLot.microphoneBlock = ^(BOOL mute) {
-            [weakSelf.pushClient muteLocalMicrophone:mute];
+        [weakSelf.pushClient muteLocalMicrophone:mute];
     };
-    _linkSLot.clickBlock = ^{
+    _linkSLot.cameraBlock = ^(BOOL mute) {
+        [weakSelf.pushClient muteLocalCamera:mute];
+    };
+    _linkSLot.clickBlock = ^(BOOL selected){
         [weakSelf.pushClient LeaveLive];
         weakSelf.preview.frame = CGRectZero;
         for (RemoteUserVIew *userView in weakSelf.renderBackgroundView.subviews) {

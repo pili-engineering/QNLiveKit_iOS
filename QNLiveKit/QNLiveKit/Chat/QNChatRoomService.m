@@ -170,6 +170,11 @@
     [[QNIMChatService sharedOption] sendMessage:message];
 }
 
+- (void)sendStopPKMessageWithReceiverId:(NSString *)receiverId receiveRoomId:(NSString *)receiveRoomId receiverIMId:(NSString *)receiverIMId relayId:(NSString *)relayId relayToken:(NSString *)relayToken {
+    QNIMMessageObject *message = [self.creater  createStopPKMessageWithReceiverId:receiverId receiveRoomId:receiveRoomId receiverIMId:receiverIMId relayId:relayId relayToken:relayToken ];
+    [[QNIMChatService sharedOption] sendMessage:message];
+}
+
 //踢人
 - (void)kickUser:(NSString *)msg memberId:(NSString *)memberId{
     
@@ -341,6 +346,14 @@
                     
         if ([self.chatRoomListener respondsToSelector:@selector(onReceiveStartPKSession:)]) {
             [self.chatRoomListener onReceiveStartPKSession:model];
+        }
+    
+    }  else if ([imModel.action isEqualToString:liveroom_pk_stop]) {
+        //开始pk
+        QNPKSession *model = [QNPKSession mj_objectWithKeyValues:imModel.data];
+                    
+        if ([self.chatRoomListener respondsToSelector:@selector(onReceiveStopPKSession:)]) {
+            [self.chatRoomListener onReceiveStopPKSession:model];
         }
     
     }

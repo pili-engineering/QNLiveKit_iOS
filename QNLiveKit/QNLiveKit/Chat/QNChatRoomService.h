@@ -65,7 +65,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 //收到开始跨房信令
 - (void)onReceiveStartPKSession:(QNPKSession *)pkSession;
-
+- (void)onReceiveStopPKSession:(QNPKSession *)pkSession;
 - (void)messageStatus:(QNIMMessageObject *)message error:(QNIMError *)error;
 
 @end
@@ -107,6 +107,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 //开始pk信令
 - (void)sendStartPKMessageWithReceiverId:(NSString *)receiverId receiveRoomId:(NSString *)receiveRoomId receiverIMId:(NSString *)receiverIMId relayId:(NSString *)relayId relayToken:(NSString *)relayToken;
+- (void)sendStopPKMessageWithReceiverId:(NSString *)receiverId receiveRoomId:(NSString *)receiveRoomId receiverIMId:(NSString *)receiverIMId relayId:(NSString *)relayId relayToken:(NSString *)relayToken;
 //踢人
 - (void)kickUser:(NSString *)msg memberId:(NSString *)memberId;
 //禁言

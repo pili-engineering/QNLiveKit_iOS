@@ -19,16 +19,32 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "7FADB95F-D44D-482E-9FFB-700F7C051FEB"
+            uuid = "972C56B2-3AB1-4618-A0E2-C644A8980ED8"
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "../QNLiveKit/QNLiveKit/LiveUIKit/VC/QNLiveController.m"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "178"
-            endingLineNumber = "178"
-            landmarkName = "-onReceiveStartPKSession:"
+            startingLineNumber = "133"
+            endingLineNumber = "133"
+            landmarkName = "-didSubscribedRemoteVideoTracks:audioTracks:ofUserID:"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "A6CE31AD-0E97-48FF-B83A-00D43E019C71"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "../QNLiveKit/QNLiveKit/LiveUIKit/VC/QNLiveController.m"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "97"
+            endingLineNumber = "97"
+            landmarkName = "-onUserPublishTracks:ofUserID:"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

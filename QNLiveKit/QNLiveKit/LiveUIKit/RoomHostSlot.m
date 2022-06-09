@@ -70,7 +70,7 @@ static const CGFloat People_Count_L = 5;//人数左间距
 
 - (void)click {
     if (self.clickBlock) {
-        self.clickBlock();
+        self.clickBlock(YES);
     }
 }
 

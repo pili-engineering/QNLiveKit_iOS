@@ -1,17 +1,17 @@
 {
   "images" : [
     {
-      "filename" : "video-open.png",
+      "filename" : "camera_on.png",
       "idiom" : "universal",
       "scale" : "1x"
     },
     {
-      "filename" : "video-open@2x.png",
+      "filename" : "camera_on@2x.png",
       "idiom" : "universal",
       "scale" : "2x"
     },
     {
-      "filename" : "video-open@3x.png",
+      "filename" : "camera_on@3x.png",
       "idiom" : "universal",
       "scale" : "3x"
     }

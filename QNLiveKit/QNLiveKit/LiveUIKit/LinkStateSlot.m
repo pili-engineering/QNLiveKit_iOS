@@ -17,6 +17,8 @@
 
 @property (nonatomic, strong) UIButton *closeButton;
 
+@property (nonatomic, strong) UIButton *cameraButton;
+
 @property (nonatomic, strong) UIButton *microphoneButton;
 
 @end
@@ -47,6 +49,14 @@
     [self.closeButton addTarget:self action:@selector(click) forControlEvents:UIControlEventTouchUpInside];
     [self.view addSubview:self.closeButton];
     
+    self.cameraButton = [[UIButton alloc]initWithFrame:CGRectMake((frame.size.width - 130)/2 - 60 , 170, 40, 40)];
+    [self.cameraButton setImage:[UIImage imageNamed:@"camera_on"] forState:UIControlStateNormal];
+    [self.cameraButton setImage:[UIImage imageNamed:@"camera_off"] forState:UIControlStateSelected];
+    [self.cameraButton addTarget:self action:@selector(cameraClick:) forControlEvents:UIControlEventTouchUpInside];
+    self.cameraButton.layer.cornerRadius = 20;
+    self.cameraButton.clipsToBounds = YES;
+    [self.view addSubview:self.cameraButton];
+    
     self.microphoneButton = [[UIButton alloc]initWithFrame:CGRectMake((frame.size.width - 130)/2 + 150, 170, 40, 40)];
     [self.microphoneButton setImage:[UIImage imageNamed:@"microphone_on"] forState:UIControlStateNormal];
     [self.microphoneButton setImage:[UIImage imageNamed:@"microphone_off"] forState:UIControlStateSelected];
@@ -65,10 +75,17 @@
     }
 }
 
+- (void)cameraClick:(UIButton *)button {
+    button.selected = !button.selected;
+    if (self.cameraBlock) {
+        self.cameraBlock(button.selected);
+    }
+}
+
 - (void)click {
     [self.view removeFromSuperview];
     if (self.clickBlock) {
-        self.clickBlock();
+        self.clickBlock(YES);
     }
 }
 @end

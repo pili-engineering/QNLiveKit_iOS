@@ -45,10 +45,14 @@ NS_ASSUME_NONNULL_BEGIN
 //开始pk  timeoutTimestamp 等待对方流超时时间时间戳 毫秒
 - (void)startWithReceiverRoomId:(NSString *)receiverRoomId receiverUid:(NSString *)receiverUid extensions:(NSString *)extensions callBack:(void (^)(QNPKSession *pkSession))callBack;
 
+//获取pk token
+- (void)getPKToken:(NSString *)relayID callBack:(void (^)(QNPKSession * _Nonnull))callBack;
+
+//通知服务端跨房完成
 - (void)PKStartedWithRelayID:(NSString *)relayID;
 
 //结束pk
-- (void)stop:(void (^)(void))callBack;
+- (void)stopWithRelayID:(NSString *)relayID callBack:(void (^)(void))callBack;
 
 //设置某人的连麦视频预览
 - (void)setPeerAnchorPreView:(QNVideoView *)preview uid:(NSString *)uid;
