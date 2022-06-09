@@ -98,6 +98,9 @@ NS_ASSUME_NONNULL_BEGIN
 //开始pk信令
 -(QNIMMessageObject *)createStartPKMessageWithReceiverId:(NSString *)receiverId receiveRoomId:(NSString *)receiveRoomId receiverIMId:(NSString *)receiverIMId relayId:(NSString *)relayId relayToken:(NSString *)relayToken ;
 
+//结束pk信令
+- (QNIMMessageObject *)createStopPKMessageWithReceiverId:(NSString *)receiverId receiveRoomId:(NSString *)receiveRoomId receiverIMId:(NSString *)receiverIMId relayId:(NSString *)relayId relayToken:(NSString *)relayToken;
+
 @end
 
 NS_ASSUME_NONNULL_END

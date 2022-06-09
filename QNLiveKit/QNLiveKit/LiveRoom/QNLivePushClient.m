@@ -29,15 +29,25 @@
 - (instancetype)initWithRoomInfo:(QNLiveRoomInfo *)roomInfo {
     if (self = [super init]) {
         self.roomInfo = roomInfo;
+        [QNRTC configRTC:[QNRTCConfiguration defaultConfiguration]];
+        self.rtcClient = [QNRTC createRTCClient];
+        self.rtcClient.delegate = self;
     }
     return self;    
 }
 
+- (instancetype)init {
+    if (self = [super init]) {
+        [QNRTC configRTC:[QNRTCConfiguration defaultConfiguration]];
+        self.rtcClient = [QNRTC createRTCClient];
+        self.rtcClient.delegate = self;
+    }
+    return self;
+}
+
 //加入直播
 - (void)joinLive:(NSString *)token {
-    [QNRTC configRTC:[QNRTCConfiguration defaultConfiguration]];
-    self.rtcClient = [QNRTC createRTCClient];
-    self.rtcClient.delegate = self;
+    
     [self.rtcClient join:token];
 }
 

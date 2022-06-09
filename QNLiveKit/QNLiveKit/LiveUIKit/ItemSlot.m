@@ -34,7 +34,7 @@
         button.frame = CGRectMake(button.frame.origin.x + 15, button.frame.origin.y, 40, 40);
     }
     if (self.clickBlock) {
-        self.clickBlock();
+        self.clickBlock(button.selected);
     }
 }
 

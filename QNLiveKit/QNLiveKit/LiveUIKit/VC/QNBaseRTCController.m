@@ -24,8 +24,12 @@
 
 @implementation QNBaseRTCController
 
-- (void)dealloc {
-    
+- (void)viewWillDisappear:(BOOL)animated {
+    self.pushClient = nil;
+    self.roomClient = nil;
+    self.chatService = nil;
+    self.pkService = nil;
+    self.linkService = nil;
 }
 
 - (void)viewDidLoad {

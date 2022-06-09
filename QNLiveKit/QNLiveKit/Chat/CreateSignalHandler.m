@@ -284,6 +284,30 @@
 
 }
 
+- (QNIMMessageObject *)createStopPKMessageWithReceiverId:(NSString *)receiverId receiveRoomId:(NSString *)receiveRoomId receiverIMId:(NSString *)receiverIMId relayId:(NSString *)relayId relayToken:(NSString *)relayToken {
+    
+    QNPKSession *session = [QNPKSession new];
+    session.relay_id = relayId;
+    session.relay_token = relayToken;
+    session.initiatorRoomId = self.roomId;
+    session.receiverRoomId = receiveRoomId;
+    session.initiator = self.user;
+    
+    QNLiveUser *user = [QNLiveUser new];
+    user.user_id = receiverId;
+    user.im_userid = receiverIMId;
+    
+    session.receiver = user;
+    
+    QNIMModel *model = [QNIMModel new];
+    model.action = liveroom_pk_stop;
+    model.data = session.mj_keyValues;
+    
+    QNIMMessageObject *message = [[QNIMMessageObject alloc]initWithQNIMMessageText:model.mj_JSONString fromId:QN_IM_userId.longLongValue toId:receiverIMId.longLongValue type:QNIMMessageTypeSingle conversationId:receiverIMId.longLongValue];
+    message.senderName = QN_User_nickname;
+    return message;
+}
+
 //生成邀请信令
 - (QNIMMessageObject *)createInviteMessageWithAction:(NSString *)action invitationName:(NSString *)invitationName receiverId:(NSString *)receiverId receiveRoomId:(NSString *)receiveRoomId receiverIMId:(NSString *)receiverIMId {
     

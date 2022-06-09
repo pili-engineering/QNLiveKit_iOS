@@ -11,7 +11,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 @class QNLiveRoomClient;
 
-typedef void (^onClickBlock)(void);
+typedef void (^onClickBlock)(BOOL selected);
 
 @interface QNInternalViewSlot : NSObject
 

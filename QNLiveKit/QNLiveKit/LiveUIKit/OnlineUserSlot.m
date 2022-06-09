@@ -41,7 +41,7 @@ static const CGFloat countLabel_H = 15;//数字高
 
 - (void)click {
     if (self.clickBlock) {
-        self.clickBlock();
+        self.clickBlock(YES);
     }
 }
 

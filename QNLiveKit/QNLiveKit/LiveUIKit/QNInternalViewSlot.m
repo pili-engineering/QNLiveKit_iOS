@@ -10,11 +10,11 @@
 
 @implementation QNInternalViewSlot
 
-- (UIView *)createDefaultViewWithClient:(QNLiveRoomClient *)client onView:(UIView *)onView activity:(void (^)(void))activity {
+- (UIView *)createDefaultViewWithClient:(QNLiveRoomClient *)client onView:(UIView *)onView{
     return [UIView new];
 }
 
-- (void)createCustomView:(UIView *)view client:(QNLiveRoomClient *)client onView:(UIView *)onView activity:(void (^)(void))activity {
+- (void)createCustomView:(UIView *)view client:(QNLiveRoomClient *)client onView:(UIView *)onView{
     
 }
 

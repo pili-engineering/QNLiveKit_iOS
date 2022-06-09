@@ -10,9 +10,16 @@
 
 @interface QNCreateLiveController ()
 @property (nonatomic, strong) UITextField *titleTf;
+@property (nonatomic, strong) QNGLKView *preview;//自己画面的预览视图
+@property (nonatomic, strong) QNLivePushClient *pushClient;
+
 @end
 
 @implementation QNCreateLiveController
+
+- (void)viewWillDisappear:(BOOL)animated {
+    self.pushClient = nil;
+}
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -20,8 +27,17 @@
     bg.frame = self.view.frame;
     [self.view addSubview:bg];
     
+    self.preview = [[QNGLKView alloc] init];
+    self.preview.frame = self.view.frame;
+    [bg addSubview:self.preview];
+
+    self.pushClient = [[QNLivePushClient alloc]init];
+    [self.pushClient setLocalPreView:self.preview];
+    
     [self titleTf];
     [self startButton];
+    [self closeButton];
+    
 }
 
 - (UITextField *)titleTf {
@@ -50,6 +66,19 @@
     [self.view addSubview:button];
 }
 
+- (void)closeButton {
+    UIButton *button = [[UIButton alloc]initWithFrame:CGRectMake(kScreenWidth - 40, 50, 20, 20)];
+    button.clipsToBounds = YES;
+    button.layer.cornerRadius = 20;
+    [button setImage:[UIImage imageNamed:@"close"] forState:UIControlStateNormal];
+    [button addTarget:self action:@selector(close) forControlEvents:UIControlEventTouchUpInside];
+    [self.view addSubview:button];
+}
+
+- (void)close {
+    [self dismissViewControllerAnimated:YES completion:nil];
+}
+
 //创建直播
 - (void)createLive {
     QNCreateRoomParam *params = [QNCreateRoomParam new];
@@ -59,11 +88,14 @@
 //    params.extension = @"";
     
     [QNLiveRoomEngine createRoom:params callBack:^(QNLiveRoomInfo * _Nonnull roomInfo) {
+        [self.pushClient enableCamera];
         QNLiveController *vc = [QNLiveController new];
         vc.roomInfo = roomInfo;
         vc.modalPresentationStyle = UIModalPresentationFullScreen;
         [self presentViewController:vc animated:YES completion:nil];
     }];
 }
+
+
 
 @end
