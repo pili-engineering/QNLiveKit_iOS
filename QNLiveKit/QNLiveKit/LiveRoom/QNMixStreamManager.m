@@ -59,55 +59,30 @@
 }
 
 //设置某个用户的音频混流参数
-- (void)updateUserAudioMergeOptions:(NSString *)uid isNeed:(BOOL)isNeed {
-    
-    NSArray <QNTrack *>*tracks = [self.client getSubscribedTracks:uid];
-    
-    if ([uid isEqualToString:QN_User_id]) {
-        tracks = [self.client publishedTracks];
+- (void)updateUserAudioMergeOptions:(NSString *)uid trackId:(NSString *)trackId isNeed:(BOOL)isNeed {
+
+    QNTranscodingLiveStreamingTrack *layout = [[QNTranscodingLiveStreamingTrack alloc] init];
+    layout.trackId = trackId;
+    if (isNeed) {
+        [self.client setTranscodingLiveStreamingID:self.streamID withTracks:@[layout]];
+    } else {
+        [self.client removeTranscodingLiveStreamingID:self.streamID withTracks:@[layout]];
     }
-    for (QNTrack *t in tracks) {
-        if (t.kind == QNTrackKindAudio) {
-            QNTranscodingLiveStreamingTrack *layout = [[QNTranscodingLiveStreamingTrack alloc] init];
-            layout.trackId = t.trackID;
-            if (isNeed) {
-                [self.client setTranscodingLiveStreamingID:self.streamID withTracks:@[layout]];
-            } else {
-                [self.client removeTranscodingLiveStreamingID:self.streamID withTracks:@[layout]];
-            }
-        }
-    }
+            
 }
 
 //设置某个用户的摄像头混流参数
-- (void)updateUserCameraMergeOptions:(NSString *)uid option:(CameraMergeOption *)option {
-    NSArray <QNTrack *>*tracks = [self.client getSubscribedTracks:uid];
-    for (QNTrack *t in tracks) {
-        if (t.kind == QNTrackKindVideo && [t.tag isEqualToString:@"camera"]) {
-            QNTranscodingLiveStreamingTrack *layout = [[QNTranscodingLiveStreamingTrack alloc] init];
-            layout.trackId = t.trackID;
-            layout.frame = CGRectMake(option.mX, option.mY, option.mWidth, option.mHeight);
-            layout.zIndex = option.mZ;
-            layout.fillMode= option.fillMode;
-            [self.client setTranscodingLiveStreamingID:self.streamID withTracks:@[layout]];
-        }
-    }
+- (void)updateUserVideoMergeOptions:(NSString *)uid trackId:(NSString *)trackId option:(CameraMergeOption *)option {
+    
+    QNTranscodingLiveStreamingTrack *layout = [[QNTranscodingLiveStreamingTrack alloc] init];
+    layout.trackId = trackId;
+    layout.frame = option.frame;
+    layout.zIndex = option.mZ;
+    layout.fillMode= option.fillMode;
+    [self.client setTranscodingLiveStreamingID:self.streamID withTracks:@[layout]];
+
 }
 
-//设置某个用户的共享屏幕混流参数
--(void)updateUserScreenMergeOptions:(NSString *)uid option:(CameraMergeOption *)option {
-    NSArray <QNTrack *>*tracks = [self.client getSubscribedTracks:uid];
-    for (QNTrack *t in tracks) {
-        if (t.kind == QNTrackKindVideo && [t.tag isEqualToString:@"screen"]) {
-            QNTranscodingLiveStreamingTrack *layout = [[QNTranscodingLiveStreamingTrack alloc] init];
-            layout.trackId = t.trackID;
-            layout.frame = CGRectMake(option.mX, option.mY, option.mWidth, option.mHeight);
-            layout.zIndex = option.mZ;
-            layout.fillMode= option.fillMode;
-            [self.client setTranscodingLiveStreamingID:self.streamID withTracks:@[layout]];
-        }
-    }
-}
 
 - (QNDirectLiveStreamingConfig *)directConfig {
     if (!_directConfig) {

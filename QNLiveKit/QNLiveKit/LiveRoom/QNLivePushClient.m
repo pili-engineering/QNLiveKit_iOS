@@ -104,20 +104,22 @@
     }
 }
 
+- (void)stopMixStream {
+    [self.mixManager stopMixStreamJob];
+}
+
 //发布tracks
 - (void)publishCameraAndMicrophone:(void (^)(BOOL, NSError * _Nonnull))callBack {
     
     __weak typeof(self)weakSelf = self;
+
     [self.rtcClient publish:@[self.localAudioTrack,self.localVideoTrack] completeCallback:^(BOOL onPublished, NSError *error) {
         if (weakSelf.option) {
-            [weakSelf.mixManager updateUserAudioMergeOptions:QN_User_id isNeed:YES];
+            [weakSelf.mixManager updateUserAudioMergeOptions:QN_User_id trackId:self.localAudioTrack.trackID isNeed:YES];
             CameraMergeOption *option = [CameraMergeOption new];
-            option.mX = 0;
-            option.mY = 0;
-            option.mWidth = 720;
-            option.mHeight = 1280;
+            option.frame = CGRectMake(0, 0, 720, 1280);
             option.mZ = 0;
-            [self.mixManager updateUserCameraMergeOptions:QN_User_id option:option];
+            [self.mixManager updateUserVideoMergeOptions:QN_User_id trackId:self.localVideoTrack.trackID option:option];
         }
         callBack(onPublished,error);
     }];
@@ -142,6 +144,7 @@
 
 - (void)beginMixStream:(QNMergeOption *)option {
     self.option = option;
+    [self.mixManager startMixStreamJob];
 }
 
 #pragma mark --------QNRTCClientDelegate
@@ -151,34 +154,61 @@
     if ([self.pushClientListener respondsToSelector:@selector(onConnectionRoomStateChanged:)]) {
             [self.pushClientListener onConnectionRoomStateChanged:state];
         }
-        
-    if (self.option) {
-            [self.mixManager startMixStreamJob];
-        }
+       
+}
+
+- (void)RTCClient:(QNRTCClient *)client didSubscribedRemoteVideoTracks:(NSArray<QNRemoteVideoTrack *> *)videoTracks audioTracks:(NSArray<QNRemoteAudioTrack *> *)audioTracks ofUserID:(NSString *)userID {
     
-   
+    if ([self.pushClientListener respondsToSelector:@selector(didSubscribedRemoteVideoTracks:audioTracks:ofUserID:)]) {
+        [self.pushClientListener didSubscribedRemoteVideoTracks:videoTracks audioTracks:audioTracks ofUserID:userID];
+    }
 }
 
 - (void)RTCClient:(QNRTCClient *)client didUserPublishTracks:(NSArray<QNRemoteTrack *> *)tracks ofUserID:(NSString *)userID  {
+    
+    [self.rtcClient subscribe:tracks];
+    
     if ([self.pushClientListener respondsToSelector:@selector(onUserPublishTracks:ofUserID:)]) {
         [self.pushClientListener onUserPublishTracks:tracks ofUserID:userID];
     }
     
     if (self.option) {
-        [self.mixManager updateUserAudioMergeOptions:userID isNeed:YES];
-        CameraMergeOption *option = [CameraMergeOption new];
-        option.mX = 10;
-        option.mY = 300;
-        option.mWidth = 200;
-        option.mHeight = 200;
-        option.mZ = 1;
-        [self.mixManager updateUserCameraMergeOptions:userID option:option];
+        
+        for (QNRemoteTrack *track in tracks) {
+            if (track.kind == QNTrackKindAudio) {
+                [self.mixManager updateUserAudioMergeOptions:userID trackId:track.trackID isNeed:YES];
+            } else {
+                CameraMergeOption *option = [CameraMergeOption new];
+                option.frame = CGRectMake(720-184-30, 200, 184, 184);
+                option.mZ = 1;
+                [self.mixManager updateUserVideoMergeOptions:userID trackId:track.trackID option:option];
+            }
+        }
+        
     }
 }
+
+- (void)RTCClient:(QNRTCClient *)client firstVideoDidDecodeOfTrack:(QNRemoteVideoTrack *)videoTrack remoteUserID:(NSString *)userID {
+    [self.rtcClient subscribe:@[videoTrack]];
+    if ([self.pushClientListener respondsToSelector:@selector(userFirstVideoDidDecodeOfTrack:remoteUserID:)]) {
+        [self.pushClientListener userFirstVideoDidDecodeOfTrack:@[videoTrack] remoteUserID:userID];
+    }
+}
+
 - (void)RTCClient:(QNRTCClient *)client didLeaveOfUserID:(NSString *)userID {
     if ([self.pushClientListener respondsToSelector:@selector(onUserLeaveRTC:)]) {
         [self.pushClientListener onUserLeaveRTC:userID];
     }
+}
+
+//设置某个用户的音频混流参数 （isNeed 是否需要混流音频）
+- (void)updateUserAudioMergeOptions:(NSString *)uid trackId:(NSString *)trackId isNeed:(BOOL)isNeed {
+    [self.mixManager updateUserAudioMergeOptions:uid trackId:trackId isNeed:isNeed];
+}
+
+//设置某个用户的摄像头混流参数
+- (void)updateUserVideoMergeOptions:(NSString *)uid trackId:(NSString *)trackId option:(CameraMergeOption *)option {
+    [self.mixManager updateUserVideoMergeOptions:uid trackId:trackId option:option];
 }
 
 //本地音频轨道默认参数

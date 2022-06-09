@@ -7,10 +7,11 @@
 
 #import <QNLiveKit/QNLiveKit.h>
 #import <QNRTCKit/QNRTCKit.h>
+#import "QNLiveRoomClient.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
-@class QNCameraParams,QNMicrophoneParams,QNLiveRoomInfo,QNMergeOption;
+@class QNCameraParams,QNMicrophoneParams,QNLiveRoomInfo,QNMergeOption,CameraMergeOption,QNRemoteAudioTrack;
 
 @protocol QNPushClientListener <NSObject>
 
@@ -22,6 +23,12 @@ NS_ASSUME_NONNULL_BEGIN
 
 // 远端用户发布音/视频
 - (void)onUserPublishTracks:(NSArray<QNRemoteTrack *> *)tracks ofUserID:(NSString *)userID;
+
+//远端用户首帧解码
+- (void)userFirstVideoDidDecodeOfTrack:(QNRemoteVideoTrack *)videoTrack remoteUserID:(NSString *)userID;
+
+//订阅成功
+- (void)didSubscribedRemoteVideoTracks:(NSArray<QNRemoteVideoTrack *> *)videoTracks audioTracks:(NSArray<QNRemoteAudioTrack *> *)audioTracks ofUserID:(NSString *)userID;
 
 // 有人离开rtc房间
 - (void)onUserLeaveRTC:(NSString *)userID;
@@ -41,15 +48,17 @@ NS_ASSUME_NONNULL_BEGIN
 
 @end
 
-@interface QNLivePushClient : NSObject
+@interface QNLivePushClient : QNLiveRoomClient
 
 @property (nonatomic, strong) QNRTCClient *rtcClient;
 
 @property (nonatomic, strong) QNMicrophoneAudioTrack *localAudioTrack;
 @property (nonatomic, strong) QNCameraVideoTrack *localVideoTrack;
 
-@property (nonatomic, strong) QNRemoteVideoTrack *remoteCameraTrack;
-@property (nonatomic, strong) QNRemoteAudioTrack *remoteAudioTrack;
+//@property (nonatomic, strong) QNRemoteVideoTrack *remoteCameraTrack;
+//@property (nonatomic, strong) QNRemoteAudioTrack *remoteAudioTrack;
+
+
 
 - (instancetype)initWithRoomInfo:(QNLiveRoomInfo *)roomInfo;
 
@@ -103,6 +112,14 @@ NS_ASSUME_NONNULL_BEGIN
 - (void)addVideoFrameListener:(id<QNCameraTrackVideoDataDelegate>)listener;
 
 - (void)beginMixStream:(QNMergeOption *)option;
+
+//设置某个用户的音频混流参数 （isNeed 是否需要混流音频）
+- (void)updateUserAudioMergeOptions:(NSString *)uid trackId:(NSString *)trackId isNeed:(BOOL)isNeed;
+
+//设置某个用户的摄像头混流参数
+- (void)updateUserVideoMergeOptions:(NSString *)uid trackId:(NSString *)trackId option:(CameraMergeOption *)option;
+
+- (void)stopMixStream;
 
 @end
 

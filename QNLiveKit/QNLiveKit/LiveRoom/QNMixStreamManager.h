@@ -24,11 +24,9 @@ NS_ASSUME_NONNULL_BEGIN
 //设置混流参数
 - (void)setMixParams:(QNMergeOption *)params;
 //设置某个用户的音频混流参数 （isNeed 是否需要混流音频）
-- (void)updateUserAudioMergeOptions:(NSString *)uid isNeed:(BOOL)isNeed;
+- (void)updateUserAudioMergeOptions:(NSString *)uid trackId:(NSString *)trackId isNeed:(BOOL)isNeed;
 //设置某个用户的摄像头混流参数
-- (void)updateUserCameraMergeOptions:(NSString *)uid option:(CameraMergeOption *)option;
-//设置某个用户的共享屏幕混流参数
-- (void)updateUserScreenMergeOptions:(NSString *)uid option:(CameraMergeOption *)option;
+- (void)updateUserVideoMergeOptions:(NSString *)uid trackId:(NSString *)trackId option:(CameraMergeOption *)option;
 
 @end
 

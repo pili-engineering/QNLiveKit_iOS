@@ -11,8 +11,6 @@
 
 @interface QNLinkMicService ()
 
-@property (nonatomic, copy) NSString *liveId;
-
 @end
 
 @implementation QNLinkMicService
