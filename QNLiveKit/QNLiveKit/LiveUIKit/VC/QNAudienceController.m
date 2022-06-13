@@ -102,9 +102,7 @@ PLPlayerDelegate
                 [self.renderBackgroundView insertSubview:remoteView atIndex:0];
                 [(QNRemoteVideoTrack *)track play:remoteView];
             } else {
-                
             }
-            
         }
     });
 }
@@ -146,7 +144,7 @@ PLPlayerDelegate
     [option setOptionValue:@(kPLLogNone) forKey:PLPlayerOptionKeyLogLevel];
     
     self.player = [PLPlayer playerWithURL:url option:option];
-    [self.view insertSubview:self.player.playerView atIndex:1];
+    [self.view insertSubview:self.player.playerView atIndex:2];
     [self.player.playerView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.edges.equalTo(self.view).insets(UIEdgeInsetsMake(0, 0, 0, 0));
     }];

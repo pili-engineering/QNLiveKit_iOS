@@ -6,7 +6,7 @@ target 'QNLiveKit' do
   
   use_frameworks!
   
-  pod 'QNRTCKit-iOS','4.0.0'
+  pod 'QNRTCKit-iOS','5.0.0'
   pod 'PLPlayerKit', '3.4.7'
   pod 'Masonry', '1.1.0'
   pod 'SDWebImage',' 5.12.2'

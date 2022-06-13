@@ -17,25 +17,25 @@ NS_ASSUME_NONNULL_BEGIN
 NSCopying
 >
 
-/**
- @brief 单路转推的 id
+/*!
+ * @abstract 单路转推的 id
  */
 @property (nonatomic, strong) NSString *streamID;
 
-/**
- @brief 单路转推的地址
+/*!
+ * @abstract 单路转推的地址
  */
 @property (nonatomic, strong) NSString *publishUrl;
 
-/**
- @brief 音频 track
+/*!
+ * @abstract 音频 track
  */
-@property (nonatomic, strong) QNTrack *audioTrack;
+@property (nonatomic, strong) QNLocalAudioTrack *audioTrack;
 
-/**
- @brief 视频 track
+/*!
+ * @abstract 视频 track
  */
-@property (nonatomic, strong) QNTrack *videoTrack;
+@property (nonatomic, strong) QNLocalVideoTrack *videoTrack;
 
 @end
 

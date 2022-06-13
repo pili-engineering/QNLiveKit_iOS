@@ -27,6 +27,7 @@ NS_ASSUME_NONNULL_BEGIN
 - (void)updateUserAudioMergeOptions:(NSString *)uid trackId:(NSString *)trackId isNeed:(BOOL)isNeed;
 //设置某个用户的摄像头混流参数
 - (void)updateUserVideoMergeOptions:(NSString *)uid trackId:(NSString *)trackId option:(CameraMergeOption *)option;
+- (void)removeUserVideoMergeOptions:(NSString *)uid trackId:(NSString *)trackId;
 
 @end
 

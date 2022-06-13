@@ -50,6 +50,8 @@
     [self.client stopLiveStreamingWithTranscoding:self.mergeConfig];
 }
 
+
+
 //设置混流参数
 - (void)setMixParams:(QNMergeOption *)params {
     self.mergeConfig.width = params.width;
@@ -62,7 +64,7 @@
 - (void)updateUserAudioMergeOptions:(NSString *)uid trackId:(NSString *)trackId isNeed:(BOOL)isNeed {
 
     QNTranscodingLiveStreamingTrack *layout = [[QNTranscodingLiveStreamingTrack alloc] init];
-    layout.trackId = trackId;
+    layout.trackID = trackId;
     if (isNeed) {
         [self.client setTranscodingLiveStreamingID:self.streamID withTracks:@[layout]];
     } else {
@@ -71,13 +73,19 @@
             
 }
 
+- (void)removeUserVideoMergeOptions:(NSString *)uid trackId:(NSString *)trackId {
+    QNTranscodingLiveStreamingTrack *layout = [[QNTranscodingLiveStreamingTrack alloc] init];
+    layout.trackID = trackId;
+    [self.client removeTranscodingLiveStreamingID:self.streamID withTracks:@[layout]];
+}
+
 //设置某个用户的摄像头混流参数
 - (void)updateUserVideoMergeOptions:(NSString *)uid trackId:(NSString *)trackId option:(CameraMergeOption *)option {
     
     QNTranscodingLiveStreamingTrack *layout = [[QNTranscodingLiveStreamingTrack alloc] init];
-    layout.trackId = trackId;
+    layout.trackID = trackId;
     layout.frame = option.frame;
-    layout.zIndex = option.mZ;
+    layout.zOrder = option.mZ;
     layout.fillMode= option.fillMode;
     [self.client setTranscodingLiveStreamingID:self.streamID withTracks:@[layout]];
 
@@ -91,9 +99,9 @@
         _directConfig.publishUrl = self.publishUrl;
         for (QNTrack *track in self.client.publishedTracks) {
             if (track.kind == QNTrackKindAudio) {
-                _directConfig.audioTrack = track;
+                _directConfig.audioTrack = (QNLocalAudioTrack *)track;
             } else {
-                _directConfig.videoTrack = track;
+                _directConfig.videoTrack = (QNLocalVideoTrack *)track;
             }
         }
     }

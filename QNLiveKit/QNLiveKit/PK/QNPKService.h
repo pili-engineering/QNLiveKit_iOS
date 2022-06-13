@@ -10,7 +10,7 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-@class QNPKSession,PKMixStreamAdapter,QNPKInvitationHandler;
+@class QNPKSession,PKMixStreamAdapter,QNPKInvitationHandler,RemoteUserVIew;
 //麦位监听
 @protocol PKServiceListener <NSObject>
 
@@ -55,10 +55,11 @@ NS_ASSUME_NONNULL_BEGIN
 - (void)stopWithRelayID:(NSString *)relayID callBack:(void (^)(void))callBack;
 
 //设置某人的连麦视频预览
-- (void)setPeerAnchorPreView:(QNVideoView *)preview uid:(NSString *)uid;
+- (void)setPeerAnchorPreView:(RemoteUserVIew *)preview uid:(NSString *)uid;
 
 //获得pk邀请处理器
 - (QNPKInvitationHandler *)getPKInvitationHandler;
+
 @end
 
 NS_ASSUME_NONNULL_END

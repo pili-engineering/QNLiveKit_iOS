@@ -9,7 +9,7 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface RemoteUserVIew : QNVideoView
+@interface RemoteUserVIew : QNVideoGLView
 
 @property (nonatomic, strong) NSString *trackId;
 

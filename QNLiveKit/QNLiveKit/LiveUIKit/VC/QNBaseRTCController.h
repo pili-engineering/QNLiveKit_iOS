@@ -10,11 +10,11 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-@class QNLiveRoomInfo,QNLivePushClient,QNLiveRoomClient,QNChatRoomService,LiveChatRoom,QNLinkMicService,QNMergeOption,QNPKService;
+@class QNLiveRoomInfo,QNLivePushClient,QNLiveRoomClient,QNChatRoomService,LiveChatRoom,QNLinkMicService,QNMergeOption,QNPKService,RemoteUserVIew;
 
 @interface QNBaseRTCController : UIViewController
 
-@property (nonatomic, strong) QNGLKView *preview;//自己画面的预览视图
+@property (nonatomic, strong) RemoteUserVIew *preview;//自己画面的预览视图
 @property (nonatomic, strong) UIView *renderBackgroundView;//上面只能添加视频流画面
 @property (nonatomic,strong) QNLiveRoomInfo *roomInfo;
 @property (nonatomic, strong) QNLivePushClient *_Nullable pushClient;

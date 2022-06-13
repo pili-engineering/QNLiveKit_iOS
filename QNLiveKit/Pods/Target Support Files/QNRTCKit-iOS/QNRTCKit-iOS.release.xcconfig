@@ -1,7 +1,7 @@
 CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = NO
 CONFIGURATION_BUILD_DIR = ${PODS_CONFIGURATION_BUILD_DIR}/QNRTCKit-iOS
 EXCLUDED_ARCHS[sdk=iphonesimulator*] = arm64
-FRAMEWORK_SEARCH_PATHS = $(inherited) "${PODS_ROOT}/QNRTCKit-iOS/pod/iphoneos"
+FRAMEWORK_SEARCH_PATHS = $(inherited) "${PODS_ROOT}/QNRTCKit-iOS/Pod/iphoneos"
 GCC_PREPROCESSOR_DEFINITIONS = $(inherited) COCOAPODS=1
 OTHER_LDFLAGS = $(inherited) -framework "AVFoundation" -framework "AudioToolbox" -framework "CFNetwork" -framework "CoreGraphics" -framework "CoreMedia" -framework "UIKit" -framework "VideoToolbox"
 PODS_BUILD_DIR = ${BUILD_DIR}

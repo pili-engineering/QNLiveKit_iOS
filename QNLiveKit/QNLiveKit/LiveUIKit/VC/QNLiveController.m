@@ -23,6 +23,7 @@
 #import "QNInvitationMemberListController.h"
 #import "QNPKService.h"
 #import "LinkInvitation.h"
+#import <QNRTCKit/QNRTCKit.h>
 
 @interface QNLiveController ()<QNPushClientListener,QNRoomLifeCycleListener,QNPushClientListener,QNChatRoomServiceListener>
 
@@ -127,42 +128,6 @@
     });
 }
 
-//- (void)didSubscribedRemoteVideoTracks:(NSArray<QNRemoteVideoTrack *> *)videoTracks audioTracks:(NSArray<QNRemoteAudioTrack *> *)audioTracks ofUserID:(NSString *)userID {
-//    dispatch_async(dispatch_get_main_queue(), ^{
-//
-//        for (QNRemoteVideoTrack *videoTrack in videoTracks) {
-//            RemoteUserVIew *remoteView = [[RemoteUserVIew alloc]initWithFrame:CGRectMake(SCREEN_W - 120, 120, 100, 100)];
-//            remoteView.userId = userID;
-//            remoteView.trackId = videoTrack.trackID;
-//            [self.renderBackgroundView addSubview:remoteView];
-//            [videoTrack play:remoteView];
-//
-//            if (self.pkSession) {
-//
-//                self.preview.frame = CGRectMake(0, 130, SCREEN_W/2, SCREEN_W/1.5);
-//                remoteView.frame = CGRectMake(SCREEN_W/2, 130, SCREEN_W/2, SCREEN_W/1.5);
-//                [self.pkService PKStartedWithRelayID:self.pkSession.relay_id];
-//
-//                CameraMergeOption *selfOption = [CameraMergeOption new];
-//                selfOption.frame = CGRectMake(0, 0, 720/2, 419);
-//                selfOption.mZ = 0;
-//                [self.pushClient updateUserVideoMergeOptions:QN_User_id trackId:self.pushClient.localVideoTrack.trackID option:selfOption];
-//
-//                CameraMergeOption *userOption = [CameraMergeOption new];
-//                userOption.frame = CGRectMake(720/2, 0, 720/2, 419);
-//                userOption.mZ = 1;
-//                [self.pushClient updateUserVideoMergeOptions:userID trackId:videoTrack.trackID option:userOption];
-//            }
-//        }
-//
-//        for (QNRemoteAudioTrack *audioTrack in audioTracks) {
-//            [self.pushClient updateUserAudioMergeOptions:userID trackId:audioTrack.trackID isNeed:YES];
-//        }
-//
-//
-//    });
-//}
-
 #pragma mark ---------QNChatRoomServiceListener
 
 - (void)onUserJoin:(QNLiveUser *)user message:(nonnull QNIMMessageObject *)message {
@@ -236,17 +201,42 @@
     
     self.pkSession = pkSession;
     
-    [self.pushClient stopMixStream];
-    [self.pushClient unpublish:@[self.pushClient.localVideoTrack,self.pushClient.localAudioTrack]];
-    [self.pushClient joinLive:pkSession.relay_token];
+    QNRoomMediaRelayConfiguration *config = [[QNRoomMediaRelayConfiguration alloc]init];
+    
+    QNRoomMediaRelayInfo *srcRoomInfo = [QNRoomMediaRelayInfo new];
+    srcRoomInfo.roomName = self.roomInfo.title;
+    srcRoomInfo.token = self.roomInfo.room_token;
+    
+    QNRoomMediaRelayInfo *destInfo = [QNRoomMediaRelayInfo new];
+    destInfo.roomName = [self getRelayNameWithToken:pkSession.relay_token];
+    destInfo.token = pkSession.relay_token;
+    
+    config.srcRoomInfo = srcRoomInfo;
+    [config setDestRoomInfo:destInfo forRoomName:self.roomInfo.title];
+
+    [self.pushClient.rtcClient startRoomMediaRelay:config completeCallback:^(NSDictionary *state, NSError *error) {
+
+    }];
+    
+}
+
+- (NSString *)getRelayNameWithToken:(NSString *)token {
+    NSArray *arr = [token componentsSeparatedByString:@":"];
+    NSString *tokenDataStr = arr.lastObject;
+    NSData *data = [[NSData alloc]initWithBase64EncodedString:tokenDataStr options:0];
+    NSDictionary *dic = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingMutableLeaves error:nil];
+//    NSString *appId = dic[@"appId"];
+    NSString *roomName = dic[@"roomName"];
+//    NSString *userId = dic[@"userId"];
+    return roomName;
 }
 
 - (void)stopPK {
-    
+    [self.pushClient.rtcClient stopRoomMediaRelay:^(NSDictionary *state, NSError *error) {
+                
+    }];
     [self.pkService stopWithRelayID:self.pkSession.relay_id callBack:^{
-        [self.pushClient stopMixStream];
-        [self.pushClient unpublish:@[self.pushClient.localAudioTrack,self.pushClient.localVideoTrack]];
-        [self.pushClient joinLive:self.roomInfo.live_id];
+        
     }];
 }
 

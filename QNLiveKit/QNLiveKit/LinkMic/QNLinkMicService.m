@@ -115,7 +115,7 @@
 }
 
 //设置某人的连麦视频预览
-- (void)setUserPreview:(QNVideoView *)preview uid:(NSString *)uid{}
+- (void)setUserPreview:(RemoteUserVIew *)preview uid:(NSString *)uid{}
 
 //踢人
 - (void)kickOutUser:(NSString *)uid callBack:(void (^)(QNMicLinker *mic))callBack {

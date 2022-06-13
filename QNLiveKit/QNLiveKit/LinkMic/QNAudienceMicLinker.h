@@ -47,9 +47,9 @@ NS_ASSUME_NONNULL_BEGIN
 
 - (void)muteLocalAudio:(BOOL)muted;
 
-- (void)setAudioFrameListener:(id<QNMicrophoneAudioTrackDataDelegate>)listener;
+//- (void)setAudioFrameListener:(id<QNMicrophoneAudioTrackDataDelegate>)listener;
 
-- (void)setVideoFrameListener:(id<QNCameraTrackVideoDataDelegate>)listener;
+//- (void)setVideoFrameListener:(id<QNCameraTrackVideoDataDelegate>)listener;
 //绑定原来的拉流预览  连麦后 会禁用原来的拉流预览
 - (void)attachPullPlayer:(PLPlayer *)player;
 @end

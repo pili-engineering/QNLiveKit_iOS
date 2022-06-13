@@ -17,6 +17,7 @@
 #import "QNLiveRoomInfo.h"
 #import "QNMergeOption.h"
 #import "QNPKService.h"
+#import "RemoteUserVIew.h"
 
 @interface QNBaseRTCController ()
 
@@ -25,6 +26,7 @@
 @implementation QNBaseRTCController
 
 - (void)viewWillDisappear:(BOOL)animated {
+    [self.pushClient deinit];
     self.pushClient = nil;
     self.roomClient = nil;
     self.chatService = nil;
@@ -46,7 +48,7 @@
     self.renderBackgroundView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, SCREEN_W, SCREEN_H)];
     [self.view insertSubview:self.renderBackgroundView atIndex:1];
     
-    self.preview = [[QNGLKView alloc] init];
+    self.preview = [[RemoteUserVIew alloc] init];
     self.preview.frame = CGRectMake(0, 0, SCREEN_W, SCREEN_H);
     [self.renderBackgroundView addSubview:self.preview];
 }

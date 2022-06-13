@@ -10,7 +10,7 @@
 
 @interface QNCreateLiveController ()
 @property (nonatomic, strong) UITextField *titleTf;
-@property (nonatomic, strong) QNGLKView *preview;//自己画面的预览视图
+@property (nonatomic, strong) RemoteUserVIew *preview;//自己画面的预览视图
 @property (nonatomic, strong) QNLivePushClient *pushClient;
 
 @end
@@ -27,7 +27,7 @@
     bg.frame = self.view.frame;
     [self.view addSubview:bg];
     
-    self.preview = [[QNGLKView alloc] init];
+    self.preview = [[RemoteUserVIew alloc] init];
     self.preview.frame = self.view.frame;
     [bg addSubview:self.preview];
 

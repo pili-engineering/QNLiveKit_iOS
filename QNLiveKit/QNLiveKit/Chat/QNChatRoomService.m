@@ -171,7 +171,7 @@
 }
 
 - (void)sendStopPKMessageWithReceiverId:(NSString *)receiverId receiveRoomId:(NSString *)receiveRoomId receiverIMId:(NSString *)receiverIMId relayId:(NSString *)relayId relayToken:(NSString *)relayToken {
-    QNIMMessageObject *message = [self.creater  createStopPKMessageWithReceiverId:receiverId receiveRoomId:receiveRoomId receiverIMId:receiverIMId relayId:relayId relayToken:relayToken ];
+    QNIMMessageObject *message = [self.creater createStopPKMessageWithReceiverId:receiverId receiveRoomId:receiveRoomId receiverIMId:receiverIMId relayId:relayId relayToken:relayToken];
     [[QNIMChatService sharedOption] sendMessage:message];
 }
 

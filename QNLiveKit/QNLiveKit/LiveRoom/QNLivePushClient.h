@@ -11,7 +11,7 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-@class QNCameraParams,QNMicrophoneParams,QNLiveRoomInfo,QNMergeOption,CameraMergeOption,QNRemoteAudioTrack;
+@class QNCameraParams,QNMicrophoneParams,QNLiveRoomInfo,QNMergeOption,CameraMergeOption,QNRemoteAudioTrack,RemoteUserVIew;
 
 @protocol QNPushClientListener <NSObject>
 
@@ -26,6 +26,10 @@ NS_ASSUME_NONNULL_BEGIN
 
 //远端用户首帧解码
 - (void)userFirstVideoDidDecodeOfTrack:(QNRemoteVideoTrack *)videoTrack remoteUserID:(NSString *)userID;
+
+- (void)onUserUnpublishTracks:(NSArray<QNRemoteTrack *> *)tracks ofUserID:(NSString *)userID;
+
+- (void)didMediaRelayStateChanged:(NSString *)relayRoom state:(QNMediaRelayState)state;
 
 //订阅成功
 - (void)didSubscribedRemoteVideoTracks:(NSArray<QNRemoteVideoTrack *> *)videoTracks audioTracks:(NSArray<QNRemoteAudioTrack *> *)audioTracks ofUserID:(NSString *)userID;
@@ -55,11 +59,10 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, strong) QNMicrophoneAudioTrack *localAudioTrack;
 @property (nonatomic, strong) QNCameraVideoTrack *localVideoTrack;
 
-//@property (nonatomic, strong) QNRemoteVideoTrack *remoteCameraTrack;
-//@property (nonatomic, strong) QNRemoteAudioTrack *remoteAudioTrack;
+@property (nonatomic, strong) NSMutableArray <QNRemoteVideoTrack *> *remoteCameraTracks;
+@property (nonatomic, strong) NSMutableArray <QNRemoteAudioTrack *> *remoteAudioTracks;
 
-
-
+- (void)deinit;
 - (instancetype)initWithRoomInfo:(QNLiveRoomInfo *)roomInfo;
 
 //加入直播
@@ -83,7 +86,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 /// 设置本地预览
 /// @param view view
-- (void)setLocalPreView:(QNGLKView *)view;
+- (void)setLocalPreView:(RemoteUserVIew *)view;
 
 /// 是否禁止本地摄像头推流
 /// @param muted muted
@@ -105,11 +108,11 @@ NS_ASSUME_NONNULL_BEGIN
 
 /// 设置音频帧回调
 /// @param listener listener
-- (void)addAudioFrameListener:(id<QNMicrophoneAudioTrackDataDelegate>)listener;
+//- (void)addAudioFrameListener:(id<QNMicrophoneAudioTrackDataDelegate>)listener;
 
 /// 设置视频帧回调
 /// @param listener listener
-- (void)addVideoFrameListener:(id<QNCameraTrackVideoDataDelegate>)listener;
+//- (void)addVideoFrameListener:(id<QNCameraTrackVideoDataDelegate>)listener;
 
 - (void)beginMixStream:(QNMergeOption *)option;
 
@@ -118,6 +121,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 //设置某个用户的摄像头混流参数
 - (void)updateUserVideoMergeOptions:(NSString *)uid trackId:(NSString *)trackId option:(CameraMergeOption *)option;
+- (void)removeUserVideoMergeOptions:(NSString *)uid trackId:(NSString *)trackId;
 
 - (void)stopMixStream;
 

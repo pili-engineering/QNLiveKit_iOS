@@ -412,6 +412,7 @@
 		05F8FE620012395BCDFC62C3B463A8C5 /* UIImage+Metadata.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "UIImage+Metadata.h"; path = "SDWebImage/Core/UIImage+Metadata.h"; sourceTree = "<group>"; };
 		060119159491929A7CF4C7604790B56A /* UIColor+YYAdd.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "UIColor+YYAdd.h"; path = "YYCategories/UIKit/UIColor+YYAdd.h"; sourceTree = "<group>"; };
 		06A369E278A35889241ED1C340DA5EA7 /* AFNetworking.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = AFNetworking.debug.xcconfig; sourceTree = "<group>"; };
+		0778BA322F374DEF7825BE51CB401BA5 /* QNRTCKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QNRTCKit.framework; path = Pod/iphoneos/QNRTCKit.framework; sourceTree = "<group>"; };
 		08AFD00CF3CB89838EB30A20469F7296 /* Pods-QNLiveKit.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-QNLiveKit.debug.xcconfig"; sourceTree = "<group>"; };
 		09F739F8E767BDF7D5C6EA2E2C7D5883 /* AFAutoPurgingImageCache.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = AFAutoPurgingImageCache.h; path = "UIKit+AFNetworking/AFAutoPurgingImageCache.h"; sourceTree = "<group>"; };
 		09FC45F947636103674280FCFABFF8AB /* NSObject+YYAdd.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "NSObject+YYAdd.m"; path = "YYCategories/Foundation/NSObject+YYAdd.m"; sourceTree = "<group>"; };
@@ -456,6 +457,7 @@
 		20CC37807EE9C5E2C3A10FCE0773DE88 /* AFURLResponseSerialization.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = AFURLResponseSerialization.h; path = AFNetworking/AFURLResponseSerialization.h; sourceTree = "<group>"; };
 		20E04CE0BE1A185AE51941FCB96D93E8 /* SDWebImageIndicator.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = SDWebImageIndicator.m; path = SDWebImage/Core/SDWebImageIndicator.m; sourceTree = "<group>"; };
 		2125F3CAA687F60EEAA5A38606228ED6 /* UIButton+AFNetworking.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "UIButton+AFNetworking.m"; path = "UIKit+AFNetworking/UIButton+AFNetworking.m"; sourceTree = "<group>"; };
+		24F58435603DBA7B239DA84DD0E43A7F /* FFmpeg.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FFmpeg.framework; path = Pod/iphoneos/FFmpeg.framework; sourceTree = "<group>"; };
 		253F1EB11E47384A8113958025C894F3 /* SDAnimatedImageView+WebCache.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "SDAnimatedImageView+WebCache.h"; path = "SDWebImage/Core/SDAnimatedImageView+WebCache.h"; sourceTree = "<group>"; };
 		25B4A9DC3C34176947BF63CA68EF0963 /* SDImageTransformer.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = SDImageTransformer.m; path = SDWebImage/Core/SDImageTransformer.m; sourceTree = "<group>"; };
 		25C28A86C92F85800E5EB95151EEB1AB /* NSObject+MJClass.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "NSObject+MJClass.h"; path = "MJExtension/NSObject+MJClass.h"; sourceTree = "<group>"; };
@@ -470,7 +472,6 @@
 		2D1D7F36F65E4774FD9A4009DA7C2B68 /* NSKeyedUnarchiver+YYAdd.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "NSKeyedUnarchiver+YYAdd.m"; path = "YYCategories/Foundation/NSKeyedUnarchiver+YYAdd.m"; sourceTree = "<group>"; };
 		2DB51365A1158557C5C77707873D2E2F /* View+MASAdditions.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "View+MASAdditions.m"; path = "Masonry/View+MASAdditions.m"; sourceTree = "<group>"; };
 		2DFF8AF2B2916881CBF15851560E61F7 /* CoreImage.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreImage.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS14.0.sdk/System/Library/Frameworks/CoreImage.framework; sourceTree = DEVELOPER_DIR; };
-		2FC0F24916C2E940183BFD6AE7DF3E19 /* QNRTCKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QNRTCKit.framework; path = pod/iphoneos/QNRTCKit.framework; sourceTree = "<group>"; };
 		301663CF56AB101395BDEF275109ECBA /* SDWebImageDownloaderResponseModifier.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = SDWebImageDownloaderResponseModifier.h; path = SDWebImage/Core/SDWebImageDownloaderResponseModifier.h; sourceTree = "<group>"; };
 		306ED45B047F0D158AE7BE10D05C8B48 /* UITextField+YYAdd.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "UITextField+YYAdd.m"; path = "YYCategories/UIKit/UITextField+YYAdd.m"; sourceTree = "<group>"; };
 		31F9C36FCB72AD9CDBD3190D4C53CF30 /* SDImageGIFCoder.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = SDImageGIFCoder.h; path = SDWebImage/Core/SDImageGIFCoder.h; sourceTree = "<group>"; };
@@ -550,7 +551,6 @@
 		68CC4CD023E9F0134F4B43953983B32C /* AFSecurityPolicy.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = AFSecurityPolicy.h; path = AFNetworking/AFSecurityPolicy.h; sourceTree = "<group>"; };
 		6914A67AF57BBF8B3CCCE96AD9697D7B /* SDInternalMacros.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = SDInternalMacros.h; path = SDWebImage/Private/SDInternalMacros.h; sourceTree = "<group>"; };
 		692C51862CA99486E4EF7902B6931141 /* PLPlayerKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = PLPlayerKit.framework; path = Pod/Library/PLPlayerKit.framework; sourceTree = "<group>"; };
-		69515D46C419A7D373546B250065D775 /* HappyDNS.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = HappyDNS.framework; path = pod/iphoneos/HappyDNS.framework; sourceTree = "<group>"; };
 		6AF717C20C65ABA548DF6AA582679D91 /* UIRefreshControl+AFNetworking.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "UIRefreshControl+AFNetworking.m"; path = "UIKit+AFNetworking/UIRefreshControl+AFNetworking.m"; sourceTree = "<group>"; };
 		6BCE0883775B1F2F0848427360CE7214 /* Pods-QNLiveKit.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = "Pods-QNLiveKit.modulemap"; sourceTree = "<group>"; };
 		6D35E9F3DD29460EBBB2515ECCFBB831 /* AFNetworking-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "AFNetworking-dummy.m"; sourceTree = "<group>"; };
@@ -930,7 +930,7 @@
 		2A8876C190F07C4CE76D03A063806945 /* Core */ = {
 			isa = PBXGroup;
 			children = (
-				7D66777955C1D6F50223B761B9F657B6 /* Frameworks */,
+				CBAB48BC1FDFAF6A4B2A61FCE2C01739 /* Frameworks */,
 			);
 			name = Core;
 			sourceTree = "<group>";
@@ -1097,15 +1097,6 @@
 			);
 			name = "Support Files";
 			path = "../Target Support Files/MJExtension";
-			sourceTree = "<group>";
-		};
-		7D66777955C1D6F50223B761B9F657B6 /* Frameworks */ = {
-			isa = PBXGroup;
-			children = (
-				69515D46C419A7D373546B250065D775 /* HappyDNS.framework */,
-				2FC0F24916C2E940183BFD6AE7DF3E19 /* QNRTCKit.framework */,
-			);
-			name = Frameworks;
 			sourceTree = "<group>";
 		};
 		83A75D82E6BB613B559B5FE25C0E1FB8 /* Security */ = {
@@ -1394,6 +1385,15 @@
 			);
 			name = AFNetworking;
 			path = AFNetworking;
+			sourceTree = "<group>";
+		};
+		CBAB48BC1FDFAF6A4B2A61FCE2C01739 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				24F58435603DBA7B239DA84DD0E43A7F /* FFmpeg.framework */,
+				0778BA322F374DEF7825BE51CB401BA5 /* QNRTCKit.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 		CE6ABFE22624134859A05D73A4B57450 /* QNRTCKit-iOS */ = {

@@ -12,6 +12,7 @@
 #import "QNAudienceMicLinker.h"
 #import "QNAnchorHostMicLinker.h"
 #import "QNAnchorForwardMicLinker.h"
+#import "RemoteUserVIew.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
@@ -55,7 +56,7 @@ NS_ASSUME_NONNULL_BEGIN
 - (void)getAllLinker:(void (^)(NSArray <QNMicLinker *> *list))callBack;
 
 //设置某人的连麦视频预览
-- (void)setUserPreview:(QNVideoView *)preview uid:(NSString *)uid;
+- (void)setUserPreview:(RemoteUserVIew *)preview uid:(NSString *)uid;
 
 //上麦
 - (void)onMic:(BOOL)mic camera:(BOOL)camera extends:(NSString *)extends callBack:(void (^)(NSString *rtcToken))callBack;
