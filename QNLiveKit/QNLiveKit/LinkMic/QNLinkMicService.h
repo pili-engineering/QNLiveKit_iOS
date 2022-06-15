@@ -12,7 +12,7 @@
 #import "QNAudienceMicLinker.h"
 #import "QNAnchorHostMicLinker.h"
 #import "QNAnchorForwardMicLinker.h"
-#import "RemoteUserVIew.h"
+#import "QRenderView.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
@@ -45,8 +45,6 @@ NS_ASSUME_NONNULL_BEGIN
 //连麦服务
 @interface QNLinkMicService : QNLiveService
 
-@property (nonatomic, copy) NSString *liveId;
-
 //初始化
 - (instancetype)initWithLiveId:(NSString *)liveId;
 
@@ -56,31 +54,25 @@ NS_ASSUME_NONNULL_BEGIN
 - (void)getAllLinker:(void (^)(NSArray <QNMicLinker *> *list))callBack;
 
 //设置某人的连麦视频预览
-- (void)setUserPreview:(RemoteUserVIew *)preview uid:(NSString *)uid;
+- (void)setUserPreview:(QRenderView *)preview uid:(NSString *)uid;
 
 //上麦
-- (void)onMic:(BOOL)mic camera:(BOOL)camera extends:(NSString *)extends callBack:(void (^)(NSString *rtcToken))callBack;
+- (void)onMic:(BOOL)mic camera:(BOOL)camera extends:(nullable NSDictionary *)extends callBack:(nullable void (^)(NSString *_Nullable rtcToken))callBack;
 
 //下麦
-- (void)downMicCallBack:(void (^)(QNMicLinker *mic))callBack;
+- (void)downMicCallBack:(nullable void (^)(QNMicLinker *mic))callBack;
 
 //获取用户麦位状态
-- (void)getMicStatus:(NSString *)uid type:(NSString *)type callBack:(void (^)(void))callBack;
+- (void)getMicStatus:(NSString *)uid type:(NSString *)type callBack:(nullable void (^)(void))callBack;
 
 //踢人
-- (void)kickOutUser:(NSString *)uid callBack:(void (^)(QNMicLinker *mic))callBack;
+- (void)kickOutUser:(NSString *)uid msg:(nullable NSString *)msg callBack:(nullable void (^)(QNMicLinker * _Nullable))callBack ;
 
 //开关麦 type:mic/camera  flag:on/off
-- (void)updateMicStatus:(NSString *)uid type:(NSString *)type flag:(BOOL)flag callBack:(void (^)(QNMicLinker *mic))callBack;
+- (void)updateMicStatus:(NSString *)uid type:(NSString *)type flag:(BOOL)flag callBack:(nullable void (^)(QNMicLinker *mic))callBack;
 
 //更新扩展字段
-- (void)updateExtension:(NSString *)extension callBack:(void (^)(QNMicLinker *mic))callBack;
-
-//添加连麦监听
-- (void)addMicLinkerListener:(id<MicLinkerListener>)listener;
-
-//移除连麦监听
-- (void)removeMicLinkerListener:(id<MicLinkerListener>)listener;
+- (void)updateExtension:(NSString *)extension callBack:(nullable void (^)(QNMicLinker *mic))callBack;
 
 //获取连麦邀请处理器
 - (QNLinkMicInvitationHandler *)getLinkMicInvitationHandler;

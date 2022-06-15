@@ -22,7 +22,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, copy)NSString *total_count;
 @property (nonatomic, assign)QNLiveRoomStatus live_status;
 @property (nonatomic, copy)NSString *title;
-@property (nonatomic, strong)NSDictionary *extends;
+@property (nonatomic, strong)NSDictionary *extension;
 @property (nonatomic, strong)QNLiveUser *anchor_info;
 @property (nonatomic, copy)NSString *room_token;
 @property (nonatomic, copy)NSString *pk_id;

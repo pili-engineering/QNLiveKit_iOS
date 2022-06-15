@@ -22,19 +22,25 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface QNLivePullClient : QNLiveRoomClient
 
+@property (nonatomic, weak) id <QNPullClientListener> pullClientListener;
+
 /// 创建实例
 + (instancetype)createLivePullClient;
+- (void)destroy;
 
-/// 拉流监听
-/// @param listener listener
-- (void)setPullClientListener:(id<QNPullClientListener>)listener;
+/// 观众加入直播
+/// @param callBack 回调
+- (void)joinRoom:(NSString *)roomID callBack:(nullable void (^)(QNLiveRoomInfo *_Nullable roomInfo))callBack;
 
-/// 绑定播放器
-/// @param player description
-- (void)setPullPreview:(PLPlayer *)player;
+/// 离开直播
+/// @param callBack 回调
+- (void)leaveRoom:(NSString *)roomID callBack:(nullable void (^)(void))callBack;
 
-/// 获取播放器
-- (PLPlayer *)getPullPreview;
+//开始播放直播
+- (void)play:(UIView *)view;
+
+//停止播放
+- (void)stopPlay;
 
 @end
 

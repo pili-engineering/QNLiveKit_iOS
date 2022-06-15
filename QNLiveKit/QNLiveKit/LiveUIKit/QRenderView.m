@@ -5,9 +5,9 @@
 //  Created by 郭茜 on 2022/6/7.
 //
 
-#import "RemoteUserVIew.h"
+#import "QRenderView.h"
 
-@implementation RemoteUserVIew
+@implementation QRenderView
 
 /*
 // Only override drawRect: if you perform custom drawing.

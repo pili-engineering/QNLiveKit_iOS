@@ -12,7 +12,6 @@
 
 @interface QNLiveRoomClient ()<QNRoomLifeCycleListener>
 @property (nonatomic, copy) NSString *liveId;
-@property (nonatomic, weak) id <QNRoomLifeCycleListener> roomLifeCycleListener;
 @end
 
 @implementation QNLiveRoomClient
@@ -22,95 +21,6 @@
         self.liveId = liveId;
     }
     return self;
-}
-
-- (void)addRoomLifeCycleListener:(id<QNRoomLifeCycleListener>)lifeCycleListener {
-    self.roomLifeCycleListener = lifeCycleListener;
-}
-
-- (void)removeRoomLifeCycleListener:(id<QNRoomLifeCycleListener>)lifeCycleListener {
-    self.roomLifeCycleListener = nil;
-}
-
-//开始直播
-- (void)startLive:(void (^)(QNLiveRoomInfo * _Nonnull))callBack {
-    
-    NSString *action = [NSString stringWithFormat:@"client/live/room/%@",self.liveId];
-    [QNLiveNetworkUtil putRequestWithAction:action params:@{} success:^(NSDictionary * _Nonnull responseData) {
-        
-        QNLiveRoomInfo *model = [QNLiveRoomInfo mj_objectWithKeyValues:responseData];
-
-        if ([self.roomLifeCycleListener respondsToSelector:@selector(onRoomJoined:)]) {
-            [self.roomLifeCycleListener onRoomJoined:model];
-        }
-        
-        callBack(model);
-        
-        } failure:^(NSError * _Nonnull error) {
-            callBack(nil);
-        }];
-}
-
-//加入直播
-- (void)joinRoom:(void (^)(QNLiveRoomInfo * _Nonnull))callBack {
-    
-    NSString *action = [NSString stringWithFormat:@"client/live/room/user/%@",self.liveId];
-    [QNLiveNetworkUtil postRequestWithAction:action params:@{} success:^(NSDictionary * _Nonnull responseData) {
-        
-        QNLiveRoomInfo *model = [QNLiveRoomInfo mj_objectWithKeyValues:responseData];
-        
-        if ([self.roomLifeCycleListener respondsToSelector:@selector(onRoomJoined:)]) {
-            [self.roomLifeCycleListener onRoomJoined:model];
-        }
-        callBack(model);
-        
-        } failure:^(NSError * _Nonnull error) {
-            callBack(nil);
-        }];
-}
-
-//离开直播
-- (void)leaveRoom:(void (^)(void))callBack {
-    
-    NSString *action = [NSString stringWithFormat:@"client//live/room/user/%@",self.liveId];
-    [QNLiveNetworkUtil deleteRequestWithAction:action params:nil success:^(NSDictionary * _Nonnull responseData) {
-        
-        if ([self.roomLifeCycleListener respondsToSelector:@selector(onRoomLeave:)]) {
-            [self.roomLifeCycleListener onRoomLeave:[self selfUser]];
-        }
-        
-        callBack();
-        } failure:^(NSError * _Nonnull error) {
-            callBack();
-        }];
-}
-
-//停止直播
-- (void)closeRoom:(void (^)(void))callBack {
-    
-    NSString *action = [NSString stringWithFormat:@"client//live/room/%@",self.liveId];
-    [QNLiveNetworkUtil deleteRequestWithAction:action params:@{} success:^(NSDictionary * _Nonnull responseData) {
-        
-        if ([self.roomLifeCycleListener respondsToSelector:@selector(onRoomClose)]) {
-            [self.roomLifeCycleListener onRoomClose];
-        }
-        
-        callBack();
-        } failure:^(NSError * _Nonnull error) {
-            callBack();
-        }];
-}
-
-//获取房间详情
-- (void)getRoomInfo:(void (^)(QNLiveRoomInfo * _Nonnull))callBack {
-    
-    NSString *action = [NSString stringWithFormat:@"client/live/room/info/%@",self.liveId];
-    [QNLiveNetworkUtil getRequestWithAction:action params:nil success:^(NSDictionary * _Nonnull responseData) {
-        QNLiveRoomInfo *model = [QNLiveRoomInfo mj_objectWithKeyValues:responseData];
-        callBack(model);
-        } failure:^(NSError * _Nonnull error) {
-            callBack(nil);
-        }];
 }
 
 //获取房间所有用户
@@ -128,8 +38,6 @@
 //房间心跳
 - (void)roomHeartBeart {
     
-    __weak typeof(self) weakSelf = self;
-
     NSString *action = [NSString stringWithFormat:@"client/live/room/heartbeat/%@",self.liveId];
     [QNLiveNetworkUtil getRequestWithAction:action params:nil success:^(NSDictionary * _Nonnull responseData) {
         

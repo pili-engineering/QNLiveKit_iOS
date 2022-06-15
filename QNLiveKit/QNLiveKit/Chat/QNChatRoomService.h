@@ -65,6 +65,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 //收到开始跨房信令
 - (void)onReceiveStartPKSession:(QNPKSession *)pkSession;
+//收到停止跨房信令
 - (void)onReceiveStopPKSession:(QNPKSession *)pkSession;
 - (void)messageStatus:(QNIMMessageObject *)message error:(QNIMError *)error;
 

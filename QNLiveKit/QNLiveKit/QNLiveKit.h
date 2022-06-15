@@ -14,13 +14,12 @@ FOUNDATION_EXPORT double QNLiveKitVersionNumber;
 FOUNDATION_EXPORT const unsigned char QNLiveKitVersionString[];
 
 #import "QNCreateRoomParam.h"
-#import "QNDeleteRoomParam.h"
 #import "QNLiveRoomInfo.h"
 #import "QNLiveUser.h"
 #import "QNCameraParams.h"
 #import "QNMicrophoneParams.h"
 #import "Extension.h"
-#import "QNLiveRoomEngine.h"
+#import "QLive.h"
 #import "QNLiveService.h"
 #import "QNLiveRoomClient.h"
 #import "QNLivePushClient.h"
@@ -53,6 +52,7 @@ FOUNDATION_EXPORT const unsigned char QNLiveKitVersionString[];
 #import "QNMixStreamManager.h"
 #import "QNMergeOption.h"
 #import "QNAudienceController.h"
+#import "QRooms.h"
 
 // In this header, you should import all the public headers of your framework using statements like #import <QNLiveKit/PublicHeader.h>
 

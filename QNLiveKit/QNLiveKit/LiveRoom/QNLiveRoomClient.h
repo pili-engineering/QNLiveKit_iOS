@@ -36,36 +36,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface QNLiveRoomClient : NSObject
 
-//初始化
-- (instancetype)initWithLiveId:(NSString *)liveId;
-
-/// 添加房间生命周期监听
-/// @param lifeCycleListener listener
-- (void)addRoomLifeCycleListener:(id<QNRoomLifeCycleListener>)lifeCycleListener;
-
-/// 移除房间生命周期监听
-/// @param lifeCycleListener listener
-- (void)removeRoomLifeCycleListener:(id<QNRoomLifeCycleListener>)lifeCycleListener;
-
-/// 主播开始直播
-/// @param callBack 回调
-- (void)startLive:(void (^)(QNLiveRoomInfo * roomInfo))callBack;
-
-/// 观众加入直播
-/// @param callBack 回调
-- (void)joinRoom:(void (^)(QNLiveRoomInfo * roomInfo))callBack;
-
-/// 离开直播
-/// @param callBack 回调
-- (void)leaveRoom:(void (^)(void))callBack;
-
-/// 停止直播
-/// @param callBack 回调
-- (void)closeRoom:(void (^)(void))callBack;
-
-/// 查询房间信息
-/// @param callBack 回调房间信息
-- (void)getRoomInfo:(void (^)(QNLiveRoomInfo *roomInfo))callBack;
+@property (nonatomic, weak) id <QNRoomLifeCycleListener> roomLifeCycleListener;
 
 /// 获取房间所有用户
 /// @param pageNumber 页数

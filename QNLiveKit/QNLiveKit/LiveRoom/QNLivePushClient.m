@@ -9,11 +9,12 @@
 #import "QNMixStreamManager.h"
 #import "QNLiveRoomInfo.h"
 #import "QNMergeOption.h"
-#import "RemoteUserVIew.h"
+#import "QRenderView.h"
+#import "QNLiveNetworkUtil.h"
+#import "QNLiveUser.h"
+#import "QNLiveRoomInfo.h"
 
 @interface QNLivePushClient ()<QNRTCClientDelegate>
-
-@property (nonatomic, weak) id <QNPushClientListener> pushClientListener;
 
 @property (nonatomic, strong) QNMixStreamManager *mixManager;
 
@@ -27,35 +28,64 @@
 
 @implementation QNLivePushClient
 
-- (void)deinit {
+- (void)destroy {
     [QNRTC deinit];
 }
 
-- (instancetype)initWithRoomInfo:(QNLiveRoomInfo *)roomInfo {
-    if (self = [super init]) {
-        self.roomInfo = roomInfo;
+//创建主播端
++ (instancetype)createPushClient {
+    static QNLivePushClient *pushClient;
+    static dispatch_once_t onceToken;
+    dispatch_once(&onceToken,^{
+        pushClient = [[QNLivePushClient alloc]init];
         [QNRTC initRTC:[QNRTCConfiguration defaultConfiguration]];
         QNClientConfig *config = [[QNClientConfig alloc]initWithMode:QNClientModeLive];
-        self.rtcClient = [QNRTC createRTCClient:config];
-        self.rtcClient.delegate = self;
-    }
-    return self;    
+        pushClient.rtcClient = [QNRTC createRTCClient:config];
+        [pushClient.rtcClient setClientRole:QNClientRoleBroadcaster completeCallback:nil];
+        pushClient.rtcClient.delegate = pushClient;
+    });
+    return pushClient;
 }
 
-- (instancetype)init {
-    if (self = [super init]) {
-        [QNRTC initRTC:[QNRTCConfiguration defaultConfiguration]];
-        QNClientConfig *config = [[QNClientConfig alloc]initWithMode:QNClientModeLive];
-        self.rtcClient = [QNRTC createRTCClient:config];
-        self.rtcClient.delegate = self;
-    }
-    return self;
+/// 主播开始直播
+/// @param callBack 回调
+- (void)startLive:(NSString *)roomID callBack:(nullable void (^)(QNLiveRoomInfo * _Nullable))callBack {
+    
+    NSString *action = [NSString stringWithFormat:@"client/live/room/%@",roomID];
+    [QNLiveNetworkUtil putRequestWithAction:action params:@{} success:^(NSDictionary * _Nonnull responseData) {
+        
+        QNLiveRoomInfo *model = [QNLiveRoomInfo mj_objectWithKeyValues:responseData];
+
+        if ([self.roomLifeCycleListener respondsToSelector:@selector(onRoomJoined:)]) {
+            [self.roomLifeCycleListener onRoomJoined:model];
+        }
+        [self.rtcClient join:model.room_token];
+        callBack(model);
+        
+        } failure:^(NSError * _Nonnull error) {
+            callBack(nil);
+        }];
+}
+
+/// 停止直播
+/// @param callBack 回调
+- (void)closeRoom:(NSString *)roomID callBack:(void (^)(void))callBack {
+    
+    NSString *action = [NSString stringWithFormat:@"client//live/room/%@",roomID];
+    [QNLiveNetworkUtil deleteRequestWithAction:action params:@{} success:^(NSDictionary * _Nonnull responseData) {
+        
+        if ([self.roomLifeCycleListener respondsToSelector:@selector(onRoomClose)]) {
+            [self.roomLifeCycleListener onRoomClose];
+        }
+        
+        callBack();
+        } failure:^(NSError * _Nonnull error) {
+            callBack();
+        }];
 }
 
 //加入直播
-- (void)joinLive:(NSString *)token {
-    
-    [self.rtcClient setClientRole:QNClientRoleBroadcaster completeCallback:nil];
+- (void)joinLive:(NSString *)token {    
     [self.rtcClient join:token];
 }
 
@@ -64,37 +94,26 @@
 }
 
 /// 启动视频采集
-- (void)enableCamera {
+- (void)enableCamera:(nullable QNCameraParams *)cameraParams renderView:(nullable QRenderView *)renderView {
+    if (cameraParams) {
+        CGSize videoEncodeSize = CGSizeMake(cameraParams.width?:720, cameraParams.height?:1280);
+        QNVideoEncoderConfig *config = [[QNVideoEncoderConfig alloc] initWithBitrate:cameraParams.bitrate?:400*1000 videoEncodeSize:videoEncodeSize videoFrameRate:cameraParams.fps?:15];
+        QNCameraVideoTrackConfig * cameraConfig = [[QNCameraVideoTrackConfig alloc] initWithSourceTag:cameraParams.tag?:@"camera" config:config multiStreamEnable:NO];
+        self.localVideoTrack = [QNRTC createCameraVideoTrackWithConfig:cameraConfig];
+        self.localVideoTrack.videoFrameRate = cameraParams.fps;
+    }
+
     [self.localVideoTrack startCapture];
+    [self.localVideoTrack play:renderView];
+    
     if ([self.pushClientListener respondsToSelector:@selector(onCameraStatusChange:)]) {
         [self.pushClientListener onCameraStatusChange:YES];
     }
 }
 
-/// 关闭视频采集
-- (void)disableCamera {
-    [self.localVideoTrack stopCapture];
-    if ([self.pushClientListener respondsToSelector:@selector(onCameraStatusChange:)]) {
-        [self.pushClientListener onCameraStatusChange:NO];
-    }
-}
 
-//本地视频轨道参数
-- (void)setCameraParams:(QNCameraParams *)params {
-    CGSize videoEncodeSize = CGSizeMake(params.width, params.height);
+- (void)enableMicrophone:(nullable QNMicrophoneParams *)microphoneParams {
     
-    QNVideoEncoderConfig *config = [[QNVideoEncoderConfig alloc] initWithBitrate:params.bitrate videoEncodeSize:videoEncodeSize videoFrameRate:params.fps];
-    QNCameraVideoTrackConfig * cameraConfig = [[QNCameraVideoTrackConfig alloc] initWithSourceTag:params.tag config:config multiStreamEnable:NO];
-    self.localVideoTrack = [QNRTC createCameraVideoTrackWithConfig:cameraConfig];
-    self.localVideoTrack.videoFrameRate = params.fps;
-    self.localVideoTrack.previewMirrorFrontFacing = NO;
-    [self.localVideoTrack startCapture];
-//    self.localVideoTrack.fillMode = QNVideoFillModePreserveAspectRatio;
-}
-
-//本地音频轨道参数
-- (void)setMicrophoneParams:(QNMicrophoneParams *)params {
-    [self.localAudioTrack setVolume:params.volume];
 }
 
 /// 切换摄像头
@@ -102,13 +121,8 @@
     [self.localVideoTrack switchCamera];
 }
 
-/// 设置本地预览
-- (void)setLocalPreView:(RemoteUserVIew *)view {
-    [self.localVideoTrack play:view];
-}
-
 /// 是否禁止本地摄像头推流
-- (void)muteLocalCamera:(BOOL)muted {
+- (void)muteCamera:(BOOL)muted {
     [self.localVideoTrack updateMute:muted];
     if ([self.pushClientListener respondsToSelector:@selector(onCameraStatusChange:)]) {
         [self.pushClientListener onCameraStatusChange:!muted];
@@ -116,7 +130,7 @@
 }
 
 /// 是否禁止本地麦克风推流
-- (void)muteLocalMicrophone:(BOOL)muted{
+- (void)muteMicrophone:(BOOL)muted{
     [self.localAudioTrack updateMute:muted];
     if ([self.pushClientListener respondsToSelector:@selector(onMicrophoneStatusChange:)]) {
         [self.pushClientListener onMicrophoneStatusChange:!muted];
@@ -128,11 +142,12 @@
 }
 
 //发布tracks
-- (void)publishCameraAndMicrophone:(void (^)(BOOL, NSError * _Nonnull))callBack {
+- (void)publishCameraAndMicrophone {
     
     __weak typeof(self)weakSelf = self;
 
     [self.rtcClient publish:@[self.localAudioTrack,self.localVideoTrack] completeCallback:^(BOOL onPublished, NSError *error) {
+        
         if (weakSelf.option) {
             [weakSelf.mixManager updateUserAudioMergeOptions:QN_User_id trackId:self.localAudioTrack.trackID isNeed:YES];
             CameraMergeOption *option = [CameraMergeOption new];
@@ -140,26 +155,20 @@
             option.mZ = 0;
             [self.mixManager updateUserVideoMergeOptions:QN_User_id trackId:self.localVideoTrack.trackID option:option];
         }
-        callBack(onPublished,error);
     }];
 }
 
-//取消发布tracks
-- (void)unpublish:(NSArray<QNLocalTrack *> *)tracks {
-    [self.rtcClient unpublish:tracks];
+/// 设置音频帧回调
+/// @param listener listener
+- (void)setAudioFrameListener:(id<QNLocalAudioTrackDelegate>)listener {
+    self.localAudioTrack.delegate = listener;
 }
 
-- (void)addPushClientListener:(id<QNPushClientListener>)listener {
-    self.pushClientListener = listener;
+/// 设置视频帧回调
+/// @param listener listener
+- (void)setVideoFrameListener:(id<QNLocalVideoTrackDelegate>)listener {
+    self.localVideoTrack.delegate = listener;
 }
-
-//- (void)addAudioFrameListener:(id<QNMicrophoneAudioTrackDataDelegate>)listener {
-//    self.localAudioTrack.audioDelegate = listener;
-//}
-
-//- (void)addVideoFrameListener:(id<QNCameraTrackVideoDataDelegate>)listener {
-//    self.localVideoTrack.videoDelegate = listener;
-//}
 
 - (void)beginMixStream:(QNMergeOption *)option {
     self.option = option;
@@ -186,6 +195,10 @@
     if ([self.pushClientListener respondsToSelector:@selector(onConnectionRoomStateChanged:)]) {
             [self.pushClientListener onConnectionRoomStateChanged:state];
         }
+    
+    if (state == QNConnectionStateConnected) {
+        [self publishCameraAndMicrophone];
+    }
        
 }
 
@@ -271,15 +284,10 @@
 //本地视频轨道默认参数
 - (QNCameraVideoTrack *)localVideoTrack {
     if (!_localVideoTrack) {
-        CGSize videoEncodeSize = CGSizeMake(720, 1280);
-        
+        CGSize videoEncodeSize = CGSizeMake(720, 1280);        
         QNVideoEncoderConfig *config = [[QNVideoEncoderConfig alloc] initWithBitrate:400*1000 videoEncodeSize:videoEncodeSize videoFrameRate:15];
         QNCameraVideoTrackConfig * cameraConfig = [[QNCameraVideoTrackConfig alloc] initWithSourceTag:@"camera" config:config multiStreamEnable:NO];
-        
         _localVideoTrack = [QNRTC createCameraVideoTrackWithConfig:cameraConfig];
-        _localVideoTrack.videoFrameRate = 15;
-        _localVideoTrack.previewMirrorFrontFacing = NO;
-        [_localVideoTrack startCapture];
     }
     return _localVideoTrack;
 }

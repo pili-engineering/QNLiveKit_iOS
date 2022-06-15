@@ -17,7 +17,7 @@
 #import "QNLiveRoomInfo.h"
 #import "QNMergeOption.h"
 #import "QNPKService.h"
-#import "RemoteUserVIew.h"
+#import "QRenderView.h"
 
 @interface QNBaseRTCController ()
 
@@ -26,9 +26,7 @@
 @implementation QNBaseRTCController
 
 - (void)viewWillDisappear:(BOOL)animated {
-    [self.pushClient deinit];
-    self.pushClient = nil;
-    self.roomClient = nil;
+
     self.chatService = nil;
     self.pkService = nil;
     self.linkService = nil;
@@ -48,17 +46,9 @@
     self.renderBackgroundView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, SCREEN_W, SCREEN_H)];
     [self.view insertSubview:self.renderBackgroundView atIndex:1];
     
-    self.preview = [[RemoteUserVIew alloc] init];
+    self.preview = [[QRenderView alloc] init];
     self.preview.frame = CGRectMake(0, 0, SCREEN_W, SCREEN_H);
     [self.renderBackgroundView addSubview:self.preview];
-}
-
-- (QNLivePushClient *)pushClient {
-    if (!_pushClient) {
-        _pushClient = [[QNLivePushClient alloc]initWithRoomInfo:self.roomInfo];
-        
-    }
-    return _pushClient;
 }
 
 - (QNLinkMicService *)linkService {
@@ -66,13 +56,6 @@
         _linkService = [[QNLinkMicService alloc] initWithLiveId:self.roomInfo.live_id];
     }
     return _linkService;
-}
-
-- (QNLiveRoomClient *)roomClient {
-    if (!_roomClient) {
-        _roomClient = [[QNLiveRoomClient alloc]initWithLiveId:self.roomInfo.live_id];
-    }
-    return _roomClient;
 }
 
 - (LiveChatRoom *)chatRoomView {

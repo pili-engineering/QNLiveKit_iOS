@@ -11,7 +11,7 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-@class QNCameraParams,QNMicrophoneParams,QNLiveRoomInfo,QNMergeOption,CameraMergeOption,QNRemoteAudioTrack,RemoteUserVIew;
+@class QNCameraParams,QNMicrophoneParams,QNLiveRoomInfo,QNMergeOption,CameraMergeOption,QNRemoteAudioTrack,QRenderView;
 
 @protocol QNPushClientListener <NSObject>
 
@@ -56,63 +56,50 @@ NS_ASSUME_NONNULL_BEGIN
 
 @property (nonatomic, strong) QNRTCClient *rtcClient;
 
+@property (nonatomic, weak) id <QNPushClientListener> pushClientListener;
+
 @property (nonatomic, strong) QNMicrophoneAudioTrack *localAudioTrack;
 @property (nonatomic, strong) QNCameraVideoTrack *localVideoTrack;
 
 @property (nonatomic, strong) NSMutableArray <QNRemoteVideoTrack *> *remoteCameraTracks;
 @property (nonatomic, strong) NSMutableArray <QNRemoteAudioTrack *> *remoteAudioTracks;
 
-- (void)deinit;
-- (instancetype)initWithRoomInfo:(QNLiveRoomInfo *)roomInfo;
++ (instancetype)createPushClient;
+- (void)destroy;
 
-//加入直播
+/// 主播开始直播
+/// @param callBack 回调
+- (void)startLive:(NSString *)roomID callBack:(nullable void (^)(QNLiveRoomInfo *_Nullable roomInfo))callBack;
+
+/// 停止直播
+/// @param callBack 回调
+- (void)closeRoom:(NSString *)roomID callBack:(nullable void (^)(void))callBack;
+
 - (void)joinLive:(NSString *)token;
-
 - (void)LeaveLive;
+
 /// 启动视频采集
-- (void)enableCamera;
-
-/// 关闭视频采集
-- (void)disableCamera;
-
-//本地视频轨道参数
-- (void)setCameraParams:(QNCameraParams *)params;
-
-//本地音频轨道参数
-- (void)setMicrophoneParams:(QNMicrophoneParams *)params;
+- (void)enableCamera:(nullable QNCameraParams *)cameraParams renderView:(nullable QRenderView *)renderView;
+- (void)enableMicrophone:(nullable QNMicrophoneParams *)microphoneParams;
 
 /// 切换摄像头
 - (void)switchCamera;
 
-/// 设置本地预览
-/// @param view view
-- (void)setLocalPreView:(RemoteUserVIew *)view;
-
 /// 是否禁止本地摄像头推流
 /// @param muted muted
-- (void)muteLocalCamera:(BOOL)muted;
+- (void)muteCamera:(BOOL)muted;
 
 /// 是否禁止本地麦克风推流
 /// @param muted muted
-- (void)muteLocalMicrophone:(BOOL)muted;
-
-//发布音频和视频tracks
-- (void)publishCameraAndMicrophone:(void (^)(BOOL onPublished, NSError *error))callBack;
-
-//取消发布tracks
-- (void)unpublish:(NSArray<QNLocalTrack *> *)tracks;
-
-/// 设置连接状态回调
-/// @param listener 回调
-- (void)addPushClientListener:(id<QNPushClientListener>)listener;
+- (void)muteMicrophone:(BOOL)muted;
 
 /// 设置音频帧回调
 /// @param listener listener
-//- (void)addAudioFrameListener:(id<QNMicrophoneAudioTrackDataDelegate>)listener;
+- (void)setAudioFrameListener:(id<QNLocalAudioTrackDelegate>)listener;
 
 /// 设置视频帧回调
 /// @param listener listener
-//- (void)addVideoFrameListener:(id<QNCameraTrackVideoDataDelegate>)listener;
+- (void)setVideoFrameListener:(id<QNLocalVideoTrackDelegate>)listener;
 
 - (void)beginMixStream:(QNMergeOption *)option;
 

@@ -10,7 +10,7 @@
 
 @interface QNCreateLiveController ()
 @property (nonatomic, strong) UITextField *titleTf;
-@property (nonatomic, strong) RemoteUserVIew *preview;//自己画面的预览视图
+@property (nonatomic, strong) QRenderView *preview;//自己画面的预览视图
 @property (nonatomic, strong) QNLivePushClient *pushClient;
 
 @end
@@ -27,7 +27,7 @@
     bg.frame = self.view.frame;
     [self.view addSubview:bg];
     
-    self.preview = [[RemoteUserVIew alloc] init];
+    self.preview = [[QRenderView alloc] init];
     self.preview.frame = self.view.frame;
     [bg addSubview:self.preview];
 
@@ -87,7 +87,7 @@
 //    params.cover_url = @"";
 //    params.extension = @"";
     
-    [QNLiveRoomEngine createRoom:params callBack:^(QNLiveRoomInfo * _Nonnull roomInfo) {
+    [[QLive getRooms] createRoom:params callBack:^(QNLiveRoomInfo * _Nonnull roomInfo) {
         [self.pushClient enableCamera];
         QNLiveController *vc = [QNLiveController new];
         vc.roomInfo = roomInfo;

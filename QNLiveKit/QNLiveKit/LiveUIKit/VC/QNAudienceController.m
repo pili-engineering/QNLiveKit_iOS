@@ -15,7 +15,7 @@
 #import "QNLiveRoomClient.h"
 #import <PLPlayerKit/PLPlayerKit.h>
 #import "LinkStateSlot.h"
-#import "RemoteUserVIew.h"
+#import "QRenderView.h"
 
 
 @interface QNAudienceController ()<QNChatRoomServiceListener,QNPushClientListener,
@@ -26,25 +26,23 @@ PLPlayerDelegate
 @property (nonatomic, strong) OnlineUserSlot *onlineUserSlot;
 @property (nonatomic, strong) BottomMenuSlot *bottomMenuSlot;
 @property (nonatomic, strong) LinkStateSlot *linkSLot;
-@property (nonatomic, strong) PLPlayer *player;
+@property (nonatomic, strong) UIView *playView;
 @end
 
 @implementation QNAudienceController
 
 - (void)viewDidDisappear:(BOOL)animated {
-    [self.roomClient leaveRoom:^{
-    }];
+    [[QLive createPlayerClient] leaveRoom:self.roomInfo.live_id callBack:nil];
 }
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     __weak typeof(self)weakSelf = self;
-
     [self.chatService addChatServiceListener:self];
     
-    [self.roomClient joinRoom:^(QNLiveRoomInfo * _Nonnull roomInfo) {
+    [[QLive createPlayerClient] joinRoom:self.roomInfo.live_id callBack:^(QNLiveRoomInfo * _Nonnull roomInfo) {
         weakSelf.roomInfo = roomInfo;
-        [weakSelf playWithUrlStr:roomInfo.rtmp_url];
+        [[QLive createPlayerClient] play:self.playView];
         [weakSelf updateRoomInfo];
     }];
     
@@ -53,6 +51,7 @@ PLPlayerDelegate
     [self onlineUserSlot];
     [self bottomMenuSlot];
     [self chatService];
+    
     [self.chatService sendWelComeMsg:^(QNIMMessageObject * _Nonnull msg) {
         [weakSelf.chatRoomView showMessage:msg];
     }];
@@ -62,7 +61,7 @@ PLPlayerDelegate
 - (void)updateRoomInfo {
     __weak typeof(self)weakSelf = self;
     dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(3 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-        [weakSelf.roomClient getRoomInfo:^(QNLiveRoomInfo * _Nonnull roomInfo) {
+        [[QLive getRooms] getRoomInfo:weakSelf.roomInfo.live_id callBack:^(QNLiveRoomInfo * _Nonnull roomInfo) {
             weakSelf.roomInfo = roomInfo;
             [weakSelf.roomHostSlot updateWith:roomInfo];
             [weakSelf.onlineUserSlot updateWith:roomInfo];
@@ -80,11 +79,8 @@ PLPlayerDelegate
             self.preview.frame = CGRectMake(SCREEN_W - 120, 120, 100, 100);
             self.preview.layer.cornerRadius = 50;
             self.preview.clipsToBounds = YES;
-            [self.pushClient setLocalPreView:self.preview];
             [self popLinkSLot];
-            [self.pushClient publishCameraAndMicrophone:^(BOOL onPublished, NSError * _Nonnull error) {
-                
-            }];
+
         }
     });
    
@@ -96,7 +92,7 @@ PLPlayerDelegate
         for (QNRemoteTrack *track in tracks) {
             if (track.kind == QNTrackKindVideo) {
                 
-                RemoteUserVIew *remoteView = [[RemoteUserVIew alloc]initWithFrame:CGRectMake(0, 0, SCREEN_W, SCREEN_H)];
+                QRenderView *remoteView = [[QRenderView alloc]initWithFrame:CGRectMake(0, 0, SCREEN_W, SCREEN_H)];
                 remoteView.userId = userID;
                 remoteView.trackId = track.trackID;
                 [self.renderBackgroundView insertSubview:remoteView atIndex:0];
@@ -122,39 +118,18 @@ PLPlayerDelegate
 //连麦邀请被接受
 - (void)onReceiveLinkInvitationAccept:(QNInvitationModel *)model {
     __weak typeof(self)weakSelf = self;
-    [self.pushClient addPushClientListener:self];
+    [QLive createPusherClient].pushClientListener = self;
     [self.linkService onMic:YES camera:YES extends:@"" callBack:^(NSString * _Nonnull rtcToken) {
-        [weakSelf.pushClient joinLive:rtcToken];
+        [[QLive createPusherClient] joinLive:rtcToken];
+        [[QLive createPusherClient] enableCamera:nil renderView:self.preview];
         [weakSelf.chatService sendOnMicMsg];
     }];
       
-    [self.player stop];
-    [self.player.playerView  removeFromSuperview];
+    [[QLive createPlayerClient] stopPlay];
     
 }
 
-- (void)playWithUrlStr:(NSString *)urlStr {
-    
-    NSURL *url = [NSURL URLWithString:urlStr];
-    
-    PLPlayerOption *option = [PLPlayerOption defaultOption];
-    PLPlayFormat format = kPLPLAY_FORMAT_UnKnown;
-    
-    [option setOptionValue:@(format) forKey:PLPlayerOptionKeyVideoPreferFormat];
-    [option setOptionValue:@(kPLLogNone) forKey:PLPlayerOptionKeyLogLevel];
-    
-    self.player = [PLPlayer playerWithURL:url option:option];
-    [self.view insertSubview:self.player.playerView atIndex:2];
-    [self.player.playerView mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.edges.equalTo(self.view).insets(UIEdgeInsetsMake(0, 0, 0, 0));
-    }];
-    
-    self.player.delegateQueue = dispatch_get_main_queue();
-    self.player.delegate = self;
-    
-    [self.player play];
-    
-}
+
 
 - (RoomHostSlot *)roomHostSlot {
     if (!_roomHostSlot) {
@@ -230,16 +205,16 @@ PLPlayerDelegate
     [_linkSLot createDefaultView:CGRectMake(0, SCREEN_H - 230, SCREEN_W, 230) onView:self.view];
     __weak typeof(self)weakSelf = self;
     _linkSLot.microphoneBlock = ^(BOOL mute) {
-        [weakSelf.pushClient muteLocalMicrophone:mute];
+        [[QLive createPusherClient] muteMicrophone:mute];
     };
     _linkSLot.cameraBlock = ^(BOOL mute) {
-        [weakSelf.pushClient muteLocalCamera:mute];
+        [[QLive createPusherClient] muteCamera:mute];
     };
     _linkSLot.clickBlock = ^(BOOL selected){
-        [weakSelf.pushClient LeaveLive];
+        [[QLive createPusherClient] LeaveLive];
         weakSelf.preview.frame = CGRectZero;
-        for (RemoteUserVIew *userView in weakSelf.renderBackgroundView.subviews) {
-            if ([userView.class isEqual:[RemoteUserVIew class]]) {
+        for (QRenderView *userView in weakSelf.renderBackgroundView.subviews) {
+            if ([userView.class isEqual:[QRenderView class]]) {
                 [userView removeFromSuperview];
             }
         }
@@ -247,9 +222,17 @@ PLPlayerDelegate
                     
         }];
         [weakSelf.chatService sendDownMicMsg];
-        [weakSelf playWithUrlStr:weakSelf.roomInfo.rtmp_url];
+        [[QLive createPlayerClient] play:weakSelf.playView];
         NSLog(@"点击了结束连麦");
     };
+}
+
+- (UIView *)playView {
+    if (!_playView) {
+        _playView = [[UIView alloc]initWithFrame:self.view.frame];
+        [self.view insertSubview:_playView atIndex:2];
+    }
+    return _playView;
 }
 
 @end

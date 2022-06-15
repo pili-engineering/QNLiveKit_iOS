@@ -43,7 +43,7 @@
 
 //请求直播房间列表
 - (void)requestData {
-    [QNLiveRoomEngine listRoomWithPageNumber:1 pageSize:20 callBack:^(NSArray<QNLiveRoomInfo *> * _Nonnull list) {
+    [[QLive getRooms] listRoom:1 pageSize:20 callBack:^(NSArray<QNLiveRoomInfo *> * _Nonnull list) {
         self.rooms = list;
         [self.collectionView reloadData];
     }];

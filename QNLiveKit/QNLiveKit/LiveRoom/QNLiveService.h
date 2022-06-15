@@ -9,13 +9,10 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-@class QNLiveRoomClient;
 
 @interface QNLiveService : NSObject
 
 @property (nonatomic, copy)NSString *liveId;
-
-- (void)attachRoomClient:(QNLiveRoomClient *)client;
 
 @end
 

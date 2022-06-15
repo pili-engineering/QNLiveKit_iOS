@@ -46,7 +46,7 @@ NSInteger const Interval = 8;
 }
 
 
-+ (void)getRequestWithAction:(NSString *)action params:(NSDictionary *)params success:(SuccessBlock)success failure:(FailureBlock)failure {
++ (void)getRequestWithAction:(NSString *)action params:(nullable NSDictionary *)params success:(SuccessBlock)success failure:(FailureBlock)failure {
         
     NSString *requestUrl = [[NSString alloc]initWithFormat:MAINAPI,action];
     AFHTTPSessionManager *manager = [QNLiveNetworkUtil manager];
@@ -102,7 +102,7 @@ NSInteger const Interval = 8;
 //    [task resume];
 }
 
-+ (void)postRequestWithAction:(NSString *)action params:(NSDictionary *)params success:(SuccessBlock)success failure:(FailureBlock)failure {
++ (void)postRequestWithAction:(NSString *)action params:(nullable NSDictionary *)params success:(SuccessBlock)success failure:(FailureBlock)failure {
     
     AFHTTPSessionManager *manager = [QNLiveNetworkUtil manager];
     NSString *requestUrl = [[NSString alloc]initWithFormat:MAINAPI,action];
@@ -163,7 +163,7 @@ NSInteger const Interval = 8;
 //    [task resume];
 }
 
-+ (void)deleteRequestWithAction:(NSString *)action params:(NSDictionary *)params success:(SuccessBlock)success failure:(FailureBlock)failure {
++ (void)deleteRequestWithAction:(NSString *)action params:(nullable NSDictionary *)params success:(SuccessBlock)success failure:(FailureBlock)failure {
     
     AFHTTPSessionManager *manager = [QNLiveNetworkUtil manager];
     NSString *requestUrl = [[NSString alloc]initWithFormat:MAINAPI,action];
@@ -184,7 +184,7 @@ NSInteger const Interval = 8;
     }];
 }
 
-+ (void)putRequestWithAction:(NSString *)action params:(NSDictionary *)params success:(SuccessBlock)success failure:(FailureBlock)failure {
++ (void)putRequestWithAction:(NSString *)action params:(nullable NSDictionary *)params success:(SuccessBlock)success failure:(FailureBlock)failure {
     
     AFHTTPSessionManager *manager = [QNLiveNetworkUtil manager];
     NSString *requestUrl = [[NSString alloc]initWithFormat:MAINAPI,action];

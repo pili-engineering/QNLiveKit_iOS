@@ -18,8 +18,8 @@
 #import "QNMergeOption.h"
 #import "QNAlertViewController.h"
 #import "QNInvitationModel.h"
-#import "RemoteUserVIew.h"
-#import "QNLiveRoomEngine.h"
+#import "QRenderView.h"
+#import "QLive.h"
 #import "QNInvitationMemberListController.h"
 #import "QNPKService.h"
 #import "LinkInvitation.h"
@@ -37,17 +37,16 @@
 @implementation QNLiveController
 
 - (void)viewDidDisappear:(BOOL)animated {
-    [self.roomClient closeRoom:^{
-    }];
+    [[QLive createPusherClient] closeRoom:self.roomInfo.live_id callBack:nil];
 }
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     __weak typeof(self)weakSelf = self;
-    [self.roomClient addRoomLifeCycleListener:self];
-    [self.pushClient addPushClientListener:self];
+    [[QLive createPusherClient] enableCamera:nil renderView:self.preview];
+    [QLive createPusherClient].pushClientListener = self;
     [self.chatService addChatServiceListener:self];
-    [self.roomClient startLive:^(QNLiveRoomInfo * _Nonnull roomInfo) {
+    [[QLive createPusherClient] startLive:self.roomInfo.live_id callBack:^(QNLiveRoomInfo * _Nonnull roomInfo) {
         self.roomInfo = roomInfo;
         [self updateRoomInfo];
     }];
@@ -65,8 +64,8 @@
 - (void)updateRoomInfo {
     __weak typeof(self)weakSelf = self;
     dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(3 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-        [weakSelf.roomClient roomHeartBeart];
-        [weakSelf.roomClient getRoomInfo:^(QNLiveRoomInfo * _Nonnull roomInfo) {
+        [[QLive createPusherClient] roomHeartBeart];
+        [[QLive getRooms] getRoomInfo:weakSelf.roomInfo.live_id callBack:^(QNLiveRoomInfo * _Nonnull roomInfo) {
             weakSelf.roomInfo = roomInfo;
             [weakSelf.roomHostSlot updateWith:roomInfo];
             [weakSelf.onlineUserSlot updateWith:roomInfo];
@@ -79,15 +78,9 @@
 - (void)onConnectionRoomStateChanged:(QNConnectionState)state {
     dispatch_async(dispatch_get_main_queue(), ^{
         if (state == QNConnectionStateConnected) {
-            [self.pushClient beginMixStream:self.option];
+            [[QLive createPusherClient] beginMixStream:self.option];
             self.preview.hidden = NO;
 
-            [self.pushClient setLocalPreView:self.preview];
-            
-            [self.pushClient publishCameraAndMicrophone:^(BOOL onPublished, NSError * _Nonnull error) {
-
-            }];
-            [self.roomClient roomHeartBeart];
         }
     });
 }
@@ -98,7 +91,7 @@
         for (QNRemoteTrack *track in tracks) {
             if (track.kind == QNTrackKindVideo) {
                 QNRemoteVideoTrack *videoTrack = (QNRemoteVideoTrack *)track;
-                RemoteUserVIew *remoteView = [[RemoteUserVIew alloc]initWithFrame:CGRectMake(SCREEN_W - 120, 120, 100, 100)];
+                QRenderView *remoteView = [[QRenderView alloc]initWithFrame:CGRectMake(SCREEN_W - 120, 120, 100, 100)];
                 remoteView.userId = userID;
                 remoteView.trackId = videoTrack.trackID;
                 [self.renderBackgroundView addSubview:remoteView];
@@ -113,15 +106,15 @@
                     CameraMergeOption *selfOption = [CameraMergeOption new];
                     selfOption.frame = CGRectMake(0, 0, 720/2, 419);
                     selfOption.mZ = 0;
-                    [self.pushClient updateUserVideoMergeOptions:QN_User_id trackId:self.pushClient.localVideoTrack.trackID option:selfOption];
+                    [[QLive createPusherClient] updateUserVideoMergeOptions:QN_User_id trackId:[QLive createPusherClient].localVideoTrack.trackID option:selfOption];
                     
                     CameraMergeOption *userOption = [CameraMergeOption new];
                     userOption.frame = CGRectMake(720/2, 0, 720/2, 419);
                     userOption.mZ = 1;
-                    [self.pushClient updateUserVideoMergeOptions:userID trackId:videoTrack.trackID option:userOption];
+                    [[QLive createPusherClient] updateUserVideoMergeOptions:userID trackId:videoTrack.trackID option:userOption];
                 }
             } else {
-                [self.pushClient updateUserAudioMergeOptions:userID trackId:track.trackID isNeed:YES];
+                [[QLive createPusherClient] updateUserAudioMergeOptions:userID trackId:track.trackID isNeed:YES];
             }
             
         }
@@ -140,8 +133,8 @@
 
 //收到下麦消息
 - (void)onReceivedDownMic:(QNMicLinker *)linker {
-    for (RemoteUserVIew *userView in self.renderBackgroundView.subviews) {
-        if ([userView.class isEqual:[RemoteUserVIew class]]) {
+    for (QRenderView *userView in self.renderBackgroundView.subviews) {
+        if ([userView.class isEqual:[QRenderView class]]) {
             if ([userView.userId isEqualToString:linker.user.user_id]) {
                 [userView removeFromSuperview];
             }
@@ -214,7 +207,7 @@
     config.srcRoomInfo = srcRoomInfo;
     [config setDestRoomInfo:destInfo forRoomName:self.roomInfo.title];
 
-    [self.pushClient.rtcClient startRoomMediaRelay:config completeCallback:^(NSDictionary *state, NSError *error) {
+    [[QLive createPusherClient].rtcClient startRoomMediaRelay:config completeCallback:^(NSDictionary *state, NSError *error) {
 
     }];
     
@@ -232,7 +225,7 @@
 }
 
 - (void)stopPK {
-    [self.pushClient.rtcClient stopRoomMediaRelay:^(NSDictionary *state, NSError *error) {
+    [[QLive createPusherClient].rtcClient stopRoomMediaRelay:^(NSDictionary *state, NSError *error) {
                 
     }];
     [self.pkService stopWithRelayID:self.pkSession.relay_id callBack:^{
@@ -247,15 +240,6 @@
         isAdmin = YES;
     }
     return isAdmin;
-}
-
-#pragma mark ---------QNRoomLifeCycleListener
-
-//加入房间回调
-- (void)onRoomJoined:(QNLiveRoomInfo *)roomInfo {
-    
-    [self.pushClient joinLive:roomInfo.room_token];    
-    
 }
 
 - (RoomHostSlot *)roomHostSlot {
@@ -300,7 +284,7 @@
         pk.clickBlock = ^(BOOL selected){
             NSLog(@"点击了pk");
             if (selected) {
-                [QNLiveRoomEngine listRoomWithPageNumber:1 pageSize:20 callBack:^(NSArray<QNLiveRoomInfo *> * _Nonnull list) {
+                [[QLive getRooms] listRoom:1 pageSize:20 callBack:^(NSArray<QNLiveRoomInfo *> * _Nonnull list) {
                     [weakSelf popInvitationPKView:list];
                 }];
             } else {
