@@ -1,3 +1,6 @@
 QNLiveKitDemo/Pods/
 QNLiveKitDemo/*.lock
 QNLiveKitDemo/*.xcworkspace
+QNLiveKit/Pods/
+QNLiveKit/*.lock
+
