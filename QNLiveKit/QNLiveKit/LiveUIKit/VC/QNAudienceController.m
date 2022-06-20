@@ -9,6 +9,7 @@
 #import "RoomHostSlot.h"
 #import "OnlineUserSlot.h"
 #import "BottomMenuSlot.h"
+#import "QChatBarSlot.h"
 #import "QNChatRoomService.h"
 #import "LiveChatRoom.h"
 #import "QNLiveRoomInfo.h"
@@ -24,15 +25,18 @@ PLPlayerDelegate
 
 @property (nonatomic, strong) RoomHostSlot *roomHostSlot;
 @property (nonatomic, strong) OnlineUserSlot *onlineUserSlot;
+@property (nonatomic, strong) QChatBarSlot *pubchatSlot;
 @property (nonatomic, strong) BottomMenuSlot *bottomMenuSlot;
 @property (nonatomic, strong) LinkStateSlot *linkSLot;
-@property (nonatomic, strong) UIView *playView;
+//@property (nonatomic, strong) UIView *playView;
+@property (nonatomic, strong) PLPlayer *player;
+
 @end
 
 @implementation QNAudienceController
 
 - (void)viewDidDisappear:(BOOL)animated {
-    [[QLive createPlayerClient] leaveRoom:self.roomInfo.live_id callBack:nil];
+    [[QLive createPlayerClient] leaveRoom:self.roomInfo.live_id];
 }
 
 - (void)viewDidLoad {
@@ -42,13 +46,15 @@ PLPlayerDelegate
     
     [[QLive createPlayerClient] joinRoom:self.roomInfo.live_id callBack:^(QNLiveRoomInfo * _Nonnull roomInfo) {
         weakSelf.roomInfo = roomInfo;
-        [[QLive createPlayerClient] play:self.playView];
+//        [[QLive createPlayerClient] play:self.view url:roomInfo.rtmp_url];
+        [self playWithUrl:roomInfo.rtmp_url];
         [weakSelf updateRoomInfo];
     }];
     
     [self chatRoomView];
     [self roomHostSlot];
     [self onlineUserSlot];
+    [self pubchatSlot];
     [self bottomMenuSlot];
     [self chatService];
     
@@ -56,6 +62,26 @@ PLPlayerDelegate
         [weakSelf.chatRoomView showMessage:msg];
     }];
     
+}
+
+- (void)playWithUrl:(NSString *)url {
+    PLPlayerOption *option = [PLPlayerOption defaultOption];
+    PLPlayFormat format = kPLPLAY_FORMAT_UnKnown;
+    
+    [option setOptionValue:@(format) forKey:PLPlayerOptionKeyVideoPreferFormat];
+    [option setOptionValue:@(kPLLogNone) forKey:PLPlayerOptionKeyLogLevel];
+    
+    self.player = [PLPlayer playerWithURL:[NSURL URLWithString:url] option:option];
+    [self.view insertSubview:self.player.playerView atIndex:2];
+    [self.player.playerView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.edges.equalTo(self.view).insets(UIEdgeInsetsMake(0, 0, 0, 0));
+    }];
+    [self.player play];
+}
+
+- (void)stopPlay {
+    [self.player stop];
+    [self.player.playerView  removeFromSuperview];
 }
 
 - (void)updateRoomInfo {
@@ -120,12 +146,13 @@ PLPlayerDelegate
     __weak typeof(self)weakSelf = self;
     [QLive createPusherClient].pushClientListener = self;
     [self.linkService onMic:YES camera:YES extends:@"" callBack:^(NSString * _Nonnull rtcToken) {
-        [[QLive createPusherClient] joinLive:rtcToken];
+        [self stopPlay];
         [[QLive createPusherClient] enableCamera:nil renderView:self.preview];
+        [[QLive createPusherClient] joinLive:rtcToken];        
         [weakSelf.chatService sendOnMicMsg];
     }];
       
-    [[QLive createPlayerClient] stopPlay];
+    
     
 }
 
@@ -155,18 +182,24 @@ PLPlayerDelegate
     return _onlineUserSlot;
 }
 
+- (QChatBarSlot *)pubchatSlot {
+    if (!_pubchatSlot) {
+        _pubchatSlot = [[QChatBarSlot alloc]init];
+        [_pubchatSlot createDefaultView:CGRectMake(15, SCREEN_H - 80, 220, 45) onView:self.view];
+        __weak typeof(self)weakSelf = self;
+        _pubchatSlot.clickBlock = ^(BOOL selected){
+            [weakSelf.chatRoomView commentBtnPressed];
+            NSLog(@"点击了公聊");
+        };
+        
+    }
+    return _pubchatSlot;
+}
+
 - (BottomMenuSlot *)bottomMenuSlot {
     if (!_bottomMenuSlot) {
         NSMutableArray *slotList = [NSMutableArray array];
         __weak typeof(self)weakSelf = self;
-        ItemSlot *pubchat = [[ItemSlot alloc]init];
-        [pubchat normalImage:@"pub_chat" selectImage:@"pub_chat"];
-        
-        pubchat.clickBlock = ^(BOOL selected){
-            [weakSelf.chatRoomView commentBtnPressed];
-            NSLog(@"点击了公聊");
-        };
-        [slotList addObject:pubchat];
         
         ItemSlot *link = [[ItemSlot alloc]init];
         [link normalImage:@"link" selectImage:@"link"];
@@ -194,8 +227,8 @@ PLPlayerDelegate
         
         _bottomMenuSlot = [[BottomMenuSlot alloc]init];
         _bottomMenuSlot.slotList = slotList.copy;
-        [_bottomMenuSlot createDefaultView:CGRectMake(0, SCREEN_H - 80, SCREEN_W, 45) onView:self.view];
-           
+        [_bottomMenuSlot createDefaultView:CGRectMake(240, SCREEN_H - 80, SCREEN_W - 240, 45) onView:self.view];
+
     }
     return _bottomMenuSlot;
 }
@@ -222,17 +255,9 @@ PLPlayerDelegate
                     
         }];
         [weakSelf.chatService sendDownMicMsg];
-        [[QLive createPlayerClient] play:weakSelf.playView];
+        [weakSelf playWithUrl:weakSelf.roomInfo.rtmp_url];
         NSLog(@"点击了结束连麦");
     };
-}
-
-- (UIView *)playView {
-    if (!_playView) {
-        _playView = [[UIView alloc]initWithFrame:self.view.frame];
-        [self.view insertSubview:_playView atIndex:2];
-    }
-    return _playView;
 }
 
 @end

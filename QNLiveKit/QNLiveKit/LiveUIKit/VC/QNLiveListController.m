@@ -50,7 +50,7 @@
 }
 
 - (void)createButton {
-    UIButton *button = [[UIButton alloc]initWithFrame:CGRectMake((kScreenWidth - 200)/2, kScreenHeight - 100, 200, 40)];
+    UIButton *button = [[UIButton alloc]initWithFrame:CGRectMake((SCREEN_W - 200)/2, SCREEN_H - 100, 200, 40)];
     button.backgroundColor = [UIColor blueColor];
     [button setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
     button.clipsToBounds = YES;

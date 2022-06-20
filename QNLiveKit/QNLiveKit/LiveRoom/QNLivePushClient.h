@@ -72,8 +72,7 @@ NS_ASSUME_NONNULL_BEGIN
 - (void)startLive:(NSString *)roomID callBack:(nullable void (^)(QNLiveRoomInfo *_Nullable roomInfo))callBack;
 
 /// 停止直播
-/// @param callBack 回调
-- (void)closeRoom:(NSString *)roomID callBack:(nullable void (^)(void))callBack;
+- (void)closeRoom:(NSString *)roomID;
 
 - (void)joinLive:(NSString *)token;
 - (void)LeaveLive;
@@ -102,6 +101,7 @@ NS_ASSUME_NONNULL_BEGIN
 - (void)setVideoFrameListener:(id<QNLocalVideoTrackDelegate>)listener;
 
 - (void)beginMixStream:(QNMergeOption *)option;
+- (void)publishCameraAndMicrophone;
 
 //设置某个用户的音频混流参数 （isNeed 是否需要混流音频）
 - (void)updateUserAudioMergeOptions:(NSString *)uid trackId:(NSString *)trackId isNeed:(BOOL)isNeed;

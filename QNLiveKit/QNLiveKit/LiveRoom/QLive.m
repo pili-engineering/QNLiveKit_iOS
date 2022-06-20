@@ -26,7 +26,7 @@
     [defaults synchronize];
 }
 
-+ (void)setUser:(NSString *)avatar nick:(NSString *)nick extension:(nullable NSDictionary *)extension callBack:(nullable void (^)( void))callBack{
++ (void)setUser:(NSString *)avatar nick:(NSString *)nick extension:(nullable NSDictionary *)extension{
     
     NSMutableDictionary *params = [NSMutableDictionary new];
     params[@"nick"] = nick;
@@ -34,7 +34,6 @@
     params[@"extends"] = extension;
     
     [QNLiveNetworkUtil putRequestWithAction:@"client/user/user" params:params success:^(NSDictionary * _Nonnull responseData) {
-        callBack();
         } failure:^(NSError * _Nonnull error) {
 
         }];

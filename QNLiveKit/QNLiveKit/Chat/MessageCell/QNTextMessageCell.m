@@ -48,7 +48,8 @@ alpha:1.0]
 
 - (void)updateUI:(QNIMMessageObject *)model {
     
-    PubChatModel *msgmodel = [PubChatModel mj_objectWithKeyValues:model.content];
+    QNIMModel *imModel = [QNIMModel mj_objectWithKeyValues:model.content.mj_keyValues];
+    PubChatModel *msgmodel = [PubChatModel mj_objectWithKeyValues:imModel.data];
             
     self.nameLabel.text = msgmodel.sendUser.nick;
     self.textLabel.text = msgmodel.content;
@@ -92,6 +93,7 @@ alpha:1.0]
         [_bgView mas_makeConstraints:^(MASConstraintMaker *make) {
             make.left.equalTo(self).offset(50);
             make.top.equalTo(self);
+            make.width.mas_equalTo(SCREEN_W * 0.5);
             make.height.mas_equalTo(40);
             make.bottom.equalTo(self).offset(-5);
         }];

@@ -145,7 +145,7 @@
     [QNNetworkUtil getRequestWithAction:action params:nil success:^(NSDictionary *responseData) {
         
         [QLive initWithToken:responseData[@"accessToken"]];
-        [QLive setUser:user.avatar nick:user.nickname extension:nil callBack:nil];
+        [QLive setUser:user.avatar nick:user.nickname extension:nil];
         
         [QLive getSelfUser:^(QNLiveUser *user) {
             [self connectionIMWithImUserName:user.im_username imPassword:user.im_password];
@@ -154,6 +154,7 @@
             [defaults setObject:user.im_userid forKey:QN_IM_USER_ID_KEY];
             [defaults setObject:user.im_username forKey:QN_IM_USER_NAME_KEY];
             [defaults setObject:user.im_password forKey:QN_IM_USER_PASSWORD_KEY];
+            
             [defaults synchronize];
 
         }];
@@ -170,6 +171,7 @@
     [defaults setObject:loginModel.loginToken forKey:QN_LOGIN_TOKEN_KEY];
     [defaults setObject:loginModel.accountId forKey:QN_ACCOUNT_ID_KEY];
     [defaults setObject:loginModel.nickname forKey:QN_NICKNAME_KEY];
+    
     
 //    if (loginModel.imConfig.imUid.length > 0) {
 //        [defaults setObject:loginModel.imConfig.imUid forKey:QN_IM_USER_ID_KEY];

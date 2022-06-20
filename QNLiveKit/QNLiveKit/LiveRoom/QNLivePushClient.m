@@ -13,6 +13,8 @@
 #import "QNLiveNetworkUtil.h"
 #import "QNLiveUser.h"
 #import "QNLiveRoomInfo.h"
+#import "QNMicrophoneParams.h"
+#import "QNCameraParams.h"
 
 @interface QNLivePushClient ()<QNRTCClientDelegate>
 
@@ -55,7 +57,7 @@
     [QNLiveNetworkUtil putRequestWithAction:action params:@{} success:^(NSDictionary * _Nonnull responseData) {
         
         QNLiveRoomInfo *model = [QNLiveRoomInfo mj_objectWithKeyValues:responseData];
-
+        self.roomInfo = model;
         if ([self.roomLifeCycleListener respondsToSelector:@selector(onRoomJoined:)]) {
             [self.roomLifeCycleListener onRoomJoined:model];
         }
@@ -68,8 +70,7 @@
 }
 
 /// 停止直播
-/// @param callBack 回调
-- (void)closeRoom:(NSString *)roomID callBack:(void (^)(void))callBack {
+- (void)closeRoom:(NSString *)roomID{
     
     NSString *action = [NSString stringWithFormat:@"client//live/room/%@",roomID];
     [QNLiveNetworkUtil deleteRequestWithAction:action params:@{} success:^(NSDictionary * _Nonnull responseData) {
@@ -78,9 +79,7 @@
             [self.roomLifeCycleListener onRoomClose];
         }
         
-        callBack();
         } failure:^(NSError * _Nonnull error) {
-            callBack();
         }];
 }
 
@@ -95,7 +94,7 @@
 
 /// 启动视频采集
 - (void)enableCamera:(nullable QNCameraParams *)cameraParams renderView:(nullable QRenderView *)renderView {
-    if (cameraParams) {
+    if (cameraParams.width) {
         CGSize videoEncodeSize = CGSizeMake(cameraParams.width?:720, cameraParams.height?:1280);
         QNVideoEncoderConfig *config = [[QNVideoEncoderConfig alloc] initWithBitrate:cameraParams.bitrate?:400*1000 videoEncodeSize:videoEncodeSize videoFrameRate:cameraParams.fps?:15];
         QNCameraVideoTrackConfig * cameraConfig = [[QNCameraVideoTrackConfig alloc] initWithSourceTag:cameraParams.tag?:@"camera" config:config multiStreamEnable:NO];
@@ -113,7 +112,7 @@
 
 
 - (void)enableMicrophone:(nullable QNMicrophoneParams *)microphoneParams {
-    
+    [self.localAudioTrack setVolume:microphoneParams.volume ?: 0.5];
 }
 
 /// 切换摄像头
@@ -148,13 +147,6 @@
 
     [self.rtcClient publish:@[self.localAudioTrack,self.localVideoTrack] completeCallback:^(BOOL onPublished, NSError *error) {
         
-        if (weakSelf.option) {
-            [weakSelf.mixManager updateUserAudioMergeOptions:QN_User_id trackId:self.localAudioTrack.trackID isNeed:YES];
-            CameraMergeOption *option = [CameraMergeOption new];
-            option.frame = CGRectMake(0, 0, 720, 1280);
-            option.mZ = 0;
-            [self.mixManager updateUserVideoMergeOptions:QN_User_id trackId:self.localVideoTrack.trackID option:option];
-        }
     }];
 }
 
@@ -170,14 +162,21 @@
     self.localVideoTrack.delegate = listener;
 }
 
-- (void)beginMixStream:(QNMergeOption *)option {
+- (void)beginMixStream:(QNMergeOption *)option{
     self.option = option;
     [self.mixManager startMixStreamJob];
+    
 }
 
 #pragma mark --------QNRTCClientDelegate
 //成功创建转推/合流转推任务的回调
 - (void)RTCClient:(QNRTCClient *)client didStartLiveStreaming:(NSString *)streamID {
+    
+        [self.mixManager updateUserAudioMergeOptions:QN_User_id trackId:self.localAudioTrack.trackID isNeed:YES];
+        CameraMergeOption *option = [CameraMergeOption new];
+        option.frame = CGRectMake(0, 0, 720, 1280);
+        option.mZ = 0;
+        [self.mixManager updateUserVideoMergeOptions:QN_User_id trackId:self.localVideoTrack.trackID option:option];
     
 }
 //停止转推/合流转推任务的回调
@@ -192,14 +191,14 @@
 
 - (void)RTCClient:(QNRTCClient *)client didConnectionStateChanged:(QNConnectionState)state disconnectedInfo:(QNConnectionDisconnectedInfo *)info {
     
-    if ([self.pushClientListener respondsToSelector:@selector(onConnectionRoomStateChanged:)]) {
-            [self.pushClientListener onConnectionRoomStateChanged:state];
-        }
-    
     if (state == QNConnectionStateConnected) {
         [self publishCameraAndMicrophone];
     }
-       
+    
+    if ([self.pushClientListener respondsToSelector:@selector(onConnectionRoomStateChanged:)]) {
+            [self.pushClientListener onConnectionRoomStateChanged:state];
+    }
+    
 }
 
 - (void)RTCClient:(QNRTCClient *)client didSubscribedRemoteVideoTracks:(NSArray<QNRemoteVideoTrack *> *)videoTracks audioTracks:(NSArray<QNRemoteAudioTrack *> *)audioTracks ofUserID:(NSString *)userID {
@@ -246,7 +245,6 @@
 }
 
 - (void)RTCClient:(QNRTCClient *)client firstVideoDidDecodeOfTrack:(QNRemoteVideoTrack *)videoTrack remoteUserID:(NSString *)userID {
-    [self.rtcClient subscribe:@[videoTrack]];
     if ([self.pushClientListener respondsToSelector:@selector(userFirstVideoDidDecodeOfTrack:remoteUserID:)]) {
         [self.pushClientListener userFirstVideoDidDecodeOfTrack:videoTrack remoteUserID:userID];
     }

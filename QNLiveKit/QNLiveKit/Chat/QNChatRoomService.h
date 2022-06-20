@@ -8,11 +8,10 @@
 #import <QNLiveKit/QNLiveKit.h>
 #import "QNLiveService.h"
 #import <QNIMSDK/QNIMSDK.h>
-#import "QNInvitationModel.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
-@class PubChatModel,QNLiveUser,QNPKSession;
+@class PubChatModel,QNLiveUser,QNPKSession,QNInvitationModel;
 //聊天室监听
 @protocol QNChatRoomServiceListener <NSObject>
 @optional

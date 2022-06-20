@@ -17,6 +17,8 @@
 
 @property (nonatomic, strong) PLPlayer *player;
 
+@property (nonatomic, strong) QNLiveRoomInfo *roomInfo;
+
 @end
 
 @implementation QNLivePullClient
@@ -41,28 +43,34 @@
     [QNLiveNetworkUtil postRequestWithAction:action params:@{} success:^(NSDictionary * _Nonnull responseData) {
         
         QNLiveRoomInfo *model = [QNLiveRoomInfo mj_objectWithKeyValues:responseData];
+        self.roomInfo = model;
         callBack(model);
-        [self setPlayerWithUrlStr:model.rtmp_url];
-        
+
         } failure:^(NSError * _Nonnull error) {
             callBack(nil);
         }];
 }
 
 //离开直播
-- (void)leaveRoom:(NSString *)roomID callBack:(void (^)(void))callBack {
+- (void)leaveRoom:(NSString *)roomID{
     
     NSString *action = [NSString stringWithFormat:@"client//live/room/user/%@",roomID];
     [QNLiveNetworkUtil deleteRequestWithAction:action params:nil success:^(NSDictionary * _Nonnull responseData) {
         
-        callBack();
         } failure:^(NSError * _Nonnull error) {
-            callBack();
         }];
 }
 
-- (void)play:(UIView *)view {
-    [view addSubview:self.player.playerView];
+- (void)play:(UIView *)view url:(NSString *)url {
+    
+    PLPlayerOption *option = [PLPlayerOption defaultOption];
+    PLPlayFormat format = kPLPLAY_FORMAT_UnKnown;
+    
+    [option setOptionValue:@(format) forKey:PLPlayerOptionKeyVideoPreferFormat];
+    [option setOptionValue:@(kPLLogNone) forKey:PLPlayerOptionKeyLogLevel];
+    
+    self.player = [PLPlayer playerWithURL:[NSURL URLWithString:url] option:option];
+    [view insertSubview:self.player.playerView atIndex:2];
     [self.player.playerView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.edges.equalTo(view).insets(UIEdgeInsetsMake(0, 0, 0, 0));
     }];
@@ -72,19 +80,6 @@
 - (void)stopPlay {
     [self.player stop];
     [self.player.playerView  removeFromSuperview];
-}
-
-- (void)setPlayerWithUrlStr:(NSString *)urlStr {
-    
-    NSURL *url = [NSURL URLWithString:urlStr];
-    PLPlayerOption *option = [PLPlayerOption defaultOption];
-    PLPlayFormat format = kPLPLAY_FORMAT_UnKnown;
-    
-    [option setOptionValue:@(format) forKey:PLPlayerOptionKeyVideoPreferFormat];
-    [option setOptionValue:@(kPLLogNone) forKey:PLPlayerOptionKeyLogLevel];
-    
-    self.player = [PLPlayer playerWithURL:url option:option];
-    
 }
 
 @end

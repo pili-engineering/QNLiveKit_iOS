@@ -10,7 +10,8 @@
 #import "QNSolutionListModel.h"
 #import <SDWebImage/SDWebImage.h>
 #import "MBProgressHUD+QNShow.h"
-#import "QNLiveListController.h"
+#import <QNLiveKit/QNLiveKit.h>
+
 
 @interface QNHomeListView ()
 

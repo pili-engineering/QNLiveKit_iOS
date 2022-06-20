@@ -18,6 +18,8 @@ FOUNDATION_EXPORT const unsigned char QNLiveKitVersionString[];
 #import "QNLiveUser.h"
 #import "QNCameraParams.h"
 #import "QNMicrophoneParams.h"
+#import "QNLiveController.h"
+#import "QNLiveListController.h"
 #import "Extension.h"
 #import "QLive.h"
 #import "QNLiveService.h"

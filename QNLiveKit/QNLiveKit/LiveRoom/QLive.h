@@ -17,7 +17,7 @@ NS_ASSUME_NONNULL_BEGIN
 // 初始化
 + (void)initWithToken:(NSString *)token;
 //绑定用户信息
-+ (void)setUser:(NSString *)avatar nick:(NSString *)nick extension:(nullable NSDictionary *)extension callBack:(nullable void (^)(void))callBack;
++ (void)setUser:(NSString *)avatar nick:(NSString *)nick extension:(nullable NSDictionary *)extension;
 //创建主播端
 + (QNLivePushClient *)createPusherClient;
 //创建观众端

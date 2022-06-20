@@ -31,12 +31,13 @@
 }
 
 //启动前台转推，默认实现推本地轨道
-- (void)startForwardJob {
+- (void)startForwardJob{
     [self.client startLiveStreamingWithDirect:self.directConfig];
 }
 
 //停止前台推流
-- (void)stopForwardJob {
+- (void)stopForwardJob{
+
     [self.client stopLiveStreamingWithDirect:self.directConfig];
 }
 
@@ -49,8 +50,6 @@
 - (void)stopMixStreamJob {
     [self.client stopLiveStreamingWithTranscoding:self.mergeConfig];
 }
-
-
 
 //设置混流参数
 - (void)setMixParams:(QNMergeOption *)params {

@@ -39,16 +39,17 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, weak) id <QNRoomLifeCycleListener> roomLifeCycleListener;
 
 /// 获取房间所有用户
+/// @param roomId 房间id
 /// @param pageNumber 页数
 /// @param pageSize 页面大小
 /// @param callBack 回调用户列表
-- (void)getUserListWithPageNumber:(NSInteger)pageNumber pageSize:(NSInteger)pageSize callBack:(void (^)(NSArray<QNLiveUser *> * list))callBack;
+- (void)getUserList:(NSString *)roomId pageNumber:(NSInteger)pageNumber pageSize:(NSInteger)pageSize callBack:(void (^)(NSArray<QNLiveUser *> * _Nonnull))callBack;
 
 //房间心跳
-- (void)roomHeartBeart;
+- (void)roomHeartBeart:(NSString *)roomId;
 
 //更新直播扩展信息
-- (void)updateRoomExtension:(NSString *)extension callBack:(void (^)(void))callBack;
+- (void)updateRoom:(NSString *)roomId extension:(NSString *)extension callBack:(void (^)(void))callBack;
 
 //某个房间在线用户
 - (void)getOnlineUser:(NSString *)roomId callBack:(void (^)(NSArray <QNLiveUser *> *list))callBack;

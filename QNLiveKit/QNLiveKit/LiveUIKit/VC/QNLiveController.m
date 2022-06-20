@@ -11,6 +11,7 @@
 #import "RoomHostSlot.h"
 #import "OnlineUserSlot.h"
 #import "BottomMenuSlot.h"
+#import "QChatBarSlot.h"
 #import "QNLinkMicService.h"
 #import "QNChatRoomService.h"
 #import "LiveChatRoom.h"
@@ -29,15 +30,18 @@
 
 @property (nonatomic, strong) RoomHostSlot *roomHostSlot;
 @property (nonatomic, strong) OnlineUserSlot *onlineUserSlot;
+@property (nonatomic, strong) QChatBarSlot *pubchatSlot;
 @property (nonatomic, strong) BottomMenuSlot *bottomMenuSlot;
 @property (nonatomic, strong) QNLiveRoomInfo *selectPkRoomInfo;
 @property (nonatomic, strong) QNPKSession *pkSession;//正在进行的pk
+@property (nonatomic, strong) QNLiveUser *pk_other_user;//pk对象
+
 @end
 
 @implementation QNLiveController
 
 - (void)viewDidDisappear:(BOOL)animated {
-    [[QLive createPusherClient] closeRoom:self.roomInfo.live_id callBack:nil];
+    [[QLive createPusherClient] closeRoom:self.roomInfo.live_id];
 }
 
 - (void)viewDidLoad {
@@ -54,6 +58,7 @@
     [self chatRoomView];
     [self roomHostSlot];
     [self onlineUserSlot];
+    [self pubchatSlot];
     [self bottomMenuSlot];
     
     [self.chatService sendWelComeMsg:^(QNIMMessageObject * _Nonnull msg) {
@@ -64,7 +69,7 @@
 - (void)updateRoomInfo {
     __weak typeof(self)weakSelf = self;
     dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(3 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-        [[QLive createPusherClient] roomHeartBeart];
+        [[QLive createPusherClient] roomHeartBeart:weakSelf.roomInfo.live_id];
         [[QLive getRooms] getRoomInfo:weakSelf.roomInfo.live_id callBack:^(QNLiveRoomInfo * _Nonnull roomInfo) {
             weakSelf.roomInfo = roomInfo;
             [weakSelf.roomHostSlot updateWith:roomInfo];
@@ -79,8 +84,6 @@
     dispatch_async(dispatch_get_main_queue(), ^{
         if (state == QNConnectionStateConnected) {
             [[QLive createPusherClient] beginMixStream:self.option];
-            self.preview.hidden = NO;
-
         }
     });
 }
@@ -104,12 +107,12 @@
                     [self.pkService PKStartedWithRelayID:self.pkSession.relay_id];
                                         
                     CameraMergeOption *selfOption = [CameraMergeOption new];
-                    selfOption.frame = CGRectMake(0, 0, 720/2, 419);
+                    selfOption.frame = CGRectMake(0, 260, 720/2, 419);
                     selfOption.mZ = 0;
                     [[QLive createPusherClient] updateUserVideoMergeOptions:QN_User_id trackId:[QLive createPusherClient].localVideoTrack.trackID option:selfOption];
                     
                     CameraMergeOption *userOption = [CameraMergeOption new];
-                    userOption.frame = CGRectMake(720/2, 0, 720/2, 419);
+                    userOption.frame = CGRectMake(720/2, 260, 720/2, 419);
                     userOption.mZ = 1;
                     [[QLive createPusherClient] updateUserVideoMergeOptions:userID trackId:videoTrack.trackID option:userOption];
                 }
@@ -118,6 +121,12 @@
             }
             
         }
+    });
+}
+
+- (void)userFirstVideoDidDecodeOfTrack:(QNRemoteVideoTrack *)videoTrack remoteUserID:(NSString *)userID {
+    dispatch_async(dispatch_get_main_queue(), ^{
+        
     });
 }
 
@@ -168,6 +177,7 @@
     
     [self.pkService startWithReceiverRoomId:model.invitation.msg.initiatorRoomId receiverUid:model.invitation.msg.initiator.user_id extensions:@"" callBack:^(QNPKSession * _Nonnull pkSession) {
         
+        self.pk_other_user = pkSession.receiver;
         [self.chatService sendStartPKMessageWithReceiverId:self.selectPkRoomInfo.anchor_info.user_id receiveRoomId:self.selectPkRoomInfo.live_id receiverIMId:self.selectPkRoomInfo.anchor_info.im_userid relayId:pkSession.relay_id relayToken:pkSession.relay_token];
         
         [self beginPK:pkSession];
@@ -177,16 +187,19 @@
 
 //收到开始pk信令
 - (void)onReceiveStartPKSession:(QNPKSession *)pkSession {
-    
-    [self.pkService getPKToken:pkSession.relay_id callBack:^(QNPKSession * session) {
-        [self beginPK:session];
-    }];
+    self.pk_other_user = pkSession.initiator;
+    [self beginPK:pkSession];
+//    [self.pkService getPKToken:pkSession.relay_id callBack:^(QNPKSession * session) {
+//        [self beginPK:session];
+//    }];
     
 }
 
 - (void)onReceiveStopPKSession:(QNPKSession *)pkSession {
     
-    [self stopPK];
+    [[QLive createPusherClient].rtcClient stopRoomMediaRelay:^(NSDictionary *state, NSError *error) {
+                
+    }];
     
 }
 
@@ -201,8 +214,8 @@
     srcRoomInfo.token = self.roomInfo.room_token;
     
     QNRoomMediaRelayInfo *destInfo = [QNRoomMediaRelayInfo new];
-    destInfo.roomName = [self getRelayNameWithToken:pkSession.relay_token];
-    destInfo.token = pkSession.relay_token;
+    destInfo.roomName = [self getRelayNameWithToken:self.pkSession.relay_token];
+    destInfo.token = self.pkSession.relay_token;
     
     config.srcRoomInfo = srcRoomInfo;
     [config setDestRoomInfo:destInfo forRoomName:self.roomInfo.title];
@@ -231,6 +244,7 @@
     [self.pkService stopWithRelayID:self.pkSession.relay_id callBack:^{
         
     }];
+    [self.chatService sendStopPKMessageWithReceiverId:self.pk_other_user.user_id receiveRoomId:self.pkSession.receiverRoomId receiverIMId:self.pk_other_user.im_userid relayId:self.pkSession.relay_id relayToken:self.pkSession.relay_token];
 }
 
 //自己是否是房主
@@ -266,18 +280,32 @@
     return _onlineUserSlot;
 }
 
+- (QChatBarSlot *)pubchatSlot {
+    if (!_pubchatSlot) {
+        _pubchatSlot = [[QChatBarSlot alloc]init];
+        [_pubchatSlot createDefaultView:CGRectMake(15, SCREEN_H - 80, 220, 45) onView:self.view];
+        __weak typeof(self)weakSelf = self;
+        _pubchatSlot.clickBlock = ^(BOOL selected){
+            [weakSelf.chatRoomView commentBtnPressed];
+            NSLog(@"点击了公聊");
+        };
+        
+    }
+    return _pubchatSlot;
+}
+
 - (BottomMenuSlot *)bottomMenuSlot {
     if (!_bottomMenuSlot) {
         NSMutableArray *slotList = [NSMutableArray array];
         __weak typeof(self)weakSelf = self;
-        ItemSlot *pubchat = [[ItemSlot alloc]init];
-        [pubchat normalImage:@"pub_chat" selectImage:@"pub_chat"];
-        
-        pubchat.clickBlock = ^(BOOL selected){
-            [weakSelf.chatRoomView commentBtnPressed];
-            NSLog(@"点击了公聊");
-        };
-        [slotList addObject:pubchat];
+//        ItemSlot *pubchat = [[ItemSlot alloc]init];
+//        [pubchat normalImage:@"pub_chat_bar" selectImage:@"pub_chat_bar"];
+//
+//        pubchat.clickBlock = ^(BOOL selected){
+//            [weakSelf.chatRoomView commentBtnPressed];
+//            NSLog(@"点击了公聊");
+//        };
+//        [slotList addObject:pubchat];
         
         ItemSlot *pk = [[ItemSlot alloc]init];
         [pk normalImage:@"pk" selectImage:@"end_pk"];
@@ -288,25 +316,10 @@
                     [weakSelf popInvitationPKView:list];
                 }];
             } else {
-                [weakSelf.chatService sendStopPKMessageWithReceiverId:self.pkSession.receiver.user_id receiveRoomId:self.pkSession.receiverRoomId receiverIMId:self.pkSession.receiver.im_userid relayId:self.pkSession.relay_id relayToken:self.pkSession.relay_token];
                 [weakSelf stopPK];
             }
         };
         [slotList addObject:pk];
-        
-        ItemSlot *link = [[ItemSlot alloc]init];
-        [link normalImage:@"link" selectImage:@"link"];
-        link.clickBlock = ^(BOOL selected){
-            NSLog(@"点击了连麦");
-        };
-        [slotList addObject:link];
-        
-        ItemSlot *message = [[ItemSlot alloc]init];
-        [message normalImage:@"message" selectImage:@"message"];
-        message.clickBlock = ^(BOOL selected){
-            NSLog(@"点击了私信");
-        };
-        [slotList addObject:message];
         
         ItemSlot *close = [[ItemSlot alloc]init];
         [close normalImage:@"live_close" selectImage:@"live_close"];
@@ -318,7 +331,7 @@
         
         _bottomMenuSlot = [[BottomMenuSlot alloc]init];
         _bottomMenuSlot.slotList = slotList.copy;
-        [_bottomMenuSlot createDefaultView:CGRectMake(0, SCREEN_H - 80, SCREEN_W, 45) onView:self.view];
+        [_bottomMenuSlot createDefaultView:CGRectMake(240, SCREEN_H - 80, SCREEN_W - 240, 45) onView:self.view];
            
     }
     return _bottomMenuSlot;

@@ -33,14 +33,13 @@ NS_ASSUME_NONNULL_BEGIN
 - (void)joinRoom:(NSString *)roomID callBack:(nullable void (^)(QNLiveRoomInfo *_Nullable roomInfo))callBack;
 
 /// 离开直播
-/// @param callBack 回调
-- (void)leaveRoom:(NSString *)roomID callBack:(nullable void (^)(void))callBack;
+- (void)leaveRoom:(NSString *)roomID;
 
 //开始播放直播
-- (void)play:(UIView *)view;
+//- (void)play:(UIView *)view url:(NSString *)url;
 
 //停止播放
-- (void)stopPlay;
+//- (void)stopPlay;
 
 @end
 

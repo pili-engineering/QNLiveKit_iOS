@@ -6,20 +6,19 @@
 //
 
 #import "QNCreateLiveController.h"
-#import <QNLiveKit/QNLiveKit.h>
+#import "QRenderView.h"
+#import "QLive.h"
+#import "QNLiveController.h"
+#import "QNCreateRoomParam.h"
+#import "QNLivePushClient.h"
 
 @interface QNCreateLiveController ()
 @property (nonatomic, strong) UITextField *titleTf;
 @property (nonatomic, strong) QRenderView *preview;//自己画面的预览视图
-@property (nonatomic, strong) QNLivePushClient *pushClient;
 
 @end
 
 @implementation QNCreateLiveController
-
-- (void)viewWillDisappear:(BOOL)animated {
-    self.pushClient = nil;
-}
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -31,8 +30,7 @@
     self.preview.frame = self.view.frame;
     [bg addSubview:self.preview];
 
-    self.pushClient = [[QNLivePushClient alloc]init];
-    [self.pushClient setLocalPreView:self.preview];
+    [[QLive createPusherClient] enableCamera:nil renderView:self.preview];
     
     [self titleTf];
     [self startButton];
@@ -58,7 +56,7 @@
 }
 
 - (void)startButton {
-    UIButton *button = [[UIButton alloc]initWithFrame:CGRectMake((kScreenWidth - 200)/2, kScreenHeight - 100, 200, 40)];
+    UIButton *button = [[UIButton alloc]initWithFrame:CGRectMake((SCREEN_W - 200)/2, SCREEN_H - 100, 200, 40)];
     button.clipsToBounds = YES;
     button.layer.cornerRadius = 20;
     [button setImage:[UIImage imageNamed:@"begin_live"] forState:UIControlStateNormal];
@@ -67,7 +65,7 @@
 }
 
 - (void)closeButton {
-    UIButton *button = [[UIButton alloc]initWithFrame:CGRectMake(kScreenWidth - 40, 50, 20, 20)];
+    UIButton *button = [[UIButton alloc]initWithFrame:CGRectMake(SCREEN_W - 40, 50, 20, 20)];
     button.clipsToBounds = YES;
     button.layer.cornerRadius = 20;
     [button setImage:[UIImage imageNamed:@"close"] forState:UIControlStateNormal];
@@ -88,7 +86,7 @@
 //    params.extension = @"";
     
     [[QLive getRooms] createRoom:params callBack:^(QNLiveRoomInfo * _Nonnull roomInfo) {
-        [self.pushClient enableCamera];
+
         QNLiveController *vc = [QNLiveController new];
         vc.roomInfo = roomInfo;
         vc.modalPresentationStyle = UIModalPresentationFullScreen;

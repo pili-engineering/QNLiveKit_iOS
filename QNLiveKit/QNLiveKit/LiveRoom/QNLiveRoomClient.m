@@ -16,15 +16,8 @@
 
 @implementation QNLiveRoomClient
 
-- (instancetype)initWithLiveId:(NSString *)liveId {
-    if (self = [super init]) {
-        self.liveId = liveId;
-    }
-    return self;
-}
-
 //获取房间所有用户
-- (void)getUserListWithPageNumber:(NSInteger)pageNumber pageSize:(NSInteger)pageSize callBack:(void (^)(NSArray<QNLiveUser *> * _Nonnull))callBack {
+- (void)getUserList:(NSString *)roomId pageNumber:(NSInteger)pageNumber pageSize:(NSInteger)pageSize callBack:(void (^)(NSArray<QNLiveUser *> * _Nonnull))callBack {
     
     NSString *action = [NSString stringWithFormat:@"client/live/room/user_list?live_id=%@&page_num=%ld&page_size=%ld",self.liveId,pageNumber,pageSize];
     [QNLiveNetworkUtil getRequestWithAction:action params:nil success:^(NSDictionary * _Nonnull responseData) {
@@ -36,9 +29,9 @@
 }
 
 //房间心跳
-- (void)roomHeartBeart {
+- (void)roomHeartBeart:(NSString *)roomId {
     
-    NSString *action = [NSString stringWithFormat:@"client/live/room/heartbeat/%@",self.liveId];
+    NSString *action = [NSString stringWithFormat:@"client/live/room/heartbeat/%@",roomId];
     [QNLiveNetworkUtil getRequestWithAction:action params:nil success:^(NSDictionary * _Nonnull responseData) {
         
         } failure:^(NSError * _Nonnull error) {
@@ -47,10 +40,10 @@
 }
 
 //更新直播扩展信息
-- (void)updateRoomExtension:(NSString *)extension callBack:(void (^)(void))callBack{
+- (void)updateRoom:(NSString *)roomId extension:(NSString *)extension callBack:(void (^)(void))callBack{
     
     NSMutableDictionary *params = [NSMutableDictionary dictionary];
-    params[@"live_id"] = self.liveId;
+    params[@"live_id"] = roomId;
     params[@"extends"] = extension;
 
     [QNLiveNetworkUtil putRequestWithAction:@"client/live/room/extends" params:params success:^(NSDictionary * _Nonnull responseData) {        
