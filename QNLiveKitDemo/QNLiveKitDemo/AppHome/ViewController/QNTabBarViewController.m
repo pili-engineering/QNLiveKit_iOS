@@ -8,7 +8,7 @@
 #import "QNTabBarViewController.h"
 #import "QNHomeListViewController.h"
 #import "QNPersonalViewController.h"
-
+#import <QNLiveKit/QNLiveKit.h>
 #import <YYCategories/YYCategories.h>
 @interface QNTabBarViewController ()
 
@@ -22,11 +22,13 @@
 }
 
 - (void)addViewController {
-    QNHomeListViewController *homeListVc = [[QNHomeListViewController alloc]init];
-    UINavigationController *homeListNav = [[UINavigationController alloc]initWithRootViewController:homeListVc];
+    
+    QNLiveListController *vc = [QNLiveListController new];
+
+    UINavigationController *homeListNav = [[UINavigationController alloc]initWithRootViewController:vc];
     homeListNav.tabBarItem.title = @"应用";
     homeListNav.tabBarItem.image = [UIImage imageNamed:@"icon_app_list"];
-    homeListVc.tabBarItem.selectedImage = [UIImage imageNamed:@"icon_apply_list_selected"];
+    homeListNav.tabBarItem.selectedImage = [UIImage imageNamed:@"icon_apply_list_selected"];
     [self addChildViewController:homeListNav];
     
     QNPersonalViewController *personalVc = [[QNPersonalViewController alloc]init];

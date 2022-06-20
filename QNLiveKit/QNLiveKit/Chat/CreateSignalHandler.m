@@ -233,91 +233,72 @@
 }
 
 //发送邀请信令
-- (QNIMMessageObject *)createInviteMessageWithInvitationName:(NSString *)invitationName receiverId:(NSString *)receiverId receiveRoomId:(NSString *)receiveRoomId receiverIMId:(NSString *)receiverIMId {
+- (QNIMMessageObject *)createInviteMessageWithInvitationName:(NSString *)invitationName receiveRoomId:(NSString *)receiveRoomId receiveUser:(nonnull QNLiveUser *)receiveUser {
     
-    QNIMMessageObject *message = [self createInviteMessageWithAction:invite_send invitationName:invitationName receiverId:receiverId receiveRoomId:receiveRoomId receiverIMId:receiverIMId];
+    QNIMMessageObject *message = [self createInviteMessageWithAction:invite_send invitationName:invitationName receiveRoomId:receiveRoomId receiveUser:receiveUser];
     return message;
 }
 
 //发送取消邀请信令
-- (QNIMMessageObject *)createCancelInviteMessageWithInvitationName:(NSString *)invitationName receiverId:(NSString *)receiverId receiveRoomId:(NSString *)receiveRoomId receiverIMId:(NSString *)receiverIMId{
+- (QNIMMessageObject *)createCancelInviteMessageWithInvitationName:(NSString *)invitationName receiveRoomId:(NSString *)receiveRoomId receiveUser:(nonnull QNLiveUser *)receiveUser{
     
-    QNIMMessageObject *message = [self createInviteMessageWithAction:invite_cancel invitationName:invitationName receiverId:receiverId receiveRoomId:receiveRoomId receiverIMId:receiverIMId];
+    QNIMMessageObject *message = [self createInviteMessageWithAction:invite_cancel invitationName:invitationName receiveRoomId:receiveRoomId receiveUser:receiveUser];
     return message;
 }
 
 //发送接受邀请信令
-- (QNIMMessageObject *)createAcceptInviteMessageWithInvitationName:(NSString *)invitationName receiverId:(NSString *)receiverId receiveRoomId:(NSString *)receiveRoomId receiverIMId:(NSString *)receiverIMId {
-    
-    QNIMMessageObject *message = [self createInviteMessageWithAction:invite_accept invitationName:invitationName receiverId:receiverId receiveRoomId:receiveRoomId receiverIMId:receiverIMId];
+- (QNIMMessageObject *)createAcceptInviteMessageWithInvitationName:(NSString *)invitationName invitationModel:(QNInvitationModel *)invitationModel {
+    QNIMMessageObject *message = [self createDealInvitationMessageWithAction:invite_accept invitationModel:invitationModel];
     return message;
 }
 
 //发送拒绝邀请信令
-- (QNIMMessageObject *)createRejectInviteMessageWithInvitationName:(NSString *)invitationName receiverId:(NSString *)receiverId receiveRoomId:(NSString *)receiveRoomId receiverIMId:(NSString *)receiverIMId{
+- (QNIMMessageObject *)createRejectInviteMessageWithInvitationName:(NSString *)invitationName invitationModel:(QNInvitationModel *)invitationModel{
     
-    QNIMMessageObject *message = [self createInviteMessageWithAction:invite_reject invitationName:invitationName receiverId:receiverId receiveRoomId:receiveRoomId receiverIMId:receiverIMId];
+    QNIMMessageObject *message = [self createDealInvitationMessageWithAction:invite_reject invitationModel:invitationModel];
     return message;
 }
 
--(QNIMMessageObject *)createStartPKMessageWithReceiverId:(NSString *)receiverId receiveRoomId:(NSString *)receiveRoomId receiverIMId:(NSString *)receiverIMId relayId:(NSString *)relayId relayToken:(NSString *)relayToken {
-    
-    QNPKSession *session = [QNPKSession new];
-    session.relay_id = relayId;
-    session.relay_token = relayToken;
-    session.initiatorRoomId = self.roomId;
-    session.receiverRoomId = receiveRoomId;
-    session.initiator = self.user;
-    
-    QNLiveUser *user = [QNLiveUser new];
-    user.user_id = receiverId;
-    user.im_userid = receiverIMId;
-    
-    session.receiver = user;
+-(QNIMMessageObject *)createStartPKMessage:(QNPKSession *)pkSession {
     
     QNIMModel *model = [QNIMModel new];
     model.action = liveroom_pk_start;
-    model.data = session.mj_keyValues;
+    model.data = pkSession.mj_keyValues;
     
-    QNIMMessageObject *message = [[QNIMMessageObject alloc]initWithQNIMMessageText:model.mj_JSONString fromId:QN_IM_userId.longLongValue toId:receiverIMId.longLongValue type:QNIMMessageTypeSingle conversationId:receiverIMId.longLongValue];
+    QNIMMessageObject *message = [[QNIMMessageObject alloc]initWithQNIMMessageText:model.mj_JSONString fromId:QN_IM_userId.longLongValue toId:pkSession.receiver.im_userid.longLongValue type:QNIMMessageTypeSingle conversationId:pkSession.receiver.im_userid.longLongValue];
     message.senderName = QN_User_nickname;
     return message;
 
 }
 
-- (QNIMMessageObject *)createStopPKMessageWithReceiverId:(NSString *)receiverId receiveRoomId:(NSString *)receiveRoomId receiverIMId:(NSString *)receiverIMId relayId:(NSString *)relayId relayToken:(NSString *)relayToken {
-    
-    QNPKSession *session = [QNPKSession new];
-    session.relay_id = relayId;
-    session.relay_token = relayToken;
-    session.initiatorRoomId = self.roomId;
-    session.receiverRoomId = receiveRoomId;
-    session.initiator = self.user;
-    
-    QNLiveUser *user = [QNLiveUser new];
-    user.user_id = receiverId;
-    user.im_userid = receiverIMId;
-    
-    session.receiver = user;
+- (QNIMMessageObject *)createStopPKMessage:(QNPKSession *)pkSession receiveUser:(nonnull QNLiveUser *)receiveUser{
     
     QNIMModel *model = [QNIMModel new];
     model.action = liveroom_pk_stop;
-    model.data = session.mj_keyValues;
+    model.data = pkSession.mj_keyValues;
     
-    QNIMMessageObject *message = [[QNIMMessageObject alloc]initWithQNIMMessageText:model.mj_JSONString fromId:QN_IM_userId.longLongValue toId:receiverIMId.longLongValue type:QNIMMessageTypeSingle conversationId:receiverIMId.longLongValue];
+    QNIMMessageObject *message = [[QNIMMessageObject alloc]initWithQNIMMessageText:model.mj_JSONString fromId:QN_IM_userId.longLongValue toId:receiveUser.im_userid.longLongValue type:QNIMMessageTypeSingle conversationId:receiveUser.im_userid.longLongValue];
+    message.senderName = QN_User_nickname;
+    return message;
+}
+
+- (QNIMMessageObject *)createDealInvitationMessageWithAction:(NSString *)action invitationModel:(QNInvitationModel *)invitationModel {
+    
+    QNIMModel *model = [QNIMModel new];
+    model.action = action;
+    model.data = invitationModel.mj_keyValues;
+
+    QNIMMessageObject *message = [[QNIMMessageObject alloc]initWithQNIMMessageText:model.mj_JSONString fromId:QN_IM_userId.longLongValue toId:invitationModel.invitation.msg.initiator.im_userid.longLongValue type:QNIMMessageTypeSingle conversationId:invitationModel.invitation.msg.initiator.im_userid.longLongValue];
     message.senderName = QN_User_nickname;
     return message;
 }
 
 //生成邀请信令
-- (QNIMMessageObject *)createInviteMessageWithAction:(NSString *)action invitationName:(NSString *)invitationName receiverId:(NSString *)receiverId receiveRoomId:(NSString *)receiveRoomId receiverIMId:(NSString *)receiverIMId {
-    
-    QNLiveUser *receiver = [QNLiveUser new];
-    receiver.user_id = receiverId;
+- (QNIMMessageObject *)createInviteMessageWithAction:(NSString *)action invitationName:(NSString *)invitationName receiveRoomId:(NSString *)receiveRoomId receiveUser:(QNLiveUser *)receiveUser {
     
     LinkInvitation *link = [LinkInvitation new];
     link.initiator = self.user;
-    link.receiver = receiver;
+    link.receiver = receiveUser;
     link.initiatorRoomId = self.roomId;
     link.receiverRoomId = receiveRoomId;
     
@@ -325,7 +306,7 @@
 //    info.channelId = self.toId;
     info.initiatorUid = QN_User_id;
     info.msg = link;
-    info.receiver =  receiverId;
+//    info.receiver =  receiverId;
     info.timeStamp = [self getNowTimeTimestamp3];
     
     QNInvitationModel *invitationData = [QNInvitationModel new];
@@ -336,14 +317,10 @@
     model.action = action;
     model.data = invitationData.mj_keyValues;
     
-    if ([invitationName isEqualToString:liveroom_pk_invitation]) {
-        QNIMMessageObject *message = [[QNIMMessageObject alloc]initWithQNIMMessageText:model.mj_JSONString fromId:QN_IM_userId.longLongValue toId:receiverIMId.longLongValue type:QNIMMessageTypeSingle conversationId:receiverIMId.longLongValue];
-        message.senderName = QN_User_nickname;
-        return message;
-    }
-    QNIMMessageObject *message = [[QNIMMessageObject alloc]initWithQNIMMessageText:model.mj_JSONString fromId:QN_IM_userId.longLongValue toId:self.toId.longLongValue type:QNIMMessageTypeGroup conversationId:self.toId.longLongValue];
+    QNIMMessageObject *message = [[QNIMMessageObject alloc]initWithQNIMMessageText:model.mj_JSONString fromId:QN_IM_userId.longLongValue toId:receiveUser.im_userid.longLongValue type:QNIMMessageTypeSingle conversationId:receiveUser.im_userid.longLongValue];
     message.senderName = QN_User_nickname;
     return message;
+    
 }
 
 //生成进房/离房/点赞/聊天/弹幕消息

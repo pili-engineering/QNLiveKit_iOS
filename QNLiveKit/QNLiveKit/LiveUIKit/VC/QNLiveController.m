@@ -74,6 +74,7 @@
             weakSelf.roomInfo = roomInfo;
             [weakSelf.roomHostSlot updateWith:roomInfo];
             [weakSelf.onlineUserSlot updateWith:roomInfo];
+            [weakSelf updateRoomInfo];
         }];
     });
 }
@@ -125,9 +126,7 @@
 }
 
 - (void)userFirstVideoDidDecodeOfTrack:(QNRemoteVideoTrack *)videoTrack remoteUserID:(NSString *)userID {
-    dispatch_async(dispatch_get_main_queue(), ^{
-        
-    });
+    
 }
 
 #pragma mark ---------QNChatRoomServiceListener
@@ -159,7 +158,7 @@
 - (void)onReceiveLinkInvitation:(QNInvitationModel *)model {
     NSString *title = [model.invitation.msg.initiator.nick stringByAppendingString:@"申请加入连麦，是否同意？"];
     [QNAlertViewController showBaseAlertWithTitle:title content:@"" handler:^(UIAlertAction * _Nonnull action) {
-        [self.chatService sendLinkMicAccept:model.invitation.msg.initiator.user_id];
+        [self.chatService sendLinkMicAccept:model];
     }];
 }
 
@@ -168,17 +167,19 @@
     NSString *title = [model.invitation.msg.initiator.nick stringByAppendingString:@"邀请您PK，是否同意？"];
     [QNAlertViewController showBaseAlertWithTitle:title content:@"" handler:^(UIAlertAction * _Nonnull action) {
         
-        [self.chatService sendPKAccept:model.invitation.msg.initiatorRoomId receiveUserId:model.invitation.msg.initiator.user_id receiverIMId:model.invitation.msg.initiator.im_userid];
+        [self.chatService sendPKAccept:model];
     }];
 }
 
 //收到同意pk邀请
 - (void)onReceivePKInvitationAccept:(QNInvitationModel *)model {
     
-    [self.pkService startWithReceiverRoomId:model.invitation.msg.initiatorRoomId receiverUid:model.invitation.msg.initiator.user_id extensions:@"" callBack:^(QNPKSession * _Nonnull pkSession) {
+    [self.pkService startWithReceiverRoomId:model.invitation.msg.receiverRoomId receiverUid:model.invitation.msg.receiver.user_id extensions:@"" callBack:^(QNPKSession * _Nonnull pkSession) {
         
+        
+        pkSession.receiver = model.invitation.msg.receiver;
         self.pk_other_user = pkSession.receiver;
-        [self.chatService sendStartPKMessageWithReceiverId:self.selectPkRoomInfo.anchor_info.user_id receiveRoomId:self.selectPkRoomInfo.live_id receiverIMId:self.selectPkRoomInfo.anchor_info.im_userid relayId:pkSession.relay_id relayToken:pkSession.relay_token];
+        [self.chatService createStartPKMessage:pkSession];
         
         [self beginPK:pkSession];
     }];
@@ -188,10 +189,10 @@
 //收到开始pk信令
 - (void)onReceiveStartPKSession:(QNPKSession *)pkSession {
     self.pk_other_user = pkSession.initiator;
-    [self beginPK:pkSession];
-//    [self.pkService getPKToken:pkSession.relay_id callBack:^(QNPKSession * session) {
-//        [self beginPK:session];
-//    }];
+//    [self beginPK:pkSession];
+    [self.pkService getPKToken:pkSession.relay_id callBack:^(QNPKSession * session) {
+        [self beginPK:session];
+    }];
     
 }
 
@@ -244,7 +245,7 @@
     [self.pkService stopWithRelayID:self.pkSession.relay_id callBack:^{
         
     }];
-    [self.chatService sendStopPKMessageWithReceiverId:self.pk_other_user.user_id receiveRoomId:self.pkSession.receiverRoomId receiverIMId:self.pk_other_user.im_userid relayId:self.pkSession.relay_id relayToken:self.pkSession.relay_token];
+    [self.chatService createStopPKMessage:self.pkSession receiveUser:self.pk_other_user];
 }
 
 //自己是否是房主
@@ -343,7 +344,7 @@
     __weak typeof(self)weakSelf = self;
     vc.invitationClickedBlock = ^(QNLiveRoomInfo * _Nonnull itemModel) {
        
-        [weakSelf.chatService sendPKInvitation:itemModel.live_id receiveUserId:itemModel.anchor_info.user_id receiverIMId:itemModel.anchor_info.im_userid];
+        [weakSelf.chatService sendPKInvitation:itemModel.live_id receiveUser:itemModel.anchor_info];
         weakSelf.selectPkRoomInfo = itemModel;
     };
     

@@ -35,7 +35,7 @@ static NSString * const invite_reject = @"invite_reject";
 
 NS_ASSUME_NONNULL_BEGIN
 
-@class QNIMMessageObject,QNGiftModel;
+@class QNIMMessageObject,QNGiftModel,QNLiveUser,QNInvitationModel,QNPKSession;
 
 @interface CreateSignalHandler : NSObject
 
@@ -84,22 +84,22 @@ NS_ASSUME_NONNULL_BEGIN
 - (QNIMMessageObject *)createForbiddenVideo:(BOOL)isForbidden userId:(NSString *)userId msg:(NSString *)msg;
 
 //邀请信令
-- (QNIMMessageObject *)createInviteMessageWithInvitationName:(NSString *)invitationName receiverId:(NSString *)receiverId receiveRoomId:(NSString *)receiveRoomId receiverIMId:(NSString *)receiverIMId;
+- (QNIMMessageObject *)createInviteMessageWithInvitationName:(NSString *)invitationName receiveRoomId:(NSString *)receiveRoomId receiveUser:(nonnull QNLiveUser *)receiveUser;
 
 //取消邀请信令
-- (QNIMMessageObject *)createCancelInviteMessageWithInvitationName:(NSString *)invitationName receiverId:(NSString *)receiverId receiveRoomId:(NSString *)receiveRoomId receiverIMId:(NSString *)receiverIMId;
+- (QNIMMessageObject *)createCancelInviteMessageWithInvitationName:(NSString *)invitationName receiveRoomId:(NSString *)receiveRoomId receiveUser:(nonnull QNLiveUser *)receiveUser;
 
 //接受邀请信令
-- (QNIMMessageObject *)createAcceptInviteMessageWithInvitationName:(NSString *)invitationName receiverId:(NSString *)receiverId receiveRoomId:(NSString *)receiveRoomId receiverIMId:(NSString *)receiverIMId;
+- (QNIMMessageObject *)createAcceptInviteMessageWithInvitationName:(NSString *)invitationName invitationModel:(QNInvitationModel *)invitationModel;
 
 //拒绝邀请信令
-- (QNIMMessageObject *)createRejectInviteMessageWithInvitationName:(NSString *)invitationName receiverId:(NSString *)receiverId receiveRoomId:(NSString *)receiveRoomId receiverIMId:(NSString *)receiverIMId;
+- (QNIMMessageObject *)createRejectInviteMessageWithInvitationName:(NSString *)invitationName invitationModel:(QNInvitationModel *)invitationModel;
 
 //开始pk信令
--(QNIMMessageObject *)createStartPKMessageWithReceiverId:(NSString *)receiverId receiveRoomId:(NSString *)receiveRoomId receiverIMId:(NSString *)receiverIMId relayId:(NSString *)relayId relayToken:(NSString *)relayToken ;
+-(QNIMMessageObject *)createStartPKMessage:(QNPKSession *)pkSession ;
 
 //结束pk信令
-- (QNIMMessageObject *)createStopPKMessageWithReceiverId:(NSString *)receiverId receiveRoomId:(NSString *)receiveRoomId receiverIMId:(NSString *)receiverIMId relayId:(NSString *)relayId relayToken:(NSString *)relayToken;
+- (QNIMMessageObject *)createStopPKMessage:(QNPKSession *)pkSession receiveUser:(nonnull QNLiveUser *)receiveUser;
 
 @end
 

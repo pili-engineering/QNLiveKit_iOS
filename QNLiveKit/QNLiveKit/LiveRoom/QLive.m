@@ -33,6 +33,13 @@
     params[@"avatar"] = avatar;
     params[@"extends"] = extension;
     
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+
+    [defaults setObject:nick forKey:QN_NICKNAME_KEY];
+    [defaults setObject:avatar forKey:QN_USER_AVATAR_KEY];
+    
+    [defaults synchronize];
+    
     [QNLiveNetworkUtil putRequestWithAction:@"client/user/user" params:params success:^(NSDictionary * _Nonnull responseData) {
         } failure:^(NSError * _Nonnull error) {
 

@@ -93,21 +93,23 @@ NS_ASSUME_NONNULL_BEGIN
 - (void)sendOnMicMsg;
 - (void)sendDownMicMsg;
 //发送连麦申请
-- (void)sendLinkMicInvitation:(NSString *)receiveUserId;
+- (void)sendLinkMicInvitation:(QNLiveUser *)receiveUser;
 //接受连麦申请
-- (void)sendLinkMicAccept:(NSString *)receiveUserId;
+- (void)sendLinkMicAccept:(QNInvitationModel *)invitationModel;
 //拒绝连麦申请
-- (void)sendLinkMicReject:(NSString *)receiveUserId;
+- (void)sendLinkMicReject:(QNInvitationModel *)invitationModel;
 //发送PK申请
-- (void)sendPKInvitation:(NSString *)receiveRoomId receiveUserId:(NSString *)receiveUserId receiverIMId:(NSString *)receiverIMId;
+- (void)sendPKInvitation:(NSString *)receiveRoomId receiveUser:(QNLiveUser *)receiveUser;
 //接受PK申请
-- (void)sendPKAccept:(NSString *)receiveRoomId receiveUserId:(NSString *)receiveUserId  receiverIMId:(NSString *)receiverIMId;
+- (void)sendPKAccept:(QNInvitationModel *)invitationModel;
 //拒绝PK申请
-- (void)sendPKReject:(NSString *)receiveRoomId receiveUserId:(NSString *)receiveUserId  receiverIMId:(NSString *)receiverIMId;
+- (void)sendPKReject:(QNInvitationModel *)invitationModel;
 
 //开始pk信令
-- (void)sendStartPKMessageWithReceiverId:(NSString *)receiverId receiveRoomId:(NSString *)receiveRoomId receiverIMId:(NSString *)receiverIMId relayId:(NSString *)relayId relayToken:(NSString *)relayToken;
-- (void)sendStopPKMessageWithReceiverId:(NSString *)receiverId receiveRoomId:(NSString *)receiveRoomId receiverIMId:(NSString *)receiverIMId relayId:(NSString *)relayId relayToken:(NSString *)relayToken;
+-(void)createStartPKMessage:(QNPKSession *)pkSession ;
+
+//结束pk信令
+- (void)createStopPKMessage:(QNPKSession *)pkSession receiveUser:(nonnull QNLiveUser *)receiveUser;
 //踢人
 - (void)kickUser:(NSString *)msg memberId:(NSString *)memberId;
 //禁言

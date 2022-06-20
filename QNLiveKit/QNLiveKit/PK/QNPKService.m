@@ -59,7 +59,7 @@
         }];
 }
 
-- (void)getPKToken:(NSString *)relayID callBack:(nonnull void (^)(QNPKSession * _Nonnull))callBack{
+- (void)getPKToken:(NSString *)relayID callBack:(nonnull void (^)(QNPKSession * _Nonnull))callBack {
     NSString *action = [NSString stringWithFormat:@"client/relay/%@/token",relayID];
     [QNLiveNetworkUtil getRequestWithAction:action params:@{} success:^(NSDictionary * _Nonnull responseData) {
         
@@ -67,6 +67,7 @@
         callBack(model);
         
         } failure:^(NSError * _Nonnull error) {
+            callBack(nil);
         }];
 }
 

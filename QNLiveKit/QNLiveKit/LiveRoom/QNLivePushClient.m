@@ -84,8 +84,8 @@
 }
 
 //加入直播
-- (void)joinLive:(NSString *)token {    
-    [self.rtcClient join:token];
+- (void)joinLive:(NSString *)token userData:(NSString *)userData{
+    [self.rtcClient join:token userData:userData];
 }
 
 - (void)LeaveLive {

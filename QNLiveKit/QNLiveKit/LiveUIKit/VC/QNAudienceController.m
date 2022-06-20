@@ -17,6 +17,7 @@
 #import <PLPlayerKit/PLPlayerKit.h>
 #import "LinkStateSlot.h"
 #import "QRenderView.h"
+#import "QNLiveUser.h"
 
 
 @interface QNAudienceController ()<QNChatRoomServiceListener,QNPushClientListener,
@@ -148,12 +149,16 @@ PLPlayerDelegate
     [self.linkService onMic:YES camera:YES extends:@"" callBack:^(NSString * _Nonnull rtcToken) {
         [self stopPlay];
         [[QLive createPusherClient] enableCamera:nil renderView:self.preview];
-        [[QLive createPusherClient] joinLive:rtcToken];        
+
+        QNMicLinker *mic = [QNMicLinker new];
+        mic.user = self.user;
+        mic.camera = YES;
+        mic.mic = YES;
+        mic.userRoomId = self.roomInfo.live_id;
+        
+        [[QLive createPusherClient] joinLive:rtcToken userData:mic.mj_JSONString];
         [weakSelf.chatService sendOnMicMsg];
     }];
-      
-    
-    
 }
 
 
@@ -205,7 +210,7 @@ PLPlayerDelegate
         [link normalImage:@"link" selectImage:@"link"];
         link.clickBlock = ^(BOOL selected){
             
-            [weakSelf.chatService sendLinkMicInvitation:weakSelf.roomInfo.anchor_info.user_id];
+            [weakSelf.chatService sendLinkMicInvitation:weakSelf.roomInfo.anchor_info];
             NSLog(@"点击了连麦");
         };
         [slotList addObject:link];
@@ -258,6 +263,17 @@ PLPlayerDelegate
         [weakSelf playWithUrl:weakSelf.roomInfo.rtmp_url];
         NSLog(@"点击了结束连麦");
     };
+}
+
+- (QNLiveUser *)user {
+    
+    QNLiveUser *user = [QNLiveUser new];
+    user.user_id = QN_User_id;
+    user.nick = QN_User_nickname;
+    user.avatar = QN_User_avatar;
+    user.im_userid = QN_IM_userId;
+    user.im_username = QN_IM_userName;
+    return user;
 }
 
 @end

@@ -74,7 +74,7 @@ NS_ASSUME_NONNULL_BEGIN
 /// 停止直播
 - (void)closeRoom:(NSString *)roomID;
 
-- (void)joinLive:(NSString *)token;
+- (void)joinLive:(NSString *)token userData:(NSString *)userData;
 - (void)LeaveLive;
 
 /// 启动视频采集
