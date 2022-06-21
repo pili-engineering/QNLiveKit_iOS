@@ -22,11 +22,9 @@
 		77781C71283E1E7E009DC71C /* QNLoginInfoModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 77781C5D283E1E7E009DC71C /* QNLoginInfoModel.m */; };
 		77781C72283E1E7E009DC71C /* QNSolutionListModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 77781C5E283E1E7E009DC71C /* QNSolutionListModel.m */; };
 		77781C73283E1E7E009DC71C /* QNGlobalConfigurationModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 77781C5F283E1E7E009DC71C /* QNGlobalConfigurationModel.m */; };
-		77781C74283E1E7E009DC71C /* QNHomeListView.m in Sources */ = {isa = PBXBuildFile; fileRef = 77781C63283E1E7E009DC71C /* QNHomeListView.m */; };
 		77781C75283E1E7E009DC71C /* QNCountdownButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 77781C64283E1E7E009DC71C /* QNCountdownButton.m */; };
 		77781C76283E1E7E009DC71C /* QNAppStartPlayerController.m in Sources */ = {isa = PBXBuildFile; fileRef = 77781C68283E1E7E009DC71C /* QNAppStartPlayerController.m */; };
 		77781C77283E1E7E009DC71C /* QNLoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 77781C69283E1E7E009DC71C /* QNLoginViewController.m */; };
-		77781C78283E1E7E009DC71C /* QNHomeListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 77781C6C283E1E7E009DC71C /* QNHomeListViewController.m */; };
 		77781C79283E1E7E009DC71C /* QNTabBarViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 77781C6D283E1E7E009DC71C /* QNTabBarViewController.m */; };
 		77781C7C283E1E96009DC71C /* QNAppConficModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 77781C7B283E1E96009DC71C /* QNAppConficModel.m */; };
 		77781C7F283E1EBC009DC71C /* QNIMSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 77781C7D283E1EB2009DC71C /* QNIMSDK.framework */; platformFilter = ios; };
@@ -124,15 +122,11 @@
 		77781C5F283E1E7E009DC71C /* QNGlobalConfigurationModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QNGlobalConfigurationModel.m; sourceTree = "<group>"; };
 		77781C60283E1E7E009DC71C /* QNLoginInfoModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QNLoginInfoModel.h; sourceTree = "<group>"; };
 		77781C62283E1E7E009DC71C /* QNCountdownButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QNCountdownButton.h; sourceTree = "<group>"; };
-		77781C63283E1E7E009DC71C /* QNHomeListView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QNHomeListView.m; sourceTree = "<group>"; };
 		77781C64283E1E7E009DC71C /* QNCountdownButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QNCountdownButton.m; sourceTree = "<group>"; };
-		77781C65283E1E7E009DC71C /* QNHomeListView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QNHomeListView.h; sourceTree = "<group>"; };
-		77781C67283E1E7E009DC71C /* QNHomeListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QNHomeListViewController.h; sourceTree = "<group>"; };
 		77781C68283E1E7E009DC71C /* QNAppStartPlayerController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QNAppStartPlayerController.m; sourceTree = "<group>"; };
 		77781C69283E1E7E009DC71C /* QNLoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QNLoginViewController.m; sourceTree = "<group>"; };
 		77781C6A283E1E7E009DC71C /* QNTabBarViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QNTabBarViewController.h; sourceTree = "<group>"; };
 		77781C6B283E1E7E009DC71C /* QNAppStartPlayerController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QNAppStartPlayerController.h; sourceTree = "<group>"; };
-		77781C6C283E1E7E009DC71C /* QNHomeListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QNHomeListViewController.m; sourceTree = "<group>"; };
 		77781C6D283E1E7E009DC71C /* QNTabBarViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QNTabBarViewController.m; sourceTree = "<group>"; };
 		77781C6E283E1E7E009DC71C /* QNLoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QNLoginViewController.h; sourceTree = "<group>"; };
 		77781C7A283E1E96009DC71C /* QNAppConficModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QNAppConficModel.h; sourceTree = "<group>"; };
@@ -336,8 +330,6 @@
 			children = (
 				77781C62283E1E7E009DC71C /* QNCountdownButton.h */,
 				77781C64283E1E7E009DC71C /* QNCountdownButton.m */,
-				77781C65283E1E7E009DC71C /* QNHomeListView.h */,
-				77781C63283E1E7E009DC71C /* QNHomeListView.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -347,8 +339,6 @@
 			children = (
 				77781C6B283E1E7E009DC71C /* QNAppStartPlayerController.h */,
 				77781C68283E1E7E009DC71C /* QNAppStartPlayerController.m */,
-				77781C67283E1E7E009DC71C /* QNHomeListViewController.h */,
-				77781C6C283E1E7E009DC71C /* QNHomeListViewController.m */,
 				77781C6E283E1E7E009DC71C /* QNLoginViewController.h */,
 				77781C69283E1E7E009DC71C /* QNLoginViewController.m */,
 				77781C6A283E1E7E009DC71C /* QNTabBarViewController.h */,
@@ -682,10 +672,8 @@
 				77781C79283E1E7E009DC71C /* QNTabBarViewController.m in Sources */,
 				77781CD92840C768009DC71C /* QNAppRulesCell.m in Sources */,
 				77781C75283E1E7E009DC71C /* QNCountdownButton.m in Sources */,
-				77781C78283E1E7E009DC71C /* QNHomeListViewController.m in Sources */,
 				77781C70283E1E7E009DC71C /* QNHomeListViewModel.m in Sources */,
 				77781C9A283E1EE7009DC71C /* QNNetworkUtil.m in Sources */,
-				77781C74283E1E7E009DC71C /* QNHomeListView.m in Sources */,
 				77781C6F283E1E7E009DC71C /* QNGlobalConfigurationViewModel.m in Sources */,
 				776B1BF028378CCF00D85C73 /* main.m in Sources */,
 				77781C98283E1EE7009DC71C /* NSDate+Operation.m in Sources */,

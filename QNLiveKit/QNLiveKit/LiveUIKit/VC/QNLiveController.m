@@ -8,10 +8,9 @@
 #import "QNLiveController.h"
 #import "QNLivePushClient.h"
 #import "QNLiveRoomClient.h"
-#import "RoomHostSlot.h"
-#import "OnlineUserSlot.h"
+#import "RoomHostComponent.h"
+#import "OnlineUserComponent.h"
 #import "BottomMenuSlot.h"
-#import "QChatBarSlot.h"
 #import "QNLinkMicService.h"
 #import "QNChatRoomService.h"
 #import "LiveChatRoom.h"
@@ -21,18 +20,23 @@
 #import "QNInvitationModel.h"
 #import "QRenderView.h"
 #import "QLive.h"
+#import "QNLiveUser.h"
 #import "QNInvitationMemberListController.h"
 #import "QNPKService.h"
 #import "LinkInvitation.h"
 #import <QNRTCKit/QNRTCKit.h>
+#import "FDanmakuView.h"
+#import "FDanmakuModel.h"
+#import "QNIMModel.h"
+#import "PubChatModel.h"
 
-@interface QNLiveController ()<QNPushClientListener,QNRoomLifeCycleListener,QNPushClientListener,QNChatRoomServiceListener>
+@interface QNLiveController ()<QNPushClientListener,QNRoomLifeCycleListener,QNPushClientListener,QNChatRoomServiceListener,FDanmakuViewProtocol,LiveChatRoomViewDelegate>
 
-@property (nonatomic, strong) RoomHostSlot *roomHostSlot;
-@property (nonatomic, strong) OnlineUserSlot *onlineUserSlot;
-@property (nonatomic, strong) QChatBarSlot *pubchatSlot;
+@property (nonatomic, strong) RoomHostComponent *roomHostSlot;
+@property (nonatomic, strong) OnlineUserComponent *onlineUserSlot;
+@property (nonatomic, strong) ImageButtonComponent *pubchatSlot;
 @property (nonatomic, strong) BottomMenuSlot *bottomMenuSlot;
-@property (nonatomic, strong) ItemSlot *pkSlot;
+@property (nonatomic, strong) ImageButtonComponent *pkSlot;
 @property (nonatomic, strong) QNLiveRoomInfo *selectPkRoomInfo;
 @property (nonatomic, strong) QNPKSession *pkSession;//正在进行的pk
 @property (nonatomic, strong) QNLiveUser *pk_other_user;//pk对象
@@ -51,6 +55,8 @@
     __weak typeof(self)weakSelf = self;
     [[QLive createPusherClient] enableCamera:nil renderView:self.preview];
     [QLive createPusherClient].pushClientListener = self;
+    self.danmakuView.delegate = self;
+    self.chatRoomView.delegate = self;
     [self.chatService addChatServiceListener:self];
     [[QLive createPusherClient] startLive:self.roomInfo.live_id callBack:^(QNLiveRoomInfo * _Nonnull roomInfo) {
         self.roomInfo = roomInfo;
@@ -146,13 +152,6 @@
     });
 }
 
-//远端取消渲染
-- (void)userdidDetachRenderTrack:(QNRemoteVideoTrack *)videoTrack remoteUserID:(NSString *)userID {
-    
-    [[QLive createPusherClient] removeUserVideoMergeOptions:userID trackId:videoTrack.trackID];
-}
-
-
 #pragma mark ---------QNChatRoomServiceListener
 
 - (void)onUserJoin:(QNLiveUser *)user message:(nonnull QNIMMessageObject *)message {
@@ -163,13 +162,67 @@
     [self.chatRoomView showMessage:message];
 }
 
-//收到下麦消息
-- (void)onReceivedDownMic:(QNMicLinker *)linker {
-    [self removeUserViewWithUid:linker.user.user_id];
+//收到弹幕
+- (void)onReceivedDamaku:(PubChatModel *)msg {
+    FDanmakuModel *model = [[FDanmakuModel alloc]init];
+    model.beginTime = 1;
+    model.liveTime = 5;
+    model.content = msg.content;
+    model.sendNick = msg.sendUser.nick;
+    model.sendAvatar = msg.sendUser.avatar;
+    
+    [self.danmakuView.modelsArr addObject:model];
 }
 
+-(NSTimeInterval)currentTime {
+    static double time = 0;
+    time += 0.1 ;
+    return time;
+}
+
+- (UIView *)danmakuViewWithModel:(FDanmakuModel*)model {
+    
+    UILabel *label = [UILabel new];
+    label.font = [UIFont systemFontOfSize:14];
+    label.textColor = [UIColor whiteColor];
+    label.text = model.content;
+    [label sizeToFit];
+    return label;
+    
+}
+
+- (void)didSendMessageModel:(QNIMMessageObject *)model {
+    QNIMModel *imModel = [QNIMModel mj_objectWithKeyValues:model.content.mj_keyValues];
+    PubChatModel *chatModel = [PubChatModel mj_objectWithKeyValues:imModel.data];
+    if ([chatModel.action isEqualToString:living_danmu]) {
+        FDanmakuModel *danmuModel = [[FDanmakuModel alloc]init];
+        danmuModel.beginTime = 1;
+        danmuModel.liveTime = 5;
+        danmuModel.content = chatModel.content;
+        [self.danmakuView.modelsArr addObject:danmuModel];
+    }
+}
+
+//收到下麦消息
+- (void)onReceivedDownMic:(QNMicLinker *)linker {
+    QRenderView *userView = [self getUserView:linker.user.user_id];
+    [userView removeFromSuperview];
+}
+
+//收到公聊消息
 - (void)onReceivedPuChatMsg:(PubChatModel *)msg message:(QNIMMessageObject *)message {
     [self.chatRoomView showMessage:message];
+}
+
+//收到开关视频消息
+- (void)onReceivedVideoMute:(BOOL)mute user:(NSString *)uid {
+    QRenderView *userView = [self getUserView:uid];
+    userView.hidden = mute;
+}
+
+//收到开关音频消息
+- (void)onReceivedAudioMute:(BOOL)mute user:(NSString *)uid {
+    
 }
 
 //接受到连麦邀请
@@ -183,8 +236,7 @@
 //接收到pk邀请
 - (void)onReceivePKInvitation:(QNInvitationModel *)model {
     NSString *title = [model.invitation.msg.initiator.nick stringByAppendingString:@"邀请您PK，是否同意？"];
-    [QNAlertViewController showBaseAlertWithTitle:title content:@"" handler:^(UIAlertAction * _Nonnull action) {
-        
+    [QNAlertViewController showBaseAlertWithTitle:title content:@"" handler:^(UIAlertAction * _Nonnull action) {        
         [self.chatService sendPKAccept:model];
     }];
 }
@@ -293,9 +345,9 @@
     return isAdmin;
 }
 
-- (RoomHostSlot *)roomHostSlot {
+- (RoomHostComponent *)roomHostSlot {
     if (!_roomHostSlot) {
-        _roomHostSlot = [[RoomHostSlot alloc]init];
+        _roomHostSlot = [[RoomHostComponent alloc]init];
         [_roomHostSlot createDefaultView:CGRectMake(20, 60, 135, 40) onView:self.view];
         [_roomHostSlot updateWith:self.roomInfo];;
         _roomHostSlot.clickBlock = ^(BOOL selected) {
@@ -305,10 +357,10 @@
     return _roomHostSlot;
 }
 
-- (OnlineUserSlot *)onlineUserSlot {
+- (OnlineUserComponent *)onlineUserSlot {
     if (!_onlineUserSlot) {
-        _onlineUserSlot = [[OnlineUserSlot alloc]init];
-        [_onlineUserSlot createDefaultView:CGRectMake(self.view.frame.size.width - 60, 60, 40, 40) onView:self.view];
+        _onlineUserSlot = [[OnlineUserComponent alloc]init];
+       [_onlineUserSlot createDefaultView:CGRectMake(self.view.frame.size.width - 150, 60, 150, 60) onView:self.view];
         [_onlineUserSlot updateWith:self.roomInfo];
         _onlineUserSlot.clickBlock = ^(BOOL selected){
             NSLog(@"点击了在线人数");
@@ -317,13 +369,14 @@
     return _onlineUserSlot;
 }
 
-- (QChatBarSlot *)pubchatSlot {
+- (ImageButtonComponent *)pubchatSlot {
     if (!_pubchatSlot) {
-        _pubchatSlot = [[QChatBarSlot alloc]init];
+        _pubchatSlot = [[ImageButtonComponent alloc]init];
         [_pubchatSlot createDefaultView:CGRectMake(15, SCREEN_H - 80, 220, 45) onView:self.view];
+        [_pubchatSlot normalImage:@"chat_input_bar" selectImage:@"chat_input_bar"];
         __weak typeof(self)weakSelf = self;
         _pubchatSlot.clickBlock = ^(BOOL selected){
-            [weakSelf.chatRoomView commentBtnPressed];
+            [weakSelf.chatRoomView commentBtnPressedWithPubchat:YES];
             NSLog(@"点击了公聊");
         };
         
@@ -335,16 +388,8 @@
     if (!_bottomMenuSlot) {
         NSMutableArray *slotList = [NSMutableArray array];
         __weak typeof(self)weakSelf = self;
-//        ItemSlot *pubchat = [[ItemSlot alloc]init];
-//        [pubchat normalImage:@"pub_chat_bar" selectImage:@"pub_chat_bar"];
-//
-//        pubchat.clickBlock = ^(BOOL selected){
-//            [weakSelf.chatRoomView commentBtnPressed];
-//            NSLog(@"点击了公聊");
-//        };
-//        [slotList addObject:pubchat];
         
-        ItemSlot *pk = [[ItemSlot alloc]init];
+        ImageButtonComponent *pk = [[ImageButtonComponent alloc]init];
         [pk normalImage:@"pk" selectImage:@"end_pk"];
         pk.clickBlock = ^(BOOL selected){
             NSLog(@"点击了pk");
@@ -360,7 +405,15 @@
         [slotList addObject:pk];
         self.pkSlot = pk;
         
-        ItemSlot *close = [[ItemSlot alloc]init];
+        ImageButtonComponent *message = [[ImageButtonComponent alloc]init];
+        [message normalImage:@"message" selectImage:@"message"];
+        message.clickBlock = ^(BOOL selected){
+            [weakSelf.chatRoomView commentBtnPressedWithPubchat:NO];
+            NSLog(@"点击了私信");
+        };
+        [slotList addObject:message];
+        
+        ImageButtonComponent *close = [[ImageButtonComponent alloc]init];
         [close normalImage:@"live_close" selectImage:@"live_close"];
         close.clickBlock = ^(BOOL selected){
             [weakSelf dismissViewControllerAnimated:YES completion:nil];

@@ -12,12 +12,8 @@
 NS_ASSUME_NONNULL_BEGIN
 
 @protocol LiveChatRoomViewDelegate <NSObject>
-
--(void)didReceiveQuitMessageWithMessageModel:(QNIMMessageObject *)model;
-
--(void)didReceiveMessageUserBackground:(QNIMMessageObject *)model;
-
-- (void)didReceiveIMSignalMessage:(QNIMMessageObject *)message;
+@optional
+-(void)didSendMessageModel:(QNIMMessageObject *)model;
 
 @end
 
@@ -57,7 +53,7 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  数据模型
  */
-- (void)commentBtnPressed;
+- (void)commentBtnPressedWithPubchat:(BOOL)isPubchat;
 
 - (void)sendMessage:(QNIMMessageObject *)messageContent;
 //展示message

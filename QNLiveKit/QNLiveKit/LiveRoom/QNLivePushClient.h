@@ -24,27 +24,11 @@ NS_ASSUME_NONNULL_BEGIN
 // 远端用户发布音/视频
 - (void)onUserPublishTracks:(NSArray<QNRemoteTrack *> *)tracks ofUserID:(NSString *)userID;
 
-//远端用户首帧解码
-- (void)userFirstVideoDidDecodeOfTrack:(QNRemoteVideoTrack *)videoTrack remoteUserID:(NSString *)userID;
-//远端用户取消渲染
-- (void)userdidDetachRenderTrack:(QNRemoteVideoTrack *)videoTrack remoteUserID:(NSString *)userID;
-
-- (void)onUserUnpublishTracks:(NSArray<QNRemoteTrack *> *)tracks ofUserID:(NSString *)userID;
-
-- (void)didMediaRelayStateChanged:(NSString *)relayRoom state:(QNMediaRelayState)state;
-
+// 成功创建混流转推
 - (void)didStartLiveStreaming:(NSString *)streamID;
-
-//订阅成功
-- (void)didSubscribedRemoteVideoTracks:(NSArray<QNRemoteVideoTrack *> *)videoTracks audioTracks:(NSArray<QNRemoteAudioTrack *> *)audioTracks ofUserID:(NSString *)userID;
 
 // 有人离开rtc房间
 - (void)onUserLeaveRTC:(NSString *)userID;
-
-/// 房间状态
-/// @param liveRoomStatus status
-/// @param msg msg
-- (void)onRoomStateChanged:(QNLiveRoomStatus)liveRoomStatus msg:(NSString *)msg;
 
 /// 摄像头状态回调
 /// @param isOpen isOpen

@@ -1,13 +1,13 @@
 //
-//  LinkStateSlot.m
+//  LinkStateComponent.m
 //  QNLiveKit
 //
 //  Created by 郭茜 on 2022/6/7.
 //
 
-#import "LinkStateSlot.h"
+#import "LinkStateComponent.h"
 
-@interface LinkStateSlot ()
+@interface LinkStateComponent ()
 
 @property (nonatomic, strong) UIView *view;
 
@@ -23,7 +23,7 @@
 
 @end
 
-@implementation LinkStateSlot
+@implementation LinkStateComponent
 
 //默认
 - (void)createDefaultView:(CGRect)frame onView:(UIView *)onView {

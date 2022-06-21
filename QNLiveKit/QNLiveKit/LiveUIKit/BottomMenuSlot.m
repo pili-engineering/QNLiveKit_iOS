@@ -6,7 +6,7 @@
 //
 
 #import "BottomMenuSlot.h"
-#import "ItemSlot.h"
+#import "ImageButtonComponent.h"
 
 static const CGFloat Slot_W = 55;//按钮宽
 
@@ -21,11 +21,10 @@ static const CGFloat Slot_W = 55;//按钮宽
     CGFloat space = (frame.size.width - (Slot_W * self.slotList.count))/(self.slotList.count + 1);
     
     for (int i = 0; i < self.slotList.count; i++) {
-        ItemSlot *slot = self.slotList[i];
+        ImageButtonComponent *slot = self.slotList[i];
         CGRect slotFrame = CGRectMake(space + (Slot_W +space) * i, (frame.size.height - Slot_W)/2 , Slot_W, Slot_W);
         [slot createDefaultView:slotFrame onView:view];
     }
-    
 }
 
 @end

@@ -9,11 +9,12 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-@class ItemSlot;
-@interface BottomMenuSlot : QNInternalViewSlot
+@class ImageButtonComponent;
+//底部操作栏槽位
+@interface BottomMenuSlot : QLiveComponent
 
 //菜单列表
-@property (nonatomic,copy)NSArray <ItemSlot *> *slotList;
+@property (nonatomic,copy)NSArray <ImageButtonComponent *> *slotList;
 
 @end
 

@@ -108,10 +108,10 @@
 //生成弹幕消息
 - (QNIMMessageObject *)createDanmuMessage:(NSString *)content {
 
-    PubChatModel *model = [self messageWithAction:liveroom_danmaku content:content];
+    PubChatModel *model = [self messageWithAction:living_danmu content:content];
     
     QNIMModel *messageModel = [QNIMModel new];
-    messageModel.action = liveroom_pubchat;
+    messageModel.action = living_danmu;
     messageModel.data = model.mj_keyValues;
     
     QNIMMessageObject *message = [[QNIMMessageObject alloc]initWithQNIMMessageText:messageModel.mj_JSONString fromId:QN_IM_userId.longLongValue toId:self.toId.longLongValue type:QNIMMessageTypeGroup conversationId:self.toId.longLongValue];

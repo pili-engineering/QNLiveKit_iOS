@@ -245,16 +245,16 @@
         }
     } else if ([imModel.action isEqualToString:liveroom_pubchat_custom]) {
         //自定义消息
-        PubChatModel *model = [PubChatModel mj_objectWithKeyValues:imModel.data];
+//        PubChatModel *model = [PubChatModel mj_objectWithKeyValues:imModel.data];
         
 //        if ([self.chatRoomListener respondsToSelector:@selector(onUserLeave:)]) {
 //            [self.chatRoomListener onUserLeave:model.sendUser];
 //        }
-    } else if ([imModel.action isEqualToString:liveroom_danmaku]) {
+    } else if ([imModel.action isEqualToString:living_danmu]) {
         //弹幕消息
         PubChatModel *model = [PubChatModel mj_objectWithKeyValues:imModel.data];
         
-        if ([self.chatRoomListener respondsToSelector:@selector(onReceiveDanmaku:)]) {
+        if ([self.chatRoomListener respondsToSelector:@selector(onReceivedDamaku:)]) {
             [self.chatRoomListener onReceivedDamaku:model];
         }
     } else if ([imModel.action isEqualToString:liveroom_miclinker_kick]) {

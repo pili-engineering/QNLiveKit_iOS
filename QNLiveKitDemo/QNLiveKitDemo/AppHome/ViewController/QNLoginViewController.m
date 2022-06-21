@@ -146,18 +146,6 @@
         
         [QLive initWithToken:responseData[@"accessToken"]];
         [QLive setUser:user.avatar nick:user.nickname extension:nil];
-        
-        [QLive getSelfUser:^(QNLiveUser *user) {
-            [self connectionIMWithImUserName:user.im_username imPassword:user.im_password];
-            NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
-
-            [defaults setObject:user.im_userid forKey:QN_IM_USER_ID_KEY];
-            [defaults setObject:user.im_username forKey:QN_IM_USER_NAME_KEY];
-            [defaults setObject:user.im_password forKey:QN_IM_USER_PASSWORD_KEY];
-            
-            [defaults synchronize];
-
-        }];
 
         } failure:^(NSError *error) {
         
@@ -172,31 +160,11 @@
     [defaults setObject:loginModel.accountId forKey:QN_ACCOUNT_ID_KEY];
     [defaults setObject:loginModel.nickname forKey:QN_NICKNAME_KEY];
     
-    
-//    if (loginModel.imConfig.imUid.length > 0) {
-//        [defaults setObject:loginModel.imConfig.imUid forKey:QN_IM_USER_ID_KEY];
-//        [defaults setObject:loginModel.imConfig.imUsername forKey:QN_IM_USER_NAME_KEY];
-//        [defaults setObject:loginModel.imConfig.imPassword forKey:QN_IM_USER_PASSWORD_KEY];
-//    }
     [defaults synchronize];
-        
-    
-    NSLog(@"-------IM psw = %@",[[NSUserDefaults standardUserDefaults] objectForKey:QN_IM_USER_PASSWORD_KEY]);
+
     QNTabBarViewController *tabBarVc = [[QNTabBarViewController alloc]init];
     UIWindow *window =  [[[UIApplication sharedApplication] windows] objectAtIndex:0];
     window.rootViewController = tabBarVc;
-}
-
-- (void)connectionIMWithImUserName:(NSString *)imUsername imPassword:(NSString *)imPassword {
-    
-    [[QNIMClient sharedClient] signInByName:imUsername password:imPassword completion:^(QNIMError * _Nonnull error) {
-        
-        NSLog(@"---七牛IM服务器连接状态-%li",[QNIMClient sharedClient].connectStatus);
-        
-        
-        
-    }];
-       
 }
 
 - (void)getSmsCode {

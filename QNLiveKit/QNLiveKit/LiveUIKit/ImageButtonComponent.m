@@ -1,19 +1,19 @@
 //
-//  ItemSlot.m
+//  ImageButtonComponent.m
 //  QNLiveKit
 //
 //  Created by 郭茜 on 2022/5/31.
 //
 
-#import "ItemSlot.h"
+#import "ImageButtonComponent.h"
 
-@interface ItemSlot ()
+@interface ImageButtonComponent ()
 
 @property (nonatomic, strong)UIButton *button;
 
 @end
 
-@implementation ItemSlot
+@implementation ImageButtonComponent
 
 - (void)createDefaultView:(CGRect)frame onView:(UIView *)onView {
     self.button.frame = frame;
@@ -28,11 +28,6 @@
 
 - (void)setSelected:(BOOL)selected {
     self.button.selected = selected;
-//    if (self.button.selected) {
-//        self.button.frame = CGRectMake(self.button.frame.origin.x - 15, self.button.frame.origin.y, 70, 40);
-//    } else {
-//        self.button.frame = CGRectMake(self.button.frame.origin.x + 15, self.button.frame.origin.y, 40, 40);
-//    }
 }
 
 - (void)click:(UIButton *)button {    

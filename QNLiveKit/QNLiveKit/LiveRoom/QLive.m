@@ -21,6 +21,8 @@
 @implementation QLive
 
 + (void)initWithToken:(NSString *)token {
+    
+    
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
     [defaults setObject:token forKey:Live_Token];
     [defaults synchronize];
@@ -41,6 +43,14 @@
     [defaults synchronize];
     
     [QNLiveNetworkUtil putRequestWithAction:@"client/user/user" params:params success:^(NSDictionary * _Nonnull responseData) {
+        
+        [QLive getSelfUser:^(QNLiveUser *user) {
+            
+            [[QNIMClient sharedClient] signInByName:user.im_username password:user.im_password completion:^(QNIMError * _Nonnull error) {
+                NSLog(@"---七牛IM服务器连接状态-%li",[QNIMClient sharedClient].connectStatus);
+            }];
+        }];
+        
         } failure:^(NSError * _Nonnull error) {
 
         }];
@@ -72,7 +82,15 @@
 + (void)getSelfUser:(void (^)(QNLiveUser * _Nonnull))callBack {
     
     [QNLiveNetworkUtil getRequestWithAction:@"client/user/profile" params:nil success:^(NSDictionary * _Nonnull responseData) {
+        
         QNLiveUser *user = [QNLiveUser mj_objectWithKeyValues:responseData];
+        
+        NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+        [defaults setObject:user.im_userid forKey:QN_IM_USER_ID_KEY];
+        [defaults setObject:user.im_username forKey:QN_IM_USER_NAME_KEY];
+        [defaults setObject:user.im_password forKey:QN_IM_USER_PASSWORD_KEY];
+        [defaults synchronize];
+        
         callBack(user);
         } failure:^(NSError * _Nonnull error) {
             callBack(nil);

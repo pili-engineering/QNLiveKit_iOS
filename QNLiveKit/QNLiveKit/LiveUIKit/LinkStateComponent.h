@@ -1,5 +1,5 @@
 //
-//  LinkStateSlot.h
+//  LinkStateComponent.h
 //  QNLiveKit
 //
 //  Created by 郭茜 on 2022/6/7.
@@ -12,7 +12,8 @@ NS_ASSUME_NONNULL_BEGIN
 typedef void (^MicrophoneBlock)(BOOL mute);
 typedef void (^CameraBlock)(BOOL mute);
 
-@interface LinkStateSlot : QNInternalViewSlot
+//连麦中面板槽位
+@interface LinkStateComponent : QLiveComponent
 
 @property (nonatomic, copy)MicrophoneBlock microphoneBlock;
 

@@ -44,6 +44,7 @@ static int clickPraiseBtnTimes  = 0 ;
  */
 @property(nonatomic, assign) BOOL isNeedScrollToButtom;
 
+@property(nonatomic, assign) BOOL isPubchat;
 /**
  *  滚动条不在底部的时候，接收到消息不滚动到底部，记录未读消息数
  */
@@ -114,7 +115,8 @@ static int clickPraiseBtnTimes  = 0 ;
 /**
  发言按钮事件
  */
-- (void)commentBtnPressed {
+- (void)commentBtnPressedWithPubchat:(BOOL)isPubchat {
+    self.isPubchat = isPubchat;
         [self.inputBar setHidden:NO];
         [self.inputBar  setInputBarStatus:RCCRBottomBarStatusKeyboard];
 
@@ -246,9 +248,14 @@ static int clickPraiseBtnTimes  = 0 ;
         return;
     }
     CreateSignalHandler *create = [[CreateSignalHandler alloc] initWithToId:self.groupId roomId:@""];
-    QNIMMessageObject *rcTextMessage = [create createChatMessage:text];
-    [self sendMessage:rcTextMessage];
-    
+    if (self.isPubchat) {
+        QNIMMessageObject *rcTextMessage = [create createChatMessage:text];
+        [self sendMessage:rcTextMessage];
+    } else {
+        QNIMMessageObject *rcTextMessage = [create createDanmuMessage:text];
+        [self sendMessage:rcTextMessage];
+    }
+
 }
 
 #pragma mark sendMessage/showMessage
@@ -260,9 +267,13 @@ static int clickPraiseBtnTimes  = 0 ;
 - (void)sendMessage:(QNIMMessageObject *)messageContent{
        
     [[QNIMChatService sharedOption] sendMessage:messageContent];
-    [self appendAndDisplayMessage:messageContent];
-    
-    
+    if ([self.delegate respondsToSelector:@selector(didSendMessageModel:)]) {
+        [self.delegate didSendMessageModel:messageContent];
+    }
+    //是公聊消息才插入
+    if (self.isPubchat) {
+        [self appendAndDisplayMessage:messageContent];
+    }
 }
 
 - (void)messageStatusChanged:(QNIMMessageObject *)message error:(QNIMError *)error {
@@ -367,7 +378,7 @@ static int clickPraiseBtnTimes  = 0 ;
     if (!_commentBtn) {
         _commentBtn = [[UIButton alloc] init];
         [_commentBtn addTarget:self
-                        action:@selector(commentBtnPressed)
+                        action:@selector(commentBtnPressedWithPubchat:)
               forControlEvents:UIControlEventTouchUpInside];
         [_commentBtn setImage:[UIImage imageNamed:@"feedback"] forState:UIControlStateNormal];
     }

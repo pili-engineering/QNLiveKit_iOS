@@ -1,11 +1,11 @@
 //
-//  RoomHostSlot.m
+//  RoomHostComponent.m
 //  QNLiveKitDemo
 //
 //  Created by 郭茜 on 2022/5/31.
 //
 
-#import "RoomHostSlot.h"
+#import "RoomHostComponent.h"
 #import "QNLiveRoomInfo.h"
 #import "QNLiveUser.h"
 #import <SDWebImage/SDWebImage.h>
@@ -22,7 +22,7 @@ static const CGFloat People_Count_H = 10;//人数高
 static const CGFloat People_Count_T = 5;//人数上间距
 static const CGFloat People_Count_L = 5;//人数左间距
 
-@interface RoomHostSlot ()
+@interface RoomHostComponent ()
 
 @property (nonatomic, strong)UIImageView *avatarView;//房主头像
 @property (nonatomic, strong)UILabel *roomNameLabel;//房间名
@@ -31,7 +31,7 @@ static const CGFloat People_Count_L = 5;//人数左间距
 
 @end
 
-@implementation RoomHostSlot
+@implementation RoomHostComponent
 
 //默认
 - (void)createDefaultView:(CGRect)frame onView:(UIView *)onView {

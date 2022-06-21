@@ -179,22 +179,6 @@
         
     
 }
-//停止转推/合流转推任务的回调
-- (void)RTCClient:(QNRTCClient *)client didStopLiveStreaming:(NSString *)streamID {
-    
-}
-//合流转推出错的回调
-- (void)RTCClient:(QNRTCClient *)client didErrorLiveStreaming:(NSString *)streamID errorInfo:(QNLiveStreamingErrorInfo *)errorInfo {
-    
-}
-
-//远端用户取消渲染
-- (void)RTCClient:(QNRTCClient *)client didDetachRenderTrack:(QNRemoteVideoTrack *)videoTrack remoteUserID:(NSString *)userID {
-    if ([self.pushClientListener respondsToSelector:@selector(userdidDetachRenderTrack:remoteUserID:)]) {
-        [self.pushClientListener userdidDetachRenderTrack:videoTrack remoteUserID:userID];
-    }
-}
-
 
 - (void)RTCClient:(QNRTCClient *)client didConnectionStateChanged:(QNConnectionState)state disconnectedInfo:(QNConnectionDisconnectedInfo *)info {
     
@@ -206,25 +190,6 @@
             [self.pushClientListener onConnectionRoomStateChanged:state];
     }
     
-}
-
-- (void)RTCClient:(QNRTCClient *)client didSubscribedRemoteVideoTracks:(NSArray<QNRemoteVideoTrack *> *)videoTracks audioTracks:(NSArray<QNRemoteAudioTrack *> *)audioTracks ofUserID:(NSString *)userID {
-    
-    if ([self.pushClientListener respondsToSelector:@selector(didSubscribedRemoteVideoTracks:audioTracks:ofUserID:)]) {
-        [self.pushClientListener didSubscribedRemoteVideoTracks:videoTracks audioTracks:audioTracks ofUserID:userID];
-    }
-}
-
-- (void)RTCClient:(QNRTCClient *)client didUserUnpublishTracks:(NSArray<QNRemoteTrack *> *)tracks ofUserID:(NSString *)userID {
-    if ([self.pushClientListener respondsToSelector:@selector(onUserUnpublishTracks:ofUserID:)]) {
-        [self.pushClientListener onUserUnpublishTracks:tracks ofUserID:userID];
-    }
-}
-
-- (void)RTCClient:(QNRTCClient *)client didMediaRelayStateChanged:(NSString *)relayRoom state:(QNMediaRelayState)state {
-    if ([self.pushClientListener respondsToSelector:@selector(didMediaRelayStateChanged:state:)]) {
-        [self.pushClientListener didMediaRelayStateChanged:relayRoom state:state];
-    }
 }
 
 - (void)RTCClient:(QNRTCClient *)client didUserPublishTracks:(NSArray<QNRemoteTrack *> *)tracks ofUserID:(NSString *)userID  {
@@ -248,12 +213,6 @@
             }
         }
         
-    }
-}
-
-- (void)RTCClient:(QNRTCClient *)client firstVideoDidDecodeOfTrack:(QNRemoteVideoTrack *)videoTrack remoteUserID:(NSString *)userID {
-    if ([self.pushClientListener respondsToSelector:@selector(userFirstVideoDidDecodeOfTrack:remoteUserID:)]) {
-        [self.pushClientListener userFirstVideoDidDecodeOfTrack:videoTrack remoteUserID:userID];
     }
 }
 

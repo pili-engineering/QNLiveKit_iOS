@@ -23,17 +23,13 @@
 
 @implementation QNLiveListController
 
-- (void)viewWillAppear:(BOOL)animated {
-    [super viewWillAppear:animated];
-    self.tabBarController.tabBar.hidden = YES;
-    
-//    [self.navigationController setNavigationBarHidden:YES animated:NO];
-}
+//- (void)viewWillAppear:(BOOL)animated {
+//    [super viewWillAppear:animated];
+//    self.tabBarController.tabBar.hidden = YES;
+//    
+////    [self.navigationController setNavigationBarHidden:YES animated:NO];
+//}
 
-- (void)viewWillDisappear:(BOOL)animated {
-    [super viewWillDisappear:animated];
-//    [self.navigationController setNavigationBarHidden:NO animated:NO];
-}
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -56,7 +52,7 @@
 }
 
 - (void)createButton {
-    UIButton *button = [[UIButton alloc]initWithFrame:CGRectMake((SCREEN_W - 200)/2, SCREEN_H - 100, 200, 40)];
+    UIButton *button = [[UIButton alloc]initWithFrame:CGRectMake((SCREEN_W - 200)/2, SCREEN_H - 150, 200, 40)];
     button.backgroundColor = [UIColor blueColor];
     [button setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
     button.clipsToBounds = YES;

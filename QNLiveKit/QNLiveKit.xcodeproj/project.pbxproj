@@ -13,8 +13,6 @@
 		77204D5528589D8F0053B1AD /* QIMService.m in Sources */ = {isa = PBXBuildFile; fileRef = 77204D5328589D8F0053B1AD /* QIMService.m */; };
 		77204D58285981B00053B1AD /* CYProtocolManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 77204D56285981B00053B1AD /* CYProtocolManager.m */; };
 		77204D59285981B00053B1AD /* CYProtocolManager.h in Headers */ = {isa = PBXBuildFile; fileRef = 77204D57285981B00053B1AD /* CYProtocolManager.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		77204D5C285F30CF0053B1AD /* QChatBarSlot.h in Headers */ = {isa = PBXBuildFile; fileRef = 77204D5A285F30CF0053B1AD /* QChatBarSlot.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		77204D5D285F30CF0053B1AD /* QChatBarSlot.m in Sources */ = {isa = PBXBuildFile; fileRef = 77204D5B285F30CF0053B1AD /* QChatBarSlot.m */; };
 		77204D65285F755C0053B1AD /* QNLiveListCell.h in Headers */ = {isa = PBXBuildFile; fileRef = 77204D5F285F755B0053B1AD /* QNLiveListCell.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		77204D66285F755C0053B1AD /* QNCreateLiveController.m in Sources */ = {isa = PBXBuildFile; fileRef = 77204D60285F755B0053B1AD /* QNCreateLiveController.m */; };
 		77204D67285F755C0053B1AD /* QNLiveListController.h in Headers */ = {isa = PBXBuildFile; fileRef = 77204D61285F755B0053B1AD /* QNLiveListController.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -84,6 +82,13 @@
 		776B1CEF283D0D8100D85C73 /* QNMergeOption.m in Sources */ = {isa = PBXBuildFile; fileRef = 776B1CED283D0D8100D85C73 /* QNMergeOption.m */; };
 		776B1CF2283D0F2000D85C73 /* LinkInvitation.h in Headers */ = {isa = PBXBuildFile; fileRef = 776B1CF0283D0F2000D85C73 /* LinkInvitation.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		776B1CF3283D0F2000D85C73 /* LinkInvitation.m in Sources */ = {isa = PBXBuildFile; fileRef = 776B1CF1283D0F2000D85C73 /* LinkInvitation.m */; };
+		777186972861B8A800C5CABC /* CALayer+Aimate.m in Sources */ = {isa = PBXBuildFile; fileRef = 777186902861B8A800C5CABC /* CALayer+Aimate.m */; };
+		777186982861B8A800C5CABC /* FDanmakuModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 777186912861B8A800C5CABC /* FDanmakuModel.m */; };
+		777186992861B8A800C5CABC /* FDanmakuModelProtocol.h in Headers */ = {isa = PBXBuildFile; fileRef = 777186922861B8A800C5CABC /* FDanmakuModelProtocol.h */; };
+		7771869A2861B8A800C5CABC /* FDanmakuView.h in Headers */ = {isa = PBXBuildFile; fileRef = 777186932861B8A800C5CABC /* FDanmakuView.h */; };
+		7771869B2861B8A800C5CABC /* CALayer+Aimate.h in Headers */ = {isa = PBXBuildFile; fileRef = 777186942861B8A800C5CABC /* CALayer+Aimate.h */; };
+		7771869C2861B8A800C5CABC /* FDanmakuModel.h in Headers */ = {isa = PBXBuildFile; fileRef = 777186952861B8A800C5CABC /* FDanmakuModel.h */; };
+		7771869D2861B8A800C5CABC /* FDanmakuView.m in Sources */ = {isa = PBXBuildFile; fileRef = 777186962861B8A800C5CABC /* FDanmakuView.m */; };
 		77781C0A283D1337009DC71C /* QNPKSession.h in Headers */ = {isa = PBXBuildFile; fileRef = 77781C08283D1337009DC71C /* QNPKSession.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		77781C0B283D1337009DC71C /* QNPKSession.m in Sources */ = {isa = PBXBuildFile; fileRef = 77781C09283D1337009DC71C /* QNPKSession.m */; };
 		77781C0E283DD181009DC71C /* QNPKService.h in Headers */ = {isa = PBXBuildFile; fileRef = 77781C0C283DD181009DC71C /* QNPKService.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -122,18 +127,18 @@
 		77781CC52840C05A009DC71C /* NSObject+QNProperty.h in Headers */ = {isa = PBXBuildFile; fileRef = 77781CB02840C059009DC71C /* NSObject+QNProperty.h */; };
 		77781CC62840C05A009DC71C /* NSString+QNExtension.h in Headers */ = {isa = PBXBuildFile; fileRef = 77781CB12840C059009DC71C /* NSString+QNExtension.h */; };
 		77781CE728449A60009DC71C /* QNLiveTypeDefines.h in Headers */ = {isa = PBXBuildFile; fileRef = 776B1CC5283CFCF200D85C73 /* QNLiveTypeDefines.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		77781D302845E56A009DC71C /* QNInternalViewSlot.m in Sources */ = {isa = PBXBuildFile; fileRef = 77781D262845E56A009DC71C /* QNInternalViewSlot.m */; };
-		77781D322845E56A009DC71C /* RoomHostSlot.h in Headers */ = {isa = PBXBuildFile; fileRef = 77781D282845E56A009DC71C /* RoomHostSlot.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		77781D332845E56A009DC71C /* OnlineUserSlot.h in Headers */ = {isa = PBXBuildFile; fileRef = 77781D292845E56A009DC71C /* OnlineUserSlot.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		77781D342845E56B009DC71C /* QNInternalViewSlot.h in Headers */ = {isa = PBXBuildFile; fileRef = 77781D2A2845E56A009DC71C /* QNInternalViewSlot.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		77781D372845E56B009DC71C /* OnlineUserSlot.m in Sources */ = {isa = PBXBuildFile; fileRef = 77781D2D2845E56A009DC71C /* OnlineUserSlot.m */; };
-		77781D382845E56B009DC71C /* RoomHostSlot.m in Sources */ = {isa = PBXBuildFile; fileRef = 77781D2E2845E56A009DC71C /* RoomHostSlot.m */; };
+		77781D302845E56A009DC71C /* QLiveComponent.m in Sources */ = {isa = PBXBuildFile; fileRef = 77781D262845E56A009DC71C /* QLiveComponent.m */; };
+		77781D322845E56A009DC71C /* RoomHostComponent.h in Headers */ = {isa = PBXBuildFile; fileRef = 77781D282845E56A009DC71C /* RoomHostComponent.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		77781D332845E56A009DC71C /* OnlineUserComponent.h in Headers */ = {isa = PBXBuildFile; fileRef = 77781D292845E56A009DC71C /* OnlineUserComponent.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		77781D342845E56B009DC71C /* QLiveComponent.h in Headers */ = {isa = PBXBuildFile; fileRef = 77781D2A2845E56A009DC71C /* QLiveComponent.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		77781D372845E56B009DC71C /* OnlineUserComponent.m in Sources */ = {isa = PBXBuildFile; fileRef = 77781D2D2845E56A009DC71C /* OnlineUserComponent.m */; };
+		77781D382845E56B009DC71C /* RoomHostComponent.m in Sources */ = {isa = PBXBuildFile; fileRef = 77781D2E2845E56A009DC71C /* RoomHostComponent.m */; };
 		77781D3F2845E75B009DC71C /* UIImage+QNImage.h in Headers */ = {isa = PBXBuildFile; fileRef = 77781D3D2845E75B009DC71C /* UIImage+QNImage.h */; };
 		77781D402845E75B009DC71C /* UIImage+QNImage.m in Sources */ = {isa = PBXBuildFile; fileRef = 77781D3E2845E75B009DC71C /* UIImage+QNImage.m */; };
 		77781D482845FC68009DC71C /* BottomMenuSlot.h in Headers */ = {isa = PBXBuildFile; fileRef = 77781D462845FC68009DC71C /* BottomMenuSlot.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		77781D492845FC68009DC71C /* BottomMenuSlot.m in Sources */ = {isa = PBXBuildFile; fileRef = 77781D472845FC68009DC71C /* BottomMenuSlot.m */; };
-		77781D5028460813009DC71C /* ItemSlot.h in Headers */ = {isa = PBXBuildFile; fileRef = 77781D4E28460813009DC71C /* ItemSlot.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		77781D5128460813009DC71C /* ItemSlot.m in Sources */ = {isa = PBXBuildFile; fileRef = 77781D4F28460813009DC71C /* ItemSlot.m */; };
+		77781D5028460813009DC71C /* ImageButtonComponent.h in Headers */ = {isa = PBXBuildFile; fileRef = 77781D4E28460813009DC71C /* ImageButtonComponent.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		77781D5128460813009DC71C /* ImageButtonComponent.m in Sources */ = {isa = PBXBuildFile; fileRef = 77781D4F28460813009DC71C /* ImageButtonComponent.m */; };
 		77781D5428486D13009DC71C /* LiveChatRoom.h in Headers */ = {isa = PBXBuildFile; fileRef = 77781D5228486D12009DC71C /* LiveChatRoom.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		77781D5528486D13009DC71C /* LiveChatRoom.m in Sources */ = {isa = PBXBuildFile; fileRef = 77781D5328486D12009DC71C /* LiveChatRoom.m */; };
 		77781D6028486D35009DC71C /* QNInputView.m in Sources */ = {isa = PBXBuildFile; fileRef = 77781D5728486D35009DC71C /* QNInputView.m */; };
@@ -157,8 +162,8 @@
 		77781DA228488932009DC71C /* QNLiveController.m in Sources */ = {isa = PBXBuildFile; fileRef = 77781D9E28488932009DC71C /* QNLiveController.m */; };
 		777B7A6F284F1F78005032B7 /* QNAlertViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = 777B7A6D284F1F78005032B7 /* QNAlertViewController.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		777B7A70284F1F78005032B7 /* QNAlertViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 777B7A6E284F1F78005032B7 /* QNAlertViewController.m */; };
-		777B7A73284F375A005032B7 /* LinkStateSlot.h in Headers */ = {isa = PBXBuildFile; fileRef = 777B7A71284F3759005032B7 /* LinkStateSlot.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		777B7A74284F375A005032B7 /* LinkStateSlot.m in Sources */ = {isa = PBXBuildFile; fileRef = 777B7A72284F375A005032B7 /* LinkStateSlot.m */; };
+		777B7A73284F375A005032B7 /* LinkStateComponent.h in Headers */ = {isa = PBXBuildFile; fileRef = 777B7A71284F3759005032B7 /* LinkStateComponent.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		777B7A74284F375A005032B7 /* LinkStateComponent.m in Sources */ = {isa = PBXBuildFile; fileRef = 777B7A72284F375A005032B7 /* LinkStateComponent.m */; };
 		777B7A77284F419B005032B7 /* UIColor+QNColor.h in Headers */ = {isa = PBXBuildFile; fileRef = 777B7A75284F419B005032B7 /* UIColor+QNColor.h */; };
 		777B7A78284F419B005032B7 /* UIColor+QNColor.m in Sources */ = {isa = PBXBuildFile; fileRef = 777B7A76284F419B005032B7 /* UIColor+QNColor.m */; };
 		777B7A7F284F4B0D005032B7 /* QRenderView.h in Headers */ = {isa = PBXBuildFile; fileRef = 777B7A7D284F4B0D005032B7 /* QRenderView.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -205,8 +210,6 @@
 		77204D5328589D8F0053B1AD /* QIMService.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = QIMService.m; sourceTree = "<group>"; };
 		77204D56285981B00053B1AD /* CYProtocolManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CYProtocolManager.m; sourceTree = "<group>"; };
 		77204D57285981B00053B1AD /* CYProtocolManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CYProtocolManager.h; sourceTree = "<group>"; };
-		77204D5A285F30CF0053B1AD /* QChatBarSlot.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = QChatBarSlot.h; sourceTree = "<group>"; };
-		77204D5B285F30CF0053B1AD /* QChatBarSlot.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = QChatBarSlot.m; sourceTree = "<group>"; };
 		77204D5F285F755B0053B1AD /* QNLiveListCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QNLiveListCell.h; sourceTree = "<group>"; };
 		77204D60285F755B0053B1AD /* QNCreateLiveController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QNCreateLiveController.m; sourceTree = "<group>"; };
 		77204D61285F755B0053B1AD /* QNLiveListController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QNLiveListController.h; sourceTree = "<group>"; };
@@ -278,6 +281,13 @@
 		776B1CED283D0D8100D85C73 /* QNMergeOption.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = QNMergeOption.m; sourceTree = "<group>"; };
 		776B1CF0283D0F2000D85C73 /* LinkInvitation.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LinkInvitation.h; sourceTree = "<group>"; };
 		776B1CF1283D0F2000D85C73 /* LinkInvitation.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LinkInvitation.m; sourceTree = "<group>"; };
+		777186902861B8A800C5CABC /* CALayer+Aimate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "CALayer+Aimate.m"; sourceTree = "<group>"; };
+		777186912861B8A800C5CABC /* FDanmakuModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FDanmakuModel.m; sourceTree = "<group>"; };
+		777186922861B8A800C5CABC /* FDanmakuModelProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FDanmakuModelProtocol.h; sourceTree = "<group>"; };
+		777186932861B8A800C5CABC /* FDanmakuView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FDanmakuView.h; sourceTree = "<group>"; };
+		777186942861B8A800C5CABC /* CALayer+Aimate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "CALayer+Aimate.h"; sourceTree = "<group>"; };
+		777186952861B8A800C5CABC /* FDanmakuModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FDanmakuModel.h; sourceTree = "<group>"; };
+		777186962861B8A800C5CABC /* FDanmakuView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FDanmakuView.m; sourceTree = "<group>"; };
 		77781C08283D1337009DC71C /* QNPKSession.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = QNPKSession.h; sourceTree = "<group>"; };
 		77781C09283D1337009DC71C /* QNPKSession.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = QNPKSession.m; sourceTree = "<group>"; };
 		77781C0C283DD181009DC71C /* QNPKService.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = QNPKService.h; sourceTree = "<group>"; };
@@ -315,18 +325,18 @@
 		77781CAF2840C059009DC71C /* NSObject+QNClass.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+QNClass.m"; sourceTree = "<group>"; };
 		77781CB02840C059009DC71C /* NSObject+QNProperty.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+QNProperty.h"; sourceTree = "<group>"; };
 		77781CB12840C059009DC71C /* NSString+QNExtension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+QNExtension.h"; sourceTree = "<group>"; };
-		77781D262845E56A009DC71C /* QNInternalViewSlot.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QNInternalViewSlot.m; sourceTree = "<group>"; };
-		77781D282845E56A009DC71C /* RoomHostSlot.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RoomHostSlot.h; sourceTree = "<group>"; };
-		77781D292845E56A009DC71C /* OnlineUserSlot.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OnlineUserSlot.h; sourceTree = "<group>"; };
-		77781D2A2845E56A009DC71C /* QNInternalViewSlot.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QNInternalViewSlot.h; sourceTree = "<group>"; };
-		77781D2D2845E56A009DC71C /* OnlineUserSlot.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OnlineUserSlot.m; sourceTree = "<group>"; };
-		77781D2E2845E56A009DC71C /* RoomHostSlot.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RoomHostSlot.m; sourceTree = "<group>"; };
+		77781D262845E56A009DC71C /* QLiveComponent.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QLiveComponent.m; sourceTree = "<group>"; };
+		77781D282845E56A009DC71C /* RoomHostComponent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RoomHostComponent.h; sourceTree = "<group>"; };
+		77781D292845E56A009DC71C /* OnlineUserComponent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OnlineUserComponent.h; sourceTree = "<group>"; };
+		77781D2A2845E56A009DC71C /* QLiveComponent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QLiveComponent.h; sourceTree = "<group>"; };
+		77781D2D2845E56A009DC71C /* OnlineUserComponent.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OnlineUserComponent.m; sourceTree = "<group>"; };
+		77781D2E2845E56A009DC71C /* RoomHostComponent.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RoomHostComponent.m; sourceTree = "<group>"; };
 		77781D3D2845E75B009DC71C /* UIImage+QNImage.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIImage+QNImage.h"; sourceTree = "<group>"; };
 		77781D3E2845E75B009DC71C /* UIImage+QNImage.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIImage+QNImage.m"; sourceTree = "<group>"; };
 		77781D462845FC68009DC71C /* BottomMenuSlot.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BottomMenuSlot.h; sourceTree = "<group>"; };
 		77781D472845FC68009DC71C /* BottomMenuSlot.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BottomMenuSlot.m; sourceTree = "<group>"; };
-		77781D4E28460813009DC71C /* ItemSlot.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ItemSlot.h; sourceTree = "<group>"; };
-		77781D4F28460813009DC71C /* ItemSlot.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ItemSlot.m; sourceTree = "<group>"; };
+		77781D4E28460813009DC71C /* ImageButtonComponent.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ImageButtonComponent.h; sourceTree = "<group>"; };
+		77781D4F28460813009DC71C /* ImageButtonComponent.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ImageButtonComponent.m; sourceTree = "<group>"; };
 		77781D5228486D12009DC71C /* LiveChatRoom.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LiveChatRoom.h; sourceTree = "<group>"; };
 		77781D5328486D12009DC71C /* LiveChatRoom.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LiveChatRoom.m; sourceTree = "<group>"; };
 		77781D5728486D35009DC71C /* QNInputView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QNInputView.m; sourceTree = "<group>"; };
@@ -349,8 +359,8 @@
 		77781D9E28488932009DC71C /* QNLiveController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QNLiveController.m; sourceTree = "<group>"; };
 		777B7A6D284F1F78005032B7 /* QNAlertViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QNAlertViewController.h; sourceTree = "<group>"; };
 		777B7A6E284F1F78005032B7 /* QNAlertViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QNAlertViewController.m; sourceTree = "<group>"; };
-		777B7A71284F3759005032B7 /* LinkStateSlot.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LinkStateSlot.h; sourceTree = "<group>"; };
-		777B7A72284F375A005032B7 /* LinkStateSlot.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LinkStateSlot.m; sourceTree = "<group>"; };
+		777B7A71284F3759005032B7 /* LinkStateComponent.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LinkStateComponent.h; sourceTree = "<group>"; };
+		777B7A72284F375A005032B7 /* LinkStateComponent.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LinkStateComponent.m; sourceTree = "<group>"; };
 		777B7A75284F419B005032B7 /* UIColor+QNColor.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIColor+QNColor.h"; sourceTree = "<group>"; };
 		777B7A76284F419B005032B7 /* UIColor+QNColor.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIColor+QNColor.m"; sourceTree = "<group>"; };
 		777B7A7D284F4B0D005032B7 /* QRenderView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = QRenderView.h; sourceTree = "<group>"; };
@@ -434,6 +444,7 @@
 			children = (
 				77781D9728486DAD009DC71C /* QNIMSDK.framework */,
 				77781D242845E56A009DC71C /* LiveUIKit */,
+				7771868F2861B8A800C5CABC /* DanmakuView */,
 				776B1CCC283D008500D85C73 /* LiveRoom */,
 				776B1CCD283D00DB00D85C73 /* LinkMic */,
 				77781C06283D1313009DC71C /* PK */,
@@ -544,6 +555,20 @@
 			path = Model;
 			sourceTree = "<group>";
 		};
+		7771868F2861B8A800C5CABC /* DanmakuView */ = {
+			isa = PBXGroup;
+			children = (
+				777186942861B8A800C5CABC /* CALayer+Aimate.h */,
+				777186902861B8A800C5CABC /* CALayer+Aimate.m */,
+				777186952861B8A800C5CABC /* FDanmakuModel.h */,
+				777186912861B8A800C5CABC /* FDanmakuModel.m */,
+				777186922861B8A800C5CABC /* FDanmakuModelProtocol.h */,
+				777186932861B8A800C5CABC /* FDanmakuView.h */,
+				777186962861B8A800C5CABC /* FDanmakuView.m */,
+			);
+			path = DanmakuView;
+			sourceTree = "<group>";
+		};
 		77781C06283D1313009DC71C /* PK */ = {
 			isa = PBXGroup;
 			children = (
@@ -640,18 +665,16 @@
 			isa = PBXGroup;
 			children = (
 				77781DA32848893B009DC71C /* VC */,
-				77781D292845E56A009DC71C /* OnlineUserSlot.h */,
-				77781D2D2845E56A009DC71C /* OnlineUserSlot.m */,
-				77781D4E28460813009DC71C /* ItemSlot.h */,
-				77781D4F28460813009DC71C /* ItemSlot.m */,
-				777B7A71284F3759005032B7 /* LinkStateSlot.h */,
-				777B7A72284F375A005032B7 /* LinkStateSlot.m */,
-				77781D2A2845E56A009DC71C /* QNInternalViewSlot.h */,
-				77781D262845E56A009DC71C /* QNInternalViewSlot.m */,
-				77781D282845E56A009DC71C /* RoomHostSlot.h */,
-				77781D2E2845E56A009DC71C /* RoomHostSlot.m */,
-				77204D5A285F30CF0053B1AD /* QChatBarSlot.h */,
-				77204D5B285F30CF0053B1AD /* QChatBarSlot.m */,
+				77781D292845E56A009DC71C /* OnlineUserComponent.h */,
+				77781D2D2845E56A009DC71C /* OnlineUserComponent.m */,
+				77781D4E28460813009DC71C /* ImageButtonComponent.h */,
+				77781D4F28460813009DC71C /* ImageButtonComponent.m */,
+				777B7A71284F3759005032B7 /* LinkStateComponent.h */,
+				777B7A72284F375A005032B7 /* LinkStateComponent.m */,
+				77781D2A2845E56A009DC71C /* QLiveComponent.h */,
+				77781D262845E56A009DC71C /* QLiveComponent.m */,
+				77781D282845E56A009DC71C /* RoomHostComponent.h */,
+				77781D2E2845E56A009DC71C /* RoomHostComponent.m */,
 				77781D462845FC68009DC71C /* BottomMenuSlot.h */,
 				77781D472845FC68009DC71C /* BottomMenuSlot.m */,
 				777B7A7D284F4B0D005032B7 /* QRenderView.h */,
@@ -776,21 +799,25 @@
 				77781DA028488932009DC71C /* QNLiveController.h in Headers */,
 				77781CB52840C059009DC71C /* QNProperty.h in Headers */,
 				77781CB62840C059009DC71C /* NSObject+QNKeyValue.h in Headers */,
+				7771869C2861B8A800C5CABC /* FDanmakuModel.h in Headers */,
 				776B1CAC283CC6EC00D85C73 /* QNLiveNetworkUtil.h in Headers */,
+				777186992861B8A800C5CABC /* FDanmakuModelProtocol.h in Headers */,
 				776B1CD5283D024E00D85C73 /* QNLinkMicService.h in Headers */,
 				776B1CD1283D010D00D85C73 /* QNMicLinker.h in Headers */,
-				77781D332845E56A009DC71C /* OnlineUserSlot.h in Headers */,
-				77781D322845E56A009DC71C /* RoomHostSlot.h in Headers */,
+				77781D332845E56A009DC71C /* OnlineUserComponent.h in Headers */,
+				77781D322845E56A009DC71C /* RoomHostComponent.h in Headers */,
 				774E641D2848DB6800C9FB7F /* CreateSignalHandler.h in Headers */,
 				774E6422284DF8E800C9FB7F /* QNMixStreamManager.h in Headers */,
-				77781D342845E56B009DC71C /* QNInternalViewSlot.h in Headers */,
+				77781D342845E56B009DC71C /* QLiveComponent.h in Headers */,
 				777B7A7F284F4B0D005032B7 /* QRenderView.h in Headers */,
 				777B7A83284F5A6F005032B7 /* QNInvitationMemberListCell.h in Headers */,
+				7771869A2861B8A800C5CABC /* FDanmakuView.h in Headers */,
 				77781CC12840C05A009DC71C /* NSObject+QNCoding.h in Headers */,
 				777B7A6F284F1F78005032B7 /* QNAlertViewController.h in Headers */,
 				77781D482845FC68009DC71C /* BottomMenuSlot.h in Headers */,
+				7771869B2861B8A800C5CABC /* CALayer+Aimate.h in Headers */,
 				77204D68285F755C0053B1AD /* QNCreateLiveController.h in Headers */,
-				777B7A73284F375A005032B7 /* LinkStateSlot.h in Headers */,
+				777B7A73284F375A005032B7 /* LinkStateComponent.h in Headers */,
 				77204D83285F97A20053B1AD /* PubChatModel.h in Headers */,
 				77204D67285F755C0053B1AD /* QNLiveListController.h in Headers */,
 				77204D86285F97A20053B1AD /* QNInvitationModel.h in Headers */,
@@ -803,10 +830,9 @@
 				77204D8B285F97A20053B1AD /* QNIMModel.h in Headers */,
 				77204D8F285F980A0053B1AD /* QNMicSeatMessageModel.h in Headers */,
 				77204D84285F97A20053B1AD /* QNGiftMsgModel.h in Headers */,
-				77204D5C285F30CF0053B1AD /* QChatBarSlot.h in Headers */,
 				77204D4E285873BF0053B1AD /* QRooms.h in Headers */,
 				77E02E31284E245A00EE8A28 /* QNAudienceController.h in Headers */,
-				77781D5028460813009DC71C /* ItemSlot.h in Headers */,
+				77781D5028460813009DC71C /* ImageButtonComponent.h in Headers */,
 				77781C41283DE000009DC71C /* Extension.h in Headers */,
 				77781CBB2840C059009DC71C /* QNPropertyType.h in Headers */,
 				77781CC52840C05A009DC71C /* NSObject+QNProperty.h in Headers */,
@@ -972,13 +998,13 @@
 			files = (
 				774E6421284DF8E800C9FB7F /* QNMixStreamManager.m in Sources */,
 				77781D6E28486D3D009DC71C /* QNMessageBaseCell.m in Sources */,
-				77781D302845E56A009DC71C /* QNInternalViewSlot.m in Sources */,
+				77781D302845E56A009DC71C /* QLiveComponent.m in Sources */,
 				77781D6028486D35009DC71C /* QNInputView.m in Sources */,
 				77204D87285F97A20053B1AD /* QNIMModel.m in Sources */,
-				77781D372845E56B009DC71C /* OnlineUserSlot.m in Sources */,
+				77781D372845E56B009DC71C /* OnlineUserComponent.m in Sources */,
 				776B1CE6283D083100D85C73 /* QNAnchorForwardMicLinker.m in Sources */,
 				77781C17283DD4C9009DC71C /* QNPKInvitationHandler.m in Sources */,
-				777B7A74284F375A005032B7 /* LinkStateSlot.m in Sources */,
+				777B7A74284F375A005032B7 /* LinkStateComponent.m in Sources */,
 				776B1CDA283D077E00D85C73 /* QNLinkMicInvitationHandler.m in Sources */,
 				777B7A80284F4B0D005032B7 /* QRenderView.m in Sources */,
 				77781D6228486D35009DC71C /* QNInputBarControl.m in Sources */,
@@ -996,6 +1022,8 @@
 				777B7A84284F5A6F005032B7 /* QNInvitationMemberListCell.m in Sources */,
 				77E02E32284E245A00EE8A28 /* QNAudienceController.m in Sources */,
 				776B1CE2283D082200D85C73 /* QNAnchorHostMicLinker.m in Sources */,
+				777186982861B8A800C5CABC /* FDanmakuModel.m in Sources */,
+				777186972861B8A800C5CABC /* CALayer+Aimate.m in Sources */,
 				77204D5528589D8F0053B1AD /* QIMService.m in Sources */,
 				77204D6A285F755C0053B1AD /* QNLiveListController.m in Sources */,
 				776B1CC9283CFEE800D85C73 /* QNLivePullClient.m in Sources */,
@@ -1011,6 +1039,7 @@
 				77781CC22840C05A009DC71C /* QNExtensionConst.m in Sources */,
 				77204D8C285F97A20053B1AD /* QNInvitationModel.m in Sources */,
 				776B1CEB283D0D4400D85C73 /* MixStreamAdapter.m in Sources */,
+				7771869D2861B8A800C5CABC /* FDanmakuView.m in Sources */,
 				77204D69285F755C0053B1AD /* QNLiveListCell.m in Sources */,
 				776B1C78283C79DB00D85C73 /* QNLiveRoomInfo.m in Sources */,
 				77781CC42840C05A009DC71C /* NSObject+QNClass.m in Sources */,
@@ -1021,11 +1050,10 @@
 				77781C2E283DD9CE009DC71C /* QNDanmakuService.m in Sources */,
 				77781C21283DD63C009DC71C /* QNChatRoomService.m in Sources */,
 				77781CB22840C059009DC71C /* QNPropertyKey.m in Sources */,
-				77781D382845E56B009DC71C /* RoomHostSlot.m in Sources */,
+				77781D382845E56B009DC71C /* RoomHostComponent.m in Sources */,
 				77781DA128488932009DC71C /* QNBaseRTCController.m in Sources */,
 				776B1CEF283D0D8100D85C73 /* QNMergeOption.m in Sources */,
 				777B7A70284F1F78005032B7 /* QNAlertViewController.m in Sources */,
-				77204D5D285F30CF0053B1AD /* QChatBarSlot.m in Sources */,
 				77781CBA2840C059009DC71C /* NSObject+QNProperty.m in Sources */,
 				77781CC32840C05A009DC71C /* QNPropertyType.m in Sources */,
 				77204D90285F980A0053B1AD /* QNMicSeatMessageModel.m in Sources */,
@@ -1040,7 +1068,7 @@
 				77781CC02840C05A009DC71C /* QNFoundation.m in Sources */,
 				776B1CD2283D010D00D85C73 /* QNMicLinker.m in Sources */,
 				77781CB32840C059009DC71C /* NSObject+QNCoding.m in Sources */,
-				77781D5128460813009DC71C /* ItemSlot.m in Sources */,
+				77781D5128460813009DC71C /* ImageButtonComponent.m in Sources */,
 				77781C0B283D1337009DC71C /* QNPKSession.m in Sources */,
 				77781C13283DD29F009DC71C /* PKMixStreamAdapter.m in Sources */,
 				77781C42283DE000009DC71C /* Extension.m in Sources */,

@@ -6,29 +6,29 @@
 //
 
 #import "QNAudienceController.h"
-#import "RoomHostSlot.h"
-#import "OnlineUserSlot.h"
+#import "RoomHostComponent.h"
+#import "OnlineUserComponent.h"
 #import "BottomMenuSlot.h"
-#import "QChatBarSlot.h"
 #import "QNChatRoomService.h"
 #import "LiveChatRoom.h"
 #import "QNLiveRoomInfo.h"
 #import "QNLiveRoomClient.h"
 #import <PLPlayerKit/PLPlayerKit.h>
-#import "LinkStateSlot.h"
+#import "LinkStateComponent.h"
 #import "QRenderView.h"
 #import "QNLiveUser.h"
+#import "FDanmakuView.h"
+#import "FDanmakuModel.h"
+#import "QNIMModel.h"
+#import "PubChatModel.h"
 
+@interface QNAudienceController ()<QNChatRoomServiceListener,QNPushClientListener,LiveChatRoomViewDelegate,FDanmakuViewProtocol,PLPlayerDelegate>
 
-@interface QNAudienceController ()<QNChatRoomServiceListener,QNPushClientListener,
-PLPlayerDelegate
->
-
-@property (nonatomic, strong) RoomHostSlot *roomHostSlot;
-@property (nonatomic, strong) OnlineUserSlot *onlineUserSlot;
-@property (nonatomic, strong) QChatBarSlot *pubchatSlot;
+@property (nonatomic, strong) RoomHostComponent *roomHostSlot;
+@property (nonatomic, strong) OnlineUserComponent *onlineUserSlot;
+@property (nonatomic, strong) ImageButtonComponent *pubchatSlot;
 @property (nonatomic, strong) BottomMenuSlot *bottomMenuSlot;
-@property (nonatomic, strong) LinkStateSlot *linkSLot;
+@property (nonatomic, strong) LinkStateComponent *linkSLot;
 //@property (nonatomic, strong) UIView *playView;
 @property (nonatomic, strong) PLPlayer *player;
 
@@ -50,7 +50,8 @@ PLPlayerDelegate
     [super viewDidLoad];
     __weak typeof(self)weakSelf = self;
     [self.chatService addChatServiceListener:self];
-    
+    self.chatRoomView.delegate = self;
+    self.danmakuView.delegate = self;
     [[QLive createPlayerClient] joinRoom:self.roomInfo.live_id callBack:^(QNLiveRoomInfo * _Nonnull roomInfo) {
         weakSelf.roomInfo = roomInfo;
 //        [[QLive createPlayerClient] play:self.view url:roomInfo.rtmp_url];
@@ -83,7 +84,7 @@ PLPlayerDelegate
     if (self.roomInfo.pk_id.length == 0) {
         self.player.playerView.frame = self.view.frame;
     } else {
-        self.player.playerView.frame = CGRectMake(0, 200, SCREEN_W, SCREEN_W *0.7);
+        self.player.playerView.frame = CGRectMake(0, 170, SCREEN_W, SCREEN_W *0.6);
     }
     [self.player play];
 }
@@ -104,7 +105,7 @@ PLPlayerDelegate
             if (roomInfo.pk_id.length == 0) {
                 weakSelf.player.playerView.frame = self.view.frame;
             } else {
-                weakSelf.player.playerView.frame = CGRectMake(0, 200, SCREEN_W, SCREEN_W *0.7);
+                weakSelf.player.playerView.frame = CGRectMake(0, 170, SCREEN_W, SCREEN_W *0.6);
             }
             [weakSelf updateRoomInfo];
         }];
@@ -176,11 +177,52 @@ PLPlayerDelegate
     }];
 }
 
+//收到弹幕
+- (void)onReceivedDamaku:(PubChatModel *)msg {
+    FDanmakuModel *model = [[FDanmakuModel alloc]init];
+    model.beginTime = 1;
+    model.liveTime = 5;
+    model.content = msg.content;
+    model.sendNick = msg.sendUser.nick;
+    model.sendAvatar = msg.sendUser.avatar;
+    
+    [self.danmakuView.modelsArr addObject:model];
+}
+
+-(NSTimeInterval)currentTime {
+    static double time = 0;
+    time += 0.1 ;
+    return time;
+}
+
+- (UIView *)danmakuViewWithModel:(FDanmakuModel*)model {
+    
+    UILabel *label = [UILabel new];
+    label.font = [UIFont systemFontOfSize:14];
+    label.textColor = [UIColor whiteColor];
+    label.text = model.content;
+    [label sizeToFit];
+    return label;
+    
+}
+
+- (void)didSendMessageModel:(QNIMMessageObject *)model {
+    QNIMModel *imModel = [QNIMModel mj_objectWithKeyValues:model.content.mj_keyValues];
+    PubChatModel *chatModel = [PubChatModel mj_objectWithKeyValues:imModel.data];
+    if ([chatModel.action isEqualToString:living_danmu]) {
+        FDanmakuModel *danmuModel = [[FDanmakuModel alloc]init];
+        danmuModel.beginTime = 1;
+        danmuModel.liveTime = 5;
+        danmuModel.content = chatModel.content;
+        [self.danmakuView.modelsArr addObject:danmuModel];
+    }
+}
 
 
-- (RoomHostSlot *)roomHostSlot {
+
+- (RoomHostComponent *)roomHostSlot {
     if (!_roomHostSlot) {
-        _roomHostSlot = [[RoomHostSlot alloc]init];
+        _roomHostSlot = [[RoomHostComponent alloc]init];
         [_roomHostSlot createDefaultView:CGRectMake(20, 60, 135, 40) onView:self.view];
         [_roomHostSlot updateWith:self.roomInfo];;
         _roomHostSlot.clickBlock = ^(BOOL selected){
@@ -190,10 +232,10 @@ PLPlayerDelegate
     return _roomHostSlot;
 }
 
-- (OnlineUserSlot *)onlineUserSlot {
+- (OnlineUserComponent *)onlineUserSlot {
     if (!_onlineUserSlot) {
-        _onlineUserSlot = [[OnlineUserSlot alloc]init];
-        [_onlineUserSlot createDefaultView:CGRectMake(self.view.frame.size.width - 60, 60, 40, 40) onView:self.view];
+        _onlineUserSlot = [[OnlineUserComponent alloc]init];
+        [_onlineUserSlot createDefaultView:CGRectMake(self.view.frame.size.width - 150, 60, 150, 60) onView:self.view];
         [_onlineUserSlot updateWith:self.roomInfo];
         _onlineUserSlot.clickBlock = ^(BOOL selected){
             NSLog(@"点击了在线人数");
@@ -202,13 +244,14 @@ PLPlayerDelegate
     return _onlineUserSlot;
 }
 
-- (QChatBarSlot *)pubchatSlot {
+- (ImageButtonComponent *)pubchatSlot {
     if (!_pubchatSlot) {
-        _pubchatSlot = [[QChatBarSlot alloc]init];
+        _pubchatSlot = [[ImageButtonComponent alloc]init];
         [_pubchatSlot createDefaultView:CGRectMake(15, SCREEN_H - 80, 220, 45) onView:self.view];
+        [_pubchatSlot normalImage:@"chat_input_bar" selectImage:@"chat_input_bar"];
         __weak typeof(self)weakSelf = self;
         _pubchatSlot.clickBlock = ^(BOOL selected){
-            [weakSelf.chatRoomView commentBtnPressed];
+            [weakSelf.chatRoomView commentBtnPressedWithPubchat:YES];
             NSLog(@"点击了公聊");
         };
         
@@ -221,7 +264,7 @@ PLPlayerDelegate
         NSMutableArray *slotList = [NSMutableArray array];
         __weak typeof(self)weakSelf = self;
         
-        ItemSlot *link = [[ItemSlot alloc]init];
+        ImageButtonComponent *link = [[ImageButtonComponent alloc]init];
         [link normalImage:@"link" selectImage:@"link"];
         link.clickBlock = ^(BOOL selected){
             
@@ -230,14 +273,15 @@ PLPlayerDelegate
         };
         [slotList addObject:link];
         
-        ItemSlot *message = [[ItemSlot alloc]init];
+        ImageButtonComponent *message = [[ImageButtonComponent alloc]init];
         [message normalImage:@"message" selectImage:@"message"];
         message.clickBlock = ^(BOOL selected){
+            [weakSelf.chatRoomView commentBtnPressedWithPubchat:NO];
             NSLog(@"点击了私信");
         };
         [slotList addObject:message];
         
-        ItemSlot *close = [[ItemSlot alloc]init];
+        ImageButtonComponent *close = [[ImageButtonComponent alloc]init];
         [close normalImage:@"live_close" selectImage:@"live_close"];
         close.clickBlock = ^(BOOL selected){
             [weakSelf dismissViewControllerAnimated:YES completion:nil];
@@ -254,7 +298,7 @@ PLPlayerDelegate
 }
 
 - (void)popLinkSLot {
-    _linkSLot = [[LinkStateSlot alloc]init];
+    _linkSLot = [[LinkStateComponent alloc]init];
     [_linkSLot createDefaultView:CGRectMake(0, SCREEN_H - 230, SCREEN_W, 230) onView:self.view];
     __weak typeof(self)weakSelf = self;
     _linkSLot.microphoneBlock = ^(BOOL mute) {

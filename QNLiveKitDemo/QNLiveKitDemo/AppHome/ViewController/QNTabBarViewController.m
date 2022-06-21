@@ -6,7 +6,6 @@
 //
 
 #import "QNTabBarViewController.h"
-#import "QNHomeListViewController.h"
 #import "QNPersonalViewController.h"
 #import <QNLiveKit/QNLiveKit.h>
 #import <YYCategories/YYCategories.h>

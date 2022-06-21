@@ -206,10 +206,17 @@ NSInteger const Interval = 8;
 }
 
 + (void)dealSuccessResult:(id)responseObject success:(SuccessBlock)success failure:(FailureBlock)failure {
-    if ([responseObject[@"code"] isEqualToNumber:@(401003)]) {
-//        QNLoginViewController *loginVC = [[QNLoginViewController alloc] init];
-//        UINavigationController *navigationController = [[UINavigationController alloc] initWithRootViewController:loginVC];
-//        [UIApplication sharedApplication].keyWindow.rootViewController = navigationController;
+    if ([responseObject[@"code"] isEqualToNumber:@(499)]) {
+        
+        NSString *action = [NSString stringWithFormat:@"live/auth_token?userID=%@&deviceID=1111",QN_User_id];
+        [QNLiveNetworkUtil getRequestWithAction:action params:nil success:^(NSDictionary * _Nonnull responseData) {
+            
+            NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+            [defaults setObject:responseData[@"accessToken"] forKey:Live_Token];
+            [defaults synchronize];
+            
+        } failure:^(NSError * _Nonnull error) {}];
+        
         return;
     }
     success(responseObject[@"data"] ?: nil);
@@ -217,6 +224,18 @@ NSInteger const Interval = 8;
 }
 
 + (void)dealFailure:(NSError *)error failure:(FailureBlock)failure {
+    
+    if (error.code == 401) {
+        NSString *action = [NSString stringWithFormat:@"live/auth_token?userID=%@&deviceID=1111",QN_User_id];
+        [QNLiveNetworkUtil getRequestWithAction:action params:nil success:^(NSDictionary * _Nonnull responseData) {
+            
+            NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+            [defaults setObject:responseData[@"accessToken"] forKey:Live_Token];
+            [defaults synchronize];
+            return;
+        } failure:^(NSError * _Nonnull error) {}];
+    }
+
     failure(error);
 }
 

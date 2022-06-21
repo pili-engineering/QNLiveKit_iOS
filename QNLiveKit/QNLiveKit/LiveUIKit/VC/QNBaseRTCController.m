@@ -8,8 +8,8 @@
 #import "QNBaseRTCController.h"
 #import "QNLivePushClient.h"
 #import "QNLiveRoomClient.h"
-#import "RoomHostSlot.h"
-#import "OnlineUserSlot.h"
+#import "RoomHostComponent.h"
+#import "OnlineUserComponent.h"
 #import "BottomMenuSlot.h"
 #import "QNLinkMicService.h"
 #import "QNChatRoomService.h"
@@ -18,6 +18,7 @@
 #import "QNMergeOption.h"
 #import "QNPKService.h"
 #import "QRenderView.h"
+#import "FDanmakuView.h"
 
 @interface QNBaseRTCController ()
 
@@ -52,12 +53,16 @@
     [self.renderBackgroundView addSubview:self.preview];
 }
 
-- (void)removeUserViewWithUid:(NSString *)uid {
-    [self.renderBackgroundView.subviews enumerateObjectsUsingBlock:^(__kindof QRenderView * _Nonnull userView, NSUInteger idx, BOOL * _Nonnull stop) {
+//获取某人的画面
+- (QRenderView *)getUserView:(NSString *)uid {
+    
+    for (QRenderView *userView in self.renderBackgroundView.subviews) {
         if ([userView.userId isEqualToString:uid]) {
-            [userView removeFromSuperview];
+            return userView;
         }
-    }];
+    }    
+    return nil;
+
 }
 
 //移除所有远端view
@@ -111,5 +116,15 @@
     }
     return _option;
 }
+
+- (FDanmakuView *)danmakuView {
+    if (!_danmakuView) {
+        _danmakuView = [[FDanmakuView alloc]initWithFrame:CGRectMake(0, 180, SCREEN_W, 200)];
+        _danmakuView.backgroundColor = [UIColor clearColor];
+        [self.view addSubview:_danmakuView];
+    }
+    return _danmakuView;
+}
+
 
 @end
