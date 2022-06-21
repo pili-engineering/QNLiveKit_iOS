@@ -59,12 +59,12 @@
         NSString *_needToSendText = textView.text;
         NSString *_formatString =
         [_needToSendText stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]];
-        if (0 == [_formatString length]) {
+//        if (0 == [_formatString length]) {
             
-        } else {
+//        } else {
             //  发送点击事件
             [self.delegate didTouchKeyboardReturnKey:self text:[_needToSendText copy]];
-        }
+//        }
     }
 
 }

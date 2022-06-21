@@ -238,6 +238,13 @@ static int clickPraiseBtnTimes  = 0 ;
 
 - (void)touristSendMessage:(NSString *)text {
         
+    [self.inputBar clearInputView];
+    self.inputBar.hidden = YES;
+    [self.inputBar resignFirstResponder];
+    
+    if (text.length == 0) {
+        return;
+    }
     CreateSignalHandler *create = [[CreateSignalHandler alloc] initWithToId:self.groupId roomId:@""];
     QNIMMessageObject *rcTextMessage = [create createChatMessage:text];
     [self sendMessage:rcTextMessage];
@@ -254,9 +261,7 @@ static int clickPraiseBtnTimes  = 0 ;
        
     [[QNIMChatService sharedOption] sendMessage:messageContent];
     [self appendAndDisplayMessage:messageContent];
-    [self.inputBar clearInputView];
-    self.inputBar.hidden = YES;
-    [self.inputBar resignFirstResponder];
+    
     
 }
 
