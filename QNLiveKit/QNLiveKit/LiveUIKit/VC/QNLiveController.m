@@ -32,6 +32,7 @@
 @property (nonatomic, strong) OnlineUserSlot *onlineUserSlot;
 @property (nonatomic, strong) QChatBarSlot *pubchatSlot;
 @property (nonatomic, strong) BottomMenuSlot *bottomMenuSlot;
+@property (nonatomic, strong) ItemSlot *pkSlot;
 @property (nonatomic, strong) QNLiveRoomInfo *selectPkRoomInfo;
 @property (nonatomic, strong) QNPKSession *pkSession;//正在进行的pk
 @property (nonatomic, strong) QNLiveUser *pk_other_user;//pk对象
@@ -213,7 +214,7 @@
 
 //收到结束pk消息
 - (void)onReceiveStopPKSession:(QNPKSession *)pkSession {
-    
+    self.pkSlot.selected = NO;
     [[QLive createPusherClient].rtcClient stopRoomMediaRelay:^(NSDictionary *state, NSError *error) {}];
     self.preview.frame = self.view.frame;
     [self.renderBackgroundView bringSubviewToFront:self.preview];
@@ -229,6 +230,8 @@
 
 //主动结束pk
 - (void)stopPK {
+    
+    self.pkSlot.selected = NO;
     [[QLive createPusherClient].rtcClient stopRoomMediaRelay:^(NSDictionary *state, NSError *error) {}];
     [self.pkService stopWithRelayID:self.pkSession.relay_id callBack:^{}];
     [self.chatService createStopPKMessage:self.pkSession receiveUser:self.pk_other_user];
@@ -248,7 +251,7 @@
 - (void)beginPK:(QNPKSession *)pkSession {
     
     self.pkSession = pkSession;
-    
+    self.pkSlot.selected = YES;
     QNRoomMediaRelayConfiguration *config = [[QNRoomMediaRelayConfiguration alloc]init];
     
     QNRoomMediaRelayInfo *srcRoomInfo = [QNRoomMediaRelayInfo new];
@@ -345,8 +348,9 @@
         [pk normalImage:@"pk" selectImage:@"end_pk"];
         pk.clickBlock = ^(BOOL selected){
             NSLog(@"点击了pk");
-            if (selected) {
+            if (!selected) {
                 [[QLive getRooms] listRoom:1 pageSize:20 callBack:^(NSArray<QNLiveRoomInfo *> * _Nonnull list) {
+                    
                     [weakSelf popInvitationPKView:list];
                 }];
             } else {
@@ -354,6 +358,7 @@
             }
         };
         [slotList addObject:pk];
+        self.pkSlot = pk;
         
         ItemSlot *close = [[ItemSlot alloc]init];
         [close normalImage:@"live_close" selectImage:@"live_close"];

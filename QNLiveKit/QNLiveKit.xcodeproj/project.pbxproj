@@ -84,6 +84,8 @@
 		776B1CEF283D0D8100D85C73 /* QNMergeOption.m in Sources */ = {isa = PBXBuildFile; fileRef = 776B1CED283D0D8100D85C73 /* QNMergeOption.m */; };
 		776B1CF2283D0F2000D85C73 /* LinkInvitation.h in Headers */ = {isa = PBXBuildFile; fileRef = 776B1CF0283D0F2000D85C73 /* LinkInvitation.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		776B1CF3283D0F2000D85C73 /* LinkInvitation.m in Sources */ = {isa = PBXBuildFile; fileRef = 776B1CF1283D0F2000D85C73 /* LinkInvitation.m */; };
+		7771868D2861AC4F00C5CABC /* pkSlot.h in Headers */ = {isa = PBXBuildFile; fileRef = 7771868B2861AC4F00C5CABC /* pkSlot.h */; };
+		7771868E2861AC4F00C5CABC /* pkSlot.m in Sources */ = {isa = PBXBuildFile; fileRef = 7771868C2861AC4F00C5CABC /* pkSlot.m */; };
 		77781C0A283D1337009DC71C /* QNPKSession.h in Headers */ = {isa = PBXBuildFile; fileRef = 77781C08283D1337009DC71C /* QNPKSession.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		77781C0B283D1337009DC71C /* QNPKSession.m in Sources */ = {isa = PBXBuildFile; fileRef = 77781C09283D1337009DC71C /* QNPKSession.m */; };
 		77781C0E283DD181009DC71C /* QNPKService.h in Headers */ = {isa = PBXBuildFile; fileRef = 77781C0C283DD181009DC71C /* QNPKService.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -278,6 +280,8 @@
 		776B1CED283D0D8100D85C73 /* QNMergeOption.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = QNMergeOption.m; sourceTree = "<group>"; };
 		776B1CF0283D0F2000D85C73 /* LinkInvitation.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LinkInvitation.h; sourceTree = "<group>"; };
 		776B1CF1283D0F2000D85C73 /* LinkInvitation.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LinkInvitation.m; sourceTree = "<group>"; };
+		7771868B2861AC4F00C5CABC /* pkSlot.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = pkSlot.h; sourceTree = "<group>"; };
+		7771868C2861AC4F00C5CABC /* pkSlot.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = pkSlot.m; sourceTree = "<group>"; };
 		77781C08283D1337009DC71C /* QNPKSession.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = QNPKSession.h; sourceTree = "<group>"; };
 		77781C09283D1337009DC71C /* QNPKSession.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = QNPKSession.m; sourceTree = "<group>"; };
 		77781C0C283DD181009DC71C /* QNPKService.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = QNPKService.h; sourceTree = "<group>"; };
@@ -644,6 +648,8 @@
 				77781D2D2845E56A009DC71C /* OnlineUserSlot.m */,
 				77781D4E28460813009DC71C /* ItemSlot.h */,
 				77781D4F28460813009DC71C /* ItemSlot.m */,
+				7771868B2861AC4F00C5CABC /* pkSlot.h */,
+				7771868C2861AC4F00C5CABC /* pkSlot.m */,
 				777B7A71284F3759005032B7 /* LinkStateSlot.h */,
 				777B7A72284F375A005032B7 /* LinkStateSlot.m */,
 				77781D2A2845E56A009DC71C /* QNInternalViewSlot.h */,
@@ -779,6 +785,7 @@
 				776B1CAC283CC6EC00D85C73 /* QNLiveNetworkUtil.h in Headers */,
 				776B1CD5283D024E00D85C73 /* QNLinkMicService.h in Headers */,
 				776B1CD1283D010D00D85C73 /* QNMicLinker.h in Headers */,
+				7771868D2861AC4F00C5CABC /* pkSlot.h in Headers */,
 				77781D332845E56A009DC71C /* OnlineUserSlot.h in Headers */,
 				77781D322845E56A009DC71C /* RoomHostSlot.h in Headers */,
 				774E641D2848DB6800C9FB7F /* CreateSignalHandler.h in Headers */,
@@ -990,6 +997,7 @@
 				77781CBE2840C059009DC71C /* NSObject+QNKeyValue.m in Sources */,
 				776B1CAD283CC6EC00D85C73 /* QNLiveNetworkUtil.m in Sources */,
 				776B1CF3283D0F2000D85C73 /* LinkInvitation.m in Sources */,
+				7771868E2861AC4F00C5CABC /* pkSlot.m in Sources */,
 				77781D402845E75B009DC71C /* UIImage+QNImage.m in Sources */,
 				776B1C8B283CB6B300D85C73 /* QNLiveService.m in Sources */,
 				77204D66285F755C0053B1AD /* QNCreateLiveController.m in Sources */,

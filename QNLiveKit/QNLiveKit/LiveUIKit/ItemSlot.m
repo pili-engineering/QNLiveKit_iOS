@@ -9,7 +9,7 @@
 
 @interface ItemSlot ()
 
-@property (nonatomic, strong)UIButton *button;//房主头像
+@property (nonatomic, strong)UIButton *button;
 
 @end
 
@@ -26,13 +26,18 @@
     [self.button setImage:[UIImage imageNamed:selectImage] forState:UIControlStateSelected];
 }
 
-- (void)click:(UIButton *)button {
-    button.selected = !button.selected;
-    if (button.selected) {
-        button.frame = CGRectMake(button.frame.origin.x - 15, button.frame.origin.y, 70, 40);
+- (void)setSelected:(BOOL)selected {
+    self.button.selected = selected;
+    if (self.button.selected) {
+        self.button.frame = CGRectMake(self.button.frame.origin.x - 15, self.button.frame.origin.y, 70, 40);
     } else {
-        button.frame = CGRectMake(button.frame.origin.x + 15, button.frame.origin.y, 40, 40);
+        self.button.frame = CGRectMake(self.button.frame.origin.x + 15, self.button.frame.origin.y, 40, 40);
     }
+}
+
+- (void)click:(UIButton *)button {
+//    button.selected = !button.selected;
+    
     if (self.clickBlock) {
         self.clickBlock(button.selected);
     }

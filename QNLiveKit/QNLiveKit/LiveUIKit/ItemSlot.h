@@ -11,6 +11,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface ItemSlot : QNInternalViewSlot
 
+@property (nonatomic, assign) BOOL selected;
+
 - (void)normalImage:(NSString *)normalImage selectImage:(NSString *)selectImage;
 
 @end
