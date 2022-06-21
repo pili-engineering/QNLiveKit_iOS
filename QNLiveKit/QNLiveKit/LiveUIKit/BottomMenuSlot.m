@@ -8,7 +8,7 @@
 #import "BottomMenuSlot.h"
 #import "ItemSlot.h"
 
-static const CGFloat Slot_W = 40;//按钮宽
+static const CGFloat Slot_W = 55;//按钮宽
 
 @implementation BottomMenuSlot
 

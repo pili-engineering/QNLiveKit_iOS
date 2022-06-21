@@ -86,7 +86,7 @@ alpha:1.0]
     if (!_bgView) {
         _bgView = [[UIView alloc]init];
         _bgView.backgroundColor = [UIColor blackColor];
-        _bgView.alpha = 0.6;
+        _bgView.alpha = 0.5;
         _bgView.layer.cornerRadius = 5;
         [self addSubview:_bgView];
         

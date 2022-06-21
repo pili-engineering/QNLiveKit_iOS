@@ -28,16 +28,14 @@
 
 - (void)setSelected:(BOOL)selected {
     self.button.selected = selected;
-    if (self.button.selected) {
-        self.button.frame = CGRectMake(self.button.frame.origin.x - 15, self.button.frame.origin.y, 70, 40);
-    } else {
-        self.button.frame = CGRectMake(self.button.frame.origin.x + 15, self.button.frame.origin.y, 40, 40);
-    }
+//    if (self.button.selected) {
+//        self.button.frame = CGRectMake(self.button.frame.origin.x - 15, self.button.frame.origin.y, 70, 40);
+//    } else {
+//        self.button.frame = CGRectMake(self.button.frame.origin.x + 15, self.button.frame.origin.y, 40, 40);
+//    }
 }
 
-- (void)click:(UIButton *)button {
-//    button.selected = !button.selected;
-    
+- (void)click:(UIButton *)button {    
     if (self.clickBlock) {
         self.clickBlock(button.selected);
     }

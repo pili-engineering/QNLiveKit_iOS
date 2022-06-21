@@ -20,6 +20,11 @@
 
 @implementation QNCreateLiveController
 
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    [[QLive createPusherClient] enableCamera:nil renderView:self.preview];
+}
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     UIImageView *bg = [[UIImageView alloc]initWithImage:[UIImage imageNamed:@"live_bg"]];
