@@ -339,6 +339,7 @@
 //上下麦信令
 - (QNIMMessageObject *)sendMicMessage:(NSString *)action openAudio:(BOOL)openAudio openVideo:(BOOL)openVideo {
 
+    
     QNMicLinker *mic = [QNMicLinker new];
     mic.user = self.user;
     mic.camera = openVideo;
@@ -347,7 +348,12 @@
     
     QNIMModel *messageModel = [QNIMModel new];
     messageModel.action = action;
-    messageModel.data = mic.mj_keyValues;
+    if ([action isEqualToString:liveroom_miclinker_join]) {
+        messageModel.data = mic.mj_keyValues;
+    } else {
+        messageModel.data = @{@"uid" : QN_User_id};
+    }
+    
     
     QNIMMessageObject *message = [[QNIMMessageObject alloc]initWithQNIMMessageText:messageModel.mj_JSONString fromId:QN_IM_userId.longLongValue toId:self.toId.longLongValue type:QNIMMessageTypeGroup conversationId:self.toId.longLongValue];
     message.senderName = QN_User_nickname;

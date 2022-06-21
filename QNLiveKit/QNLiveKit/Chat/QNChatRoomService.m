@@ -126,6 +126,16 @@
     [[QNIMChatService sharedOption] sendMessage:message];
 }
 
+- (void)sendMicrophoneMute:(BOOL)mute {
+    QNIMMessageObject *message = [self.creater  createMicStatusMessage:!mute];
+    [[QNIMChatService sharedOption] sendMessage:message];
+    
+}
+- (void)sendCameraMute:(BOOL)mute {
+    QNIMMessageObject *message = [self.creater  createCameraStatusMessage:!mute];
+    [[QNIMChatService sharedOption] sendMessage:message];
+}
+
 //发送连麦邀请
 - (void)sendLinkMicInvitation:(QNLiveUser *)receiveUser {
     QNIMMessageObject *message = [self.creater  createInviteMessageWithInvitationName:liveroom_linkmic_invitation receiveRoomId:self.roomId receiveUser:receiveUser];

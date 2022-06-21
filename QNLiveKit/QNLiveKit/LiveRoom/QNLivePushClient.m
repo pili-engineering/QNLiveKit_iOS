@@ -81,6 +81,7 @@
         
         } failure:^(NSError * _Nonnull error) {
         }];
+    [self LeaveLive];
 }
 
 //加入直播
@@ -172,11 +173,10 @@
 //成功创建转推/合流转推任务的回调
 - (void)RTCClient:(QNRTCClient *)client didStartLiveStreaming:(NSString *)streamID {
     
-        [self.mixManager updateUserAudioMergeOptions:QN_User_id trackId:self.localAudioTrack.trackID isNeed:YES];
-        CameraMergeOption *option = [CameraMergeOption new];
-        option.frame = CGRectMake(0, 0, 720, 1280);
-        option.mZ = 0;
-        [self.mixManager updateUserVideoMergeOptions:QN_User_id trackId:self.localVideoTrack.trackID option:option];
+    if ([self.pushClientListener respondsToSelector:@selector(didStartLiveStreaming:)]) {
+        [self.pushClientListener didStartLiveStreaming:streamID];
+    }
+        
     
 }
 //停止转推/合流转推任务的回调
@@ -186,6 +186,13 @@
 //合流转推出错的回调
 - (void)RTCClient:(QNRTCClient *)client didErrorLiveStreaming:(NSString *)streamID errorInfo:(QNLiveStreamingErrorInfo *)errorInfo {
     
+}
+
+//远端用户取消渲染
+- (void)RTCClient:(QNRTCClient *)client didDetachRenderTrack:(QNRemoteVideoTrack *)videoTrack remoteUserID:(NSString *)userID {
+    if ([self.pushClientListener respondsToSelector:@selector(userdidDetachRenderTrack:remoteUserID:)]) {
+        [self.pushClientListener userdidDetachRenderTrack:videoTrack remoteUserID:userID];
+    }
 }
 
 
@@ -277,6 +284,15 @@
         [_localAudioTrack setVolume:0.5];
     }
     return _localAudioTrack;
+}
+
+- (void)updateMixStreamSize:(CGSize)size {
+    [self.mixManager stopMixStreamJob];
+    
+    self.option.width = size.width;
+    self.option.height = size.height;
+    [_mixManager setMixParams:self.option];
+    [self.mixManager startMixStreamJob];
 }
 
 //本地视频轨道默认参数

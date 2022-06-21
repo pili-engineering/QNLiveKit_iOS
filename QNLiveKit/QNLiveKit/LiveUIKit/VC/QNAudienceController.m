@@ -38,9 +38,15 @@ PLPlayerDelegate
 
 - (void)viewDidDisappear:(BOOL)animated {
     [[QLive createPlayerClient] leaveRoom:self.roomInfo.live_id];
+    self.chatService = nil;
+}
+
+- (void)viewWillAppear:(BOOL)animated {
+    self.preview.frame = CGRectZero;
 }
 
 - (void)viewDidLoad {
+    
     [super viewDidLoad];
     __weak typeof(self)weakSelf = self;
     [self.chatService addChatServiceListener:self];
@@ -48,7 +54,7 @@ PLPlayerDelegate
     [[QLive createPlayerClient] joinRoom:self.roomInfo.live_id callBack:^(QNLiveRoomInfo * _Nonnull roomInfo) {
         weakSelf.roomInfo = roomInfo;
 //        [[QLive createPlayerClient] play:self.view url:roomInfo.rtmp_url];
-        [self playWithUrl:roomInfo.rtmp_url];
+        [self playWithUrl:roomInfo.rtmp_url pkID:roomInfo.pk_id];
         [weakSelf updateRoomInfo];
     }];
     
@@ -65,7 +71,7 @@ PLPlayerDelegate
     
 }
 
-- (void)playWithUrl:(NSString *)url {
+- (void)playWithUrl:(NSString *)url pkID:(NSString *)pkID {
     PLPlayerOption *option = [PLPlayerOption defaultOption];
     PLPlayFormat format = kPLPLAY_FORMAT_UnKnown;
     
@@ -74,9 +80,11 @@ PLPlayerDelegate
     
     self.player = [PLPlayer playerWithURL:[NSURL URLWithString:url] option:option];
     [self.view insertSubview:self.player.playerView atIndex:2];
-    [self.player.playerView mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.edges.equalTo(self.view).insets(UIEdgeInsetsMake(0, 0, 0, 0));
-    }];
+    if (self.roomInfo.pk_id.length == 0) {
+        self.player.playerView.frame = self.view.frame;
+    } else {
+        self.player.playerView.frame = CGRectMake(0, 200, SCREEN_W, SCREEN_W *0.7);
+    }
     [self.player play];
 }
 
@@ -92,6 +100,13 @@ PLPlayerDelegate
             weakSelf.roomInfo = roomInfo;
             [weakSelf.roomHostSlot updateWith:roomInfo];
             [weakSelf.onlineUserSlot updateWith:roomInfo];
+            
+            if (roomInfo.pk_id.length == 0) {
+                weakSelf.player.playerView.frame = self.view.frame;
+            } else {
+                weakSelf.player.playerView.frame = CGRectMake(0, 200, SCREEN_W, SCREEN_W *0.7);
+            }
+            [weakSelf updateRoomInfo];
         }];
     });
 }
@@ -244,9 +259,11 @@ PLPlayerDelegate
     __weak typeof(self)weakSelf = self;
     _linkSLot.microphoneBlock = ^(BOOL mute) {
         [[QLive createPusherClient] muteMicrophone:mute];
+        [weakSelf.chatService sendMicrophoneMute:mute];
     };
     _linkSLot.cameraBlock = ^(BOOL mute) {
         [[QLive createPusherClient] muteCamera:mute];
+        [weakSelf.chatService sendCameraMute:mute];
     };
     _linkSLot.clickBlock = ^(BOOL selected){
         [[QLive createPusherClient] LeaveLive];
@@ -260,7 +277,7 @@ PLPlayerDelegate
                     
         }];
         [weakSelf.chatService sendDownMicMsg];
-        [weakSelf playWithUrl:weakSelf.roomInfo.rtmp_url];
+        [weakSelf playWithUrl:weakSelf.roomInfo.rtmp_url pkID:weakSelf.roomInfo.pk_id];
         NSLog(@"点击了结束连麦");
     };
 }

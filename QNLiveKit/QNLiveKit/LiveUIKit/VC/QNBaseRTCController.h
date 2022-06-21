@@ -23,6 +23,11 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, strong) QNPKService *_Nullable pkService;
 @property (nonatomic, strong) QNMergeOption *option;
 
+//移除某用户的view
+- (void)removeUserViewWithUid:(NSString *)uid;
+//移除所有远端view
+- (void)removeRemoteUserView;
+
 @end
 
 NS_ASSUME_NONNULL_END

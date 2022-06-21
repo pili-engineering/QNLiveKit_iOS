@@ -92,6 +92,9 @@ NS_ASSUME_NONNULL_BEGIN
 
 - (void)sendOnMicMsg;
 - (void)sendDownMicMsg;
+
+- (void)sendMicrophoneMute:(BOOL)mute;
+- (void)sendCameraMute:(BOOL)mute;
 //发送连麦申请
 - (void)sendLinkMicInvitation:(QNLiveUser *)receiveUser;
 //接受连麦申请

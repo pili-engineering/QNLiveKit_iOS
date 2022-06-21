@@ -82,7 +82,7 @@
     QNCreateRoomParam *params = [QNCreateRoomParam new];
     params.title = self.titleTf.text;
 //    params.notice = @"";
-//    params.cover_url = @"";
+    params.cover_url = QN_User_avatar;
 //    params.extension = @"";
     
     [[QLive getRooms] createRoom:params callBack:^(QNLiveRoomInfo * _Nonnull roomInfo) {

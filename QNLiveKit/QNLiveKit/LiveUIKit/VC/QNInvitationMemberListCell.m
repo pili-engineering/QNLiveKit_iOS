@@ -15,6 +15,8 @@
 
 @property (nonatomic,strong)UILabel *titleLabel;
 
+@property (nonatomic,strong)UILabel *nameLabel;
+
 @property (nonatomic,strong)UIImageView *selectImageView;
 
 @property (nonatomic,strong) QNLiveRoomInfo *model;
@@ -33,6 +35,7 @@
         
         [self iconImageView];
         [self titleLabel];
+        [self nameLabel];
         [self selectImageView];
     }
     return self;
@@ -47,7 +50,8 @@
 - (void)setItemModel:(QNLiveRoomInfo *)itemModel {
     self.model = itemModel;
     [_iconImageView sd_setImageWithURL:[NSURL URLWithString:itemModel.anchor_info.avatar] placeholderImage:[UIImage imageNamed:@"titleImage"]];
-    _titleLabel.text = [itemModel.anchor_info.nick stringByAppendingFormat:@"    %@",itemModel.title];
+    _titleLabel.text = itemModel.title;
+    self.nameLabel.text = itemModel.anchor_info.nick;
 }
 
 - (UIImageView *)iconImageView {
@@ -70,14 +74,27 @@
         _titleLabel = [[UILabel alloc]init];
         _titleLabel.textColor = [UIColor blackColor];
         _titleLabel.font = [UIFont systemFontOfSize:14];
-        _titleLabel.numberOfLines = 0;
         [self.contentView addSubview:_titleLabel];
         [_titleLabel mas_makeConstraints:^(MASConstraintMaker *make) {
             make.left.equalTo(self.iconImageView.mas_right).offset(15);
-            make.centerY.equalTo(self.iconImageView);
+            make.top.equalTo(self.iconImageView);
         }];
     }
     return _titleLabel;
+}
+
+- (UILabel *)nameLabel {
+    if (!_nameLabel) {
+        _nameLabel = [[UILabel alloc]init];
+        _nameLabel.textColor = [UIColor blackColor];
+        _nameLabel.font = [UIFont systemFontOfSize:10];
+        [self.contentView addSubview:_nameLabel];
+        [_nameLabel mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.left.equalTo(self.iconImageView.mas_right).offset(15);
+            make.top.equalTo(self.titleLabel.mas_bottom).offset(3);
+        }];
+    }
+    return _nameLabel;
 }
 
 - (UIImageView *)selectImageView {

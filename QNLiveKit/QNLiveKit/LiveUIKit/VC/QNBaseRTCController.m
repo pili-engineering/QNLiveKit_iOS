@@ -47,8 +47,26 @@
     [self.view insertSubview:self.renderBackgroundView atIndex:1];
     
     self.preview = [[QRenderView alloc] init];
+    self.preview.userId= QN_User_id;
     self.preview.frame = CGRectMake(0, 0, SCREEN_W, SCREEN_H);
     [self.renderBackgroundView addSubview:self.preview];
+}
+
+- (void)removeUserViewWithUid:(NSString *)uid {
+    [self.renderBackgroundView.subviews enumerateObjectsUsingBlock:^(__kindof QRenderView * _Nonnull userView, NSUInteger idx, BOOL * _Nonnull stop) {
+        if ([userView.userId isEqualToString:uid]) {
+            [userView removeFromSuperview];
+        }
+    }];
+}
+
+//移除所有远端view
+- (void)removeRemoteUserView {
+    [self.renderBackgroundView.subviews enumerateObjectsUsingBlock:^(__kindof QRenderView * _Nonnull userView, NSUInteger idx, BOOL * _Nonnull stop) {
+        if (![userView.userId isEqualToString:QN_User_id]) {
+            [userView removeFromSuperview];
+        }
+    }];
 }
 
 - (QNLinkMicService *)linkService {
@@ -86,10 +104,10 @@
         _option = [QNMergeOption new];
         _option.width = 720;
         _option.height = 1280;
-        QNTranscodingLiveStreamingImage *bgInfo = [[QNTranscodingLiveStreamingImage alloc] init];
-        bgInfo.frame = CGRectMake(0, 0, 720, 1280);
-        bgInfo.imageUrl = @"http://qrnlrydxa.hn-bkt.clouddn.com/am_room_bg.png";
-        _option.backgroundInfo = bgInfo;
+//        QNTranscodingLiveStreamingImage *bgInfo = [[QNTranscodingLiveStreamingImage alloc] init];
+//        bgInfo.frame = CGRectMake(0, 0, 720, 1280);
+//        bgInfo.imageUrl = @"http://qrnlrydxa.hn-bkt.clouddn.com/am_room_bg.png";
+//        _option.backgroundInfo = bgInfo;
     }
     return _option;
 }

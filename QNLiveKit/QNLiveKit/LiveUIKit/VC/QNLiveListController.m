@@ -15,6 +15,8 @@
 
 @property (nonatomic, strong) UICollectionView *collectionView;
 
+@property (nonatomic, strong) UIRefreshControl *refreshControl;
+
 @property (nonatomic, strong) NSArray <QNLiveRoomInfo *> *rooms;
 
 @end
@@ -24,6 +26,7 @@
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
     self.tabBarController.tabBar.hidden = YES;
+    
 //    [self.navigationController setNavigationBarHidden:YES animated:NO];
 }
 
@@ -41,11 +44,14 @@
     [self createButton];
 }
 
+
+
 //请求直播房间列表
 - (void)requestData {
     [[QLive getRooms] listRoom:1 pageSize:20 callBack:^(NSArray<QNLiveRoomInfo *> * _Nonnull list) {
         self.rooms = list;
         [self.collectionView reloadData];
+        [self.refreshControl endRefreshing];
     }];
 }
 
@@ -105,10 +111,22 @@
         _collectionView.backgroundColor = [UIColor whiteColor];
         _collectionView.delegate = self;
         _collectionView.dataSource = self;
+        _collectionView.refreshControl = self.refreshControl;
         [_collectionView registerClass:[QNLiveListCell class] forCellWithReuseIdentifier:@"QNLiveListCell"];
         [self.view addSubview:_collectionView];
     }
     return _collectionView;
+}
+
+- (UIRefreshControl *)refreshControl {
+    if (!_refreshControl) {
+        _refreshControl = [[UIRefreshControl alloc]init];
+        [_refreshControl addTarget:self action:@selector(requestData) forControlEvents:UIControlEventValueChanged];
+        _refreshControl.attributedTitle = [[NSAttributedString alloc] initWithString:@"松手刷新"];
+        _refreshControl.tintColor = [UIColor lightGrayColor];
+
+    }
+    return _refreshControl;
 }
 
 @end

@@ -27,7 +27,7 @@ static const CGFloat People_Count_L = 5;//人数左间距
 @property (nonatomic, strong)UIImageView *avatarView;//房主头像
 @property (nonatomic, strong)UILabel *roomNameLabel;//房间名
 @property (nonatomic, strong)UIImageView *countImgView;
-@property (nonatomic, strong)UILabel *countLabel;//房间人数
+@property (nonatomic, strong)UILabel *hostNameLabel;//房主名
 
 @end
 
@@ -55,10 +55,10 @@ static const CGFloat People_Count_L = 5;//人数左间距
     self.countImgView.image = [UIImage imageNamed:@"people"];
     [view addSubview:self.countImgView];
     
-    self.countLabel = [[UILabel alloc] initWithFrame:CGRectMake(CGRectGetMaxX(self.countImgView.frame)+People_Count_L, CGRectGetMaxY(self.roomNameLabel.frame)+People_Count_T, People_Count_W, People_Count_H)];
-    self.countLabel.textColor = [UIColor whiteColor];
-    self.countLabel.font = [UIFont systemFontOfSize:9];
-    [view addSubview:self.countLabel];
+    self.hostNameLabel = [[UILabel alloc] initWithFrame:CGRectMake(CGRectGetMaxX(self.countImgView.frame)+People_Count_L, CGRectGetMaxY(self.roomNameLabel.frame)+People_Count_T, People_Count_W, People_Count_H)];
+    self.hostNameLabel.textColor = [UIColor whiteColor];
+    self.hostNameLabel.font = [UIFont systemFontOfSize:9];
+    [view addSubview:self.hostNameLabel];
     
     UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(click)];
     view.userInteractionEnabled = YES;
@@ -78,7 +78,7 @@ static const CGFloat People_Count_L = 5;//人数左间距
 
     [self.avatarView sd_setImageWithURL:[NSURL URLWithString:roomInfo.anchor_info.avatar] placeholderImage:[UIImage imageNamed:@"titleImage"]];
     self.roomNameLabel.text = roomInfo.title ?: @"房间名";
-    self.countLabel.text = roomInfo.total_count ?: @"0";
+    self.hostNameLabel.text = roomInfo.anchor_info.nick ?: @"";
 }
 
 //自定义

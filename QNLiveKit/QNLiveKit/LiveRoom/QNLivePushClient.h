@@ -26,10 +26,14 @@ NS_ASSUME_NONNULL_BEGIN
 
 //远端用户首帧解码
 - (void)userFirstVideoDidDecodeOfTrack:(QNRemoteVideoTrack *)videoTrack remoteUserID:(NSString *)userID;
+//远端用户取消渲染
+- (void)userdidDetachRenderTrack:(QNRemoteVideoTrack *)videoTrack remoteUserID:(NSString *)userID;
 
 - (void)onUserUnpublishTracks:(NSArray<QNRemoteTrack *> *)tracks ofUserID:(NSString *)userID;
 
 - (void)didMediaRelayStateChanged:(NSString *)relayRoom state:(QNMediaRelayState)state;
+
+- (void)didStartLiveStreaming:(NSString *)streamID;
 
 //订阅成功
 - (void)didSubscribedRemoteVideoTracks:(NSArray<QNRemoteVideoTrack *> *)videoTracks audioTracks:(NSArray<QNRemoteAudioTrack *> *)audioTracks ofUserID:(NSString *)userID;
@@ -102,6 +106,11 @@ NS_ASSUME_NONNULL_BEGIN
 
 - (void)beginMixStream:(QNMergeOption *)option;
 - (void)publishCameraAndMicrophone;
+
+
+
+//更新混流画布大小
+- (void)updateMixStreamSize:(CGSize)size;
 
 //设置某个用户的音频混流参数 （isNeed 是否需要混流音频）
 - (void)updateUserAudioMergeOptions:(NSString *)uid trackId:(NSString *)trackId isNeed:(BOOL)isNeed;
