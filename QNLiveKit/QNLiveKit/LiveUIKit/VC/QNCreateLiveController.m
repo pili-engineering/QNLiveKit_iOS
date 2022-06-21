@@ -66,9 +66,7 @@
 
 - (void)closeButton {
     UIButton *button = [[UIButton alloc]initWithFrame:CGRectMake(SCREEN_W - 40, 50, 20, 20)];
-    button.clipsToBounds = YES;
-    button.layer.cornerRadius = 20;
-    [button setImage:[UIImage imageNamed:@"close"] forState:UIControlStateNormal];
+    [button setImage:[UIImage imageNamed:@"icon_quit"] forState:UIControlStateNormal];
     [button addTarget:self action:@selector(close) forControlEvents:UIControlEventTouchUpInside];
     [self.view addSubview:button];
 }
