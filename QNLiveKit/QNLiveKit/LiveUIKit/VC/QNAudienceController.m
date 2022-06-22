@@ -55,7 +55,7 @@
     [[QLive createPlayerClient] joinRoom:self.roomInfo.live_id callBack:^(QNLiveRoomInfo * _Nonnull roomInfo) {
         weakSelf.roomInfo = roomInfo;
 //        [[QLive createPlayerClient] play:self.view url:roomInfo.rtmp_url];
-        [self playWithUrl:roomInfo.rtmp_url pkID:roomInfo.pk_id];
+        [self playWithUrl:roomInfo.rtmp_url];
         [weakSelf updateRoomInfo];
     }];
     
@@ -72,7 +72,7 @@
     
 }
 
-- (void)playWithUrl:(NSString *)url pkID:(NSString *)pkID {
+- (void)playWithUrl:(NSString *)url {
     PLPlayerOption *option = [PLPlayerOption defaultOption];
     PLPlayFormat format = kPLPLAY_FORMAT_UnKnown;
     
@@ -84,7 +84,7 @@
     if (self.roomInfo.pk_id.length == 0) {
         self.player.playerView.frame = self.view.frame;
     } else {
-        self.player.playerView.frame = CGRectMake(0, 170, SCREEN_W, SCREEN_W *0.6);
+        self.player.playerView.frame = CGRectMake(0, 150, SCREEN_W, SCREEN_W *0.6);
     }
     [self.player play];
 }
@@ -102,11 +102,7 @@
             [weakSelf.roomHostSlot updateWith:roomInfo];
             [weakSelf.onlineUserSlot updateWith:roomInfo];
             
-            if (roomInfo.pk_id.length == 0) {
-                weakSelf.player.playerView.frame = self.view.frame;
-            } else {
-                weakSelf.player.playerView.frame = CGRectMake(0, 170, SCREEN_W, SCREEN_W *0.6);
-            }
+            
             [weakSelf updateRoomInfo];
         }];
     });
@@ -175,6 +171,20 @@
         [[QLive createPusherClient] joinLive:rtcToken userData:mic.mj_JSONString];
         [weakSelf.chatService sendOnMicMsg];
     }];
+}
+
+//收到开始pk信令
+- (void)onReceiveStartPKSession:(QNPKSession *)pkSession {
+    [self.player stop];
+    self.player.playerView.frame = CGRectMake(0, 150, SCREEN_W, SCREEN_W *0.6);
+    [self.player play];
+}
+
+//收到结束pk信令
+- (void)onReceiveStopPKSession:(QNPKSession *)pkSession {
+    [self.player stop];
+    self.player.playerView.frame = self.view.frame;
+    [self.player play];
 }
 
 //收到弹幕
@@ -321,7 +331,7 @@
                     
         }];
         [weakSelf.chatService sendDownMicMsg];
-        [weakSelf playWithUrl:weakSelf.roomInfo.rtmp_url pkID:weakSelf.roomInfo.pk_id];
+        [weakSelf playWithUrl:weakSelf.roomInfo.rtmp_url];
         NSLog(@"点击了结束连麦");
     };
 }

@@ -109,10 +109,9 @@ NS_ASSUME_NONNULL_BEGIN
 - (void)sendPKReject:(QNInvitationModel *)invitationModel;
 
 //开始pk信令
--(void)createStartPKMessage:(QNPKSession *)pkSession ;
-
+-(void)createStartPKMessage:(QNPKSession *)pkSession type:(QNIMMessageType)type ;
 //结束pk信令
-- (void)createStopPKMessage:(QNPKSession *)pkSession receiveUser:(nonnull QNLiveUser *)receiveUser;
+- (void)createStopPKMessage:(QNPKSession *)pkSession;
 //踢人
 - (void)kickUser:(NSString *)msg memberId:(NSString *)memberId;
 //禁言

@@ -51,7 +51,7 @@ FOUNDATION_EXPORT const unsigned char QNLiveKitVersionString[];
 #import "ImageButtonComponent.h"
 #import "QNLiveController.h"
 #import "QNBaseRTCController.h"
-#import "QNMixStreamManager.h"
+#import "QMixStreamManager.h"
 #import "QNMergeOption.h"
 #import "QNAudienceController.h"
 #import "QRooms.h"

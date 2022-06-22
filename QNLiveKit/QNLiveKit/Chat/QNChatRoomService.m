@@ -180,13 +180,13 @@
         
 }
 
--(void)createStartPKMessage:(QNPKSession *)pkSession {
-    QNIMMessageObject *message = [self.creater  createStartPKMessage:pkSession];
+-(void)createStartPKMessage:(QNPKSession *)pkSession type:(QNIMMessageType)type {
+    QNIMMessageObject *message = [self.creater  createStartPKMessage:pkSession type:type];
     [[QNIMChatService sharedOption] sendMessage:message];
 }
 
-- (void)createStopPKMessage:(QNPKSession *)pkSession receiveUser:(QNLiveUser *)receiveUser  {
-    QNIMMessageObject *message = [self.creater createStopPKMessage:pkSession receiveUser:receiveUser];
+- (void)createStopPKMessage:(QNPKSession *)pkSession {
+    QNIMMessageObject *message = [self.creater createStopPKMessage:pkSession];
     [[QNIMChatService sharedOption] sendMessage:message];
 }
 

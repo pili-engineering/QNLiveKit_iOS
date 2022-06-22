@@ -1,14 +1,14 @@
 //
-//  QNMixStreamManager.m
+//  QMixStreamManager.m
 //  QiNiu_Solution_iOS
 //
 //  Created by 郭茜 on 2021/9/23.
 //
 
-#import "QNMixStreamManager.h"
+#import "QMixStreamManager.h"
 #import "QNMergeOption.h"
 
-@interface QNMixStreamManager ()
+@interface QMixStreamManager ()
 
 @property (nonatomic, copy) NSString *publishUrl;
 @property (nonatomic, copy) NSString *streamID;
@@ -19,7 +19,7 @@
 
 @end
 
-@implementation QNMixStreamManager
+@implementation QMixStreamManager
 
 - (instancetype)initWithPushUrl:(NSString *)publishUrl client:(QNRTCClient *)client streamID:(NSString *)streamID {
     if (self = [super init]) {
@@ -37,7 +37,6 @@
 
 //停止前台推流
 - (void)stopForwardJob{
-
     [self.client stopLiveStreamingWithDirect:self.directConfig];
 }
 
@@ -60,26 +59,22 @@
 }
 
 //设置某个用户的音频混流参数
-- (void)updateUserAudioMergeOptions:(NSString *)uid trackId:(NSString *)trackId isNeed:(BOOL)isNeed {
+- (void)updateUserAudioMixStreamingWithTrackId:(NSString *)trackId {
 
     QNTranscodingLiveStreamingTrack *layout = [[QNTranscodingLiveStreamingTrack alloc] init];
-    layout.trackID = trackId;
-    if (isNeed) {
-        [self.client setTranscodingLiveStreamingID:self.streamID withTracks:@[layout]];
-    } else {
-        [self.client removeTranscodingLiveStreamingID:self.streamID withTracks:@[layout]];
-    }
-            
+    layout.trackID = trackId;    
+    [self.client setTranscodingLiveStreamingID:self.streamID withTracks:@[layout]];
+                
 }
 
-- (void)removeUserVideoMergeOptions:(NSString *)uid trackId:(NSString *)trackId {
+- (void)removeUserVideoMixStreamingWithTrackId:(NSString *)trackId {
     QNTranscodingLiveStreamingTrack *layout = [[QNTranscodingLiveStreamingTrack alloc] init];
     layout.trackID = trackId;
     [self.client removeTranscodingLiveStreamingID:self.streamID withTracks:@[layout]];
 }
 
 //设置某个用户的摄像头混流参数
-- (void)updateUserVideoMergeOptions:(NSString *)uid trackId:(NSString *)trackId option:(CameraMergeOption *)option {
+- (void)updateUserVideoMixStreamingWithTrackId:(NSString *)trackId option:(CameraMergeOption *)option {
     
     QNTranscodingLiveStreamingTrack *layout = [[QNTranscodingLiveStreamingTrack alloc] init];
     layout.trackID = trackId;

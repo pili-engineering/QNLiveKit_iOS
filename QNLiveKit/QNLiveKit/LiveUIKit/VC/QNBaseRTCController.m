@@ -50,6 +50,7 @@
     self.preview = [[QRenderView alloc] init];
     self.preview.userId= QN_User_id;
     self.preview.frame = CGRectMake(0, 0, SCREEN_W, SCREEN_H);
+    self.preview.fillMode = QNVideoFillModePreserveAspectRatioAndFill;
     [self.renderBackgroundView addSubview:self.preview];
 }
 

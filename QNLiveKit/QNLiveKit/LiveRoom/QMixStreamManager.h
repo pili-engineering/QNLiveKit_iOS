@@ -1,5 +1,5 @@
 //
-//  QNMixStreamManager.h
+//  QMixStreamManager.h
 //  QiNiu_Solution_iOS
 //
 //  Created by 郭茜 on 2021/9/23.
@@ -11,7 +11,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 @class QNMergeOption,CameraMergeOption;
 //混流器
-@interface QNMixStreamManager : NSObject
+@interface QMixStreamManager : NSObject
 - (instancetype)initWithPushUrl:(NSString *)publishUrl client:(QNRTCClient *)client streamID:(NSString *)streamID;
 //启动前台转推，默认实现推本地轨道
 - (void)startForwardJob;
@@ -23,11 +23,12 @@ NS_ASSUME_NONNULL_BEGIN
 - (void)stopMixStreamJob;
 //设置混流参数
 - (void)setMixParams:(QNMergeOption *)params;
-//设置某个用户的音频混流参数 （isNeed 是否需要混流音频）
-- (void)updateUserAudioMergeOptions:(NSString *)uid trackId:(NSString *)trackId isNeed:(BOOL)isNeed;
-//设置某个用户的摄像头混流参数
-- (void)updateUserVideoMergeOptions:(NSString *)uid trackId:(NSString *)trackId option:(CameraMergeOption *)option;
-- (void)removeUserVideoMergeOptions:(NSString *)uid trackId:(NSString *)trackId;
+//设置某个音频track混流
+- (void)updateUserAudioMixStreamingWithTrackId:(NSString *)trackId;
+//设置某个视频track混流
+- (void)updateUserVideoMixStreamingWithTrackId:(NSString *)trackId option:(CameraMergeOption *)option;
+//删除某条track的混流
+- (void)removeUserVideoMixStreamingWithTrackId:(NSString *)trackId;
 
 @end
 

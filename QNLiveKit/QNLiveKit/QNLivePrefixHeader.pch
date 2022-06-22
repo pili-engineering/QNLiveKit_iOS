@@ -68,9 +68,9 @@
 
 #pragma mark ----------API
 //线上
-//#define MAINAPI @"https://live-api.qiniu.com/%@"
+#define MAINAPI @"https://live-api.qiniu.com/%@"
 //测试
-#define MAINAPI @"http://10.200.20.28:8099/%@"
+//#define MAINAPI @"http://10.200.20.28:8099/%@"
 
 
 #import <QNRTCKit/QNRTCKit.h>
@@ -79,6 +79,7 @@
 #import "QNLiveTypeDefines.h"
 #import <SDWebImage/SDWebImage.h>
 #import "UIColor+QNColor.h"
+#import <QNIMSDK/QNIMSDK.h>
 
 
 #endif /* QNLivePrefixHeader_pch */

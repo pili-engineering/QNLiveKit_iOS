@@ -70,10 +70,10 @@ NS_ASSUME_NONNULL_BEGIN
 - (QNIMMessageObject *)createRejectInviteMessageWithInvitationName:(NSString *)invitationName invitationModel:(QNInvitationModel *)invitationModel;
 
 //开始pk信令
--(QNIMMessageObject *)createStartPKMessage:(QNPKSession *)pkSession ;
+-(QNIMMessageObject *)createStartPKMessage:(QNPKSession *)pkSession type:(QNIMMessageType)type;
 
-//结束pk信令
-- (QNIMMessageObject *)createStopPKMessage:(QNPKSession *)pkSession receiveUser:(nonnull QNLiveUser *)receiveUser;
+//结束pk信令 
+- (QNIMMessageObject *)createStopPKMessage:(QNPKSession *)pkSession;
 
 @end
 

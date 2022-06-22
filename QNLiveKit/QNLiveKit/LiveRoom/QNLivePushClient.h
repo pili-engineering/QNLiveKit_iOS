@@ -24,6 +24,8 @@ NS_ASSUME_NONNULL_BEGIN
 // 远端用户发布音/视频
 - (void)onUserPublishTracks:(NSArray<QNRemoteTrack *> *)tracks ofUserID:(NSString *)userID;
 
+- (void)onUserUnpublishTracks:(NSArray<QNRemoteTrack *> *)tracks ofUserID:(NSString *)userID;
+
 // 成功创建混流转推
 - (void)didStartLiveStreaming:(NSString *)streamID;
 
@@ -55,54 +57,44 @@ NS_ASSUME_NONNULL_BEGIN
 + (instancetype)createPushClient;
 - (void)destroy;
 
-/// 主播开始直播
-/// @param callBack 回调
+/// 作为主播开始直播
 - (void)startLive:(NSString *)roomID callBack:(nullable void (^)(QNLiveRoomInfo *_Nullable roomInfo))callBack;
-
-/// 停止直播
+/// 作为主播停止直播
 - (void)closeRoom:(NSString *)roomID;
 
+// 作为观众加入直播
 - (void)joinLive:(NSString *)token userData:(NSString *)userData;
+// 作为观众离开直播
 - (void)LeaveLive;
+
+#pragma mark ---- 推流
 
 /// 启动视频采集
 - (void)enableCamera:(nullable QNCameraParams *)cameraParams renderView:(nullable QRenderView *)renderView;
-- (void)enableMicrophone:(nullable QNMicrophoneParams *)microphoneParams;
-
 /// 切换摄像头
 - (void)switchCamera;
-
 /// 是否禁止本地摄像头推流
-/// @param muted muted
 - (void)muteCamera:(BOOL)muted;
-
 /// 是否禁止本地麦克风推流
-/// @param muted muted
 - (void)muteMicrophone:(BOOL)muted;
-
 /// 设置音频帧回调
-/// @param listener listener
 - (void)setAudioFrameListener:(id<QNLocalAudioTrackDelegate>)listener;
-
 /// 设置视频帧回调
-/// @param listener listener
 - (void)setVideoFrameListener:(id<QNLocalVideoTrackDelegate>)listener;
 
+#pragma mark ---- 混流
+
+//开始混流
 - (void)beginMixStream:(QNMergeOption *)option;
-- (void)publishCameraAndMicrophone;
-
-
-
 //更新混流画布大小
 - (void)updateMixStreamSize:(CGSize)size;
-
-//设置某个用户的音频混流参数 （isNeed 是否需要混流音频）
-- (void)updateUserAudioMergeOptions:(NSString *)uid trackId:(NSString *)trackId isNeed:(BOOL)isNeed;
-
+//设置某个用户的音频混流参数
+- (void)updateUserAudioMixStreamingWithTrackId:(NSString *)trackId;
 //设置某个用户的摄像头混流参数
-- (void)updateUserVideoMergeOptions:(NSString *)uid trackId:(NSString *)trackId option:(CameraMergeOption *)option;
-- (void)removeUserVideoMergeOptions:(NSString *)uid trackId:(NSString *)trackId;
-
+- (void)updateUserVideoMixStreamingWithTrackId:(NSString *)trackId option:(CameraMergeOption *)option;
+//删除某个摄像头混流
+- (void)removeUserVideoMixStreamingWithTrackId:(NSString *)trackId;
+//结束混流
 - (void)stopMixStream;
 
 @end

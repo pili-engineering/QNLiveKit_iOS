@@ -6,7 +6,7 @@
 //
 
 #import "QNLivePushClient.h"
-#import "QNMixStreamManager.h"
+#import "QMixStreamManager.h"
 #import "QNLiveRoomInfo.h"
 #import "QNMergeOption.h"
 #import "QRenderView.h"
@@ -18,7 +18,7 @@
 
 @interface QNLivePushClient ()<QNRTCClientDelegate>
 
-@property (nonatomic, strong) QNMixStreamManager *mixManager;
+@property (nonatomic, strong) QMixStreamManager *mixManager;
 
 @property (nonatomic, strong) QNLiveRoomInfo *roomInfo;
 
@@ -112,10 +112,6 @@
 }
 
 
-- (void)enableMicrophone:(nullable QNMicrophoneParams *)microphoneParams {
-    [self.localAudioTrack setVolume:microphoneParams.volume ?: 0.5];
-}
-
 /// 切换摄像头
 - (void)switchCamera {
     [self.localVideoTrack switchCamera];
@@ -200,19 +196,25 @@
         [self.pushClientListener onUserPublishTracks:tracks ofUserID:userID];
     }
     
-    if (self.option) {
-        
-        for (QNRemoteTrack *track in tracks) {
-            if (track.kind == QNTrackKindAudio) {
-                [self.mixManager updateUserAudioMergeOptions:userID trackId:track.trackID isNeed:YES];
-            } else {
-                CameraMergeOption *option = [CameraMergeOption new];
-                option.frame = CGRectMake(720-184-30, 200, 184, 184);
-                option.mZ = 1;
-                [self.mixManager updateUserVideoMergeOptions:userID trackId:track.trackID option:option];
-            }
-        }
-        
+//    if (self.option) {
+//        
+//        for (QNRemoteTrack *track in tracks) {
+//            if (track.kind == QNTrackKindAudio) {
+//                [self.mixManager updateUserAudioMixStreamingWithTrackId:track.trackID];
+//            } else {
+//                CameraMergeOption *option = [CameraMergeOption new];
+//                option.frame = CGRectMake(720-184-30, 200, 184, 184);
+//                option.mZ = 1;
+//                [self.mixManager updateUserVideoMixStreamingWithTrackId:track.trackID option:option];
+//            }
+//        }
+//        
+//    }
+}
+
+- (void)RTCClient:(QNRTCClient *)client didUserUnpublishTracks:(NSArray<QNRemoteTrack *> *)tracks ofUserID:(NSString *)userID {
+    if ([self.pushClientListener respondsToSelector:@selector(onUserUnpublishTracks:ofUserID:)]) {
+        [self.pushClientListener onUserUnpublishTracks:tracks ofUserID:userID];
     }
 }
 
@@ -223,17 +225,17 @@
 }
 
 //设置某个用户的音频混流参数 （isNeed 是否需要混流音频）
-- (void)updateUserAudioMergeOptions:(NSString *)uid trackId:(NSString *)trackId isNeed:(BOOL)isNeed {
-    [self.mixManager updateUserAudioMergeOptions:uid trackId:trackId isNeed:isNeed];
+- (void)updateUserAudioMixStreamingWithTrackId:(NSString *)trackId {
+    [self.mixManager updateUserAudioMixStreamingWithTrackId:trackId];
 }
 
 //设置某个用户的摄像头混流参数
-- (void)updateUserVideoMergeOptions:(NSString *)uid trackId:(NSString *)trackId option:(CameraMergeOption *)option {
-    [self.mixManager updateUserVideoMergeOptions:uid trackId:trackId option:option];
+- (void)updateUserVideoMixStreamingWithTrackId:(NSString *)trackId option:(CameraMergeOption *)option {
+    [self.mixManager updateUserVideoMixStreamingWithTrackId:trackId option:option];
 }
 
-- (void)removeUserVideoMergeOptions:(NSString *)uid trackId:(NSString *)trackId {
-    [self.mixManager removeUserVideoMergeOptions:uid trackId:trackId];
+- (void)removeUserVideoMixStreamingWithTrackId:(NSString *)trackId {
+    [self.mixManager removeUserVideoMixStreamingWithTrackId:trackId];
 }
 
 //本地音频轨道默认参数
@@ -265,9 +267,9 @@
     return _localVideoTrack;
 }
 
-- (QNMixStreamManager *)mixManager {
+- (QMixStreamManager *)mixManager {
     if (!_mixManager) {
-        _mixManager = [[QNMixStreamManager alloc]initWithPushUrl:self.roomInfo.push_url client:self.rtcClient streamID:self.roomInfo.live_id];
+        _mixManager = [[QMixStreamManager alloc]initWithPushUrl:self.roomInfo.push_url client:self.rtcClient streamID:self.roomInfo.live_id];
         [_mixManager setMixParams:self.option];
     }
     return _mixManager;

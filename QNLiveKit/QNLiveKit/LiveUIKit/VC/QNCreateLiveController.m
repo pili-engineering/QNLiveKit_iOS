@@ -33,6 +33,7 @@
     
     self.preview = [[QRenderView alloc] init];
     self.preview.frame = self.view.frame;
+    self.preview.fillMode = QNVideoFillModePreserveAspectRatioAndFill;
     [bg addSubview:self.preview];
 
     [[QLive createPusherClient] enableCamera:nil renderView:self.preview];

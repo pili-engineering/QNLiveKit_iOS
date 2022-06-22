@@ -29,6 +29,7 @@
 #import "FDanmakuModel.h"
 #import "QNIMModel.h"
 #import "PubChatModel.h"
+#import "QToastView.h"
 
 @interface QNLiveController ()<QNPushClientListener,QNRoomLifeCycleListener,QNPushClientListener,QNChatRoomServiceListener,FDanmakuViewProtocol,LiveChatRoomViewDelegate>
 
@@ -93,6 +94,9 @@
     dispatch_async(dispatch_get_main_queue(), ^{
         if (state == QNConnectionStateConnected) {
             [[QLive createPusherClient] beginMixStream:self.option];
+        } else if (state == QNConnectionStateDisconnected) {
+            [self dismissViewControllerAnimated:YES completion:nil];
+            [QToastView showToast:@"您已离线"];
         }
     });
 }
@@ -105,15 +109,16 @@
 
 - (void)didStartLiveStreaming:(NSString *)streamID {
     
-    [[QLive createPusherClient] updateUserAudioMergeOptions:QN_User_id trackId:[QLive createPusherClient].localAudioTrack.trackID isNeed:YES];
+    [[QLive createPusherClient] updateUserAudioMixStreamingWithTrackId:[QLive createPusherClient].localAudioTrack.trackID];
+    //更新自己的混流布局
     CameraMergeOption *option = [CameraMergeOption new];
-    if (self.roomInfo.pk_id.length == 0) {
-        option.frame = CGRectMake(0, 0, 720, 1280);
-    } else {
+    if (self.pk_other_user) {
         option.frame = CGRectMake(0, 0, 720/2, 419);
+    } else {
+        option.frame = CGRectMake(0, 0, 720, 1280);        
     }
     option.mZ = 0;
-    [[QLive createPusherClient] updateUserVideoMergeOptions:QN_User_id trackId:[QLive createPusherClient].localVideoTrack.trackID option:option];
+    [[QLive createPusherClient] updateUserVideoMixStreamingWithTrackId:[QLive createPusherClient].localVideoTrack.trackID option:option];
     
 }
 
@@ -141,15 +146,33 @@
                     [[QLive createPusherClient] updateMixStreamSize:CGSizeMake(720, 419)];
                     CameraMergeOption *userOption = [CameraMergeOption new];
                     userOption.frame = CGRectMake(720/2, 0, 720/2, 419);
+                    userOption.mZ = 0;
+                    [[QLive createPusherClient] updateUserVideoMixStreamingWithTrackId:videoTrack.trackID option:userOption];
+                    
+                } else {
+                    
+                    [[QLive createPusherClient] updateMixStreamSize:CGSizeMake(720, 1280)];
+                    CameraMergeOption *userOption = [CameraMergeOption new];
+                    userOption.frame = CGRectMake(720-184-30, 200, 184, 184);
                     userOption.mZ = 1;
-                    [[QLive createPusherClient] updateUserVideoMergeOptions:userID trackId:videoTrack.trackID option:userOption];
+                    [[QLive createPusherClient] updateUserVideoMixStreamingWithTrackId:videoTrack.trackID option:userOption];
                 }
+                
             } else {
-                [[QLive createPusherClient] updateUserAudioMergeOptions:userID trackId:track.trackID isNeed:YES];
+                
+                [[QLive createPusherClient] updateUserAudioMixStreamingWithTrackId:track.trackID];
+
             }
             
         }
     });
+}
+
+- (void)onUserUnpublishTracks:(NSArray<QNRemoteTrack *> *)tracks ofUserID:(NSString *)userID {
+    for (QNRemoteTrack *track in tracks) {
+        [[QLive createPusherClient] removeUserVideoMixStreamingWithTrackId:track.trackID];
+    }
+    [[QLive createPusherClient] updateMixStreamSize:CGSizeMake(720, 1280)];
 }
 
 #pragma mark ---------QNChatRoomServiceListener
@@ -244,20 +267,23 @@
 //收到同意pk邀请
 - (void)onReceivePKInvitationAccept:(QNInvitationModel *)model {
     
+    [QToastView showToast:@"对方主播同意pk"];
+    
     [self.pkService startWithReceiverRoomId:model.invitation.msg.receiverRoomId receiverUid:model.invitation.msg.receiver.user_id extensions:@"" callBack:^(QNPKSession * _Nonnull pkSession) {
         
         pkSession.receiver = model.invitation.msg.receiver;
         self.pk_other_user = pkSession.receiver;
-        [self.chatService createStartPKMessage:pkSession];
-        
+        [self.chatService createStartPKMessage:pkSession type:QNIMMessageTypeSingle];
         [self beginPK:pkSession];
     }];
 }
 
 //收到开始pk信令
 - (void)onReceiveStartPKSession:(QNPKSession *)pkSession {
+    if (self.pk_other_user) {
+        return;
+    }
     self.pk_other_user = pkSession.initiator;
-
     [self.pkService getPKToken:pkSession.relay_id callBack:^(QNPKSession * session) {
         [self beginPK:session];
     }];
@@ -286,7 +312,7 @@
     self.pkSlot.selected = NO;
     [[QLive createPusherClient].rtcClient stopRoomMediaRelay:^(NSDictionary *state, NSError *error) {}];
     [self.pkService stopWithRelayID:self.pkSession.relay_id callBack:^{}];
-    [self.chatService createStopPKMessage:self.pkSession receiveUser:self.pk_other_user];
+    [self.chatService createStopPKMessage:self.pkSession];
     self.preview.frame = self.view.frame;
     [self.renderBackgroundView bringSubviewToFront:self.preview];
 //    [self removeRemoteUserView];
@@ -317,8 +343,11 @@
     config.srcRoomInfo = srcRoomInfo;
     [config setDestRoomInfo:destInfo forRoomName:self.roomInfo.title];
 
+    __weak typeof(self)weakSelf = self;
     [[QLive createPusherClient].rtcClient startRoomMediaRelay:config completeCallback:^(NSDictionary *state, NSError *error) {
-
+        
+        [weakSelf.chatService createStartPKMessage:pkSession type:QNIMMessageTypeGroup];
+        
     }];
     
 }
@@ -437,6 +466,7 @@
        
         [weakSelf.chatService sendPKInvitation:itemModel.live_id receiveUser:itemModel.anchor_info];
         weakSelf.selectPkRoomInfo = itemModel;
+        [QToastView showToast:@"pk邀请已发送"];
     };
     
     [self addChildViewController:vc];
