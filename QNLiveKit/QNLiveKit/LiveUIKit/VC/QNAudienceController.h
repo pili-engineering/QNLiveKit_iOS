@@ -10,7 +10,15 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
+@class RoomHostView,OnlineUserView,ImageButtonView,BottomMenuView,LinkStateView;
+
 @interface QNAudienceController : QNBaseRTCController
+
+@property (nonatomic, strong) RoomHostView *roomHostView;
+@property (nonatomic, strong) OnlineUserView *onlineUserView;
+@property (nonatomic, strong) ImageButtonView *pubchatView;
+@property (nonatomic, strong) BottomMenuView *bottomMenuView;
+@property (nonatomic, strong) LinkStateView *linkSView;
 
 @end
 

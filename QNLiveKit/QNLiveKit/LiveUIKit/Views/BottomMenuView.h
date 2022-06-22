@@ -1,5 +1,5 @@
 //
-//  BottomMenuSlot.h
+//  BottomMenuView.h
 //  QNLiveKit
 //
 //  Created by 郭茜 on 2022/5/31.
@@ -9,12 +9,12 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-@class ImageButtonComponent;
+@class ImageButtonView;
 //底部操作栏槽位
-@interface BottomMenuSlot : QLiveComponent
+@interface BottomMenuView : QLiveView
 
 //菜单列表
-@property (nonatomic,copy)NSArray <ImageButtonComponent *> *slotList;
+@property (nonatomic,copy)NSArray <ImageButtonView *> *slotList;
 
 @end
 

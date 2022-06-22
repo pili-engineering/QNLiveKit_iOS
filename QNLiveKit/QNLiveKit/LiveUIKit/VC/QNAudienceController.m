@@ -6,29 +6,25 @@
 //
 
 #import "QNAudienceController.h"
-#import "RoomHostComponent.h"
-#import "OnlineUserComponent.h"
-#import "BottomMenuSlot.h"
+#import "RoomHostView.h"
+#import "OnlineUserView.h"
+#import "BottomMenuView.h"
 #import "QNChatRoomService.h"
 #import "LiveChatRoom.h"
 #import "QNLiveRoomInfo.h"
 #import "QNLiveRoomClient.h"
 #import <PLPlayerKit/PLPlayerKit.h>
-#import "LinkStateComponent.h"
+#import "LinkStateView.h"
 #import "QRenderView.h"
 #import "QNLiveUser.h"
 #import "FDanmakuView.h"
 #import "FDanmakuModel.h"
 #import "QNIMModel.h"
 #import "PubChatModel.h"
+#import "QToastView.h"
 
 @interface QNAudienceController ()<QNChatRoomServiceListener,QNPushClientListener,LiveChatRoomViewDelegate,FDanmakuViewProtocol,PLPlayerDelegate>
 
-@property (nonatomic, strong) RoomHostComponent *roomHostSlot;
-@property (nonatomic, strong) OnlineUserComponent *onlineUserSlot;
-@property (nonatomic, strong) ImageButtonComponent *pubchatSlot;
-@property (nonatomic, strong) BottomMenuSlot *bottomMenuSlot;
-@property (nonatomic, strong) LinkStateComponent *linkSLot;
 //@property (nonatomic, strong) UIView *playView;
 @property (nonatomic, strong) PLPlayer *player;
 
@@ -60,10 +56,10 @@
     }];
     
     [self chatRoomView];
-    [self roomHostSlot];
-    [self onlineUserSlot];
-    [self pubchatSlot];
-    [self bottomMenuSlot];
+    [self roomHostView];
+    [self onlineUserView];
+    [self pubchatView];
+    [self bottomMenuView];
     [self chatService];
     
     [self.chatService sendWelComeMsg:^(QNIMMessageObject * _Nonnull msg) {
@@ -99,8 +95,8 @@
     dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(3 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
         [[QLive getRooms] getRoomInfo:weakSelf.roomInfo.live_id callBack:^(QNLiveRoomInfo * _Nonnull roomInfo) {
             weakSelf.roomInfo = roomInfo;
-            [weakSelf.roomHostSlot updateWith:roomInfo];
-            [weakSelf.onlineUserSlot updateWith:roomInfo];
+            [weakSelf.roomHostView updateWith:roomInfo];
+            [weakSelf.onlineUserView updateWith:roomInfo];
             
             
             [weakSelf updateRoomInfo];
@@ -156,9 +152,10 @@
 
 //连麦邀请被接受
 - (void)onReceiveLinkInvitationAccept:(QNInvitationModel *)model {
+    [QToastView showToast:@"主播同意了你的连麦申请"];
     __weak typeof(self)weakSelf = self;
     [QLive createPusherClient].pushClientListener = self;
-    [self.linkService onMic:YES camera:YES extends:@"" callBack:^(NSString * _Nonnull rtcToken) {
+    [self.linkService onMic:YES camera:YES extends:nil callBack:^(NSString * _Nonnull rtcToken) {
         [self stopPlay];
         [[QLive createPusherClient] enableCamera:nil renderView:self.preview];
 
@@ -230,60 +227,61 @@
 
 
 
-- (RoomHostComponent *)roomHostSlot {
-    if (!_roomHostSlot) {
-        _roomHostSlot = [[RoomHostComponent alloc]init];
-        [_roomHostSlot createDefaultView:CGRectMake(20, 60, 135, 40) onView:self.view];
-        [_roomHostSlot updateWith:self.roomInfo];;
-        _roomHostSlot.clickBlock = ^(BOOL selected){
+- (RoomHostView *)roomHostView {
+    if (!_roomHostView) {
+        _roomHostView = [[RoomHostView alloc]init];
+        [_roomHostView createDefaultView:CGRectMake(20, 60, 135, 40) onView:self.view];
+        [_roomHostView updateWith:self.roomInfo];;
+        _roomHostView.clickBlock = ^(BOOL selected){
             NSLog(@"点击了房主头像");
         };
     }
-    return _roomHostSlot;
+    return _roomHostView;
 }
 
-- (OnlineUserComponent *)onlineUserSlot {
-    if (!_onlineUserSlot) {
-        _onlineUserSlot = [[OnlineUserComponent alloc]init];
-        [_onlineUserSlot createDefaultView:CGRectMake(self.view.frame.size.width - 150, 60, 150, 60) onView:self.view];
-        [_onlineUserSlot updateWith:self.roomInfo];
-        _onlineUserSlot.clickBlock = ^(BOOL selected){
+- (OnlineUserView *)onlineUserView {
+    if (!_onlineUserView) {
+        _onlineUserView = [[OnlineUserView alloc]init];
+        [_onlineUserView createDefaultView:CGRectMake(self.view.frame.size.width - 150, 60, 150, 60) onView:self.view];
+        [_onlineUserView updateWith:self.roomInfo];
+        _onlineUserView.clickBlock = ^(BOOL selected){
             NSLog(@"点击了在线人数");
         };
     }
-    return _onlineUserSlot;
+    return _onlineUserView;
 }
 
-- (ImageButtonComponent *)pubchatSlot {
-    if (!_pubchatSlot) {
-        _pubchatSlot = [[ImageButtonComponent alloc]init];
-        [_pubchatSlot createDefaultView:CGRectMake(15, SCREEN_H - 80, 220, 45) onView:self.view];
-        [_pubchatSlot normalImage:@"chat_input_bar" selectImage:@"chat_input_bar"];
+- (ImageButtonView *)pubchatView {
+    if (!_pubchatView) {
+        _pubchatView = [[ImageButtonView alloc]init];
+        [_pubchatView createDefaultView:CGRectMake(15, SCREEN_H - 80, 220, 45) onView:self.view];
+        [_pubchatView normalImage:@"chat_input_bar" selectImage:@"chat_input_bar"];
         __weak typeof(self)weakSelf = self;
-        _pubchatSlot.clickBlock = ^(BOOL selected){
+        _pubchatView.clickBlock = ^(BOOL selected){
             [weakSelf.chatRoomView commentBtnPressedWithPubchat:YES];
             NSLog(@"点击了公聊");
         };
         
     }
-    return _pubchatSlot;
+    return _pubchatView;
 }
 
-- (BottomMenuSlot *)bottomMenuSlot {
-    if (!_bottomMenuSlot) {
+- (BottomMenuView *)bottomMenuView {
+    if (!_bottomMenuView) {
         NSMutableArray *slotList = [NSMutableArray array];
         __weak typeof(self)weakSelf = self;
         
-        ImageButtonComponent *link = [[ImageButtonComponent alloc]init];
+        ImageButtonView *link = [[ImageButtonView alloc]init];
         [link normalImage:@"link" selectImage:@"link"];
         link.clickBlock = ^(BOOL selected){
             
             [weakSelf.chatService sendLinkMicInvitation:weakSelf.roomInfo.anchor_info];
+            [QToastView showToast:@"连麦申请已发送"];
             NSLog(@"点击了连麦");
         };
         [slotList addObject:link];
         
-        ImageButtonComponent *message = [[ImageButtonComponent alloc]init];
+        ImageButtonView *message = [[ImageButtonView alloc]init];
         [message normalImage:@"message" selectImage:@"message"];
         message.clickBlock = ^(BOOL selected){
             [weakSelf.chatRoomView commentBtnPressedWithPubchat:NO];
@@ -291,35 +289,36 @@
         };
         [slotList addObject:message];
         
-        ImageButtonComponent *close = [[ImageButtonComponent alloc]init];
+        ImageButtonView *close = [[ImageButtonView alloc]init];
         [close normalImage:@"live_close" selectImage:@"live_close"];
         close.clickBlock = ^(BOOL selected){
+            [weakSelf.chatService sendLeaveMsg];
             [weakSelf dismissViewControllerAnimated:YES completion:nil];
             NSLog(@"点击了关闭");
         };
         [slotList addObject:close];
         
-        _bottomMenuSlot = [[BottomMenuSlot alloc]init];
-        _bottomMenuSlot.slotList = slotList.copy;
-        [_bottomMenuSlot createDefaultView:CGRectMake(240, SCREEN_H - 80, SCREEN_W - 240, 45) onView:self.view];
+        _bottomMenuView = [[BottomMenuView alloc]init];
+        _bottomMenuView.slotList = slotList.copy;
+        [_bottomMenuView createDefaultView:CGRectMake(240, SCREEN_H - 80, SCREEN_W - 240, 45) onView:self.view];
 
     }
-    return _bottomMenuSlot;
+    return _bottomMenuView;
 }
 
 - (void)popLinkSLot {
-    _linkSLot = [[LinkStateComponent alloc]init];
-    [_linkSLot createDefaultView:CGRectMake(0, SCREEN_H - 230, SCREEN_W, 230) onView:self.view];
+    _linkSView = [[LinkStateView alloc]init];
+    [_linkSView createDefaultView:CGRectMake(0, SCREEN_H - 230, SCREEN_W, 230) onView:self.view];
     __weak typeof(self)weakSelf = self;
-    _linkSLot.microphoneBlock = ^(BOOL mute) {
+    _linkSView.microphoneBlock = ^(BOOL mute) {
         [[QLive createPusherClient] muteMicrophone:mute];
         [weakSelf.chatService sendMicrophoneMute:mute];
     };
-    _linkSLot.cameraBlock = ^(BOOL mute) {
+    _linkSView.cameraBlock = ^(BOOL mute) {
         [[QLive createPusherClient] muteCamera:mute];
         [weakSelf.chatService sendCameraMute:mute];
     };
-    _linkSLot.clickBlock = ^(BOOL selected){
+    _linkSView.clickBlock = ^(BOOL selected){
         [[QLive createPusherClient] LeaveLive];
         weakSelf.preview.frame = CGRectZero;
         for (QRenderView *userView in weakSelf.renderBackgroundView.subviews) {

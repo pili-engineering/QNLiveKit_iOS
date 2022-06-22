@@ -1,13 +1,13 @@
 //
-//  QNAlertViewController.m
+//  QAlertView.m
 //  QiNiu_Solution_iOS
 //
 //  Created by 郭茜 on 2022/3/16.
 //
 
-#import "QNAlertViewController.h"
+#import "QAlertView.h"
 
-@implementation QNAlertViewController
+@implementation QAlertView
 
 + (void)showBaseAlertWithTitle:(NSString *)title content:(NSString *)content handler:(void (^ __nullable)(UIAlertAction *action))handler {
     
@@ -22,7 +22,7 @@
     }];
     [alertController addAction:changeBtn];
     
-    [[QNAlertViewController topViewController] presentViewController:alertController animated:YES completion:nil];
+    [[QAlertView topViewController] presentViewController:alertController animated:YES completion:nil];
 }
 
 + (void)showTextAlertWithTitle:(NSString *)title content:(NSString *)content cancelHandler:(void (^ __nullable)(UIAlertAction *action))cancelHandler confirmHandler:(void (^)(NSString *text))confirmHandler {
@@ -44,7 +44,7 @@
     }];
     [alertController addAction:changeBtn];
     
-    [[QNAlertViewController topViewController] presentViewController:alertController animated:YES completion:nil];
+    [[QAlertView topViewController] presentViewController:alertController animated:YES completion:nil];
 }
 
 + (void)showBlackAlertWithTitle:(NSString *)title content:(NSString *)content cancelHandler:(void (^ __nullable)(UIAlertAction *action))cancelHandler confirmHandler:(void (^ __nullable)(UIAlertAction *action))confirmHandler {
@@ -78,23 +78,23 @@
     [alertController setValue:alertControllerMessageStr forKey:@"attributedMessage"];
     
     alertController.view.tintColor = [UIColor whiteColor];
-    [[QNAlertViewController topViewController] presentViewController:alertController animated:YES completion:nil];
+    [[QAlertView topViewController] presentViewController:alertController animated:YES completion:nil];
 }
 
 + (UIViewController * )topViewController {
     UIViewController *resultVC;
-    resultVC = [QNAlertViewController recursiveTopViewController:[[UIApplication sharedApplication].windows.firstObject rootViewController]];
+    resultVC = [QAlertView recursiveTopViewController:[[UIApplication sharedApplication].windows.firstObject rootViewController]];
     while (resultVC.presentedViewController) {
-        resultVC = [QNAlertViewController recursiveTopViewController:resultVC.presentedViewController];
+        resultVC = [QAlertView recursiveTopViewController:resultVC.presentedViewController];
     }
     return resultVC;
 }
 
 + (UIViewController * )recursiveTopViewController:(UIViewController *)vc {
     if ([vc isKindOfClass:[UINavigationController class]]) {
-        return [QNAlertViewController recursiveTopViewController:[(UINavigationController *)vc topViewController]];
+        return [QAlertView recursiveTopViewController:[(UINavigationController *)vc topViewController]];
     } else if ([vc isKindOfClass:[UITabBarController class]]) {
-        return [QNAlertViewController recursiveTopViewController:[(UITabBarController *)vc selectedViewController]];
+        return [QAlertView recursiveTopViewController:[(UITabBarController *)vc selectedViewController]];
     } else {
         return vc;
     }

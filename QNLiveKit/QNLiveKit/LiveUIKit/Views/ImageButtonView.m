@@ -1,19 +1,19 @@
 //
-//  ImageButtonComponent.m
+//  ImageButtonView.m
 //  QNLiveKit
 //
 //  Created by 郭茜 on 2022/5/31.
 //
 
-#import "ImageButtonComponent.h"
+#import "ImageButtonView.h"
 
-@interface ImageButtonComponent ()
+@interface ImageButtonView ()
 
 @property (nonatomic, strong)UIButton *button;
 
 @end
 
-@implementation ImageButtonComponent
+@implementation ImageButtonView
 
 - (void)createDefaultView:(CGRect)frame onView:(UIView *)onView {
     self.button.frame = frame;

@@ -88,7 +88,7 @@ NS_ASSUME_NONNULL_BEGIN
 //发群消息
 - (void)sendPubChatMsg:(NSString *)msg callBack:(void (^)(QNIMMessageObject *msg))callBack;
 - (void)sendWelComeMsg:(void (^)(QNIMMessageObject *msg))callBack;
-- (void)sendLeaveMsg:(void (^)(QNIMMessageObject *msg))callBack;
+- (void)sendLeaveMsg;
 
 - (void)sendOnMicMsg;
 - (void)sendDownMicMsg;

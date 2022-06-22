@@ -1,20 +1,18 @@
 //
-//  RoomHostComponent.h
+//  OnlineUserView.h
 //  QNLiveKitDemo
 //
 //  Created by 郭茜 on 2022/5/31.
 //
 
-#import "QLiveComponent.h"
-#import <UIKit/UIKit.h>
+#import "QLiveView.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
-//房主槽位
-
 @class QNLiveRoomInfo;
 
-@interface RoomHostComponent : QLiveComponent
+//右上角在线人数槽位
+@interface OnlineUserView : QLiveView
 
 - (void)updateWith:(QNLiveRoomInfo *)roomInfo;
 

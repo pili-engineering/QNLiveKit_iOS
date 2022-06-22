@@ -20,6 +20,7 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
+//toast
 @interface QToastView : NSObject
 
 + (void)showToast:(NSString *)message;

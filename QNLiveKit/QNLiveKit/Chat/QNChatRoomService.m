@@ -98,18 +98,16 @@
    
 }
 
-- (void)sendLeaveMsg:(void (^)(QNIMMessageObject * _Nonnull))callBack {
+- (void)sendLeaveMsg {
     if (self.isMember) {
         QNIMMessageObject *message = [self.creater createLeaveRoomMessage];
         [[QNIMChatService sharedOption] sendMessage:message];
-        callBack(message);
     } else {
         [[QNIMGroupService sharedOption] joinGroupWithGroupId:self.groupId message:@"" completion:^(QNIMError * _Nonnull error) {
             if (!error) {
                 self.isMember = YES;
                 QNIMMessageObject *message = [self.creater createLeaveRoomMessage];
                 [[QNIMChatService sharedOption] sendMessage:message];
-                callBack(message);
             }
         }];
     }
@@ -185,7 +183,7 @@
     [[QNIMChatService sharedOption] sendMessage:message];
 }
 
-- (void)createStopPKMessage:(QNPKSession *)pkSession {
+- (void)createStopPKMessage:(QNPKSession *)pkSession  {
     QNIMMessageObject *message = [self.creater createStopPKMessage:pkSession];
     [[QNIMChatService sharedOption] sendMessage:message];
 }

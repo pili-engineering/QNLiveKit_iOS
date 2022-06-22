@@ -8,15 +8,15 @@
 #import "QNLiveController.h"
 #import "QNLivePushClient.h"
 #import "QNLiveRoomClient.h"
-#import "RoomHostComponent.h"
-#import "OnlineUserComponent.h"
-#import "BottomMenuSlot.h"
+#import "RoomHostView.h"
+#import "OnlineUserView.h"
+#import "BottomMenuView.h"
 #import "QNLinkMicService.h"
 #import "QNChatRoomService.h"
 #import "LiveChatRoom.h"
 #import "QNLiveRoomInfo.h"
 #import "QNMergeOption.h"
-#import "QNAlertViewController.h"
+#import "QAlertView.h"
 #import "QNInvitationModel.h"
 #import "QRenderView.h"
 #import "QLive.h"
@@ -33,14 +33,10 @@
 
 @interface QNLiveController ()<QNPushClientListener,QNRoomLifeCycleListener,QNPushClientListener,QNChatRoomServiceListener,FDanmakuViewProtocol,LiveChatRoomViewDelegate>
 
-@property (nonatomic, strong) RoomHostComponent *roomHostSlot;
-@property (nonatomic, strong) OnlineUserComponent *onlineUserSlot;
-@property (nonatomic, strong) ImageButtonComponent *pubchatSlot;
-@property (nonatomic, strong) BottomMenuSlot *bottomMenuSlot;
-@property (nonatomic, strong) ImageButtonComponent *pkSlot;
 @property (nonatomic, strong) QNLiveRoomInfo *selectPkRoomInfo;
 @property (nonatomic, strong) QNPKSession *pkSession;//正在进行的pk
 @property (nonatomic, strong) QNLiveUser *pk_other_user;//pk对象
+@property (nonatomic, strong) ImageButtonView *pkSlot;
 
 @end
 
@@ -65,10 +61,10 @@
     }];
     
     [self chatRoomView];
-    [self roomHostSlot];
-    [self onlineUserSlot];
-    [self pubchatSlot];
-    [self bottomMenuSlot];
+    [self roomHostView];
+    [self onlineUserView];
+    [self pubchatView];
+    [self bottomMenuView];
     
     [self.chatService sendWelComeMsg:^(QNIMMessageObject * _Nonnull msg) {
         [weakSelf.chatRoomView showMessage:msg];
@@ -81,8 +77,8 @@
         [[QLive createPusherClient] roomHeartBeart:weakSelf.roomInfo.live_id];
         [[QLive getRooms] getRoomInfo:weakSelf.roomInfo.live_id callBack:^(QNLiveRoomInfo * _Nonnull roomInfo) {
             weakSelf.roomInfo = roomInfo;
-            [weakSelf.roomHostSlot updateWith:roomInfo];
-            [weakSelf.onlineUserSlot updateWith:roomInfo];
+            [weakSelf.roomHostView updateWith:roomInfo];
+            [weakSelf.onlineUserView updateWith:roomInfo];
             [weakSelf updateRoomInfo];
         }];
     });
@@ -95,8 +91,11 @@
         if (state == QNConnectionStateConnected) {
             [[QLive createPusherClient] beginMixStream:self.option];
         } else if (state == QNConnectionStateDisconnected) {
-            [self dismissViewControllerAnimated:YES completion:nil];
+            [self.chatService sendLeaveMsg];
+            [[QLive createPusherClient] closeRoom:self.roomInfo.live_id];
             [QToastView showToast:@"您已离线"];
+            [self dismissViewControllerAnimated:YES completion:nil];
+            
         }
     });
 }
@@ -251,7 +250,7 @@
 //接受到连麦邀请
 - (void)onReceiveLinkInvitation:(QNInvitationModel *)model {
     NSString *title = [model.invitation.msg.initiator.nick stringByAppendingString:@"申请加入连麦，是否同意？"];
-    [QNAlertViewController showBaseAlertWithTitle:title content:@"" handler:^(UIAlertAction * _Nonnull action) {
+    [QAlertView showBaseAlertWithTitle:title content:@"" handler:^(UIAlertAction * _Nonnull action) {
         [self.chatService sendLinkMicAccept:model];
     }];
 }
@@ -259,7 +258,7 @@
 //接收到pk邀请
 - (void)onReceivePKInvitation:(QNInvitationModel *)model {
     NSString *title = [model.invitation.msg.initiator.nick stringByAppendingString:@"邀请您PK，是否同意？"];
-    [QNAlertViewController showBaseAlertWithTitle:title content:@"" handler:^(UIAlertAction * _Nonnull action) {        
+    [QAlertView showBaseAlertWithTitle:title content:@"" handler:^(UIAlertAction * _Nonnull action) {        
         [self.chatService sendPKAccept:model];
     }];
 }
@@ -374,51 +373,51 @@
     return isAdmin;
 }
 
-- (RoomHostComponent *)roomHostSlot {
-    if (!_roomHostSlot) {
-        _roomHostSlot = [[RoomHostComponent alloc]init];
-        [_roomHostSlot createDefaultView:CGRectMake(20, 60, 135, 40) onView:self.view];
-        [_roomHostSlot updateWith:self.roomInfo];;
-        _roomHostSlot.clickBlock = ^(BOOL selected) {
+- (RoomHostView *)roomHostView {
+    if (!_roomHostView) {
+        _roomHostView = [[RoomHostView alloc]init];
+        [_roomHostView createDefaultView:CGRectMake(20, 60, 135, 40) onView:self.view];
+        [_roomHostView updateWith:self.roomInfo];;
+        _roomHostView.clickBlock = ^(BOOL selected) {
             NSLog(@"点击了房主头像");
         };
     }
-    return _roomHostSlot;
+    return _roomHostView;
 }
 
-- (OnlineUserComponent *)onlineUserSlot {
-    if (!_onlineUserSlot) {
-        _onlineUserSlot = [[OnlineUserComponent alloc]init];
-       [_onlineUserSlot createDefaultView:CGRectMake(self.view.frame.size.width - 150, 60, 150, 60) onView:self.view];
-        [_onlineUserSlot updateWith:self.roomInfo];
-        _onlineUserSlot.clickBlock = ^(BOOL selected){
+- (OnlineUserView *)onlineUserView {
+    if (!_onlineUserView) {
+        _onlineUserView = [[OnlineUserView alloc]init];
+       [_onlineUserView createDefaultView:CGRectMake(self.view.frame.size.width - 150, 60, 150, 60) onView:self.view];
+        [_onlineUserView updateWith:self.roomInfo];
+        _onlineUserView.clickBlock = ^(BOOL selected){
             NSLog(@"点击了在线人数");
         };
     }
-    return _onlineUserSlot;
+    return _onlineUserView;
 }
 
-- (ImageButtonComponent *)pubchatSlot {
-    if (!_pubchatSlot) {
-        _pubchatSlot = [[ImageButtonComponent alloc]init];
-        [_pubchatSlot createDefaultView:CGRectMake(15, SCREEN_H - 80, 220, 45) onView:self.view];
-        [_pubchatSlot normalImage:@"chat_input_bar" selectImage:@"chat_input_bar"];
+- (ImageButtonView *)pubchatView {
+    if (!_pubchatView) {
+        _pubchatView = [[ImageButtonView alloc]init];
+        [_pubchatView createDefaultView:CGRectMake(15, SCREEN_H - 80, 220, 45) onView:self.view];
+        [_pubchatView normalImage:@"chat_input_bar" selectImage:@"chat_input_bar"];
         __weak typeof(self)weakSelf = self;
-        _pubchatSlot.clickBlock = ^(BOOL selected){
+        _pubchatView.clickBlock = ^(BOOL selected){
             [weakSelf.chatRoomView commentBtnPressedWithPubchat:YES];
             NSLog(@"点击了公聊");
         };
         
     }
-    return _pubchatSlot;
+    return _pubchatView;
 }
 
-- (BottomMenuSlot *)bottomMenuSlot {
-    if (!_bottomMenuSlot) {
+- (BottomMenuView *)bottomMenuView {
+    if (!_bottomMenuView) {
         NSMutableArray *slotList = [NSMutableArray array];
         __weak typeof(self)weakSelf = self;
         
-        ImageButtonComponent *pk = [[ImageButtonComponent alloc]init];
+        ImageButtonView *pk = [[ImageButtonView alloc]init];
         [pk normalImage:@"pk" selectImage:@"end_pk"];
         pk.clickBlock = ^(BOOL selected){
             NSLog(@"点击了pk");
@@ -434,7 +433,7 @@
         [slotList addObject:pk];
         self.pkSlot = pk;
         
-        ImageButtonComponent *message = [[ImageButtonComponent alloc]init];
+        ImageButtonView *message = [[ImageButtonView alloc]init];
         [message normalImage:@"message" selectImage:@"message"];
         message.clickBlock = ^(BOOL selected){
             [weakSelf.chatRoomView commentBtnPressedWithPubchat:NO];
@@ -442,7 +441,7 @@
         };
         [slotList addObject:message];
         
-        ImageButtonComponent *close = [[ImageButtonComponent alloc]init];
+        ImageButtonView *close = [[ImageButtonView alloc]init];
         [close normalImage:@"live_close" selectImage:@"live_close"];
         close.clickBlock = ^(BOOL selected){
             [weakSelf dismissViewControllerAnimated:YES completion:nil];
@@ -450,12 +449,12 @@
         };
         [slotList addObject:close];
         
-        _bottomMenuSlot = [[BottomMenuSlot alloc]init];
-        _bottomMenuSlot.slotList = slotList.copy;
-        [_bottomMenuSlot createDefaultView:CGRectMake(240, SCREEN_H - 80, SCREEN_W - 240, 45) onView:self.view];
+        _bottomMenuView = [[BottomMenuView alloc]init];
+        _bottomMenuView.slotList = slotList.copy;
+        [_bottomMenuView createDefaultView:CGRectMake(240, SCREEN_H - 80, SCREEN_W - 240, 45) onView:self.view];
            
     }
-    return _bottomMenuSlot;
+    return _bottomMenuView;
 }
 
 - (void)popInvitationPKView:(NSArray<QNLiveRoomInfo *> *)list {

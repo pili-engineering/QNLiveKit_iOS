@@ -1,5 +1,5 @@
 //
-//  ImageButtonComponent.h
+//  ImageButtonView.h
 //  QNLiveKit
 //
 //  Created by 郭茜 on 2022/5/31.
@@ -10,7 +10,7 @@
 NS_ASSUME_NONNULL_BEGIN
 
 //带图片的button槽位
-@interface ImageButtonComponent : QLiveComponent
+@interface ImageButtonView : QLiveView
 
 @property (nonatomic, assign) BOOL selected;
 

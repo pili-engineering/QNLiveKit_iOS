@@ -1,5 +1,5 @@
 //
-//  QLiveComponent.h
+//  QLiveView.h
 //  QNLiveKitDemo
 //
 //  Created by 郭茜 on 2022/5/31.
@@ -14,7 +14,7 @@ NS_ASSUME_NONNULL_BEGIN
 typedef void (^onClickBlock)(BOOL selected);
 
 //UI组件基类
-@interface QLiveComponent : NSObject
+@interface QLiveView : NSObject
 
 @property (nonatomic, copy)onClickBlock clickBlock;
 

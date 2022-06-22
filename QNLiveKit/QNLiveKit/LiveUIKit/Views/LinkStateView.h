@@ -1,5 +1,5 @@
 //
-//  LinkStateComponent.h
+//  LinkStateView.h
 //  QNLiveKit
 //
 //  Created by 郭茜 on 2022/6/7.
@@ -13,7 +13,7 @@ typedef void (^MicrophoneBlock)(BOOL mute);
 typedef void (^CameraBlock)(BOOL mute);
 
 //连麦中面板槽位
-@interface LinkStateComponent : QLiveComponent
+@interface LinkStateView : QLiveView
 
 @property (nonatomic, copy)MicrophoneBlock microphoneBlock;
 

@@ -1,23 +1,23 @@
 //
-//  OnlineUserComponent.m
+//  OnlineUserView.m
 //  QNLiveKitDemo
 //
 //  Created by 郭茜 on 2022/5/31.
 //
 
-#import "OnlineUserComponent.h"
+#import "OnlineUserView.h"
 #import "QNLiveRoomInfo.h"
 
 static const CGFloat countLabel_H = 15;//数字高
 
-@interface OnlineUserComponent ()
+@interface OnlineUserView ()
 
 @property (nonatomic, strong)UILabel *countLabel;//房间人数
 
 @property (nonatomic, strong)UILabel *liveIDLabel;
 @end
 
-@implementation OnlineUserComponent
+@implementation OnlineUserView
 
 //默认
 - (void)createDefaultView:(CGRect)frame onView:(UIView *)onView {
