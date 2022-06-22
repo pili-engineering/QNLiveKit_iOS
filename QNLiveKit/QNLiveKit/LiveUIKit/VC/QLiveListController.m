@@ -1,17 +1,17 @@
 //
-//  QNLiveListController.m
+//  QLiveListController.m
 //  QNLiveKitDemo
 //
 //  Created by 郭茜 on 2022/5/30.
 //
 
-#import "QNLiveListController.h"
+#import "QLiveListController.h"
 #import <QNLiveKit/QNLiveKit.h>
 #import "QNLiveListCell.h"
-#import "QNCreateLiveController.h"
+#import "QCreateLiveController.h"
 
 
-@interface QNLiveListController ()<UICollectionViewDelegate,UICollectionViewDataSource>
+@interface QLiveListController ()<UICollectionViewDelegate,UICollectionViewDataSource>
 
 @property (nonatomic, strong) UICollectionView *collectionView;
 
@@ -21,7 +21,7 @@
 
 @end
 
-@implementation QNLiveListController
+@implementation QLiveListController
 
 //- (void)viewWillAppear:(BOOL)animated {
 //    [super viewWillAppear:animated];
@@ -64,7 +64,7 @@
 
 - (void)addLiveRoom {
     
-    QNCreateLiveController *vc = [QNCreateLiveController new];
+    QCreateLiveController *vc = [QCreateLiveController new];
     vc.modalPresentationStyle = UIModalPresentationFullScreen;
     [self presentViewController:vc animated:YES completion:nil];
 }

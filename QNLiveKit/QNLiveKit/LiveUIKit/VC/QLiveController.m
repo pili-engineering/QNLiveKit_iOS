@@ -1,11 +1,11 @@
 //
-//  QNLiveController.m
+//  QLiveController.m
 //  QNLiveKitDemo
 //
 //  Created by 郭茜 on 2022/5/30.
 //
 
-#import "QNLiveController.h"
+#import "QLiveController.h"
 #import "QNLivePushClient.h"
 #import "QNLiveRoomClient.h"
 #import "RoomHostView.h"
@@ -31,7 +31,7 @@
 #import "PubChatModel.h"
 #import "QToastView.h"
 
-@interface QNLiveController ()<QNPushClientListener,QNRoomLifeCycleListener,QNPushClientListener,QNChatRoomServiceListener,FDanmakuViewProtocol,LiveChatRoomViewDelegate>
+@interface QLiveController ()<QNPushClientListener,QNRoomLifeCycleListener,QNPushClientListener,QNChatRoomServiceListener,FDanmakuViewProtocol,LiveChatRoomViewDelegate>
 
 @property (nonatomic, strong) QNLiveRoomInfo *selectPkRoomInfo;
 @property (nonatomic, strong) QNPKSession *pkSession;//正在进行的pk
@@ -40,7 +40,7 @@
 
 @end
 
-@implementation QNLiveController
+@implementation QLiveController
 
 - (void)viewDidDisappear:(BOOL)animated {
     [[QLive createPusherClient] closeRoom:self.roomInfo.live_id];

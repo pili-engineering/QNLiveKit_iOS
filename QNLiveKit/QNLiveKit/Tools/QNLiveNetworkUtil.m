@@ -6,7 +6,7 @@
 //
 
 #import "QNLiveNetworkUtil.h"
-#import <YYCategories/YYCategories.h>
+//#import <YYCategories/YYCategories.h>
 #import <AFNetworking/AFNetworking.h>
 
 NSString *const ResponseErrorKey = @"com.alamofire.serialization.response.error.response";

@@ -1,5 +1,5 @@
 //
-//  QNCreateLiveController.h
+//  QLiveListController.h
 //  QNLiveKitDemo
 //
 //  Created by 郭茜 on 2022/5/30.
@@ -9,7 +9,7 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface QNCreateLiveController : UIViewController
+@interface QLiveListController : UIViewController
 
 @end
 

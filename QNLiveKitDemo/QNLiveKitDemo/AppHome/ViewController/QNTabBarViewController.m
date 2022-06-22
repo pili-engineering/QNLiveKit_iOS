@@ -22,7 +22,7 @@
 
 - (void)addViewController {
     
-    QNLiveListController *vc = [QNLiveListController new];
+    QLiveListController *vc = [QLiveListController new];
 
     UINavigationController *homeListNav = [[UINavigationController alloc]initWithRootViewController:vc];
     homeListNav.tabBarItem.title = @"应用";

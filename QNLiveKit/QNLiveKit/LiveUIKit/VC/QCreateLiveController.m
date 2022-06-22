@@ -1,24 +1,24 @@
 //
-//  QNCreateLiveController.m
+//  QCreateLiveController.m
 //  QNLiveKitDemo
 //
 //  Created by 郭茜 on 2022/5/30.
 //
 
-#import "QNCreateLiveController.h"
+#import "QCreateLiveController.h"
 #import "QRenderView.h"
 #import "QLive.h"
-#import "QNLiveController.h"
+#import "QLiveController.h"
 #import "QNCreateRoomParam.h"
 #import "QNLivePushClient.h"
 
-@interface QNCreateLiveController ()
+@interface QCreateLiveController ()
 @property (nonatomic, strong) UITextField *titleTf;
 @property (nonatomic, strong) QRenderView *preview;//自己画面的预览视图
 
 @end
 
-@implementation QNCreateLiveController
+@implementation QCreateLiveController
 
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
@@ -91,7 +91,7 @@
     
     [[QLive getRooms] createRoom:params callBack:^(QNLiveRoomInfo * _Nonnull roomInfo) {
 
-        QNLiveController *vc = [QNLiveController new];
+        QLiveController *vc = [QLiveController new];
         vc.roomInfo = roomInfo;
         vc.modalPresentationStyle = UIModalPresentationFullScreen;
         [self presentViewController:vc animated:YES completion:nil];

@@ -1,5 +1,5 @@
 //
-//  QNLiveController.h
+//  QLiveController.h
 //  QNLiveKitDemo
 //
 //  Created by 郭茜 on 2022/5/30.
@@ -12,7 +12,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 @class RoomHostView,OnlineUserView,ImageButtonView,BottomMenuView;
 
-@interface QNLiveController : QNBaseRTCController
+@interface QLiveController : QNBaseRTCController
 
 @property (nonatomic, strong) RoomHostView *roomHostView;//房主槽位
 @property (nonatomic, strong) OnlineUserView *onlineUserView;//右上角在线人数槽位
