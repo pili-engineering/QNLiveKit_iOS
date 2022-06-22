@@ -22,6 +22,7 @@
 #import "QNIMModel.h"
 #import "PubChatModel.h"
 #import "QToastView.h"
+#import <QNIMSDK/QNIMSDK.h>
 
 @interface QNAudienceController ()<QNChatRoomServiceListener,QNPushClientListener,LiveChatRoomViewDelegate,FDanmakuViewProtocol,PLPlayerDelegate>
 

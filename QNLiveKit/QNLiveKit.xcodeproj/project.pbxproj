@@ -84,12 +84,12 @@
 		776B1CF3283D0F2000D85C73 /* LinkInvitation.m in Sources */ = {isa = PBXBuildFile; fileRef = 776B1CF1283D0F2000D85C73 /* LinkInvitation.m */; };
 		777186972861B8A800C5CABC /* CALayer+Aimate.m in Sources */ = {isa = PBXBuildFile; fileRef = 777186902861B8A800C5CABC /* CALayer+Aimate.m */; };
 		777186982861B8A800C5CABC /* FDanmakuModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 777186912861B8A800C5CABC /* FDanmakuModel.m */; };
-		777186992861B8A800C5CABC /* FDanmakuModelProtocol.h in Headers */ = {isa = PBXBuildFile; fileRef = 777186922861B8A800C5CABC /* FDanmakuModelProtocol.h */; };
-		7771869A2861B8A800C5CABC /* FDanmakuView.h in Headers */ = {isa = PBXBuildFile; fileRef = 777186932861B8A800C5CABC /* FDanmakuView.h */; };
-		7771869B2861B8A800C5CABC /* CALayer+Aimate.h in Headers */ = {isa = PBXBuildFile; fileRef = 777186942861B8A800C5CABC /* CALayer+Aimate.h */; };
-		7771869C2861B8A800C5CABC /* FDanmakuModel.h in Headers */ = {isa = PBXBuildFile; fileRef = 777186952861B8A800C5CABC /* FDanmakuModel.h */; };
+		777186992861B8A800C5CABC /* FDanmakuModelProtocol.h in Headers */ = {isa = PBXBuildFile; fileRef = 777186922861B8A800C5CABC /* FDanmakuModelProtocol.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		7771869A2861B8A800C5CABC /* FDanmakuView.h in Headers */ = {isa = PBXBuildFile; fileRef = 777186932861B8A800C5CABC /* FDanmakuView.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		7771869B2861B8A800C5CABC /* CALayer+Aimate.h in Headers */ = {isa = PBXBuildFile; fileRef = 777186942861B8A800C5CABC /* CALayer+Aimate.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		7771869C2861B8A800C5CABC /* FDanmakuModel.h in Headers */ = {isa = PBXBuildFile; fileRef = 777186952861B8A800C5CABC /* FDanmakuModel.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		7771869D2861B8A800C5CABC /* FDanmakuView.m in Sources */ = {isa = PBXBuildFile; fileRef = 777186962861B8A800C5CABC /* FDanmakuView.m */; };
-		777186A32862C5D100C5CABC /* QToastView.h in Headers */ = {isa = PBXBuildFile; fileRef = 777186A12862C5D100C5CABC /* QToastView.h */; };
+		777186A32862C5D100C5CABC /* QToastView.h in Headers */ = {isa = PBXBuildFile; fileRef = 777186A12862C5D100C5CABC /* QToastView.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		777186A42862C5D100C5CABC /* QToastView.m in Sources */ = {isa = PBXBuildFile; fileRef = 777186A22862C5D100C5CABC /* QToastView.m */; };
 		77781C0A283D1337009DC71C /* QNPKSession.h in Headers */ = {isa = PBXBuildFile; fileRef = 77781C08283D1337009DC71C /* QNPKSession.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		77781C0B283D1337009DC71C /* QNPKSession.m in Sources */ = {isa = PBXBuildFile; fileRef = 77781C09283D1337009DC71C /* QNPKSession.m */; };
@@ -791,11 +791,8 @@
 				77781DA028488932009DC71C /* QLiveController.h in Headers */,
 				77781CB52840C059009DC71C /* QNProperty.h in Headers */,
 				77781CB62840C059009DC71C /* NSObject+QNKeyValue.h in Headers */,
-				7771869C2861B8A800C5CABC /* FDanmakuModel.h in Headers */,
 				776B1CAC283CC6EC00D85C73 /* QNLiveNetworkUtil.h in Headers */,
-				777186992861B8A800C5CABC /* FDanmakuModelProtocol.h in Headers */,
 				776B1CD5283D024E00D85C73 /* QNLinkMicService.h in Headers */,
-				777186A32862C5D100C5CABC /* QToastView.h in Headers */,
 				776B1CD1283D010D00D85C73 /* QNMicLinker.h in Headers */,
 				77781D332845E56A009DC71C /* OnlineUserView.h in Headers */,
 				77781D322845E56A009DC71C /* RoomHostView.h in Headers */,
@@ -804,11 +801,9 @@
 				77781D342845E56B009DC71C /* QLiveView.h in Headers */,
 				777B7A7F284F4B0D005032B7 /* QRenderView.h in Headers */,
 				777B7A83284F5A6F005032B7 /* QNInvitationMemberListCell.h in Headers */,
-				7771869A2861B8A800C5CABC /* FDanmakuView.h in Headers */,
 				77781CC12840C05A009DC71C /* NSObject+QNCoding.h in Headers */,
 				777B7A6F284F1F78005032B7 /* QAlertView.h in Headers */,
 				77781D482845FC68009DC71C /* BottomMenuView.h in Headers */,
-				7771869B2861B8A800C5CABC /* CALayer+Aimate.h in Headers */,
 				77204D68285F755C0053B1AD /* QCreateLiveController.h in Headers */,
 				777B7A73284F375A005032B7 /* LinkStateView.h in Headers */,
 				77204D83285F97A20053B1AD /* PubChatModel.h in Headers */,
@@ -820,8 +815,13 @@
 				77204D93285F9A0E0053B1AD /* PKInvitation.h in Headers */,
 				777B7A87284F5BC5005032B7 /* QNInvitationMemberListController.h in Headers */,
 				77204D97285F9AF50053B1AD /* LinkOptionModel.h in Headers */,
+				7771869C2861B8A800C5CABC /* FDanmakuModel.h in Headers */,
+				7771869A2861B8A800C5CABC /* FDanmakuView.h in Headers */,
 				77204D8B285F97A20053B1AD /* QNIMModel.h in Headers */,
+				777186992861B8A800C5CABC /* FDanmakuModelProtocol.h in Headers */,
+				7771869B2861B8A800C5CABC /* CALayer+Aimate.h in Headers */,
 				77204D8F285F980A0053B1AD /* QNMicSeatMessageModel.h in Headers */,
+				777186A32862C5D100C5CABC /* QToastView.h in Headers */,
 				77204D84285F97A20053B1AD /* QNGiftMsgModel.h in Headers */,
 				77204D4E285873BF0053B1AD /* QRooms.h in Headers */,
 				77E02E31284E245A00EE8A28 /* QNAudienceController.h in Headers */,
@@ -1230,6 +1230,7 @@
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -1268,6 +1269,7 @@
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -1275,6 +1277,7 @@
 				);
 				MACH_O_TYPE = staticlib;
 				MARKETING_VERSION = 1.0;
+				ONLY_ACTIVE_ARCH = YES;
 				PRODUCT_BUNDLE_IDENTIFIER = com.qiiu.QNLiveKit;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;

@@ -79,7 +79,7 @@
 #import "QNLiveTypeDefines.h"
 #import <SDWebImage/SDWebImage.h>
 #import "UIColor+QNColor.h"
-#import <QNIMSDK/QNIMSDK.h>
+//#import <QNIMSDK/QNIMSDK.h>
 
 
 #endif /* QNLivePrefixHeader_pch */

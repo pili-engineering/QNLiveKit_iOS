@@ -30,6 +30,7 @@
 #import "QNIMModel.h"
 #import "PubChatModel.h"
 #import "QToastView.h"
+#import <QNIMSDK/QNIMSDK.h>
 
 @interface QLiveController ()<QNPushClientListener,QNRoomLifeCycleListener,QNPushClientListener,QNChatRoomServiceListener,FDanmakuViewProtocol,LiveChatRoomViewDelegate>
 
@@ -272,7 +273,7 @@
         
         pkSession.receiver = model.invitation.msg.receiver;
         self.pk_other_user = pkSession.receiver;
-        [self.chatService createStartPKMessage:pkSession type:QNIMMessageTypeSingle];
+        [self.chatService createStartPKMessage:pkSession singleMsg:YES];
         [self beginPK:pkSession];
     }];
 }
@@ -345,7 +346,7 @@
     __weak typeof(self)weakSelf = self;
     [[QLive createPusherClient].rtcClient startRoomMediaRelay:config completeCallback:^(NSDictionary *state, NSError *error) {
         
-        [weakSelf.chatService createStartPKMessage:pkSession type:QNIMMessageTypeGroup];
+        [weakSelf.chatService createStartPKMessage:pkSession singleMsg:NO];
         
     }];
     

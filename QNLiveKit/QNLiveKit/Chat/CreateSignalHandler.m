@@ -260,18 +260,18 @@
 }
 
 //开始pk
--(QNIMMessageObject *)createStartPKMessage:(QNPKSession *)pkSession type:(QNIMMessageType)type {
+-(QNIMMessageObject *)createStartPKMessage:(QNPKSession *)pkSession singleMsg:(BOOL)singleMsg {
     
     QNIMModel *model = [QNIMModel new];
     model.action = liveroom_pk_start;
     model.data = pkSession.mj_keyValues;
     
-    if (type == QNIMMessageTypeGroup) {
-        QNIMMessageObject *message = [[QNIMMessageObject alloc]initWithQNIMMessageText:model.mj_JSONString fromId:QN_IM_userId.longLongValue toId:self.toId.longLongValue type:QNIMMessageTypeGroup conversationId:self.toId.longLongValue];
-        message.senderName = QN_User_nickname;
+    if (singleMsg) {
+        QNIMMessageObject *message = [[QNIMMessageObject alloc]initWithQNIMMessageText:model.mj_JSONString fromId:QN_IM_userId.longLongValue toId:pkSession.receiver.im_userid.longLongValue type:QNIMMessageTypeSingle conversationId:pkSession.receiver.im_userid.longLongValue];
+        message.senderName = QN_User_nickname;        
         return message;
     }
-    QNIMMessageObject *message = [[QNIMMessageObject alloc]initWithQNIMMessageText:model.mj_JSONString fromId:QN_IM_userId.longLongValue toId:pkSession.receiver.im_userid.longLongValue type:QNIMMessageTypeSingle conversationId:pkSession.receiver.im_userid.longLongValue];
+    QNIMMessageObject *message = [[QNIMMessageObject alloc]initWithQNIMMessageText:model.mj_JSONString fromId:QN_IM_userId.longLongValue toId:self.toId.longLongValue type:QNIMMessageTypeGroup conversationId:self.toId.longLongValue];
     message.senderName = QN_User_nickname;
     return message;
 

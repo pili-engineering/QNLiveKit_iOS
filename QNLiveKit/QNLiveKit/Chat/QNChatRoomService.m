@@ -12,6 +12,7 @@
 #import "LinkOptionModel.h"
 #import "QNInvitationModel.h"
 #import "QNPKSession.h"
+#import <QNIMSDK/QNIMSDK.h>
 
 @interface QNChatRoomService ()<QNIMChatServiceProtocol>
 
@@ -178,8 +179,8 @@
         
 }
 
--(void)createStartPKMessage:(QNPKSession *)pkSession type:(QNIMMessageType)type {
-    QNIMMessageObject *message = [self.creater  createStartPKMessage:pkSession type:type];
+-(void)createStartPKMessage:(QNPKSession *)pkSession singleMsg:(BOOL)singleMsg {
+    QNIMMessageObject *message = [self.creater  createStartPKMessage:pkSession singleMsg:singleMsg];
     [[QNIMChatService sharedOption] sendMessage:message];
 }
 

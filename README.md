@@ -9,6 +9,7 @@
 
 ### SDK下载地址
     
+    https://sdk-release.qnsdk.com/QLiveKit-1.0.0.zip
     
 ### podfile配置依赖 
 

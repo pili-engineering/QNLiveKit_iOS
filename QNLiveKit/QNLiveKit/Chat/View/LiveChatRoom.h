@@ -7,9 +7,10 @@
 
 #import <UIKit/UIKit.h>
 #import "QNInputBarControl.h"
-#import <QNIMSDK/QNIMSDK.h>
 
 NS_ASSUME_NONNULL_BEGIN
+
+@class QNIMMessageObject;
 
 @protocol LiveChatRoomViewDelegate <NSObject>
 @optional

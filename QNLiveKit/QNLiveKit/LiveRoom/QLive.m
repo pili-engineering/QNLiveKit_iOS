@@ -13,6 +13,7 @@
 #import "QNLivePushClient.h"
 #import "QNLivePullClient.h"
 #import "QRooms.h"
+#import <QNIMSDK/QNIMSDK.h>
 
 @interface QLive ()
 
@@ -22,10 +23,38 @@
 
 + (void)initWithToken:(NSString *)token {
     
+    [QLive initializeQNIM];
     
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
     [defaults setObject:token forKey:Live_Token];
     [defaults synchronize];
+}
+
++ (void)initializeQNIM{
+    
+    NSString* dataDir = [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES).firstObject stringByAppendingPathComponent:@"ChatData"];
+    NSFileManager *fileManager = [NSFileManager defaultManager];
+    if (![fileManager fileExistsAtPath:dataDir]) {
+        [fileManager createDirectoryAtPath:dataDir withIntermediateDirectories:YES attributes:nil error:nil];
+    }
+    NSString* cacheDir = [NSSearchPathForDirectoriesInDomains(NSCachesDirectory, NSUserDomainMask, YES).firstObject stringByAppendingString:@"UserCache"];
+    if (![fileManager fileExistsAtPath:cacheDir]) {
+        [fileManager createDirectoryAtPath:cacheDir withIntermediateDirectories:YES attributes:nil error:nil];
+    }
+    NSLog(@"dataDir = %@", dataDir);
+    NSLog(@"cacheDir = %@", cacheDir);
+
+    NSString* phoneName = [[UIDevice currentDevice] name];
+    NSString* localizedModel = [[UIDevice currentDevice] localizedModel];
+    NSString* systemName = [[UIDevice currentDevice] systemName];
+    NSString* phoneVersion = [[UIDevice currentDevice] systemVersion];
+
+    NSString *phone = [NSString stringWithFormat:@"设备名称:%@;%@;%@;%@", phoneName,localizedModel,systemName,phoneVersion];
+
+    QNSDKConfig *config = [[QNSDKConfig alloc]initConfigWithDataDir:dataDir cacheDir:cacheDir pushCertName:@"" userAgent:phone];
+    config.appID = QN_IM_APPID;
+    [[QNIMClient sharedClient] registerWithSDKConfig:config];
+    
 }
 
 + (void)setUser:(NSString *)avatar nick:(NSString *)nick extension:(nullable NSDictionary *)extension{
