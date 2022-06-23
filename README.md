@@ -94,7 +94,7 @@
 
     
 
-####主播操作
+#### 主播操作
     
     
     @interface QNLivePushClient : QNLiveRoomClient
