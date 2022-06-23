@@ -21,6 +21,12 @@
     [onView addSubview:self.button];
 }
 
+- (void)bundleNormalImage:(NSString *)normalImage selectImage:(NSString *)selectImage {
+    
+    [self.button setImage:[UIImage imageNamed:normalImage] forState:UIControlStateNormal];
+    [self.button setImage:[UIImage imageNamed:selectImage] forState:UIControlStateSelected];
+}
+
 - (void)normalImage:(NSString *)normalImage selectImage:(NSString *)selectImage {
     [self.button setImage:[UIImage imageNamed:normalImage] forState:UIControlStateNormal];
     [self.button setImage:[UIImage imageNamed:selectImage] forState:UIControlStateSelected];

@@ -105,19 +105,6 @@
     return _pkService;
 }
 
-- (QNMergeOption *)option {
-    if (!_option) {
-        _option = [QNMergeOption new];
-        _option.width = 720;
-        _option.height = 1280;
-//        QNTranscodingLiveStreamingImage *bgInfo = [[QNTranscodingLiveStreamingImage alloc] init];
-//        bgInfo.frame = CGRectMake(0, 0, 720, 1280);
-//        bgInfo.imageUrl = @"http://qrnlrydxa.hn-bkt.clouddn.com/am_room_bg.png";
-//        _option.backgroundInfo = bgInfo;
-    }
-    return _option;
-}
-
 - (FDanmakuView *)danmakuView {
     if (!_danmakuView) {
         _danmakuView = [[FDanmakuView alloc]initWithFrame:CGRectMake(0, 180, SCREEN_W, 200)];

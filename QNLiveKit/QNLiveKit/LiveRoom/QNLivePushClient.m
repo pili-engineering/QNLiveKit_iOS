@@ -49,8 +49,7 @@
     return pushClient;
 }
 
-/// 主播开始直播
-/// @param callBack 回调
+// 主播开始直播
 - (void)startLive:(NSString *)roomID callBack:(nullable void (^)(QNLiveRoomInfo * _Nullable))callBack {
     
     NSString *action = [NSString stringWithFormat:@"client/live/room/%@",roomID];
@@ -70,7 +69,7 @@
         }];
 }
 
-/// 停止直播
+//主播停止直播
 - (void)closeRoom:(NSString *)roomID{
     
     NSString *action = [NSString stringWithFormat:@"client//live/room/%@",roomID];
@@ -82,14 +81,14 @@
         
         } failure:^(NSError * _Nonnull error) {
         }];
-    [self LeaveLive];
+    [self.rtcClient leave];
 }
 
-//加入直播
+//观众加入直播
 - (void)joinLive:(NSString *)token userData:(NSString *)userData{
     [self.rtcClient join:token userData:userData];
 }
-
+//观众离开直播
 - (void)LeaveLive {
     [self.rtcClient leave];
 }
@@ -111,7 +110,6 @@
         [self.pushClientListener onCameraStatusChange:YES];
     }
 }
-
 
 /// 切换摄像头
 - (void)switchCamera {
@@ -140,8 +138,6 @@
 
 //发布tracks
 - (void)publishCameraAndMicrophone {
-    
-    __weak typeof(self)weakSelf = self;
 
     [self.rtcClient publish:@[self.localAudioTrack,self.localVideoTrack] completeCallback:^(BOOL onPublished, NSError *error) {
         
@@ -160,27 +156,32 @@
     self.localVideoTrack.delegate = listener;
 }
 
-- (void)beginMixStream:(QNMergeOption *)option{
-    self.option = option;
-    [self.mixManager startMixStreamJob];
-    
-}
-
 #pragma mark --------QNRTCClientDelegate
-//成功创建转推/合流转推任务的回调
+
+//成功创建转推/合流转推任务
 - (void)RTCClient:(QNRTCClient *)client didStartLiveStreaming:(NSString *)streamID {
+    
+    if (self.mixManager) {
+        [self.mixManager updateUserAudioMixStreamingWithTrackId:[QLive createPusherClient].localAudioTrack.trackID];
+        CameraMergeOption *option = [CameraMergeOption new];
+        option.frame = CGRectMake(0, 0, 720, 1280);
+        option.mZ = 0;
+        [self.mixManager updateUserVideoMixStreamingWithTrackId:[QLive createPusherClient].localVideoTrack.trackID option:option];
+    }
     
     if ([self.pushClientListener respondsToSelector:@selector(didStartLiveStreaming:)]) {
         [self.pushClientListener didStartLiveStreaming:streamID];
     }
-        
-    
 }
 
+//房间连接状态
 - (void)RTCClient:(QNRTCClient *)client didConnectionStateChanged:(QNConnectionState)state disconnectedInfo:(QNConnectionDisconnectedInfo *)info {
     
     if (state == QNConnectionStateConnected) {
         [self publishCameraAndMicrophone];
+        if (self.mixManager) {
+            [self.mixManager startMixStreamJob];
+        }
     }
     
     if ([self.pushClientListener respondsToSelector:@selector(onConnectionRoomStateChanged:)]) {
@@ -189,54 +190,39 @@
     
 }
 
+//远端发布track
 - (void)RTCClient:(QNRTCClient *)client didUserPublishTracks:(NSArray<QNRemoteTrack *> *)tracks ofUserID:(NSString *)userID  {
-    
-    [self.rtcClient subscribe:tracks];
-    
+        
+    if (self.mixManager) {
+        for (QNRemoteTrack *track in tracks) {
+            if (track.kind == QNTrackKindAudio) {
+                [self.mixManager updateUserAudioMixStreamingWithTrackId:track.trackID];
+            }
+        }
+    }
     if ([self.pushClientListener respondsToSelector:@selector(onUserPublishTracks:ofUserID:)]) {
         [self.pushClientListener onUserPublishTracks:tracks ofUserID:userID];
     }
-    
-//    if (self.option) {
-//        
-//        for (QNRemoteTrack *track in tracks) {
-//            if (track.kind == QNTrackKindAudio) {
-//                [self.mixManager updateUserAudioMixStreamingWithTrackId:track.trackID];
-//            } else {
-//                CameraMergeOption *option = [CameraMergeOption new];
-//                option.frame = CGRectMake(720-184-30, 200, 184, 184);
-//                option.mZ = 1;
-//                [self.mixManager updateUserVideoMixStreamingWithTrackId:track.trackID option:option];
-//            }
-//        }
-//        
-//    }
+
 }
 
+//远端取消发布track
 - (void)RTCClient:(QNRTCClient *)client didUserUnpublishTracks:(NSArray<QNRemoteTrack *> *)tracks ofUserID:(NSString *)userID {
-    if ([self.pushClientListener respondsToSelector:@selector(onUserUnpublishTracks:ofUserID:)]) {
-        [self.pushClientListener onUserUnpublishTracks:tracks ofUserID:userID];
+    
+    if (self.mixManager) {
+        
+        for (QNRemoteTrack *track in tracks) {
+            [self.mixManager removeUserVideoMixStreamingWithTrackId:track.trackID];
+        }
+        [self.mixManager updateMixStreamSize:CGSizeMake(720, 1280)];
     }
 }
 
 - (void)RTCClient:(QNRTCClient *)client didLeaveOfUserID:(NSString *)userID {
+    
     if ([self.pushClientListener respondsToSelector:@selector(onUserLeaveRTC:)]) {
         [self.pushClientListener onUserLeaveRTC:userID];
     }
-}
-
-//设置某个用户的音频混流参数 （isNeed 是否需要混流音频）
-- (void)updateUserAudioMixStreamingWithTrackId:(NSString *)trackId {
-    [self.mixManager updateUserAudioMixStreamingWithTrackId:trackId];
-}
-
-//设置某个用户的摄像头混流参数
-- (void)updateUserVideoMixStreamingWithTrackId:(NSString *)trackId option:(CameraMergeOption *)option {
-    [self.mixManager updateUserVideoMixStreamingWithTrackId:trackId option:option];
-}
-
-- (void)removeUserVideoMixStreamingWithTrackId:(NSString *)trackId {
-    [self.mixManager removeUserVideoMixStreamingWithTrackId:trackId];
 }
 
 //本地音频轨道默认参数
@@ -246,15 +232,6 @@
         [_localAudioTrack setVolume:0.5];
     }
     return _localAudioTrack;
-}
-
-- (void)updateMixStreamSize:(CGSize)size {
-    [self.mixManager stopMixStreamJob];
-    
-    self.option.width = size.width;
-    self.option.height = size.height;
-    [_mixManager setMixParams:self.option];
-    [self.mixManager startMixStreamJob];
 }
 
 //本地视频轨道默认参数
@@ -268,12 +245,8 @@
     return _localVideoTrack;
 }
 
-- (QMixStreamManager *)mixManager {
-    if (!_mixManager) {
-        _mixManager = [[QMixStreamManager alloc]initWithPushUrl:self.roomInfo.push_url client:self.rtcClient streamID:self.roomInfo.live_id];
-        [_mixManager setMixParams:self.option];
-    }
-    return _mixManager;
+- (QMixStreamManager *)getMixStreamManager {
+    return self.mixManager;
 }
 
 - (NSMutableArray<QNRemoteVideoTrack *> *)remoteCameraTracks {

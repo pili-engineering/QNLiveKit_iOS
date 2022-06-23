@@ -180,6 +180,15 @@
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		777188F22864554E00C5CABC /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 7;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
@@ -538,6 +547,8 @@
 				777186A22862C5D100C5CABC /* QToastView.m */,
 				77781D282845E56A009DC71C /* RoomHostView.h */,
 				77781D2E2845E56A009DC71C /* RoomHostView.m */,
+				777B7A81284F5A6F005032B7 /* QNInvitationMemberListCell.h */,
+				777B7A82284F5A6F005032B7 /* QNInvitationMemberListCell.m */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -663,8 +674,6 @@
 				77781D9D28488932009DC71C /* QNBaseRTCController.m */,
 				77204D62285F755B0053B1AD /* QCreateLiveController.h */,
 				77204D60285F755B0053B1AD /* QCreateLiveController.m */,
-				777B7A81284F5A6F005032B7 /* QNInvitationMemberListCell.h */,
-				777B7A82284F5A6F005032B7 /* QNInvitationMemberListCell.m */,
 				777B7A85284F5BC4005032B7 /* QNInvitationMemberListController.h */,
 				777B7A86284F5BC4005032B7 /* QNInvitationMemberListController.m */,
 				77781D9C28488931009DC71C /* QLiveController.h */,
@@ -790,6 +799,7 @@
 				776B1C45283C78D800D85C73 /* Sources */,
 				776B1C46283C78D800D85C73 /* Frameworks */,
 				776B1C47283C78D800D85C73 /* Resources */,
+				777188F22864554E00C5CABC /* CopyFiles */,
 				776B1CB2283CD4D000D85C73 /* Embed Frameworks */,
 			);
 			buildRules = (

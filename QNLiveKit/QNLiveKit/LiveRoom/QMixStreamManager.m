@@ -54,13 +54,20 @@
 - (void)setMixParams:(QNMergeOption *)params {
     self.mergeConfig.width = params.width;
     self.mergeConfig.height = params.height;
-    self.mergeConfig.bitrateBps = params.cameraMergeOption.mixBitrate;
-//    self.mergeConfig.background = params.backgroundInfo;
+}
+
+//更新混流画布大小
+- (void)updateMixStreamSize:(CGSize)size {
+    [self stopMixStreamJob];
+    QNMergeOption *option = [[QNMergeOption alloc]init];
+    option.width = size.width;
+    option.height = size.height;
+    [self setMixParams:option];
+    [self startMixStreamJob];
 }
 
 //设置某个用户的音频混流参数
 - (void)updateUserAudioMixStreamingWithTrackId:(NSString *)trackId {
-
     QNTranscodingLiveStreamingTrack *layout = [[QNTranscodingLiveStreamingTrack alloc] init];
     layout.trackID = trackId;    
     [self.client setTranscodingLiveStreamingID:self.streamID withTracks:@[layout]];
@@ -85,7 +92,6 @@
 
 }
 
-
 - (QNDirectLiveStreamingConfig *)directConfig {
     if (!_directConfig) {
         _directConfig = [[QNDirectLiveStreamingConfig alloc]init];
@@ -105,14 +111,10 @@
 - (QNTranscodingLiveStreamingConfig *)mergeConfig {
     if (!_mergeConfig) {
         _mergeConfig = [QNTranscodingLiveStreamingConfig defaultConfiguration];
-//        QNTranscodingLiveStreamingImage *bgInfo = [[QNTranscodingLiveStreamingImage alloc] init];
-//        bgInfo.frame = CGRectMake(0, 0, 414, 736);
-//        bgInfo.imageUrl = @"http://qrnlrydxa.hn-bkt.clouddn.com/am_room_bg.png";
-//        _mergeConfig.background = bgInfo;
         _mergeConfig.minBitrateBps = 1000*1000;
         _mergeConfig.maxBitrateBps = 1000*1000;
-        _mergeConfig.width = 414;
-        _mergeConfig.height = 736;
+        _mergeConfig.width = 720;
+        _mergeConfig.height = 1280;
         _mergeConfig.fillMode = QNVideoFillModePreserveAspectRatioAndFill;
         _mergeConfig.publishUrl = self.publishUrl;
         _mergeConfig.streamID = self.streamID;

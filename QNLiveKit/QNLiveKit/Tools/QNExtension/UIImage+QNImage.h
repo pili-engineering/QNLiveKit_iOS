@@ -13,6 +13,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 + (UIImage *)getImageFromURL:(NSURL *)imageUrl;
 
++ (UIImage *)imageFromBundle:(NSString *)imageName;
+
 @end
 
 NS_ASSUME_NONNULL_END
