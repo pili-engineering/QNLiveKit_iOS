@@ -9,7 +9,7 @@
 
 ### SDK下载地址
     
-    https://sdk-release.qnsdk.com/QLiveKit-1.0.0.zip
+    https://sdk-release.qnsdk.com/qn_livekit-1.0.1.zip
     
 ### 配置依赖 
 
