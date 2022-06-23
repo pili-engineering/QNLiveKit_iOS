@@ -9,70 +9,70 @@
 
 ### SDK下载地址
     
-    https://sdk-release.qnsdk.com/QLiveKit-1.0.0.zip
+    https://sdk-release.qnsdk.com/qn_livekit-1.0.1.zip
     
 ### 配置依赖 
 
-    ```
+    
     //  podfile文件中加入以下依赖项，如果项目中已经依赖可以忽略
         pod 'QNRTCKit-iOS','5.0.0'
         pod 'PLPlayerKit', '3.4.7'
         pod 'Masonry'
         pod 'SDWebImage'
         pod 'AFNetworking'
-    ```
+    
     信令依赖：将QNIMSDK拖入项目中，并在General的中选择 Embed & sign
     
 ### 快速接入
 
     
-        ```
+        
         //初始化SDK
         [QLive initWithToken:token];
         //绑定自己服务器的头像和昵称 extension为扩展字段，可以自定义同步的内容
         [QLive setUser:user.avatar nick:user.nickname extension:nil];
         
-        ``` 
+        
         如果需要使用内置UI，直接跳转至特定的ViewController即可
         
         跳转方式一
         
-        ```
+        
         //直播列表页：
         QLiveListController *listVc = [QLiveListController new];
         [self.navigationController pushViewController:listVc animated:YES];
-        ```
+        
         跳转方式二
-        ```
+        
         //创建直播页：（无参数跳转）
         QCreateLiveController *createLiveVc = [QCreateLiveController new];
         createLiveVc.modalPresentationStyle = UIModalPresentationFullScreen;
         [self presentViewController:createLiveVc animated:YES completion:nil];
-        ```
+        
         
         跳转方式三
-        ```
+        
         //直播进行页：（带QNLiveRoomInfo参数跳转）
         QLiveController *liveVc = [QLiveController new];
         liveVc.roomInfo = roomInfo;
         liveVc.modalPresentationStyle = UIModalPresentationFullScreen;
         [self presentViewController:liveVc animated:YES completion:nil];
-        ```
+        
         
         跳转方式四
-        ```
+        
         //观众观看页面：（带QNLiveRoomInfo参数跳转）
         QNAudienceController *vc = [QNAudienceController new];
         vc.roomInfo = roomInfo;
         vc.modalPresentationStyle = UIModalPresentationFullScreen;
         [self presentViewController:vc animated:YES completion:nil];
-        ```
+        
     
 ### 详细接入
 
-    初始化类
+#### 初始化类
     
-    ```
+    
     
     /// 房间业务管理
     @interface QLive : NSObject
@@ -92,10 +92,10 @@
 
     @end
 
-    ```
+    
 
-    主播操作
-    ```
+####主播操作
+    
     
     @interface QNLivePushClient : QNLiveRoomClient
     
@@ -137,11 +137,11 @@
     //结束混流
     - (void)stopMixStream;
     
-    ```
-
-    观众操作
     
-    ```
+
+#### 观众操作
+    
+    
     @interface QNLivePullClient : QNLiveRoomClient
     
     /// 观众加入直播
@@ -156,11 +156,11 @@
     //观众下麦
     [[QNLivePushClient createPushClient] LeaveLive];
     
-    ```
     
-    房间操作
     
-    ```
+#### 房间操作
+    
+    
     
     @interface QRooms : NSObject
 
@@ -184,11 +184,11 @@
     - (void)getRoomInfo:(NSString *)roomID callBack:(nullable void (^)(QNLiveRoomInfo *roomInfo))callBack;
 
     @end
-    ```
     
-    房间状态
-        
-    ```
+    
+#### 房间状态
+       
+    
     /// 房间生命周期
     @protocol QNRoomLifeCycleListener <NSObject>
 
@@ -221,7 +221,7 @@
     /// @param pageNumber 页数
     /// @param pageSize 页面大小
     /// @param callBack 回调用户列表
-    - (void)getUserList:(NSString *)roomId pageNumber:(NSInteger)pageNumber pageSize:(NSInteger)pageSize callBack:(void (^)(NSArray<QNLiveUser *> * _Nonnull))callBack;
+    - (void)getUserList:(NSString *)roomId pageNumber:(NSInteger)pageNumber pageSize:(NSInteger)pageSize callBack:(void (^)(NSArray<QNLiveUser *> *   _Nonnull))callBack;
 
     //房间心跳
     - (void)roomHeartBeart:(NSString *)roomId;
@@ -238,11 +238,11 @@
     //使用用户im uid 搜索用户
     - (void)searchUserByIMUid:(NSString *)imUid callBack:(void (^)(QNLiveUser *user))callBack;
 
-    ```
-
-    连麦服务
     
-    ```
+
+#### 连麦服务
+    
+    
     //连麦服务
     @interface QNLinkMicService : QNLiveService
 
@@ -272,11 +272,11 @@
 
     @end
     
-    ```
     
-    PK服务
     
-    ```
+#### PK服务
+    
+    
     @interface QNPKService : QNLiveService
 
     - (instancetype)initWithRoomId:(NSString *)roomId ;
@@ -295,11 +295,11 @@
 
     @end
     
-    ```
     
-    聊天/信令发送
     
-    ```
+#### 聊天/信令发送
+    
+    
     
     @interface QNChatRoomService : QNLiveService
 
@@ -347,11 +347,11 @@
     - (void)createStopPKMessage:(QNPKSession *)pkSession;
 
     @end
-    ```
     
-    聊天/信令获取
     
-    ```
+#### 聊天/信令获取
+    
+    
     @protocol QNChatRoomServiceListener <NSObject>
     @optional
     //有人加入聊天室
@@ -401,26 +401,26 @@
     - (void)onReceiveStopPKSession:(QNPKSession *)pkSession;
 
     @end
-    ```
     
-    UI替换
+    
+#### UI替换
     
     几个固定槽位均继承QLiveView类，可在外部替换。    
     
-    ```
+    
     //重新布置UI
     - (void)createCustomView:(UIView *)view onView:(UIView *)onView;
     
     //设置点击事件
     @property (nonatomic, copy)onClickBlock clickBlock;
     
-    ```
+    
         
     也可直接在源码修改样式
-    ```
+    
     QLiveListController //直播列表页
     QNAudienceController //观众页
     QCreateLiveController //创建直播页
     QLiveController //主播页
-    ```
+    
     
