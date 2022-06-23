@@ -15,4 +15,12 @@
     return image;
 }
 
++ (UIImage *)imageFromBundle:(NSString *)imageName {
+    NSString *bundlePath = [[NSBundle mainBundle] pathForResource:@"QNLiveKit.framework/QLiveImages" ofType:@"bundle"];
+    NSBundle *bundle = [NSBundle bundleWithPath:bundlePath];
+    NSString *pic = [bundle pathForResource:imageName ofType:@"png"];
+    UIImage *image = [UIImage imageWithContentsOfFile:pic];
+    return image;
+}
+
 @end

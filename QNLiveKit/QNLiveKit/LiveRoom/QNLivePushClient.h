@@ -11,7 +11,7 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-@class QNCameraParams,QNMicrophoneParams,QNLiveRoomInfo,QNMergeOption,CameraMergeOption,QNRemoteAudioTrack,QRenderView;
+@class QNCameraParams,QNMicrophoneParams,QNLiveRoomInfo,QNMergeOption,CameraMergeOption,QNRemoteAudioTrack,QRenderView,QMixStreamManager;
 
 @protocol QNPushClientListener <NSObject>
 
@@ -23,8 +23,6 @@ NS_ASSUME_NONNULL_BEGIN
 
 // 远端用户发布音/视频
 - (void)onUserPublishTracks:(NSArray<QNRemoteTrack *> *)tracks ofUserID:(NSString *)userID;
-
-- (void)onUserUnpublishTracks:(NSArray<QNRemoteTrack *> *)tracks ofUserID:(NSString *)userID;
 
 // 成功创建混流转推
 - (void)didStartLiveStreaming:(NSString *)streamID;
@@ -82,20 +80,9 @@ NS_ASSUME_NONNULL_BEGIN
 /// 设置视频帧回调
 - (void)setVideoFrameListener:(id<QNLocalVideoTrackDelegate>)listener;
 
-#pragma mark ---- 混流
+#pragma mark ---- 混流器
 
-//开始混流
-- (void)beginMixStream:(QNMergeOption *)option;
-//更新混流画布大小
-- (void)updateMixStreamSize:(CGSize)size;
-//设置某个用户的音频混流参数
-- (void)updateUserAudioMixStreamingWithTrackId:(NSString *)trackId;
-//设置某个用户的摄像头混流参数
-- (void)updateUserVideoMixStreamingWithTrackId:(NSString *)trackId option:(CameraMergeOption *)option;
-//删除某个摄像头混流
-- (void)removeUserVideoMixStreamingWithTrackId:(NSString *)trackId;
-//结束混流
-- (void)stopMixStream;
+- (QMixStreamManager *)getMixStreamManager;
 
 @end
 

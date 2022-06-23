@@ -182,15 +182,21 @@
 
 //收到开始pk信令
 - (void)onReceiveStartPKSession:(QNPKSession *)pkSession {
-    [self.player pause];
-    [QToastView showToast:@"主播即将开始pk"];
-    [self.player resume];
+    
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(3 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+        [self replayPlayer];
+     });
 }
 
 //收到结束pk信令
 - (void)onReceiveStopPKSession:(QNPKSession *)pkSession {
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(3 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+        [self replayPlayer];
+     });
+}
+
+- (void)replayPlayer {
     [self.player pause];
-    [QToastView showToast:@"主播pk已结束"];
     [self.player resume];
 }
 
@@ -265,7 +271,7 @@
     if (!_pubchatView) {
         _pubchatView = [[ImageButtonView alloc]init];
         [_pubchatView createDefaultView:CGRectMake(15, SCREEN_H - 80, 220, 45) onView:self.view];
-        [_pubchatView normalImage:@"chat_input_bar" selectImage:@"chat_input_bar"];
+        [_pubchatView bundleNormalImage:@"chat_input_bar" selectImage:@"chat_input_bar"];
         __weak typeof(self)weakSelf = self;
         _pubchatView.clickBlock = ^(BOOL selected){
             [weakSelf.chatRoomView commentBtnPressedWithPubchat:YES];
@@ -282,7 +288,7 @@
         __weak typeof(self)weakSelf = self;
         
         ImageButtonView *link = [[ImageButtonView alloc]init];
-        [link normalImage:@"link" selectImage:@"link"];
+        [link bundleNormalImage:@"link" selectImage:@"link"];
         link.clickBlock = ^(BOOL selected){
             
             [weakSelf.chatService sendLinkMicInvitation:weakSelf.roomInfo.anchor_info];
@@ -292,7 +298,7 @@
         [slotList addObject:link];
         
         ImageButtonView *message = [[ImageButtonView alloc]init];
-        [message normalImage:@"message" selectImage:@"message"];
+        [message bundleNormalImage:@"message" selectImage:@"message"];
         message.clickBlock = ^(BOOL selected){
             [weakSelf.chatRoomView commentBtnPressedWithPubchat:NO];
             NSLog(@"点击了私信");
@@ -300,7 +306,7 @@
         [slotList addObject:message];
         
         ImageButtonView *close = [[ImageButtonView alloc]init];
-        [close normalImage:@"live_close" selectImage:@"live_close"];
+        [close bundleNormalImage:@"live_close" selectImage:@"live_close"];
         close.clickBlock = ^(BOOL selected){
             [weakSelf.chatService sendLeaveMsg];
             [weakSelf dismissViewControllerAnimated:YES completion:nil];

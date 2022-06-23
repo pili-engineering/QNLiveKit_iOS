@@ -78,6 +78,7 @@
 #import <Masonry/Masonry.h>
 #import "QNLiveTypeDefines.h"
 #import <SDWebImage/SDWebImage.h>
+#import "UIImage+QNImage.h"
 #import "UIColor+QNColor.h"
 
 

@@ -24,6 +24,8 @@ NS_ASSUME_NONNULL_BEGIN
 - (void)stopMixStreamJob;
 //设置混流参数
 - (void)setMixParams:(QNMergeOption *)params;
+//更新混流画布大小
+- (void)updateMixStreamSize:(CGSize)size;
 //设置某个音频track混流
 - (void)updateUserAudioMixStreamingWithTrackId:(NSString *)trackId;
 //设置某个视频track混流

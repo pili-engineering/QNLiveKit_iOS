@@ -22,7 +22,6 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, strong) FDanmakuView *danmakuView;
 @property (nonatomic, strong) QNLinkMicService *_Nullable linkService;
 @property (nonatomic, strong) QNPKService *_Nullable pkService;
-@property (nonatomic, strong) QNMergeOption *option;
 
 //获取某人的画面
 - (QRenderView *)getUserView:(NSString *)uid;

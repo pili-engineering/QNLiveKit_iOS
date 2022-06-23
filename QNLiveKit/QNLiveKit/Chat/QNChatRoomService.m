@@ -366,7 +366,7 @@
         }
     
     }  else if ([imModel.action isEqualToString:liveroom_pk_stop]) {
-        //开始pk
+        //结束pk
         QNPKSession *model = [QNPKSession mj_objectWithKeyValues:imModel.data];
                     
         if ([self.chatRoomListener respondsToSelector:@selector(onReceiveStopPKSession:)]) {

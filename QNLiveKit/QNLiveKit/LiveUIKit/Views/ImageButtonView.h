@@ -13,9 +13,10 @@ NS_ASSUME_NONNULL_BEGIN
 @interface ImageButtonView : QLiveView
 
 @property (nonatomic, assign) BOOL selected;
-
+//从bundle中读取
+- (void)bundleNormalImage:(NSString *)normalImage selectImage:(NSString *)selectImage;
+//从自己项目中读取
 - (void)normalImage:(NSString *)normalImage selectImage:(NSString *)selectImage;
-
 @end
 
 NS_ASSUME_NONNULL_END
