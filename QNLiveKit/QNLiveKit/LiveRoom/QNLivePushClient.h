@@ -80,7 +80,7 @@ NS_ASSUME_NONNULL_BEGIN
 /// 设置视频帧回调
 - (void)setVideoFrameListener:(id<QNLocalVideoTrackDelegate>)listener;
 
-#pragma mark ---- 混流器
+#pragma mark ---- 获取混流器
 
 - (QMixStreamManager *)getMixStreamManager;
 
