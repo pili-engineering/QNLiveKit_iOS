@@ -61,7 +61,6 @@
         [self updateRoomInfo];
     }];
     
-    [self chatRoomView];
     [self roomHostView];
     [self onlineUserView];
     [self pubchatView];
@@ -420,7 +419,8 @@
 //邀请面板
 - (void)popInvitationPKView:(NSArray<QNLiveRoomInfo *> *)list {
     
-    QNInvitationMemberListController *vc = [[QNInvitationMemberListController alloc] initWithList:list];
+    NSArray<QNLiveRoomInfo *> *resultList = [self filterListWithList:list];
+    QNInvitationMemberListController *vc = [[QNInvitationMemberListController alloc] initWithList:resultList];
     __weak typeof(self)weakSelf = self;
     vc.invitationClickedBlock = ^(QNLiveRoomInfo * _Nonnull itemModel) {
        
@@ -436,6 +436,17 @@
         make.top.equalTo(self.view).offset(240);
         make.bottom.equalTo(self.view);
     }];
+}
+
+ //筛除掉自己的直播间
+- (NSArray<QNLiveRoomInfo *> *)filterListWithList:(NSArray<QNLiveRoomInfo *> *)list{
+    NSMutableArray *resultList = [NSMutableArray array];
+    for (QNLiveRoomInfo *room in list) {
+        if (![room.anchor_info.user_id isEqualToString:QN_User_id]) {
+            [resultList addObject:room];
+        }
+    }
+    return resultList;
 }
 
 @end

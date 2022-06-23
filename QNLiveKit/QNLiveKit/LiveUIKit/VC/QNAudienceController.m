@@ -54,17 +54,14 @@
         [weakSelf updateRoomInfo];
     }];
     
-    [self chatRoomView];
     [self roomHostView];
     [self onlineUserView];
     [self pubchatView];
     [self bottomMenuView];
-    [self chatService];
     
     [self.chatService sendWelComeMsg:^(QNIMMessageObject * _Nonnull msg) {
         [weakSelf.chatRoomView showMessage:msg];
     }];
-    
 }
 
 - (void)playWithUrl:(NSString *)url {
