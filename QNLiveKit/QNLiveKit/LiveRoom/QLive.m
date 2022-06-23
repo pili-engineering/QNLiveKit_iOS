@@ -24,7 +24,9 @@
 + (void)initWithToken:(NSString *)token {
     
     [QLive initializeQNIM];
-    
+    if (token.length == 0) {
+        return;
+    }
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
     [defaults setObject:token forKey:Live_Token];
     [defaults synchronize];
@@ -57,7 +59,7 @@
     
 }
 
-+ (void)setUser:(NSString *)avatar nick:(NSString *)nick extension:(nullable NSDictionary *)extension{
++ (void)setUser:(NSString *)avatar nick:(NSString *)nick extension:(nullable NSDictionary *)extension {
     
     NSMutableDictionary *params = [NSMutableDictionary new];
     params[@"nick"] = nick;

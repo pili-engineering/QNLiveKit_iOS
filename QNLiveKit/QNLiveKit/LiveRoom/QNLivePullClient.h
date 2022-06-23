@@ -35,12 +35,6 @@ NS_ASSUME_NONNULL_BEGIN
 /// 离开直播
 - (void)leaveRoom:(NSString *)roomID;
 
-//开始播放直播
-//- (void)play:(UIView *)view url:(NSString *)url;
-
-//停止播放
-//- (void)stopPlay;
-
 @end
 
 NS_ASSUME_NONNULL_END

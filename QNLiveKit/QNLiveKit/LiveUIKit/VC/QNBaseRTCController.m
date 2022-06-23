@@ -28,9 +28,9 @@
 
 - (void)viewWillDisappear:(BOOL)animated {
 
-    self.chatService = nil;
     self.pkService = nil;
     self.linkService = nil;
+   
 }
 
 - (void)viewDidLoad {
@@ -93,7 +93,7 @@
 
 - (QNChatRoomService *)chatService {
     if (!_chatService) {
-        _chatService = [[QNChatRoomService alloc]initWithGroupId:self.roomInfo.chat_id roomId:self.roomInfo.live_id];
+        _chatService = [[QNChatRoomService alloc] initWithGroupId:self.roomInfo.chat_id roomId:self.roomInfo.live_id];
     }
     return _chatService;
 }

@@ -71,16 +71,17 @@
     
     _timeCount = timeCount;
     UIImageView *imagev1 = [[UIImageView alloc]initWithFrame:CGRectMake(0, 0, kScreenWidth, kScreenHeight)];
+    imagev1.contentMode = UIViewContentModeScaleAspectFill;
 //    if (imageURL) {
 //        NSLog(@"加载的是网络上的图片");
-//        NSData *data = [NSData dataWithContentsOfURL:imageURL];
-//        UIImage *image1 = [UIImage imageWithData:data];
-//        imagev1.image = image1;
+        NSData *data = [NSData dataWithContentsOfURL:imageURL];
+        UIImage *image1 = [UIImage imageWithData:data];
+        imagev1.image = image1;
 //
 //    } else {
-        NSLog(@"加载的是本地的图片");
-        UIImage *image = [UIImage imageNamed:localImageName];
-        imagev1.image = image;
+//        NSLog(@"加载的是本地的图片");
+//        UIImage *image = [UIImage imageNamed:localImageName];
+//        imagev1.image = image;
 //    }
     
     [self.view addSubview:imagev1];

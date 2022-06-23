@@ -11,6 +11,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 @class QNIMMessageObject,QNGiftModel,QNLiveUser,QNInvitationModel,QNPKSession;
 
+//快速创建消息/信令
 @interface CreateSignalHandler : NSObject
 
 - (instancetype)initWithToId:(NSString *)toId roomId:(NSString *)roomId;

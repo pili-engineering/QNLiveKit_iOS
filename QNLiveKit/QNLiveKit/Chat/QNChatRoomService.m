@@ -20,9 +20,14 @@
 
 @property(nonatomic, copy)NSString *roomId;
 
+@property (nonatomic, assign) long long lastMessageId;
+
 @property (nonatomic, assign) BOOL isMember;
 
 @property (nonatomic,strong)CreateSignalHandler *creater;
+
+@property (nonatomic, weak)id<QNChatRoomServiceListener> chatRoomListener;
+
 
 @end
 
@@ -43,21 +48,23 @@
 
 //添加聊天监听
 - (void)addChatServiceListener:(id<QNChatRoomServiceListener>)listener{
-    [[QNIMChatService sharedOption] addChatListener:self];
+    
+    [[QNIMChatService sharedOption] addDelegate:self delegateQueue:dispatch_get_main_queue()];
     self.chatRoomListener = listener;
 }
 
 //移除聊天监听
-- (void)removeChatServiceListener:(id<QNChatRoomServiceListener>)listener{
+- (void)removeChatServiceListener{
+    [[QNIMGroupService sharedOption] leaveGroupWithGroupId:self.groupId completion:^(QNIMError * _Nonnull error) {
+        if (!error) {
+            self.isMember = NO;
+        }
+    }];
+    [[QNIMChatService sharedOption] removeDelegate:self];
     self.chatRoomListener = nil;
 }
 
-//发c2c消息
-- (void)sendCustomC2CMsg:(NSString *)msg memberId:(NSString *)memberId{
-    
-}
-
-//发群消息
+//发公聊消息
 - (void)sendPubChatMsg:(NSString *)msg callBack:(nonnull void (^)(QNIMMessageObject * _Nonnull))callBack{
 
     if (self.isMember) {
@@ -197,28 +204,26 @@
 - (void)muteUser:(NSString *)msg memberId:(NSString *)memberId duration:(long long)duration isMute:(BOOL)isMute {
     
 }
-//添加管理员
-- (void)addAdmin:(NSString *)memberId callBack:(void (^)(void))callBack{
-    
-}
-//移除管理员
-- (void)removeAdmin:(NSString *)msg memberId:(NSString *)memberId callBack:(void (^)(void))callBack{
-    
-}
+
     
 #pragma mark QNIMChatServiceProtocol
     
 //消息发送状态改变
 - (void)messageStatusChanged:(QNIMMessageObject *)message error:(QNIMError *)error {
-    if ([self.chatRoomListener respondsToSelector:@selector(messageStatus:error:)]) {
-        [self.chatRoomListener messageStatus:message error:error];
-    }    
+//    if ([self.chatRoomListener respondsToSelector:@selector(messageStatus:error:)]) {
+//        [self.chatRoomListener messageStatus:message error:error];
+//    }
 }
     
 //收到远端发来的消息
 - (void)receivedMessages:(NSArray<QNIMMessageObject *> *)messages {
     
+    
     QNIMMessageObject *msg = messages.firstObject;
+    
+    if (self.lastMessageId == msg.msgId) {
+        return;
+    }
     QNIMModel *imModel = [QNIMModel mj_objectWithKeyValues:msg.content.mj_keyValues];
     
     if ([imModel.action isEqualToString:liveroom_pubchat]) {
@@ -369,6 +374,8 @@
         }
     
     }
+    
+    self.lastMessageId=msg.msgId;
 
 }
 

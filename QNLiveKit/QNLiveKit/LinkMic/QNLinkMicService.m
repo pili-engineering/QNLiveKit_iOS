@@ -44,16 +44,11 @@
     params[@"live_id"] = self.liveId;
     params[@"mic"] = @(mic);
     params[@"camera"] = @(camera);
-//    if (extends.length > 0) {
-//        params[@"extends"] = extends;
-//    }
+    params[@"extends"] = extends;
     
     [QNLiveNetworkUtil postRequestWithAction:@"client/mic/" params:params success:^(NSDictionary * _Nonnull responseData) {
         
-        QNMicLinker *mic = [QNMicLinker mj_objectWithKeyValues:responseData];
-        if ([self.micLinkerListener respondsToSelector:@selector(onUserJoinLink:)]) {
-            [self.micLinkerListener onUserJoinLink:mic];
-        }
+//        QNMicLinker *mic = [QNMicLinker mj_objectWithKeyValues:responseData];
         callBack(responseData[@"rtc_token"]);
         
         } failure:^(NSError * _Nonnull error) {
@@ -72,9 +67,9 @@
     [QNLiveNetworkUtil deleteRequestWithAction:@"client/mic" params:params success:^(NSDictionary * _Nonnull responseData) {
         
         QNMicLinker *mic = [QNMicLinker mj_objectWithKeyValues:responseData];
-        if ([self.micLinkerListener respondsToSelector:@selector(onUserLeave:)]) {
-            [self.micLinkerListener onUserLeave:mic];
-        }
+//        if ([self.micLinkerListener respondsToSelector:@selector(onUserLeave:)]) {
+//            [self.micLinkerListener onUserLeave:mic];
+//        }
         callBack(mic);
         
         } failure:^(NSError * _Nonnull error) {
@@ -100,24 +95,21 @@
         
         QNMicLinker *mic = [QNMicLinker mj_objectWithKeyValues:responseData];
         
-        if ([type isEqualToString:@"mic"]) {
-            if ([self.micLinkerListener respondsToSelector:@selector(onUserMicrophoneStatusChange:)]) {
-                [self.micLinkerListener onUserMicrophoneStatusChange:mic];
-            }
-        } else {
-            if ([self.micLinkerListener respondsToSelector:@selector(onUserCameraStatusChange:)]) {
-                [self.micLinkerListener onUserCameraStatusChange:mic];
-            }
-        }        
+//        if ([type isEqualToString:@"mic"]) {
+//            if ([self.micLinkerListener respondsToSelector:@selector(onUserMicrophoneStatusChange:)]) {
+//                [self.micLinkerListener onUserMicrophoneStatusChange:mic];
+//            }
+//        } else {
+//            if ([self.micLinkerListener respondsToSelector:@selector(onUserCameraStatusChange:)]) {
+//                [self.micLinkerListener onUserCameraStatusChange:mic];
+//            }
+//        }
         callBack(mic);
         
         } failure:^(NSError * _Nonnull error) {
             callBack(nil);
         }];
 }
-
-//设置某人的连麦视频预览
-- (void)setUserPreview:(QRenderView *)preview uid:(NSString *)uid{}
 
 //踢人
 - (void)kickOutUser:(NSString *)uid msg:(nullable NSString *)msg callBack:(nullable void (^)(QNMicLinker * _Nullable))callBack {
@@ -135,9 +127,9 @@
         mic.user = user;
         mic.userRoomId = self.liveId;
         
-        if ([self.micLinkerListener respondsToSelector:@selector(onUserBeKick:)]) {
-            [self.micLinkerListener onUserBeKick:mic];
-        }
+//        if ([self.micLinkerListener respondsToSelector:@selector(onUserBeKick:)]) {
+//            [self.micLinkerListener onUserBeKick:mic];
+//        }
         
         callBack(mic);
         } failure:^(NSError * _Nonnull error) {
@@ -157,9 +149,9 @@
         
         QNMicLinker *mic = [QNMicLinker mj_objectWithKeyValues:responseData];
         
-        if ([self.micLinkerListener respondsToSelector:@selector(onUserExtension:extension:)]) {
-            [self.micLinkerListener onUserExtension:mic extension:extension];
-        }
+//        if ([self.micLinkerListener respondsToSelector:@selector(onUserExtension:extension:)]) {
+//            [self.micLinkerListener onUserExtension:mic extension:extension];
+//        }
         callBack(mic);
         
         } failure:^(NSError * _Nonnull error) {
@@ -167,24 +159,5 @@
         }];
 }
 
-//获取连麦邀请处理器
-- (QNLinkMicInvitationHandler *)getLinkMicInvitationHandler{
-    return nil;
-}
-
-//观众向主播连麦
-- (QNAudienceMicLinker *)getAudienceMicLinker{
-    return nil;
-}
-
-//主播处理自己被连麦
-- (QNAnchorHostMicLinker *)getAnchorHostMicLinker{
-    return nil;
-}
-
-//主播向主播的跨房连麦
-- (QNAnchorForwardMicLinker *)getAnchorForwardMicLinker{
-    return nil;
-}
 
 @end

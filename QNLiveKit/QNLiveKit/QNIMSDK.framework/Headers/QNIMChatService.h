@@ -130,7 +130,7 @@ synchronizeDeviceForce:(BOOL)synchronizeDeviceForce;
 /**
  * 获取所有会话
  **/
-- (void)getAllConversationsWithCompletion:(void(^)(NSArray *conversations))aCompletionBlock;
+- (void)getAllConversationsWithCompletion:(void(^)(NSArray <QNIMConversation *> *conversations))aCompletionBlock;
 
 
 /**
@@ -174,16 +174,6 @@ synchronizeDeviceForce:(BOOL)synchronizeDeviceForce;
  */
 - (void)getGroupAckMessageUnreadUserIdListWithMessage:(QNIMMessageObject *)message
                                      completion:(void(^)(NSArray *groupMemberIdList, QNIMError *error))aCompletionBlock;
-
-/**
- * 添加聊天监听者
- **/
-- (void)addChatListener:(id<QNIMChatServiceProtocol>)listener;
-
-/**
- * 移除聊天监听者
- **/
-- (void)removeChatListener:(id<QNIMChatServiceProtocol>)listener;
 
 @end
 

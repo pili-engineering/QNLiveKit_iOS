@@ -9,6 +9,7 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
+//麦克风采集参数
 @interface QNMicrophoneParams : NSObject
 
 @property (nonatomic, assign)NSInteger mSampleRate;

@@ -9,6 +9,7 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
+//扩展字段
 @interface Extension : NSObject
 @property (nonatomic, copy)NSString *key;
 @property (nonatomic, copy)NSString *value;

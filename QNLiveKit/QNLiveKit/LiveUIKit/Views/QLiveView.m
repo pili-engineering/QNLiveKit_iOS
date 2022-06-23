@@ -9,6 +9,8 @@
 
 @implementation QLiveView
 
+
+
 - (void)createDefaultView:(CGRect)frame onView:(UIView *)onView {
     
 }
@@ -16,5 +18,6 @@
 - (void)createCustomView:(UIView *)view onView:(UIView *)onView{
     
 }
+
 
 @end

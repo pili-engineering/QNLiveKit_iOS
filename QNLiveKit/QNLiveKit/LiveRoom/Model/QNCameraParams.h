@@ -9,6 +9,7 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
+//视频采集参数
 @interface QNCameraParams : NSObject
 
 @property (nonatomic, assign)NSInteger width;

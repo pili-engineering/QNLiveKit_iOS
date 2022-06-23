@@ -34,8 +34,8 @@
 @implementation QNAudienceController
 
 - (void)viewDidDisappear:(BOOL)animated {
-    [[QLive createPlayerClient] leaveRoom:self.roomInfo.live_id];
-    self.chatService = nil;
+    [self.chatService removeChatServiceListener];
+    [[QLive createPlayerClient] leaveRoom:self.roomInfo.live_id];   
 }
 
 - (void)viewWillAppear:(BOOL)animated {
@@ -51,7 +51,6 @@
     self.danmakuView.delegate = self;
     [[QLive createPlayerClient] joinRoom:self.roomInfo.live_id callBack:^(QNLiveRoomInfo * _Nonnull roomInfo) {
         weakSelf.roomInfo = roomInfo;
-//        [[QLive createPlayerClient] play:self.view url:roomInfo.rtmp_url];
         [self playWithUrl:roomInfo.rtmp_url];
         [weakSelf updateRoomInfo];
     }];
@@ -83,7 +82,17 @@
     } else {
         self.player.playerView.frame = CGRectMake(0, 150, SCREEN_W, SCREEN_W *0.6);
     }
+    self.player.delegate = self;
+    self.player.delegateQueue = dispatch_get_main_queue();
     [self.player play];
+}
+
+- (void)player:(nonnull PLPlayer *)player width:(int)width height:(int)height {
+    if (height > 500) {
+        self.player.playerView.frame = self.view.frame;
+    } else {
+        self.player.playerView.frame = CGRectMake(0, 150, SCREEN_W, SCREEN_W *0.6);
+    }
 }
 
 - (void)stopPlay {
@@ -173,16 +182,16 @@
 
 //收到开始pk信令
 - (void)onReceiveStartPKSession:(QNPKSession *)pkSession {
-    [self.player stop];
-    self.player.playerView.frame = CGRectMake(0, 150, SCREEN_W, SCREEN_W *0.6);
-    [self.player play];
+    [self.player pause];
+    [QToastView showToast:@"主播即将开始pk"];
+    [self.player resume];
 }
 
 //收到结束pk信令
 - (void)onReceiveStopPKSession:(QNPKSession *)pkSession {
-    [self.player stop];
-    self.player.playerView.frame = self.view.frame;
-    [self.player play];
+    [self.player pause];
+    [QToastView showToast:@"主播pk已结束"];
+    [self.player resume];
 }
 
 //收到弹幕

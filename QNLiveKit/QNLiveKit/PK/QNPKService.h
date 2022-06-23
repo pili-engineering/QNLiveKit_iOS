@@ -10,55 +10,24 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-@class QNPKSession,PKMixStreamAdapter,QNPKInvitationHandler,QRenderView;
-//麦位监听
-@protocol PKServiceListener <NSObject>
+@class QNPKSession,QRenderView;
 
-/// 用户进入房间 初始化返回当前房间的正在的pk
-- (void)onInitPKer:(QNPKSession *)pkSession;
-//开始pk
-- (void)onStart:(QNPKSession *)pkSession;
-//结束pk
-- (void)onStop:(QNPKSession *)pkSession;
-//收对方的流超时
-- (void)onWaitPeerTimeOut:(QNPKSession *)pkSession;
-//扩展自定义字段更新
-- (void)onPKExtensionUpdate:(QNPKSession *)pkSession extension:(NSString *)extension;
-
-@end
 
 @interface QNPKService : QNLiveService
 
-@property (nonatomic, weak)id<PKServiceListener> pkListener;
-
 - (instancetype)initWithRoomId:(NSString *)roomId ;
 
-//设置混流适配器
-- (void)setPKMixStreamAdapter:(PKMixStreamAdapter *)adapter;
-
-//添加监听
-- (void)addPKServiceListener:(id<PKServiceListener>)listener;
-
-//移除监听
-- (void)removePKServiceListener:(id<PKServiceListener>)listener;
-
-//开始pk  timeoutTimestamp 等待对方流超时时间时间戳 毫秒
-- (void)startWithReceiverRoomId:(NSString *)receiverRoomId receiverUid:(NSString *)receiverUid extensions:(NSString *)extensions callBack:(void (^)(QNPKSession *pkSession))callBack;
+//开始pk 
+- (void)startWithReceiverRoomId:(NSString *)receiverRoomId receiverUid:(NSString *)receiverUid extensions:(NSString *)extensions callBack:(nullable void (^)(QNPKSession *_Nullable pkSession))callBack;
 
 //获取pk token
-- (void)getPKToken:(NSString *)relayID callBack:(void (^)(QNPKSession * _Nonnull))callBack;
+- (void)getPKToken:(NSString *)relayID callBack:(nullable void (^)(QNPKSession * _Nullable pkSession))callBack;
 
 //通知服务端跨房完成
 - (void)PKStartedWithRelayID:(NSString *)relayID;
 
 //结束pk
-- (void)stopWithRelayID:(NSString *)relayID callBack:(void (^)(void))callBack;
-
-//设置某人的连麦视频预览
-- (void)setPeerAnchorPreView:(QRenderView *)preview uid:(NSString *)uid;
-
-//获得pk邀请处理器
-- (QNPKInvitationHandler *)getPKInvitationHandler;
+- (void)stopWithRelayID:(NSString *)relayID callBack:(nullable void (^)(void))callBack;
 
 @end
 

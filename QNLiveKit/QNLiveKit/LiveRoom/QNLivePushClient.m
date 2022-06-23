@@ -58,6 +58,7 @@
         
         QNLiveRoomInfo *model = [QNLiveRoomInfo mj_objectWithKeyValues:responseData];
         self.roomInfo = model;
+        self.mixManager = [[QMixStreamManager alloc]initWithPushUrl:self.roomInfo.push_url client:self.rtcClient streamID:self.roomInfo.live_id];
         if ([self.roomLifeCycleListener respondsToSelector:@selector(onRoomJoined:)]) {
             [self.roomLifeCycleListener onRoomJoined:model];
         }

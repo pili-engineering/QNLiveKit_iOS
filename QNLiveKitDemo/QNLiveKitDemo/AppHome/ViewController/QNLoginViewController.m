@@ -144,6 +144,10 @@
     NSString *action = [NSString stringWithFormat:@"live/auth_token?userID=%@&deviceID=%@",user.accountId,deviceID];
     [QNNetworkUtil getRequestWithAction:action params:nil success:^(NSDictionary *responseData) {
         
+        NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+        [defaults setObject:responseData[@"accessToken"] forKey:Live_Token];
+        [defaults synchronize];
+        
         [QLive initWithToken:responseData[@"accessToken"]];
         [QLive setUser:user.avatar nick:user.nickname extension:nil];
 

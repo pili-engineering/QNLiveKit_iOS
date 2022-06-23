@@ -69,17 +69,6 @@
         }];
 }
 
-//获取自己的信息
-- (void)getSelfUser:(void (^)(QNLiveUser * _Nonnull))callBack {
-    
-    [QNLiveNetworkUtil getRequestWithAction:@"client/user/profile" params:nil success:^(NSDictionary * _Nonnull responseData) {
-        QNLiveUser *user = [QNLiveUser mj_objectWithKeyValues:responseData];
-        callBack(user);
-        } failure:^(NSError * _Nonnull error) {
-            callBack(nil);
-        }];
-}
-
 //使用用户ID搜索用户
 - (void)searchUserByUserId:(NSString *)uid callBack:(void (^)(QNLiveUser *user))callBack{
     

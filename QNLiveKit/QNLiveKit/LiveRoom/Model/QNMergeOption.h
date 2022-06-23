@@ -34,6 +34,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, assign)QNVideoFillModeType fillMode;
 @end
 
+//混流参数
 @interface QNMergeOption : NSObject
 
 @property (nonatomic, strong)CameraMergeOption *cameraMergeOption;

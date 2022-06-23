@@ -14,6 +14,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 /// 房间业务管理
 @interface QLive : NSObject
+
 // 初始化
 + (void)initWithToken:(NSString *)token;
 //绑定用户信息
@@ -24,7 +25,6 @@ NS_ASSUME_NONNULL_BEGIN
 + (QNLivePullClient *)createPlayerClient;
 //获得直播场景
 + (QRooms *)getRooms;
-
 //获取自己的信息
 + (void)getSelfUser:(void (^)(QNLiveUser *user))callBack;
 

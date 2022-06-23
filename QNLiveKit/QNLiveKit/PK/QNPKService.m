@@ -24,15 +24,7 @@
     return self;
 }
 
-- (void)addPKServiceListener:(id<PKServiceListener>)listener {
-    self.pkListener = listener;
-}
-
-- (void)removePKServiceListener:(id<PKServiceListener>)listener {
-    self.pkListener = nil;
-}
-
-- (void)startWithReceiverRoomId:(NSString *)receiverRoomId receiverUid:(NSString *)receiverUid extensions:(NSString *)extensions callBack:(void (^)(QNPKSession * _Nonnull))callBack {
+- (void)startWithReceiverRoomId:(NSString *)receiverRoomId receiverUid:(NSString *)receiverUid extensions:(NSString *)extensions callBack:(nullable void (^)(QNPKSession * _Nullable))callBack {
     
     NSMutableDictionary *params = [NSMutableDictionary dictionary];
     params[@"recv_room_id"] = receiverRoomId;
@@ -49,9 +41,9 @@
         receiver.user_id = receiverUid;
         model.receiver = receiver;
         
-        if ([self.pkListener respondsToSelector:@selector(onStart:)]) {
-            [self.pkListener onStart:model];
-        }
+//        if ([self.pkListener respondsToSelector:@selector(onStart:)]) {
+//            [self.pkListener onStart:model];
+//        }
         callBack(model);
         
         } failure:^(NSError * _Nonnull error) {
@@ -59,7 +51,7 @@
         }];
 }
 
-- (void)getPKToken:(NSString *)relayID callBack:(nonnull void (^)(QNPKSession * _Nonnull))callBack {
+- (void)getPKToken:(NSString *)relayID callBack:(nullable void (^)(QNPKSession * _Nullable))callBack {
     NSString *action = [NSString stringWithFormat:@"client/relay/%@/token",relayID];
     [QNLiveNetworkUtil getRequestWithAction:action params:@{} success:^(NSDictionary * _Nonnull responseData) {
         
@@ -79,7 +71,7 @@
 }
 
 //结束pk
-- (void)stopWithRelayID:(NSString *)relayID callBack:(void (^)(void))callBack {
+- (void)stopWithRelayID:(NSString *)relayID callBack:(nullable void (^)(void))callBack {
     NSString *action = [NSString stringWithFormat:@"client/relay/%@/stop",relayID];
     [QNLiveNetworkUtil postRequestWithAction:action params:@{} success:^(NSDictionary * _Nonnull responseData) {
         callBack();

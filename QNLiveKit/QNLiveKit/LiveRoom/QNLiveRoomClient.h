@@ -54,9 +54,6 @@ NS_ASSUME_NONNULL_BEGIN
 //某个房间在线用户
 - (void)getOnlineUser:(NSString *)roomId callBack:(void (^)(NSArray <QNLiveUser *> *list))callBack;
 
-//获取自己的信息
-- (void)getSelfUser:(void (^)(QNLiveUser *user))callBack;
-
 //使用用户ID搜索房间用户
 - (void)searchUserByUserId:(NSString *)uid callBack:(void (^)(QNLiveUser *user))callBack;
 

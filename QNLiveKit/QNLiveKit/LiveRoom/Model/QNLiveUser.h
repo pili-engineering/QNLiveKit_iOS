@@ -9,6 +9,7 @@
 #import "Extension.h"
 NS_ASSUME_NONNULL_BEGIN
 
+//用户信息
 @interface QNLiveUser : NSObject
 @property (nonatomic, copy)NSString *user_id;
 @property (nonatomic, copy)NSString *nick;

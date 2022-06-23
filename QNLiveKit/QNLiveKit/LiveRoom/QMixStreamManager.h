@@ -12,6 +12,7 @@ NS_ASSUME_NONNULL_BEGIN
 @class QNMergeOption,CameraMergeOption;
 //混流器
 @interface QMixStreamManager : NSObject
+
 - (instancetype)initWithPushUrl:(NSString *)publishUrl client:(QNRTCClient *)client streamID:(NSString *)streamID;
 //启动前台转推，默认实现推本地轨道
 - (void)startForwardJob;

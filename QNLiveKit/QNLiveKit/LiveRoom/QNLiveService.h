@@ -9,6 +9,7 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
+//service基类
 
 @interface QNLiveService : NSObject
 

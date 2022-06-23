@@ -16,7 +16,7 @@
 #import <MJExtension/MJExtension.h>
 #import "UIApplication+LaunchScreen.h"
 #import "QNTabBarViewController.h"
-#import <QNIMSDK/QNIMSDK.h>
+#import <QNLiveKit/QNLiveKit.h>
 
 @interface AppDelegate ()
 @property (nonatomic , copy) NSString *urlStr;
@@ -29,43 +29,14 @@
     
     [self requestConficInfo];
     [self setUpStatusBar];
-//    [QNRTCEngine enableFileLogging];
-    
-    [self initializeQNIM];
+    [self initQLive];
     
     return YES;
 }
 
-////初始化QNIM
-- (void)initializeQNIM{
-    NSString* dataDir = [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES).firstObject stringByAppendingPathComponent:@"ChatData"];
-    NSFileManager *fileManager = [NSFileManager defaultManager];
-    if (![fileManager fileExistsAtPath:dataDir]) {
-        [fileManager createDirectoryAtPath:dataDir withIntermediateDirectories:YES attributes:nil error:nil];
-    }
-    NSString* cacheDir = [NSSearchPathForDirectoriesInDomains(NSCachesDirectory, NSUserDomainMask, YES).firstObject stringByAppendingString:@"UserCache"];
-    if (![fileManager fileExistsAtPath:cacheDir]) {
-        [fileManager createDirectoryAtPath:cacheDir withIntermediateDirectories:YES attributes:nil error:nil];
-    }
-    NSLog(@"dataDir = %@", dataDir);
-    NSLog(@"cacheDir = %@", cacheDir);
-
-    NSString* phoneName = [[UIDevice currentDevice] name];
-    NSString* localizedModel = [[UIDevice currentDevice] localizedModel];
-    NSString* systemName = [[UIDevice currentDevice] systemName];
-    NSString* phoneVersion = [[UIDevice currentDevice] systemVersion];
-
-    NSString *phone = [NSString stringWithFormat:@"设备名称:%@;%@;%@;%@", phoneName,localizedModel,systemName,phoneVersion];
-
-    QNSDKConfig *config = [[QNSDKConfig alloc]initConfigWithDataDir:dataDir cacheDir:cacheDir pushCertName:@"" userAgent:phone];
-    config.appID = QN_IM_APPID;
-    [[QNIMClient sharedClient] registerWithSDKConfig:config];
-    
-    [[QNIMClient sharedClient] signInByName:QN_IM_userName password:QN_IM_psw completion:^(QNIMError * _Nonnull error) {
-        
-        NSLog(@"---七牛IM服务器连接状态-%li",[QNIMClient sharedClient].connectStatus);
-        
-    }];
+- (void)initQLive {
+    [QLive initWithToken:QN_Live_Token];
+    [QLive setUser:QN_User_avatar nick:QN_User_nickname extension:nil];
 }
 
 // 请求APP全局配置
