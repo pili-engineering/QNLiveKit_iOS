@@ -26,7 +26,6 @@
 
 @interface QNAudienceController ()<QNChatRoomServiceListener,QNPushClientListener,LiveChatRoomViewDelegate,FDanmakuViewProtocol,PLPlayerDelegate>
 
-//@property (nonatomic, strong) UIView *playView;
 @property (nonatomic, strong) PLPlayer *player;
 
 @end
@@ -101,16 +100,14 @@
 }
 
 - (void)updateRoomInfo {
+    [[QLive getRooms] getRoomInfo:self.roomInfo.live_id callBack:^(QNLiveRoomInfo * _Nonnull roomInfo) {
+        self.roomInfo = roomInfo;
+        [self.roomHostView updateWith:roomInfo];
+        [self.onlineUserView updateWith:roomInfo];
+    }];
     __weak typeof(self)weakSelf = self;
     dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(3 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-        [[QLive getRooms] getRoomInfo:weakSelf.roomInfo.live_id callBack:^(QNLiveRoomInfo * _Nonnull roomInfo) {
-            weakSelf.roomInfo = roomInfo;
-            [weakSelf.roomHostView updateWith:roomInfo];
-            [weakSelf.onlineUserView updateWith:roomInfo];
-            
-            
-            [weakSelf updateRoomInfo];
-        }];
+        [weakSelf updateRoomInfo];
     });
 }
 
