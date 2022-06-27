@@ -11,12 +11,12 @@
 #import "RoomHostView.h"
 #import "OnlineUserView.h"
 #import "BottomMenuView.h"
-#import "QNLinkMicService.h"
+#import "QLinkMicService.h"
 #import "QNChatRoomService.h"
 #import "LiveChatRoom.h"
 #import "QNLiveRoomInfo.h"
 #import "QNMergeOption.h"
-#import "QNPKService.h"
+#import "QPKService.h"
 #import "QRenderView.h"
 #import "FDanmakuView.h"
 
@@ -75,9 +75,9 @@
     }];
 }
 
-- (QNLinkMicService *)linkService {
+- (QLinkMicService *)linkService {
     if (!_linkService) {
-        _linkService = [[QNLinkMicService alloc] initWithLiveId:self.roomInfo.live_id];
+        _linkService = [[QLinkMicService alloc] initWithLiveId:self.roomInfo.live_id];
     }
     return _linkService;
 }
@@ -98,9 +98,9 @@
     return _chatService;
 }
 
-- (QNPKService *)pkService {
+- (QPKService *)pkService {
     if (!_pkService) {
-        _pkService = [[QNPKService alloc]initWithRoomId:self.roomInfo.live_id];
+        _pkService = [[QPKService alloc]initWithRoomId:self.roomInfo.live_id];
     }
     return _pkService;
 }

@@ -10,7 +10,7 @@
 #import "QNLiveRoomInfo.h"
 #import "QNMergeOption.h"
 #import "QRenderView.h"
-#import "QNLiveNetworkUtil.h"
+#import "QLiveNetworkUtil.h"
 #import "QNLiveUser.h"
 #import "QNLiveRoomInfo.h"
 #import "QNMicrophoneParams.h"
@@ -53,7 +53,7 @@
 - (void)startLive:(NSString *)roomID callBack:(nullable void (^)(QNLiveRoomInfo * _Nullable))callBack {
     
     NSString *action = [NSString stringWithFormat:@"client/live/room/%@",roomID];
-    [QNLiveNetworkUtil putRequestWithAction:action params:@{} success:^(NSDictionary * _Nonnull responseData) {
+    [QLiveNetworkUtil putRequestWithAction:action params:@{} success:^(NSDictionary * _Nonnull responseData) {
         
         QNLiveRoomInfo *model = [QNLiveRoomInfo mj_objectWithKeyValues:responseData];
         self.roomInfo = model;

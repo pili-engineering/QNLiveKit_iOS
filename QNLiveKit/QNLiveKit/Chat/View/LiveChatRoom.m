@@ -6,11 +6,11 @@
 //
 
 #import "LiveChatRoom.h"
-#import "QNMessageBaseCell.h"
-#import "QNTextMessageCell.h"
+#import "QMessageBaseCell.h"
+#import "QTextMessageCell.h"
 #import "PubChatModel.h"
 #import "CreateSignalHandler.h"
-#import "QNIMModel.h"
+#import "QIMModel.h"
 #import "NSObject+QNKeyValue.h"
 #import <QNIMSDK/QNIMSDK.h>
 
@@ -31,7 +31,7 @@ static NSString * const banNotifyContent = @"您已被管理员禁言";
 //  用于记录点赞消息连续点击的次数
 static int clickPraiseBtnTimes  = 0 ;
 
-@interface LiveChatRoom ()<QNInputBarControlDelegate, UICollectionViewDelegate, UICollectionViewDataSource, UIGestureRecognizerDelegate,QNIMChatServiceProtocol>
+@interface LiveChatRoom ()<QInputBarControlDelegate, UICollectionViewDelegate, UICollectionViewDataSource, UIGestureRecognizerDelegate,QNIMChatServiceProtocol>
 /*!
  聊天内容的消息Cell数据模型的数据源
  
@@ -87,8 +87,8 @@ static int clickPraiseBtnTimes  = 0 ;
         
         [self.commentBtn setFrame:CGRectMake(10, 10, 35, 35)];
         
-        [self registerClass:[QNTextMessageCell class]forCellWithReuseIdentifier:textCellIndentifier];
-        [self registerClass:[QNTextMessageCell class]forCellWithReuseIdentifier:startAndEndCellIndentifier];
+        [self registerClass:[QTextMessageCell class]forCellWithReuseIdentifier:textCellIndentifier];
+        [self registerClass:[QTextMessageCell class]forCellWithReuseIdentifier:startAndEndCellIndentifier];
         
 //        [[QNIMChatService sharedOption] addDelegate:self delegateQueue:dispatch_get_main_queue()];
         
@@ -314,8 +314,8 @@ static int clickPraiseBtnTimes  = 0 ;
                   cellForItemAtIndexPath:(NSIndexPath *)indexPath {
     QNIMMessageObject *messageContent =
     [self.conversationDataRepository objectAtIndex:indexPath.row];
-    QNMessageBaseCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:ConversationMessageCollectionViewCell forIndexPath:indexPath];;
-        QNTextMessageCell *__cell = nil;
+    QMessageBaseCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:ConversationMessageCollectionViewCell forIndexPath:indexPath];;
+        QTextMessageCell *__cell = nil;
         NSString *indentifier = textCellIndentifier;
         
         __cell = [collectionView dequeueReusableCellWithReuseIdentifier:indentifier forIndexPath:indexPath];
@@ -405,9 +405,9 @@ static int clickPraiseBtnTimes  = 0 ;
     return _conversationMessageCollectionView;
 }
 
-- (QNInputBarControl *)inputBar {
+- (QInputBarControl *)inputBar {
     if (!_inputBar) {
-        _inputBar = [[QNInputBarControl alloc] initWithStatus:RCCRBottomBarStatusDefault];
+        _inputBar = [[QInputBarControl alloc] initWithStatus:RCCRBottomBarStatusDefault];
         [_inputBar setDelegate:self];
     }
     return _inputBar;

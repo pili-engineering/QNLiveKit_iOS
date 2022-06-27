@@ -1,5 +1,5 @@
 //
-//  QNMessageBaseCell.h
+//  QMessageBaseCell.h
 //  ChatRoom
 //
 //  Created by 罗骏 on 2018/5/10.
@@ -11,7 +11,7 @@
 
 //#import "QNIMTextMsgModel.h"
 
-@interface QNMessageBaseCell : UICollectionViewCell
+@interface QMessageBaseCell : UICollectionViewCell
 
 /**
  消息Cell的数据模型

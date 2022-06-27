@@ -8,7 +8,7 @@
 #import "QNLivePullClient.h"
 #import "QNLiveRoomInfo.h"
 #import "QRenderView.h"
-#import "QNLiveNetworkUtil.h"
+#import "QLiveNetworkUtil.h"
 #import "QNLiveUser.h"
 #import "QNLiveRoomInfo.h"
 #import <PLPlayerKit/PLPlayerKit.h>
@@ -40,7 +40,7 @@
 - (void)joinRoom:(NSString *)roomID callBack:(void (^)(QNLiveRoomInfo * _Nullable))callBack {
     
     NSString *action = [NSString stringWithFormat:@"client/live/room/user/%@",roomID];
-    [QNLiveNetworkUtil postRequestWithAction:action params:@{} success:^(NSDictionary * _Nonnull responseData) {
+    [QLiveNetworkUtil postRequestWithAction:action params:@{} success:^(NSDictionary * _Nonnull responseData) {
         
         QNLiveRoomInfo *model = [QNLiveRoomInfo mj_objectWithKeyValues:responseData];
         self.roomInfo = model;
@@ -55,7 +55,7 @@
 - (void)leaveRoom:(NSString *)roomID{
     
     NSString *action = [NSString stringWithFormat:@"client//live/room/user/%@",roomID];
-    [QNLiveNetworkUtil deleteRequestWithAction:action params:nil success:^(NSDictionary * _Nonnull responseData) {
+    [QLiveNetworkUtil deleteRequestWithAction:action params:nil success:^(NSDictionary * _Nonnull responseData) {
         
         } failure:^(NSError * _Nonnull error) {
         }];

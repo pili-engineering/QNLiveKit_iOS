@@ -1,14 +1,14 @@
 //
-//  QNEmojiCollectionCell.m
+//  QEmojiCollectionCell.m
 //  ChatRoom
 //
 //  Created by 罗骏 on 2018/5/16.
 //  Copyright © 2018年 罗骏. All rights reserved.
 //
 
-#import "QNEmojiCollectionCell.h"
+#import "QEmojiCollectionCell.h"
 
-@interface QNEmojiCollectionCell ()
+@interface QEmojiCollectionCell ()
 
 @property (nonatomic, strong) UILabel *emojiLabel;
 
@@ -16,7 +16,7 @@
 
 @end
 
-@implementation QNEmojiCollectionCell
+@implementation QEmojiCollectionCell
 - (instancetype)initWithFrame:(CGRect)frame {
     self = [super initWithFrame:frame];
     if (self) {

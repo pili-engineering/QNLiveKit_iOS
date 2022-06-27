@@ -1,5 +1,5 @@
 //
-//  QNEmojiBoardView.h
+//  QEmojiBoardView.h
 //  ChatRoom
 //
 //  Created by 罗骏 on 2018/5/11.
@@ -8,12 +8,12 @@
 
 #import <UIKit/UIKit.h>
 
-@class QNEmojiBoardView;
+@class QEmojiBoardView;
 
 /**
  表情输入的回调
  */
-@protocol QNEmojiViewDelegate <NSObject>
+@protocol QEmojiViewDelegate <NSObject>
 @optional
 
 /**
@@ -22,7 +22,7 @@
  @param emojiView 表情输入的View
  @param string    点击的表情对应的字符串编码
  */
-- (void)didTouchEmojiView:(QNEmojiBoardView *)emojiView touchedEmoji:(NSString *)string;
+- (void)didTouchEmojiView:(QEmojiBoardView *)emojiView touchedEmoji:(NSString *)string;
 
 /**
  点击发送按钮的回调
@@ -32,12 +32,12 @@
 
 @end
 
-@interface QNEmojiBoardView : UIView
+@interface QEmojiBoardView : UIView
 
 /*!
  表情输入的回调
  */
-@property(nonatomic, weak) id<QNEmojiViewDelegate> delegate;
+@property(nonatomic, weak) id<QEmojiViewDelegate> delegate;
 
 
 @end

@@ -1,14 +1,14 @@
 //
-//  QNTextMessageCell.m
+//  QTextMessageCell.m
 //  ChatRoom
 //
 //  Created by 罗骏 on 2018/5/22.
 //  Copyright © 2018年 罗骏. All rights reserved.
 //
 
-#import "QNTextMessageCell.h"
+#import "QTextMessageCell.h"
 #import "PubChatModel.h"
-#import "QNIMModel.h"
+#import "QIMModel.h"
 #import <Masonry/Masonry.h>
 #import <QNIMSDK/QNIMSDK.h>
 #import <SDWebImage/SDWebImage.h>
@@ -19,11 +19,11 @@ green:((float)((rgbValue & 0xFF00) >> 8)) / 255.0                               
 blue:((float)(rgbValue & 0xFF)) / 255.0                                                           \
 alpha:1.0]
 
-@interface QNTextMessageCell ()
+@interface QTextMessageCell ()
 
 @end
 
-@implementation QNTextMessageCell
+@implementation QTextMessageCell
 
 - (instancetype)initWithFrame:(CGRect)frame
 {
@@ -48,7 +48,7 @@ alpha:1.0]
 
 - (void)updateUI:(QNIMMessageObject *)model {
     
-    QNIMModel *imModel = [QNIMModel mj_objectWithKeyValues:model.content.mj_keyValues];
+    QIMModel *imModel = [QIMModel mj_objectWithKeyValues:model.content.mj_keyValues];
     PubChatModel *msgmodel = [PubChatModel mj_objectWithKeyValues:imModel.data];
             
     self.nameLabel.text = msgmodel.sendUser.nick;

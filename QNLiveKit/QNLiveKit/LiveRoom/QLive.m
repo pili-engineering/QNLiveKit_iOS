@@ -9,7 +9,7 @@
 #import "QNCreateRoomParam.h"
 #import "QNLiveRoomInfo.h"
 #import "QNLiveUser.h"
-#import "QNLiveNetworkUtil.h"
+#import "QLiveNetworkUtil.h"
 #import "QNLivePushClient.h"
 #import "QNLivePullClient.h"
 #import "QRooms.h"
@@ -73,7 +73,7 @@
     
     [defaults synchronize];
     
-    [QNLiveNetworkUtil putRequestWithAction:@"client/user/user" params:params success:^(NSDictionary * _Nonnull responseData) {
+    [QLiveNetworkUtil putRequestWithAction:@"client/user/user" params:params success:^(NSDictionary * _Nonnull responseData) {
         
         [QLive getSelfUser:^(QNLiveUser *user) {
             
@@ -112,7 +112,7 @@
 //获取自己的信息
 + (void)getSelfUser:(void (^)(QNLiveUser * _Nonnull))callBack {
     
-    [QNLiveNetworkUtil getRequestWithAction:@"client/user/profile" params:nil success:^(NSDictionary * _Nonnull responseData) {
+    [QLiveNetworkUtil getRequestWithAction:@"client/user/profile" params:nil success:^(NSDictionary * _Nonnull responseData) {
         
         QNLiveUser *user = [QNLiveUser mj_objectWithKeyValues:responseData];
         

@@ -11,7 +11,7 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-@class PubChatModel,QNLiveUser,QNPKSession,QNInvitationModel,QNIMMessageObject,QNIMError;
+@class PubChatModel,QNLiveUser,QNPKSession,QInvitationModel,QNIMMessageObject,QNIMError;
 //聊天室监听
 @protocol QNChatRoomServiceListener <NSObject>
 @optional
@@ -47,18 +47,18 @@ NS_ASSUME_NONNULL_BEGIN
 - (void)onAdminRemoved:(NSString *)memberId reason:(NSString *)reason;
 
 //收到连麦邀请
-- (void)onReceiveLinkInvitation:(QNInvitationModel *)model;
+- (void)onReceiveLinkInvitation:(QInvitationModel *)model;
 //连麦邀请被接受
-- (void)onReceiveLinkInvitationAccept:(QNInvitationModel *)model;
+- (void)onReceiveLinkInvitationAccept:(QInvitationModel *)model;
 //连麦邀请被拒绝
-- (void)onReceiveLinkInvitationReject:(QNInvitationModel *)model;
+- (void)onReceiveLinkInvitationReject:(QInvitationModel *)model;
 
 //收到PK邀请
-- (void)onReceivePKInvitation:(QNInvitationModel *)model;
+- (void)onReceivePKInvitation:(QInvitationModel *)model;
 //PK邀请被接受
-- (void)onReceivePKInvitationAccept:(QNInvitationModel *)model;
+- (void)onReceivePKInvitationAccept:(QInvitationModel *)model;
 //PK邀请被拒绝
-- (void)onReceivePKInvitationReject:(QNInvitationModel *)model;
+- (void)onReceivePKInvitationReject:(QInvitationModel *)model;
 //收到开始跨房PK信令
 - (void)onReceiveStartPKSession:(QNPKSession *)pkSession;
 //收到停止跨房PK信令

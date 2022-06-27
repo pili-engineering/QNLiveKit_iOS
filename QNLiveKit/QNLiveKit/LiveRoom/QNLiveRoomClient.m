@@ -6,7 +6,7 @@
 //
 
 #import "QNLiveRoomClient.h"
-#import "QNLiveNetworkUtil.h"
+#import "QLiveNetworkUtil.h"
 #import "QNLiveUser.h"
 #import "QNLiveRoomInfo.h"
 
@@ -20,7 +20,7 @@
 - (void)getUserList:(NSString *)roomId pageNumber:(NSInteger)pageNumber pageSize:(NSInteger)pageSize callBack:(void (^)(NSArray<QNLiveUser *> * _Nonnull))callBack {
     
     NSString *action = [NSString stringWithFormat:@"client/live/room/user_list?live_id=%@&page_num=%ld&page_size=%ld",self.liveId,pageNumber,pageSize];
-    [QNLiveNetworkUtil getRequestWithAction:action params:nil success:^(NSDictionary * _Nonnull responseData) {
+    [QLiveNetworkUtil getRequestWithAction:action params:nil success:^(NSDictionary * _Nonnull responseData) {
         NSArray <QNLiveUser *> *list = [QNLiveUser mj_objectArrayWithKeyValuesArray:responseData[@"list"]];
         callBack(list);
         } failure:^(NSError * _Nonnull error) {
@@ -32,7 +32,7 @@
 - (void)roomHeartBeart:(NSString *)roomId {
     
     NSString *action = [NSString stringWithFormat:@"client/live/room/heartbeat/%@",roomId];
-    [QNLiveNetworkUtil getRequestWithAction:action params:nil success:^(NSDictionary * _Nonnull responseData) {
+    [QLiveNetworkUtil getRequestWithAction:action params:nil success:^(NSDictionary * _Nonnull responseData) {
         
         } failure:^(NSError * _Nonnull error) {
             
@@ -46,7 +46,7 @@
     params[@"live_id"] = roomId;
     params[@"extends"] = extension;
 
-    [QNLiveNetworkUtil putRequestWithAction:@"client/live/room/extends" params:params success:^(NSDictionary * _Nonnull responseData) {        
+    [QLiveNetworkUtil putRequestWithAction:@"client/live/room/extends" params:params success:^(NSDictionary * _Nonnull responseData) {        
         
         if ([self.roomLifeCycleListener respondsToSelector:@selector(onRoomExtensions:)]) {
             [self.roomLifeCycleListener onRoomExtensions:extension];
@@ -61,7 +61,7 @@
 //某个房间在线用户
 - (void)getOnlineUser:(NSString *)roomId callBack:(void (^)(NSArray <QNLiveUser *> *list))callBack{
     NSString *action = [NSString stringWithFormat:@"client/live/room/user_list?live_id=%@&page_num=1&page_size=20",roomId];
-    [QNLiveNetworkUtil getRequestWithAction:action params:nil success:^(NSDictionary * _Nonnull responseData) {
+    [QLiveNetworkUtil getRequestWithAction:action params:nil success:^(NSDictionary * _Nonnull responseData) {
         NSArray <QNLiveUser *> *list = [QNLiveUser mj_objectArrayWithKeyValuesArray:responseData[@"list"]];
         callBack(list);
         } failure:^(NSError * _Nonnull error) {
@@ -73,7 +73,7 @@
 - (void)searchUserByUserId:(NSString *)uid callBack:(void (^)(QNLiveUser *user))callBack{
     
     NSString *action = [NSString stringWithFormat:@"client/user/%@",uid];
-    [QNLiveNetworkUtil getRequestWithAction:action params:nil success:^(NSDictionary * _Nonnull responseData) {
+    [QLiveNetworkUtil getRequestWithAction:action params:nil success:^(NSDictionary * _Nonnull responseData) {
         QNLiveUser *user = [QNLiveUser mj_objectWithKeyValues:responseData];
         callBack(user);
         } failure:^(NSError * _Nonnull error) {
@@ -86,7 +86,7 @@
     
     NSMutableDictionary *params = [NSMutableDictionary dictionary];
     params[@"im_user_ids"] = @[imUid].mj_keyValues;
-    [QNLiveNetworkUtil getRequestWithAction:@"client/user/imusers" params:params success:^(NSDictionary * _Nonnull responseData) {
+    [QLiveNetworkUtil getRequestWithAction:@"client/user/imusers" params:params success:^(NSDictionary * _Nonnull responseData) {
         QNLiveUser *user = [QNLiveUser mj_objectWithKeyValues:responseData];
         callBack(user);
         } failure:^(NSError * _Nonnull error) {

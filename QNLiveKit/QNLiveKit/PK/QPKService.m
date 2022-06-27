@@ -1,21 +1,21 @@
 //
-//  QNPKService.m
+//  QPKService.m
 //  QNLiveKit
 //
 //  Created by 郭茜 on 2022/5/25.
 //
 
-#import "QNPKService.h"
-#import "QNLiveNetworkUtil.h"
+#import "QPKService.h"
+#import "QLiveNetworkUtil.h"
 #import "QNLiveUser.h"
 
-@interface QNPKService ()
+@interface QPKService ()
 
 @property (nonatomic, copy) NSString *roomId;
 
 @end
 
-@implementation QNPKService
+@implementation QPKService
 
 - (instancetype)initWithRoomId:(NSString *)roomId {
     if (self = [super init]) {
@@ -30,7 +30,7 @@
     params[@"recv_room_id"] = receiverRoomId;
     params[@"recv_user_id"] = receiverUid;
     params[@"init_room_id"] = self.roomId;
-    [QNLiveNetworkUtil postRequestWithAction:@"client/relay/start" params:params success:^(NSDictionary * _Nonnull responseData) {
+    [QLiveNetworkUtil postRequestWithAction:@"client/relay/start" params:params success:^(NSDictionary * _Nonnull responseData) {
         
         QNPKSession *model = [QNPKSession mj_objectWithKeyValues:responseData];
         model.receiverRoomId = receiverRoomId;
@@ -53,7 +53,7 @@
 
 - (void)getPKToken:(NSString *)relayID callBack:(nullable void (^)(QNPKSession * _Nullable))callBack {
     NSString *action = [NSString stringWithFormat:@"client/relay/%@/token",relayID];
-    [QNLiveNetworkUtil getRequestWithAction:action params:@{} success:^(NSDictionary * _Nonnull responseData) {
+    [QLiveNetworkUtil getRequestWithAction:action params:@{} success:^(NSDictionary * _Nonnull responseData) {
         
         QNPKSession *model = [QNPKSession mj_objectWithKeyValues:responseData];
         callBack(model);
@@ -65,7 +65,7 @@
 
 - (void)PKStartedWithRelayID:(NSString *)relayID {
     NSString *action = [NSString stringWithFormat:@"client/relay/%@/started",relayID];
-    [QNLiveNetworkUtil postRequestWithAction:action params:@{} success:^(NSDictionary * _Nonnull responseData) {        
+    [QLiveNetworkUtil postRequestWithAction:action params:@{} success:^(NSDictionary * _Nonnull responseData) {        
         } failure:^(NSError * _Nonnull error) {
         }];
 }
@@ -73,7 +73,7 @@
 //结束pk
 - (void)stopWithRelayID:(NSString *)relayID callBack:(nullable void (^)(void))callBack {
     NSString *action = [NSString stringWithFormat:@"client/relay/%@/stop",relayID];
-    [QNLiveNetworkUtil postRequestWithAction:action params:@{} success:^(NSDictionary * _Nonnull responseData) {
+    [QLiveNetworkUtil postRequestWithAction:action params:@{} success:^(NSDictionary * _Nonnull responseData) {
         callBack();
         } failure:^(NSError * _Nonnull error) {
             callBack();

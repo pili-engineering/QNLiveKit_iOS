@@ -1,5 +1,5 @@
 //
-//  QNPKService.h
+//  QPKService.h
 //  QNLiveKit
 //
 //  Created by 郭茜 on 2022/5/25.
@@ -13,7 +13,7 @@ NS_ASSUME_NONNULL_BEGIN
 @class QNPKSession,QRenderView;
 
 
-@interface QNPKService : QNLiveService
+@interface QPKService : QNLiveService
 
 - (instancetype)initWithRoomId:(NSString *)roomId ;
 

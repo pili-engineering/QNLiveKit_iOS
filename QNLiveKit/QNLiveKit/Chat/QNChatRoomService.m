@@ -7,10 +7,10 @@
 
 #import "QNChatRoomService.h"
 #import "CreateSignalHandler.h"
-#import "QNIMModel.h"
+#import "QIMModel.h"
 #import "QNLiveUser.h"
 #import "LinkOptionModel.h"
-#import "QNInvitationModel.h"
+#import "QInvitationModel.h"
 #import "QNPKSession.h"
 #import <QNIMSDK/QNIMSDK.h>
 
@@ -149,14 +149,14 @@
 }
 
 //接受连麦
-- (void)sendLinkMicAccept:(QNInvitationModel *)invitationModel{
+- (void)sendLinkMicAccept:(QInvitationModel *)invitationModel{
     invitationModel.invitationName = liveroom_linkmic_invitation;
     QNIMMessageObject *message = [self.creater createAcceptInviteMessageWithInvitationName:liveroom_linkmic_invitation invitationModel:invitationModel];
     [[QNIMChatService sharedOption] sendMessage:message];
 }
 
 //拒绝连麦
-- (void)sendLinkMicReject:(QNInvitationModel *)invitationModel {
+- (void)sendLinkMicReject:(QInvitationModel *)invitationModel {
     invitationModel.invitationName = liveroom_linkmic_invitation;
     QNIMMessageObject *message = [self.creater createRejectInviteMessageWithInvitationName:liveroom_linkmic_invitation invitationModel:invitationModel];
     [[QNIMChatService sharedOption] sendMessage:message];
@@ -170,7 +170,7 @@
         
 }
 //接受PK申请
-- (void)sendPKAccept:(QNInvitationModel *)invitationModel {
+- (void)sendPKAccept:(QInvitationModel *)invitationModel {
         
     invitationModel.invitationName = liveroom_pk_invitation;
     QNIMMessageObject *message = [self.creater  createAcceptInviteMessageWithInvitationName:liveroom_pk_invitation invitationModel:invitationModel];
@@ -179,7 +179,7 @@
 }
 
 //拒绝PK申请
-- (void)sendPKReject:(QNInvitationModel *)invitationModel {
+- (void)sendPKReject:(QInvitationModel *)invitationModel {
     invitationModel.invitationName = liveroom_pk_invitation;
     QNIMMessageObject *message = [self.creater  createRejectInviteMessageWithInvitationName:liveroom_pk_invitation invitationModel:invitationModel];
     [[QNIMChatService sharedOption] sendMessage:message];
@@ -224,7 +224,7 @@
     if (self.lastMessageId == msg.msgId) {
         return;
     }
-    QNIMModel *imModel = [QNIMModel mj_objectWithKeyValues:msg.content.mj_keyValues];
+    QIMModel *imModel = [QIMModel mj_objectWithKeyValues:msg.content.mj_keyValues];
     
     if ([imModel.action isEqualToString:liveroom_pubchat]) {
         //公聊消息
@@ -312,7 +312,7 @@
         }
     }  else if ([imModel.action isEqualToString:invite_send]) {
         //连麦邀请消息
-        QNInvitationModel *model = [QNInvitationModel mj_objectWithKeyValues:imModel.data];
+        QInvitationModel *model = [QInvitationModel mj_objectWithKeyValues:imModel.data];
         if ([model.invitation.msg.receiver.user_id isEqualToString:QN_User_id]) {
             
             if ([model.invitationName isEqualToString:liveroom_linkmic_invitation]) {
@@ -329,7 +329,7 @@
                 
     }  else if ([imModel.action isEqualToString:invite_accept]) {
         //连麦邀请被接受
-        QNInvitationModel *model = [QNInvitationModel mj_objectWithKeyValues:imModel.data];
+        QInvitationModel *model = [QInvitationModel mj_objectWithKeyValues:imModel.data];
             
         if ([model.invitationName isEqualToString:liveroom_linkmic_invitation]) {
                 if ([self.chatRoomListener respondsToSelector:@selector(onReceiveLinkInvitationAccept:)]) {
@@ -343,7 +343,7 @@
         
     }  else if ([imModel.action isEqualToString:invite_reject]) {
         //连麦邀请被拒绝
-        QNInvitationModel *model = [QNInvitationModel mj_objectWithKeyValues:imModel.data];
+        QInvitationModel *model = [QInvitationModel mj_objectWithKeyValues:imModel.data];
         
             
             if ([model.invitationName isEqualToString:liveroom_linkmic_invitation]) {

@@ -19,7 +19,7 @@
 #import "QNLiveUser.h"
 #import "FDanmakuView.h"
 #import "FDanmakuModel.h"
-#import "QNIMModel.h"
+#import "QIMModel.h"
 #import "PubChatModel.h"
 #import "QToastView.h"
 #import <QNIMSDK/QNIMSDK.h>
@@ -224,7 +224,7 @@
 }
 
 - (void)didSendMessageModel:(QNIMMessageObject *)model {
-    QNIMModel *imModel = [QNIMModel mj_objectWithKeyValues:model.content.mj_keyValues];
+    QIMModel *imModel = [QIMModel mj_objectWithKeyValues:model.content.mj_keyValues];
     PubChatModel *chatModel = [PubChatModel mj_objectWithKeyValues:imModel.data];
     if ([chatModel.action isEqualToString:living_danmu]) {
         FDanmakuModel *danmuModel = [[FDanmakuModel alloc]init];
