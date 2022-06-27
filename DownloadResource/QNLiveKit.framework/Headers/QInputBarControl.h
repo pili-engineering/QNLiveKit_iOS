@@ -29,7 +29,7 @@ typedef NS_ENUM(NSInteger, RCCRBottomBarStatus) {
 /**
  输入工具栏的点击监听器
  */
-@protocol QNInputBarControlDelegate <NSObject>
+@protocol QInputBarControlDelegate <NSObject>
 
 @optional
 #pragma mark - 输入框及外部区域事件
@@ -65,10 +65,10 @@ shouldChangeTextInRange:(NSRange)range
 
 @end
 
-@interface QNInputBarControl : UIView
+@interface QInputBarControl : UIView
 
 
-@property(nonatomic, weak) id<QNInputBarControlDelegate> delegate;
+@property(nonatomic, weak) id<QInputBarControlDelegate> delegate;
 
 /**
  设置输入工具栏状态

@@ -1,16 +1,16 @@
 //
-//  QNTextMessageCell.h
+//  QTextMessageCell.h
 //  ChatRoom
 //
 //  Created by 罗骏 on 2018/5/22.
 //  Copyright © 2018年 罗骏. All rights reserved.
 //
 
-#import "QNMessageBaseCell.h"
+#import "QMessageBaseCell.h"
 
 #define TextMessageFontSize 16
 
-@interface QNTextMessageCell : QNMessageBaseCell
+@interface QTextMessageCell : QMessageBaseCell
 
 /*!
  显示消息内容的Label

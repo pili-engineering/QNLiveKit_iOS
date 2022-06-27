@@ -1,5 +1,5 @@
 //
-//  QNEmojiCollectionCell.h
+//  QEmojiCollectionCell.h
 //  ChatRoom
 //
 //  Created by 罗骏 on 2018/5/16.
@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface QNEmojiCollectionCell : UICollectionViewCell
+@interface QEmojiCollectionCell : UICollectionViewCell
 
 - (void)setData:(NSString *)emojiStr showDeleteImg:(BOOL)show;
 

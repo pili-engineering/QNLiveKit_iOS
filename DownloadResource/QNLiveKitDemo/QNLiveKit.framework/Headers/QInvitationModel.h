@@ -11,7 +11,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 @class LinkInvitation;
 
-@interface QNInvitationInfo : NSObject
+@interface QInvitationInfo : NSObject
 
 @property(nonatomic, copy) NSString *channelId;
 
@@ -27,9 +27,9 @@ NS_ASSUME_NONNULL_BEGIN
 
 @end
 
-@interface QNInvitationModel : NSObject
+@interface QInvitationModel : NSObject
 
-@property(nonatomic, strong) QNInvitationInfo *invitation;
+@property(nonatomic, strong) QInvitationInfo *invitation;
 
 @property(nonatomic, copy) NSString *invitationName;
 

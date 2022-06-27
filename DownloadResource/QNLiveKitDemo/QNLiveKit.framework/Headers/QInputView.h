@@ -1,5 +1,5 @@
 //
-//  QNInputView.h
+//  QInputView.h
 //  ChatRoom
 //
 //  Created by 罗骏 on 2018/5/11.
@@ -7,24 +7,24 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "QNInputBarControl.h"
+#import "QInputBarControl.h"
 
 #define HeighInputBar 50.0f
 
 /**
  输入工具栏的点击监听器
  */
-@protocol QNInputViewDelegate;
+@protocol QInputViewDelegate;
 
 /**
  输入框
  */
-@interface QNInputView : UIView
+@interface QInputView : UIView
 
 /*!
  输入工具栏的点击回调监听
  */
-@property(weak, nonatomic) id<QNInputViewDelegate> delegate;
+@property(weak, nonatomic) id<QInputViewDelegate> delegate;
 
 /*!
  容器View
@@ -53,7 +53,7 @@
 /**
  输入框的点击监听器
  */
-@protocol QNInputViewDelegate <NSObject>
+@protocol QInputViewDelegate <NSObject>
 
 @optional
 
@@ -75,7 +75,7 @@
  @param inputControl 当前输入工具栏
  @param text         当前输入框中国的文本内容
  */
-- (void)didTouchKeyboardReturnKey:(QNInputView *)inputControl text:(NSString *)text;
+- (void)didTouchKeyboardReturnKey:(QInputView *)inputControl text:(NSString *)text;
 
 /**
  点击表情按钮的回调
