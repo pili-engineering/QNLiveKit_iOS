@@ -70,10 +70,10 @@
 }
 
 //主播停止直播
-- (void)closeRoom:(NSString *)roomID{
+- (void)closeRoom {
     
-    NSString *action = [NSString stringWithFormat:@"client//live/room/%@",roomID];
-    [QNLiveNetworkUtil deleteRequestWithAction:action params:@{} success:^(NSDictionary * _Nonnull responseData) {
+    NSString *action = [NSString stringWithFormat:@"client//live/room/%@",self.roomInfo.live_id];
+    [QLiveNetworkUtil deleteRequestWithAction:action params:@{} success:^(NSDictionary * _Nonnull responseData) {
         
         if ([self.roomLifeCycleListener respondsToSelector:@selector(onRoomClose)]) {
             [self.roomLifeCycleListener onRoomClose];
@@ -81,15 +81,6 @@
         
         } failure:^(NSError * _Nonnull error) {
         }];
-    [self.rtcClient leave];
-}
-
-//观众加入直播
-- (void)joinLive:(NSString *)token userData:(NSString *)userData{
-    [self.rtcClient join:token userData:userData];
-}
-//观众离开直播
-- (void)LeaveLive {
     [self.rtcClient leave];
 }
 
@@ -249,17 +240,5 @@
     return self.mixManager;
 }
 
-- (NSMutableArray<QNRemoteVideoTrack *> *)remoteCameraTracks {
-    if(!_remoteCameraTracks) {
-        _remoteCameraTracks = [NSMutableArray array];
-    }
-    return _remoteCameraTracks;
-}
 
-- (NSMutableArray<QNRemoteVideoTrack *> *)remoteAudioTracks {
-    if(!_remoteAudioTracks) {
-        _remoteAudioTracks = [NSMutableArray array];
-    }
-    return _remoteAudioTracks;
-}
 @end

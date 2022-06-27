@@ -219,7 +219,7 @@ NSInteger const Interval = 8;
         
         return;
     }
-    success(responseObject[@"data"] ?: nil);
+    success(responseObject[@"data"] ?: @{});
 
 }
 

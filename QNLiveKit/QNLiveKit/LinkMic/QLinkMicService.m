@@ -8,24 +8,26 @@
 #import "QLinkMicService.h"
 #import "QLiveNetworkUtil.h"
 #import "QNMicLinker.h"
+#import "QLive.h"
+#import "QNLivePushClient.h"
+#import "CreateSignalHandler.h"
+#import <QNIMSDK/QNIMSDK.h>
+#import "QNLiveRoomInfo.h"
+#import "CreateSignalHandler.h"
+#import "QNLivePushClient.h"
 
 @interface QLinkMicService ()
+
+@property (nonatomic,strong)CreateSignalHandler *creater;
 
 @end
 
 @implementation QLinkMicService
 
-- (instancetype)initWithLiveId:(NSString *)liveId {
-    if (self = [super init]) {
-        self.liveId = liveId;
-    }
-    return self;
-}
-
 //获取当前房间所有连麦用户
 - (void)getAllLinker:(void (^)(NSArray <QNMicLinker *> *list))callBack {
     
-    NSString *action = [NSString stringWithFormat:@"client/mic/room/list/%@",self.liveId];
+    NSString *action = [NSString stringWithFormat:@"client/mic/room/list/%@",self.roomInfo.live_id];
     
     [QLiveNetworkUtil getRequestWithAction:action params:@{} success:^(NSDictionary * _Nonnull responseData) {
         
@@ -38,43 +40,47 @@
 }
 
 //上麦
-- (void)onMic:(BOOL)mic camera:(BOOL)camera extends:(nullable NSDictionary *)extends callBack:(nullable void (^)(NSString * _Nullable))callBack {
+- (void)onMic:(BOOL)mic camera:(BOOL)camera extends:(nullable NSDictionary *)extends {
+    
+    [[QLive createPusherClient] enableCamera:nil renderView:nil];
+    
+    [self sendOnMicMsg];
     
     NSMutableDictionary *params = [NSMutableDictionary dictionary];
-    params[@"live_id"] = self.liveId;
+    params[@"live_id"] = self.roomInfo.live_id;
     params[@"mic"] = @(mic);
     params[@"camera"] = @(camera);
     params[@"extends"] = extends;
     
     [QLiveNetworkUtil postRequestWithAction:@"client/mic/" params:params success:^(NSDictionary * _Nonnull responseData) {
         
-//        QNMicLinker *mic = [QNMicLinker mj_objectWithKeyValues:responseData];
-        callBack(responseData[@"rtc_token"]);
+        QNMicLinker *mic = [QNMicLinker new];
+        mic.user = self.user;
+        mic.camera = YES;
+        mic.mic = YES;
+        mic.userRoomId = self.roomInfo.live_id;
         
+        [[QLive createPusherClient].rtcClient join:responseData[@"rtc_token"] userData:mic.mj_JSONString];
         } failure:^(NSError * _Nonnull error) {
-            callBack(@"");
         }];
 }
 
 //下麦
-- (void)downMicCallBack:(nullable void (^)(QNMicLinker *mic))callBack{
+- (void)downMic{
+    
+    [[QLive createPusherClient].rtcClient leave];
+    [self sendDownMicMsg];
     
     NSMutableDictionary *params = [NSMutableDictionary dictionary];
-    params[@"live_id"] = self.liveId;
+    params[@"live_id"] = self.roomInfo.live_id;
     params[@"mic"] = @(NO);
     params[@"camera"] = @(NO);
 
     [QLiveNetworkUtil deleteRequestWithAction:@"client/mic" params:params success:^(NSDictionary * _Nonnull responseData) {
         
-        QNMicLinker *mic = [QNMicLinker mj_objectWithKeyValues:responseData];
-//        if ([self.micLinkerListener respondsToSelector:@selector(onUserLeave:)]) {
-//            [self.micLinkerListener onUserLeave:mic];
-//        }
-        callBack(mic);
-        
         } failure:^(NSError * _Nonnull error) {
-            callBack(nil);
         }];
+    
 }
 
 //获取用户麦位状态
@@ -83,31 +89,24 @@
 }
 
 //开关麦 type:mic/camera  flag:on/off
-- (void)updateMicStatus:(NSString *)uid type:(NSString *)type flag:(BOOL)flag callBack:(nullable void (^)(QNMicLinker *mic))callBack{
+- (void)updateMicStatusType:(NSString *)type flag:(BOOL)flag {
+    
+    if ([type isEqualToString:@"mic"]) {
+        [[QLive createPusherClient] muteMicrophone:!flag];
+        [self sendMicrophoneMute:!flag];
+    } else {
+        [[QLive createPusherClient] muteCamera:!flag];
+        [self sendCameraMute:!flag];
+    }
     
     NSMutableDictionary *params = [NSMutableDictionary dictionary];
-    params[@"live_id"] = self.liveId;
-    params[@"user_id"] = uid;
+    params[@"live_id"] = self.roomInfo.live_id;
+    params[@"user_id"] = QN_User_id;
     params[@"type"] = type;
     params[@"flag"] = @(flag);
 
     [QLiveNetworkUtil putRequestWithAction:@"client/mic/switch" params:params success:^(NSDictionary * _Nonnull responseData) {
-        
-        QNMicLinker *mic = [QNMicLinker mj_objectWithKeyValues:responseData];
-        
-//        if ([type isEqualToString:@"mic"]) {
-//            if ([self.micLinkerListener respondsToSelector:@selector(onUserMicrophoneStatusChange:)]) {
-//                [self.micLinkerListener onUserMicrophoneStatusChange:mic];
-//            }
-//        } else {
-//            if ([self.micLinkerListener respondsToSelector:@selector(onUserCameraStatusChange:)]) {
-//                [self.micLinkerListener onUserCameraStatusChange:mic];
-//            }
-//        }
-        callBack(mic);
-        
         } failure:^(NSError * _Nonnull error) {
-            callBack(nil);
         }];
 }
 
@@ -115,7 +114,7 @@
 - (void)kickOutUser:(NSString *)uid msg:(nullable NSString *)msg callBack:(nullable void (^)(QNMicLinker * _Nullable))callBack {
 
     NSMutableDictionary *params = [NSMutableDictionary dictionary];
-    params[@"live_id"] = self.liveId;
+    params[@"live_id"] = self.roomInfo.live_id;
     params[@"user_id"] = uid;
     
     [QLiveNetworkUtil deleteRequestWithAction:@"mic/live" params:params success:^(NSDictionary * _Nonnull responseData) {
@@ -125,11 +124,7 @@
         
         QNMicLinker *mic = [QNMicLinker new];
         mic.user = user;
-        mic.userRoomId = self.liveId;
-        
-//        if ([self.micLinkerListener respondsToSelector:@selector(onUserBeKick:)]) {
-//            [self.micLinkerListener onUserBeKick:mic];
-//        }
+        mic.userRoomId = self.roomInfo.live_id;
         
         callBack(mic);
         } failure:^(NSError * _Nonnull error) {
@@ -141,7 +136,7 @@
 - (void)updateExtension:(NSString *)extension callBack:(nullable void (^)(QNMicLinker *mic))callBack {
     
     NSMutableDictionary *params = [NSMutableDictionary dictionary];
-    params[@"live_id"] = self.liveId;
+    params[@"live_id"] = self.roomInfo.live_id;
     params[@"user_id"] = QN_User_id;
     params[@"extends"] = extension;
 
@@ -159,5 +154,44 @@
         }];
 }
 
+//发送上麦信令
+- (void)sendOnMicMsg {
+    QNIMMessageObject *message = [self.creater  createOnMicMessage];
+    [[QNIMChatService sharedOption] sendMessage:message];
+}
+
+//发送下麦信令
+- (void)sendDownMicMsg {
+    QNIMMessageObject *message = [self.creater  createDownMicMessage];
+    [[QNIMChatService sharedOption] sendMessage:message];
+}
+
+- (void)sendMicrophoneMute:(BOOL)mute {
+    QNIMMessageObject *message = [self.creater  createMicStatusMessage:!mute];
+    [[QNIMChatService sharedOption] sendMessage:message];
+    
+}
+- (void)sendCameraMute:(BOOL)mute {
+    QNIMMessageObject *message = [self.creater  createCameraStatusMessage:!mute];
+    [[QNIMChatService sharedOption] sendMessage:message];
+}
+
+- (QNLiveUser *)user {
+    
+    QNLiveUser *user = [QNLiveUser new];
+    user.user_id = QN_User_id;
+    user.nick = QN_User_nickname;
+    user.avatar = QN_User_avatar;
+    user.im_userid = QN_IM_userId;
+    user.im_username = QN_IM_userName;
+    return user;
+}
+
+- (CreateSignalHandler *)creater {
+    if (!_creater) {
+        _creater = [[CreateSignalHandler alloc]initWithToId:self.roomInfo.chat_id roomId:self.roomInfo.live_id];
+    }
+    return _creater;
+}
 
 @end
