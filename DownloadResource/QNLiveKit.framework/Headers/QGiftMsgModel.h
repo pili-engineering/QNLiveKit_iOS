@@ -1,5 +1,5 @@
 //
-//  QNGiftMsgModel.h
+//  QGiftMsgModel.h
 //  QiNiu_Solution_iOS
 //
 //  Created by 郭茜 on 2022/3/25.
@@ -9,7 +9,7 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface QNGiftModel : NSObject
+@interface QGiftModel : NSObject
 
 @property(nonatomic, copy) NSString *giftName;
 
@@ -19,7 +19,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 @end
 
-@interface QNGiftMsgModel : NSObject
+@interface QGiftMsgModel : NSObject
 
 @property(nonatomic, copy) NSString *senderName;
 
@@ -33,7 +33,7 @@ NS_ASSUME_NONNULL_BEGIN
 //送出个数
 @property(nonatomic, assign) NSInteger number;
 //礼物
-@property(nonatomic, strong) QNGiftModel *sendGift;
+@property(nonatomic, strong) QGiftModel *sendGift;
 
 @end
 

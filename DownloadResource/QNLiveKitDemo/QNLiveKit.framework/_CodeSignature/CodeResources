@@ -4,13 +4,17 @@
 <dict>
 	<key>files</key>
 	<dict>
+		<key>EmojiList.plist</key>
+		<data>
+		0bUWMN/CO1P90uVnT4hEFUXcy2A=
+		</data>
 		<key>Frameworks/QNIMSDK.framework/Info.plist</key>
 		<data>
 		uGv6Ce04rWKTVP/doWFZKQTyoqA=
 		</data>
 		<key>Frameworks/QNIMSDK.framework/QNIMSDK</key>
 		<data>
-		U0MiRWjK/7aUeJEHbvl0qi640hY=
+		UUpv1Xz6fhCiXr3Uu7+JcGWlVZc=
 		</data>
 		<key>Frameworks/QNIMSDK.framework/_CodeSignature/CodeResources</key>
 		<data>
@@ -30,7 +34,7 @@
 		</data>
 		<key>Headers/CreateSignalHandler.h</key>
 		<data>
-		h33zVJ6jD5Pa/KAQOW5sa9H1JgI=
+		GYwisD+cuzDdYES2swWEh60W73s=
 		</data>
 		<key>Headers/Extension.h</key>
 		<data>
@@ -66,7 +70,7 @@
 		</data>
 		<key>Headers/LiveChatRoom.h</key>
 		<data>
-		NW9LGeMc9B+gPIK8aV5aU+Cgyco=
+		3fI3AU1nQSt3ZZ6XIMTWqOACo6k=
 		</data>
 		<key>Headers/OnlineUserView.h</key>
 		<data>
@@ -84,6 +88,38 @@
 		<data>
 		vz5SrJWmv1D7dhIe0ZmV+JKoGLc=
 		</data>
+		<key>Headers/QEmojiBoardView.h</key>
+		<data>
+		p6qfM1p+8xEqclwRVPtwLp/8Hxg=
+		</data>
+		<key>Headers/QEmojiCollectionCell.h</key>
+		<data>
+		zUwweQqqrrktYkCeyHA5txqSQjU=
+		</data>
+		<key>Headers/QGiftMsgModel.h</key>
+		<data>
+		gNr55Jgxt8jXyr6i/PFILHEPRNk=
+		</data>
+		<key>Headers/QIMModel.h</key>
+		<data>
+		EizUYmTvO7V2dU/ZwBInSDCbloQ=
+		</data>
+		<key>Headers/QInputBarControl.h</key>
+		<data>
+		6td319wFfYZIi1oEjDWrd8lmlrE=
+		</data>
+		<key>Headers/QInputView.h</key>
+		<data>
+		UVYvOPeKzSgggD+cIGO8Q1YZ+vk=
+		</data>
+		<key>Headers/QInvitationModel.h</key>
+		<data>
+		qRki1BW1EfMwWQ4vig1+wh5G8Dw=
+		</data>
+		<key>Headers/QLinkMicService.h</key>
+		<data>
+		Gowvupr75eYOV/NhCjqZTHyH2Os=
+		</data>
 		<key>Headers/QLive.h</key>
 		<data>
 		glnG9D/sdIYtQWJk3jB4iQxvqws=
@@ -96,9 +132,17 @@
 		<data>
 		B1mSxvFAab09k0Njs5RzzTd68oo=
 		</data>
+		<key>Headers/QLiveNetworkUtil.h</key>
+		<data>
+		aq28F5nk161cqtbyMLpkBj64H3g=
+		</data>
 		<key>Headers/QLiveView.h</key>
 		<data>
 		wPax+65E/W8uIAiKzmcO7MtcaIo=
+		</data>
+		<key>Headers/QMessageBaseCell.h</key>
+		<data>
+		HjyCKa4Om5kNvxT+7At9xfnfbZE=
 		</data>
 		<key>Headers/QMixStreamManager.h</key>
 		<data>
@@ -110,7 +154,7 @@
 		</data>
 		<key>Headers/QNBaseRTCController.h</key>
 		<data>
-		81w6G5wapgaLsk1jZv3rQRXLpO0=
+		3eJX8Vh9m6Q8elNAF91l0aEVl1E=
 		</data>
 		<key>Headers/QNCameraParams.h</key>
 		<data>
@@ -118,35 +162,11 @@
 		</data>
 		<key>Headers/QNChatRoomService.h</key>
 		<data>
-		fcax7FOpR7EZYA9QnZzhyu56th8=
+		uRqpC8+j+11Zv4Qj4psPkTvb7Bc=
 		</data>
 		<key>Headers/QNCreateRoomParam.h</key>
 		<data>
 		eUY40vaE+zSklCkWu2wXdyzLMXM=
-		</data>
-		<key>Headers/QNEmojiBoardView.h</key>
-		<data>
-		rL35ZHYxIah6z0+DUE3q8Ze5Hh0=
-		</data>
-		<key>Headers/QNEmojiCollectionCell.h</key>
-		<data>
-		eJIKzSP0jmS0cafgmiJj9Hr3E64=
-		</data>
-		<key>Headers/QNGiftMsgModel.h</key>
-		<data>
-		jPptSVD9B3X2Is0RaHNm/D54Cso=
-		</data>
-		<key>Headers/QNIMModel.h</key>
-		<data>
-		2TNm0tTSYkdo4gpqPWZNSiHUB74=
-		</data>
-		<key>Headers/QNInputBarControl.h</key>
-		<data>
-		B/WUjsRM9lHx6EgN0QrSiZSoiZE=
-		</data>
-		<key>Headers/QNInputView.h</key>
-		<data>
-		oz1K/SWGtDnr0YqBIfFVmXXZaDM=
 		</data>
 		<key>Headers/QNInvitationMemberListCell.h</key>
 		<data>
@@ -156,25 +176,13 @@
 		<data>
 		ox96KS+o5L50y6Wq8rWQwxLHnBk=
 		</data>
-		<key>Headers/QNInvitationModel.h</key>
-		<data>
-		9O5xZKSDuymVnLFUcZQw0KBIbyk=
-		</data>
-		<key>Headers/QNLinkMicService.h</key>
-		<data>
-		8hmwHfJLr0ZJdOp1eUc27SsKCmY=
-		</data>
 		<key>Headers/QNLiveKit.h</key>
 		<data>
-		bxWGZbf8ZWkibsUAqlBex7TMEEY=
+		KrP0bMXNOvCq3vy5wTpzjSq2GeM=
 		</data>
 		<key>Headers/QNLiveListCell.h</key>
 		<data>
 		d6IyS3/d2DdkT76Bb3Vdj4xDygY=
-		</data>
-		<key>Headers/QNLiveNetworkUtil.h</key>
-		<data>
-		deqKPoc6FvMa/8FKWUFAOV5+qRA=
 		</data>
 		<key>Headers/QNLivePrefixHeader.pch</key>
 		<data>
@@ -186,7 +194,7 @@
 		</data>
 		<key>Headers/QNLivePushClient.h</key>
 		<data>
-		hD7oOt9TxS86gpvQR6uQuTf7fyM=
+		Lno4B8DvNGHxfuMS2w4Kk2jt1KY=
 		</data>
 		<key>Headers/QNLiveRoomClient.h</key>
 		<data>
@@ -212,33 +220,21 @@
 		<data>
 		e0AJRxMPiqAm/h5+9BDUA73KrEw=
 		</data>
-		<key>Headers/QNMessageBaseCell.h</key>
-		<data>
-		Q/IQgypbYMC3PqAFjWHvOfI8hhw=
-		</data>
 		<key>Headers/QNMicLinker.h</key>
 		<data>
 		wUrpJxFFk/KuBDeI6voHIiQmWMc=
-		</data>
-		<key>Headers/QNMicSeatMessageModel.h</key>
-		<data>
-		R6TK00WiyE4oa7J2h1QSgVd5oPU=
 		</data>
 		<key>Headers/QNMicrophoneParams.h</key>
 		<data>
 		B/DxydjF8cWTzt0X2yXEAhs4gmc=
 		</data>
-		<key>Headers/QNPKService.h</key>
-		<data>
-		48uF2q+9JRWsw67nioiyC0lfey4=
-		</data>
 		<key>Headers/QNPKSession.h</key>
 		<data>
 		SZviYS91ucPfYwnF1feV7xXyEFI=
 		</data>
-		<key>Headers/QNTextMessageCell.h</key>
+		<key>Headers/QPKService.h</key>
 		<data>
-		uEz6A7RIE1B7o/e+ny6i0IdJZyo=
+		4+Wy/4V2qb8P+PwsErskO9cLW1k=
 		</data>
 		<key>Headers/QRenderView.h</key>
 		<data>
@@ -248,6 +244,10 @@
 		<data>
 		0HVtpdv1A8rv62GxdHbioVyjftc=
 		</data>
+		<key>Headers/QTextMessageCell.h</key>
+		<data>
+		0jo7R1gT/QtHKKsSZKWVJDOe/rs=
+		</data>
 		<key>Headers/QToastView.h</key>
 		<data>
 		oarssfQEKXyT3+nf0bZQUW5Q7Bs=
@@ -255,10 +255,6 @@
 		<key>Headers/RoomHostView.h</key>
 		<data>
 		E+7xILLxX3OBIGvJEr6UzCNxzMk=
-		</data>
-		<key>ISEmojiList.plist</key>
-		<data>
-		0bUWMN/CO1P90uVnT4hEFUXcy2A=
 		</data>
 		<key>Info.plist</key>
 		<data>
@@ -271,6 +267,17 @@
 	</dict>
 	<key>files2</key>
 	<dict>
+		<key>EmojiList.plist</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			0bUWMN/CO1P90uVnT4hEFUXcy2A=
+			</data>
+			<key>hash2</key>
+			<data>
+			llWVJZsL119zvfCNeeCNaTMXucYOIsPDGgANpNLJi90=
+			</data>
+		</dict>
 		<key>Frameworks/QNIMSDK.framework/Info.plist</key>
 		<dict>
 			<key>hash</key>
@@ -286,11 +293,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			U0MiRWjK/7aUeJEHbvl0qi640hY=
+			UUpv1Xz6fhCiXr3Uu7+JcGWlVZc=
 			</data>
 			<key>hash2</key>
 			<data>
-			Ezd88iTWtZ9w/IPVpmjLmVKDZJww8VEA3q2U3z9jqrY=
+			/O7mrRGM611kdvM4OTIO5gczVLSOKQU4HM5lpHlMK9E=
 			</data>
 		</dict>
 		<key>Frameworks/QNIMSDK.framework/_CodeSignature/CodeResources</key>
@@ -341,11 +348,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			h33zVJ6jD5Pa/KAQOW5sa9H1JgI=
+			GYwisD+cuzDdYES2swWEh60W73s=
 			</data>
 			<key>hash2</key>
 			<data>
-			Db2hmN1d9XFXotGV6vQhcf1N3BPFdUp4JpOvsiv8vXs=
+			Q75JjQO721s/P8tLMQrQ/ZDFy23HfvFRIy6y1ipISZk=
 			</data>
 		</dict>
 		<key>Headers/Extension.h</key>
@@ -440,11 +447,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			NW9LGeMc9B+gPIK8aV5aU+Cgyco=
+			3fI3AU1nQSt3ZZ6XIMTWqOACo6k=
 			</data>
 			<key>hash2</key>
 			<data>
-			RJ2Rp99NsdLV6HhZBKotQesvS337PAmq9vOH0ZpEF4A=
+			Tuvr6O3+zQedscRcPY0zR5AwBWS1DJ7U/4CMIhntzyw=
 			</data>
 		</dict>
 		<key>Headers/OnlineUserView.h</key>
@@ -491,6 +498,94 @@
 			AtvjELUHTlqF+XQQkGwt41XBfG6iAOqLgBf+6B1dRSg=
 			</data>
 		</dict>
+		<key>Headers/QEmojiBoardView.h</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			p6qfM1p+8xEqclwRVPtwLp/8Hxg=
+			</data>
+			<key>hash2</key>
+			<data>
+			PxGso4S4JpAe8Qa+rw1ccjBOj8Y4IMjDFuhc50AXZoU=
+			</data>
+		</dict>
+		<key>Headers/QEmojiCollectionCell.h</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			zUwweQqqrrktYkCeyHA5txqSQjU=
+			</data>
+			<key>hash2</key>
+			<data>
+			DQHcxi/YPi1VW2Rzbsg93ZJNwr7Y5l9xdzIMoq8VtUw=
+			</data>
+		</dict>
+		<key>Headers/QGiftMsgModel.h</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			gNr55Jgxt8jXyr6i/PFILHEPRNk=
+			</data>
+			<key>hash2</key>
+			<data>
+			+N3AZL/gTxJ5ML+B2jUPP2f4XalY9656ysGINW2/oT4=
+			</data>
+		</dict>
+		<key>Headers/QIMModel.h</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			EizUYmTvO7V2dU/ZwBInSDCbloQ=
+			</data>
+			<key>hash2</key>
+			<data>
+			woAaR7opGAgBHAk/8jmi0KBVJF9ZfQfFe4kNI5Gy+cA=
+			</data>
+		</dict>
+		<key>Headers/QInputBarControl.h</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			6td319wFfYZIi1oEjDWrd8lmlrE=
+			</data>
+			<key>hash2</key>
+			<data>
+			Q821tPfPQ7a6C3nvWHoGcDsdZcGLNNpmlBZAcBawJRA=
+			</data>
+		</dict>
+		<key>Headers/QInputView.h</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			UVYvOPeKzSgggD+cIGO8Q1YZ+vk=
+			</data>
+			<key>hash2</key>
+			<data>
+			4PXDognQwtlXrx2TH7gYkdUrE4laYWPd4wPDxWrLDkE=
+			</data>
+		</dict>
+		<key>Headers/QInvitationModel.h</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			qRki1BW1EfMwWQ4vig1+wh5G8Dw=
+			</data>
+			<key>hash2</key>
+			<data>
+			xmJ5ddfYcOKy4rrx+SgpFAnxtAgpH4l+E7RVADHJ9V8=
+			</data>
+		</dict>
+		<key>Headers/QLinkMicService.h</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			Gowvupr75eYOV/NhCjqZTHyH2Os=
+			</data>
+			<key>hash2</key>
+			<data>
+			4MaW3cN0ugtQ7Bk9uy3tn/ZQA57hhcGTj22qkBMrniM=
+			</data>
+		</dict>
 		<key>Headers/QLive.h</key>
 		<dict>
 			<key>hash</key>
@@ -524,6 +619,17 @@
 			lrEBQcrYXvq/mJn55nPXVqAOTZjPPebntvpHPpTxYfY=
 			</data>
 		</dict>
+		<key>Headers/QLiveNetworkUtil.h</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			aq28F5nk161cqtbyMLpkBj64H3g=
+			</data>
+			<key>hash2</key>
+			<data>
+			6BXAjx8+5VdaCySGZ6IDhwjKWOG9ylXZ/k72w4bMjcA=
+			</data>
+		</dict>
 		<key>Headers/QLiveView.h</key>
 		<dict>
 			<key>hash</key>
@@ -533,6 +639,17 @@
 			<key>hash2</key>
 			<data>
 			TKeC93VC1/acgc66QvloxDG6ypaX92BeobNdvdnQEvs=
+			</data>
+		</dict>
+		<key>Headers/QMessageBaseCell.h</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			HjyCKa4Om5kNvxT+7At9xfnfbZE=
+			</data>
+			<key>hash2</key>
+			<data>
+			XbhgR3NPPjBKDYjTnF/1a112mE+B9qwQVzzDm0LLTHw=
 			</data>
 		</dict>
 		<key>Headers/QMixStreamManager.h</key>
@@ -561,11 +678,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			81w6G5wapgaLsk1jZv3rQRXLpO0=
+			3eJX8Vh9m6Q8elNAF91l0aEVl1E=
 			</data>
 			<key>hash2</key>
 			<data>
-			IewtA5LrANpdrBTdi7L8xrgiRuwklZ6s5pq8oElgD28=
+			Dry2YgAsrZaPivYbNeFwpygvwad7Eb/wbk/bpz6t2fw=
 			</data>
 		</dict>
 		<key>Headers/QNCameraParams.h</key>
@@ -583,11 +700,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			fcax7FOpR7EZYA9QnZzhyu56th8=
+			uRqpC8+j+11Zv4Qj4psPkTvb7Bc=
 			</data>
 			<key>hash2</key>
 			<data>
-			YsorP5xL40TElWPG1Hr71o8GzS64GfDu+l1dQ/OAbt0=
+			crAwHBgVwzYyym2NAssL2fXtBsqF0V0pVABEcnlfj3E=
 			</data>
 		</dict>
 		<key>Headers/QNCreateRoomParam.h</key>
@@ -599,72 +716,6 @@
 			<key>hash2</key>
 			<data>
 			YjVPP3fd0xNHLLIsUCl1hCOrLbOLSVlWqrclcd1UgMo=
-			</data>
-		</dict>
-		<key>Headers/QNEmojiBoardView.h</key>
-		<dict>
-			<key>hash</key>
-			<data>
-			rL35ZHYxIah6z0+DUE3q8Ze5Hh0=
-			</data>
-			<key>hash2</key>
-			<data>
-			nGJwdpxNuekAvquMWyr2F7NUm36T3UgFxdkX/UXUvcA=
-			</data>
-		</dict>
-		<key>Headers/QNEmojiCollectionCell.h</key>
-		<dict>
-			<key>hash</key>
-			<data>
-			eJIKzSP0jmS0cafgmiJj9Hr3E64=
-			</data>
-			<key>hash2</key>
-			<data>
-			wEeCpzejTUejo5YwSl4r+h8BT/YEDy6hCQcGYa0hIfs=
-			</data>
-		</dict>
-		<key>Headers/QNGiftMsgModel.h</key>
-		<dict>
-			<key>hash</key>
-			<data>
-			jPptSVD9B3X2Is0RaHNm/D54Cso=
-			</data>
-			<key>hash2</key>
-			<data>
-			SV9nKQyKehWJsdTGKTPRNDKO+umZmL4qlWiXfERQ6+8=
-			</data>
-		</dict>
-		<key>Headers/QNIMModel.h</key>
-		<dict>
-			<key>hash</key>
-			<data>
-			2TNm0tTSYkdo4gpqPWZNSiHUB74=
-			</data>
-			<key>hash2</key>
-			<data>
-			EGMwQjMeeG3hBxDlwGuwjT6iyQdT16mClbEl8EWuUV0=
-			</data>
-		</dict>
-		<key>Headers/QNInputBarControl.h</key>
-		<dict>
-			<key>hash</key>
-			<data>
-			B/WUjsRM9lHx6EgN0QrSiZSoiZE=
-			</data>
-			<key>hash2</key>
-			<data>
-			mJDezA1ChtcweInZiFjV6U7tMlmY0rz665cdBE/TGdw=
-			</data>
-		</dict>
-		<key>Headers/QNInputView.h</key>
-		<dict>
-			<key>hash</key>
-			<data>
-			oz1K/SWGtDnr0YqBIfFVmXXZaDM=
-			</data>
-			<key>hash2</key>
-			<data>
-			xgpIYcH9nx2v5xYxSKARFerfkWg/km4Ih6Z/iOsMGUs=
 			</data>
 		</dict>
 		<key>Headers/QNInvitationMemberListCell.h</key>
@@ -689,37 +740,15 @@
 			tvodGj50lFQsZhvEoPcGdEkE0vHMx5pYLrmi3bN3AS8=
 			</data>
 		</dict>
-		<key>Headers/QNInvitationModel.h</key>
-		<dict>
-			<key>hash</key>
-			<data>
-			9O5xZKSDuymVnLFUcZQw0KBIbyk=
-			</data>
-			<key>hash2</key>
-			<data>
-			z3DDPp1edkw6A4aNTZ0Jp4f2CU7rXl7mLGF3niCQsKM=
-			</data>
-		</dict>
-		<key>Headers/QNLinkMicService.h</key>
-		<dict>
-			<key>hash</key>
-			<data>
-			8hmwHfJLr0ZJdOp1eUc27SsKCmY=
-			</data>
-			<key>hash2</key>
-			<data>
-			x6vCrLsZ44TswqeX3TkAiI+VQ90CrhDY4SqTZZQQOhk=
-			</data>
-		</dict>
 		<key>Headers/QNLiveKit.h</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			bxWGZbf8ZWkibsUAqlBex7TMEEY=
+			KrP0bMXNOvCq3vy5wTpzjSq2GeM=
 			</data>
 			<key>hash2</key>
 			<data>
-			j8QBN8tbIFfLsIesMeVNONgCYxu8ora56KPexzLGx2Y=
+			GsoIEHJghGYTeVuYFwaYSoaZK+OQqhXFJkTQJUBvA60=
 			</data>
 		</dict>
 		<key>Headers/QNLiveListCell.h</key>
@@ -731,17 +760,6 @@
 			<key>hash2</key>
 			<data>
 			Kk8FoF5kzpGsNzzyDK5NVIa7gyzoHH+4kFHSjINsGpI=
-			</data>
-		</dict>
-		<key>Headers/QNLiveNetworkUtil.h</key>
-		<dict>
-			<key>hash</key>
-			<data>
-			deqKPoc6FvMa/8FKWUFAOV5+qRA=
-			</data>
-			<key>hash2</key>
-			<data>
-			f5vjrzMmxINJ/ZmopC+1NSB2cYMv7VDP2PbMX8FUsUM=
 			</data>
 		</dict>
 		<key>Headers/QNLivePrefixHeader.pch</key>
@@ -770,11 +788,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			hD7oOt9TxS86gpvQR6uQuTf7fyM=
+			Lno4B8DvNGHxfuMS2w4Kk2jt1KY=
 			</data>
 			<key>hash2</key>
 			<data>
-			mTw+/IVhjPJF3bmvP+j7wW3quqFpWnOhdMBH0/rdn0w=
+			4z0uNuekSQcW4qr0CstSw7mksphUJF534dfEMiPMURQ=
 			</data>
 		</dict>
 		<key>Headers/QNLiveRoomClient.h</key>
@@ -843,17 +861,6 @@
 			VT+nfO2GLtYBRQ6OGCQ7Vc3b+ZMo8ZiXgXaqhyjJZ14=
 			</data>
 		</dict>
-		<key>Headers/QNMessageBaseCell.h</key>
-		<dict>
-			<key>hash</key>
-			<data>
-			Q/IQgypbYMC3PqAFjWHvOfI8hhw=
-			</data>
-			<key>hash2</key>
-			<data>
-			NO9yuTT2MqJxqk7STnbib3AwfEMGQhj1VNeE952MF4A=
-			</data>
-		</dict>
 		<key>Headers/QNMicLinker.h</key>
 		<dict>
 			<key>hash</key>
@@ -863,17 +870,6 @@
 			<key>hash2</key>
 			<data>
 			k/KaSB2wiYhhHOk+6PMzMApYDZ0USFUDVPY5DdcAtwM=
-			</data>
-		</dict>
-		<key>Headers/QNMicSeatMessageModel.h</key>
-		<dict>
-			<key>hash</key>
-			<data>
-			R6TK00WiyE4oa7J2h1QSgVd5oPU=
-			</data>
-			<key>hash2</key>
-			<data>
-			oVZG1r6nrhg4aeCfOabSK5Ol9WIOlVwovqoyKsRhgPc=
 			</data>
 		</dict>
 		<key>Headers/QNMicrophoneParams.h</key>
@@ -887,17 +883,6 @@
 			YNrymG+n4hn9jbZjfki9pG6rDBqvOSyHPb1bPGR1648=
 			</data>
 		</dict>
-		<key>Headers/QNPKService.h</key>
-		<dict>
-			<key>hash</key>
-			<data>
-			48uF2q+9JRWsw67nioiyC0lfey4=
-			</data>
-			<key>hash2</key>
-			<data>
-			smtE9Ebc5MMtgKGVl08gPLBerJToWIQKV+lVJp/rrAY=
-			</data>
-		</dict>
 		<key>Headers/QNPKSession.h</key>
 		<dict>
 			<key>hash</key>
@@ -909,15 +894,15 @@
 			+VFHUziHF1nENslXPL5GCWfU/m7v2Md+/RX5QcJM+h4=
 			</data>
 		</dict>
-		<key>Headers/QNTextMessageCell.h</key>
+		<key>Headers/QPKService.h</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			uEz6A7RIE1B7o/e+ny6i0IdJZyo=
+			4+Wy/4V2qb8P+PwsErskO9cLW1k=
 			</data>
 			<key>hash2</key>
 			<data>
-			Nd3IzjbUwDmy2R6ZUt5uKXwpxqGS5+zo+da+Txm+HkA=
+			Qw9BFGGsUrGDitsBdBvJHemOBRRJzpRvw6H8tbm2xQ4=
 			</data>
 		</dict>
 		<key>Headers/QRenderView.h</key>
@@ -942,6 +927,17 @@
 			L1UcSV+5SCBl6h3HcbEWiCsIRVV+09Hd0RoX/K+xZQc=
 			</data>
 		</dict>
+		<key>Headers/QTextMessageCell.h</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			0jo7R1gT/QtHKKsSZKWVJDOe/rs=
+			</data>
+			<key>hash2</key>
+			<data>
+			ZJHQbWIe65wO3D0jeTxDZJ/fCS7QoLJVF18vWeox2iA=
+			</data>
+		</dict>
 		<key>Headers/QToastView.h</key>
 		<dict>
 			<key>hash</key>
@@ -962,17 +958,6 @@
 			<key>hash2</key>
 			<data>
 			6aMDpEOfydOWr4clTijDPJ6f65dZBOHZiS2VS0yrFHc=
-			</data>
-		</dict>
-		<key>ISEmojiList.plist</key>
-		<dict>
-			<key>hash</key>
-			<data>
-			0bUWMN/CO1P90uVnT4hEFUXcy2A=
-			</data>
-			<key>hash2</key>
-			<data>
-			llWVJZsL119zvfCNeeCNaTMXucYOIsPDGgANpNLJi90=
 			</data>
 		</dict>
 		<key>Modules/module.modulemap</key>

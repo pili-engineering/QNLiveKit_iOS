@@ -9,7 +9,7 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-@class QNIMMessageObject,QNGiftModel,QNLiveUser,QNInvitationModel,QNPKSession;
+@class QNIMMessageObject,QGiftModel,QNLiveUser,QInvitationModel,QNPKSession;
 
 //快速创建消息/信令
 @interface CreateSignalHandler : NSObject
@@ -29,7 +29,7 @@ NS_ASSUME_NONNULL_BEGIN
 - (QNIMMessageObject *)createCustomMessage:(NSString *)content;
 
 //礼物消息
-- (QNIMMessageObject *)createGiftMessage:(QNGiftModel *)giftModel number:(NSInteger)number extMsg:(NSString *)extMsg;
+- (QNIMMessageObject *)createGiftMessage:(QGiftModel *)giftModel number:(NSInteger)number extMsg:(NSString *)extMsg;
 
 //点赞消息
 - (QNIMMessageObject *)createLikeMessage:(NSString *)content;
@@ -65,10 +65,10 @@ NS_ASSUME_NONNULL_BEGIN
 - (QNIMMessageObject *)createCancelInviteMessageWithInvitationName:(NSString *)invitationName receiveRoomId:(NSString *)receiveRoomId receiveUser:(nonnull QNLiveUser *)receiveUser;
 
 //接受邀请信令
-- (QNIMMessageObject *)createAcceptInviteMessageWithInvitationName:(NSString *)invitationName invitationModel:(QNInvitationModel *)invitationModel;
+- (QNIMMessageObject *)createAcceptInviteMessageWithInvitationName:(NSString *)invitationName invitationModel:(QInvitationModel *)invitationModel;
 
 //拒绝邀请信令
-- (QNIMMessageObject *)createRejectInviteMessageWithInvitationName:(NSString *)invitationName invitationModel:(QNInvitationModel *)invitationModel;
+- (QNIMMessageObject *)createRejectInviteMessageWithInvitationName:(NSString *)invitationName invitationModel:(QInvitationModel *)invitationModel;
 
 //开始pk信令
 -(QNIMMessageObject *)createStartPKMessage:(QNPKSession *)pkSession singleMsg:(BOOL)singleMsg;

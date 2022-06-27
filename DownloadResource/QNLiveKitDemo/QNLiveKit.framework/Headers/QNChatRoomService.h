@@ -11,7 +11,7 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-@class PubChatModel,QNLiveUser,QNPKSession,QNInvitationModel,QNIMMessageObject,QNIMError;
+@class PubChatModel,QNLiveUser,QNPKSession,QInvitationModel,QNIMMessageObject,QNIMError;
 //聊天室监听
 @protocol QNChatRoomServiceListener <NSObject>
 @optional
@@ -47,18 +47,18 @@ NS_ASSUME_NONNULL_BEGIN
 - (void)onAdminRemoved:(NSString *)memberId reason:(NSString *)reason;
 
 //收到连麦邀请
-- (void)onReceiveLinkInvitation:(QNInvitationModel *)model;
+- (void)onReceiveLinkInvitation:(QInvitationModel *)model;
 //连麦邀请被接受
-- (void)onReceiveLinkInvitationAccept:(QNInvitationModel *)model;
+- (void)onReceiveLinkInvitationAccept:(QInvitationModel *)model;
 //连麦邀请被拒绝
-- (void)onReceiveLinkInvitationReject:(QNInvitationModel *)model;
+- (void)onReceiveLinkInvitationReject:(QInvitationModel *)model;
 
 //收到PK邀请
-- (void)onReceivePKInvitation:(QNInvitationModel *)model;
+- (void)onReceivePKInvitation:(QInvitationModel *)model;
 //PK邀请被接受
-- (void)onReceivePKInvitationAccept:(QNInvitationModel *)model;
+- (void)onReceivePKInvitationAccept:(QInvitationModel *)model;
 //PK邀请被拒绝
-- (void)onReceivePKInvitationReject:(QNInvitationModel *)model;
+- (void)onReceivePKInvitationReject:(QInvitationModel *)model;
 //收到开始跨房PK信令
 - (void)onReceiveStartPKSession:(QNPKSession *)pkSession;
 //收到停止跨房PK信令
@@ -82,14 +82,6 @@ NS_ASSUME_NONNULL_BEGIN
 - (void)sendWelComeMsg:(void (^)(QNIMMessageObject *msg))callBack;
 //发离开消息
 - (void)sendLeaveMsg;
-//发上麦消息
-- (void)sendOnMicMsg;
-//发下麦消息
-- (void)sendDownMicMsg;
-//发麦克风开关消息
-- (void)sendMicrophoneMute:(BOOL)mute;
-//发视频开关消息
-- (void)sendCameraMute:(BOOL)mute;
 //踢人
 - (void)kickUser:(NSString *)msg memberId:(NSString *)memberId;
 //禁言
@@ -99,17 +91,17 @@ NS_ASSUME_NONNULL_BEGIN
 //发送连麦申请
 - (void)sendLinkMicInvitation:(QNLiveUser *)receiveUser;
 //接受连麦申请
-- (void)sendLinkMicAccept:(QNInvitationModel *)invitationModel;
+- (void)sendLinkMicAccept:(QInvitationModel *)invitationModel;
 //拒绝连麦申请
-- (void)sendLinkMicReject:(QNInvitationModel *)invitationModel;
+- (void)sendLinkMicReject:(QInvitationModel *)invitationModel;
 
 #pragma mark ----PK消息
 //发送PK申请
 - (void)sendPKInvitation:(NSString *)receiveRoomId receiveUser:(QNLiveUser *)receiveUser;
 //接受PK申请
-- (void)sendPKAccept:(QNInvitationModel *)invitationModel;
+- (void)sendPKAccept:(QInvitationModel *)invitationModel;
 //拒绝PK申请
-- (void)sendPKReject:(QNInvitationModel *)invitationModel;
+- (void)sendPKReject:(QInvitationModel *)invitationModel;
 //开始pk信令 singleMsg：是否只发给对方主播
 -(void)createStartPKMessage:(QNPKSession *)pkSession singleMsg:(BOOL)singleMsg ;
 //结束pk信令
