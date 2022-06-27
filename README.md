@@ -100,7 +100,7 @@
     /// 开始直播
     - (void)startLive:(NSString *)roomID callBack:(nullable void (^)(QNLiveRoomInfo *_Nullable roomInfo))callBack;
     /// 停止直播
-    - (void)closeRoom:(NSString *)roomID;
+    - (void)closeRoom;
     
     //推流操作
     
@@ -120,29 +120,6 @@
     
     //获取混流器
     - (QMixStreamManager *)getMixStreamManager;
-    
-
-#### 混流器 QMixStreamManager
-
-    - (instancetype)initWithPushUrl:(NSString *)publishUrl client:(QNRTCClient *)client streamID:(NSString *)streamID;
-    //启动前台转推，默认实现推本地轨道
-    - (void)startForwardJob;
-    //停止前台推流
-    - (void)stopForwardJob;
-    //开始混流转推
-    - (void)startMixStreamJob;
-    //停止混流转推
-    - (void)stopMixStreamJob;
-    //设置混流参数
-    - (void)setMixParams:(QNMergeOption *)params;
-    //更新混流画布大小
-    - (void)updateMixStreamSize:(CGSize)size;
-    //设置某个音频track混流
-    - (void)updateUserAudioMixStreamingWithTrackId:(NSString *)trackId;
-    //设置某个视频track混流
-    - (void)updateUserVideoMixStreamingWithTrackId:(NSString *)trackId option:(CameraMergeOption *)option;
-    //删除某条track的混流
-    - (void)removeUserVideoMixStreamingWithTrackId:(NSString *)trackId;
 
 #### 观众操作
     
@@ -152,16 +129,7 @@
     /// 观众加入直播
     - (void)joinRoom:(NSString *)roomID callBack:(nullable void (^)(QNLiveRoomInfo *_Nullable roomInfo))callBack;
     /// 离开直播
-    - (void)leaveRoom:(NSString *)roomID;
-    
-    //观众需要上麦
-    
-    // 观众上麦  参数1：推流token 参数2:用户信息（json字符串）
-    [[QNLivePushClient createPushClient] joinLive:token userData:nil];
-    //观众下麦
-    [[QNLivePushClient createPushClient] LeaveLive];
-    
-    
+    - (void)leaveRoom;
     
 #### 房间操作
     
@@ -251,17 +219,14 @@
     //连麦服务
     @interface QNLinkMicService : QNLiveService
 
-    //初始化
-    - (instancetype)initWithLiveId:(NSString *)liveId;
-
     //获取当前房间所有连麦用户
     - (void)getAllLinker:(void (^)(NSArray <QNMicLinker *> *list))callBack;
 
     //上麦
-    - (void)onMic:(BOOL)mic camera:(BOOL)camera extends:(nullable NSDictionary *)extends callBack:(nullable void (^)(NSString *_Nullable rtcToken))callBack;
+    - (void)onMic:(BOOL)mic camera:(BOOL)camera extends:(nullable NSDictionary *)extends;
 
     //下麦
-    - (void)downMicCallBack:(nullable void (^)(QNMicLinker *mic))callBack;
+    - (void)downMic;
 
     //获取用户麦位状态
     - (void)getMicStatus:(NSString *)uid type:(NSString *)type callBack:(nullable void (^)(void))callBack;
@@ -270,7 +235,7 @@
     - (void)kickOutUser:(NSString *)uid msg:(nullable NSString *)msg callBack:(nullable void (^)(QNMicLinker * _Nullable))callBack ;
 
     //开关麦 type:mic/camera  flag:on/off
-    - (void)updateMicStatus:(NSString *)uid type:(NSString *)type flag:(BOOL)flag callBack:(nullable void (^)(QNMicLinker *mic))callBack;
+    - (void)updateMicStatus:(NSString *)uid type:(NSString *)type flag:(BOOL)flag;
 
     //更新扩展字段
     - (void)updateExtension:(NSString *)extension callBack:(nullable void (^)(QNMicLinker *mic))callBack;
@@ -318,14 +283,6 @@
     - (void)sendWelComeMsg:(void (^)(QNIMMessageObject *msg))callBack;
     //发离开消息
     - (void)sendLeaveMsg;
-    //发上麦消息
-    - (void)sendOnMicMsg;
-    //发下麦消息
-    - (void)sendDownMicMsg;
-    //发麦克风开关消息
-    - (void)sendMicrophoneMute:(BOOL)mute;
-    //发视频开关消息
-    - (void)sendCameraMute:(BOOL)mute;
     //踢人
     - (void)kickUser:(NSString *)msg memberId:(NSString *)memberId;
     //禁言
