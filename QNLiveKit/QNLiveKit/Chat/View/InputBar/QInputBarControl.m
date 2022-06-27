@@ -6,13 +6,13 @@
 //  Copyright © 2018年 罗骏. All rights reserved.
 //
 
-#import "QNInputBarControl.h"
-#import "QNInputView.h"
-#import "QNEmojiBoardView.h"
+#import "QInputBarControl.h"
+#import "QInputView.h"
+#import "QEmojiBoardView.h"
 
 #define HeightEmojBoardView 220.0f
 
-@interface QNInputBarControl ()<QNInputViewDelegate, QNEmojiViewDelegate>
+@interface QInputBarControl ()<QInputViewDelegate, QEmojiViewDelegate>
 
 /*!
  当前输入框状态
@@ -22,16 +22,16 @@
 /*!
  输入框
  */
-@property(nonatomic, strong) QNInputView *inputBoxView;
+@property(nonatomic, strong) QInputView *inputBoxView;
 
 /*!
  表情View
  */
-@property(nonatomic, strong) QNEmojiBoardView *emojiBoardView;
+@property(nonatomic, strong) QEmojiBoardView *emojiBoardView;
 
 @end
 
-@implementation QNInputBarControl
+@implementation QInputBarControl
 
 //  初始化
 - (id)initWithStatus:(RCCRBottomBarStatus)status {
@@ -130,7 +130,7 @@
 }
 
 //  点击发送
-- (void)didTouchKeyboardReturnKey:(QNInputView *)inputControl text:(NSString *)text {
+- (void)didTouchKeyboardReturnKey:(QInputView *)inputControl text:(NSString *)text {
     if([self.delegate respondsToSelector:@selector(onTouchSendButton:)]){
         [self.delegate onTouchSendButton:text];
     }
@@ -158,7 +158,7 @@
     }
 }
 
-- (void)didTouchEmojiView:(QNEmojiBoardView *)emojiView touchedEmoji:(NSString *)string {
+- (void)didTouchEmojiView:(QEmojiBoardView *)emojiView touchedEmoji:(NSString *)string {
 //    NSString *replaceString = string;
     if (string == nil) {
         [self.inputBoxView.inputTextView deleteBackward];
@@ -178,18 +178,18 @@
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(KeyboardWillHide:) name:UIKeyboardWillHideNotification object:nil];
 }
 
-- (QNInputView *)inputBoxView {
+- (QInputView *)inputBoxView {
     if (!_inputBoxView) {
-        _inputBoxView = [[QNInputView alloc] initWithStatus:RCCRBottomBarStatusDefault];
+        _inputBoxView = [[QInputView alloc] initWithStatus:RCCRBottomBarStatusDefault];
         [_inputBoxView setDelegate:self];
     }
     return _inputBoxView;
 }
 
 //表情区域控件
-- (QNEmojiBoardView *)emojiBoardView {
+- (QEmojiBoardView *)emojiBoardView {
     if (!_emojiBoardView) {
-        _emojiBoardView = [[QNEmojiBoardView alloc] init];
+        _emojiBoardView = [[QEmojiBoardView alloc] init];
         _emojiBoardView.delegate = self;
     }
     return _emojiBoardView;

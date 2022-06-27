@@ -1,5 +1,5 @@
 //
-//  QNLinkMicService.h
+//  QLinkMicService.h
 //  QNLiveKit
 //
 //  Created by 郭茜 on 2022/5/24.
@@ -13,7 +13,7 @@
 NS_ASSUME_NONNULL_BEGIN
 
 //连麦服务
-@interface QNLinkMicService : QNLiveService
+@interface QLinkMicService : QNLiveService
 
 //初始化
 - (instancetype)initWithLiveId:(NSString *)liveId;

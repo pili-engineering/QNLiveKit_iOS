@@ -1,17 +1,17 @@
 //
-//  QNEmojiBoardView.m
+//  QEmojiBoardView.m
 //  ChatRoom
 //
 //  Created by 罗骏 on 2018/5/11.
 //  Copyright © 2018年 罗骏. All rights reserved.
 //
 
-#import "QNEmojiBoardView.h"
-#import "QNEmojiCollectionCell.h"
+#import "QEmojiBoardView.h"
+#import "QEmojiCollectionCell.h"
 
 static NSString * const emojiCollectionViewCellIdentify = @"emojiCollectionViewCellIdentify";
 
-@interface QNEmojiBoardView ()<UIScrollViewDelegate, UICollectionViewDelegate, UICollectionViewDataSource>
+@interface QEmojiBoardView ()<UIScrollViewDelegate, UICollectionViewDelegate, UICollectionViewDataSource>
 
 /**
  表情容器的View
@@ -49,7 +49,7 @@ static NSString * const emojiCollectionViewCellIdentify = @"emojiCollectionViewC
 
 @end
 
-@implementation QNEmojiBoardView
+@implementation QEmojiBoardView
 
 - (instancetype)init {
     self = [super init];
@@ -99,9 +99,9 @@ static NSString * const emojiCollectionViewCellIdentify = @"emojiCollectionViewC
 }
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
-    QNEmojiCollectionCell * cell = [collectionView dequeueReusableCellWithReuseIdentifier:emojiCollectionViewCellIdentify forIndexPath:indexPath];
+    QEmojiCollectionCell * cell = [collectionView dequeueReusableCellWithReuseIdentifier:emojiCollectionViewCellIdentify forIndexPath:indexPath];
     if (!cell) {
-        cell = [[QNEmojiCollectionCell alloc] init];
+        cell = [[QEmojiCollectionCell alloc] init];
     }
     if (indexPath.row == 23) {
         //  展示删除图案
@@ -204,7 +204,7 @@ static NSString * const emojiCollectionViewCellIdentify = @"emojiCollectionViewC
         [_emojiContentView setShowsHorizontalScrollIndicator:NO];
         [_emojiContentView setDelegate:self];
         [_emojiContentView setDataSource:self];
-        [_emojiContentView registerClass:[QNEmojiCollectionCell class] forCellWithReuseIdentifier:emojiCollectionViewCellIdentify];
+        [_emojiContentView registerClass:[QEmojiCollectionCell class] forCellWithReuseIdentifier:emojiCollectionViewCellIdentify];
         [_emojiContentView setBackgroundColor:[UIColor whiteColor]];
     }
     return _emojiContentView;

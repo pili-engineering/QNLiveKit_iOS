@@ -6,7 +6,7 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "QNInputBarControl.h"
+#import "QInputBarControl.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
@@ -37,7 +37,7 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  输入工具栏
  */
-@property(nonatomic,strong) QNInputBarControl *inputBar;
+@property(nonatomic,strong) QInputBarControl *inputBar;
 
 /**
  底部按钮容器，底部的四个按钮都添加在此view上

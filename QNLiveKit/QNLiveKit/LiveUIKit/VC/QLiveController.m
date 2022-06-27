@@ -11,23 +11,23 @@
 #import "RoomHostView.h"
 #import "OnlineUserView.h"
 #import "BottomMenuView.h"
-#import "QNLinkMicService.h"
+#import "QLinkMicService.h"
 #import "QNChatRoomService.h"
 #import "LiveChatRoom.h"
 #import "QNLiveRoomInfo.h"
 #import "QNMergeOption.h"
 #import "QAlertView.h"
-#import "QNInvitationModel.h"
+#import "QInvitationModel.h"
 #import "QRenderView.h"
 #import "QLive.h"
 #import "QNLiveUser.h"
 #import "QNInvitationMemberListController.h"
-#import "QNPKService.h"
+#import "QPKService.h"
 #import "LinkInvitation.h"
 #import <QNRTCKit/QNRTCKit.h>
 #import "FDanmakuView.h"
 #import "FDanmakuModel.h"
-#import "QNIMModel.h"
+#import "QIMModel.h"
 #import "PubChatModel.h"
 #import "QToastView.h"
 #import <QNIMSDK/QNIMSDK.h>
@@ -198,7 +198,7 @@
 }
 
 - (void)didSendMessageModel:(QNIMMessageObject *)model {
-    QNIMModel *imModel = [QNIMModel mj_objectWithKeyValues:model.content.mj_keyValues];
+    QIMModel *imModel = [QIMModel mj_objectWithKeyValues:model.content.mj_keyValues];
     PubChatModel *chatModel = [PubChatModel mj_objectWithKeyValues:imModel.data];
     if ([chatModel.action isEqualToString:living_danmu]) {
         FDanmakuModel *danmuModel = [[FDanmakuModel alloc]init];
@@ -232,7 +232,7 @@
 }
 
 //接受到连麦邀请
-- (void)onReceiveLinkInvitation:(QNInvitationModel *)model {
+- (void)onReceiveLinkInvitation:(QInvitationModel *)model {
     NSString *title = [model.invitation.msg.initiator.nick stringByAppendingString:@"申请加入连麦，是否同意？"];
     [QAlertView showBaseAlertWithTitle:title content:@"" handler:^(UIAlertAction * _Nonnull action) {
         [self.chatService sendLinkMicAccept:model];
@@ -240,7 +240,7 @@
 }
 
 //接收到pk邀请
-- (void)onReceivePKInvitation:(QNInvitationModel *)model {
+- (void)onReceivePKInvitation:(QInvitationModel *)model {
     NSString *title = [model.invitation.msg.initiator.nick stringByAppendingString:@"邀请您PK，是否同意？"];
     [QAlertView showBaseAlertWithTitle:title content:@"" handler:^(UIAlertAction * _Nonnull action) {        
         [self.chatService sendPKAccept:model];
@@ -248,7 +248,7 @@
 }
 
 //收到同意pk邀请
-- (void)onReceivePKInvitationAccept:(QNInvitationModel *)model {
+- (void)onReceivePKInvitationAccept:(QInvitationModel *)model {
     
     [QToastView showToast:@"对方主播同意pk"];
     

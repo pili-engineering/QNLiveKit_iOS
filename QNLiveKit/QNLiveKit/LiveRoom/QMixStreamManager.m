@@ -74,6 +74,7 @@
                 
 }
 
+//移除用户的混流
 - (void)removeUserVideoMixStreamingWithTrackId:(NSString *)trackId {
     QNTranscodingLiveStreamingTrack *layout = [[QNTranscodingLiveStreamingTrack alloc] init];
     layout.trackID = trackId;

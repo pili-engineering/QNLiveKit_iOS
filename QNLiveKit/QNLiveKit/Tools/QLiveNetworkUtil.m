@@ -1,18 +1,18 @@
 //
-//  QNLiveNetworkUtil.m
+//  QLiveNetworkUtil.m
 //  QNLiveKit
 //
 //  Created by 郭茜 on 2022/5/24.
 //
 
-#import "QNLiveNetworkUtil.h"
+#import "QLiveNetworkUtil.h"
 //#import <YYCategories/YYCategories.h>
 #import <AFNetworking/AFNetworking.h>
 
 NSString *const ResponseErrorKey = @"com.alamofire.serialization.response.error.response";
 NSInteger const Interval = 8;
 
-@implementation QNLiveNetworkUtil
+@implementation QLiveNetworkUtil
 
 + (AFHTTPSessionManager *)manager {
     
@@ -49,7 +49,7 @@ NSInteger const Interval = 8;
 + (void)getRequestWithAction:(NSString *)action params:(nullable NSDictionary *)params success:(SuccessBlock)success failure:(FailureBlock)failure {
         
     NSString *requestUrl = [[NSString alloc]initWithFormat:MAINAPI,action];
-    AFHTTPSessionManager *manager = [QNLiveNetworkUtil manager];
+    AFHTTPSessionManager *manager = [QLiveNetworkUtil manager];
     
     [manager GET:requestUrl parameters:params headers:nil progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
         NSLog(@"\n GET\n action : %@ \n HTTPRequestHeaders:%@ \n params:%@ \n responseObject = %@",requestUrl,manager.requestSerializer.HTTPRequestHeaders,params,responseObject);
@@ -104,7 +104,7 @@ NSInteger const Interval = 8;
 
 + (void)postRequestWithAction:(NSString *)action params:(nullable NSDictionary *)params success:(SuccessBlock)success failure:(FailureBlock)failure {
     
-    AFHTTPSessionManager *manager = [QNLiveNetworkUtil manager];
+    AFHTTPSessionManager *manager = [QLiveNetworkUtil manager];
     NSString *requestUrl = [[NSString alloc]initWithFormat:MAINAPI,action];
     
     [manager POST:requestUrl parameters:params headers:nil progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
@@ -165,7 +165,7 @@ NSInteger const Interval = 8;
 
 + (void)deleteRequestWithAction:(NSString *)action params:(nullable NSDictionary *)params success:(SuccessBlock)success failure:(FailureBlock)failure {
     
-    AFHTTPSessionManager *manager = [QNLiveNetworkUtil manager];
+    AFHTTPSessionManager *manager = [QLiveNetworkUtil manager];
     NSString *requestUrl = [[NSString alloc]initWithFormat:MAINAPI,action];
     
     [manager DELETE:requestUrl parameters:params headers:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
@@ -186,7 +186,7 @@ NSInteger const Interval = 8;
 
 + (void)putRequestWithAction:(NSString *)action params:(nullable NSDictionary *)params success:(SuccessBlock)success failure:(FailureBlock)failure {
     
-    AFHTTPSessionManager *manager = [QNLiveNetworkUtil manager];
+    AFHTTPSessionManager *manager = [QLiveNetworkUtil manager];
     NSString *requestUrl = [[NSString alloc]initWithFormat:MAINAPI,action];
     
     [manager PUT:requestUrl parameters:params headers:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
@@ -209,7 +209,7 @@ NSInteger const Interval = 8;
     if ([responseObject[@"code"] isEqualToNumber:@(499)]) {
         
         NSString *action = [NSString stringWithFormat:@"live/auth_token?userID=%@&deviceID=1111",QN_User_id];
-        [QNLiveNetworkUtil getRequestWithAction:action params:nil success:^(NSDictionary * _Nonnull responseData) {
+        [QLiveNetworkUtil getRequestWithAction:action params:nil success:^(NSDictionary * _Nonnull responseData) {
             
             NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
             [defaults setObject:responseData[@"accessToken"] forKey:Live_Token];
@@ -227,7 +227,7 @@ NSInteger const Interval = 8;
     
     if (error.code == 401) {
         NSString *action = [NSString stringWithFormat:@"live/auth_token?userID=%@&deviceID=1111",QN_User_id];
-        [QNLiveNetworkUtil getRequestWithAction:action params:nil success:^(NSDictionary * _Nonnull responseData) {
+        [QLiveNetworkUtil getRequestWithAction:action params:nil success:^(NSDictionary * _Nonnull responseData) {
             
             NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
             [defaults setObject:responseData[@"accessToken"] forKey:Live_Token];

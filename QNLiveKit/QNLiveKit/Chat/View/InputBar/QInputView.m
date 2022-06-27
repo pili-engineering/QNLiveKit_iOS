@@ -1,18 +1,18 @@
 //
-//  QNInputView.m
+//  QInputView.m
 //  ChatRoom
 //
 //  Created by 罗骏 on 2018/5/11.
 //  Copyright © 2018年 罗骏. All rights reserved.
 //
 
-#import "QNInputView.h"
+#import "QInputView.h"
 
-@interface QNInputView () <UITextViewDelegate>
+@interface QInputView () <UITextViewDelegate>
 
 @end
 
-@implementation QNInputView
+@implementation QInputView
 
 //  初始化
 - (id)initWithStatus:(RCCRBottomBarStatus)status {

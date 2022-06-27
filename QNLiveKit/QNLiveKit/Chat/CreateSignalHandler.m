@@ -6,15 +6,15 @@
 //
 
 #import "CreateSignalHandler.h"
-#import "QNInvitationModel.h"
-#import "QNGiftMsgModel.h"
-#import "QNIMModel.h"
+#import "QInvitationModel.h"
+#import "QGiftMsgModel.h"
+#import "QIMModel.h"
 #import <QNIMSDK/QNIMSDK.h>
 #import "PubChatModel.h"
 #import "QNMicLinker.h"
 #import "LinkOptionModel.h"
 #import "LinkInvitation.h"
-#import "QNIMModel.h"
+#import "QIMModel.h"
 #import "QNPKSession.h"
 
 @interface CreateSignalHandler ()
@@ -40,7 +40,7 @@
     
     PubChatModel *model = [self messageWithAction:liveroom_welcome content:@"加入房间"];
     
-    QNIMModel *messageModel = [QNIMModel new];
+    QIMModel *messageModel = [QIMModel new];
     messageModel.action = liveroom_welcome;
     messageModel.data = model.mj_keyValues;
     
@@ -54,7 +54,7 @@
     
     PubChatModel *model = [self messageWithAction:liveroom_bye_bye content:@"离开房间"];
     
-    QNIMModel *messageModel = [QNIMModel new];
+    QIMModel *messageModel = [QIMModel new];
     messageModel.action = liveroom_welcome;
     messageModel.data = model.mj_keyValues;
     
@@ -68,7 +68,7 @@
     
     PubChatModel *model = [self messageWithAction:liveroom_pubchat content:content];
     
-    QNIMModel *messageModel = [QNIMModel new];
+    QIMModel *messageModel = [QIMModel new];
     messageModel.action = liveroom_pubchat;
     messageModel.data = model.mj_keyValues;
     
@@ -82,7 +82,7 @@
     
     PubChatModel *model = [self messageWithAction:liveroom_like content:content];
     
-    QNIMModel *messageModel = [QNIMModel new];
+    QIMModel *messageModel = [QIMModel new];
     messageModel.action = liveroom_pubchat;
     messageModel.data = model.mj_keyValues;
     
@@ -96,7 +96,7 @@
     
     PubChatModel *model = [self messageWithAction:liveroom_pubchat_custom content:content];
     
-    QNIMModel *messageModel = [QNIMModel new];
+    QIMModel *messageModel = [QIMModel new];
     messageModel.action = liveroom_pubchat;
     messageModel.data = model.mj_keyValues;
     
@@ -110,7 +110,7 @@
 
     PubChatModel *model = [self messageWithAction:living_danmu content:content];
     
-    QNIMModel *messageModel = [QNIMModel new];
+    QIMModel *messageModel = [QIMModel new];
     messageModel.action = living_danmu;
     messageModel.data = model.mj_keyValues;
     
@@ -121,9 +121,9 @@
 }
 
 //生成礼物消息
-- (QNIMMessageObject *)createGiftMessage:(QNGiftModel *)giftModel number:(NSInteger)number extMsg:(NSString *)extMsg {
+- (QNIMMessageObject *)createGiftMessage:(QGiftModel *)giftModel number:(NSInteger)number extMsg:(NSString *)extMsg {
     
-    QNGiftMsgModel *giftMsgModel = [QNGiftMsgModel new];
+    QGiftMsgModel *giftMsgModel = [QGiftMsgModel new];
     giftMsgModel.senderUid = QN_User_id;
     giftMsgModel.senderName = QN_User_nickname;
     giftMsgModel.senderAvatar = QN_User_avatar;
@@ -132,7 +132,7 @@
     giftMsgModel.number = number;
     giftMsgModel.extMsg = extMsg;
     
-    QNIMModel *model = [QNIMModel new];
+    QIMModel *model = [QIMModel new];
     model.action = @"living_gift";
     model.data = giftMsgModel.mj_keyValues;
     
@@ -160,7 +160,7 @@
     model.uid = uid;
     model.msg = msg;
 
-    QNIMModel *messageModel = [QNIMModel new];
+    QIMModel *messageModel = [QIMModel new];
     messageModel.action = liveroom_miclinker_kick;
     messageModel.data = model.mj_keyValues;
     
@@ -176,7 +176,7 @@
     model.uid = QN_User_id;
     model.mute = !openAudio;
 
-    QNIMModel *messageModel = [QNIMModel new];
+    QIMModel *messageModel = [QIMModel new];
     messageModel.action = liveroom_miclinker_microphone_mute;
     messageModel.data = model.mj_keyValues;
     
@@ -191,7 +191,7 @@
     model.uid = QN_User_id;
     model.mute = !openVideo;
 
-    QNIMModel *messageModel = [QNIMModel new];
+    QIMModel *messageModel = [QIMModel new];
     messageModel.action = liveroom_miclinker_camera_mute;
     messageModel.data = model.mj_keyValues;
     
@@ -207,7 +207,7 @@
     model.uid = userId;
     model.mute = isForbidden;
 
-    QNIMModel *messageModel = [QNIMModel new];
+    QIMModel *messageModel = [QIMModel new];
     messageModel.action = liveroom_miclinker_microphone_forbidden;
     messageModel.data = model.mj_keyValues;
     
@@ -223,7 +223,7 @@
     model.uid = userId;
     model.mute = isForbidden;
 
-    QNIMModel *messageModel = [QNIMModel new];
+    QIMModel *messageModel = [QIMModel new];
     messageModel.action = liveroom_miclinker_camera_forbidden;
     messageModel.data = model.mj_keyValues;
     
@@ -247,13 +247,13 @@
 }
 
 //发送接受邀请信令
-- (QNIMMessageObject *)createAcceptInviteMessageWithInvitationName:(NSString *)invitationName invitationModel:(QNInvitationModel *)invitationModel {
+- (QNIMMessageObject *)createAcceptInviteMessageWithInvitationName:(NSString *)invitationName invitationModel:(QInvitationModel *)invitationModel {
     QNIMMessageObject *message = [self createDealInvitationMessageWithAction:invite_accept invitationModel:invitationModel];
     return message;
 }
 
 //发送拒绝邀请信令
-- (QNIMMessageObject *)createRejectInviteMessageWithInvitationName:(NSString *)invitationName invitationModel:(QNInvitationModel *)invitationModel{
+- (QNIMMessageObject *)createRejectInviteMessageWithInvitationName:(NSString *)invitationName invitationModel:(QInvitationModel *)invitationModel{
     
     QNIMMessageObject *message = [self createDealInvitationMessageWithAction:invite_reject invitationModel:invitationModel];
     return message;
@@ -262,7 +262,7 @@
 //开始pk
 -(QNIMMessageObject *)createStartPKMessage:(QNPKSession *)pkSession singleMsg:(BOOL)singleMsg {
     
-    QNIMModel *model = [QNIMModel new];
+    QIMModel *model = [QIMModel new];
     model.action = liveroom_pk_start;
     model.data = pkSession.mj_keyValues;
     
@@ -280,7 +280,7 @@
 //结束pk
 - (QNIMMessageObject *)createStopPKMessage:(QNPKSession *)pkSession{
     
-    QNIMModel *model = [QNIMModel new];
+    QIMModel *model = [QIMModel new];
     model.action = liveroom_pk_stop;
     model.data = pkSession.mj_keyValues;
     
@@ -289,9 +289,9 @@
     return message;
 }
 
-- (QNIMMessageObject *)createDealInvitationMessageWithAction:(NSString *)action invitationModel:(QNInvitationModel *)invitationModel {
+- (QNIMMessageObject *)createDealInvitationMessageWithAction:(NSString *)action invitationModel:(QInvitationModel *)invitationModel {
     
-    QNIMModel *model = [QNIMModel new];
+    QIMModel *model = [QIMModel new];
     model.action = action;
     model.data = invitationModel.mj_keyValues;
 
@@ -309,18 +309,18 @@
     link.initiatorRoomId = self.roomId;
     link.receiverRoomId = receiveRoomId;
     
-    QNInvitationInfo *info = [QNInvitationInfo new];
+    QInvitationInfo *info = [QInvitationInfo new];
 //    info.channelId = self.toId;
     info.initiatorUid = QN_User_id;
     info.msg = link;
 //    info.receiver =  receiverId;
     info.timeStamp = [self getNowTimeTimestamp3];
     
-    QNInvitationModel *invitationData = [QNInvitationModel new];
+    QInvitationModel *invitationData = [QInvitationModel new];
     invitationData.invitationName = invitationName;
     invitationData.invitation = info;
     
-    QNIMModel *model = [QNIMModel new];
+    QIMModel *model = [QIMModel new];
     model.action = action;
     model.data = invitationData.mj_keyValues;
     
@@ -353,7 +353,7 @@
     mic.mic = openAudio;
     mic.userRoomId = self.roomId;
     
-    QNIMModel *messageModel = [QNIMModel new];
+    QIMModel *messageModel = [QIMModel new];
     messageModel.action = action;
     if ([action isEqualToString:liveroom_miclinker_join]) {
         messageModel.data = mic.mj_keyValues;

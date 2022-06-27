@@ -1,5 +1,5 @@
 //
-//  QNLiveNetworkUtil.h
+//  QLiveNetworkUtil.h
 //  QNLiveKit
 //
 //  Created by 郭茜 on 2022/5/24.
@@ -12,7 +12,7 @@ NS_ASSUME_NONNULL_BEGIN
 typedef void (^SuccessBlock)(NSDictionary *responseData);
 typedef void (^FailureBlock)(NSError *error);
 
-@interface QNLiveNetworkUtil : NSObject
+@interface QLiveNetworkUtil : NSObject
 
 + (void)getRequestWithAction:(NSString *)action params:(nullable NSDictionary *)params success:(SuccessBlock)success failure:(FailureBlock)failure;
 + (void)postRequestWithAction:(NSString *)action params:(nullable NSDictionary *)params success:(SuccessBlock)success failure:(FailureBlock)failure;
