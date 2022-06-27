@@ -45,25 +45,20 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, strong) QNRTCClient *rtcClient;
 
 @property (nonatomic, weak) id <QNPushClientListener> pushClientListener;
-
+//本地音频track
 @property (nonatomic, strong) QNMicrophoneAudioTrack *localAudioTrack;
+//本地视频track
 @property (nonatomic, strong) QNCameraVideoTrack *localVideoTrack;
 
-@property (nonatomic, strong) NSMutableArray <QNRemoteVideoTrack *> *remoteCameraTracks;
-@property (nonatomic, strong) NSMutableArray <QNRemoteAudioTrack *> *remoteAudioTracks;
-
+//初始化
 + (instancetype)createPushClient;
+//销毁
 - (void)destroy;
 
-/// 作为主播开始直播
+// 主播开始直播
 - (void)startLive:(NSString *)roomID callBack:(nullable void (^)(QNLiveRoomInfo *_Nullable roomInfo))callBack;
-/// 作为主播停止直播
-- (void)closeRoom:(NSString *)roomID;
-
-// 作为观众加入直播
-- (void)joinLive:(NSString *)token userData:(NSString *)userData;
-// 作为观众离开直播
-- (void)LeaveLive;
+// 主播停止直播
+- (void)closeRoom;
 
 #pragma mark ---- 推流
 
@@ -81,7 +76,6 @@ NS_ASSUME_NONNULL_BEGIN
 - (void)setVideoFrameListener:(id<QNLocalVideoTrackDelegate>)listener;
 
 #pragma mark ---- 获取混流器
-
 - (QMixStreamManager *)getMixStreamManager;
 
 @end

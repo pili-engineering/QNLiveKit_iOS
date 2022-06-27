@@ -77,7 +77,8 @@
 
 - (QLinkMicService *)linkService {
     if (!_linkService) {
-        _linkService = [[QLinkMicService alloc] initWithLiveId:self.roomInfo.live_id];
+        _linkService = [[QLinkMicService alloc] init];
+        _linkService.roomInfo = self.roomInfo;
     }
     return _linkService;
 }

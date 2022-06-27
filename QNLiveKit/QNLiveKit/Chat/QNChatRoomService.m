@@ -122,25 +122,7 @@
     
 }
 
-- (void)sendOnMicMsg {
-    QNIMMessageObject *message = [self.creater  createOnMicMessage];
-    [[QNIMChatService sharedOption] sendMessage:message];
-}
 
-- (void)sendDownMicMsg {
-    QNIMMessageObject *message = [self.creater  createDownMicMessage];
-    [[QNIMChatService sharedOption] sendMessage:message];
-}
-
-- (void)sendMicrophoneMute:(BOOL)mute {
-    QNIMMessageObject *message = [self.creater  createMicStatusMessage:!mute];
-    [[QNIMChatService sharedOption] sendMessage:message];
-    
-}
-- (void)sendCameraMute:(BOOL)mute {
-    QNIMMessageObject *message = [self.creater  createCameraStatusMessage:!mute];
-    [[QNIMChatService sharedOption] sendMessage:message];
-}
 
 //发送连麦邀请
 - (void)sendLinkMicInvitation:(QNLiveUser *)receiveUser {

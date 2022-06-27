@@ -155,23 +155,13 @@
 }
 
 //连麦邀请被接受
-- (void)onReceiveLinkInvitationAccept:(QNInvitationModel *)model {
+- (void)onReceiveLinkInvitationAccept:(QInvitationModel *)model {
     [QToastView showToast:@"主播同意了你的连麦申请"];
-    __weak typeof(self)weakSelf = self;
     [QLive createPusherClient].pushClientListener = self;
-    [self.linkService onMic:YES camera:YES extends:nil callBack:^(NSString * _Nonnull rtcToken) {
+    [self.linkService onMic:YES camera:YES extends:nil];
         [self stopPlay];
         [[QLive createPusherClient] enableCamera:nil renderView:self.preview];
-
-        QNMicLinker *mic = [QNMicLinker new];
-        mic.user = self.user;
-        mic.camera = YES;
-        mic.mic = YES;
-        mic.userRoomId = self.roomInfo.live_id;
-        
-        [[QLive createPusherClient] joinLive:rtcToken userData:mic.mj_JSONString];
-        [weakSelf.chatService sendOnMicMsg];
-    }];
+    
 }
 
 //收到开始pk信令
@@ -322,24 +312,22 @@
     __weak typeof(self)weakSelf = self;
     _linkSView.microphoneBlock = ^(BOOL mute) {
         [[QLive createPusherClient] muteMicrophone:mute];
-        [weakSelf.chatService sendMicrophoneMute:mute];
+        
+        [weakSelf.linkService updateMicStatusType:@"mic" flag:!mute];
+        
     };
     _linkSView.cameraBlock = ^(BOOL mute) {
-        [[QLive createPusherClient] muteCamera:mute];
-        [weakSelf.chatService sendCameraMute:mute];
+        [weakSelf.linkService updateMicStatusType:@"camera" flag:!mute];
     };
     _linkSView.clickBlock = ^(BOOL selected){
-        [[QLive createPusherClient] LeaveLive];
+        
+        [weakSelf.linkService downMic];
         weakSelf.preview.frame = CGRectZero;
         for (QRenderView *userView in weakSelf.renderBackgroundView.subviews) {
             if ([userView.class isEqual:[QRenderView class]]) {
                 [userView removeFromSuperview];
             }
         }
-        [weakSelf.linkService downMicCallBack:^(QNMicLinker * _Nonnull mic) {
-                    
-        }];
-        [weakSelf.chatService sendDownMicMsg];
         [weakSelf playWithUrl:weakSelf.roomInfo.rtmp_url];
         NSLog(@"点击了结束连麦");
     };

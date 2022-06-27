@@ -45,7 +45,7 @@
 
 - (void)viewDidDisappear:(BOOL)animated {
     [self.chatService removeChatServiceListener];
-    [[QLive createPusherClient] closeRoom:self.roomInfo.live_id];
+    [[QLive createPusherClient] closeRoom];
 }
 
 - (void)viewDidLoad {
@@ -92,7 +92,7 @@
 
         } else if (state == QNConnectionStateDisconnected) {
             [self.chatService sendLeaveMsg];
-            [[QLive createPusherClient] closeRoom:self.roomInfo.live_id];
+            [[QLive createPusherClient] closeRoom];
             [QToastView showToast:@"您已离线"];
             [self dismissViewControllerAnimated:YES completion:nil];
             
