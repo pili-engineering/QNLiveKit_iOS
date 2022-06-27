@@ -5,11 +5,7 @@
 ### qlive-sdk是七牛云推出的一款互动直播低代码解决方案sdk。只需几行代码快速接入互动连麦pk直播。
 
 
-## SDK接入
-
-### SDK下载地址
-    
-    https://sdk-release.qnsdk.com/qn_livekit-1.0.1.zip
+## SDK接入    
     
 ### 配置依赖 
 
