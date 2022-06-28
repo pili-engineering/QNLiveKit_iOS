@@ -180,7 +180,8 @@
 
 //踢人
 - (void)kickUser:(NSString *)msg memberId:(NSString *)memberId{
-    
+    QNIMMessageObject *message = [self.creater createKickMessage:memberId msg:msg];
+    [[QNIMChatService sharedOption] sendMessage:message];
 }
 //禁言
 - (void)muteUser:(NSString *)msg memberId:(NSString *)memberId duration:(long long)duration isMute:(BOOL)isMute {
