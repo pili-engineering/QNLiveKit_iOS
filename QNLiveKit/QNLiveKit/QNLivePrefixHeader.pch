@@ -66,6 +66,10 @@
 #define invite_accept  @"invite_accept"
 #define invite_reject  @"invite_reject"
 
+#pragma mark -----NotificationName
+
+#define ReceiveIMMessageNotification @"ReceiveIMMessageNotification"
+
 #pragma mark ----------API
 //线上
 #define MAINAPI @"https://live-api.qiniu.com/%@"

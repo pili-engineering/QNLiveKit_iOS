@@ -25,7 +25,7 @@
 #import <QNIMSDK/QNIMSDK.h>
 #import "QLinkMicService.h"
 
-@interface QNAudienceController ()<QNChatRoomServiceListener,QNPushClientListener,LiveChatRoomViewDelegate,FDanmakuViewProtocol,PLPlayerDelegate>
+@interface QNAudienceController ()<QNChatRoomServiceListener,QNPushClientListener,LiveChatRoomViewDelegate,FDanmakuViewProtocol,PLPlayerDelegate,MicLinkerListener>
 
 @property (nonatomic, strong) PLPlayer *player;
 
@@ -47,6 +47,7 @@
     [super viewDidLoad];
     __weak typeof(self)weakSelf = self;
     [self.chatService addChatServiceListener:self];
+    self.linkService.micLinkerListener = self;
     self.chatRoomView.delegate = self;
     self.danmakuView.delegate = self;
     [[QLive createPlayerClient] joinRoom:self.roomInfo.live_id callBack:^(QNLiveRoomInfo * _Nonnull roomInfo) {
@@ -276,7 +277,7 @@
         [link bundleNormalImage:@"link" selectImage:@"link"];
         link.clickBlock = ^(BOOL selected){
             
-            [weakSelf.chatService sendLinkMicInvitation:weakSelf.roomInfo.anchor_info];
+            [weakSelf.linkService ApplyLink:weakSelf.roomInfo.anchor_info];
             [QToastView showToast:@"连麦申请已发送"];
             NSLog(@"点击了连麦");
         };
