@@ -9,11 +9,13 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
+@class QNLiveRoomInfo;
+
 //service基类
 
 @interface QNLiveService : NSObject
 
-@property (nonatomic, copy)NSString *liveId;
+@property (nonatomic, strong) QNLiveRoomInfo *roomInfo;
 
 @end
 

@@ -16,8 +16,6 @@ NS_ASSUME_NONNULL_BEGIN
 //连麦服务
 @interface QLinkMicService : QNLiveService
 
-@property (nonatomic, strong) QNLiveRoomInfo *roomInfo;
-
 //获取当前房间所有连麦用户
 - (void)getAllLinker:(void (^)(NSArray <QNMicLinker *> *list))callBack;
 

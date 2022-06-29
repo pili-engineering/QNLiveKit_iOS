@@ -10,18 +10,19 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-@class QNLiveRoomInfo,QNLivePushClient,QNLiveRoomClient,QNChatRoomService,LiveChatRoom,QLinkMicService,QNMergeOption,QPKService,QRenderView,FDanmakuView;
+@class QNLiveRoomInfo,QNLivePushClient,QNLiveRoomClient,QNChatRoomService,LiveChatRoom,QNMergeOption,QPKService,QRenderView,FDanmakuView,QLinkMicService;
 
 @interface QNBaseRTCController : UIViewController
 
 @property (nonatomic, strong) QRenderView *preview;//自己画面的预览视图
 @property (nonatomic, strong) UIView *renderBackgroundView;//上面只能添加视频流画面
 @property (nonatomic,strong) QNLiveRoomInfo *roomInfo;
-@property (nonatomic, strong) QNChatRoomService *_Nullable chatService;
+@property (nonatomic, strong) QNChatRoomService * chatService;
 @property (nonatomic, strong) LiveChatRoom *chatRoomView;
 @property (nonatomic, strong) FDanmakuView *danmakuView;
-@property (nonatomic, strong) QLinkMicService *_Nullable linkService;
-@property (nonatomic, strong) QPKService *_Nullable pkService;
+@property (nonatomic, strong) QPKService * pkService;
+@property (nonatomic, strong) QLinkMicService *linkService;
+
 
 //获取某人的画面
 - (QRenderView *)getUserView:(NSString *)uid;
