@@ -32,7 +32,7 @@
 #import "QToastView.h"
 #import <QNIMSDK/QNIMSDK.h>
 
-@interface QLiveController ()<QNPushClientListener,QNRoomLifeCycleListener,QNPushClientListener,QNChatRoomServiceListener,FDanmakuViewProtocol,LiveChatRoomViewDelegate>
+@interface QLiveController ()<QNPushClientListener,QNRoomLifeCycleListener,QNPushClientListener,QNChatRoomServiceListener,FDanmakuViewProtocol,LiveChatRoomViewDelegate,MicLinkerListener>
 
 @property (nonatomic, strong) QNLiveRoomInfo *selectPkRoomInfo;
 @property (nonatomic, strong) QNPKSession *pkSession;//正在进行的pk
@@ -53,6 +53,7 @@
     __weak typeof(self)weakSelf = self;
     [[QLive createPusherClient] enableCamera:nil renderView:self.preview];
     [QLive createPusherClient].pushClientListener = self;
+    self.linkService.micLinkerListener = self;
     self.danmakuView.delegate = self;
     self.chatRoomView.delegate = self;
     [self.chatService addChatServiceListener:self];
@@ -237,7 +238,7 @@
 - (void)onReceiveLinkInvitation:(QInvitationModel *)model {
     NSString *title = [model.invitation.msg.initiator.nick stringByAppendingString:@"申请加入连麦，是否同意？"];
     [QAlertView showBaseAlertWithTitle:title content:@"" handler:^(UIAlertAction * _Nonnull action) {
-        [self.chatService sendLinkMicAccept:model];
+        [self.linkService AcceptLink:model];
     }];
 }
 

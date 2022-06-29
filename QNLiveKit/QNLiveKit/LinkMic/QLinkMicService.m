@@ -15,6 +15,9 @@
 #import "QNLiveRoomInfo.h"
 #import "CreateSignalHandler.h"
 #import "QNLivePushClient.h"
+#import "QIMModel.h"
+#import "LinkOptionModel.h"
+#import "QInvitationModel.h"
 
 @interface QLinkMicService ()
 
@@ -23,6 +26,101 @@
 @end
 
 @implementation QLinkMicService
+
+- (instancetype)init {
+    if (self = [super init]) {
+        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(receiveIMMessageNotification:) name:ReceiveIMMessageNotification object:nil];
+    }
+    return self;
+}
+
+- (void)receiveIMMessageNotification:(NSNotification *)notice {
+    NSDictionary *dic = notice.userInfo;
+    QIMModel *imModel = [QIMModel mj_objectWithKeyValues:dic.mj_keyValues];
+    
+    if ([imModel.action isEqualToString:liveroom_miclinker_join]) {
+        //上麦消息
+        QNMicLinker *model = [QNMicLinker mj_objectWithKeyValues:imModel.data];
+        
+        if ([self.micLinkerListener respondsToSelector:@selector(onUserJoinLink:)]) {
+            [self.micLinkerListener onUserJoinLink:model];
+        }
+    } else if ([imModel.action isEqualToString:liveroom_miclinker_left]) {
+        //下麦消息
+        QNMicLinker *model = [QNMicLinker mj_objectWithKeyValues:imModel.data];
+        
+        if ([self.micLinkerListener respondsToSelector:@selector(onUserLeave:)]) {
+            [self.micLinkerListener onUserLeave:model];
+        }
+    } else if ([imModel.action isEqualToString:liveroom_miclinker_microphone_mute]) {
+        //开关音频消息
+        LinkOptionModel *model = [LinkOptionModel mj_objectWithKeyValues:imModel.data];
+        
+        if ([self.micLinkerListener respondsToSelector:@selector(onUserMicrophoneStatusChange:mute:)]) {
+            [self.micLinkerListener onUserMicrophoneStatusChange:model.uid mute:model.mute];
+        }
+    } else if ([imModel.action isEqualToString:liveroom_miclinker_camera_mute]) {
+        //开关视频消息
+        LinkOptionModel *model = [LinkOptionModel mj_objectWithKeyValues:imModel.data];
+        
+        if ([self.micLinkerListener respondsToSelector:@selector(onUserCameraStatusChange:mute:)]) {
+            [self.micLinkerListener onUserCameraStatusChange:model.uid mute:model.mute];
+        }
+    } else if ([imModel.action isEqualToString:liveroom_miclinker_kick]) {
+        //被踢消息
+        LinkOptionModel *model = [LinkOptionModel mj_objectWithKeyValues:imModel.data];
+        
+        if ([self.micLinkerListener respondsToSelector:@selector(onUserBeKick:)]) {
+            [self.micLinkerListener onUserBeKick:model];
+        }
+    } else if ([imModel.action isEqualToString:invite_send]) {
+        //连麦邀请消息
+        QInvitationModel *model = [QInvitationModel mj_objectWithKeyValues:imModel.data];
+        if ([model.invitation.msg.receiver.user_id isEqualToString:QN_User_id]) {
+            if ([model.invitationName isEqualToString:liveroom_linkmic_invitation]) {
+                if ([self.micLinkerListener respondsToSelector:@selector(onReceiveLinkInvitation:)]) {
+                    [self.micLinkerListener onReceiveLinkInvitation:model];
+                }
+            }
+        }
+    }  else if ([imModel.action isEqualToString:invite_accept]) {
+        //连麦邀请被接受
+        QInvitationModel *model = [QInvitationModel mj_objectWithKeyValues:imModel.data];
+        if ([model.invitationName isEqualToString:liveroom_linkmic_invitation]) {
+            if ([self.micLinkerListener respondsToSelector:@selector(onReceiveLinkInvitationAccept:)]) {
+                [self.micLinkerListener onReceiveLinkInvitationAccept:model];
+            }
+        }
+    }  else if ([imModel.action isEqualToString:invite_reject]) {
+        //连麦邀请被拒绝
+        QInvitationModel *model = [QInvitationModel mj_objectWithKeyValues:imModel.data];
+        if ([model.invitationName isEqualToString:liveroom_linkmic_invitation]) {
+            if ([self.micLinkerListener respondsToSelector:@selector(onReceiveLinkInvitationReject:)]) {
+                [self.micLinkerListener onReceiveLinkInvitationReject:model];
+            }
+        }
+    }
+}
+
+//发送连麦邀请
+- (void)ApplyLink:(QNLiveUser *)receiveUser {
+    QNIMMessageObject *message = [self.creater  createInviteMessageWithInvitationName:liveroom_linkmic_invitation receiveRoomId:self.roomInfo.live_id receiveUser:receiveUser];
+    [[QNIMChatService sharedOption] sendMessage:message];
+}
+
+//接受连麦
+- (void)AcceptLink:(QInvitationModel *)invitationModel{
+    invitationModel.invitationName = liveroom_linkmic_invitation;
+    QNIMMessageObject *message = [self.creater createAcceptInviteMessageWithInvitationName:liveroom_linkmic_invitation invitationModel:invitationModel];
+    [[QNIMChatService sharedOption] sendMessage:message];
+}
+
+//拒绝连麦
+- (void)RejectLink:(QInvitationModel *)invitationModel {
+    invitationModel.invitationName = liveroom_linkmic_invitation;
+    QNIMMessageObject *message = [self.creater createRejectInviteMessageWithInvitationName:liveroom_linkmic_invitation invitationModel:invitationModel];
+    [[QNIMChatService sharedOption] sendMessage:message];
+}
 
 //获取当前房间所有连麦用户
 - (void)getAllLinker:(void (^)(NSArray <QNMicLinker *> *list))callBack {
@@ -133,7 +231,7 @@
 }
 
 //更新扩展字段
-- (void)updateExtension:(NSString *)extension callBack:(nullable void (^)(QNMicLinker *mic))callBack {
+- (void)updateExtension:(NSString *)extension callBack:(nullable void (^)(void))callBack {
     
     NSMutableDictionary *params = [NSMutableDictionary dictionary];
     params[@"live_id"] = self.roomInfo.live_id;
@@ -142,15 +240,10 @@
 
     [QLiveNetworkUtil putRequestWithAction:@"client/mic/extension" params:params success:^(NSDictionary * _Nonnull responseData) {
         
-        QNMicLinker *mic = [QNMicLinker mj_objectWithKeyValues:responseData];
-        
-//        if ([self.micLinkerListener respondsToSelector:@selector(onUserExtension:extension:)]) {
-//            [self.micLinkerListener onUserExtension:mic extension:extension];
-//        }
-        callBack(mic);
+        callBack();
         
         } failure:^(NSError * _Nonnull error) {
-            callBack(nil);
+            callBack();
         }];
 }
 

@@ -25,33 +25,7 @@ NS_ASSUME_NONNULL_BEGIN
 - (void)onReceivedLikeMsgFrom:(QNLiveUser *)sendUser;
 //收到弹幕消息
 - (void)onReceivedDamaku:(PubChatModel *)msg;
-//有人被踢
-- (void)onUserBeKicked:(NSString *)uid msg:(NSString *)msg;
-//有人上麦
-- (void)onReceivedOnMic:(QNMicLinker *)linker;
-//有人下麦
-- (void)onReceivedDownMic:(QNMicLinker *)linker;
-//有人开关音频
-- (void)onReceivedAudioMute:(BOOL)mute user:(NSString *)uid;
-//有人开关视频
-- (void)onReceivedVideoMute:(BOOL)mute user:(NSString *)uid;
-//收到被禁音频的消息
-- (void)onReceivedAudioBeForbidden:(BOOL)forbidden user:(NSString *)uid;
-//收到被禁视频的消息
-- (void)onReceivedVideoBeForbidden:(BOOL)forbidden user:(NSString *)uid;
-//有人被禁言
-- (void)onUserBeMuted:(BOOL)isMuted memberId:(NSString *)memberId duration:(long long)duration;
-//新增了管理员
-- (void)onAdminAdd:(NSString *)memberId;
-//移除了管理员
-- (void)onAdminRemoved:(NSString *)memberId reason:(NSString *)reason;
 
-//收到连麦邀请
-- (void)onReceiveLinkInvitation:(QInvitationModel *)model;
-//连麦邀请被接受
-- (void)onReceiveLinkInvitationAccept:(QInvitationModel *)model;
-//连麦邀请被拒绝
-- (void)onReceiveLinkInvitationReject:(QInvitationModel *)model;
 
 //收到PK邀请
 - (void)onReceivePKInvitation:(QInvitationModel *)model;
@@ -87,13 +61,13 @@ NS_ASSUME_NONNULL_BEGIN
 //禁言
 - (void)muteUser:(NSString *)msg memberId:(NSString *)memberId duration:(long long)duration isMute:(BOOL)isMute;
 
-#pragma mark ----连麦消息
-//发送连麦申请
-- (void)sendLinkMicInvitation:(QNLiveUser *)receiveUser;
-//接受连麦申请
-- (void)sendLinkMicAccept:(QInvitationModel *)invitationModel;
-//拒绝连麦申请
-- (void)sendLinkMicReject:(QInvitationModel *)invitationModel;
+//#pragma mark ----连麦消息
+////发送连麦申请
+//- (void)sendLinkMicInvitation:(QNLiveUser *)receiveUser;
+////接受连麦申请
+//- (void)sendLinkMicAccept:(QInvitationModel *)invitationModel;
+////拒绝连麦申请
+//- (void)sendLinkMicReject:(QInvitationModel *)invitationModel;
 
 #pragma mark ----PK消息
 //发送PK申请
