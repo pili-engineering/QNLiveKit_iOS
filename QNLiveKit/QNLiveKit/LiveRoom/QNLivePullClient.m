@@ -12,12 +12,11 @@
 #import "QNLiveUser.h"
 #import "QNLiveRoomInfo.h"
 #import <PLPlayerKit/PLPlayerKit.h>
+#import "QLinkMicService.h"
 
 @interface QNLivePullClient ()
 
 @property (nonatomic, strong) PLPlayer *player;
-
-@property (nonatomic, strong) QNLiveRoomInfo *roomInfo;
 
 @end
 
@@ -81,5 +80,6 @@
     [self.player stop];
     [self.player.playerView  removeFromSuperview];
 }
+
 
 @end

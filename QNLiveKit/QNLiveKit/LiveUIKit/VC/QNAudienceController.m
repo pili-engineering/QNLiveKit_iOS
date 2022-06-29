@@ -23,6 +23,7 @@
 #import "PubChatModel.h"
 #import "QToastView.h"
 #import <QNIMSDK/QNIMSDK.h>
+#import "QLinkMicService.h"
 
 @interface QNAudienceController ()<QNChatRoomServiceListener,QNPushClientListener,LiveChatRoomViewDelegate,FDanmakuViewProtocol,PLPlayerDelegate>
 
@@ -118,6 +119,7 @@
             self.preview.frame = CGRectMake(SCREEN_W - 120, 120, 100, 100);
             self.preview.layer.cornerRadius = 50;
             self.preview.clipsToBounds = YES;
+            [[QLive createPusherClient] enableCamera:nil renderView:self.preview];
             [self popLinkSLot];
 
         }
@@ -157,11 +159,10 @@
 //连麦邀请被接受
 - (void)onReceiveLinkInvitationAccept:(QInvitationModel *)model {
     [QToastView showToast:@"主播同意了你的连麦申请"];
+    [[QLive createPusherClient] enableCamera:nil renderView:self.preview];
     [QLive createPusherClient].pushClientListener = self;
     [self.linkService onMic:YES camera:YES extends:nil];
-        [self stopPlay];
-        [[QLive createPusherClient] enableCamera:nil renderView:self.preview];
-    
+    [self stopPlay];
 }
 
 //收到开始pk信令
@@ -324,7 +325,7 @@
         [weakSelf.linkService downMic];
         weakSelf.preview.frame = CGRectZero;
         for (QRenderView *userView in weakSelf.renderBackgroundView.subviews) {
-            if ([userView.class isEqual:[QRenderView class]]) {
+            if (![userView.userId isEqualToString:QN_User_id]) {
                 [userView removeFromSuperview];
             }
         }
@@ -343,5 +344,6 @@
     user.im_username = QN_IM_userName;
     return user;
 }
+
 
 @end

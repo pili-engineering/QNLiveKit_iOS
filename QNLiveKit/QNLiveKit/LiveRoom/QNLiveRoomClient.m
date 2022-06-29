@@ -11,7 +11,8 @@
 #import "QNLiveRoomInfo.h"
 
 @interface QNLiveRoomClient ()<QNRoomLifeCycleListener>
-@property (nonatomic, copy) NSString *liveId;
+
+
 @end
 
 @implementation QNLiveRoomClient
@@ -19,7 +20,7 @@
 //获取房间所有用户
 - (void)getUserList:(NSString *)roomId pageNumber:(NSInteger)pageNumber pageSize:(NSInteger)pageSize callBack:(void (^)(NSArray<QNLiveUser *> * _Nonnull))callBack {
     
-    NSString *action = [NSString stringWithFormat:@"client/live/room/user_list?live_id=%@&page_num=%ld&page_size=%ld",self.liveId,pageNumber,pageSize];
+    NSString *action = [NSString stringWithFormat:@"client/live/room/user_list?live_id=%@&page_num=%ld&page_size=%ld",roomId,pageNumber,pageSize];
     [QLiveNetworkUtil getRequestWithAction:action params:nil success:^(NSDictionary * _Nonnull responseData) {
         NSArray <QNLiveUser *> *list = [QNLiveUser mj_objectArrayWithKeyValuesArray:responseData[@"list"]];
         callBack(list);
@@ -103,4 +104,6 @@
     user.im_username = QN_IM_userName;
     return user;
 }
+
+
 @end
