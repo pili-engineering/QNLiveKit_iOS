@@ -37,6 +37,7 @@
 @property (nonatomic, strong) QNLiveRoomInfo *selectPkRoomInfo;
 @property (nonatomic, strong) QNPKSession *pkSession;//正在进行的pk
 @property (nonatomic, strong) QNLiveUser *pk_other_user;//pk对象
+@property (nonatomic, assign) BOOL isLinking;//正在连麦中
 @property (nonatomic, strong) ImageButtonView *pkSlot;
 
 @end
@@ -102,13 +103,22 @@
 
 - (void)onUserLeaveRTC:(NSString *)userID {
     dispatch_async(dispatch_get_main_queue(), ^{
-        [self stopPK];
+        if (self.isLinking) {
+            self.isLinking = NO;
+            [[[QLive createPusherClient] getMixStreamManager] updateMixStreamSize:CGSizeMake(720, 1280)];
+            [self removeRemoteUserView];
+            self.preview.frame = self.view.frame;
+        }
+        if (self.pk_other_user) {
+            [self stopPK];
+        }
+        
     });
 }
 
 - (void)didStartLiveStreaming:(NSString *)streamID {    
     //更新自己的混流布局
-    if (self.pk_other_user) {
+    if (self.pk_other_user || self.isLinking) {
         CameraMergeOption *option = [CameraMergeOption new];
         option.frame = CGRectMake(0, 0, 720/2, 419);
         option.mZ = 0;
@@ -130,7 +140,7 @@
                 [self.renderBackgroundView addSubview:remoteView];
                 [videoTrack play:remoteView];
                 
-                if (self.pk_other_user) {
+                if (self.pk_other_user || self.isLinking) {
                     
                     self.preview.frame = CGRectMake(0, 130, SCREEN_W/2, SCREEN_W/1.5);
                     remoteView.frame = CGRectMake(SCREEN_W/2, 130, SCREEN_W/2, SCREEN_W/1.5);
@@ -145,11 +155,11 @@
                     
                 } else {
                     
-                    [[[QLive createPusherClient] getMixStreamManager] updateMixStreamSize:CGSizeMake(720, 1280)];
-                    CameraMergeOption *userOption = [CameraMergeOption new];
-                    userOption.frame = CGRectMake(720-184-30, 200, 184, 184);
-                    userOption.mZ = 1;
-                    [[[QLive createPusherClient] getMixStreamManager] updateUserVideoMixStreamingWithTrackId:videoTrack.trackID option:userOption];
+//                    [[[QLive createPusherClient] getMixStreamManager] updateMixStreamSize:CGSizeMake(720, 1280)];
+//                    CameraMergeOption *userOption = [CameraMergeOption new];
+//                    userOption.frame = CGRectMake(720-184-30, 200, 184, 184);
+//                    userOption.mZ = 1;
+//                    [[[QLive createPusherClient] getMixStreamManager] updateUserVideoMixStreamingWithTrackId:videoTrack.trackID option:userOption];
                 }
                 
             } 
@@ -209,10 +219,19 @@
     }
 }
 
+//收到上麦消息
+- (void)onReceivedOnMic:(QNMicLinker *)linker {
+    self.isLinking = YES;
+}
+
 //收到下麦消息
 - (void)onReceivedDownMic:(QNMicLinker *)linker {
     QRenderView *userView = [self getUserView:linker.user.user_id];
     [userView removeFromSuperview];
+    self.isLinking = NO;
+    [[[QLive createPusherClient] getMixStreamManager] updateMixStreamSize:CGSizeMake(720, 1280)];
+    [self removeRemoteUserView];
+    self.preview.frame = self.view.frame;
 }
 
 //收到公聊消息
@@ -263,9 +282,9 @@
 
 //收到开始pk信令
 - (void)onReceiveStartPKSession:(QNPKSession *)pkSession {
-    if (self.pk_other_user) {
-        return;
-    }
+//    if (self.pk_other_user) {
+//        return;
+//    }
     self.pk_other_user = pkSession.initiator;
     [self.pkService getPKToken:pkSession.relay_id callBack:^(QNPKSession * session) {
         [self beginPK:session];

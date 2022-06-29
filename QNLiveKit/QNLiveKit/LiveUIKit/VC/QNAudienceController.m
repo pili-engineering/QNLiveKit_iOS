@@ -116,9 +116,11 @@
     dispatch_async(dispatch_get_main_queue(), ^{
         
         if (state == QNConnectionStateConnected) {
-            self.preview.frame = CGRectMake(SCREEN_W - 120, 120, 100, 100);
-            self.preview.layer.cornerRadius = 50;
-            self.preview.clipsToBounds = YES;
+//            self.preview.frame = CGRectMake(SCREEN_W - 120, 120, 100, 100);
+//            self.preview.layer.cornerRadius = 50;
+//            self.preview.clipsToBounds = YES;
+            
+            self.preview.frame = CGRectMake(SCREEN_W/2, 130, SCREEN_W/2, SCREEN_W/1.5);
             [[QLive createPusherClient] enableCamera:nil renderView:self.preview];
             [self popLinkSLot];
 
@@ -133,12 +135,14 @@
         for (QNRemoteTrack *track in tracks) {
             if (track.kind == QNTrackKindVideo) {
                 
-                QRenderView *remoteView = [[QRenderView alloc]initWithFrame:CGRectMake(0, 0, SCREEN_W, SCREEN_H)];
+                QRenderView *remoteView = [[QRenderView alloc]initWithFrame:CGRectMake(0, 130, SCREEN_W/2, SCREEN_W/1.5)];
                 remoteView.userId = userID;
                 remoteView.trackId = track.trackID;
                 [self.renderBackgroundView insertSubview:remoteView atIndex:0];
                 [(QNRemoteVideoTrack *)track play:remoteView];
+                
             } else {
+                
             }
         }
     });
