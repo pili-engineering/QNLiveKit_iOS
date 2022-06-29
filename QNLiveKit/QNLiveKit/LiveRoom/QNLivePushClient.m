@@ -20,8 +20,6 @@
 
 @property (nonatomic, strong) QMixStreamManager *mixManager;
 
-@property (nonatomic, strong) QNLiveRoomInfo *roomInfo;
-
 @property (nonatomic, strong) QNMergeOption *option;
 
 @property (nonatomic, assign) BOOL isMixing;

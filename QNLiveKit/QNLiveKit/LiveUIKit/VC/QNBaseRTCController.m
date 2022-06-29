@@ -26,13 +26,6 @@
 
 @implementation QNBaseRTCController
 
-- (void)viewWillDisappear:(BOOL)animated {
-
-    self.pkService = nil;
-    self.linkService = nil;
-   
-}
-
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self setupBG];
@@ -75,14 +68,6 @@
     }];
 }
 
-- (QLinkMicService *)linkService {
-    if (!_linkService) {
-        _linkService = [[QLinkMicService alloc] init];
-        _linkService.roomInfo = self.roomInfo;
-    }
-    return _linkService;
-}
-
 - (LiveChatRoom *)chatRoomView {
     if (!_chatRoomView) {
         _chatRoomView = [[LiveChatRoom alloc] initWithFrame:CGRectMake(0, SCREEN_H - 320  - [[[UIApplication sharedApplication] keyWindow] safeAreaInsets].bottom, SCREEN_W, 320)];
@@ -104,6 +89,14 @@
         _pkService = [[QPKService alloc]initWithRoomId:self.roomInfo.live_id];
     }
     return _pkService;
+}
+
+- (QLinkMicService *)linkService {
+    if (!_linkService) {
+        _linkService = [[QLinkMicService alloc] init];
+        _linkService.roomInfo = self.roomInfo;
+    }
+    return _linkService;
 }
 
 - (FDanmakuView *)danmakuView {
