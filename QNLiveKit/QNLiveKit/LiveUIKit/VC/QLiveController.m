@@ -106,8 +106,8 @@
         if (self.isLinking) {
             self.isLinking = NO;
             [[[QLive createPusherClient] getMixStreamManager] updateMixStreamSize:CGSizeMake(720, 1280)];
-            [self removeRemoteUserView];
             self.preview.frame = self.view.frame;
+            [self.renderBackgroundView bringSubviewToFront:self.preview];
         }
         if (self.pk_other_user) {
             [self stopPK];
@@ -230,8 +230,8 @@
     [userView removeFromSuperview];
     self.isLinking = NO;
     [[[QLive createPusherClient] getMixStreamManager] updateMixStreamSize:CGSizeMake(720, 1280)];
-    [self removeRemoteUserView];
     self.preview.frame = self.view.frame;
+    [self.renderBackgroundView bringSubviewToFront:self.preview];
 }
 
 //收到公聊消息

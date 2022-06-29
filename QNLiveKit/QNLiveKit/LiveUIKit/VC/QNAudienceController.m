@@ -330,7 +330,7 @@
         weakSelf.preview.frame = CGRectZero;
         for (QRenderView *userView in weakSelf.renderBackgroundView.subviews) {
             if (![userView.userId isEqualToString:QN_User_id]) {
-                [userView removeFromSuperview];
+                userView.frame = CGRectZero;
             }
         }
         [weakSelf playWithUrl:weakSelf.roomInfo.rtmp_url];
