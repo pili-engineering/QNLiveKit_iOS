@@ -102,7 +102,9 @@
 
 - (void)onUserLeaveRTC:(NSString *)userID {
     dispatch_async(dispatch_get_main_queue(), ^{
-        [self stopPK];
+        if (self.pk_other_user) {
+            [self stopPK];
+        }
     });
 }
 
@@ -263,9 +265,6 @@
 
 //收到开始pk信令
 - (void)onReceiveStartPKSession:(QNPKSession *)pkSession {
-    if (self.pk_other_user) {
-        return;
-    }
     self.pk_other_user = pkSession.initiator;
     [self.pkService getPKToken:pkSession.relay_id callBack:^(QNPKSession * session) {
         [self beginPK:session];
