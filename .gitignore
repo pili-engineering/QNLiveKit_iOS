@@ -3,4 +3,6 @@ QNLiveKitDemo/*.lock
 QNLiveKitDemo/*.xcworkspace
 QNLiveKit/Pods/
 QNLiveKit/*.lock
+DownloadResource/QNLiveKitDemo/*.lock
+DownloadResource/QNLiveKitDemo/*.xcworkspace
 
