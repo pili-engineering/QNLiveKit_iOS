@@ -9,7 +9,7 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-@class QNLiveUser,QNLiveRoomInfo;
+@class QNLiveUser,QNLiveRoomInfo,QLinkMicService;
 
 /// 房间生命周期
 @protocol QNRoomLifeCycleListener <NSObject>
@@ -35,6 +35,8 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 @interface QNLiveRoomClient : NSObject
+
+@property (nonatomic, strong) QNLiveRoomInfo *roomInfo;
 
 @property (nonatomic, weak) id <QNRoomLifeCycleListener> roomLifeCycleListener;
 

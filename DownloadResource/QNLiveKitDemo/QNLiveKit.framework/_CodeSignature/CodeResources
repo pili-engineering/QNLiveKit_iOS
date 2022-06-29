@@ -14,7 +14,7 @@
 		</data>
 		<key>Frameworks/QNIMSDK.framework/QNIMSDK</key>
 		<data>
-		UUpv1Xz6fhCiXr3Uu7+JcGWlVZc=
+		x2o5Y9VjUQP87G/6Vre8RBn1vZE=
 		</data>
 		<key>Frameworks/QNIMSDK.framework/_CodeSignature/CodeResources</key>
 		<data>
@@ -118,7 +118,7 @@
 		</data>
 		<key>Headers/QLinkMicService.h</key>
 		<data>
-		Gowvupr75eYOV/NhCjqZTHyH2Os=
+		VsyeRmPJXzwQKzfsS0+GrbNhrYE=
 		</data>
 		<key>Headers/QLive.h</key>
 		<data>
@@ -154,7 +154,7 @@
 		</data>
 		<key>Headers/QNBaseRTCController.h</key>
 		<data>
-		3eJX8Vh9m6Q8elNAF91l0aEVl1E=
+		rNMwhiv9nLrpxMStOlle4IWPKaw=
 		</data>
 		<key>Headers/QNCameraParams.h</key>
 		<data>
@@ -198,7 +198,7 @@
 		</data>
 		<key>Headers/QNLiveRoomClient.h</key>
 		<data>
-		99GRLmup9Eqt4gjT9HvMYaHBmq0=
+		QoPypq6oxpp/cGQWqSTXvs0TK14=
 		</data>
 		<key>Headers/QNLiveRoomInfo.h</key>
 		<data>
@@ -206,7 +206,7 @@
 		</data>
 		<key>Headers/QNLiveService.h</key>
 		<data>
-		Do7TFRX6ZLML/lyMgqeUPdsbjvA=
+		XUsGLhKXwwoVKJzVJKdUK8y4Zt8=
 		</data>
 		<key>Headers/QNLiveTypeDefines.h</key>
 		<data>
@@ -293,11 +293,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			UUpv1Xz6fhCiXr3Uu7+JcGWlVZc=
+			x2o5Y9VjUQP87G/6Vre8RBn1vZE=
 			</data>
 			<key>hash2</key>
 			<data>
-			/O7mrRGM611kdvM4OTIO5gczVLSOKQU4HM5lpHlMK9E=
+			RZIMODRscimjUj0JSU5S7+LyWvgInksUwWgnG5cAWsI=
 			</data>
 		</dict>
 		<key>Frameworks/QNIMSDK.framework/_CodeSignature/CodeResources</key>
@@ -579,11 +579,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			Gowvupr75eYOV/NhCjqZTHyH2Os=
+			VsyeRmPJXzwQKzfsS0+GrbNhrYE=
 			</data>
 			<key>hash2</key>
 			<data>
-			4MaW3cN0ugtQ7Bk9uy3tn/ZQA57hhcGTj22qkBMrniM=
+			uoFwbF/MsEWIwIV+QXYoPBRIReIz4CI/cMWsks+dekM=
 			</data>
 		</dict>
 		<key>Headers/QLive.h</key>
@@ -678,11 +678,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			3eJX8Vh9m6Q8elNAF91l0aEVl1E=
+			rNMwhiv9nLrpxMStOlle4IWPKaw=
 			</data>
 			<key>hash2</key>
 			<data>
-			Dry2YgAsrZaPivYbNeFwpygvwad7Eb/wbk/bpz6t2fw=
+			9MN3Eh9HIyb1JJhvFCK3xZiWZ7KflJxKBh8wGbopSDQ=
 			</data>
 		</dict>
 		<key>Headers/QNCameraParams.h</key>
@@ -799,11 +799,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			99GRLmup9Eqt4gjT9HvMYaHBmq0=
+			QoPypq6oxpp/cGQWqSTXvs0TK14=
 			</data>
 			<key>hash2</key>
 			<data>
-			78AmzJ9RO1sLhl7MEX5a9DY8KlYcAIpI3zTPUeqo7R0=
+			6lK+WA98Q8HxqDezrrQW9Fu33CkZSTPSs0RBQoGZvaE=
 			</data>
 		</dict>
 		<key>Headers/QNLiveRoomInfo.h</key>
@@ -821,11 +821,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			Do7TFRX6ZLML/lyMgqeUPdsbjvA=
+			XUsGLhKXwwoVKJzVJKdUK8y4Zt8=
 			</data>
 			<key>hash2</key>
 			<data>
-			QBjFj9aB7FnLKNqlGdLj2T1l7q6rCi8lrq0oKW/qkI4=
+			OD/xC3mcrOZtGkCtOtCWgt3r947hsYae797odkxnj1s=
 			</data>
 		</dict>
 		<key>Headers/QNLiveTypeDefines.h</key>
