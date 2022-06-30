@@ -19,9 +19,6 @@ NS_ASSUME_NONNULL_BEGIN
 //麦位监听
 @protocol MicLinkerListener <NSObject>
 
-/// 观众初始化进入直播间 回调给观众当前有哪些人在连麦
-- (void)onInitLinkers:(NSArray <QNMicLinker *> *)linkers;
-
 /// 有人上麦
 - (void)onUserJoinLink:(QNMicLinker *)micLinker;
 
@@ -36,9 +33,6 @@ NS_ASSUME_NONNULL_BEGIN
 
 /// 有人被踢
 - (void)onUserBeKick:(LinkOptionModel *)micLinker;
-
-/// 有人扩展字段变化
-- (void)onUserExtension:(QNMicLinker *)micLinker extension:(NSString *)extension;
 
 //收到连麦邀请
 - (void)onReceiveLinkInvitation:(QInvitationModel *)model;
@@ -65,17 +59,11 @@ NS_ASSUME_NONNULL_BEGIN
 //下麦
 - (void)downMic;
 
-//获取用户麦位状态
-- (void)getMicStatus:(NSString *)uid type:(NSString *)type callBack:(nullable void (^)(void))callBack;
-
 //踢人
 - (void)kickOutUser:(NSString *)uid msg:(nullable NSString *)msg callBack:(nullable void (^)(QNMicLinker * _Nullable))callBack ;
 
 //开关麦 type:mic/camera  flag:on/off
 - (void)updateMicStatusType:(NSString *)type flag:(BOOL)flag;
-
-//更新扩展字段
-- (void)updateExtension:(NSString *)extension callBack:(nullable void (^)(void))callBack;
 
 //申请连麦
 - (void)ApplyLink:(QNLiveUser *)receiveUser;

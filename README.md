@@ -6,6 +6,9 @@
 
 
 ## SDK接入    
+
+    下载路径：https://github.com/pili-engineering/QNLiveKit_iOS/tree/main/DownloadResource/
+    
     
 ### 配置依赖 
 
@@ -18,6 +21,7 @@
         pod 'AFNetworking'
     
     信令依赖：将QNIMSDK拖入项目中，并在General的中选择 Embed & sign
+    将资源包livekitResource文件拖入项目中
     
 ### 快速接入
 
@@ -219,6 +223,8 @@
     //连麦服务
     @interface QNLinkMicService : QNLiveService
 
+    @property (nonatomic, weak)id<MicLinkerListener> micLinkerListener;
+
     //获取当前房间所有连麦用户
     - (void)getAllLinker:(void (^)(NSArray <QNMicLinker *> *list))callBack;
 
@@ -228,20 +234,48 @@
     //下麦
     - (void)downMic;
 
-    //获取用户麦位状态
-    - (void)getMicStatus:(NSString *)uid type:(NSString *)type callBack:(nullable void (^)(void))callBack;
-
     //踢人
     - (void)kickOutUser:(NSString *)uid msg:(nullable NSString *)msg callBack:(nullable void (^)(QNMicLinker * _Nullable))callBack ;
 
     //开关麦 type:mic/camera  flag:on/off
-    - (void)updateMicStatus:(NSString *)uid type:(NSString *)type flag:(BOOL)flag;
+    - (void)updateMicStatusType:(NSString *)type flag:(BOOL)flag;
 
-    //更新扩展字段
-    - (void)updateExtension:(NSString *)extension callBack:(nullable void (^)(QNMicLinker *mic))callBack;
+    //申请连麦
+    - (void)ApplyLink:(QNLiveUser *)receiveUser;
 
+    //接受连麦
+    - (void)AcceptLink:(QInvitationModel *)invitationModel;
+
+    //拒绝连麦
+    - (void)RejectLink:(QInvitationModel *)invitationModel;
     @end
     
+    
+#### 连麦回调
+
+        /// 有人上麦
+    - (void)onUserJoinLink:(QNMicLinker *)micLinker;
+
+    /// 有人下麦
+    - (void)onUserLeave:(QNMicLinker *)micLinker;
+
+    /// 有人麦克风变化
+    - (void)onUserMicrophoneStatusChange:(NSString *)uid mute:(BOOL)mute;
+
+    /// 有人摄像头状态变化
+    - (void)onUserCameraStatusChange:(NSString *)uid mute:(BOOL)mute;
+
+    /// 有人被踢
+    - (void)onUserBeKick:(LinkOptionModel *)micLinker;
+
+    //收到连麦邀请
+    - (void)onReceiveLinkInvitation:(QInvitationModel *)model;
+
+    //连麦邀请被接受
+    - (void)onReceiveLinkInvitationAccept:(QInvitationModel *)model;
+
+    //连麦邀请被拒绝
+    - (void)onReceiveLinkInvitationReject:(QInvitationModel *)model;
     
     
 #### PK服务
@@ -249,23 +283,33 @@
     
     @interface QNPKService : QNLiveService
 
-    - (instancetype)initWithRoomId:(NSString *)roomId ;
+    @property (nonatomic, weak)id<PKServiceListener> delegate;
 
-    //开始pk 
-    - (void)startWithReceiverRoomId:(NSString *)receiverRoomId receiverUid:(NSString *)receiverUid extensions:(NSString *)extensions callBack:(nullable void (^)(QNPKSession *_Nullable pkSession))callBack;
+    //申请pk
+    - (void)applyPK:(NSString *)receiveRoomId receiveUser:(QNLiveUser *)receiveUser;
 
-    //获取pk token
-    - (void)getPKToken:(NSString *)relayID callBack:(nullable void (^)(QNPKSession * _Nullable pkSession))callBack;
+    //接受PK申请
+    - (void)AcceptPK:(QInvitationModel *)invitationModel;
 
-    //通知服务端跨房完成
-    - (void)PKStartedWithRelayID:(NSString *)relayID;
+    //拒绝PK申请
+    - (void)sendPKReject:(QInvitationModel *)invitationModel;
 
     //结束pk
-    - (void)stopWithRelayID:(NSString *)relayID callBack:(nullable void (^)(void))callBack;
-
+    - (void)stopPK:(nullable void (^)(void))callBack;
     @end
     
-    
+#### pk回调
+
+    //收到PK邀请
+    - (void)onReceivePKInvitation:(QInvitationModel *)model;
+    //PK邀请被接受
+    - (void)onReceivePKInvitationAccept:(QNPKSession *)model;
+    //PK邀请被拒绝
+    - (void)onReceivePKInvitationReject:(QInvitationModel *)model;
+    //PK开始
+    - (void)onReceiveStartPKSession:(QNPKSession *)pkSession;
+    //pk结束
+    - (void)onReceiveStopPKSession:(QNPKSession *)pkSession;    
     
 #### 聊天/信令发送
     
@@ -273,40 +317,17 @@
     
     @interface QNChatRoomService : QNLiveService
 
-    //初始化
-    - (instancetype)initWithGroupId:(NSString *)groupId roomId:(NSString *)roomId;
+    //添加聊天监听
+    - (void)addChatServiceListener:(id<QNChatRoomServiceListener>)listener;
+    //移除聊天监听
+    - (void)removeChatServiceListener;
 
-    #pragma mark ----状态消息
     //发公聊消息
     - (void)sendPubChatMsg:(NSString *)msg callBack:(void (^)(QNIMMessageObject *msg))callBack;
     //发进房消息
     - (void)sendWelComeMsg:(void (^)(QNIMMessageObject *msg))callBack;
     //发离开消息
     - (void)sendLeaveMsg;
-    //踢人
-    - (void)kickUser:(NSString *)msg memberId:(NSString *)memberId;
-    //禁言
-    - (void)muteUser:(NSString *)msg memberId:(NSString *)memberId duration:(long long)duration isMute:(BOOL)isMute;
-
-    #pragma mark ----连麦消息
-    //发送连麦申请
-    - (void)sendLinkMicInvitation:(QNLiveUser *)receiveUser;
-    //接受连麦申请
-    - (void)sendLinkMicAccept:(QNInvitationModel *)invitationModel;
-    //拒绝连麦申请
-    - (void)sendLinkMicReject:(QNInvitationModel *)invitationModel;
-
-    #pragma mark ----PK消息
-    //发送PK申请
-    - (void)sendPKInvitation:(NSString *)receiveRoomId receiveUser:(QNLiveUser *)receiveUser;
-    //接受PK申请
-    - (void)sendPKAccept:(QNInvitationModel *)invitationModel;
-    //拒绝PK申请
-    - (void)sendPKReject:(QNInvitationModel *)invitationModel;
-    //开始pk信令 singleMsg：是否只发给对方主播
-    -(void)createStartPKMessage:(QNPKSession *)pkSession singleMsg:(BOOL)singleMsg ;
-    //结束pk信令
-    - (void)createStopPKMessage:(QNPKSession *)pkSession;
 
     @end
     
@@ -326,42 +347,6 @@
     - (void)onReceivedLikeMsgFrom:(QNLiveUser *)sendUser;
     //收到弹幕消息
     - (void)onReceivedDamaku:(PubChatModel *)msg;
-    //有人被踢
-    - (void)onUserBeKicked:(NSString *)uid msg:(NSString *)msg;
-    //有人上麦
-    - (void)onReceivedOnMic:(QNMicLinker *)linker;
-    //有人下麦
-    - (void)onReceivedDownMic:(QNMicLinker *)linker;
-    //有人开关音频
-    - (void)onReceivedAudioMute:(BOOL)mute user:(NSString *)uid;
-    //有人开关视频
-    - (void)onReceivedVideoMute:(BOOL)mute user:(NSString *)uid;
-    //收到被禁音频的消息
-    - (void)onReceivedAudioBeForbidden:(BOOL)forbidden user:(NSString *)uid;
-    //收到被禁视频的消息
-    - (void)onReceivedVideoBeForbidden:(BOOL)forbidden user:(NSString *)uid;
-    //有人被禁言
-    - (void)onUserBeMuted:(BOOL)isMuted memberId:(NSString *)memberId duration:(long long)duration;
-
-
-    //收到连麦邀请
-    - (void)onReceiveLinkInvitation:(QNInvitationModel *)model;
-    //连麦邀请被接受
-    - (void)onReceiveLinkInvitationAccept:(QNInvitationModel *)model;
-    //连麦邀请被拒绝
-    - (void)onReceiveLinkInvitationReject:(QNInvitationModel *)model;
-
-    //收到PK邀请
-    - (void)onReceivePKInvitation:(QNInvitationModel *)model;
-    //PK邀请被接受
-    - (void)onReceivePKInvitationAccept:(QNInvitationModel *)model;
-    //PK邀请被拒绝
-    - (void)onReceivePKInvitationReject:(QNInvitationModel *)model;
-    //收到开始跨房PK信令
-    - (void)onReceiveStartPKSession:(QNPKSession *)pkSession;
-    //收到停止跨房PK信令
-    - (void)onReceiveStopPKSession:(QNPKSession *)pkSession;
-
     @end
     
     
