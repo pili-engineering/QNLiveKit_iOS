@@ -33,23 +33,16 @@
 
 @implementation QNChatRoomService
 
-- (instancetype)initWithGroupId:(NSString *)groupId roomId:(NSString *)roomId{
-    if (self = [super init]) {
-        self.groupId = groupId;
-        self.roomId = roomId;
-        [[QNIMGroupService sharedOption] joinGroupWithGroupId:self.groupId message:@"" completion:^(QNIMError * _Nonnull error) {
-            if (!error) {
-                self.isMember = YES;
-            }
-        }];
-        
-
-    }
-    return self;
-}
-
 //添加聊天监听
 - (void)addChatServiceListener:(id<QNChatRoomServiceListener>)listener{
+    
+    self.groupId = self.roomInfo.chat_id;
+    self.roomId = self.roomInfo.live_id;
+    [[QNIMGroupService sharedOption] joinGroupWithGroupId:self.groupId message:@"" completion:^(QNIMError * _Nonnull error) {
+        if (!error) {
+            self.isMember = YES;
+        }
+    }];
     
     [[QNIMChatService sharedOption] addDelegate:self delegateQueue:dispatch_get_main_queue()];
     self.chatRoomListener = listener;

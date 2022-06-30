@@ -30,8 +30,6 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface QNChatRoomService : QNLiveService
 
-//初始化
-- (instancetype)initWithGroupId:(NSString *)groupId roomId:(NSString *)roomId;
 //添加聊天监听
 - (void)addChatServiceListener:(id<QNChatRoomServiceListener>)listener;
 //移除聊天监听
