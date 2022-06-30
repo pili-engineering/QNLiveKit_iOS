@@ -79,30 +79,34 @@
    }  else if ([imModel.action isEqualToString:liveroom_pk_start]) {
        //开始pk
        QNPKSession *model = [QNPKSession mj_objectWithKeyValues:imModel.data];
-                   
-       [self getPKToken:model.relay_id callBack:^(QNPKSession * session) {
+       
+       if ([QN_User_id isEqualToString:model.initiator.user_id] || [QN_User_id isEqualToString:model.receiver.user_id]) {
            
-           model.relay_id = session.relay_id;
-           model.relay_token = session.relay_token;
-           model.relay_status = session.relay_status;
+           [self getPKToken:model.relay_id callBack:^(QNPKSession * session) {
+               
+               model.relay_id = session.relay_id;
+               model.relay_token = session.relay_token;
+               model.relay_status = session.relay_status;
+               
+               if ([self.delegate respondsToSelector:@selector(onReceiveStartPKSession:)]) {
+                   [self.delegate onReceiveStartPKSession:model];
+               }
+                [self beginPK:model callBack:nil];
+                [self PKStarted];
+           }];
            
+       } else {
            if ([self.delegate respondsToSelector:@selector(onReceiveStartPKSession:)]) {
                [self.delegate onReceiveStartPKSession:model];
            }
-           
-           if ([QN_User_id isEqualToString:model.initiator.user_id] || [QN_User_id isEqualToString:model.receiver.user_id]) {
-               [self beginPK:model callBack:nil];
-               [self PKStarted];
-           }
-       }];
-   
+       }
    }  else if ([imModel.action isEqualToString:liveroom_pk_stop]) {
        //结束pk
        QNPKSession *model = [QNPKSession mj_objectWithKeyValues:imModel.data];
                    
        if ([self.delegate respondsToSelector:@selector(onReceiveStopPKSession:)]) {
            [self.delegate onReceiveStopPKSession:model];
-       }   
+       }
    }
 }
 
