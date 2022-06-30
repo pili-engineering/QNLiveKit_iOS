@@ -244,6 +244,7 @@
     NSString *title = [model.invitation.msg.initiator.nick stringByAppendingString:@"邀请您PK，是否同意？"];
     [QAlertView showBaseAlertWithTitle:title content:@"" handler:^(UIAlertAction * _Nonnull action) {        
         [self.pkService AcceptPK:model];
+        self.pk_other_user = model.invitation.msg.initiator;
     }];
 }
 
@@ -252,8 +253,6 @@
     [QToastView showToast:@"对方主播同意pk"];
     self.pkSlot.selected = YES;
     self.pk_other_user = model.receiver;
-    NSLog(@"pk接受方是%@",self.pk_other_user.im_username);
-//    [self.pkService beginPK:model callBack:nil];
 }
 
 //收到开始pk信令
@@ -261,8 +260,6 @@
     [QToastView showToast:@"pk马上开始"];
     self.pk_other_user = pkSession.initiator;
     self.pkSlot.selected = YES;
-    NSLog(@"pk邀请方是%@",self.pk_other_user.im_username);
-//    [self.pkService beginPK:pkSession callBack:nil];
 }
 
 //收到结束pk消息
