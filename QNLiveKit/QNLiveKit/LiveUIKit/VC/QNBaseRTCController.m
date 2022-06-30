@@ -26,6 +26,11 @@
 
 @implementation QNBaseRTCController
 
+- (void)viewDidDisappear:(BOOL)animated {
+    [self.chatService removeChatServiceListener];
+    [[QLive createPlayerClient] leaveRoom:self.roomInfo.live_id];
+}
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self setupBG];
@@ -79,7 +84,8 @@
 
 - (QNChatRoomService *)chatService {
     if (!_chatService) {
-        _chatService = [[QNChatRoomService alloc] initWithGroupId:self.roomInfo.chat_id roomId:self.roomInfo.live_id];
+        _chatService = [[QNChatRoomService alloc] init];
+        _chatService.roomInfo = self.roomInfo;
     }
     return _chatService;
 }

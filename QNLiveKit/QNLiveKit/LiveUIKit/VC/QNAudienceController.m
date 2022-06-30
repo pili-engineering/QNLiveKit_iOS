@@ -33,10 +33,7 @@
 
 @implementation QNAudienceController
 
-- (void)viewDidDisappear:(BOOL)animated {
-    [self.chatService removeChatServiceListener];
-    [[QLive createPlayerClient] leaveRoom:self.roomInfo.live_id];   
-}
+
 
 - (void)viewWillAppear:(BOOL)animated {
     self.preview.frame = CGRectZero;

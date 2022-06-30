@@ -43,10 +43,6 @@
 
 @implementation QLiveController
 
-- (void)viewDidDisappear:(BOOL)animated {
-    [self.chatService removeChatServiceListener];
-    [[QLive createPusherClient] closeRoom];
-}
 
 - (void)viewDidLoad {
     [super viewDidLoad];
