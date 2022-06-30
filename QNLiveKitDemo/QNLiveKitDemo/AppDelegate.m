@@ -35,8 +35,36 @@
 }
 
 - (void)initQLive {
-    [QLive initWithToken:QN_Live_Token];
+    
+    __weak typeof(self)weakSelf = self;
+    [QLive initWithToken:QN_Live_Token serverURL:LiveAPI errorBack:^(NSError * _Nonnull error) {
+        
+        //如果token过期
+        [weakSelf getLiveToken:^(NSString * _Nonnull token) {
+            
+            [QLive initWithToken:token serverURL:LiveAPI errorBack:nil];
+            [QLive setUser:QN_User_avatar nick:QN_User_nickname extension:nil];
+        }];
+        
+    }];
     [QLive setUser:QN_User_avatar nick:QN_User_nickname extension:nil];
+}
+
+//获取liveToken
+- (void)getLiveToken:(nullable void (^)(NSString * _Nonnull token))callBack {
+    
+    NSString *action = [NSString stringWithFormat:@"live/auth_token?userID=%@&deviceID=%@",QN_User_id,@"111"];
+    [QNNetworkUtil getRequestWithAction:action params:nil success:^(NSDictionary *responseData) {
+        
+        NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+        [defaults setObject:responseData[@"accessToken"] forKey:Live_Token];
+        [defaults synchronize];
+        
+        callBack(responseData[@"accessToken"]);
+
+        } failure:^(NSError *error) {
+        
+        }];
 }
 
 // 请求APP全局配置
