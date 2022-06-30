@@ -25,7 +25,7 @@
 #import <QNIMSDK/QNIMSDK.h>
 #import "QLinkMicService.h"
 
-@interface QNAudienceController ()<QNChatRoomServiceListener,QNPushClientListener,LiveChatRoomViewDelegate,FDanmakuViewProtocol,PLPlayerDelegate,MicLinkerListener>
+@interface QNAudienceController ()<QNChatRoomServiceListener,QNPushClientListener,LiveChatRoomViewDelegate,FDanmakuViewProtocol,PLPlayerDelegate,MicLinkerListener,PKServiceListener>
 
 @property (nonatomic, strong) PLPlayer *player;
 
@@ -47,6 +47,7 @@
     [super viewDidLoad];
     __weak typeof(self)weakSelf = self;
     [self.chatService addChatServiceListener:self];
+    self.pkService.delegate = self;
     self.linkService.micLinkerListener = self;
     self.chatRoomView.delegate = self;
     self.danmakuView.delegate = self;
@@ -166,7 +167,7 @@
     [self stopPlay];
 }
 
-//收到开始pk信令
+//收到主播开始pk信令
 - (void)onReceiveStartPKSession:(QNPKSession *)pkSession {
     
     dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(3 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
@@ -174,7 +175,7 @@
      });
 }
 
-//收到结束pk信令
+//收到主播结束pk信令
 - (void)onReceiveStopPKSession:(QNPKSession *)pkSession {
     dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(3 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
         [self replayPlayer];

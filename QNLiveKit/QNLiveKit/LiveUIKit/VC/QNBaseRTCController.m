@@ -86,7 +86,8 @@
 
 - (QPKService *)pkService {
     if (!_pkService) {
-        _pkService = [[QPKService alloc]initWithRoomId:self.roomInfo.live_id];
+        _pkService = [[QPKService alloc]init];
+        _pkService.roomInfo = self.roomInfo;
     }
     return _pkService;
 }
