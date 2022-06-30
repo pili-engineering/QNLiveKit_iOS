@@ -148,7 +148,9 @@
         [defaults setObject:responseData[@"accessToken"] forKey:Live_Token];
         [defaults synchronize];
         
-        [QLive initWithToken:responseData[@"accessToken"]];
+        [QLive initWithToken:responseData[@"accessToken"] serverURL:LiveAPI errorBack:^(NSError * _Nonnull error) {
+            
+        }];
         [QLive setUser:user.avatar nick:user.nickname extension:nil];
 
         } failure:^(NSError *error) {

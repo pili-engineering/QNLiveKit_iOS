@@ -21,15 +21,29 @@
 
 @implementation QLive
 
-+ (void)initWithToken:(NSString *)token {
-    
-    [QLive initializeQNIM];
++ (void)initWithToken:(NSString *)token serverURL:(nonnull NSString *)serverURL errorBack:(nullable void (^)(NSError * _Nonnull))errorBack {
     if (token.length == 0) {
         return;
     }
+    [QLive initializeQNIM];
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
     [defaults setObject:token forKey:Live_Token];
+    [defaults setObject:serverURL forKey:Live_URL];
     [defaults synchronize];
+    
+    [QLiveNetworkUtil getRequestWithAction:@"client/user/profile" params:nil success:^(NSDictionary * _Nonnull responseData) {
+        
+        if ([responseData isKindOfClass:[NSNull class]] || [responseData isEqual:[NSNull null]]) {
+
+            NSDictionary *info = @{NSLocalizedDescriptionKey : @"token error"};
+            NSError *error = [NSError errorWithDomain:@"token error" code:404000 userInfo:info];
+            errorBack(error);
+        }
+        
+        } failure:^(NSError * _Nonnull error) {
+            errorBack(error);
+        }];
+    
 }
 
 + (void)initializeQNIM{
