@@ -27,8 +27,8 @@
 
     
         
-        //初始化SDK
-        [QLive initWithToken:token];
+        //初始化SDK  errorBack错误回调，可在此处更新过期的token
+        [QLive initWithToken:token serverURL:@"liveKit域名" errorBack:nil];
         //绑定自己服务器的头像和昵称 extension为扩展字段，可以自定义同步的内容
         [QLive setUser:user.avatar nick:user.nickname extension:nil];
         
@@ -78,7 +78,7 @@
     @interface QLive : NSObject
 
     // 初始化
-    + (void)initWithToken:(NSString *)token;
+    + (void)initWithToken:(NSString *)token serverURL:(NSString *)serverURL errorBack:(nullable void (^)(NSError *error))errorBack;
     //绑定用户信息
     + (void)setUser:(NSString *)avatar nick:(NSString *)nick extension:(nullable NSDictionary *)extension;
     //创建主播端
