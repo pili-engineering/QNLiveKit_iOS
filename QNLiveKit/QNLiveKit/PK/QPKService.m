@@ -63,6 +63,7 @@
                 if ([self.delegate respondsToSelector:@selector(onReceivePKInvitationAccept:)]) {
                         [self.delegate onReceivePKInvitationAccept:session];
                 }
+                
                 [self beginPK:session callBack:nil];
             }];
         }
@@ -89,7 +90,10 @@
                [self.delegate onReceiveStartPKSession:model];
            }
            
-           [self beginPK:model callBack:nil];
+           if ([QN_User_id isEqualToString:model.initiator.user_id] || [QN_User_id isEqualToString:model.receiver.user_id]) {
+               [self beginPK:model callBack:nil];
+               [self PKStarted];
+           }
        }];
    
    }  else if ([imModel.action isEqualToString:liveroom_pk_stop]) {
@@ -98,8 +102,7 @@
                    
        if ([self.delegate respondsToSelector:@selector(onReceiveStopPKSession:)]) {
            [self.delegate onReceiveStopPKSession:model];
-       }
-   
+       }   
    }
 }
 
@@ -118,13 +121,10 @@
     config.srcRoomInfo = srcRoomInfo;
     [config setDestRoomInfo:destInfo forRoomName:self.roomInfo.title];
 
-    [self sendStartPKMessage:pkSession singleMsg:NO];
-    
     [[QLive createPusherClient].rtcClient startRoomMediaRelay:config completeCallback:^(NSDictionary *state, NSError *error) {
-        
+        [self sendStartPKMessage:pkSession singleMsg:NO];
     }];
     
-    [self PKStarted];
 }
 
 - (NSString *)getRelayNameWithToken:(NSString *)token {
@@ -155,7 +155,6 @@
 
         self.pkSession = model;
         [self sendStartPKMessage:model singleMsg:YES];
-        
         
         callBack(model);
         
