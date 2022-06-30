@@ -25,7 +25,7 @@
 #import <QNIMSDK/QNIMSDK.h>
 #import "QLinkMicService.h"
 
-@interface QNAudienceController ()<QNChatRoomServiceListener,QNPushClientListener,LiveChatRoomViewDelegate,FDanmakuViewProtocol,PLPlayerDelegate>
+@interface QNAudienceController ()<QNChatRoomServiceListener,QNPushClientListener,LiveChatRoomViewDelegate,FDanmakuViewProtocol,PLPlayerDelegate,MicLinkerListener,PKServiceListener>
 
 @property (nonatomic, strong) PLPlayer *player;
 
@@ -33,10 +33,7 @@
 
 @implementation QNAudienceController
 
-- (void)viewDidDisappear:(BOOL)animated {
-    [self.chatService removeChatServiceListener];
-    [[QLive createPlayerClient] leaveRoom:self.roomInfo.live_id];   
-}
+
 
 - (void)viewWillAppear:(BOOL)animated {
     self.preview.frame = CGRectZero;
@@ -47,6 +44,8 @@
     [super viewDidLoad];
     __weak typeof(self)weakSelf = self;
     [self.chatService addChatServiceListener:self];
+    self.pkService.delegate = self;
+    self.linkService.micLinkerListener = self;
     self.chatRoomView.delegate = self;
     self.danmakuView.delegate = self;
     [[QLive createPlayerClient] joinRoom:self.roomInfo.live_id callBack:^(QNLiveRoomInfo * _Nonnull roomInfo) {
@@ -169,7 +168,7 @@
     [self stopPlay];
 }
 
-//收到开始pk信令
+//收到主播开始pk信令
 - (void)onReceiveStartPKSession:(QNPKSession *)pkSession {
     
     dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(3 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
@@ -177,7 +176,7 @@
      });
 }
 
-//收到结束pk信令
+//收到主播结束pk信令
 - (void)onReceiveStopPKSession:(QNPKSession *)pkSession {
     dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(3 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
         [self replayPlayer];
@@ -280,7 +279,7 @@
         [link bundleNormalImage:@"link" selectImage:@"link"];
         link.clickBlock = ^(BOOL selected){
             
-            [weakSelf.chatService sendLinkMicInvitation:weakSelf.roomInfo.anchor_info];
+            [weakSelf.linkService ApplyLink:weakSelf.roomInfo.anchor_info];
             [QToastView showToast:@"连麦申请已发送"];
             NSLog(@"点击了连麦");
         };

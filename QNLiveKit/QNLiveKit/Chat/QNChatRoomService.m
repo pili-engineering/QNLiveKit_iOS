@@ -33,21 +33,16 @@
 
 @implementation QNChatRoomService
 
-- (instancetype)initWithGroupId:(NSString *)groupId roomId:(NSString *)roomId{
-    if (self = [super init]) {
-        self.groupId = groupId;
-        self.roomId = roomId;
-        [[QNIMGroupService sharedOption] joinGroupWithGroupId:self.groupId message:@"" completion:^(QNIMError * _Nonnull error) {
-            if (!error) {
-                self.isMember = YES;
-            }
-        }];
-    }
-    return self;
-}
-
 //添加聊天监听
 - (void)addChatServiceListener:(id<QNChatRoomServiceListener>)listener{
+    
+    self.groupId = self.roomInfo.chat_id;
+    self.roomId = self.roomInfo.live_id;
+    [[QNIMGroupService sharedOption] joinGroupWithGroupId:self.groupId message:@"" completion:^(QNIMError * _Nonnull error) {
+        if (!error) {
+            self.isMember = YES;
+        }
+    }];
     
     [[QNIMChatService sharedOption] addDelegate:self delegateQueue:dispatch_get_main_queue()];
     self.chatRoomListener = listener;
@@ -122,67 +117,6 @@
     
 }
 
-
-
-//发送连麦邀请
-- (void)sendLinkMicInvitation:(QNLiveUser *)receiveUser {
-    QNIMMessageObject *message = [self.creater  createInviteMessageWithInvitationName:liveroom_linkmic_invitation receiveRoomId:self.roomId receiveUser:receiveUser];
-    [[QNIMChatService sharedOption] sendMessage:message];
-}
-
-//接受连麦
-- (void)sendLinkMicAccept:(QInvitationModel *)invitationModel{
-    invitationModel.invitationName = liveroom_linkmic_invitation;
-    QNIMMessageObject *message = [self.creater createAcceptInviteMessageWithInvitationName:liveroom_linkmic_invitation invitationModel:invitationModel];
-    [[QNIMChatService sharedOption] sendMessage:message];
-}
-
-//拒绝连麦
-- (void)sendLinkMicReject:(QInvitationModel *)invitationModel {
-    invitationModel.invitationName = liveroom_linkmic_invitation;
-    QNIMMessageObject *message = [self.creater createRejectInviteMessageWithInvitationName:liveroom_linkmic_invitation invitationModel:invitationModel];
-    [[QNIMChatService sharedOption] sendMessage:message];
-}
-
-//发送PK申请
-- (void)sendPKInvitation:(NSString *)receiveRoomId receiveUser:(nonnull QNLiveUser *)receiveUser {
-        
-    QNIMMessageObject *message = [self.creater  createInviteMessageWithInvitationName:liveroom_pk_invitation receiveRoomId:receiveRoomId receiveUser:receiveUser] ;
-    [[QNIMChatService sharedOption] sendMessage:message];
-        
-}
-//接受PK申请
-- (void)sendPKAccept:(QInvitationModel *)invitationModel {
-        
-    invitationModel.invitationName = liveroom_pk_invitation;
-    QNIMMessageObject *message = [self.creater  createAcceptInviteMessageWithInvitationName:liveroom_pk_invitation invitationModel:invitationModel];
-    [[QNIMChatService sharedOption] sendMessage:message];
-        
-}
-
-//拒绝PK申请
-- (void)sendPKReject:(QInvitationModel *)invitationModel {
-    invitationModel.invitationName = liveroom_pk_invitation;
-    QNIMMessageObject *message = [self.creater  createRejectInviteMessageWithInvitationName:liveroom_pk_invitation invitationModel:invitationModel];
-    [[QNIMChatService sharedOption] sendMessage:message];
-        
-}
-
--(void)createStartPKMessage:(QNPKSession *)pkSession singleMsg:(BOOL)singleMsg {
-    QNIMMessageObject *message = [self.creater  createStartPKMessage:pkSession singleMsg:singleMsg];
-    [[QNIMChatService sharedOption] sendMessage:message];
-}
-
-- (void)createStopPKMessage:(QNPKSession *)pkSession  {
-    QNIMMessageObject *message = [self.creater createStopPKMessage:pkSession];
-    [[QNIMChatService sharedOption] sendMessage:message];
-}
-
-//踢人
-- (void)kickUser:(NSString *)msg memberId:(NSString *)memberId{
-    QNIMMessageObject *message = [self.creater createKickMessage:memberId msg:msg];
-    [[QNIMChatService sharedOption] sendMessage:message];
-}
 //禁言
 - (void)muteUser:(NSString *)msg memberId:(NSString *)memberId duration:(long long)duration isMute:(BOOL)isMute {
     
@@ -191,22 +125,17 @@
     
 #pragma mark QNIMChatServiceProtocol
     
-//消息发送状态改变
-- (void)messageStatusChanged:(QNIMMessageObject *)message error:(QNIMError *)error {
-//    if ([self.chatRoomListener respondsToSelector:@selector(messageStatus:error:)]) {
-//        [self.chatRoomListener messageStatus:message error:error];
-//    }
-}
-    
 //收到远端发来的消息
 - (void)receivedMessages:(NSArray<QNIMMessageObject *> *)messages {
-    
     
     QNIMMessageObject *msg = messages.firstObject;
     
     if (self.lastMessageId == msg.msgId) {
         return;
     }
+    
+    [[NSNotificationCenter defaultCenter] postNotificationName:ReceiveIMMessageNotification object:nil userInfo:msg.content.mj_keyValues];
+    
     QIMModel *imModel = [QIMModel mj_objectWithKeyValues:msg.content.mj_keyValues];
     
     if ([imModel.action isEqualToString:liveroom_pubchat]) {
@@ -244,119 +173,7 @@
         if ([self.chatRoomListener respondsToSelector:@selector(onReceivedDamaku:)]) {
             [self.chatRoomListener onReceivedDamaku:model];
         }
-    } else if ([imModel.action isEqualToString:liveroom_miclinker_kick]) {
-        //被踢消息
-        LinkOptionModel *model = [LinkOptionModel mj_objectWithKeyValues:imModel.data];
-        
-        if ([self.chatRoomListener respondsToSelector:@selector(onUserBeKicked:msg:)]) {
-            [self.chatRoomListener onUserBeKicked:model.uid msg:model.msg];
-        }
-    } else if ([imModel.action isEqualToString:liveroom_miclinker_join]) {
-        //上麦消息
-        QNMicLinker *model = [QNMicLinker mj_objectWithKeyValues:imModel.data];
-        
-        if ([self.chatRoomListener respondsToSelector:@selector(onReceivedOnMic:)]) {
-            [self.chatRoomListener onReceivedOnMic:model];
-        }
-    } else if ([imModel.action isEqualToString:liveroom_miclinker_left]) {
-        //下麦消息
-        QNMicLinker *model = [QNMicLinker mj_objectWithKeyValues:imModel.data];
-        
-        if ([self.chatRoomListener respondsToSelector:@selector(onReceivedDownMic:)]) {
-            [self.chatRoomListener onReceivedDownMic:model];
-        }
-    } else if ([imModel.action isEqualToString:liveroom_miclinker_microphone_mute]) {
-        //开关音频消息
-        LinkOptionModel *model = [LinkOptionModel mj_objectWithKeyValues:imModel.data];
-        
-        if ([self.chatRoomListener respondsToSelector:@selector(onReceivedAudioMute:user:)]) {
-            [self.chatRoomListener onReceivedAudioMute:model.mute user:model.uid];
-        }
-    } else if ([imModel.action isEqualToString:liveroom_miclinker_camera_mute]) {
-        //开关视频消息
-        LinkOptionModel *model = [LinkOptionModel mj_objectWithKeyValues:imModel.data];
-        
-        if ([self.chatRoomListener respondsToSelector:@selector(onReceivedVideoMute:user:)]) {
-            [self.chatRoomListener onReceivedVideoMute:model.mute user:model.uid];
-        }
-    }  else if ([imModel.action isEqualToString:liveroom_miclinker_microphone_forbidden]) {
-        //音频被禁消息
-        LinkOptionModel *model = [LinkOptionModel mj_objectWithKeyValues:imModel.data];
-        
-        if ([self.chatRoomListener respondsToSelector:@selector(onReceivedAudioBeForbidden:user:)]) {
-            [self.chatRoomListener onReceivedAudioBeForbidden:model.forbidden user:model.uid];
-        }
-    }  else if ([imModel.action isEqualToString:liveroom_miclinker_camera_forbidden]) {
-        //视频被禁消息
-        LinkOptionModel *model = [LinkOptionModel mj_objectWithKeyValues:imModel.data];
-        
-        if ([self.chatRoomListener respondsToSelector:@selector(onReceivedVideoBeForbidden:user:)]) {
-            [self.chatRoomListener onReceivedVideoBeForbidden:model.forbidden user:model.uid];
-        }
-    }  else if ([imModel.action isEqualToString:invite_send]) {
-        //连麦邀请消息
-        QInvitationModel *model = [QInvitationModel mj_objectWithKeyValues:imModel.data];
-        if ([model.invitation.msg.receiver.user_id isEqualToString:QN_User_id]) {
-            
-            if ([model.invitationName isEqualToString:liveroom_linkmic_invitation]) {
-                if ([self.chatRoomListener respondsToSelector:@selector(onReceiveLinkInvitation:)]) {
-                    [self.chatRoomListener onReceiveLinkInvitation:model];
-                }
-            }
-        }
-        if ([model.invitationName isEqualToString:liveroom_pk_invitation]) {
-            if ([self.chatRoomListener respondsToSelector:@selector(onReceivePKInvitation:)]) {
-                [self.chatRoomListener onReceivePKInvitation:model];
-            }
-        }
-                
-    }  else if ([imModel.action isEqualToString:invite_accept]) {
-        //连麦邀请被接受
-        QInvitationModel *model = [QInvitationModel mj_objectWithKeyValues:imModel.data];
-            
-        if ([model.invitationName isEqualToString:liveroom_linkmic_invitation]) {
-                if ([self.chatRoomListener respondsToSelector:@selector(onReceiveLinkInvitationAccept:)]) {
-                    [self.chatRoomListener onReceiveLinkInvitationAccept:model];
-                }
-            } else if ([model.invitationName isEqualToString:liveroom_pk_invitation]) {
-                if ([self.chatRoomListener respondsToSelector:@selector(onReceivePKInvitationAccept:)]) {
-                    [self.chatRoomListener onReceivePKInvitationAccept:model];
-                }
-            }
-        
-    }  else if ([imModel.action isEqualToString:invite_reject]) {
-        //连麦邀请被拒绝
-        QInvitationModel *model = [QInvitationModel mj_objectWithKeyValues:imModel.data];
-        
-            
-            if ([model.invitationName isEqualToString:liveroom_linkmic_invitation]) {
-                if ([self.chatRoomListener respondsToSelector:@selector(onReceiveLinkInvitationReject:)]) {
-                    [self.chatRoomListener onReceiveLinkInvitationReject:model];
-                }
-            } else if ([model.invitationName isEqualToString:liveroom_pk_invitation]) {
-                if ([self.chatRoomListener respondsToSelector:@selector(onReceivePKInvitationReject:)]) {
-                    [self.chatRoomListener onReceivePKInvitationReject:model];
-                }
-                        
-            }
-        
-    }  else if ([imModel.action isEqualToString:liveroom_pk_start]) {
-        //开始pk
-        QNPKSession *model = [QNPKSession mj_objectWithKeyValues:imModel.data];
-                    
-        if ([self.chatRoomListener respondsToSelector:@selector(onReceiveStartPKSession:)]) {
-            [self.chatRoomListener onReceiveStartPKSession:model];
-        }
-    
-    }  else if ([imModel.action isEqualToString:liveroom_pk_stop]) {
-        //结束pk
-        QNPKSession *model = [QNPKSession mj_objectWithKeyValues:imModel.data];
-                    
-        if ([self.chatRoomListener respondsToSelector:@selector(onReceiveStopPKSession:)]) {
-            [self.chatRoomListener onReceiveStopPKSession:model];
-        }
-    
-    }
+    } 
     
     self.lastMessageId=msg.msgId;
 
