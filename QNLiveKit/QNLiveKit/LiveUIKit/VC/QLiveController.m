@@ -32,7 +32,7 @@
 #import "QToastView.h"
 #import <QNIMSDK/QNIMSDK.h>
 
-@interface QLiveController ()<QNPushClientListener,QNRoomLifeCycleListener,QNPushClientListener,QNChatRoomServiceListener,FDanmakuViewProtocol,LiveChatRoomViewDelegate,MicLinkerListener>
+@interface QLiveController ()<QNPushClientListener,QNRoomLifeCycleListener,QNPushClientListener,QNChatRoomServiceListener,FDanmakuViewProtocol,LiveChatRoomViewDelegate,MicLinkerListener,PKServiceListener>
 
 @property (nonatomic, strong) QNLiveRoomInfo *selectPkRoomInfo;
 @property (nonatomic, strong) QNPKSession *pkSession;//正在进行的pk
@@ -54,6 +54,7 @@
     [[QLive createPusherClient] enableCamera:nil renderView:self.preview];
     [QLive createPusherClient].pushClientListener = self;
     self.linkService.micLinkerListener = self;
+    self.pkService.delegate = self;
     self.danmakuView.delegate = self;
     self.chatRoomView.delegate = self;
     [self.chatService addChatServiceListener:self];
@@ -138,7 +139,6 @@
                     self.preview.frame = CGRectMake(0, 130, SCREEN_W/2, SCREEN_W/1.5);
                     remoteView.frame = CGRectMake(SCREEN_W/2, 130, SCREEN_W/2, SCREEN_W/1.5);
                     remoteView.layer.cornerRadius = 0;
-                    [self.pkService PKStartedWithRelayID:self.pkSession.relay_id];
                               
                     [[[QLive createPusherClient] getMixStreamManager] updateMixStreamSize:CGSizeMake(720, 419)];
                     CameraMergeOption *userOption = [CameraMergeOption new];
@@ -154,9 +154,7 @@
                     userOption.mZ = 1;
                     [[[QLive createPusherClient] getMixStreamManager] updateUserVideoMixStreamingWithTrackId:videoTrack.trackID option:userOption];
                 }
-                
-            } 
-            
+            }
         }
     });
 }
@@ -197,7 +195,6 @@
     label.text = model.content;
     [label sizeToFit];
     return label;
-    
 }
 
 - (void)didSendMessageModel:(QNIMMessageObject *)model {
@@ -246,96 +243,40 @@
 - (void)onReceivePKInvitation:(QInvitationModel *)model {
     NSString *title = [model.invitation.msg.initiator.nick stringByAppendingString:@"邀请您PK，是否同意？"];
     [QAlertView showBaseAlertWithTitle:title content:@"" handler:^(UIAlertAction * _Nonnull action) {        
-        [self.chatService sendPKAccept:model];
+        [self.pkService AcceptPK:model];
     }];
 }
 
 //收到同意pk邀请
-- (void)onReceivePKInvitationAccept:(QInvitationModel *)model {
-    
+- (void)onReceivePKInvitationAccept:(QNPKSession *)model {
     [QToastView showToast:@"对方主播同意pk"];
-    
-    [self.pkService startWithReceiverRoomId:model.invitation.msg.receiverRoomId receiverUid:model.invitation.msg.receiver.user_id extensions:@"" callBack:^(QNPKSession * _Nonnull pkSession) {
-        
-        pkSession.receiver = model.invitation.msg.receiver;
-        self.pk_other_user = pkSession.receiver;
-        [self.chatService createStartPKMessage:pkSession singleMsg:YES];
-        [self beginPK:pkSession];
-    }];
+    self.pkSlot.selected = YES;
+    self.pk_other_user = model.receiver;
+    NSLog(@"pk接受方是%@",self.pk_other_user.im_username);
+//    [self.pkService beginPK:model callBack:nil];
 }
 
 //收到开始pk信令
 - (void)onReceiveStartPKSession:(QNPKSession *)pkSession {
+    [QToastView showToast:@"pk马上开始"];
     self.pk_other_user = pkSession.initiator;
-    [self.pkService getPKToken:pkSession.relay_id callBack:^(QNPKSession * session) {
-        [self beginPK:session];
-    }];
+    self.pkSlot.selected = YES;
+    NSLog(@"pk邀请方是%@",self.pk_other_user.im_username);
+//    [self.pkService beginPK:pkSession callBack:nil];
 }
 
 //收到结束pk消息
 - (void)onReceiveStopPKSession:(QNPKSession *)pkSession {
-    [self stopRelay];
+    [self stopPK];
 }
 
 //主动结束pk
 - (void)stopPK {
-    [self stopRelay];
-    [self.chatService createStopPKMessage:self.pkSession];
-    [self.pkService stopWithRelayID:self.pkSession.relay_id callBack:^{}];
-}
-
-- (void)stopRelay {
     self.pkSlot.selected = NO;
-    [[QLive createPusherClient].rtcClient stopRoomMediaRelay:^(NSDictionary *state, NSError *error) {}];
     self.preview.frame = self.view.frame;
     [self.renderBackgroundView bringSubviewToFront:self.preview];
-//    [self removeRemoteUserView];
     self.pk_other_user = nil;
-    [[[QLive createPusherClient] getMixStreamManager] updateMixStreamSize:CGSizeMake(720, 1280)];
-}
-
-- (void)beginPK:(QNPKSession *)pkSession {
-    self.pkSession = pkSession;
-    self.pkSlot.selected = YES;
-    QNRoomMediaRelayConfiguration *config = [[QNRoomMediaRelayConfiguration alloc]init];
-    
-    QNRoomMediaRelayInfo *srcRoomInfo = [QNRoomMediaRelayInfo new];
-    srcRoomInfo.roomName = self.roomInfo.title;
-    srcRoomInfo.token = self.roomInfo.room_token;
-    
-    QNRoomMediaRelayInfo *destInfo = [QNRoomMediaRelayInfo new];
-    destInfo.roomName = [self getRelayNameWithToken:self.pkSession.relay_token];
-    destInfo.token = self.pkSession.relay_token;
-    
-    config.srcRoomInfo = srcRoomInfo;
-    [config setDestRoomInfo:destInfo forRoomName:self.roomInfo.title];
-
-    __weak typeof(self)weakSelf = self;
-    [[QLive createPusherClient].rtcClient startRoomMediaRelay:config completeCallback:^(NSDictionary *state, NSError *error) {
-        
-        [weakSelf.chatService createStartPKMessage:pkSession singleMsg:NO];
-        
-    }];
-    
-}
-
-- (NSString *)getRelayNameWithToken:(NSString *)token {
-    NSArray *arr = [token componentsSeparatedByString:@":"];
-    NSString *tokenDataStr = arr.lastObject;
-    NSData *data = [[NSData alloc]initWithBase64EncodedString:tokenDataStr options:0];
-    NSDictionary *dic = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingMutableLeaves error:nil];
-    NSString *roomName = dic[@"roomName"];
-    return roomName;
-}
-
-
-//自己是否是房主
-- (BOOL)isAdmin {
-    BOOL isAdmin = NO;
-    if ([self.roomInfo.anchor_info.user_id isEqualToString:QN_User_id]) {
-        isAdmin = YES;
-    }
-    return isAdmin;
+    [self.pkService stopPK:nil];
 }
 
 - (RoomHostView *)roomHostView {
@@ -424,7 +365,7 @@
     __weak typeof(self)weakSelf = self;
     vc.invitationClickedBlock = ^(QNLiveRoomInfo * _Nonnull itemModel) {
        
-        [weakSelf.chatService sendPKInvitation:itemModel.live_id receiveUser:itemModel.anchor_info];
+        [weakSelf.pkService applyPK:itemModel.live_id receiveUser:itemModel.anchor_info];
         weakSelf.selectPkRoomInfo = itemModel;
         [QToastView showToast:@"pk邀请已发送"];
     };

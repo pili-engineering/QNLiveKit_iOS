@@ -26,18 +26,6 @@ NS_ASSUME_NONNULL_BEGIN
 //收到弹幕消息
 - (void)onReceivedDamaku:(PubChatModel *)msg;
 
-
-//收到PK邀请
-- (void)onReceivePKInvitation:(QInvitationModel *)model;
-//PK邀请被接受
-- (void)onReceivePKInvitationAccept:(QInvitationModel *)model;
-//PK邀请被拒绝
-- (void)onReceivePKInvitationReject:(QInvitationModel *)model;
-//收到开始跨房PK信令
-- (void)onReceiveStartPKSession:(QNPKSession *)pkSession;
-//收到停止跨房PK信令
-- (void)onReceiveStopPKSession:(QNPKSession *)pkSession;
-
 @end
 
 @interface QNChatRoomService : QNLiveService
@@ -56,30 +44,8 @@ NS_ASSUME_NONNULL_BEGIN
 - (void)sendWelComeMsg:(void (^)(QNIMMessageObject *msg))callBack;
 //发离开消息
 - (void)sendLeaveMsg;
-//踢人
-- (void)kickUser:(NSString *)msg memberId:(NSString *)memberId;
 //禁言
-- (void)muteUser:(NSString *)msg memberId:(NSString *)memberId duration:(long long)duration isMute:(BOOL)isMute;
-
-//#pragma mark ----连麦消息
-////发送连麦申请
-//- (void)sendLinkMicInvitation:(QNLiveUser *)receiveUser;
-////接受连麦申请
-//- (void)sendLinkMicAccept:(QInvitationModel *)invitationModel;
-////拒绝连麦申请
-//- (void)sendLinkMicReject:(QInvitationModel *)invitationModel;
-
-#pragma mark ----PK消息
-//发送PK申请
-- (void)sendPKInvitation:(NSString *)receiveRoomId receiveUser:(QNLiveUser *)receiveUser;
-//接受PK申请
-- (void)sendPKAccept:(QInvitationModel *)invitationModel;
-//拒绝PK申请
-- (void)sendPKReject:(QInvitationModel *)invitationModel;
-//开始pk信令 singleMsg：是否只发给对方主播
--(void)createStartPKMessage:(QNPKSession *)pkSession singleMsg:(BOOL)singleMsg ;
-//结束pk信令
-- (void)createStopPKMessage:(QNPKSession *)pkSession;
+//- (void)muteUser:(NSString *)msg memberId:(NSString *)memberId duration:(long long)duration isMute:(BOOL)isMute;
 
 @end
 

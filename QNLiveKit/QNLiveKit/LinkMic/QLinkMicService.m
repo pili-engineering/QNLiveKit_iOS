@@ -211,6 +211,9 @@
 //踢人
 - (void)kickOutUser:(NSString *)uid msg:(nullable NSString *)msg callBack:(nullable void (^)(QNMicLinker * _Nullable))callBack {
 
+    QNIMMessageObject *message = [self.creater createKickMessage:uid msg:msg];
+    [[QNIMChatService sharedOption] sendMessage:message];
+    
     NSMutableDictionary *params = [NSMutableDictionary dictionary];
     params[@"live_id"] = self.roomInfo.live_id;
     params[@"user_id"] = uid;
