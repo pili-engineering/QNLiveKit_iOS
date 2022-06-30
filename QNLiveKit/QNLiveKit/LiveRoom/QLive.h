@@ -15,8 +15,11 @@ NS_ASSUME_NONNULL_BEGIN
 /// 房间业务管理
 @interface QLive : NSObject
 
-// 初始化
-+ (void)initWithToken:(NSString *)token;
+/// 初始化
+/// @param token token
+/// @param serverURL 域名
+/// @param errorBack 错误回调
++ (void)initWithToken:(NSString *)token serverURL:(NSString *)serverURL errorBack:(nullable void (^)(NSError *error))errorBack;
 //绑定用户信息
 + (void)setUser:(NSString *)avatar nick:(NSString *)nick extension:(nullable NSDictionary *)extension;
 //创建主播端

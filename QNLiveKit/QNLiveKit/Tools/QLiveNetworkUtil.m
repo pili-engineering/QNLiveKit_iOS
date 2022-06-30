@@ -48,7 +48,7 @@ NSInteger const Interval = 8;
 
 + (void)getRequestWithAction:(NSString *)action params:(nullable NSDictionary *)params success:(SuccessBlock)success failure:(FailureBlock)failure {
         
-    NSString *requestUrl = [[NSString alloc]initWithFormat:MAINAPI,action];
+    NSString *requestUrl = [[NSString alloc]initWithFormat:QN_Live_URL,action];
     AFHTTPSessionManager *manager = [QLiveNetworkUtil manager];
     
     [manager GET:requestUrl parameters:params headers:nil progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
@@ -67,7 +67,7 @@ NSInteger const Interval = 8;
     }];
     
     //原生网络请求实现
-//    NSString *urlString = [NSString stringWithFormat:@"%@%@",MAINAPI,action];
+//    NSString *urlString = [NSString stringWithFormat:@"%@%@",QN_Live_URL,action];
 //    if (params) {
 //        NSString *paramStr = [self dealWithParam:params];
 //        urlString = [urlString stringByAppendingString:paramStr];
@@ -105,7 +105,7 @@ NSInteger const Interval = 8;
 + (void)postRequestWithAction:(NSString *)action params:(nullable NSDictionary *)params success:(SuccessBlock)success failure:(FailureBlock)failure {
     
     AFHTTPSessionManager *manager = [QLiveNetworkUtil manager];
-    NSString *requestUrl = [[NSString alloc]initWithFormat:MAINAPI,action];
+    NSString *requestUrl = [[NSString alloc]initWithFormat:QN_Live_URL,action];
     
     [manager POST:requestUrl parameters:params headers:nil progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
         NSLog(@"\n POST\n action : %@ \n HTTPRequestHeaders:%@ \n params:%@ \n responseObject = %@",requestUrl,manager.requestSerializer.HTTPRequestHeaders,params,responseObject);
@@ -123,7 +123,7 @@ NSInteger const Interval = 8;
         }];
     }];
     //原生网络请求实现
-//    NSString *requestUrl = [NSString stringWithFormat:@"%@%@",MAINAPI,action];
+//    NSString *requestUrl = [NSString stringWithFormat:@"%@%@",QN_Live_URL,action];
 //
 //    NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:requestUrl]];
 //    [request setHTTPMethod:HTTPMethod];
@@ -166,7 +166,7 @@ NSInteger const Interval = 8;
 + (void)deleteRequestWithAction:(NSString *)action params:(nullable NSDictionary *)params success:(SuccessBlock)success failure:(FailureBlock)failure {
     
     AFHTTPSessionManager *manager = [QLiveNetworkUtil manager];
-    NSString *requestUrl = [[NSString alloc]initWithFormat:MAINAPI,action];
+    NSString *requestUrl = [[NSString alloc]initWithFormat:QN_Live_URL,action];
     
     [manager DELETE:requestUrl parameters:params headers:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
         NSLog(@"\n DELETE\n action : %@ \n HTTPRequestHeaders:%@ \n params:%@ \n responseObject = %@",requestUrl,manager.requestSerializer.HTTPRequestHeaders,params,responseObject);
@@ -187,7 +187,7 @@ NSInteger const Interval = 8;
 + (void)putRequestWithAction:(NSString *)action params:(nullable NSDictionary *)params success:(SuccessBlock)success failure:(FailureBlock)failure {
     
     AFHTTPSessionManager *manager = [QLiveNetworkUtil manager];
-    NSString *requestUrl = [[NSString alloc]initWithFormat:MAINAPI,action];
+    NSString *requestUrl = [[NSString alloc]initWithFormat:QN_Live_URL,action];
     
     [manager PUT:requestUrl parameters:params headers:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
         NSLog(@"\n PUT\n action : %@ \n HTTPRequestHeaders:%@ \n params:%@ \n responseObject = %@",requestUrl,manager.requestSerializer.HTTPRequestHeaders,params,responseObject);

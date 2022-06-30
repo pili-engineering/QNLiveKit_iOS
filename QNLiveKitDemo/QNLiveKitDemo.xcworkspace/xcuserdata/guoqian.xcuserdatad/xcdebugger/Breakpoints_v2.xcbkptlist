@@ -19,16 +19,16 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "3D5FC459-697F-43CB-ACE6-6FBFC1104616"
+            uuid = "7A4C9366-5537-40A9-A440-B2B8BCA1B906"
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "../QNLiveKit/QNLiveKit/Chat/QNChatRoomService.m"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "42"
-            endingLineNumber = "42"
-            landmarkName = "-addChatServiceListener:"
+            filePath = "QNLiveKitDemo/AppHome/ViewController/QNLoginViewController.m"
+            startingColumnNumber = "9"
+            endingColumnNumber = "11"
+            startingLineNumber = "151"
+            endingLineNumber = "153"
+            landmarkName = "-initQNLiveWithUser:deviceID:"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
