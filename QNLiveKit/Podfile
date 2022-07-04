@@ -11,6 +11,8 @@ target 'QNLiveKit' do
   pod 'Masonry', '1.1.0'
   pod 'SDWebImage',' 5.12.2'
   pod 'AFNetworking','4.0.1'
+  pod 'PLShortVideoKit-SenseTime','1.4.0'
+  #pod 'PLSTArEffect'
 
   target 'QNLiveKitTests' do
     inherit! :search_paths

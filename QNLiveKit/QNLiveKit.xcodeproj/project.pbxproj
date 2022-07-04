@@ -152,6 +152,159 @@
 		777B7A88284F5BC5005032B7 /* QNInvitationMemberListController.m in Sources */ = {isa = PBXBuildFile; fileRef = 777B7A86284F5BC4005032B7 /* QNInvitationMemberListController.m */; };
 		77E02E31284E245A00EE8A28 /* QNAudienceController.h in Headers */ = {isa = PBXBuildFile; fileRef = 77E02E2F284E245A00EE8A28 /* QNAudienceController.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		77E02E32284E245A00EE8A28 /* QNAudienceController.m in Sources */ = {isa = PBXBuildFile; fileRef = 77E02E30284E245A00EE8A28 /* QNAudienceController.m */; };
+		77EDC3F8286DA564002B4226 /* STLock.m in Sources */ = {isa = PBXBuildFile; fileRef = 77EDC33B286DA563002B4226 /* STLock.m */; };
+		77EDC3F9286DA564002B4226 /* STEffectsTimer.m in Sources */ = {isa = PBXBuildFile; fileRef = 77EDC33C286DA563002B4226 /* STEffectsTimer.m */; };
+		77EDC3FA286DA564002B4226 /* STMobileLog.h in Headers */ = {isa = PBXBuildFile; fileRef = 77EDC33D286DA563002B4226 /* STMobileLog.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		77EDC3FB286DA564002B4226 /* NSBundle+language.m in Sources */ = {isa = PBXBuildFile; fileRef = 77EDC33E286DA563002B4226 /* NSBundle+language.m */; };
+		77EDC3FC286DA564002B4226 /* STConvert.m in Sources */ = {isa = PBXBuildFile; fileRef = 77EDC33F286DA563002B4226 /* STConvert.m */; };
+		77EDC3FD286DA564002B4226 /* STLock.h in Headers */ = {isa = PBXBuildFile; fileRef = 77EDC340286DA563002B4226 /* STLock.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		77EDC3FE286DA564002B4226 /* STEffectsTimer.h in Headers */ = {isa = PBXBuildFile; fileRef = 77EDC341286DA563002B4226 /* STEffectsTimer.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		77EDC3FF286DA564002B4226 /* STConvert.h in Headers */ = {isa = PBXBuildFile; fileRef = 77EDC342286DA563002B4226 /* STConvert.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		77EDC400286DA564002B4226 /* NSBundle+language.h in Headers */ = {isa = PBXBuildFile; fileRef = 77EDC343286DA563002B4226 /* NSBundle+language.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		77EDC401286DA564002B4226 /* STDefaultSettingDataSourseGenerator.m in Sources */ = {isa = PBXBuildFile; fileRef = 77EDC346286DA563002B4226 /* STDefaultSettingDataSourseGenerator.m */; };
+		77EDC402286DA564002B4226 /* STDefaultSettingDataSourseGenerator.h in Headers */ = {isa = PBXBuildFile; fileRef = 77EDC347286DA563002B4226 /* STDefaultSettingDataSourseGenerator.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		77EDC403286DA564002B4226 /* DefaultBeautyParameters.h in Headers */ = {isa = PBXBuildFile; fileRef = 77EDC348286DA563002B4226 /* DefaultBeautyParameters.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		77EDC404286DA564002B4226 /* STDefaultSetting.h in Headers */ = {isa = PBXBuildFile; fileRef = 77EDC349286DA563002B4226 /* STDefaultSetting.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		77EDC405286DA564002B4226 /* STDefaultSetting.m in Sources */ = {isa = PBXBuildFile; fileRef = 77EDC34A286DA563002B4226 /* STDefaultSetting.m */; };
+		77EDC406286DA564002B4226 /* STCamera.h in Headers */ = {isa = PBXBuildFile; fileRef = 77EDC34C286DA563002B4226 /* STCamera.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		77EDC407286DA564002B4226 /* STCamera.m in Sources */ = {isa = PBXBuildFile; fileRef = 77EDC34D286DA563002B4226 /* STCamera.m */; };
+		77EDC408286DA564002B4226 /* PortraitFilters.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 77EDC350286DA563002B4226 /* PortraitFilters.bundle */; };
+		77EDC409286DA564002B4226 /* SceneryFilters.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 77EDC351286DA563002B4226 /* SceneryFilters.bundle */; };
+		77EDC40A286DA564002B4226 /* StillLifeFilters.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 77EDC352286DA563002B4226 /* StillLifeFilters.bundle */; };
+		77EDC40B286DA564002B4226 /* DeliciousFoodFilters.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 77EDC353286DA563002B4226 /* DeliciousFoodFilters.bundle */; };
+		77EDC40C286DA564002B4226 /* whiten_gif.zip in Resources */ = {isa = PBXBuildFile; fileRef = 77EDC355286DA563002B4226 /* whiten_gif.zip */; };
+		77EDC416286DA564002B4226 /* eyelash.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 77EDC361286DA563002B4226 /* eyelash.bundle */; };
+		77EDC417286DA564002B4226 /* lips.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 77EDC362286DA563002B4226 /* lips.bundle */; };
+		77EDC418286DA564002B4226 /* brow.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 77EDC363286DA563002B4226 /* brow.bundle */; };
+		77EDC419286DA564002B4226 /* wholemakeup.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 77EDC364286DA563002B4226 /* wholemakeup.bundle */; };
+		77EDC41A286DA564002B4226 /* face.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 77EDC365286DA563002B4226 /* face.bundle */; };
+		77EDC41B286DA564002B4226 /* eyeshadow.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 77EDC366286DA563002B4226 /* eyeshadow.bundle */; };
+		77EDC41C286DA564002B4226 /* blush.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 77EDC367286DA563002B4226 /* blush.bundle */; };
+		77EDC41D286DA564002B4226 /* my_sticker.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 77EDC369286DA563002B4226 /* my_sticker.bundle */; };
+		77EDC41E286DA564002B4226 /* STColorConversion.h in Headers */ = {isa = PBXBuildFile; fileRef = 77EDC36B286DA563002B4226 /* STColorConversion.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		77EDC41F286DA564002B4226 /* STGLPreview3.h in Headers */ = {isa = PBXBuildFile; fileRef = 77EDC36C286DA563002B4226 /* STGLPreview3.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		77EDC420286DA564002B4226 /* STGLShader.m in Sources */ = {isa = PBXBuildFile; fileRef = 77EDC36D286DA563002B4226 /* STGLShader.m */; };
+		77EDC421286DA564002B4226 /* STVFShader.h in Headers */ = {isa = PBXBuildFile; fileRef = 77EDC36E286DA563002B4226 /* STVFShader.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		77EDC422286DA564002B4226 /* STGLPreview2.m in Sources */ = {isa = PBXBuildFile; fileRef = 77EDC36F286DA563002B4226 /* STGLPreview2.m */; };
+		77EDC423286DA564002B4226 /* STColorConversion.m in Sources */ = {isa = PBXBuildFile; fileRef = 77EDC370286DA563002B4226 /* STColorConversion.m */; };
+		77EDC424286DA564002B4226 /* STGLPreview3.m in Sources */ = {isa = PBXBuildFile; fileRef = 77EDC371286DA563002B4226 /* STGLPreview3.m */; };
+		77EDC425286DA564002B4226 /* STGLShader.h in Headers */ = {isa = PBXBuildFile; fileRef = 77EDC372286DA563002B4226 /* STGLShader.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		77EDC426286DA564002B4226 /* STGLPreview2.h in Headers */ = {isa = PBXBuildFile; fileRef = 77EDC373286DA563002B4226 /* STGLPreview2.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		77EDC427286DA564002B4226 /* STVFShader.m in Sources */ = {isa = PBXBuildFile; fileRef = 77EDC374286DA563002B4226 /* STVFShader.m */; };
+		77EDC428286DA564002B4226 /* SenseArMaterialAction.h in Headers */ = {isa = PBXBuildFile; fileRef = 77EDC377286DA563002B4226 /* SenseArMaterialAction.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		77EDC429286DA564002B4226 /* SenseArMaterial.h in Headers */ = {isa = PBXBuildFile; fileRef = 77EDC378286DA563002B4226 /* SenseArMaterial.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		77EDC42A286DA564002B4226 /* SenseArSourceService.h in Headers */ = {isa = PBXBuildFile; fileRef = 77EDC379286DA563002B4226 /* SenseArSourceService.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		77EDC42B286DA564002B4226 /* SenseArMaterialService.h in Headers */ = {isa = PBXBuildFile; fileRef = 77EDC37A286DA563002B4226 /* SenseArMaterialService.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		77EDC42C286DA564002B4226 /* SenseArMaterialGroup.h in Headers */ = {isa = PBXBuildFile; fileRef = 77EDC37B286DA563002B4226 /* SenseArMaterialGroup.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		77EDC42D286DA564002B4226 /* VERSION in Resources */ = {isa = PBXBuildFile; fileRef = 77EDC37C286DA563002B4226 /* VERSION */; };
+		77EDC42F286DA564002B4226 /* STBaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 77EDC380286DA563002B4226 /* STBaseViewController.m */; };
+		77EDC430286DA564002B4226 /* STCoreStateManagement.h in Headers */ = {isa = PBXBuildFile; fileRef = 77EDC383286DA563002B4226 /* STCoreStateManagement.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		77EDC431286DA564002B4226 /* STCoreStateManagementModel.h in Headers */ = {isa = PBXBuildFile; fileRef = 77EDC385286DA563002B4226 /* STCoreStateManagementModel.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		77EDC432286DA564002B4226 /* STCoreStateManagementModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 77EDC386286DA563002B4226 /* STCoreStateManagementModel.m */; };
+		77EDC433286DA564002B4226 /* STCoreStateManagementFilterModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 77EDC388286DA563002B4226 /* STCoreStateManagementFilterModel.m */; };
+		77EDC434286DA564002B4226 /* STCoreStateManagementFilterModel.h in Headers */ = {isa = PBXBuildFile; fileRef = 77EDC389286DA563002B4226 /* STCoreStateManagementFilterModel.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		77EDC435286DA564002B4226 /* STCoreStateManagementValueChangeDelegate.h in Headers */ = {isa = PBXBuildFile; fileRef = 77EDC38A286DA563002B4226 /* STCoreStateManagementValueChangeDelegate.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		77EDC436286DA564002B4226 /* STCoreStateManagement.m in Sources */ = {isa = PBXBuildFile; fileRef = 77EDC38B286DA563002B4226 /* STCoreStateManagement.m */; };
+		77EDC437286DA564002B4226 /* STEffectsAudioPlayer.h in Headers */ = {isa = PBXBuildFile; fileRef = 77EDC38D286DA563002B4226 /* STEffectsAudioPlayer.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		77EDC438286DA564002B4226 /* SystemSound.m in Sources */ = {isa = PBXBuildFile; fileRef = 77EDC38E286DA563002B4226 /* SystemSound.m */; };
+		77EDC439286DA564002B4226 /* SoundInfomation.h in Headers */ = {isa = PBXBuildFile; fileRef = 77EDC38F286DA563002B4226 /* SoundInfomation.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		77EDC43A286DA564002B4226 /* STAudioManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 77EDC390286DA563002B4226 /* STAudioManager.m */; };
+		77EDC43B286DA564002B4226 /* STEffectsAudioPlayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 77EDC391286DA563002B4226 /* STEffectsAudioPlayer.m */; };
+		77EDC43C286DA564002B4226 /* SoundInfomation.m in Sources */ = {isa = PBXBuildFile; fileRef = 77EDC392286DA563002B4226 /* SoundInfomation.m */; };
+		77EDC43D286DA565002B4226 /* SystemSound.h in Headers */ = {isa = PBXBuildFile; fileRef = 77EDC393286DA563002B4226 /* SystemSound.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		77EDC43E286DA565002B4226 /* STAudioManager.h in Headers */ = {isa = PBXBuildFile; fileRef = 77EDC394286DA563002B4226 /* STAudioManager.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		77EDC43F286DA565002B4226 /* STMovieRecorder.h in Headers */ = {isa = PBXBuildFile; fileRef = 77EDC396286DA563002B4226 /* STMovieRecorder.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		77EDC440286DA565002B4226 /* STMovieRecorder.m in Sources */ = {isa = PBXBuildFile; fileRef = 77EDC397286DA563002B4226 /* STMovieRecorder.m */; };
+		77EDC441286DA565002B4226 /* STBaseViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = 77EDC398286DA563002B4226 /* STBaseViewController.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		77EDC442286DA565002B4226 /* LicenseUtil.h in Headers */ = {isa = PBXBuildFile; fileRef = 77EDC39A286DA563002B4226 /* LicenseUtil.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		77EDC443286DA565002B4226 /* LicenseUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = 77EDC39B286DA563002B4226 /* LicenseUtil.m */; };
+		77EDC444286DA565002B4226 /* STBMPDetailColVCell.h in Headers */ = {isa = PBXBuildFile; fileRef = 77EDC39D286DA563002B4226 /* STBMPDetailColVCell.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		77EDC445286DA565002B4226 /* STBmpStrengthView.m in Sources */ = {isa = PBXBuildFile; fileRef = 77EDC39E286DA563002B4226 /* STBmpStrengthView.m */; };
+		77EDC446286DA565002B4226 /* STBMPDetailColV.h in Headers */ = {isa = PBXBuildFile; fileRef = 77EDC39F286DA563002B4226 /* STBMPDetailColV.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		77EDC447286DA565002B4226 /* STPlayerControlBar.h in Headers */ = {isa = PBXBuildFile; fileRef = 77EDC3A0286DA563002B4226 /* STPlayerControlBar.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		77EDC448286DA565002B4226 /* STViewButton.xib in Resources */ = {isa = PBXBuildFile; fileRef = 77EDC3A1286DA563002B4226 /* STViewButton.xib */; };
+		77EDC449286DA565002B4226 /* STButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 77EDC3A2286DA563002B4226 /* STButton.m */; };
+		77EDC44A286DA565002B4226 /* STSlideView.h in Headers */ = {isa = PBXBuildFile; fileRef = 77EDC3A3286DA563002B4226 /* STSlideView.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		77EDC44B286DA565002B4226 /* STScrollTitleView.h in Headers */ = {isa = PBXBuildFile; fileRef = 77EDC3A4286DA563002B4226 /* STScrollTitleView.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		77EDC44C286DA565002B4226 /* STViewButton.h in Headers */ = {isa = PBXBuildFile; fileRef = 77EDC3A5286DA563002B4226 /* STViewButton.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		77EDC44D286DA565002B4226 /* STFilterView.h in Headers */ = {isa = PBXBuildFile; fileRef = 77EDC3A6286DA563002B4226 /* STFilterView.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		77EDC44E286DA565002B4226 /* STCommonObjectContainerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 77EDC3A7286DA563002B4226 /* STCommonObjectContainerView.m */; };
+		77EDC44F286DA565002B4226 /* STTriggerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 77EDC3A8286DA563002B4226 /* STTriggerView.m */; };
+		77EDC450286DA565002B4226 /* STBMPCollectionView.h in Headers */ = {isa = PBXBuildFile; fileRef = 77EDC3A9286DA563002B4226 /* STBMPCollectionView.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		77EDC451286DA565002B4226 /* STMakeupDataModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 77EDC3AA286DA563002B4226 /* STMakeupDataModel.m */; };
+		77EDC452286DA565002B4226 /* STCollectionViewCell.h in Headers */ = {isa = PBXBuildFile; fileRef = 77EDC3AB286DA563002B4226 /* STCollectionViewCell.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		77EDC453286DA565002B4226 /* EffectsCollectionViewCell.h in Headers */ = {isa = PBXBuildFile; fileRef = 77EDC3AC286DA563002B4226 /* EffectsCollectionViewCell.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		77EDC454286DA565002B4226 /* STTitleViewItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 77EDC3AD286DA563002B4226 /* STTitleViewItem.m */; };
+		77EDC455286DA565002B4226 /* STCollectionView.h in Headers */ = {isa = PBXBuildFile; fileRef = 77EDC3AE286DA563002B4226 /* STCollectionView.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		77EDC456286DA565002B4226 /* STCustomMemoryCache.m in Sources */ = {isa = PBXBuildFile; fileRef = 77EDC3AF286DA563002B4226 /* STCustomMemoryCache.m */; };
+		77EDC457286DA565002B4226 /* EffectsCollectionView.h in Headers */ = {isa = PBXBuildFile; fileRef = 77EDC3B0286DA563002B4226 /* EffectsCollectionView.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		77EDC458286DA565002B4226 /* STParamUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = 77EDC3B1286DA563002B4226 /* STParamUtil.m */; };
+		77EDC459286DA565002B4226 /* STCustomCollectionView.m in Sources */ = {isa = PBXBuildFile; fileRef = 77EDC3B2286DA563002B4226 /* STCustomCollectionView.m */; };
+		77EDC45A286DA565002B4226 /* STCommonObjectView.h in Headers */ = {isa = PBXBuildFile; fileRef = 77EDC3B3286DA563002B4226 /* STCommonObjectView.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		77EDC45B286DA565002B4226 /* UIView+Toast.h in Headers */ = {isa = PBXBuildFile; fileRef = 77EDC3B4286DA563002B4226 /* UIView+Toast.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		77EDC45C286DA565002B4226 /* STBMPCollectionViewCell.h in Headers */ = {isa = PBXBuildFile; fileRef = 77EDC3B5286DA563002B4226 /* STBMPCollectionViewCell.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		77EDC45D286DA565002B4226 /* STBeautySlider.m in Sources */ = {isa = PBXBuildFile; fileRef = 77EDC3B6286DA563002B4226 /* STBeautySlider.m */; };
+		77EDC45E286DA565002B4226 /* STCommonObjectContainerView.h in Headers */ = {isa = PBXBuildFile; fileRef = 77EDC3B7286DA563002B4226 /* STCommonObjectContainerView.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		77EDC45F286DA565002B4226 /* STTriggerView.h in Headers */ = {isa = PBXBuildFile; fileRef = 77EDC3B8286DA563002B4226 /* STTriggerView.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		77EDC460286DA565002B4226 /* STFilterView.m in Sources */ = {isa = PBXBuildFile; fileRef = 77EDC3B9286DA563002B4226 /* STFilterView.m */; };
+		77EDC461286DA565002B4226 /* STViewButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 77EDC3BA286DA563002B4226 /* STViewButton.m */; };
+		77EDC462286DA565002B4226 /* STSlideView.m in Sources */ = {isa = PBXBuildFile; fileRef = 77EDC3BB286DA563002B4226 /* STSlideView.m */; };
+		77EDC463286DA565002B4226 /* STScrollTitleView.m in Sources */ = {isa = PBXBuildFile; fileRef = 77EDC3BC286DA563002B4226 /* STScrollTitleView.m */; };
+		77EDC464286DA565002B4226 /* STButton.h in Headers */ = {isa = PBXBuildFile; fileRef = 77EDC3BD286DA563002B4226 /* STButton.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		77EDC465286DA565002B4226 /* STPlayerControlBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 77EDC3BE286DA563002B4226 /* STPlayerControlBar.m */; };
+		77EDC466286DA565002B4226 /* STBMPDetailColV.m in Sources */ = {isa = PBXBuildFile; fileRef = 77EDC3BF286DA563002B4226 /* STBMPDetailColV.m */; };
+		77EDC467286DA565002B4226 /* STBmpStrengthView.h in Headers */ = {isa = PBXBuildFile; fileRef = 77EDC3C0286DA563002B4226 /* STBmpStrengthView.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		77EDC468286DA565002B4226 /* STBMPDetailColVCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 77EDC3C1286DA563002B4226 /* STBMPDetailColVCell.m */; };
+		77EDC469286DA565002B4226 /* STCollectionView.m in Sources */ = {isa = PBXBuildFile; fileRef = 77EDC3C2286DA563002B4226 /* STCollectionView.m */; };
+		77EDC46A286DA565002B4226 /* EffectsCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 77EDC3C3286DA563002B4226 /* EffectsCollectionViewCell.xib */; };
+		77EDC46B286DA565002B4226 /* STTitleViewItem.h in Headers */ = {isa = PBXBuildFile; fileRef = 77EDC3C4286DA563002B4226 /* STTitleViewItem.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		77EDC46C286DA565002B4226 /* EffectsCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 77EDC3C5286DA563002B4226 /* EffectsCollectionViewCell.m */; };
+		77EDC46D286DA565002B4226 /* STCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 77EDC3C6286DA563002B4226 /* STCollectionViewCell.m */; };
+		77EDC46E286DA565002B4226 /* STMakeupDataModel.h in Headers */ = {isa = PBXBuildFile; fileRef = 77EDC3C7286DA563002B4226 /* STMakeupDataModel.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		77EDC46F286DA565002B4226 /* STBMPCollectionView.m in Sources */ = {isa = PBXBuildFile; fileRef = 77EDC3C8286DA563002B4226 /* STBMPCollectionView.m */; };
+		77EDC470286DA565002B4226 /* STCommonObjectView.m in Sources */ = {isa = PBXBuildFile; fileRef = 77EDC3C9286DA563002B4226 /* STCommonObjectView.m */; };
+		77EDC471286DA565002B4226 /* STCustomCollectionView.h in Headers */ = {isa = PBXBuildFile; fileRef = 77EDC3CA286DA563002B4226 /* STCustomCollectionView.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		77EDC472286DA565002B4226 /* STParamUtil.h in Headers */ = {isa = PBXBuildFile; fileRef = 77EDC3CB286DA563002B4226 /* STParamUtil.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		77EDC473286DA565002B4226 /* STCustomMemoryCache.h in Headers */ = {isa = PBXBuildFile; fileRef = 77EDC3CC286DA563002B4226 /* STCustomMemoryCache.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		77EDC474286DA565002B4226 /* EffectsCollectionView.m in Sources */ = {isa = PBXBuildFile; fileRef = 77EDC3CD286DA563002B4226 /* EffectsCollectionView.m */; };
+		77EDC475286DA565002B4226 /* STSlideView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 77EDC3CE286DA563002B4226 /* STSlideView.xib */; };
+		77EDC476286DA565002B4226 /* STBeautySlider.h in Headers */ = {isa = PBXBuildFile; fileRef = 77EDC3CF286DA563002B4226 /* STBeautySlider.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		77EDC477286DA565002B4226 /* STBMPCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 77EDC3D0286DA563002B4226 /* STBMPCollectionViewCell.m */; };
+		77EDC478286DA565002B4226 /* UIView+Toast.m in Sources */ = {isa = PBXBuildFile; fileRef = 77EDC3D1286DA564002B4226 /* UIView+Toast.m */; };
+		77EDC479286DA565002B4226 /* SENSEME.lic in Resources */ = {isa = PBXBuildFile; fileRef = 77EDC3D4286DA564002B4226 /* SENSEME.lic */; };
+		77EDC47A286DA565002B4226 /* st_mobile_common.h in Headers */ = {isa = PBXBuildFile; fileRef = 77EDC3D6286DA564002B4226 /* st_mobile_common.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		77EDC47B286DA565002B4226 /* st_mobile_animal.h in Headers */ = {isa = PBXBuildFile; fileRef = 77EDC3D7286DA564002B4226 /* st_mobile_animal.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		77EDC47C286DA565002B4226 /* st_mobile_human_action.h in Headers */ = {isa = PBXBuildFile; fileRef = 77EDC3D8286DA564002B4226 /* st_mobile_human_action.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		77EDC47D286DA565002B4226 /* st_mobile_object.h in Headers */ = {isa = PBXBuildFile; fileRef = 77EDC3D9286DA564002B4226 /* st_mobile_object.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		77EDC47E286DA565002B4226 /* st_mobile_face_attribute.h in Headers */ = {isa = PBXBuildFile; fileRef = 77EDC3DA286DA564002B4226 /* st_mobile_face_attribute.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		77EDC47F286DA565002B4226 /* st_mobile_license.h in Headers */ = {isa = PBXBuildFile; fileRef = 77EDC3DB286DA564002B4226 /* st_mobile_license.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		77EDC480286DA565002B4226 /* st_mobile_effect.h in Headers */ = {isa = PBXBuildFile; fileRef = 77EDC3DC286DA564002B4226 /* st_mobile_effect.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		77EDC481286DA565002B4226 /* st_mobile_color_convert.h in Headers */ = {isa = PBXBuildFile; fileRef = 77EDC3DD286DA564002B4226 /* st_mobile_color_convert.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		77EDC482286DA565002B4226 /* st_mobile_avatar.h in Headers */ = {isa = PBXBuildFile; fileRef = 77EDC3DE286DA564002B4226 /* st_mobile_avatar.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		77EDC483286DA565002B4226 /* M_SenseME_Segment_Head_1.0.3.model in Resources */ = {isa = PBXBuildFile; fileRef = 77EDC3E0286DA564002B4226 /* M_SenseME_Segment_Head_1.0.3.model */; };
+		77EDC484286DA565002B4226 /* M_SenseME_DogFace_2.0.0.model in Resources */ = {isa = PBXBuildFile; fileRef = 77EDC3E1286DA564002B4226 /* M_SenseME_DogFace_2.0.0.model */; };
+		77EDC485286DA565002B4226 /* M_SenseAR_Segment_MouthOcclusion_FastV1_1.1.2.model in Resources */ = {isa = PBXBuildFile; fileRef = 77EDC3E2286DA564002B4226 /* M_SenseAR_Segment_MouthOcclusion_FastV1_1.1.2.model */; };
+		77EDC486286DA565002B4226 /* M_SenseME_Segment_MouthOcclusion_FastV1_1.1.3.model in Resources */ = {isa = PBXBuildFile; fileRef = 77EDC3E3286DA564002B4226 /* M_SenseME_Segment_MouthOcclusion_FastV1_1.1.3.model */; };
+		77EDC487286DA565002B4226 /* SenseAR_v6.11.0(Effects)_Model_Usage_Instructions.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 77EDC3E4286DA564002B4226 /* SenseAR_v6.11.0(Effects)_Model_Usage_Instructions.pdf */; };
+		77EDC488286DA565002B4226 /* M_SenseME_Segment_Skin_1.1.1.model in Resources */ = {isa = PBXBuildFile; fileRef = 77EDC3E5286DA564002B4226 /* M_SenseME_Segment_Skin_1.1.1.model */; };
+		77EDC489286DA565002B4226 /* M_SenseME_CatFace_3.2.0.model in Resources */ = {isa = PBXBuildFile; fileRef = 77EDC3E6286DA564002B4226 /* M_SenseME_CatFace_3.2.0.model */; };
+		77EDC48A286DA565002B4226 /* M_SenseME_Segment_4.12.8.model in Resources */ = {isa = PBXBuildFile; fileRef = 77EDC3E7286DA564002B4226 /* M_SenseME_Segment_4.12.8.model */; };
+		77EDC48B286DA565002B4226 /* M_SenseME_Face_Extra_Advanced_6.0.13.model in Resources */ = {isa = PBXBuildFile; fileRef = 77EDC3E8286DA564002B4226 /* M_SenseME_Face_Extra_Advanced_6.0.13.model */; };
+		77EDC48C286DA565002B4226 /* M_SenseME_Hand_5.4.0.model in Resources */ = {isa = PBXBuildFile; fileRef = 77EDC3E9286DA564002B4226 /* M_SenseME_Hand_5.4.0.model */; };
+		77EDC48D286DA565002B4226 /* M_SenseME_Face_Video_7.0.0.model in Resources */ = {isa = PBXBuildFile; fileRef = 77EDC3EA286DA564002B4226 /* M_SenseME_Face_Video_7.0.0.model */; };
+		77EDC48E286DA565002B4226 /* M_SenseME_Segment_4.12.11.model in Resources */ = {isa = PBXBuildFile; fileRef = 77EDC3EB286DA564002B4226 /* M_SenseME_Segment_4.12.11.model */; };
+		77EDC48F286DA565002B4226 /* M_SenseME_Segment_Hair_1.3.4.model in Resources */ = {isa = PBXBuildFile; fileRef = 77EDC3EC286DA564002B4226 /* M_SenseME_Segment_Hair_1.3.4.model */; };
+		77EDC490286DA565002B4226 /* M_SenseME_Segment_DBL_Face_1.0.7.model in Resources */ = {isa = PBXBuildFile; fileRef = 77EDC3ED286DA564002B4226 /* M_SenseME_Segment_DBL_Face_1.0.7.model */; };
+		77EDC491286DA565002B4226 /* M_SenseME_Segment_Sky_1.0.3.model in Resources */ = {isa = PBXBuildFile; fileRef = 77EDC3EE286DA564002B4226 /* M_SenseME_Segment_Sky_1.0.3.model */; };
+		77EDC492286DA565002B4226 /* M_SenseME_Attribute_1.0.1.model in Resources */ = {isa = PBXBuildFile; fileRef = 77EDC3EF286DA564002B4226 /* M_SenseME_Attribute_1.0.1.model */; };
+		77EDC493286DA565002B4226 /* SenseAR_v8.5.0(Effects)_Model_Usage_Instructions的.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 77EDC3F0286DA564002B4226 /* SenseAR_v8.5.0(Effects)_Model_Usage_Instructions的.pdf */; };
+		77EDC494286DA565002B4226 /* M_SenseME_Avatar_Help_2.2.0.model in Resources */ = {isa = PBXBuildFile; fileRef = 77EDC3F1286DA564002B4226 /* M_SenseME_Avatar_Help_2.2.0.model */; };
+		77EDC49B286DA9AB002B4226 /* BeautyContainerView.h in Headers */ = {isa = PBXBuildFile; fileRef = 77EDC499286DA9AB002B4226 /* BeautyContainerView.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		77EDC49C286DA9AB002B4226 /* BeautyContainerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 77EDC49A286DA9AB002B4226 /* BeautyContainerView.m */; };
+		77EDC49F286DAD99002B4226 /* BeautyLiveViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = 77EDC49D286DAD99002B4226 /* BeautyLiveViewController.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		77EDC4A0286DAD99002B4226 /* BeautyLiveViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 77EDC49E286DAD99002B4226 /* BeautyLiveViewController.m */; };
+		77EDC4A3286EA40C002B4226 /* libSenseArSourceService.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 77EDC4A2286EA40C002B4226 /* libSenseArSourceService.a */; };
+		77EDC4A5286ECDCC002B4226 /* libst_mobile.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 77EDC4A4286ECDCB002B4226 /* libst_mobile.a */; };
 		C486089576C27F3A6ABEE3DB /* Pods_QNLiveKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 93FD8D2BCC60F127C6FB7DA1 /* Pods_QNLiveKit.framework */; };
 		F18E863D1EEF8227B50115B4 /* Pods_QNLiveKitTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 948C15C1847BC94017A63290 /* Pods_QNLiveKitTests.framework */; };
 /* End PBXBuildFile section */
@@ -336,6 +489,160 @@
 		777B7A86284F5BC4005032B7 /* QNInvitationMemberListController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QNInvitationMemberListController.m; sourceTree = "<group>"; };
 		77E02E2F284E245A00EE8A28 /* QNAudienceController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = QNAudienceController.h; sourceTree = "<group>"; };
 		77E02E30284E245A00EE8A28 /* QNAudienceController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = QNAudienceController.m; sourceTree = "<group>"; };
+		77EDC33B286DA563002B4226 /* STLock.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = STLock.m; sourceTree = "<group>"; };
+		77EDC33C286DA563002B4226 /* STEffectsTimer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = STEffectsTimer.m; sourceTree = "<group>"; };
+		77EDC33D286DA563002B4226 /* STMobileLog.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = STMobileLog.h; sourceTree = "<group>"; };
+		77EDC33E286DA563002B4226 /* NSBundle+language.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSBundle+language.m"; sourceTree = "<group>"; };
+		77EDC33F286DA563002B4226 /* STConvert.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = STConvert.m; sourceTree = "<group>"; };
+		77EDC340286DA563002B4226 /* STLock.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = STLock.h; sourceTree = "<group>"; };
+		77EDC341286DA563002B4226 /* STEffectsTimer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = STEffectsTimer.h; sourceTree = "<group>"; };
+		77EDC342286DA563002B4226 /* STConvert.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = STConvert.h; sourceTree = "<group>"; };
+		77EDC343286DA563002B4226 /* NSBundle+language.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSBundle+language.h"; sourceTree = "<group>"; };
+		77EDC346286DA563002B4226 /* STDefaultSettingDataSourseGenerator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = STDefaultSettingDataSourseGenerator.m; sourceTree = "<group>"; };
+		77EDC347286DA563002B4226 /* STDefaultSettingDataSourseGenerator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = STDefaultSettingDataSourseGenerator.h; sourceTree = "<group>"; };
+		77EDC348286DA563002B4226 /* DefaultBeautyParameters.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DefaultBeautyParameters.h; sourceTree = "<group>"; };
+		77EDC349286DA563002B4226 /* STDefaultSetting.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = STDefaultSetting.h; sourceTree = "<group>"; };
+		77EDC34A286DA563002B4226 /* STDefaultSetting.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = STDefaultSetting.m; sourceTree = "<group>"; };
+		77EDC34C286DA563002B4226 /* STCamera.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = STCamera.h; sourceTree = "<group>"; };
+		77EDC34D286DA563002B4226 /* STCamera.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = STCamera.m; sourceTree = "<group>"; };
+		77EDC350286DA563002B4226 /* PortraitFilters.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = PortraitFilters.bundle; sourceTree = "<group>"; };
+		77EDC351286DA563002B4226 /* SceneryFilters.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = SceneryFilters.bundle; sourceTree = "<group>"; };
+		77EDC352286DA563002B4226 /* StillLifeFilters.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = StillLifeFilters.bundle; sourceTree = "<group>"; };
+		77EDC353286DA563002B4226 /* DeliciousFoodFilters.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = DeliciousFoodFilters.bundle; sourceTree = "<group>"; };
+		77EDC355286DA563002B4226 /* whiten_gif.zip */ = {isa = PBXFileReference; lastKnownFileType = archive.zip; path = whiten_gif.zip; sourceTree = "<group>"; };
+		77EDC361286DA563002B4226 /* eyelash.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = eyelash.bundle; sourceTree = "<group>"; };
+		77EDC362286DA563002B4226 /* lips.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = lips.bundle; sourceTree = "<group>"; };
+		77EDC363286DA563002B4226 /* brow.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = brow.bundle; sourceTree = "<group>"; };
+		77EDC364286DA563002B4226 /* wholemakeup.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = wholemakeup.bundle; sourceTree = "<group>"; };
+		77EDC365286DA563002B4226 /* face.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = face.bundle; sourceTree = "<group>"; };
+		77EDC366286DA563002B4226 /* eyeshadow.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = eyeshadow.bundle; sourceTree = "<group>"; };
+		77EDC367286DA563002B4226 /* blush.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = blush.bundle; sourceTree = "<group>"; };
+		77EDC369286DA563002B4226 /* my_sticker.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = my_sticker.bundle; sourceTree = "<group>"; };
+		77EDC36B286DA563002B4226 /* STColorConversion.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = STColorConversion.h; sourceTree = "<group>"; };
+		77EDC36C286DA563002B4226 /* STGLPreview3.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = STGLPreview3.h; sourceTree = "<group>"; };
+		77EDC36D286DA563002B4226 /* STGLShader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = STGLShader.m; sourceTree = "<group>"; };
+		77EDC36E286DA563002B4226 /* STVFShader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = STVFShader.h; sourceTree = "<group>"; };
+		77EDC36F286DA563002B4226 /* STGLPreview2.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = STGLPreview2.m; sourceTree = "<group>"; };
+		77EDC370286DA563002B4226 /* STColorConversion.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = STColorConversion.m; sourceTree = "<group>"; };
+		77EDC371286DA563002B4226 /* STGLPreview3.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = STGLPreview3.m; sourceTree = "<group>"; };
+		77EDC372286DA563002B4226 /* STGLShader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = STGLShader.h; sourceTree = "<group>"; };
+		77EDC373286DA563002B4226 /* STGLPreview2.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = STGLPreview2.h; sourceTree = "<group>"; };
+		77EDC374286DA563002B4226 /* STVFShader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = STVFShader.m; sourceTree = "<group>"; };
+		77EDC377286DA563002B4226 /* SenseArMaterialAction.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SenseArMaterialAction.h; sourceTree = "<group>"; };
+		77EDC378286DA563002B4226 /* SenseArMaterial.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SenseArMaterial.h; sourceTree = "<group>"; };
+		77EDC379286DA563002B4226 /* SenseArSourceService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SenseArSourceService.h; sourceTree = "<group>"; };
+		77EDC37A286DA563002B4226 /* SenseArMaterialService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SenseArMaterialService.h; sourceTree = "<group>"; };
+		77EDC37B286DA563002B4226 /* SenseArMaterialGroup.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SenseArMaterialGroup.h; sourceTree = "<group>"; };
+		77EDC37C286DA563002B4226 /* VERSION */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = VERSION; sourceTree = "<group>"; };
+		77EDC380286DA563002B4226 /* STBaseViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = STBaseViewController.m; sourceTree = "<group>"; };
+		77EDC383286DA563002B4226 /* STCoreStateManagement.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = STCoreStateManagement.h; sourceTree = "<group>"; };
+		77EDC385286DA563002B4226 /* STCoreStateManagementModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = STCoreStateManagementModel.h; sourceTree = "<group>"; };
+		77EDC386286DA563002B4226 /* STCoreStateManagementModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = STCoreStateManagementModel.m; sourceTree = "<group>"; };
+		77EDC388286DA563002B4226 /* STCoreStateManagementFilterModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = STCoreStateManagementFilterModel.m; sourceTree = "<group>"; };
+		77EDC389286DA563002B4226 /* STCoreStateManagementFilterModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = STCoreStateManagementFilterModel.h; sourceTree = "<group>"; };
+		77EDC38A286DA563002B4226 /* STCoreStateManagementValueChangeDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = STCoreStateManagementValueChangeDelegate.h; sourceTree = "<group>"; };
+		77EDC38B286DA563002B4226 /* STCoreStateManagement.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = STCoreStateManagement.m; sourceTree = "<group>"; };
+		77EDC38D286DA563002B4226 /* STEffectsAudioPlayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = STEffectsAudioPlayer.h; sourceTree = "<group>"; };
+		77EDC38E286DA563002B4226 /* SystemSound.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SystemSound.m; sourceTree = "<group>"; };
+		77EDC38F286DA563002B4226 /* SoundInfomation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SoundInfomation.h; sourceTree = "<group>"; };
+		77EDC390286DA563002B4226 /* STAudioManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = STAudioManager.m; sourceTree = "<group>"; };
+		77EDC391286DA563002B4226 /* STEffectsAudioPlayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = STEffectsAudioPlayer.m; sourceTree = "<group>"; };
+		77EDC392286DA563002B4226 /* SoundInfomation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SoundInfomation.m; sourceTree = "<group>"; };
+		77EDC393286DA563002B4226 /* SystemSound.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SystemSound.h; sourceTree = "<group>"; };
+		77EDC394286DA563002B4226 /* STAudioManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = STAudioManager.h; sourceTree = "<group>"; };
+		77EDC396286DA563002B4226 /* STMovieRecorder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = STMovieRecorder.h; sourceTree = "<group>"; };
+		77EDC397286DA563002B4226 /* STMovieRecorder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = STMovieRecorder.m; sourceTree = "<group>"; };
+		77EDC398286DA563002B4226 /* STBaseViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = STBaseViewController.h; sourceTree = "<group>"; };
+		77EDC39A286DA563002B4226 /* LicenseUtil.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LicenseUtil.h; sourceTree = "<group>"; };
+		77EDC39B286DA563002B4226 /* LicenseUtil.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LicenseUtil.m; sourceTree = "<group>"; };
+		77EDC39D286DA563002B4226 /* STBMPDetailColVCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = STBMPDetailColVCell.h; sourceTree = "<group>"; };
+		77EDC39E286DA563002B4226 /* STBmpStrengthView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = STBmpStrengthView.m; sourceTree = "<group>"; };
+		77EDC39F286DA563002B4226 /* STBMPDetailColV.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = STBMPDetailColV.h; sourceTree = "<group>"; };
+		77EDC3A0286DA563002B4226 /* STPlayerControlBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = STPlayerControlBar.h; sourceTree = "<group>"; };
+		77EDC3A1286DA563002B4226 /* STViewButton.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = STViewButton.xib; sourceTree = "<group>"; };
+		77EDC3A2286DA563002B4226 /* STButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = STButton.m; sourceTree = "<group>"; };
+		77EDC3A3286DA563002B4226 /* STSlideView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = STSlideView.h; sourceTree = "<group>"; };
+		77EDC3A4286DA563002B4226 /* STScrollTitleView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = STScrollTitleView.h; sourceTree = "<group>"; };
+		77EDC3A5286DA563002B4226 /* STViewButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = STViewButton.h; sourceTree = "<group>"; };
+		77EDC3A6286DA563002B4226 /* STFilterView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = STFilterView.h; sourceTree = "<group>"; };
+		77EDC3A7286DA563002B4226 /* STCommonObjectContainerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = STCommonObjectContainerView.m; sourceTree = "<group>"; };
+		77EDC3A8286DA563002B4226 /* STTriggerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = STTriggerView.m; sourceTree = "<group>"; };
+		77EDC3A9286DA563002B4226 /* STBMPCollectionView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = STBMPCollectionView.h; sourceTree = "<group>"; };
+		77EDC3AA286DA563002B4226 /* STMakeupDataModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = STMakeupDataModel.m; sourceTree = "<group>"; };
+		77EDC3AB286DA563002B4226 /* STCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = STCollectionViewCell.h; sourceTree = "<group>"; };
+		77EDC3AC286DA563002B4226 /* EffectsCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EffectsCollectionViewCell.h; sourceTree = "<group>"; };
+		77EDC3AD286DA563002B4226 /* STTitleViewItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = STTitleViewItem.m; sourceTree = "<group>"; };
+		77EDC3AE286DA563002B4226 /* STCollectionView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = STCollectionView.h; sourceTree = "<group>"; };
+		77EDC3AF286DA563002B4226 /* STCustomMemoryCache.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = STCustomMemoryCache.m; sourceTree = "<group>"; };
+		77EDC3B0286DA563002B4226 /* EffectsCollectionView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EffectsCollectionView.h; sourceTree = "<group>"; };
+		77EDC3B1286DA563002B4226 /* STParamUtil.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = STParamUtil.m; sourceTree = "<group>"; };
+		77EDC3B2286DA563002B4226 /* STCustomCollectionView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = STCustomCollectionView.m; sourceTree = "<group>"; };
+		77EDC3B3286DA563002B4226 /* STCommonObjectView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = STCommonObjectView.h; sourceTree = "<group>"; };
+		77EDC3B4286DA563002B4226 /* UIView+Toast.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+Toast.h"; sourceTree = "<group>"; };
+		77EDC3B5286DA563002B4226 /* STBMPCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = STBMPCollectionViewCell.h; sourceTree = "<group>"; };
+		77EDC3B6286DA563002B4226 /* STBeautySlider.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = STBeautySlider.m; sourceTree = "<group>"; };
+		77EDC3B7286DA563002B4226 /* STCommonObjectContainerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = STCommonObjectContainerView.h; sourceTree = "<group>"; };
+		77EDC3B8286DA563002B4226 /* STTriggerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = STTriggerView.h; sourceTree = "<group>"; };
+		77EDC3B9286DA563002B4226 /* STFilterView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = STFilterView.m; sourceTree = "<group>"; };
+		77EDC3BA286DA563002B4226 /* STViewButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = STViewButton.m; sourceTree = "<group>"; };
+		77EDC3BB286DA563002B4226 /* STSlideView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = STSlideView.m; sourceTree = "<group>"; };
+		77EDC3BC286DA563002B4226 /* STScrollTitleView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = STScrollTitleView.m; sourceTree = "<group>"; };
+		77EDC3BD286DA563002B4226 /* STButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = STButton.h; sourceTree = "<group>"; };
+		77EDC3BE286DA563002B4226 /* STPlayerControlBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = STPlayerControlBar.m; sourceTree = "<group>"; };
+		77EDC3BF286DA563002B4226 /* STBMPDetailColV.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = STBMPDetailColV.m; sourceTree = "<group>"; };
+		77EDC3C0286DA563002B4226 /* STBmpStrengthView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = STBmpStrengthView.h; sourceTree = "<group>"; };
+		77EDC3C1286DA563002B4226 /* STBMPDetailColVCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = STBMPDetailColVCell.m; sourceTree = "<group>"; };
+		77EDC3C2286DA563002B4226 /* STCollectionView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = STCollectionView.m; sourceTree = "<group>"; };
+		77EDC3C3286DA563002B4226 /* EffectsCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = EffectsCollectionViewCell.xib; sourceTree = "<group>"; };
+		77EDC3C4286DA563002B4226 /* STTitleViewItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = STTitleViewItem.h; sourceTree = "<group>"; };
+		77EDC3C5286DA563002B4226 /* EffectsCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EffectsCollectionViewCell.m; sourceTree = "<group>"; };
+		77EDC3C6286DA563002B4226 /* STCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = STCollectionViewCell.m; sourceTree = "<group>"; };
+		77EDC3C7286DA563002B4226 /* STMakeupDataModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = STMakeupDataModel.h; sourceTree = "<group>"; };
+		77EDC3C8286DA563002B4226 /* STBMPCollectionView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = STBMPCollectionView.m; sourceTree = "<group>"; };
+		77EDC3C9286DA563002B4226 /* STCommonObjectView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = STCommonObjectView.m; sourceTree = "<group>"; };
+		77EDC3CA286DA563002B4226 /* STCustomCollectionView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = STCustomCollectionView.h; sourceTree = "<group>"; };
+		77EDC3CB286DA563002B4226 /* STParamUtil.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = STParamUtil.h; sourceTree = "<group>"; };
+		77EDC3CC286DA563002B4226 /* STCustomMemoryCache.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = STCustomMemoryCache.h; sourceTree = "<group>"; };
+		77EDC3CD286DA563002B4226 /* EffectsCollectionView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EffectsCollectionView.m; sourceTree = "<group>"; };
+		77EDC3CE286DA563002B4226 /* STSlideView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = STSlideView.xib; sourceTree = "<group>"; };
+		77EDC3CF286DA563002B4226 /* STBeautySlider.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = STBeautySlider.h; sourceTree = "<group>"; };
+		77EDC3D0286DA563002B4226 /* STBMPCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = STBMPCollectionViewCell.m; sourceTree = "<group>"; };
+		77EDC3D1286DA564002B4226 /* UIView+Toast.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+Toast.m"; sourceTree = "<group>"; };
+		77EDC3D4286DA564002B4226 /* SENSEME.lic */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = SENSEME.lic; sourceTree = "<group>"; };
+		77EDC3D6286DA564002B4226 /* st_mobile_common.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = st_mobile_common.h; sourceTree = "<group>"; };
+		77EDC3D7286DA564002B4226 /* st_mobile_animal.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = st_mobile_animal.h; sourceTree = "<group>"; };
+		77EDC3D8286DA564002B4226 /* st_mobile_human_action.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = st_mobile_human_action.h; sourceTree = "<group>"; };
+		77EDC3D9286DA564002B4226 /* st_mobile_object.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = st_mobile_object.h; sourceTree = "<group>"; };
+		77EDC3DA286DA564002B4226 /* st_mobile_face_attribute.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = st_mobile_face_attribute.h; sourceTree = "<group>"; };
+		77EDC3DB286DA564002B4226 /* st_mobile_license.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = st_mobile_license.h; sourceTree = "<group>"; };
+		77EDC3DC286DA564002B4226 /* st_mobile_effect.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = st_mobile_effect.h; sourceTree = "<group>"; };
+		77EDC3DD286DA564002B4226 /* st_mobile_color_convert.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = st_mobile_color_convert.h; sourceTree = "<group>"; };
+		77EDC3DE286DA564002B4226 /* st_mobile_avatar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = st_mobile_avatar.h; sourceTree = "<group>"; };
+		77EDC3E0286DA564002B4226 /* M_SenseME_Segment_Head_1.0.3.model */ = {isa = PBXFileReference; lastKnownFileType = file; path = M_SenseME_Segment_Head_1.0.3.model; sourceTree = "<group>"; };
+		77EDC3E1286DA564002B4226 /* M_SenseME_DogFace_2.0.0.model */ = {isa = PBXFileReference; lastKnownFileType = file; path = M_SenseME_DogFace_2.0.0.model; sourceTree = "<group>"; };
+		77EDC3E2286DA564002B4226 /* M_SenseAR_Segment_MouthOcclusion_FastV1_1.1.2.model */ = {isa = PBXFileReference; lastKnownFileType = file; path = M_SenseAR_Segment_MouthOcclusion_FastV1_1.1.2.model; sourceTree = "<group>"; };
+		77EDC3E3286DA564002B4226 /* M_SenseME_Segment_MouthOcclusion_FastV1_1.1.3.model */ = {isa = PBXFileReference; lastKnownFileType = file; path = M_SenseME_Segment_MouthOcclusion_FastV1_1.1.3.model; sourceTree = "<group>"; };
+		77EDC3E4286DA564002B4226 /* SenseAR_v6.11.0(Effects)_Model_Usage_Instructions.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = "SenseAR_v6.11.0(Effects)_Model_Usage_Instructions.pdf"; sourceTree = "<group>"; };
+		77EDC3E5286DA564002B4226 /* M_SenseME_Segment_Skin_1.1.1.model */ = {isa = PBXFileReference; lastKnownFileType = file; path = M_SenseME_Segment_Skin_1.1.1.model; sourceTree = "<group>"; };
+		77EDC3E6286DA564002B4226 /* M_SenseME_CatFace_3.2.0.model */ = {isa = PBXFileReference; lastKnownFileType = file; path = M_SenseME_CatFace_3.2.0.model; sourceTree = "<group>"; };
+		77EDC3E7286DA564002B4226 /* M_SenseME_Segment_4.12.8.model */ = {isa = PBXFileReference; lastKnownFileType = file; path = M_SenseME_Segment_4.12.8.model; sourceTree = "<group>"; };
+		77EDC3E8286DA564002B4226 /* M_SenseME_Face_Extra_Advanced_6.0.13.model */ = {isa = PBXFileReference; lastKnownFileType = file; path = M_SenseME_Face_Extra_Advanced_6.0.13.model; sourceTree = "<group>"; };
+		77EDC3E9286DA564002B4226 /* M_SenseME_Hand_5.4.0.model */ = {isa = PBXFileReference; lastKnownFileType = file; path = M_SenseME_Hand_5.4.0.model; sourceTree = "<group>"; };
+		77EDC3EA286DA564002B4226 /* M_SenseME_Face_Video_7.0.0.model */ = {isa = PBXFileReference; lastKnownFileType = file; path = M_SenseME_Face_Video_7.0.0.model; sourceTree = "<group>"; };
+		77EDC3EB286DA564002B4226 /* M_SenseME_Segment_4.12.11.model */ = {isa = PBXFileReference; lastKnownFileType = file; path = M_SenseME_Segment_4.12.11.model; sourceTree = "<group>"; };
+		77EDC3EC286DA564002B4226 /* M_SenseME_Segment_Hair_1.3.4.model */ = {isa = PBXFileReference; lastKnownFileType = file; path = M_SenseME_Segment_Hair_1.3.4.model; sourceTree = "<group>"; };
+		77EDC3ED286DA564002B4226 /* M_SenseME_Segment_DBL_Face_1.0.7.model */ = {isa = PBXFileReference; lastKnownFileType = file; path = M_SenseME_Segment_DBL_Face_1.0.7.model; sourceTree = "<group>"; };
+		77EDC3EE286DA564002B4226 /* M_SenseME_Segment_Sky_1.0.3.model */ = {isa = PBXFileReference; lastKnownFileType = file; path = M_SenseME_Segment_Sky_1.0.3.model; sourceTree = "<group>"; };
+		77EDC3EF286DA564002B4226 /* M_SenseME_Attribute_1.0.1.model */ = {isa = PBXFileReference; lastKnownFileType = file; path = M_SenseME_Attribute_1.0.1.model; sourceTree = "<group>"; };
+		77EDC3F0286DA564002B4226 /* SenseAR_v8.5.0(Effects)_Model_Usage_Instructions的.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = "SenseAR_v8.5.0(Effects)_Model_Usage_Instructions的.pdf"; sourceTree = "<group>"; };
+		77EDC3F1286DA564002B4226 /* M_SenseME_Avatar_Help_2.2.0.model */ = {isa = PBXFileReference; lastKnownFileType = file; path = M_SenseME_Avatar_Help_2.2.0.model; sourceTree = "<group>"; };
+		77EDC3F2286DA564002B4226 /* VERSION */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = VERSION; sourceTree = "<group>"; };
+		77EDC499286DA9AB002B4226 /* BeautyContainerView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BeautyContainerView.h; sourceTree = "<group>"; };
+		77EDC49A286DA9AB002B4226 /* BeautyContainerView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BeautyContainerView.m; sourceTree = "<group>"; };
+		77EDC49D286DAD99002B4226 /* BeautyLiveViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BeautyLiveViewController.h; sourceTree = "<group>"; };
+		77EDC49E286DAD99002B4226 /* BeautyLiveViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BeautyLiveViewController.m; sourceTree = "<group>"; };
+		77EDC4A2286EA40C002B4226 /* libSenseArSourceService.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libSenseArSourceService.a; sourceTree = "<group>"; };
+		77EDC4A4286ECDCB002B4226 /* libst_mobile.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libst_mobile.a; sourceTree = "<group>"; };
 		93FD8D2BCC60F127C6FB7DA1 /* Pods_QNLiveKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_QNLiveKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		948C15C1847BC94017A63290 /* Pods_QNLiveKitTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_QNLiveKitTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A065A22036BD2AFE4FD60568 /* Pods-QNLiveKit.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-QNLiveKit.release.xcconfig"; path = "Target Support Files/Pods-QNLiveKit/Pods-QNLiveKit.release.xcconfig"; sourceTree = "<group>"; };
@@ -350,6 +657,8 @@
 			files = (
 				77781D9928486DBA009DC71C /* QNIMSDK.framework in Frameworks */,
 				C486089576C27F3A6ABEE3DB /* Pods_QNLiveKit.framework in Frameworks */,
+				77EDC4A5286ECDCC002B4226 /* libst_mobile.a in Frameworks */,
+				77EDC4A3286EA40C002B4226 /* libSenseArSourceService.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -406,6 +715,7 @@
 			isa = PBXGroup;
 			children = (
 				77781D9728486DAD009DC71C /* QNIMSDK.framework */,
+				77EDC498286DA86B002B4226 /* Beauty */,
 				77781D242845E56A009DC71C /* LiveUIKit */,
 				776B1CCC283D008500D85C73 /* LiveRoom */,
 				776B1CCD283D00DB00D85C73 /* LinkMic */,
@@ -678,6 +988,399 @@
 			path = VC;
 			sourceTree = "<group>";
 		};
+		77EDC339286DA563002B4226 /* Effect */ = {
+			isa = PBXGroup;
+			children = (
+				77EDC33A286DA563002B4226 /* Util */,
+				77EDC344286DA563002B4226 /* SampleDefaultSetting */,
+				77EDC34B286DA563002B4226 /* Camera */,
+				77EDC34E286DA563002B4226 /* resources */,
+				77EDC36A286DA563002B4226 /* Render */,
+				77EDC375286DA563002B4226 /* SenseArSourceService */,
+				77EDC381286DA563002B4226 /* architecture */,
+				77EDC38C286DA563002B4226 /* Audio */,
+				77EDC395286DA563002B4226 /* VideoRecord */,
+				77EDC398286DA563002B4226 /* STBaseViewController.h */,
+				77EDC380286DA563002B4226 /* STBaseViewController.m */,
+				77EDC399286DA563002B4226 /* LicenseUtil */,
+				77EDC39C286DA563002B4226 /* UIElements */,
+				77EDC3D2286DA564002B4226 /* st_mobile_sdk */,
+			);
+			path = Effect;
+			sourceTree = "<group>";
+		};
+		77EDC33A286DA563002B4226 /* Util */ = {
+			isa = PBXGroup;
+			children = (
+				77EDC343286DA563002B4226 /* NSBundle+language.h */,
+				77EDC33E286DA563002B4226 /* NSBundle+language.m */,
+				77EDC342286DA563002B4226 /* STConvert.h */,
+				77EDC33F286DA563002B4226 /* STConvert.m */,
+				77EDC341286DA563002B4226 /* STEffectsTimer.h */,
+				77EDC33C286DA563002B4226 /* STEffectsTimer.m */,
+				77EDC340286DA563002B4226 /* STLock.h */,
+				77EDC33B286DA563002B4226 /* STLock.m */,
+				77EDC33D286DA563002B4226 /* STMobileLog.h */,
+			);
+			path = Util;
+			sourceTree = "<group>";
+		};
+		77EDC344286DA563002B4226 /* SampleDefaultSetting */ = {
+			isa = PBXGroup;
+			children = (
+				77EDC345286DA563002B4226 /* datasources */,
+				77EDC348286DA563002B4226 /* DefaultBeautyParameters.h */,
+				77EDC349286DA563002B4226 /* STDefaultSetting.h */,
+				77EDC34A286DA563002B4226 /* STDefaultSetting.m */,
+			);
+			path = SampleDefaultSetting;
+			sourceTree = "<group>";
+		};
+		77EDC345286DA563002B4226 /* datasources */ = {
+			isa = PBXGroup;
+			children = (
+				77EDC347286DA563002B4226 /* STDefaultSettingDataSourseGenerator.h */,
+				77EDC346286DA563002B4226 /* STDefaultSettingDataSourseGenerator.m */,
+			);
+			path = datasources;
+			sourceTree = "<group>";
+		};
+		77EDC34B286DA563002B4226 /* Camera */ = {
+			isa = PBXGroup;
+			children = (
+				77EDC34C286DA563002B4226 /* STCamera.h */,
+				77EDC34D286DA563002B4226 /* STCamera.m */,
+			);
+			path = Camera;
+			sourceTree = "<group>";
+		};
+		77EDC34E286DA563002B4226 /* resources */ = {
+			isa = PBXGroup;
+			children = (
+				77EDC34F286DA563002B4226 /* Filters */,
+				77EDC354286DA563002B4226 /* Color */,
+				77EDC360286DA563002B4226 /* Makeup */,
+				77EDC368286DA563002B4226 /* StickerZipAndIcons */,
+			);
+			path = resources;
+			sourceTree = "<group>";
+		};
+		77EDC34F286DA563002B4226 /* Filters */ = {
+			isa = PBXGroup;
+			children = (
+				77EDC350286DA563002B4226 /* PortraitFilters.bundle */,
+				77EDC351286DA563002B4226 /* SceneryFilters.bundle */,
+				77EDC352286DA563002B4226 /* StillLifeFilters.bundle */,
+				77EDC353286DA563002B4226 /* DeliciousFoodFilters.bundle */,
+			);
+			path = Filters;
+			sourceTree = "<group>";
+		};
+		77EDC354286DA563002B4226 /* Color */ = {
+			isa = PBXGroup;
+			children = (
+				77EDC355286DA563002B4226 /* whiten_gif.zip */,
+			);
+			path = Color;
+			sourceTree = "<group>";
+		};
+		77EDC360286DA563002B4226 /* Makeup */ = {
+			isa = PBXGroup;
+			children = (
+				77EDC361286DA563002B4226 /* eyelash.bundle */,
+				77EDC362286DA563002B4226 /* lips.bundle */,
+				77EDC363286DA563002B4226 /* brow.bundle */,
+				77EDC364286DA563002B4226 /* wholemakeup.bundle */,
+				77EDC365286DA563002B4226 /* face.bundle */,
+				77EDC366286DA563002B4226 /* eyeshadow.bundle */,
+				77EDC367286DA563002B4226 /* blush.bundle */,
+			);
+			path = Makeup;
+			sourceTree = "<group>";
+		};
+		77EDC368286DA563002B4226 /* StickerZipAndIcons */ = {
+			isa = PBXGroup;
+			children = (
+				77EDC369286DA563002B4226 /* my_sticker.bundle */,
+			);
+			path = StickerZipAndIcons;
+			sourceTree = "<group>";
+		};
+		77EDC36A286DA563002B4226 /* Render */ = {
+			isa = PBXGroup;
+			children = (
+				77EDC36B286DA563002B4226 /* STColorConversion.h */,
+				77EDC370286DA563002B4226 /* STColorConversion.m */,
+				77EDC373286DA563002B4226 /* STGLPreview2.h */,
+				77EDC36F286DA563002B4226 /* STGLPreview2.m */,
+				77EDC36C286DA563002B4226 /* STGLPreview3.h */,
+				77EDC371286DA563002B4226 /* STGLPreview3.m */,
+				77EDC372286DA563002B4226 /* STGLShader.h */,
+				77EDC36D286DA563002B4226 /* STGLShader.m */,
+				77EDC36E286DA563002B4226 /* STVFShader.h */,
+				77EDC374286DA563002B4226 /* STVFShader.m */,
+			);
+			path = Render;
+			sourceTree = "<group>";
+		};
+		77EDC375286DA563002B4226 /* SenseArSourceService */ = {
+			isa = PBXGroup;
+			children = (
+				77EDC376286DA563002B4226 /* include */,
+				77EDC37C286DA563002B4226 /* VERSION */,
+				77EDC37D286DA563002B4226 /* lib */,
+			);
+			path = SenseArSourceService;
+			sourceTree = "<group>";
+		};
+		77EDC376286DA563002B4226 /* include */ = {
+			isa = PBXGroup;
+			children = (
+				77EDC377286DA563002B4226 /* SenseArMaterialAction.h */,
+				77EDC378286DA563002B4226 /* SenseArMaterial.h */,
+				77EDC379286DA563002B4226 /* SenseArSourceService.h */,
+				77EDC37A286DA563002B4226 /* SenseArMaterialService.h */,
+				77EDC37B286DA563002B4226 /* SenseArMaterialGroup.h */,
+			);
+			path = include;
+			sourceTree = "<group>";
+		};
+		77EDC37D286DA563002B4226 /* lib */ = {
+			isa = PBXGroup;
+			children = (
+				77EDC37E286DA563002B4226 /* ios_universal */,
+			);
+			path = lib;
+			sourceTree = "<group>";
+		};
+		77EDC37E286DA563002B4226 /* ios_universal */ = {
+			isa = PBXGroup;
+			children = (
+				77EDC4A2286EA40C002B4226 /* libSenseArSourceService.a */,
+			);
+			path = ios_universal;
+			sourceTree = "<group>";
+		};
+		77EDC381286DA563002B4226 /* architecture */ = {
+			isa = PBXGroup;
+			children = (
+				77EDC382286DA563002B4226 /* manager */,
+			);
+			path = architecture;
+			sourceTree = "<group>";
+		};
+		77EDC382286DA563002B4226 /* manager */ = {
+			isa = PBXGroup;
+			children = (
+				77EDC384286DA563002B4226 /* models */,
+				77EDC383286DA563002B4226 /* STCoreStateManagement.h */,
+				77EDC38B286DA563002B4226 /* STCoreStateManagement.m */,
+				77EDC38A286DA563002B4226 /* STCoreStateManagementValueChangeDelegate.h */,
+			);
+			path = manager;
+			sourceTree = "<group>";
+		};
+		77EDC384286DA563002B4226 /* models */ = {
+			isa = PBXGroup;
+			children = (
+				77EDC385286DA563002B4226 /* STCoreStateManagementModel.h */,
+				77EDC386286DA563002B4226 /* STCoreStateManagementModel.m */,
+				77EDC387286DA563002B4226 /* filter */,
+			);
+			path = models;
+			sourceTree = "<group>";
+		};
+		77EDC387286DA563002B4226 /* filter */ = {
+			isa = PBXGroup;
+			children = (
+				77EDC389286DA563002B4226 /* STCoreStateManagementFilterModel.h */,
+				77EDC388286DA563002B4226 /* STCoreStateManagementFilterModel.m */,
+			);
+			path = filter;
+			sourceTree = "<group>";
+		};
+		77EDC38C286DA563002B4226 /* Audio */ = {
+			isa = PBXGroup;
+			children = (
+				77EDC38F286DA563002B4226 /* SoundInfomation.h */,
+				77EDC392286DA563002B4226 /* SoundInfomation.m */,
+				77EDC394286DA563002B4226 /* STAudioManager.h */,
+				77EDC390286DA563002B4226 /* STAudioManager.m */,
+				77EDC38D286DA563002B4226 /* STEffectsAudioPlayer.h */,
+				77EDC391286DA563002B4226 /* STEffectsAudioPlayer.m */,
+				77EDC393286DA563002B4226 /* SystemSound.h */,
+				77EDC38E286DA563002B4226 /* SystemSound.m */,
+			);
+			path = Audio;
+			sourceTree = "<group>";
+		};
+		77EDC395286DA563002B4226 /* VideoRecord */ = {
+			isa = PBXGroup;
+			children = (
+				77EDC396286DA563002B4226 /* STMovieRecorder.h */,
+				77EDC397286DA563002B4226 /* STMovieRecorder.m */,
+			);
+			path = VideoRecord;
+			sourceTree = "<group>";
+		};
+		77EDC399286DA563002B4226 /* LicenseUtil */ = {
+			isa = PBXGroup;
+			children = (
+				77EDC39A286DA563002B4226 /* LicenseUtil.h */,
+				77EDC39B286DA563002B4226 /* LicenseUtil.m */,
+			);
+			path = LicenseUtil;
+			sourceTree = "<group>";
+		};
+		77EDC39C286DA563002B4226 /* UIElements */ = {
+			isa = PBXGroup;
+			children = (
+				77EDC3B0286DA563002B4226 /* EffectsCollectionView.h */,
+				77EDC3CD286DA563002B4226 /* EffectsCollectionView.m */,
+				77EDC3AC286DA563002B4226 /* EffectsCollectionViewCell.h */,
+				77EDC3C5286DA563002B4226 /* EffectsCollectionViewCell.m */,
+				77EDC3C3286DA563002B4226 /* EffectsCollectionViewCell.xib */,
+				77EDC3CF286DA563002B4226 /* STBeautySlider.h */,
+				77EDC3B6286DA563002B4226 /* STBeautySlider.m */,
+				77EDC3A9286DA563002B4226 /* STBMPCollectionView.h */,
+				77EDC3C8286DA563002B4226 /* STBMPCollectionView.m */,
+				77EDC3B5286DA563002B4226 /* STBMPCollectionViewCell.h */,
+				77EDC3D0286DA563002B4226 /* STBMPCollectionViewCell.m */,
+				77EDC39F286DA563002B4226 /* STBMPDetailColV.h */,
+				77EDC3BF286DA563002B4226 /* STBMPDetailColV.m */,
+				77EDC39D286DA563002B4226 /* STBMPDetailColVCell.h */,
+				77EDC3C1286DA563002B4226 /* STBMPDetailColVCell.m */,
+				77EDC3C0286DA563002B4226 /* STBmpStrengthView.h */,
+				77EDC39E286DA563002B4226 /* STBmpStrengthView.m */,
+				77EDC3BD286DA563002B4226 /* STButton.h */,
+				77EDC3A2286DA563002B4226 /* STButton.m */,
+				77EDC3AE286DA563002B4226 /* STCollectionView.h */,
+				77EDC3C2286DA563002B4226 /* STCollectionView.m */,
+				77EDC3AB286DA563002B4226 /* STCollectionViewCell.h */,
+				77EDC3C6286DA563002B4226 /* STCollectionViewCell.m */,
+				77EDC3B7286DA563002B4226 /* STCommonObjectContainerView.h */,
+				77EDC3A7286DA563002B4226 /* STCommonObjectContainerView.m */,
+				77EDC3B3286DA563002B4226 /* STCommonObjectView.h */,
+				77EDC3C9286DA563002B4226 /* STCommonObjectView.m */,
+				77EDC3CA286DA563002B4226 /* STCustomCollectionView.h */,
+				77EDC3B2286DA563002B4226 /* STCustomCollectionView.m */,
+				77EDC3CC286DA563002B4226 /* STCustomMemoryCache.h */,
+				77EDC3AF286DA563002B4226 /* STCustomMemoryCache.m */,
+				77EDC3A6286DA563002B4226 /* STFilterView.h */,
+				77EDC3B9286DA563002B4226 /* STFilterView.m */,
+				77EDC3C7286DA563002B4226 /* STMakeupDataModel.h */,
+				77EDC3AA286DA563002B4226 /* STMakeupDataModel.m */,
+				77EDC3CB286DA563002B4226 /* STParamUtil.h */,
+				77EDC3B1286DA563002B4226 /* STParamUtil.m */,
+				77EDC3A0286DA563002B4226 /* STPlayerControlBar.h */,
+				77EDC3BE286DA563002B4226 /* STPlayerControlBar.m */,
+				77EDC3A4286DA563002B4226 /* STScrollTitleView.h */,
+				77EDC3BC286DA563002B4226 /* STScrollTitleView.m */,
+				77EDC3A3286DA563002B4226 /* STSlideView.h */,
+				77EDC3BB286DA563002B4226 /* STSlideView.m */,
+				77EDC3CE286DA563002B4226 /* STSlideView.xib */,
+				77EDC3C4286DA563002B4226 /* STTitleViewItem.h */,
+				77EDC3AD286DA563002B4226 /* STTitleViewItem.m */,
+				77EDC3B8286DA563002B4226 /* STTriggerView.h */,
+				77EDC3A8286DA563002B4226 /* STTriggerView.m */,
+				77EDC3A5286DA563002B4226 /* STViewButton.h */,
+				77EDC3BA286DA563002B4226 /* STViewButton.m */,
+				77EDC3A1286DA563002B4226 /* STViewButton.xib */,
+				77EDC3B4286DA563002B4226 /* UIView+Toast.h */,
+				77EDC3D1286DA564002B4226 /* UIView+Toast.m */,
+			);
+			path = UIElements;
+			sourceTree = "<group>";
+		};
+		77EDC3D2286DA564002B4226 /* st_mobile_sdk */ = {
+			isa = PBXGroup;
+			children = (
+				77EDC3D3286DA564002B4226 /* license */,
+				77EDC3D5286DA564002B4226 /* include */,
+				77EDC3DF286DA564002B4226 /* models */,
+				77EDC3F2286DA564002B4226 /* VERSION */,
+				77EDC3F3286DA564002B4226 /* lib */,
+			);
+			path = st_mobile_sdk;
+			sourceTree = "<group>";
+		};
+		77EDC3D3286DA564002B4226 /* license */ = {
+			isa = PBXGroup;
+			children = (
+				77EDC3D4286DA564002B4226 /* SENSEME.lic */,
+			);
+			path = license;
+			sourceTree = "<group>";
+		};
+		77EDC3D5286DA564002B4226 /* include */ = {
+			isa = PBXGroup;
+			children = (
+				77EDC3D6286DA564002B4226 /* st_mobile_common.h */,
+				77EDC3D7286DA564002B4226 /* st_mobile_animal.h */,
+				77EDC3D8286DA564002B4226 /* st_mobile_human_action.h */,
+				77EDC3D9286DA564002B4226 /* st_mobile_object.h */,
+				77EDC3DA286DA564002B4226 /* st_mobile_face_attribute.h */,
+				77EDC3DB286DA564002B4226 /* st_mobile_license.h */,
+				77EDC3DC286DA564002B4226 /* st_mobile_effect.h */,
+				77EDC3DD286DA564002B4226 /* st_mobile_color_convert.h */,
+				77EDC3DE286DA564002B4226 /* st_mobile_avatar.h */,
+			);
+			path = include;
+			sourceTree = "<group>";
+		};
+		77EDC3DF286DA564002B4226 /* models */ = {
+			isa = PBXGroup;
+			children = (
+				77EDC3E0286DA564002B4226 /* M_SenseME_Segment_Head_1.0.3.model */,
+				77EDC3E1286DA564002B4226 /* M_SenseME_DogFace_2.0.0.model */,
+				77EDC3E2286DA564002B4226 /* M_SenseAR_Segment_MouthOcclusion_FastV1_1.1.2.model */,
+				77EDC3E3286DA564002B4226 /* M_SenseME_Segment_MouthOcclusion_FastV1_1.1.3.model */,
+				77EDC3E4286DA564002B4226 /* SenseAR_v6.11.0(Effects)_Model_Usage_Instructions.pdf */,
+				77EDC3E5286DA564002B4226 /* M_SenseME_Segment_Skin_1.1.1.model */,
+				77EDC3E6286DA564002B4226 /* M_SenseME_CatFace_3.2.0.model */,
+				77EDC3E7286DA564002B4226 /* M_SenseME_Segment_4.12.8.model */,
+				77EDC3E8286DA564002B4226 /* M_SenseME_Face_Extra_Advanced_6.0.13.model */,
+				77EDC3E9286DA564002B4226 /* M_SenseME_Hand_5.4.0.model */,
+				77EDC3EA286DA564002B4226 /* M_SenseME_Face_Video_7.0.0.model */,
+				77EDC3EB286DA564002B4226 /* M_SenseME_Segment_4.12.11.model */,
+				77EDC3EC286DA564002B4226 /* M_SenseME_Segment_Hair_1.3.4.model */,
+				77EDC3ED286DA564002B4226 /* M_SenseME_Segment_DBL_Face_1.0.7.model */,
+				77EDC3EE286DA564002B4226 /* M_SenseME_Segment_Sky_1.0.3.model */,
+				77EDC3EF286DA564002B4226 /* M_SenseME_Attribute_1.0.1.model */,
+				77EDC3F0286DA564002B4226 /* SenseAR_v8.5.0(Effects)_Model_Usage_Instructions的.pdf */,
+				77EDC3F1286DA564002B4226 /* M_SenseME_Avatar_Help_2.2.0.model */,
+			);
+			path = models;
+			sourceTree = "<group>";
+		};
+		77EDC3F3286DA564002B4226 /* lib */ = {
+			isa = PBXGroup;
+			children = (
+				77EDC3F4286DA564002B4226 /* ios_os */,
+			);
+			path = lib;
+			sourceTree = "<group>";
+		};
+		77EDC3F4286DA564002B4226 /* ios_os */ = {
+			isa = PBXGroup;
+			children = (
+				77EDC4A4286ECDCB002B4226 /* libst_mobile.a */,
+			);
+			path = ios_os;
+			sourceTree = "<group>";
+		};
+		77EDC498286DA86B002B4226 /* Beauty */ = {
+			isa = PBXGroup;
+			children = (
+				77EDC339286DA563002B4226 /* Effect */,
+				77EDC499286DA9AB002B4226 /* BeautyContainerView.h */,
+				77EDC49A286DA9AB002B4226 /* BeautyContainerView.m */,
+				77EDC49D286DAD99002B4226 /* BeautyLiveViewController.h */,
+				77EDC49E286DAD99002B4226 /* BeautyLiveViewController.m */,
+			);
+			path = Beauty;
+			sourceTree = "<group>";
+		};
 		E81476773C4F47A02AE7BF5E /* Pods */ = {
 			isa = PBXGroup;
 			children = (
@@ -733,14 +1436,80 @@
 				77781D6528486D35009DC71C /* QInputView.h in Headers */,
 				77781D9F28488932009DC71C /* QNBaseRTCController.h in Headers */,
 				77781D6828486D35009DC71C /* QEmojiCollectionCell.h in Headers */,
+				77EDC49F286DAD99002B4226 /* BeautyLiveViewController.h in Headers */,
 				77781D6728486D35009DC71C /* QEmojiBoardView.h in Headers */,
+				77EDC441286DA565002B4226 /* STBaseViewController.h in Headers */,
 				77781DA028488932009DC71C /* QLiveController.h in Headers */,
+				77EDC431286DA564002B4226 /* STCoreStateManagementModel.h in Headers */,
+				77EDC434286DA564002B4226 /* STCoreStateManagementFilterModel.h in Headers */,
+				77EDC45F286DA565002B4226 /* STTriggerView.h in Headers */,
 				77781CB52840C059009DC71C /* QNProperty.h in Headers */,
+				77EDC464286DA565002B4226 /* STButton.h in Headers */,
 				77781CB62840C059009DC71C /* NSObject+QNKeyValue.h in Headers */,
+				77EDC45A286DA565002B4226 /* STCommonObjectView.h in Headers */,
 				776B1CAC283CC6EC00D85C73 /* QLiveNetworkUtil.h in Headers */,
+				77EDC47D286DA565002B4226 /* st_mobile_object.h in Headers */,
 				776B1CD5283D024E00D85C73 /* QLinkMicService.h in Headers */,
+				77EDC41E286DA564002B4226 /* STColorConversion.h in Headers */,
+				77EDC45E286DA565002B4226 /* STCommonObjectContainerView.h in Headers */,
+				77EDC46E286DA565002B4226 /* STMakeupDataModel.h in Headers */,
 				776B1CD1283D010D00D85C73 /* QNMicLinker.h in Headers */,
 				77781D332845E56A009DC71C /* OnlineUserView.h in Headers */,
+				77EDC402286DA564002B4226 /* STDefaultSettingDataSourseGenerator.h in Headers */,
+				77EDC3FF286DA564002B4226 /* STConvert.h in Headers */,
+				77EDC47B286DA565002B4226 /* st_mobile_animal.h in Headers */,
+				77EDC481286DA565002B4226 /* st_mobile_color_convert.h in Headers */,
+				77EDC3FE286DA564002B4226 /* STEffectsTimer.h in Headers */,
+				77EDC437286DA564002B4226 /* STEffectsAudioPlayer.h in Headers */,
+				77EDC42A286DA564002B4226 /* SenseArSourceService.h in Headers */,
+				77EDC444286DA565002B4226 /* STBMPDetailColVCell.h in Headers */,
+				77EDC425286DA564002B4226 /* STGLShader.h in Headers */,
+				77EDC429286DA564002B4226 /* SenseArMaterial.h in Headers */,
+				77EDC43F286DA565002B4226 /* STMovieRecorder.h in Headers */,
+				77EDC430286DA564002B4226 /* STCoreStateManagement.h in Headers */,
+				77EDC47E286DA565002B4226 /* st_mobile_face_attribute.h in Headers */,
+				77EDC49B286DA9AB002B4226 /* BeautyContainerView.h in Headers */,
+				77EDC47F286DA565002B4226 /* st_mobile_license.h in Headers */,
+				77EDC403286DA564002B4226 /* DefaultBeautyParameters.h in Headers */,
+				77EDC428286DA564002B4226 /* SenseArMaterialAction.h in Headers */,
+				77EDC480286DA565002B4226 /* st_mobile_effect.h in Headers */,
+				77EDC3FA286DA564002B4226 /* STMobileLog.h in Headers */,
+				77EDC476286DA565002B4226 /* STBeautySlider.h in Headers */,
+				77EDC44B286DA565002B4226 /* STScrollTitleView.h in Headers */,
+				77EDC44C286DA565002B4226 /* STViewButton.h in Headers */,
+				77EDC45C286DA565002B4226 /* STBMPCollectionViewCell.h in Headers */,
+				77EDC44D286DA565002B4226 /* STFilterView.h in Headers */,
+				77EDC455286DA565002B4226 /* STCollectionView.h in Headers */,
+				77EDC471286DA565002B4226 /* STCustomCollectionView.h in Headers */,
+				77EDC452286DA565002B4226 /* STCollectionViewCell.h in Headers */,
+				77EDC44A286DA565002B4226 /* STSlideView.h in Headers */,
+				77EDC439286DA564002B4226 /* SoundInfomation.h in Headers */,
+				77EDC447286DA565002B4226 /* STPlayerControlBar.h in Headers */,
+				77EDC442286DA565002B4226 /* LicenseUtil.h in Headers */,
+				77EDC46B286DA565002B4226 /* STTitleViewItem.h in Headers */,
+				77EDC400286DA564002B4226 /* NSBundle+language.h in Headers */,
+				77EDC47A286DA565002B4226 /* st_mobile_common.h in Headers */,
+				77EDC472286DA565002B4226 /* STParamUtil.h in Headers */,
+				77EDC3FD286DA564002B4226 /* STLock.h in Headers */,
+				77EDC404286DA564002B4226 /* STDefaultSetting.h in Headers */,
+				77EDC421286DA564002B4226 /* STVFShader.h in Headers */,
+				77EDC450286DA565002B4226 /* STBMPCollectionView.h in Headers */,
+				77EDC473286DA565002B4226 /* STCustomMemoryCache.h in Headers */,
+				77EDC446286DA565002B4226 /* STBMPDetailColV.h in Headers */,
+				77EDC42B286DA564002B4226 /* SenseArMaterialService.h in Headers */,
+				77EDC453286DA565002B4226 /* EffectsCollectionViewCell.h in Headers */,
+				77EDC482286DA565002B4226 /* st_mobile_avatar.h in Headers */,
+				77EDC41F286DA564002B4226 /* STGLPreview3.h in Headers */,
+				77EDC426286DA564002B4226 /* STGLPreview2.h in Headers */,
+				77EDC457286DA565002B4226 /* EffectsCollectionView.h in Headers */,
+				77EDC47C286DA565002B4226 /* st_mobile_human_action.h in Headers */,
+				77EDC43E286DA565002B4226 /* STAudioManager.h in Headers */,
+				77EDC42C286DA564002B4226 /* SenseArMaterialGroup.h in Headers */,
+				77EDC406286DA564002B4226 /* STCamera.h in Headers */,
+				77EDC467286DA565002B4226 /* STBmpStrengthView.h in Headers */,
+				77EDC45B286DA565002B4226 /* UIView+Toast.h in Headers */,
+				77EDC435286DA564002B4226 /* STCoreStateManagementValueChangeDelegate.h in Headers */,
+				77EDC43D286DA565002B4226 /* SystemSound.h in Headers */,
 				77781D322845E56A009DC71C /* RoomHostView.h in Headers */,
 				774E641D2848DB6800C9FB7F /* CreateSignalHandler.h in Headers */,
 				774E6422284DF8E800C9FB7F /* QMixStreamManager.h in Headers */,
@@ -864,7 +1633,43 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				77EDC487286DA565002B4226 /* SenseAR_v6.11.0(Effects)_Model_Usage_Instructions.pdf in Resources */,
+				77EDC492286DA565002B4226 /* M_SenseME_Attribute_1.0.1.model in Resources */,
+				77EDC416286DA564002B4226 /* eyelash.bundle in Resources */,
+				77EDC40A286DA564002B4226 /* StillLifeFilters.bundle in Resources */,
+				77EDC494286DA565002B4226 /* M_SenseME_Avatar_Help_2.2.0.model in Resources */,
+				77EDC419286DA564002B4226 /* wholemakeup.bundle in Resources */,
+				77EDC490286DA565002B4226 /* M_SenseME_Segment_DBL_Face_1.0.7.model in Resources */,
+				77EDC48D286DA565002B4226 /* M_SenseME_Face_Video_7.0.0.model in Resources */,
+				77EDC41C286DA564002B4226 /* blush.bundle in Resources */,
+				77EDC409286DA564002B4226 /* SceneryFilters.bundle in Resources */,
+				77EDC408286DA564002B4226 /* PortraitFilters.bundle in Resources */,
+				77EDC41D286DA564002B4226 /* my_sticker.bundle in Resources */,
+				77EDC475286DA565002B4226 /* STSlideView.xib in Resources */,
+				77EDC46A286DA565002B4226 /* EffectsCollectionViewCell.xib in Resources */,
+				77EDC484286DA565002B4226 /* M_SenseME_DogFace_2.0.0.model in Resources */,
+				77EDC483286DA565002B4226 /* M_SenseME_Segment_Head_1.0.3.model in Resources */,
+				77EDC493286DA565002B4226 /* SenseAR_v8.5.0(Effects)_Model_Usage_Instructions的.pdf in Resources */,
+				77EDC40C286DA564002B4226 /* whiten_gif.zip in Resources */,
+				77EDC48E286DA565002B4226 /* M_SenseME_Segment_4.12.11.model in Resources */,
+				77EDC485286DA565002B4226 /* M_SenseAR_Segment_MouthOcclusion_FastV1_1.1.2.model in Resources */,
+				77EDC48B286DA565002B4226 /* M_SenseME_Face_Extra_Advanced_6.0.13.model in Resources */,
+				77EDC48F286DA565002B4226 /* M_SenseME_Segment_Hair_1.3.4.model in Resources */,
+				77EDC417286DA564002B4226 /* lips.bundle in Resources */,
+				77EDC48A286DA565002B4226 /* M_SenseME_Segment_4.12.8.model in Resources */,
+				77EDC479286DA565002B4226 /* SENSEME.lic in Resources */,
 				77781D6328486D35009DC71C /* EmojiList.plist in Resources */,
+				77EDC418286DA564002B4226 /* brow.bundle in Resources */,
+				77EDC48C286DA565002B4226 /* M_SenseME_Hand_5.4.0.model in Resources */,
+				77EDC491286DA565002B4226 /* M_SenseME_Segment_Sky_1.0.3.model in Resources */,
+				77EDC40B286DA564002B4226 /* DeliciousFoodFilters.bundle in Resources */,
+				77EDC41A286DA564002B4226 /* face.bundle in Resources */,
+				77EDC42D286DA564002B4226 /* VERSION in Resources */,
+				77EDC41B286DA564002B4226 /* eyeshadow.bundle in Resources */,
+				77EDC448286DA565002B4226 /* STViewButton.xib in Resources */,
+				77EDC486286DA565002B4226 /* M_SenseME_Segment_MouthOcclusion_FastV1_1.1.3.model in Resources */,
+				77EDC488286DA565002B4226 /* M_SenseME_Segment_Skin_1.1.1.model in Resources */,
+				77EDC489286DA565002B4226 /* M_SenseME_CatFace_3.2.0.model in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -929,74 +1734,123 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				77204D6A285F755C0053B1AD /* QLiveListController.m in Sources */,
 				774E6421284DF8E800C9FB7F /* QMixStreamManager.m in Sources */,
+				77EDC44E286DA565002B4226 /* STCommonObjectContainerView.m in Sources */,
 				77781D6E28486D3D009DC71C /* QMessageBaseCell.m in Sources */,
 				77781D302845E56A009DC71C /* QLiveView.m in Sources */,
+				77EDC422286DA564002B4226 /* STGLPreview2.m in Sources */,
+				77EDC43B286DA564002B4226 /* STEffectsAudioPlayer.m in Sources */,
+				77EDC436286DA564002B4226 /* STCoreStateManagement.m in Sources */,
 				77781D6028486D35009DC71C /* QInputView.m in Sources */,
 				77204D87285F97A20053B1AD /* QIMModel.m in Sources */,
 				77781D372845E56B009DC71C /* OnlineUserView.m in Sources */,
 				777B7A74284F375A005032B7 /* LinkStateView.m in Sources */,
 				777B7A80284F4B0D005032B7 /* QRenderView.m in Sources */,
+				77EDC458286DA565002B4226 /* STParamUtil.m in Sources */,
+				77EDC46D286DA565002B4226 /* STCollectionViewCell.m in Sources */,
 				77781D6228486D35009DC71C /* QInputBarControl.m in Sources */,
+				77EDC3F8286DA564002B4226 /* STLock.m in Sources */,
+				77EDC469286DA565002B4226 /* STCollectionView.m in Sources */,
 				77781CBF2840C05A009DC71C /* QNProperty.m in Sources */,
+				77EDC460286DA565002B4226 /* STFilterView.m in Sources */,
+				77EDC445286DA565002B4226 /* STBmpStrengthView.m in Sources */,
 				776B1C74283C79BB00D85C73 /* QNCreateRoomParam.m in Sources */,
+				77EDC459286DA565002B4226 /* STCustomCollectionView.m in Sources */,
 				777186A42862C5D100C5CABC /* QToastView.m in Sources */,
+				77EDC440286DA565002B4226 /* STMovieRecorder.m in Sources */,
 				776B1C93283CBBA100D85C73 /* QNCameraParams.m in Sources */,
 				776B1C83283CB2AA00D85C73 /* QNLiveUser.m in Sources */,
 				77204D88285F97A20053B1AD /* PubChatModel.m in Sources */,
+				77EDC474286DA565002B4226 /* EffectsCollectionView.m in Sources */,
 				77781CBE2840C059009DC71C /* NSObject+QNKeyValue.m in Sources */,
 				776B1CAD283CC6EC00D85C73 /* QLiveNetworkUtil.m in Sources */,
+				77EDC468286DA565002B4226 /* STBMPDetailColVCell.m in Sources */,
 				776B1CF3283D0F2000D85C73 /* LinkInvitation.m in Sources */,
+				77EDC49C286DA9AB002B4226 /* BeautyContainerView.m in Sources */,
+				77EDC451286DA565002B4226 /* STMakeupDataModel.m in Sources */,
+				77EDC3F9286DA564002B4226 /* STEffectsTimer.m in Sources */,
 				77781D402845E75B009DC71C /* UIImage+QNImage.m in Sources */,
+				77EDC466286DA565002B4226 /* STBMPDetailColV.m in Sources */,
 				776B1C8B283CB6B300D85C73 /* QNLiveService.m in Sources */,
+				77EDC45D286DA565002B4226 /* STBeautySlider.m in Sources */,
+				77EDC3FC286DA564002B4226 /* STConvert.m in Sources */,
 				77204D66285F755C0053B1AD /* QCreateLiveController.m in Sources */,
+				77EDC456286DA565002B4226 /* STCustomMemoryCache.m in Sources */,
+				77EDC454286DA565002B4226 /* STTitleViewItem.m in Sources */,
+				77EDC44F286DA565002B4226 /* STTriggerView.m in Sources */,
 				777B7A84284F5A6F005032B7 /* QNInvitationMemberListCell.m in Sources */,
+				77EDC46F286DA565002B4226 /* STBMPCollectionView.m in Sources */,
+				77EDC43A286DA564002B4226 /* STAudioManager.m in Sources */,
 				77E02E32284E245A00EE8A28 /* QNAudienceController.m in Sources */,
+				77EDC4A0286DAD99002B4226 /* BeautyLiveViewController.m in Sources */,
 				777186982861B8A800C5CABC /* FDanmakuModel.m in Sources */,
 				777186972861B8A800C5CABC /* CALayer+Aimate.m in Sources */,
-				77204D6A285F755C0053B1AD /* QLiveListController.m in Sources */,
+				77EDC461286DA565002B4226 /* STViewButton.m in Sources */,
 				776B1CC9283CFEE800D85C73 /* QNLivePullClient.m in Sources */,
 				777B7A78284F419B005032B7 /* UIColor+QNColor.m in Sources */,
+				77EDC477286DA565002B4226 /* STBMPCollectionViewCell.m in Sources */,
 				777B7A88284F5BC5005032B7 /* QNInvitationMemberListController.m in Sources */,
 				776B1C4E283C78D800D85C73 /* QNLiveKit.docc in Sources */,
+				77EDC463286DA565002B4226 /* STScrollTitleView.m in Sources */,
 				77781C0F283DD181009DC71C /* QPKService.m in Sources */,
 				77781CB82840C059009DC71C /* NSString+QNExtension.m in Sources */,
 				776B1C6F283C792B00D85C73 /* QLive.m in Sources */,
+				77EDC438286DA564002B4226 /* SystemSound.m in Sources */,
 				77781D6F28486D3D009DC71C /* QTextMessageCell.m in Sources */,
 				776B1CD6283D024E00D85C73 /* QLinkMicService.m in Sources */,
 				77781CC22840C05A009DC71C /* QNExtensionConst.m in Sources */,
+				77EDC462286DA565002B4226 /* STSlideView.m in Sources */,
 				77204D8C285F97A20053B1AD /* QInvitationModel.m in Sources */,
 				7771869D2861B8A800C5CABC /* FDanmakuView.m in Sources */,
+				77EDC470286DA565002B4226 /* STCommonObjectView.m in Sources */,
 				77204D69285F755C0053B1AD /* QNLiveListCell.m in Sources */,
+				77EDC3FB286DA564002B4226 /* NSBundle+language.m in Sources */,
+				77EDC42F286DA564002B4226 /* STBaseViewController.m in Sources */,
+				77EDC423286DA564002B4226 /* STColorConversion.m in Sources */,
 				776B1C78283C79DB00D85C73 /* QNLiveRoomInfo.m in Sources */,
 				77781CC42840C05A009DC71C /* NSObject+QNClass.m in Sources */,
 				776B1C87283CB60D00D85C73 /* QNLiveRoomClient.m in Sources */,
 				774E641C2848DB6800C9FB7F /* CreateSignalHandler.m in Sources */,
+				77EDC449286DA565002B4226 /* STButton.m in Sources */,
+				77EDC427286DA564002B4226 /* STVFShader.m in Sources */,
 				77204D98285F9AF50053B1AD /* LinkOptionModel.m in Sources */,
 				77781C21283DD63C009DC71C /* QNChatRoomService.m in Sources */,
 				77781CB22840C059009DC71C /* QNPropertyKey.m in Sources */,
+				77EDC433286DA564002B4226 /* STCoreStateManagementFilterModel.m in Sources */,
+				77EDC401286DA564002B4226 /* STDefaultSettingDataSourseGenerator.m in Sources */,
 				77781D382845E56B009DC71C /* RoomHostView.m in Sources */,
 				77781DA128488932009DC71C /* QNBaseRTCController.m in Sources */,
 				776B1CEF283D0D8100D85C73 /* QNMergeOption.m in Sources */,
 				777B7A70284F1F78005032B7 /* QAlertView.m in Sources */,
 				77781CBA2840C059009DC71C /* NSObject+QNProperty.m in Sources */,
 				77781CC32840C05A009DC71C /* QNPropertyType.m in Sources */,
+				77EDC424286DA564002B4226 /* STGLPreview3.m in Sources */,
+				77EDC465286DA565002B4226 /* STPlayerControlBar.m in Sources */,
 				77204D4F285873BF0053B1AD /* QRooms.m in Sources */,
 				77204D58285981B00053B1AD /* CYProtocolManager.m in Sources */,
 				77204D8A285F97A20053B1AD /* QGiftMsgModel.m in Sources */,
 				77781D6428486D35009DC71C /* QEmojiCollectionCell.m in Sources */,
 				776B1C8F283CBB2100D85C73 /* QNLivePushClient.m in Sources */,
 				77781D6128486D35009DC71C /* QEmojiBoardView.m in Sources */,
+				77EDC432286DA564002B4226 /* STCoreStateManagementModel.m in Sources */,
+				77EDC478286DA565002B4226 /* UIView+Toast.m in Sources */,
 				77781D5528486D13009DC71C /* LiveChatRoom.m in Sources */,
+				77EDC420286DA564002B4226 /* STGLShader.m in Sources */,
 				77781CC02840C05A009DC71C /* QNFoundation.m in Sources */,
+				77EDC46C286DA565002B4226 /* EffectsCollectionViewCell.m in Sources */,
 				776B1CD2283D010D00D85C73 /* QNMicLinker.m in Sources */,
 				77781CB32840C059009DC71C /* NSObject+QNCoding.m in Sources */,
 				77781D5128460813009DC71C /* ImageButtonView.m in Sources */,
 				77781C0B283D1337009DC71C /* QNPKSession.m in Sources */,
+				77EDC43C286DA564002B4226 /* SoundInfomation.m in Sources */,
+				77EDC443286DA565002B4226 /* LicenseUtil.m in Sources */,
 				77781C42283DE000009DC71C /* Extension.m in Sources */,
 				77781D492845FC68009DC71C /* BottomMenuView.m in Sources */,
 				776B1C97283CBBB800D85C73 /* QNMicrophoneParams.m in Sources */,
 				77781DA228488932009DC71C /* QLiveController.m in Sources */,
+				77EDC407286DA564002B4226 /* STCamera.m in Sources */,
+				77EDC405286DA564002B4226 /* STDefaultSetting.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1155,10 +2009,18 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)Demo/Pods/QNRTCKit-iOS/pod/iphoneos",
 					"$(PROJECT_DIR)/QNLiveKit",
+					"\"$(SRCROOT)/QNLiveKit/Beauty/Effect\"",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = /Users/guoqian/Desktop/QNLiveKit_iOS/QNLiveKit/QNLiveKit/QNLivePrefixHeader.pch;
 				GENERATE_INFOPLIST_FILE = YES;
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/AFNetworking/AFNetworking.framework/Headers\"",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/Masonry/Masonry.framework/Headers\"",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/SDWebImage/SDWebImage.framework/Headers\"",
+					"\"$(SRCROOT)/QNLiveKit/Beauty/Effect\"",
+				);
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
@@ -1167,12 +2029,23 @@
 					"@executable_path/Frameworks",
 					"@loader_path/Frameworks",
 				);
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(SRCROOT)/QNLiveKit/lib/ios_os",
+					"$(SRCROOT)/QNLiveKit/lib/ios_sim",
+					"$(SRCROOT)/QNLiveKit/Effect/SenseArSourceService/lib/ios_universal",
+					"$(SRCROOT)/QNLiveKit/Effect/st_mobile_sdk/lib/ios_os",
+					"$(SRCROOT)/QNLiveKit/Beauty/Effect/SenseArSourceService/lib/ios_universal",
+					"$(SRCROOT)/QNLiveKit/Beauty/Effect/st_mobile_sdk/lib/ios_os",
+				);
 				MACH_O_TYPE = staticlib;
 				MARKETING_VERSION = 1.0;
+				ONLY_ACTIVE_ARCH = YES;
 				PRODUCT_BUNDLE_IDENTIFIER = com.qiiu.QNLiveKit;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;
 				SWIFT_EMIT_LOC_STRINGS = YES;
+				SYSTEM_HEADER_SEARCH_PATHS = "\"$(SRCROOT)/QNLiveKit/Beauty/Effect\"";
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
@@ -1195,10 +2068,18 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)Demo/Pods/QNRTCKit-iOS/pod/iphoneos",
 					"$(PROJECT_DIR)/QNLiveKit",
+					"\"$(SRCROOT)/QNLiveKit/Beauty/Effect\"",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = /Users/guoqian/Desktop/QNLiveKit_iOS/QNLiveKit/QNLiveKit/QNLivePrefixHeader.pch;
 				GENERATE_INFOPLIST_FILE = YES;
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/AFNetworking/AFNetworking.framework/Headers\"",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/Masonry/Masonry.framework/Headers\"",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/SDWebImage/SDWebImage.framework/Headers\"",
+					"\"$(SRCROOT)/QNLiveKit/Beauty/Effect\"",
+				);
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
@@ -1207,6 +2088,15 @@
 					"@executable_path/Frameworks",
 					"@loader_path/Frameworks",
 				);
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(SRCROOT)/QNLiveKit/lib/ios_os",
+					"$(SRCROOT)/QNLiveKit/lib/ios_sim",
+					"$(SRCROOT)/QNLiveKit/Effect/SenseArSourceService/lib/ios_universal",
+					"$(SRCROOT)/QNLiveKit/Effect/st_mobile_sdk/lib/ios_os",
+					"$(SRCROOT)/QNLiveKit/Beauty/Effect/SenseArSourceService/lib/ios_universal",
+					"$(SRCROOT)/QNLiveKit/Beauty/Effect/st_mobile_sdk/lib/ios_os",
+				);
 				MACH_O_TYPE = staticlib;
 				MARKETING_VERSION = 1.0;
 				ONLY_ACTIVE_ARCH = YES;
@@ -1214,6 +2104,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;
 				SWIFT_EMIT_LOC_STRINGS = YES;
+				SYSTEM_HEADER_SEARCH_PATHS = "\"$(SRCROOT)/QNLiveKit/Beauty/Effect\"";
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
