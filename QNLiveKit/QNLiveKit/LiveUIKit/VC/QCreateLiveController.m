@@ -91,7 +91,7 @@
     
     [[QLive getRooms] createRoom:params callBack:^(QNLiveRoomInfo * _Nonnull roomInfo) {
 
-        QLiveController *vc = [QLiveController new];
+        BeautyLiveViewController *vc = [BeautyLiveViewController new];
         vc.roomInfo = roomInfo;
         vc.modalPresentationStyle = UIModalPresentationFullScreen;
         [self presentViewController:vc animated:YES completion:nil];
