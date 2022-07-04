@@ -11,6 +11,7 @@
 #import "QLiveController.h"
 #import "QNCreateRoomParam.h"
 #import "QNLivePushClient.h"
+#import "BeautyLiveViewController.h"
 
 @interface QCreateLiveController ()
 @property (nonatomic, strong) UITextField *titleTf;
