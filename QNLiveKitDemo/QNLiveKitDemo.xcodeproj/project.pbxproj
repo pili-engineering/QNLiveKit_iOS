@@ -17,6 +17,7 @@
 		776B1BFA28378CCF00D85C73 /* QNLiveKitDemoTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 776B1BF928378CCF00D85C73 /* QNLiveKitDemoTests.m */; };
 		776B1C0428378CCF00D85C73 /* QNLiveKitDemoUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 776B1C0328378CCF00D85C73 /* QNLiveKitDemoUITests.m */; };
 		776B1C0628378CCF00D85C73 /* QNLiveKitDemoUITestsLaunchTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 776B1C0528378CCF00D85C73 /* QNLiveKitDemoUITestsLaunchTests.m */; };
+		7773667F2872FE4D00245EDB /* QNLiveKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 776B1C69283C78D900D85C73 /* QNLiveKit.framework */; };
 		77781C6F283E1E7E009DC71C /* QNGlobalConfigurationViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 77781C57283E1E7E009DC71C /* QNGlobalConfigurationViewModel.m */; };
 		77781C70283E1E7E009DC71C /* QNHomeListViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 77781C58283E1E7E009DC71C /* QNHomeListViewModel.m */; };
 		77781C71283E1E7E009DC71C /* QNLoginInfoModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 77781C5D283E1E7E009DC71C /* QNLoginInfoModel.m */; };
@@ -179,6 +180,7 @@
 			files = (
 				77EDC5B9287188F4002B4226 /* PLSTArEffects.framework in Frameworks */,
 				77781C7F283E1EBC009DC71C /* QNIMSDK.framework in Frameworks */,
+				7773667F2872FE4D00245EDB /* QNLiveKit.framework in Frameworks */,
 				C5993B91A021CD7EDC4A0F36 /* Pods_QNLiveKitDemo.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
