@@ -17,7 +17,8 @@
 		776B1BFA28378CCF00D85C73 /* QNLiveKitDemoTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 776B1BF928378CCF00D85C73 /* QNLiveKitDemoTests.m */; };
 		776B1C0428378CCF00D85C73 /* QNLiveKitDemoUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 776B1C0328378CCF00D85C73 /* QNLiveKitDemoUITests.m */; };
 		776B1C0628378CCF00D85C73 /* QNLiveKitDemoUITestsLaunchTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 776B1C0528378CCF00D85C73 /* QNLiveKitDemoUITestsLaunchTests.m */; };
-		7773667F2872FE4D00245EDB /* QNLiveKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 776B1C69283C78D900D85C73 /* QNLiveKit.framework */; };
+		777366952873074700245EDB /* QNLiveKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 776B1C69283C78D900D85C73 /* QNLiveKit.framework */; };
+		7773669C2873E32100245EDB /* AssetsLibrary.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7773669B2873E32100245EDB /* AssetsLibrary.framework */; };
 		77781C6F283E1E7E009DC71C /* QNGlobalConfigurationViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 77781C57283E1E7E009DC71C /* QNGlobalConfigurationViewModel.m */; };
 		77781C70283E1E7E009DC71C /* QNHomeListViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 77781C58283E1E7E009DC71C /* QNHomeListViewModel.m */; };
 		77781C71283E1E7E009DC71C /* QNLoginInfoModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 77781C5D283E1E7E009DC71C /* QNLoginInfoModel.m */; };
@@ -44,6 +45,7 @@
 		77781CDA2840C768009DC71C /* QNQuitLoginCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 77781CCE2840C768009DC71C /* QNQuitLoginCell.m */; };
 		77781CDB2840C768009DC71C /* QNPersonalViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 77781CD12840C768009DC71C /* QNPersonalViewModel.m */; };
 		77781CDC2840C768009DC71C /* QNPersonInfoTopView.m in Sources */ = {isa = PBXBuildFile; fileRef = 77781CD22840C768009DC71C /* QNPersonInfoTopView.m */; };
+		77A8D1C028757128001A3C2C /* SENSEME.lic in Resources */ = {isa = PBXBuildFile; fileRef = 77A8D1BF28757128001A3C2C /* SENSEME.lic */; };
 		C5993B91A021CD7EDC4A0F36 /* Pods_QNLiveKitDemo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F467E60A07D600FCAAE77FD1 /* Pods_QNLiveKitDemo.framework */; };
 /* End PBXBuildFile section */
 
@@ -112,6 +114,7 @@
 		776B1C0328378CCF00D85C73 /* QNLiveKitDemoUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = QNLiveKitDemoUITests.m; sourceTree = "<group>"; };
 		776B1C0528378CCF00D85C73 /* QNLiveKitDemoUITestsLaunchTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = QNLiveKitDemoUITestsLaunchTests.m; sourceTree = "<group>"; };
 		776B1C63283C78D800D85C73 /* QNLiveKit.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = QNLiveKit.xcodeproj; path = ../QNLiveKit/QNLiveKit.xcodeproj; sourceTree = "<group>"; };
+		7773669B2873E32100245EDB /* AssetsLibrary.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AssetsLibrary.framework; path = System/Library/Frameworks/AssetsLibrary.framework; sourceTree = SDKROOT; };
 		77781C56283E1E7E009DC71C /* QNHomeListViewModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QNHomeListViewModel.h; sourceTree = "<group>"; };
 		77781C57283E1E7E009DC71C /* QNGlobalConfigurationViewModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QNGlobalConfigurationViewModel.m; sourceTree = "<group>"; };
 		77781C58283E1E7E009DC71C /* QNHomeListViewModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QNHomeListViewModel.m; sourceTree = "<group>"; };
@@ -163,6 +166,7 @@
 		77781CD42840C768009DC71C /* QNAppReleaseInfoCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QNAppReleaseInfoCell.h; sourceTree = "<group>"; };
 		77781CD52840C768009DC71C /* QNQuitLoginCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QNQuitLoginCell.h; sourceTree = "<group>"; };
 		77781CDF2840C833009DC71C /* QNPublicHeader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QNPublicHeader.h; sourceTree = "<group>"; };
+		77A8D1BF28757128001A3C2C /* SENSEME.lic */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = SENSEME.lic; sourceTree = "<group>"; };
 		86543AFAB4A8EADB1F77D392 /* Pods-QNLiveKitDemoTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-QNLiveKitDemoTests.release.xcconfig"; path = "Target Support Files/Pods-QNLiveKitDemoTests/Pods-QNLiveKitDemoTests.release.xcconfig"; sourceTree = "<group>"; };
 		B31E3F409ADE08D9D13B003F /* Pods-QNLiveKitDemo-QNLiveKitDemoUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-QNLiveKitDemo-QNLiveKitDemoUITests.release.xcconfig"; path = "Target Support Files/Pods-QNLiveKitDemo-QNLiveKitDemoUITests/Pods-QNLiveKitDemo-QNLiveKitDemoUITests.release.xcconfig"; sourceTree = "<group>"; };
 		B86C108BE2C7758CCFFA24C9 /* Pods-QNLiveKitDemo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-QNLiveKitDemo.release.xcconfig"; path = "Target Support Files/Pods-QNLiveKitDemo/Pods-QNLiveKitDemo.release.xcconfig"; sourceTree = "<group>"; };
@@ -174,8 +178,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7773669C2873E32100245EDB /* AssetsLibrary.framework in Frameworks */,
 				77781C7F283E1EBC009DC71C /* QNIMSDK.framework in Frameworks */,
-				7773667F2872FE4D00245EDB /* QNLiveKit.framework in Frameworks */,
+				777366952873074700245EDB /* QNLiveKit.framework in Frameworks */,
 				C5993B91A021CD7EDC4A0F36 /* Pods_QNLiveKitDemo.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -215,6 +220,7 @@
 		709BCB3C3EEF0783D89437CF /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				7773669B2873E32100245EDB /* AssetsLibrary.framework */,
 				F467E60A07D600FCAAE77FD1 /* Pods_QNLiveKitDemo.framework */,
 				382946EB5F00B1F6B3437C07 /* Pods_QNLiveKitDemo_QNLiveKitDemoUITests.framework */,
 				5A2899F26391AE2088C5854B /* Pods_QNLiveKitDemoTests.framework */,
@@ -248,6 +254,7 @@
 		776B1BDC28378CCD00D85C73 /* QNLiveKitDemo */ = {
 			isa = PBXGroup;
 			children = (
+				77A8D1BF28757128001A3C2C /* SENSEME.lic */,
 				77781C7D283E1EB2009DC71C /* QNIMSDK.framework */,
 				776B1BDD28378CCD00D85C73 /* AppDelegate.h */,
 				776B1BDE28378CCD00D85C73 /* AppDelegate.m */,
@@ -525,6 +532,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				776B1BED28378CCF00D85C73 /* LaunchScreen.storyboard in Resources */,
+				77A8D1C028757128001A3C2C /* SENSEME.lic in Resources */,
 				776B1BEA28378CCF00D85C73 /* Assets.xcassets in Resources */,
 				776B1BE828378CCD00D85C73 /* Main.storyboard in Resources */,
 			);
@@ -864,6 +872,21 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = /Users/guoqian/Desktop/QNLiveKit_iOS/QNLiveKitDemo/QNLiveKitDemo/LiveDemoPrefixHeader.pch;
 				GENERATE_INFOPLIST_FILE = YES;
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/AFNetworking/AFNetworking.framework/Headers\"",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/HappyDNS/HappyDNS.framework/Headers\"",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/IQKeyboardManager/IQKeyboardManager.framework/Headers\"",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/MBProgressHUD/MBProgressHUD.framework/Headers\"",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/MJExtension/MJExtension.framework/Headers\"",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/MJRefresh/MJRefresh.framework/Headers\"",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/Masonry/Masonry.framework/Headers\"",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/Qiniu/Qiniu.framework/Headers\"",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/SDWebImage/SDWebImage.framework/Headers\"",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/SocketRocket/SocketRocket.framework/Headers\"",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/PLShortVideoKit-SenseTime/PLShortVideoKit-SenseTime-1.4.0/PLSTArEffects.framework/Headers\"",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/YYCategories/YYCategories.framework/Headers\"",
+				);
 				INFOPLIST_FILE = QNLiveKitDemo/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = "互动直播";
 				INFOPLIST_KEY_NSCameraUsageDescription = YES;
@@ -884,7 +907,8 @@
 					"$(SRCROOT)/QNLiveKitDemo/Effect/SenseArSourceService/lib/ios_universal",
 					"$(SRCROOT)/QNLiveKitDemo/Effect/st_mobile_sdk/lib/ios_os",
 				);
-				MARKETING_VERSION = 2.0.6;
+				MARKETING_VERSION = 1.0.1;
+				OTHER_CODE_SIGN_FLAGS = "--generate-entitlement-der";
 				PRODUCT_BUNDLE_IDENTIFIER = com.qiniu.LiveKit;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
@@ -909,6 +933,21 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = /Users/guoqian/Desktop/QNLiveKit_iOS/QNLiveKitDemo/QNLiveKitDemo/LiveDemoPrefixHeader.pch;
 				GENERATE_INFOPLIST_FILE = YES;
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/AFNetworking/AFNetworking.framework/Headers\"",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/HappyDNS/HappyDNS.framework/Headers\"",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/IQKeyboardManager/IQKeyboardManager.framework/Headers\"",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/MBProgressHUD/MBProgressHUD.framework/Headers\"",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/MJExtension/MJExtension.framework/Headers\"",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/MJRefresh/MJRefresh.framework/Headers\"",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/Masonry/Masonry.framework/Headers\"",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/Qiniu/Qiniu.framework/Headers\"",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/SDWebImage/SDWebImage.framework/Headers\"",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/SocketRocket/SocketRocket.framework/Headers\"",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/PLShortVideoKit-SenseTime/PLShortVideoKit-SenseTime-1.4.0/PLSTArEffects.framework/Headers\"",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/YYCategories/YYCategories.framework/Headers\"",
+				);
 				INFOPLIST_FILE = QNLiveKitDemo/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = "互动直播";
 				INFOPLIST_KEY_NSCameraUsageDescription = YES;
@@ -929,8 +968,9 @@
 					"$(SRCROOT)/QNLiveKitDemo/Effect/SenseArSourceService/lib/ios_universal",
 					"$(SRCROOT)/QNLiveKitDemo/Effect/st_mobile_sdk/lib/ios_os",
 				);
-				MARKETING_VERSION = 2.0.6;
+				MARKETING_VERSION = 1.0.1;
 				ONLY_ACTIVE_ARCH = YES;
+				OTHER_CODE_SIGN_FLAGS = "--generate-entitlement-der";
 				PRODUCT_BUNDLE_IDENTIFIER = com.qiniu.LiveKit;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;

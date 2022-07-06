@@ -84,6 +84,7 @@
 		777366912873031A00245EDB /* st_mobile_effect.h in Headers */ = {isa = PBXBuildFile; fileRef = 777366882873031A00245EDB /* st_mobile_effect.h */; };
 		777366922873031A00245EDB /* st_mobile_color_convert.h in Headers */ = {isa = PBXBuildFile; fileRef = 777366892873031A00245EDB /* st_mobile_color_convert.h */; };
 		777366932873031A00245EDB /* st_mobile_avatar.h in Headers */ = {isa = PBXBuildFile; fileRef = 7773668A2873031A00245EDB /* st_mobile_avatar.h */; };
+		7773669A2873E2F400245EDB /* AssetsLibrary.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 777366992873E2F300245EDB /* AssetsLibrary.framework */; };
 		77781C0A283D1337009DC71C /* QNPKSession.h in Headers */ = {isa = PBXBuildFile; fileRef = 77781C08283D1337009DC71C /* QNPKSession.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		77781C0B283D1337009DC71C /* QNPKSession.m in Sources */ = {isa = PBXBuildFile; fileRef = 77781C09283D1337009DC71C /* QNPKSession.m */; };
 		77781C0E283DD181009DC71C /* QPKService.h in Headers */ = {isa = PBXBuildFile; fileRef = 77781C0C283DD181009DC71C /* QPKService.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -142,7 +143,6 @@
 		77781D7028486D3D009DC71C /* QMessageBaseCell.h in Headers */ = {isa = PBXBuildFile; fileRef = 77781D6C28486D3D009DC71C /* QMessageBaseCell.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		77781D7128486D3D009DC71C /* QTextMessageCell.h in Headers */ = {isa = PBXBuildFile; fileRef = 77781D6D28486D3D009DC71C /* QTextMessageCell.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		77781D9928486DBA009DC71C /* QNIMSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 77781D9728486DAD009DC71C /* QNIMSDK.framework */; platformFilter = ios; };
-		77781D9A28486DBA009DC71C /* QNIMSDK.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 77781D9728486DAD009DC71C /* QNIMSDK.framework */; platformFilter = ios; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		77781D9F28488932009DC71C /* QNBaseRTCController.h in Headers */ = {isa = PBXBuildFile; fileRef = 77781D9B28488931009DC71C /* QNBaseRTCController.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		77781DA028488932009DC71C /* QLiveController.h in Headers */ = {isa = PBXBuildFile; fileRef = 77781D9C28488931009DC71C /* QLiveController.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		77781DA128488932009DC71C /* QNBaseRTCController.m in Sources */ = {isa = PBXBuildFile; fileRef = 77781D9D28488932009DC71C /* QNBaseRTCController.m */; };
@@ -231,7 +231,6 @@
 		77EDC445286DA565002B4226 /* STBmpStrengthView.m in Sources */ = {isa = PBXBuildFile; fileRef = 77EDC39E286DA563002B4226 /* STBmpStrengthView.m */; };
 		77EDC446286DA565002B4226 /* STBMPDetailColV.h in Headers */ = {isa = PBXBuildFile; fileRef = 77EDC39F286DA563002B4226 /* STBMPDetailColV.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		77EDC447286DA565002B4226 /* STPlayerControlBar.h in Headers */ = {isa = PBXBuildFile; fileRef = 77EDC3A0286DA563002B4226 /* STPlayerControlBar.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		77EDC448286DA565002B4226 /* STViewButton.xib in Resources */ = {isa = PBXBuildFile; fileRef = 77EDC3A1286DA563002B4226 /* STViewButton.xib */; };
 		77EDC449286DA565002B4226 /* STButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 77EDC3A2286DA563002B4226 /* STButton.m */; };
 		77EDC44A286DA565002B4226 /* STSlideView.h in Headers */ = {isa = PBXBuildFile; fileRef = 77EDC3A3286DA563002B4226 /* STSlideView.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		77EDC44B286DA565002B4226 /* STScrollTitleView.h in Headers */ = {isa = PBXBuildFile; fileRef = 77EDC3A4286DA563002B4226 /* STScrollTitleView.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -265,7 +264,6 @@
 		77EDC467286DA565002B4226 /* STBmpStrengthView.h in Headers */ = {isa = PBXBuildFile; fileRef = 77EDC3C0286DA563002B4226 /* STBmpStrengthView.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		77EDC468286DA565002B4226 /* STBMPDetailColVCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 77EDC3C1286DA563002B4226 /* STBMPDetailColVCell.m */; };
 		77EDC469286DA565002B4226 /* STCollectionView.m in Sources */ = {isa = PBXBuildFile; fileRef = 77EDC3C2286DA563002B4226 /* STCollectionView.m */; };
-		77EDC46A286DA565002B4226 /* EffectsCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 77EDC3C3286DA563002B4226 /* EffectsCollectionViewCell.xib */; };
 		77EDC46B286DA565002B4226 /* STTitleViewItem.h in Headers */ = {isa = PBXBuildFile; fileRef = 77EDC3C4286DA563002B4226 /* STTitleViewItem.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		77EDC46C286DA565002B4226 /* EffectsCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 77EDC3C5286DA563002B4226 /* EffectsCollectionViewCell.m */; };
 		77EDC46D286DA565002B4226 /* STCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 77EDC3C6286DA563002B4226 /* STCollectionViewCell.m */; };
@@ -276,7 +274,6 @@
 		77EDC472286DA565002B4226 /* STParamUtil.h in Headers */ = {isa = PBXBuildFile; fileRef = 77EDC3CB286DA563002B4226 /* STParamUtil.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		77EDC473286DA565002B4226 /* STCustomMemoryCache.h in Headers */ = {isa = PBXBuildFile; fileRef = 77EDC3CC286DA563002B4226 /* STCustomMemoryCache.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		77EDC474286DA565002B4226 /* EffectsCollectionView.m in Sources */ = {isa = PBXBuildFile; fileRef = 77EDC3CD286DA563002B4226 /* EffectsCollectionView.m */; };
-		77EDC475286DA565002B4226 /* STSlideView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 77EDC3CE286DA563002B4226 /* STSlideView.xib */; };
 		77EDC476286DA565002B4226 /* STBeautySlider.h in Headers */ = {isa = PBXBuildFile; fileRef = 77EDC3CF286DA563002B4226 /* STBeautySlider.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		77EDC477286DA565002B4226 /* STBMPCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 77EDC3D0286DA563002B4226 /* STBMPCollectionViewCell.m */; };
 		77EDC478286DA565002B4226 /* UIView+Toast.m in Sources */ = {isa = PBXBuildFile; fileRef = 77EDC3D1286DA564002B4226 /* UIView+Toast.m */; };
@@ -320,17 +317,6 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
-		776B1CB2283CD4D000D85C73 /* Embed Frameworks */ = {
-			isa = PBXCopyFilesBuildPhase;
-			buildActionMask = 2147483647;
-			dstPath = "";
-			dstSubfolderSpec = 10;
-			files = (
-				77781D9A28486DBA009DC71C /* QNIMSDK.framework in Embed Frameworks */,
-			);
-			name = "Embed Frameworks";
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		777188F22864554E00C5CABC /* CopyFiles */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
@@ -423,6 +409,7 @@
 		777366882873031A00245EDB /* st_mobile_effect.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = st_mobile_effect.h; sourceTree = "<group>"; };
 		777366892873031A00245EDB /* st_mobile_color_convert.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = st_mobile_color_convert.h; sourceTree = "<group>"; };
 		7773668A2873031A00245EDB /* st_mobile_avatar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = st_mobile_avatar.h; sourceTree = "<group>"; };
+		777366992873E2F300245EDB /* AssetsLibrary.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AssetsLibrary.framework; path = Platforms/MacOSX.platform/Developer/SDKs/MacOSX12.1.sdk/System/iOSSupport/System/Library/Frameworks/AssetsLibrary.framework; sourceTree = DEVELOPER_DIR; };
 		77781C08283D1337009DC71C /* QNPKSession.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = QNPKSession.h; sourceTree = "<group>"; };
 		77781C09283D1337009DC71C /* QNPKSession.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = QNPKSession.m; sourceTree = "<group>"; };
 		77781C0C283DD181009DC71C /* QPKService.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = QPKService.h; sourceTree = "<group>"; };
@@ -568,7 +555,6 @@
 		77EDC39E286DA563002B4226 /* STBmpStrengthView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = STBmpStrengthView.m; sourceTree = "<group>"; };
 		77EDC39F286DA563002B4226 /* STBMPDetailColV.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = STBMPDetailColV.h; sourceTree = "<group>"; };
 		77EDC3A0286DA563002B4226 /* STPlayerControlBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = STPlayerControlBar.h; sourceTree = "<group>"; };
-		77EDC3A1286DA563002B4226 /* STViewButton.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = STViewButton.xib; sourceTree = "<group>"; };
 		77EDC3A2286DA563002B4226 /* STButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = STButton.m; sourceTree = "<group>"; };
 		77EDC3A3286DA563002B4226 /* STSlideView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = STSlideView.h; sourceTree = "<group>"; };
 		77EDC3A4286DA563002B4226 /* STScrollTitleView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = STScrollTitleView.h; sourceTree = "<group>"; };
@@ -602,7 +588,6 @@
 		77EDC3C0286DA563002B4226 /* STBmpStrengthView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = STBmpStrengthView.h; sourceTree = "<group>"; };
 		77EDC3C1286DA563002B4226 /* STBMPDetailColVCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = STBMPDetailColVCell.m; sourceTree = "<group>"; };
 		77EDC3C2286DA563002B4226 /* STCollectionView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = STCollectionView.m; sourceTree = "<group>"; };
-		77EDC3C3286DA563002B4226 /* EffectsCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = EffectsCollectionViewCell.xib; sourceTree = "<group>"; };
 		77EDC3C4286DA563002B4226 /* STTitleViewItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = STTitleViewItem.h; sourceTree = "<group>"; };
 		77EDC3C5286DA563002B4226 /* EffectsCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EffectsCollectionViewCell.m; sourceTree = "<group>"; };
 		77EDC3C6286DA563002B4226 /* STCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = STCollectionViewCell.m; sourceTree = "<group>"; };
@@ -613,7 +598,6 @@
 		77EDC3CB286DA563002B4226 /* STParamUtil.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = STParamUtil.h; sourceTree = "<group>"; };
 		77EDC3CC286DA563002B4226 /* STCustomMemoryCache.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = STCustomMemoryCache.h; sourceTree = "<group>"; };
 		77EDC3CD286DA563002B4226 /* EffectsCollectionView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EffectsCollectionView.m; sourceTree = "<group>"; };
-		77EDC3CE286DA563002B4226 /* STSlideView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = STSlideView.xib; sourceTree = "<group>"; };
 		77EDC3CF286DA563002B4226 /* STBeautySlider.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = STBeautySlider.h; sourceTree = "<group>"; };
 		77EDC3D0286DA563002B4226 /* STBMPCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = STBMPCollectionViewCell.m; sourceTree = "<group>"; };
 		77EDC3D1286DA564002B4226 /* UIView+Toast.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+Toast.m"; sourceTree = "<group>"; };
@@ -655,6 +639,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7773669A2873E2F400245EDB /* AssetsLibrary.framework in Frameworks */,
 				77781D9928486DBA009DC71C /* QNIMSDK.framework in Frameworks */,
 				C486089576C27F3A6ABEE3DB /* Pods_QNLiveKit.framework in Frameworks */,
 				77EDC4A5286ECDCC002B4226 /* libst_mobile.a in Frameworks */,
@@ -1255,7 +1240,6 @@
 				77EDC3CD286DA563002B4226 /* EffectsCollectionView.m */,
 				77EDC3AC286DA563002B4226 /* EffectsCollectionViewCell.h */,
 				77EDC3C5286DA563002B4226 /* EffectsCollectionViewCell.m */,
-				77EDC3C3286DA563002B4226 /* EffectsCollectionViewCell.xib */,
 				77EDC3CF286DA563002B4226 /* STBeautySlider.h */,
 				77EDC3B6286DA563002B4226 /* STBeautySlider.m */,
 				77EDC3A9286DA563002B4226 /* STBMPCollectionView.h */,
@@ -1294,14 +1278,12 @@
 				77EDC3BC286DA563002B4226 /* STScrollTitleView.m */,
 				77EDC3A3286DA563002B4226 /* STSlideView.h */,
 				77EDC3BB286DA563002B4226 /* STSlideView.m */,
-				77EDC3CE286DA563002B4226 /* STSlideView.xib */,
 				77EDC3C4286DA563002B4226 /* STTitleViewItem.h */,
 				77EDC3AD286DA563002B4226 /* STTitleViewItem.m */,
 				77EDC3B8286DA563002B4226 /* STTriggerView.h */,
 				77EDC3A8286DA563002B4226 /* STTriggerView.m */,
 				77EDC3A5286DA563002B4226 /* STViewButton.h */,
 				77EDC3BA286DA563002B4226 /* STViewButton.m */,
-				77EDC3A1286DA563002B4226 /* STViewButton.xib */,
 				77EDC3B4286DA563002B4226 /* UIView+Toast.h */,
 				77EDC3D1286DA564002B4226 /* UIView+Toast.m */,
 			);
@@ -1395,6 +1377,7 @@
 		F3411CD1B7D2078452FF96F4 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				777366992873E2F300245EDB /* AssetsLibrary.framework */,
 				93FD8D2BCC60F127C6FB7DA1 /* Pods_QNLiveKit.framework */,
 				948C15C1847BC94017A63290 /* Pods_QNLiveKitTests.framework */,
 			);
@@ -1562,7 +1545,6 @@
 				776B1C46283C78D800D85C73 /* Frameworks */,
 				776B1C47283C78D800D85C73 /* Resources */,
 				777188F22864554E00C5CABC /* CopyFiles */,
-				776B1CB2283CD4D000D85C73 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
@@ -1645,8 +1627,6 @@
 				77EDC409286DA564002B4226 /* SceneryFilters.bundle in Resources */,
 				77EDC408286DA564002B4226 /* PortraitFilters.bundle in Resources */,
 				77EDC41D286DA564002B4226 /* my_sticker.bundle in Resources */,
-				77EDC475286DA565002B4226 /* STSlideView.xib in Resources */,
-				77EDC46A286DA565002B4226 /* EffectsCollectionViewCell.xib in Resources */,
 				77EDC484286DA565002B4226 /* M_SenseME_DogFace_2.0.0.model in Resources */,
 				77EDC483286DA565002B4226 /* M_SenseME_Segment_Head_1.0.3.model in Resources */,
 				77EDC493286DA565002B4226 /* SenseAR_v8.5.0(Effects)_Model_Usage_Instructions的.pdf in Resources */,
@@ -1666,7 +1646,6 @@
 				77EDC41A286DA564002B4226 /* face.bundle in Resources */,
 				77EDC42D286DA564002B4226 /* VERSION in Resources */,
 				77EDC41B286DA564002B4226 /* eyeshadow.bundle in Resources */,
-				77EDC448286DA565002B4226 /* STViewButton.xib in Resources */,
 				77EDC486286DA565002B4226 /* M_SenseME_Segment_MouthOcclusion_FastV1_1.1.3.model in Resources */,
 				77EDC488286DA565002B4226 /* M_SenseME_Segment_Skin_1.1.1.model in Resources */,
 				77EDC489286DA565002B4226 /* M_SenseME_CatFace_3.2.0.model in Resources */,
@@ -1999,7 +1978,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEFINES_MODULE = YES;
-				DEVELOPMENT_TEAM = W2TP34G2MM;
+				DEVELOPMENT_TEAM = GDFHW66V92;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
@@ -2041,7 +2020,8 @@
 				MACH_O_TYPE = staticlib;
 				MARKETING_VERSION = 1.0;
 				ONLY_ACTIVE_ARCH = YES;
-				PRODUCT_BUNDLE_IDENTIFIER = com.qiiu.QNLiveKit;
+				OTHER_CODE_SIGN_FLAGS = "--generate-entitlement-der";
+				PRODUCT_BUNDLE_IDENTIFIER = com.qiniu.LiveKit;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;
 				SWIFT_EMIT_LOC_STRINGS = YES;
@@ -2058,7 +2038,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEFINES_MODULE = YES;
-				DEVELOPMENT_TEAM = W2TP34G2MM;
+				DEVELOPMENT_TEAM = GDFHW66V92;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
@@ -2100,7 +2080,8 @@
 				MACH_O_TYPE = staticlib;
 				MARKETING_VERSION = 1.0;
 				ONLY_ACTIVE_ARCH = YES;
-				PRODUCT_BUNDLE_IDENTIFIER = com.qiiu.QNLiveKit;
+				OTHER_CODE_SIGN_FLAGS = "--generate-entitlement-der";
+				PRODUCT_BUNDLE_IDENTIFIER = com.qiniu.LiveKit;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;
 				SWIFT_EMIT_LOC_STRINGS = YES;
