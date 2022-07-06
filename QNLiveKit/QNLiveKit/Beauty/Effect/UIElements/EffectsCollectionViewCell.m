@@ -15,17 +15,20 @@
 
 @implementation EffectsCollectionViewCell
 
-- (void)awakeFromNib {
-    [super awakeFromNib];
+- (instancetype)initWithFrame:(CGRect)frame {
     
-    self.layer.cornerRadius = 5.0f;
-    self.layer.borderWidth = 2.0f;
-    self.layer.borderColor = [UIColor clearColor].CGColor;
-    
-    self.thumbView.image = nil;
-    self.thumbView.hidden = YES;
-    self.loadingView.hidden = YES;
-    self.downloadSign.hidden = NO;
+    if (self = [super initWithFrame:frame]) {
+        
+        self.layer.cornerRadius = 5.0f;
+        self.layer.borderWidth = 2.0f;
+        self.layer.borderColor = [UIColor clearColor].CGColor;
+        
+        self.thumbView.image = nil;
+        self.thumbView.hidden = YES;
+        self.loadingView.hidden = YES;
+        self.downloadSign.hidden = NO;
+    }
+    return self;
 }
 
 - (void)setModel:(EffectsCollectionViewCellModel *)model
@@ -109,4 +112,39 @@
     [self.loadingView.layer removeAnimationForKey:@"rotation"];
 }
 
+- (UIImageView *)thumbView {
+    if (!_thumbView) {
+        _thumbView = [[UIImageView alloc]init];
+        [self.contentView addSubview:_thumbView];
+        
+        [_thumbView mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.left.top.right.bottom.equalTo(self.contentView);
+        }];
+    }
+    return _thumbView;
+}
+
+- (UIImageView *)loadingView {
+    if (!_loadingView) {
+        _loadingView = [[UIImageView alloc]initWithImage:[UIImage imageNamed:@"loader"]];
+        [self.thumbView addSubview:_loadingView];
+        
+        [_loadingView mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.center.equalTo(self.contentView);
+        }];
+    }
+    return _loadingView;
+}
+
+- (UIImageView *)downloadSign {
+    if (!_downloadSign) {
+        _downloadSign = [[UIImageView alloc]initWithImage:[UIImage imageNamed:@"download"]];
+        [self.thumbView addSubview:_downloadSign];
+        
+        [_downloadSign mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.right.bottom.equalTo(self.contentView);
+        }];
+    }
+    return _downloadSign;
+}
 @end

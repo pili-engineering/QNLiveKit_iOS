@@ -23,8 +23,8 @@ typedef void (^STTapBlock)(void);
 
 @interface STViewButton : UIView
 
-@property (weak, nonatomic) IBOutlet UIImageView *imageView;
-@property (weak, nonatomic) IBOutlet UILabel *titleLabel;
+@property (strong, nonatomic) UIImageView *imageView;
+@property (strong, nonatomic) UILabel *titleLabel;
 
 @property (nonatomic, readwrite, assign, getter=isHighlighted) BOOL highlighted;
 @property (nonatomic, readwrite, copy) STTapBlock tapBlock;

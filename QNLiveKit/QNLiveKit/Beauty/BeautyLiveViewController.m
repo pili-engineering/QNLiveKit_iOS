@@ -54,6 +54,13 @@
 
 @implementation BeautyLiveViewController
 
++ (void)initialize {
+    NSBundle *bud = [NSBundle mainBundle] ;
+    NSString* path = [[NSBundle mainBundle] pathForResource:@"SENSEME" ofType:@"lic"];
+    NSData* license = [NSData dataWithContentsOfFile:path];
+    [[STDefaultSetting sharedInstace] checkActiveCodeWithData:license];
+}
+
 - (void)viewDidDisappear:(BOOL)animated {
     [self.chatService removeChatServiceListener];
     [[QLive createPlayerClient] leaveRoom:self.roomInfo.live_id];
@@ -250,6 +257,28 @@
         model.selected = YES;
         [self handleBeautyTypeChanged:model];
     });
+}
+
+#pragma mark - handle system notifications
+
+- (void)appWillResignActive {
+    
+}
+
+- (void)appDidEnterBackground {
+   
+}
+
+- (void)applicationWillTerminate:(UIApplication *)application {
+
+}
+
+- (void)appWillEnterForeground {
+
+}
+
+- (void)appDidBecomeActive {
+
 }
 
 

@@ -33,9 +33,9 @@ typedef enum : NSUInteger {
 
 @property (nonatomic , strong) EffectsCollectionViewCellModel *model;
 
-@property (weak, nonatomic) IBOutlet UIImageView *thumbView;
-@property (weak, nonatomic) IBOutlet UIImageView *loadingView;
-@property (weak, nonatomic) IBOutlet UIImageView *downloadSign;
+@property (strong, nonatomic) UIImageView *thumbView;
+@property (strong, nonatomic) UIImageView *loadingView;
+@property (strong, nonatomic) UIImageView *downloadSign;
 
 
 @end

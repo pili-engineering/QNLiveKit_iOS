@@ -29,11 +29,10 @@
     [backBtn addTarget:self action:@selector(onBtnBack:) forControlEvents:UIControlEventTouchUpInside];
     [self addSubview:backBtn];
     
-    STViewButton *leftView = [[[NSBundle mainBundle] loadNibNamed:@"STViewButton" owner:nil options:nil] firstObject];
+    STViewButton *leftView = [[STViewButton alloc] initWithFrame:CGRectMake(24, 28, 33, 60)];
     leftView.userInteractionEnabled = NO;
     leftView.backgroundColor = [UIColor clearColor];
     leftView.titleLabel.textColor = [UIColor whiteColor];
-    leftView.frame = CGRectMake(24, 28, 33, 60);
     _leftView = leftView;
     [self addSubview:leftView];
     

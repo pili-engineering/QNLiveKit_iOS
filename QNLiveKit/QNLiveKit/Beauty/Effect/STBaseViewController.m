@@ -611,9 +611,9 @@ NSString *appkey = @"e4156e4d61b040d2bcbf896c798d06e3";
         
         STWeakSelf;
         _effectsList = [[EffectsCollectionView alloc] initWithFrame:CGRectMake(0, 41, SCREEN_WIDTH, 140)];
-        [_effectsList registerNib:[UINib nibWithNibName:@"EffectsCollectionViewCell"
-                                                 bundle:[NSBundle mainBundle]]
-       forCellWithReuseIdentifier:@"EffectsCollectionViewCell"];
+        
+        [_effectsList registerClass:[EffectsCollectionViewCell class] forCellWithReuseIdentifier:@"EffectsCollectionViewCell"];
+
         _effectsList.numberOfSectionsInView = ^NSInteger(STCustomCollectionView *collectionView) {
             
             return 1;
@@ -624,10 +624,7 @@ NSString *appkey = @"e4156e4d61b040d2bcbf896c798d06e3";
         };
         _effectsList.cellForItemAtIndexPath = ^UICollectionViewCell *(STCustomCollectionView *collectionView, NSIndexPath *indexPath) {
             
-            static NSString *strIdentifier = @"EffectsCollectionViewCell";
-            
-            EffectsCollectionViewCell *cell = (EffectsCollectionViewCell *)[collectionView dequeueReusableCellWithReuseIdentifier:strIdentifier forIndexPath:indexPath];
-            
+            EffectsCollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"EffectsCollectionViewCell" forIndexPath:indexPath];
             NSArray *arrModels = weakSelf.coreStateMangement.arrCurrentModels;
             
             if (arrModels.count) {
@@ -727,10 +724,9 @@ NSString *appkey = @"e4156e4d61b040d2bcbf896c798d06e3";
     if (!_filterCategoryView) {
         _filterCategoryView = [[UIView alloc] initWithFrame:CGRectMake(0, 41, SCREEN_WIDTH, 300)];
         _filterCategoryView.backgroundColor = [[UIColor blackColor] colorWithAlphaComponent:0.5];
-        STViewButton *portraitViewBtn = [[[NSBundle mainBundle] loadNibNamed:@"STViewButton" owner:nil options:nil] firstObject];
+        STViewButton *portraitViewBtn = [[STViewButton alloc] initWithFrame:CGRectMake(SCREEN_WIDTH / 2 - 143, 20, 40, 70)];
         portraitViewBtn.tag = STEffectsTypeFilterPortrait;
         portraitViewBtn.backgroundColor = [UIColor clearColor];
-        portraitViewBtn.frame =  CGRectMake(SCREEN_WIDTH / 2 - 143, 20, 40, 70);
         portraitViewBtn.imageView.image = [UIImage imageNamed:@"portrait"];
         portraitViewBtn.imageView.highlightedImage = [UIImage imageNamed:@"portrait_highlighted"];
         portraitViewBtn.titleLabel.font = [UIFont systemFontOfSize:14];
@@ -748,10 +744,9 @@ NSString *appkey = @"e4156e4d61b040d2bcbf896c798d06e3";
         
         
         
-        STViewButton *sceneryViewBtn = [[[NSBundle mainBundle] loadNibNamed:@"STViewButton" owner:nil options:nil] firstObject];
+        STViewButton *sceneryViewBtn = [[STViewButton alloc] initWithFrame:CGRectMake(SCREEN_WIDTH / 2 - 60, 20, 40, 70)];
         sceneryViewBtn.tag = STEffectsTypeFilterScenery;
         sceneryViewBtn.backgroundColor = [UIColor clearColor];
-        sceneryViewBtn.frame =  CGRectMake(SCREEN_WIDTH / 2 - 60, 20, 40, 70);
         sceneryViewBtn.imageView.image = [UIImage imageNamed:@"scenery"];
         sceneryViewBtn.imageView.highlightedImage = [UIImage imageNamed:@"scenery_highlighted"];
         sceneryViewBtn.titleLabel.font = [UIFont systemFontOfSize:14];
@@ -766,10 +761,9 @@ NSString *appkey = @"e4156e4d61b040d2bcbf896c798d06e3";
         [sceneryViewBtn addGestureRecognizer:sceneryRecognizer];
         [self.arrFilterCategoryViews addObject:sceneryViewBtn];
         [_filterCategoryView addSubview:sceneryViewBtn];
-        STViewButton *stillLifeViewBtn = [[[NSBundle mainBundle] loadNibNamed:@"STViewButton" owner:nil options:nil] firstObject];
+        STViewButton *stillLifeViewBtn = [[STViewButton alloc] initWithFrame:CGRectMake(SCREEN_WIDTH / 2 + 27, 20, 40, 70)];
         stillLifeViewBtn.tag = STEffectsTypeFilterStillLife;
         stillLifeViewBtn.backgroundColor = [UIColor clearColor];
-        stillLifeViewBtn.frame =  CGRectMake(SCREEN_WIDTH / 2 + 27, 20, 40, 70);
         stillLifeViewBtn.imageView.image = [UIImage imageNamed:@"still_life"];
         stillLifeViewBtn.imageView.highlightedImage = [UIImage imageNamed:@"still_life_highlighted"];
         stillLifeViewBtn.titleLabel.font = [UIFont systemFontOfSize:14];
@@ -783,10 +777,9 @@ NSString *appkey = @"e4156e4d61b040d2bcbf896c798d06e3";
         [stillLifeViewBtn addGestureRecognizer:stillLifeRecognizer];
         [self.arrFilterCategoryViews addObject:stillLifeViewBtn];
         [_filterCategoryView addSubview:stillLifeViewBtn];
-        STViewButton *deliciousFoodViewBtn = [[[NSBundle mainBundle] loadNibNamed:@"STViewButton" owner:nil options:nil] firstObject];
+        STViewButton *deliciousFoodViewBtn = [[STViewButton alloc] initWithFrame:CGRectMake(SCREEN_WIDTH / 2 + 110, 20, 40, 70)];
         deliciousFoodViewBtn.tag = STEffectsTypeFilterDeliciousFood;
         deliciousFoodViewBtn.backgroundColor = [UIColor clearColor];
-        deliciousFoodViewBtn.frame =  CGRectMake(SCREEN_WIDTH / 2 + 110, 20, 40, 70);
         deliciousFoodViewBtn.imageView.image = [UIImage imageNamed:@"delicious_food"];
         deliciousFoodViewBtn.imageView.highlightedImage = [UIImage imageNamed:@"delicious_food_highlighted"];
         deliciousFoodViewBtn.titleLabel.font = [UIFont systemFontOfSize:14];
@@ -902,11 +895,9 @@ NSString *appkey = @"e4156e4d61b040d2bcbf896c798d06e3";
 
 - (STViewButton *)specialEffectsBtn {
     if (!_specialEffectsBtn) {
-        
-        _specialEffectsBtn = [[[NSBundle mainBundle] loadNibNamed:@"STViewButton" owner:nil options:nil] firstObject];
-        [_specialEffectsBtn setExclusiveTouch:YES];
         UIImage *image = [UIImage imageNamed:@"btn_special_effects.png"];
-        _specialEffectsBtn.frame = CGRectMake([self layoutWidthWithValue:143], SCREEN_HEIGHT - 73.5, image.size.width, 50);
+        _specialEffectsBtn = [[STViewButton alloc] initWithFrame:CGRectMake([self layoutWidthWithValue:143], SCREEN_HEIGHT - 73.5, image.size.width, 50)];
+        [_specialEffectsBtn setExclusiveTouch:YES];
         //        _specialEffectsBtn.center = CGPointMake(_specialEffectsBtn.center.x, self.snapBtn.center.y);
         _specialEffectsBtn.backgroundColor = [UIColor clearColor];
         _specialEffectsBtn.imageView.image = [UIImage imageNamed:@"btn_special_effects.png"];
@@ -927,10 +918,9 @@ NSString *appkey = @"e4156e4d61b040d2bcbf896c798d06e3";
 }
 - (STViewButton *)beautyBtn {
     if (!_beautyBtn) {
-        _beautyBtn = [[[NSBundle mainBundle] loadNibNamed:@"STViewButton" owner:nil options:nil] firstObject];
-        [_beautyBtn setExclusiveTouch:YES];
         UIImage *image = [UIImage imageNamed:@"btn_beauty.png"];
-        _beautyBtn.frame = CGRectMake(SCREEN_WIDTH - [self layoutWidthWithValue:143] - image.size.width, SCREEN_HEIGHT - 73.5, image.size.width, 50);
+        _beautyBtn = [[STViewButton alloc] initWithFrame:CGRectMake(SCREEN_WIDTH - [self layoutWidthWithValue:143] - image.size.width, SCREEN_HEIGHT - 73.5, image.size.width, 50)];
+        [_beautyBtn setExclusiveTouch:YES];
         //        _beautyBtn.center = CGPointMake(_beautyBtn.center.x, self.snapBtn.center.y);
         _beautyBtn.backgroundColor = [UIColor clearColor];
         _beautyBtn.imageView.image = [UIImage imageNamed:@"btn_beauty.png"];
@@ -968,8 +958,8 @@ NSString *appkey = @"e4156e4d61b040d2bcbf896c798d06e3";
 
 - (STSlideView *)sliderView {
     if (!_sliderView) {
-        _sliderView = [[[NSBundle mainBundle] loadNibNamed:@"STSlideView" owner:nil options:nil] firstObject];
-        _sliderView.center = CGPointMake(-100, -100);
+        _sliderView = [[STSlideView alloc]initWithFrame:CGRectMake(0, SCREEN_HEIGHT - 430, SCREEN_WIDTH, 105)];
+//        _sliderView.center = CGPointMake(-100, -100);
         _sliderView.hidden = YES;
         [_sliderView.makeupSlide addTarget:self action:@selector(makeupSlideAction:) forControlEvents:UIControlEventValueChanged];
         [_sliderView.filterSlide addTarget:self action:@selector(filterSlideAction:) forControlEvents:UIControlEventValueChanged];
