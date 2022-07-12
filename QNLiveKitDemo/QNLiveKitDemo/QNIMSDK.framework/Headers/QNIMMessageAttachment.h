@@ -33,7 +33,7 @@ typedef NS_ENUM(NSUInteger, QNIMAttachmentDownloadStatus) {
 
 @property (nonatomic,copy) NSString *localPath;
 @property (nonatomic,copy) NSString *thumbnailPath;
-@property (nonatomic,assign)  NSInteger thumbnailFileLength;
+@property (nonatomic,assign)  long long thumbnailFileLength;
 @property (nonatomic) CGSize thumbnailSize;
 @property (nonatomic) CGSize pictureSize;
 @property (nonatomic,strong) NSData *aData;
@@ -43,6 +43,10 @@ typedef NS_ENUM(NSUInteger, QNIMAttachmentDownloadStatus) {
 @property (nonatomic,copy) NSString *aDisplayName;
 @property (nonatomic,copy) NSString *url;
 @property (nonatomic,assign) int duration;
+/**
+ 文件大小
+ */
+@property (nonatomic,assign) long long fileLength;
 
 - (instancetype)init;
 

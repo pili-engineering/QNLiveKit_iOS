@@ -69,7 +69,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self setupBG];
-    [self setupSenseAR];
+    
     __weak typeof(self)weakSelf = self;
     [[QLive createPusherClient] enableCamera:nil renderView:self.preview];
     [QLive createPusherClient].pushClientListener = self;
@@ -89,12 +89,13 @@
     [self onlineUserView];
     [self pubchatView];
     [self bottomMenuView];
-    
-    self.beautyBtn.hidden = NO;
-    
+    [self setupSenseAR];
+    self.beautyBtn.hidden = YES;
+    self.specialEffectsBtn.hidden = YES;
     [self.chatService sendWelComeMsg:^(QNIMMessageObject * _Nonnull msg) {
         [weakSelf.chatRoomView showMessage:msg];
     }];
+    
 }
 
 - (void)updateRoomInfo {
@@ -206,6 +207,7 @@
 }
 
 -(void)setupSenseAR{
+    
     self.effectManager = [[PLSTEffectManager alloc] initWithContext:[[EAGLContext alloc] initWithAPI:kEAGLRenderingAPIOpenGLES2]];
     self.effectManager.effectOn = YES;
     _detector = [[PLSTDetector alloc] initWithConfig:ST_MOBILE_HUMAN_ACTION_DEFAULT_CONFIG_VIDEO];
@@ -257,6 +259,12 @@
         model.selected = YES;
         [self handleBeautyTypeChanged:model];
     });
+}
+
+- (void)setupSubviews {
+    [super setupSubviews];
+    [self.view addSubview:self.triggerView];
+    [self.view addSubview:self.resetBtn];
 }
 
 #pragma mark - handle system notifications
@@ -416,8 +424,8 @@
 
 - (void)hideContainerView {
     
-    self.specialEffectsBtn.hidden = NO;
-    self.beautyBtn.hidden = NO;
+    self.specialEffectsBtn.hidden = YES;
+    self.beautyBtn.hidden = YES;
     
     [UIView animateWithDuration:0.05 delay:0.0 options:UIViewAnimationOptionCurveEaseInOut animations:^{
         
@@ -452,8 +460,8 @@
     self.filterStrengthView.hidden = YES;
     self.beautySlider.hidden = YES;
     
-    self.beautyBtn.hidden = NO;
-    self.specialEffectsBtn.hidden = NO;
+    self.beautyBtn.hidden = YES;
+    self.specialEffectsBtn.hidden = YES;
     self.resetBtn.hidden = YES;
     self.bmpStrenghView.hidden = YES;
     
@@ -467,6 +475,426 @@
     
     self.beautyBtn.highlighted = NO;
 }
+
+- (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event {
+    
+    UITouch *touch = [touches anyObject];
+    
+    CGPoint point = [touch locationInView:self.view];
+    
+    if (self.specialEffectsContainerViewIsShow) {
+        
+        if (!CGRectContainsPoint(CGRectMake(0, SCREEN_HEIGHT - 230, SCREEN_WIDTH, 230), point)) {
+            
+            [self hideContainerView];
+        }
+    }
+    
+    if (self.beautyContainerViewIsShow) {
+        
+        if (!CGRectContainsPoint(CGRectMake(0, SCREEN_HEIGHT - 230, SCREEN_WIDTH, 230), point)) {
+            
+            [self hideBeautyContainerView];
+        }
+    }
+    
+    
+    if (self.bmpColView) {
+        
+        [self.bmpColView backToMenu];
+    }
+}
+
+#pragma mark - scroll title click events
+
+- (void)onTapNoneSticker:(UITapGestureRecognizer *)tapGesture {
+    
+    [self cancelStickerAndObjectTrack];
+    
+    self.noneStickerImageView.highlighted = YES;
+    
+    [super onTapNoneSticker:tapGesture];
+}
+
+
+- (void)cancelStickerAndObjectTrack {
+    
+    self.objectTrackCollectionView.selectedModel.isSelected = NO;
+    [self.objectTrackCollectionView reloadData];
+    self.objectTrackCollectionView.selectedModel = nil;
+
+}
+
+- (void)handleEffectsType:(STEffectsType)type {
+    [super handleEffectsType:type];
+    if (!self.sliderView.isHidden && type != STEffectsTypeBeautyWholeMakeup) {
+        self.sliderView.hidden = YES;
+    }
+    
+    if (self.sliderView.isHidden &&
+        type == STEffectsTypeBeautyWholeMakeup &&
+        self.beautyContainerViewIsShow) {
+        for(int i = 0; i < self.wholeMakeUpModels.count; ++i){
+            if (self.wholeMakeUpModels[i].selected) {
+                self.sliderView.hidden = NO;
+            }
+        }
+    }
+    
+    switch (type) {
+            
+        case STEffectsTypeStickerMy:
+        case STEffectsTypeSticker2D:
+        case STEffectsTypeStickerAvatar:
+        case STEffectsTypeSticker3D:
+        case STEffectsTypeStickerGesture:
+        case STEffectsTypeStickerSegment:
+        case STEffectsTypeStickerFaceChange:
+        case STEffectsTypeStickerFaceDeformation:
+        case STEffectsTypeStickerParticle:
+        case STEffectsTypeStickerNew:
+        case STEffectsTypeObjectTrack:
+        case STEffectsTypeStickerAdd:
+            self.coreStateMangement.curEffectStickerType = type;
+            break;
+        case STEffectsTypeBeautyWholeMakeup:
+        case STEffectsTypeBeautyFilter:
+        case STEffectsTypeBeautyBase:
+        case STEffectsTypeBeautyShape:
+        case STEffectsTypeBeautyMicroSurgery:
+        case STEffectsTypeBeautyAdjust:
+        case STEffectsTypeBeautyMakeUp:
+            self.coreStateMangement.curEffectBeautyType = type;
+            [[STDefaultSetting sharedInstace] updateLastParamsCurType:type
+                                                     wholeEffectModel:nil
+                                                            baseModel:nil
+                                                               filter:nil
+                                                               makeup:nil
+                                                        needWriteFile:NO];
+            break;
+        default:
+            break;
+    }
+    
+    if (type != STEffectsTypeBeautyFilter) {
+        self.filterStrengthView.hidden = YES;
+    }
+    
+    if (type == self.beautyCollectionView.selectedModel.modelType) {
+        if (type == STEffectsTypeBeautyWholeMakeup) {
+            self.beautySlider.hidden = YES;
+        }else {
+            self.beautySlider.hidden = !self.beautyContainerViewIsShow;
+        }
+    } else {
+        self.beautySlider.hidden = YES;
+    }
+    
+    switch (type) {
+        case STEffectsTypeStickerAdd:{
+            //reload data source
+            [self getAddStickerResouces];
+        }
+        case STEffectsTypeStickerMy:
+        case STEffectsTypeStickerNew:
+        case STEffectsTypeSticker2D:
+        case STEffectsTypeStickerAvatar:
+        case STEffectsTypeStickerFaceDeformation:
+        case STEffectsTypeStickerSegment:
+        case STEffectsTypeSticker3D:
+        case STEffectsTypeStickerGesture:
+        case STEffectsTypeStickerFaceChange:
+        case STEffectsTypeStickerParticle:
+            
+            self.objectTrackCollectionView.hidden = YES;
+            
+            self.coreStateMangement.arrCurrentModels = [self.coreStateMangement.effectsDataSource objectForKey:@(type)];
+            [self.effectsList reloadData];
+            
+            self.effectsList.hidden = NO;
+            
+            break;
+            
+            
+            
+        case STEffectsTypeObjectTrack:
+            
+            [self resetCommonObjectViewPosition];
+            
+            self.objectTrackCollectionView.arrModels = self.arrObjectTrackers;
+            self.objectTrackCollectionView.hidden = NO;
+            self.effectsList.hidden = YES;
+            [self.objectTrackCollectionView reloadData];
+            
+            break;
+            
+            
+        case STEffectsTypeBeautyFilter:
+            
+            self.filterCategoryView.hidden = NO;
+            self.filterView.hidden = NO;
+            self.beautyCollectionView.hidden = YES;
+            
+            self.filterCategoryView.center = CGPointMake(SCREEN_WIDTH / 2, self.filterCategoryView.center.y);
+            self.filterView.center = CGPointMake(SCREEN_WIDTH * 3 / 2, self.filterView.center.y);
+            
+            self.bmpColView.hidden = YES;
+            self.bmpStrenghView.hidden = YES;
+            
+            break;
+            
+        case STEffectsTypeBeautyMakeUp:
+            self.beautyCollectionView.hidden = YES;
+            self.filterCategoryView.hidden = YES;
+            self.filterView.hidden = YES;
+            self.bmpColView.hidden = NO;
+            self.beautySlider.hidden = YES;
+        case STEffectsTypeNone:
+            break;
+            
+        case STEffectsTypeBeautyShape:
+            
+//            [self hideBeautyViewExcept:self.beautyShapeView];
+            self.filterStrengthView.hidden = YES;
+            
+            self.beautyCollectionView.hidden = NO;
+            self.filterCategoryView.hidden = YES;
+            self.beautyCollectionView.models = self.beautyShapeModels;
+            [self.beautyCollectionView reloadData];
+            
+            self.bmpColView.hidden = YES;
+            self.bmpStrenghView.hidden = YES;
+            
+            break;
+            
+        case STEffectsTypeBeautyBase:
+            
+            self.filterStrengthView.hidden = YES;
+            [self hideBeautyViewExcept:self.beautyCollectionView];
+            
+            self.beautyCollectionView.hidden = NO;
+            self.filterCategoryView.hidden = YES;
+            self.beautyCollectionView.models = self.baseBeautyModels;
+            [self.beautyCollectionView reloadData];
+            
+            self.bmpColView.hidden = YES;
+            self.bmpStrenghView.hidden = YES;
+            self.beautySlider.hidden = YES;
+
+            
+            break;
+            
+        case STEffectsTypeBeautyMicroSurgery:
+            
+            [self hideBeautyViewExcept:self.beautyCollectionView];
+            self.beautyCollectionView.hidden = NO;
+            self.filterCategoryView.hidden = YES;
+            self.beautyCollectionView.models = self.microSurgeryModels;
+            [self.beautyCollectionView reloadData];
+            
+            self.bmpColView.hidden = YES;
+            self.bmpStrenghView.hidden = YES;
+            
+            break;
+        case  STEffectsTypeBeautyWholeMakeup:
+            
+            [self hideBeautyViewExcept:self.beautyCollectionView];
+            self.beautyCollectionView.hidden = NO;
+            self.filterCategoryView.hidden = YES;
+            self.beautyCollectionView.models = self.wholeMakeUpModels;
+            [self.beautyCollectionView reloadData];
+            
+            self.bmpColView.hidden = YES;
+            self.bmpStrenghView.hidden = YES;
+            break;
+        case STEffectsTypeBeautyAdjust:
+            [self hideBeautyViewExcept:self.beautyCollectionView];
+            self.beautyCollectionView.hidden = NO;
+            self.filterCategoryView.hidden = YES;
+            self.beautyCollectionView.models = self.adjustModels;
+            [self.beautyCollectionView reloadData];
+            
+            self.bmpColView.hidden = YES;
+            self.bmpStrenghView.hidden = YES;
+            
+            break;
+            
+            
+        case STEffectsTypeBeautyBody:
+            
+            self.filterStrengthView.hidden = YES;
+//            [self hideBeautyViewExcept:self.beautyBodyView];
+            break;
+            
+        default:
+            break;
+    }
+    switch (type) {
+        case STEffectsTypeStickerFaceChange:
+            //clear beauty make up
+            [self resetWholeMakeupUIs];
+            [self.bmpColView clearMakeUp];
+            [self.beautyCollectionView reloadData];
+            break;
+        default:
+            break;
+    }
+    
+}
+
+- (void)hideBeautyViewExcept:(UIView *)view {
+    
+    for (UIView *beautyView in self.arrBeautyViews) {
+        
+        beautyView.hidden = !(view == beautyView);
+    }
+}
+
+- (void)resetCommonObjectViewPosition {
+//    if (self.commonObjectContainerView.currentCommonObjectView) {
+//        _commonObjectViewSetted = NO;
+//        _commonObjectViewAdded = NO;
+//        self.commonObjectContainerView.currentCommonObjectView.hidden = NO;
+//        self.commonObjectContainerView.currentCommonObjectView.onFirst = YES;
+//        self.commonObjectContainerView.currentCommonObjectView.center = CGPointMake(SCREEN_WIDTH / 2, SCREEN_HEIGHT / 2);
+//    }
+}
+
+#pragma mark - collectionview click events
+
+- (void)handleFilterChanged:(STCollectionViewDisplayModel *)model {
+    [super handleFilterChanged:model];
+//    if (_hEffectHandle) {
+        self.filterStrengthSlider.value = self.coreStateMangement.filterModel.value;
+        [self refreshFilterCategoryState:model.modelType];
+        
+        [self.effectManager setBeautify:model.strPath type:EFFECT_BEAUTY_FILTER];
+        [self.effectManager updateBeautify:model.value type:EFFECT_BEAUTY_FILTER];
+//    }
+}
+
+
+- (void)handleObjectTrackChanged:(STCollectionViewDisplayModel *)model {
+//    if (self.commonObjectContainerView.currentCommonObjectView) {
+//        [self.commonObjectContainerView.currentCommonObjectView removeFromSuperview];
+//    }
+//    _commonObjectViewSetted = NO;
+//    _commonObjectViewAdded = NO;
+//
+//    if (model.isSelected) {
+//        UIImage *image = model.image;
+//        [self.commonObjectContainerView addCommonObjectViewWithImage:image];
+//        self.commonObjectContainerView.currentCommonObjectView.onFirst = YES;
+//        self.bTracker = YES;
+//    }
+}
+
+
+
+- (void)setMaterialModel:(EffectsCollectionViewCellModel *)targetModel{
+    dispatch_async(dispatch_get_main_queue(), ^{
+        self.triggerView.hidden = YES;
+    });
+    
+    const char *stickerPath = [targetModel.strMaterialPath UTF8String];
+    
+    if (!targetModel || IsSelected == targetModel.state) {
+        
+        stickerPath = NULL;
+    }
+    
+    for (NSArray *arrModels in [self.coreStateMangement.effectsDataSource allValues]) {
+        
+        for (EffectsCollectionViewCellModel *model in arrModels) {
+            
+            if (model == targetModel) {
+                
+                if (IsSelected == model.state) {
+                    
+                    model.state = Downloaded;
+                }else{
+                    
+                    model.state = IsSelected;
+                }
+            }else{
+                
+                if (IsSelected == model.state) {
+                    
+                    model.state = Downloaded;
+                }
+            }
+        }
+    }
+    
+    dispatch_async(dispatch_get_main_queue(), ^{
+        
+        [self.effectsList reloadData];
+    });
+    
+    if (self.isNullSticker) {
+        self.isNullSticker = NO;
+    }
+    
+    //贴纸设置、取消时都要clear sticker value
+    [[STDefaultSetting sharedInstace] clearStickerValue];
+    
+    st_result_t iRet = ST_OK;
+    int packageId = 0;
+    BOOL add = NO;
+    if (targetModel.iEffetsType == STEffectsTypeStickerAdd) {
+        self.addSticker = YES;
+        if(self.coreStateMangement.addedStickerArray == nil) self.coreStateMangement.addedStickerArray = [NSMutableArray new];
+        if ([self.coreStateMangement.addedStickerArray containsObject:targetModel]) {
+            [self.coreStateMangement.addedStickerArray removeObject:targetModel];
+            iRet = [self.effectManager removeSticker:targetModel.packageId];
+            
+            if (!self.coreStateMangement.addedStickerArray.count) {
+                self.addSticker = NO;
+            }
+        }else{
+            iRet = [self.effectManager addSticker:targetModel.strMaterialPath pID:&packageId];
+            if(iRet != ST_OK) NSLog(@"st_mobile_effect_add_package error %d", iRet);
+            else{
+                [self.coreStateMangement.addedStickerArray addObject:targetModel];
+                targetModel.packageId = packageId;
+                add = YES;
+            }
+        }
+    }else{
+        if (stickerPath) {
+            iRet = [self.effectManager updateSticker:targetModel.strMaterialPath pID:&packageId];
+            self.coreStateMangement.prepareModel.packageId = packageId;
+            add = YES;
+        }else{
+            iRet =[self.effectManager removeSticker:self.coreStateMangement.prepareModel.packageId];
+            self.coreStateMangement.prepareModel.packageId = 0;
+        }
+    }
+    [self getBeautyParam:add];
+    
+    // 获取触发动作类型
+    unsigned long long iAction = 0;
+    
+    if (iRet != ST_OK && iRet != ST_E_PACKAGE_EXIST_IN_MEMORY) {
+        
+        NSLog(@"st_mobile_sticker_change_package error %d" , iRet);
+    } else {
+        iAction = [self.effectManager getEffectDetectConfig];
+        [self showTrigleAction:iAction];
+        
+        //猫脸config
+        unsigned long long animalConfig = 0;
+        animalConfig = [self.effectManager getEffectDetectConfig];
+        if (iRet == ST_OK && CHECK_FLAG(animalConfig, ST_MOBILE_CAT_DETECT)) {
+            self.coreStateMangement.needDetectAnimal = YES;
+        } else {
+            self.coreStateMangement.needDetectAnimal = NO;
+        }
+    }
+    self.coreStateMangement.stickerConf = iAction;
+}
+#pragma mark - senseMeEffects --------------------  end --------------------
+
 
 
 #pragma mark ---------QNChatRoomServiceListener
@@ -613,7 +1041,7 @@
 - (ImageButtonView *)pubchatView {
     if (!_pubchatView) {
         _pubchatView = [[ImageButtonView alloc]init];
-        [_pubchatView createDefaultView:CGRectMake(15, SCREEN_H - 80, 220, 45) onView:self.view];
+        [_pubchatView createDefaultView:CGRectMake(15, SCREEN_H - 80, 150, 45) onView:self.view];
         [_pubchatView bundleNormalImage:@"chat_input_bar" selectImage:@"chat_input_bar"];
         __weak typeof(self)weakSelf = self;
         _pubchatView.clickBlock = ^(BOOL selected){
@@ -642,6 +1070,22 @@
         };
         [slotList addObject:pk];
         self.pkSlot = pk;
+        //美颜
+        ImageButtonView *beauty = [[ImageButtonView alloc]init];
+        [beauty bundleNormalImage:@"btn_beauty" selectImage:@"btn_beauty_selected"];
+        beauty.clickBlock = ^(BOOL selected) {
+            [weakSelf clickBottomViewButton:weakSelf.beautyBtn];
+        };
+        [slotList addObject:beauty];
+        
+        //特效
+        ImageButtonView *specialEffects = [[ImageButtonView alloc]init];
+        [specialEffects bundleNormalImage:@"btn_special_effects" selectImage:@"btn_special_effects_selected"];
+        specialEffects.clickBlock = ^(BOOL selected) {
+            [weakSelf clickBottomViewButton:weakSelf.specialEffectsBtn];
+        };
+        [slotList addObject:specialEffects];
+        
         //弹幕
         ImageButtonView *message = [[ImageButtonView alloc]init];
         [message bundleNormalImage:@"message" selectImage:@"message"];
@@ -659,7 +1103,7 @@
         
         _bottomMenuView = [[BottomMenuView alloc]init];
         _bottomMenuView.slotList = slotList.copy;
-        [_bottomMenuView createDefaultView:CGRectMake(240, SCREEN_H - 80, SCREEN_W - 240, 45) onView:self.view];
+        [_bottomMenuView createDefaultView:CGRectMake(180, SCREEN_H - 80, SCREEN_W - 180, 45) onView:self.view];
     }
     return _bottomMenuView;
 }

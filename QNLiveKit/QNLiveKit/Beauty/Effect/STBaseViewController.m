@@ -76,9 +76,11 @@ NSString *appkey = @"e4156e4d61b040d2bcbf896c798d06e3";
     
     
     self.isFirstLaunch = YES;
-    if (self.isFirstLaunch) {
-        [[NSUserDefaults standardUserDefaults] setObject:@(1) forKey:@"FIRSTLAUNCH"];
-    }
+    
+//    self.isFirstLaunch = [[NSUserDefaults standardUserDefaults] objectForKey:@"FIRSTLAUNCH"] == nil;
+//    if (self.isFirstLaunch) {
+//        [[NSUserDefaults standardUserDefaults] setObject:@(1) forKey:@"FIRSTLAUNCH"];
+//    }
 }
 
 
@@ -525,7 +527,7 @@ NSString *appkey = @"e4156e4d61b040d2bcbf896c798d06e3";
     [self.view addSubview:self.specialEffectsBtn];
     [self.view addSubview:self.beautyBtn];
     [self.view addSubview:self.btnCompare];
-    [self.view addSubview:self.sliderView];
+//    [self.view addSubview:self.sliderView];
 #if ENABLE_FACE_ATTRIBUTE_DETECT
     [self.view addSubview:self.lblAttribute];
 #endif
@@ -833,7 +835,6 @@ NSString *appkey = @"e4156e4d61b040d2bcbf896c798d06e3";
     if (!_beautyCollectionView) {
         STWeakSelf;
         _beautyCollectionView = [[STNewBeautyCollectionView alloc] initWithFrame:CGRectMake(0, 41, SCREEN_WIDTH, 220) models:self.baseBeautyModels delegateBlock:^(STNewBeautyCollectionViewModel *model) {
-            
             [weakSelf handleBeautyTypeChanged:model];
         }];
         _beautyCollectionView.backgroundColor = [[UIColor blackColor] colorWithAlphaComponent:0.5];
@@ -919,7 +920,7 @@ NSString *appkey = @"e4156e4d61b040d2bcbf896c798d06e3";
 - (STViewButton *)beautyBtn {
     if (!_beautyBtn) {
         UIImage *image = [UIImage imageNamed:@"btn_beauty.png"];
-        _beautyBtn = [[STViewButton alloc] initWithFrame:CGRectMake(SCREEN_WIDTH - [self layoutWidthWithValue:143] - image.size.width, SCREEN_HEIGHT - 73.5, image.size.width, 50)];
+        _beautyBtn = [[STViewButton alloc] initWithFrame:CGRectMake(SCREEN_WIDTH - [self layoutWidthWithValue:143] - image.size.width, SCREEN_HEIGHT - 73.5, image.size.width, image.size.width + 8)];
         [_beautyBtn setExclusiveTouch:YES];
         //        _beautyBtn.center = CGPointMake(_beautyBtn.center.x, self.snapBtn.center.y);
         _beautyBtn.backgroundColor = [UIColor clearColor];
@@ -958,13 +959,13 @@ NSString *appkey = @"e4156e4d61b040d2bcbf896c798d06e3";
 
 - (STSlideView *)sliderView {
     if (!_sliderView) {
-        _sliderView = [[STSlideView alloc]initWithFrame:CGRectMake(0, SCREEN_HEIGHT - 430, SCREEN_WIDTH, 105)];
+        _sliderView = [[STSlideView alloc]initWithFrame:CGRectMake(0, SCREEN_HEIGHT - 300, SCREEN_WIDTH, 105)];
 //        _sliderView.center = CGPointMake(-100, -100);
         _sliderView.hidden = YES;
         [_sliderView.makeupSlide addTarget:self action:@selector(makeupSlideAction:) forControlEvents:UIControlEventValueChanged];
         [_sliderView.filterSlide addTarget:self action:@selector(filterSlideAction:) forControlEvents:UIControlEventValueChanged];
-        _sliderView.filterLabel.text = NSLocalizedString(@"美妆", nil);
-        _sliderView.makeupLabel.text = NSLocalizedString(@"滤镜", nil);
+//        _sliderView.filterLabel.text = NSLocalizedString(@"美妆", nil);
+//        _sliderView.makeupLabel.text = NSLocalizedString(@"滤镜", nil);
     }
     return _sliderView;
 }
@@ -1139,8 +1140,7 @@ NSString *appkey = @"e4156e4d61b040d2bcbf896c798d06e3";
 - (UIButton *)resetBtn {
     if (!_resetBtn) {
         
-        _resetBtn = [[UIButton alloc] initWithFrame:CGRectMake(SCREEN_WIDTH - 100, SCREEN_HEIGHT - 50, 100, 30)];
-        _resetBtn.center = CGPointMake(_resetBtn.center.x, self.beautyBtn.center.y);
+        _resetBtn = [[UIButton alloc] initWithFrame:CGRectMake(SCREEN_WIDTH - 80, SCREEN_HEIGHT - 290, 100, 30)];
         
         [_resetBtn setImage:[UIImage imageNamed:@"reset"] forState:UIControlStateNormal];
         [_resetBtn setTitle:NSLocalizedString(@"重置", nil)  forState:UIControlStateNormal];
@@ -1169,7 +1169,7 @@ NSString *appkey = @"e4156e4d61b040d2bcbf896c798d06e3";
     [UIView animateWithDuration:0.05 delay:0.0 options:UIViewAnimationOptionCurveEaseInOut animations:^{
         self.beautyContainerView.frame = CGRectMake(0, SCREEN_HEIGHT - 260, SCREEN_WIDTH, 260);
         self.btnCompare.frame = CGRectMake(SCREEN_WIDTH - 80, SCREEN_HEIGHT - 260 - 35.5 - 40, 70, 35);
-        self.sliderView.frame = CGRectMake(0, SCREEN_HEIGHT - 430, SCREEN_WIDTH, 105);
+        self.sliderView.frame = CGRectMake(0, SCREEN_HEIGHT - 300, SCREEN_WIDTH, 105);
         if (self.coreStateMangement.curEffectBeautyType == STEffectsTypeBeautyWholeMakeup) {
             for(int i = 0; i < self.wholeMakeUpModels.count; ++i){
                 if (self.wholeMakeUpModels[i].selected) {
@@ -1395,7 +1395,9 @@ NSString *appkey = @"e4156e4d61b040d2bcbf896c798d06e3";
     self.beautySlider.hidden = NO;
     
     switch (model.beautyType) {
-        case STBeautyTypeNone:
+        case STBeautyTypeNone:{
+            
+        }
         case STBeautyTypeMakeupZBYuanQi:
         case STBeautyTypeMakeupZBZiRan:
         case STBeautyTypeMakeupZPYuanQi:
