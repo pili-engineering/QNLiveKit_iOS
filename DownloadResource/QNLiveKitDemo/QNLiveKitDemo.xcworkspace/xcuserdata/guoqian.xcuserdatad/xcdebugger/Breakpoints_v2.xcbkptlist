@@ -16,5 +16,21 @@
             stopOnStyle = "0">
          </BreakpointContent>
       </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "7A4C9366-5537-40A9-A440-B2B8BCA1B906"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "QNLiveKitDemo/AppHome/ViewController/QNLoginViewController.m"
+            startingColumnNumber = "9"
+            endingColumnNumber = "11"
+            startingLineNumber = "151"
+            endingLineNumber = "153"
+            landmarkName = "-initQNLiveWithUser:deviceID:"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
    </Breakpoints>
 </Bucket>

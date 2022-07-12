@@ -64,7 +64,7 @@
         _makeupSlide.minimumValue = 0.0;
         _makeupSlide.maximumValue = 100.0;
         [_makeupSlide setValue:85.0];
-        _makeupSlide.minimumTrackTintColor = [UIColor blueColor];
+        _makeupSlide.minimumTrackTintColor = [UIColor colorWithHexString:@"0x9e4fcb"];
         _makeupSlide.maximumTrackTintColor = [UIColor whiteColor];
 //        _makeupSlide.isContinuous = true;
         [self addSubview:_makeupSlide];
@@ -84,7 +84,7 @@
         _filterSlide.minimumValue = 0.0;
         _filterSlide.maximumValue = 100.0;
         [_filterSlide setValue:85.0];
-        _filterSlide.minimumTrackTintColor = [UIColor blueColor];
+        _filterSlide.minimumTrackTintColor = [UIColor colorWithHexString:@"0x9e4fcb"];
         _filterSlide.maximumTrackTintColor = [UIColor whiteColor];
 //        _filterSlide.isContinuous = true;
         [self addSubview:_filterSlide];

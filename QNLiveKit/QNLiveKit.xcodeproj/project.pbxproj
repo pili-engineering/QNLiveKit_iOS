@@ -84,7 +84,6 @@
 		777366912873031A00245EDB /* st_mobile_effect.h in Headers */ = {isa = PBXBuildFile; fileRef = 777366882873031A00245EDB /* st_mobile_effect.h */; };
 		777366922873031A00245EDB /* st_mobile_color_convert.h in Headers */ = {isa = PBXBuildFile; fileRef = 777366892873031A00245EDB /* st_mobile_color_convert.h */; };
 		777366932873031A00245EDB /* st_mobile_avatar.h in Headers */ = {isa = PBXBuildFile; fileRef = 7773668A2873031A00245EDB /* st_mobile_avatar.h */; };
-		7773669A2873E2F400245EDB /* AssetsLibrary.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 777366992873E2F300245EDB /* AssetsLibrary.framework */; };
 		77781C0A283D1337009DC71C /* QNPKSession.h in Headers */ = {isa = PBXBuildFile; fileRef = 77781C08283D1337009DC71C /* QNPKSession.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		77781C0B283D1337009DC71C /* QNPKSession.m in Sources */ = {isa = PBXBuildFile; fileRef = 77781C09283D1337009DC71C /* QNPKSession.m */; };
 		77781C0E283DD181009DC71C /* QPKService.h in Headers */ = {isa = PBXBuildFile; fileRef = 77781C0C283DD181009DC71C /* QPKService.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -159,6 +158,7 @@
 		777B7A84284F5A6F005032B7 /* QNInvitationMemberListCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 777B7A82284F5A6F005032B7 /* QNInvitationMemberListCell.m */; };
 		777B7A87284F5BC5005032B7 /* QNInvitationMemberListController.h in Headers */ = {isa = PBXBuildFile; fileRef = 777B7A85284F5BC4005032B7 /* QNInvitationMemberListController.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		777B7A88284F5BC5005032B7 /* QNInvitationMemberListController.m in Sources */ = {isa = PBXBuildFile; fileRef = 777B7A86284F5BC4005032B7 /* QNInvitationMemberListController.m */; };
+		77A8D26E28782DF0001A3C2C /* AssetsLibrary.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 77A8D26D28782DF0001A3C2C /* AssetsLibrary.framework */; };
 		77E02E31284E245A00EE8A28 /* QNAudienceController.h in Headers */ = {isa = PBXBuildFile; fileRef = 77E02E2F284E245A00EE8A28 /* QNAudienceController.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		77E02E32284E245A00EE8A28 /* QNAudienceController.m in Sources */ = {isa = PBXBuildFile; fileRef = 77E02E30284E245A00EE8A28 /* QNAudienceController.m */; };
 		77EDC3F8286DA564002B4226 /* STLock.m in Sources */ = {isa = PBXBuildFile; fileRef = 77EDC33B286DA563002B4226 /* STLock.m */; };
@@ -483,6 +483,7 @@
 		777B7A82284F5A6F005032B7 /* QNInvitationMemberListCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QNInvitationMemberListCell.m; sourceTree = "<group>"; };
 		777B7A85284F5BC4005032B7 /* QNInvitationMemberListController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QNInvitationMemberListController.h; sourceTree = "<group>"; };
 		777B7A86284F5BC4005032B7 /* QNInvitationMemberListController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QNInvitationMemberListController.m; sourceTree = "<group>"; };
+		77A8D26D28782DF0001A3C2C /* AssetsLibrary.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AssetsLibrary.framework; path = Platforms/MacOSX.platform/Developer/SDKs/MacOSX12.3.sdk/System/iOSSupport/System/Library/Frameworks/AssetsLibrary.framework; sourceTree = DEVELOPER_DIR; };
 		77E02E2F284E245A00EE8A28 /* QNAudienceController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = QNAudienceController.h; sourceTree = "<group>"; };
 		77E02E30284E245A00EE8A28 /* QNAudienceController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = QNAudienceController.m; sourceTree = "<group>"; };
 		77EDC33B286DA563002B4226 /* STLock.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = STLock.m; sourceTree = "<group>"; };
@@ -639,7 +640,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				7773669A2873E2F400245EDB /* AssetsLibrary.framework in Frameworks */,
+				77A8D26E28782DF0001A3C2C /* AssetsLibrary.framework in Frameworks */,
 				77781D9928486DBA009DC71C /* QNIMSDK.framework in Frameworks */,
 				C486089576C27F3A6ABEE3DB /* Pods_QNLiveKit.framework in Frameworks */,
 				77EDC4A5286ECDCC002B4226 /* libst_mobile.a in Frameworks */,
@@ -1378,6 +1379,7 @@
 			isa = PBXGroup;
 			children = (
 				777366992873E2F300245EDB /* AssetsLibrary.framework */,
+				77A8D26D28782DF0001A3C2C /* AssetsLibrary.framework */,
 				93FD8D2BCC60F127C6FB7DA1 /* Pods_QNLiveKit.framework */,
 				948C15C1847BC94017A63290 /* Pods_QNLiveKitTests.framework */,
 			);

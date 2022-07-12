@@ -17,9 +17,7 @@
 		776B1BFA28378CCF00D85C73 /* QNLiveKitDemoTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 776B1BF928378CCF00D85C73 /* QNLiveKitDemoTests.m */; };
 		776B1C0428378CCF00D85C73 /* QNLiveKitDemoUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 776B1C0328378CCF00D85C73 /* QNLiveKitDemoUITests.m */; };
 		776B1C0628378CCF00D85C73 /* QNLiveKitDemoUITestsLaunchTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 776B1C0528378CCF00D85C73 /* QNLiveKitDemoUITestsLaunchTests.m */; };
-		777188122863209500C5CABC /* QNLiveKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 777188112863209500C5CABC /* QNLiveKit.framework */; };
-		777188162863591300C5CABC /* QNIMSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 777188142863404B00C5CABC /* QNIMSDK.framework */; };
-		777188172863591300C5CABC /* QNIMSDK.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 777188142863404B00C5CABC /* QNIMSDK.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		7773669C2873E32100245EDB /* AssetsLibrary.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7773669B2873E32100245EDB /* AssetsLibrary.framework */; };
 		77781C6F283E1E7E009DC71C /* QNGlobalConfigurationViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 77781C57283E1E7E009DC71C /* QNGlobalConfigurationViewModel.m */; };
 		77781C70283E1E7E009DC71C /* QNHomeListViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 77781C58283E1E7E009DC71C /* QNHomeListViewModel.m */; };
 		77781C71283E1E7E009DC71C /* QNLoginInfoModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 77781C5D283E1E7E009DC71C /* QNLoginInfoModel.m */; };
@@ -30,6 +28,8 @@
 		77781C77283E1E7E009DC71C /* QNLoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 77781C69283E1E7E009DC71C /* QNLoginViewController.m */; };
 		77781C79283E1E7E009DC71C /* QNTabBarViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 77781C6D283E1E7E009DC71C /* QNTabBarViewController.m */; };
 		77781C7C283E1E96009DC71C /* QNAppConficModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 77781C7B283E1E96009DC71C /* QNAppConficModel.m */; };
+		77781C7F283E1EBC009DC71C /* QNIMSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 77781C7D283E1EB2009DC71C /* QNIMSDK.framework */; platformFilter = ios; };
+		77781C80283E1EBC009DC71C /* QNIMSDK.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 77781C7D283E1EB2009DC71C /* QNIMSDK.framework */; platformFilter = ios; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		77781C93283E1EE7009DC71C /* NSArray+Sudoku.m in Sources */ = {isa = PBXBuildFile; fileRef = 77781C85283E1EE7009DC71C /* NSArray+Sudoku.m */; };
 		77781C94283E1EE7009DC71C /* QNDateStringTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 77781C87283E1EE7009DC71C /* QNDateStringTool.m */; };
 		77781C95283E1EE7009DC71C /* UIApplication+LaunchScreen.m in Sources */ = {isa = PBXBuildFile; fileRef = 77781C8A283E1EE7009DC71C /* UIApplication+LaunchScreen.m */; };
@@ -44,6 +44,39 @@
 		77781CDA2840C768009DC71C /* QNQuitLoginCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 77781CCE2840C768009DC71C /* QNQuitLoginCell.m */; };
 		77781CDB2840C768009DC71C /* QNPersonalViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 77781CD12840C768009DC71C /* QNPersonalViewModel.m */; };
 		77781CDC2840C768009DC71C /* QNPersonInfoTopView.m in Sources */ = {isa = PBXBuildFile; fileRef = 77781CD22840C768009DC71C /* QNPersonInfoTopView.m */; };
+		77A8D1C028757128001A3C2C /* SENSEME.lic in Resources */ = {isa = PBXBuildFile; fileRef = 77A8D1BF28757128001A3C2C /* SENSEME.lic */; };
+		77A8D1D82876CAD6001A3C2C /* M_SenseME_Segment_Head_1.0.3.model in Resources */ = {isa = PBXBuildFile; fileRef = 77A8D1C42876CAD5001A3C2C /* M_SenseME_Segment_Head_1.0.3.model */; };
+		77A8D1D92876CAD6001A3C2C /* M_SenseME_DogFace_2.0.0.model in Resources */ = {isa = PBXBuildFile; fileRef = 77A8D1C52876CAD5001A3C2C /* M_SenseME_DogFace_2.0.0.model */; };
+		77A8D1DA2876CAD6001A3C2C /* M_SenseAR_Segment_MouthOcclusion_FastV1_1.1.2.model in Resources */ = {isa = PBXBuildFile; fileRef = 77A8D1C62876CAD5001A3C2C /* M_SenseAR_Segment_MouthOcclusion_FastV1_1.1.2.model */; };
+		77A8D1DB2876CAD6001A3C2C /* M_SenseME_Segment_MouthOcclusion_FastV1_1.1.3.model in Resources */ = {isa = PBXBuildFile; fileRef = 77A8D1C72876CAD5001A3C2C /* M_SenseME_Segment_MouthOcclusion_FastV1_1.1.3.model */; };
+		77A8D1DC2876CAD6001A3C2C /* SenseAR_v6.11.0(Effects)_Model_Usage_Instructions.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 77A8D1C82876CAD5001A3C2C /* SenseAR_v6.11.0(Effects)_Model_Usage_Instructions.pdf */; };
+		77A8D1DD2876CAD6001A3C2C /* M_SenseME_Segment_Skin_1.1.1.model in Resources */ = {isa = PBXBuildFile; fileRef = 77A8D1C92876CAD5001A3C2C /* M_SenseME_Segment_Skin_1.1.1.model */; };
+		77A8D1DE2876CAD6001A3C2C /* M_SenseME_CatFace_3.2.0.model in Resources */ = {isa = PBXBuildFile; fileRef = 77A8D1CA2876CAD5001A3C2C /* M_SenseME_CatFace_3.2.0.model */; };
+		77A8D1DF2876CAD6001A3C2C /* M_SenseME_Segment_4.12.8.model in Resources */ = {isa = PBXBuildFile; fileRef = 77A8D1CB2876CAD5001A3C2C /* M_SenseME_Segment_4.12.8.model */; };
+		77A8D1E02876CAD6001A3C2C /* M_SenseME_Face_Extra_Advanced_6.0.13.model in Resources */ = {isa = PBXBuildFile; fileRef = 77A8D1CC2876CAD5001A3C2C /* M_SenseME_Face_Extra_Advanced_6.0.13.model */; };
+		77A8D1E12876CAD6001A3C2C /* M_SenseME_Hand_5.4.0.model in Resources */ = {isa = PBXBuildFile; fileRef = 77A8D1CD2876CAD5001A3C2C /* M_SenseME_Hand_5.4.0.model */; };
+		77A8D1E22876CAD6001A3C2C /* M_SenseME_Face_Video_7.0.0.model in Resources */ = {isa = PBXBuildFile; fileRef = 77A8D1CE2876CAD5001A3C2C /* M_SenseME_Face_Video_7.0.0.model */; };
+		77A8D1E32876CAD6001A3C2C /* M_SenseME_Segment_4.12.11.model in Resources */ = {isa = PBXBuildFile; fileRef = 77A8D1CF2876CAD6001A3C2C /* M_SenseME_Segment_4.12.11.model */; };
+		77A8D1E42876CAD6001A3C2C /* M_SenseME_Segment_Hair_1.3.4.model in Resources */ = {isa = PBXBuildFile; fileRef = 77A8D1D02876CAD6001A3C2C /* M_SenseME_Segment_Hair_1.3.4.model */; };
+		77A8D1E52876CAD6001A3C2C /* M_SenseME_Segment_DBL_Face_1.0.7.model in Resources */ = {isa = PBXBuildFile; fileRef = 77A8D1D12876CAD6001A3C2C /* M_SenseME_Segment_DBL_Face_1.0.7.model */; };
+		77A8D1E62876CAD6001A3C2C /* M_SenseME_Segment_Sky_1.0.3.model in Resources */ = {isa = PBXBuildFile; fileRef = 77A8D1D22876CAD6001A3C2C /* M_SenseME_Segment_Sky_1.0.3.model */; };
+		77A8D1E72876CAD6001A3C2C /* M_SenseME_Attribute_1.0.1.model in Resources */ = {isa = PBXBuildFile; fileRef = 77A8D1D32876CAD6001A3C2C /* M_SenseME_Attribute_1.0.1.model */; };
+		77A8D1E82876CAD6001A3C2C /* SenseAR_v8.5.0(Effects)_Model_Usage_Instructions的.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 77A8D1D42876CAD6001A3C2C /* SenseAR_v8.5.0(Effects)_Model_Usage_Instructions的.pdf */; };
+		77A8D1E92876CAD6001A3C2C /* M_SenseME_Avatar_Help_2.2.0.model in Resources */ = {isa = PBXBuildFile; fileRef = 77A8D1D52876CAD6001A3C2C /* M_SenseME_Avatar_Help_2.2.0.model */; };
+		77A8D1FC2876CB77001A3C2C /* PortraitFilters.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 77A8D1EC2876CB77001A3C2C /* PortraitFilters.bundle */; };
+		77A8D1FD2876CB77001A3C2C /* SceneryFilters.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 77A8D1ED2876CB77001A3C2C /* SceneryFilters.bundle */; };
+		77A8D1FE2876CB77001A3C2C /* StillLifeFilters.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 77A8D1EE2876CB77001A3C2C /* StillLifeFilters.bundle */; };
+		77A8D1FF2876CB77001A3C2C /* DeliciousFoodFilters.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 77A8D1EF2876CB77001A3C2C /* DeliciousFoodFilters.bundle */; };
+		77A8D2002876CB77001A3C2C /* whiten_gif.zip in Resources */ = {isa = PBXBuildFile; fileRef = 77A8D1F12876CB77001A3C2C /* whiten_gif.zip */; };
+		77A8D2012876CB77001A3C2C /* eyelash.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 77A8D1F32876CB77001A3C2C /* eyelash.bundle */; };
+		77A8D2022876CB77001A3C2C /* lips.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 77A8D1F42876CB77001A3C2C /* lips.bundle */; };
+		77A8D2032876CB77001A3C2C /* brow.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 77A8D1F52876CB77001A3C2C /* brow.bundle */; };
+		77A8D2042876CB77001A3C2C /* wholemakeup.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 77A8D1F62876CB77001A3C2C /* wholemakeup.bundle */; };
+		77A8D2052876CB77001A3C2C /* face.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 77A8D1F72876CB77001A3C2C /* face.bundle */; };
+		77A8D2062876CB77001A3C2C /* eyeshadow.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 77A8D1F82876CB77001A3C2C /* eyeshadow.bundle */; };
+		77A8D2072876CB77001A3C2C /* blush.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 77A8D1F92876CB77001A3C2C /* blush.bundle */; };
+		77A8D2082876CB77001A3C2C /* my_sticker.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 77A8D1FB2876CB77001A3C2C /* my_sticker.bundle */; };
+		77A8D20B2876D09B001A3C2C /* QNLiveKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 77A8D20A2876D09B001A3C2C /* QNLiveKit.framework */; };
 		C5993B91A021CD7EDC4A0F36 /* Pods_QNLiveKitDemo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F467E60A07D600FCAAE77FD1 /* Pods_QNLiveKitDemo.framework */; };
 /* End PBXBuildFile section */
 
@@ -71,7 +104,7 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				777188172863591300C5CABC /* QNIMSDK.framework in Embed Frameworks */,
+				77781C80283E1EBC009DC71C /* QNIMSDK.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -97,8 +130,7 @@
 		776B1BFF28378CCF00D85C73 /* QNLiveKitDemoUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = QNLiveKitDemoUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		776B1C0328378CCF00D85C73 /* QNLiveKitDemoUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = QNLiveKitDemoUITests.m; sourceTree = "<group>"; };
 		776B1C0528378CCF00D85C73 /* QNLiveKitDemoUITestsLaunchTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = QNLiveKitDemoUITestsLaunchTests.m; sourceTree = "<group>"; };
-		777188112863209500C5CABC /* QNLiveKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = QNLiveKit.framework; sourceTree = "<group>"; };
-		777188142863404B00C5CABC /* QNIMSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = QNIMSDK.framework; sourceTree = "<group>"; };
+		7773669B2873E32100245EDB /* AssetsLibrary.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AssetsLibrary.framework; path = System/Library/Frameworks/AssetsLibrary.framework; sourceTree = SDKROOT; };
 		77781C56283E1E7E009DC71C /* QNHomeListViewModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QNHomeListViewModel.h; sourceTree = "<group>"; };
 		77781C57283E1E7E009DC71C /* QNGlobalConfigurationViewModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QNGlobalConfigurationViewModel.m; sourceTree = "<group>"; };
 		77781C58283E1E7E009DC71C /* QNHomeListViewModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QNHomeListViewModel.m; sourceTree = "<group>"; };
@@ -119,6 +151,7 @@
 		77781C6E283E1E7E009DC71C /* QNLoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QNLoginViewController.h; sourceTree = "<group>"; };
 		77781C7A283E1E96009DC71C /* QNAppConficModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QNAppConficModel.h; sourceTree = "<group>"; };
 		77781C7B283E1E96009DC71C /* QNAppConficModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QNAppConficModel.m; sourceTree = "<group>"; };
+		77781C7D283E1EB2009DC71C /* QNIMSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = QNIMSDK.framework; sourceTree = "<group>"; };
 		77781C83283E1EE7009DC71C /* NSDate+QNCategory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDate+QNCategory.h"; sourceTree = "<group>"; };
 		77781C84283E1EE7009DC71C /* UIApplication+LaunchScreen.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIApplication+LaunchScreen.h"; sourceTree = "<group>"; };
 		77781C85283E1EE7009DC71C /* NSArray+Sudoku.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSArray+Sudoku.m"; sourceTree = "<group>"; };
@@ -149,6 +182,39 @@
 		77781CD42840C768009DC71C /* QNAppReleaseInfoCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QNAppReleaseInfoCell.h; sourceTree = "<group>"; };
 		77781CD52840C768009DC71C /* QNQuitLoginCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QNQuitLoginCell.h; sourceTree = "<group>"; };
 		77781CDF2840C833009DC71C /* QNPublicHeader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QNPublicHeader.h; sourceTree = "<group>"; };
+		77A8D1BF28757128001A3C2C /* SENSEME.lic */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = SENSEME.lic; sourceTree = "<group>"; };
+		77A8D1C42876CAD5001A3C2C /* M_SenseME_Segment_Head_1.0.3.model */ = {isa = PBXFileReference; lastKnownFileType = file; path = M_SenseME_Segment_Head_1.0.3.model; sourceTree = "<group>"; };
+		77A8D1C52876CAD5001A3C2C /* M_SenseME_DogFace_2.0.0.model */ = {isa = PBXFileReference; lastKnownFileType = file; path = M_SenseME_DogFace_2.0.0.model; sourceTree = "<group>"; };
+		77A8D1C62876CAD5001A3C2C /* M_SenseAR_Segment_MouthOcclusion_FastV1_1.1.2.model */ = {isa = PBXFileReference; lastKnownFileType = file; path = M_SenseAR_Segment_MouthOcclusion_FastV1_1.1.2.model; sourceTree = "<group>"; };
+		77A8D1C72876CAD5001A3C2C /* M_SenseME_Segment_MouthOcclusion_FastV1_1.1.3.model */ = {isa = PBXFileReference; lastKnownFileType = file; path = M_SenseME_Segment_MouthOcclusion_FastV1_1.1.3.model; sourceTree = "<group>"; };
+		77A8D1C82876CAD5001A3C2C /* SenseAR_v6.11.0(Effects)_Model_Usage_Instructions.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = "SenseAR_v6.11.0(Effects)_Model_Usage_Instructions.pdf"; sourceTree = "<group>"; };
+		77A8D1C92876CAD5001A3C2C /* M_SenseME_Segment_Skin_1.1.1.model */ = {isa = PBXFileReference; lastKnownFileType = file; path = M_SenseME_Segment_Skin_1.1.1.model; sourceTree = "<group>"; };
+		77A8D1CA2876CAD5001A3C2C /* M_SenseME_CatFace_3.2.0.model */ = {isa = PBXFileReference; lastKnownFileType = file; path = M_SenseME_CatFace_3.2.0.model; sourceTree = "<group>"; };
+		77A8D1CB2876CAD5001A3C2C /* M_SenseME_Segment_4.12.8.model */ = {isa = PBXFileReference; lastKnownFileType = file; path = M_SenseME_Segment_4.12.8.model; sourceTree = "<group>"; };
+		77A8D1CC2876CAD5001A3C2C /* M_SenseME_Face_Extra_Advanced_6.0.13.model */ = {isa = PBXFileReference; lastKnownFileType = file; path = M_SenseME_Face_Extra_Advanced_6.0.13.model; sourceTree = "<group>"; };
+		77A8D1CD2876CAD5001A3C2C /* M_SenseME_Hand_5.4.0.model */ = {isa = PBXFileReference; lastKnownFileType = file; path = M_SenseME_Hand_5.4.0.model; sourceTree = "<group>"; };
+		77A8D1CE2876CAD5001A3C2C /* M_SenseME_Face_Video_7.0.0.model */ = {isa = PBXFileReference; lastKnownFileType = file; path = M_SenseME_Face_Video_7.0.0.model; sourceTree = "<group>"; };
+		77A8D1CF2876CAD6001A3C2C /* M_SenseME_Segment_4.12.11.model */ = {isa = PBXFileReference; lastKnownFileType = file; path = M_SenseME_Segment_4.12.11.model; sourceTree = "<group>"; };
+		77A8D1D02876CAD6001A3C2C /* M_SenseME_Segment_Hair_1.3.4.model */ = {isa = PBXFileReference; lastKnownFileType = file; path = M_SenseME_Segment_Hair_1.3.4.model; sourceTree = "<group>"; };
+		77A8D1D12876CAD6001A3C2C /* M_SenseME_Segment_DBL_Face_1.0.7.model */ = {isa = PBXFileReference; lastKnownFileType = file; path = M_SenseME_Segment_DBL_Face_1.0.7.model; sourceTree = "<group>"; };
+		77A8D1D22876CAD6001A3C2C /* M_SenseME_Segment_Sky_1.0.3.model */ = {isa = PBXFileReference; lastKnownFileType = file; path = M_SenseME_Segment_Sky_1.0.3.model; sourceTree = "<group>"; };
+		77A8D1D32876CAD6001A3C2C /* M_SenseME_Attribute_1.0.1.model */ = {isa = PBXFileReference; lastKnownFileType = file; path = M_SenseME_Attribute_1.0.1.model; sourceTree = "<group>"; };
+		77A8D1D42876CAD6001A3C2C /* SenseAR_v8.5.0(Effects)_Model_Usage_Instructions的.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = "SenseAR_v8.5.0(Effects)_Model_Usage_Instructions的.pdf"; sourceTree = "<group>"; };
+		77A8D1D52876CAD6001A3C2C /* M_SenseME_Avatar_Help_2.2.0.model */ = {isa = PBXFileReference; lastKnownFileType = file; path = M_SenseME_Avatar_Help_2.2.0.model; sourceTree = "<group>"; };
+		77A8D1EC2876CB77001A3C2C /* PortraitFilters.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = PortraitFilters.bundle; sourceTree = "<group>"; };
+		77A8D1ED2876CB77001A3C2C /* SceneryFilters.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = SceneryFilters.bundle; sourceTree = "<group>"; };
+		77A8D1EE2876CB77001A3C2C /* StillLifeFilters.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = StillLifeFilters.bundle; sourceTree = "<group>"; };
+		77A8D1EF2876CB77001A3C2C /* DeliciousFoodFilters.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = DeliciousFoodFilters.bundle; sourceTree = "<group>"; };
+		77A8D1F12876CB77001A3C2C /* whiten_gif.zip */ = {isa = PBXFileReference; lastKnownFileType = archive.zip; path = whiten_gif.zip; sourceTree = "<group>"; };
+		77A8D1F32876CB77001A3C2C /* eyelash.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = eyelash.bundle; sourceTree = "<group>"; };
+		77A8D1F42876CB77001A3C2C /* lips.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = lips.bundle; sourceTree = "<group>"; };
+		77A8D1F52876CB77001A3C2C /* brow.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = brow.bundle; sourceTree = "<group>"; };
+		77A8D1F62876CB77001A3C2C /* wholemakeup.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = wholemakeup.bundle; sourceTree = "<group>"; };
+		77A8D1F72876CB77001A3C2C /* face.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = face.bundle; sourceTree = "<group>"; };
+		77A8D1F82876CB77001A3C2C /* eyeshadow.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = eyeshadow.bundle; sourceTree = "<group>"; };
+		77A8D1F92876CB77001A3C2C /* blush.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = blush.bundle; sourceTree = "<group>"; };
+		77A8D1FB2876CB77001A3C2C /* my_sticker.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = my_sticker.bundle; sourceTree = "<group>"; };
+		77A8D20A2876D09B001A3C2C /* QNLiveKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = QNLiveKit.framework; sourceTree = SOURCE_ROOT; };
 		86543AFAB4A8EADB1F77D392 /* Pods-QNLiveKitDemoTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-QNLiveKitDemoTests.release.xcconfig"; path = "Target Support Files/Pods-QNLiveKitDemoTests/Pods-QNLiveKitDemoTests.release.xcconfig"; sourceTree = "<group>"; };
 		B31E3F409ADE08D9D13B003F /* Pods-QNLiveKitDemo-QNLiveKitDemoUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-QNLiveKitDemo-QNLiveKitDemoUITests.release.xcconfig"; path = "Target Support Files/Pods-QNLiveKitDemo-QNLiveKitDemoUITests/Pods-QNLiveKitDemo-QNLiveKitDemoUITests.release.xcconfig"; sourceTree = "<group>"; };
 		B86C108BE2C7758CCFFA24C9 /* Pods-QNLiveKitDemo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-QNLiveKitDemo.release.xcconfig"; path = "Target Support Files/Pods-QNLiveKitDemo/Pods-QNLiveKitDemo.release.xcconfig"; sourceTree = "<group>"; };
@@ -160,8 +226,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				777188122863209500C5CABC /* QNLiveKit.framework in Frameworks */,
-				777188162863591300C5CABC /* QNIMSDK.framework in Frameworks */,
+				7773669C2873E32100245EDB /* AssetsLibrary.framework in Frameworks */,
+				77781C7F283E1EBC009DC71C /* QNIMSDK.framework in Frameworks */,
+				77A8D20B2876D09B001A3C2C /* QNLiveKit.framework in Frameworks */,
 				C5993B91A021CD7EDC4A0F36 /* Pods_QNLiveKitDemo.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -201,6 +268,7 @@
 		709BCB3C3EEF0783D89437CF /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				7773669B2873E32100245EDB /* AssetsLibrary.framework */,
 				F467E60A07D600FCAAE77FD1 /* Pods_QNLiveKitDemo.framework */,
 				382946EB5F00B1F6B3437C07 /* Pods_QNLiveKitDemo_QNLiveKitDemoUITests.framework */,
 				5A2899F26391AE2088C5854B /* Pods_QNLiveKitDemoTests.framework */,
@@ -211,8 +279,6 @@
 		776B1BD128378CCD00D85C73 = {
 			isa = PBXGroup;
 			children = (
-				777188112863209500C5CABC /* QNLiveKit.framework */,
-				777188142863404B00C5CABC /* QNIMSDK.framework */,
 				776B1BDC28378CCD00D85C73 /* QNLiveKitDemo */,
 				776B1BF828378CCF00D85C73 /* QNLiveKitDemoTests */,
 				776B1C0228378CCF00D85C73 /* QNLiveKitDemoUITests */,
@@ -235,6 +301,11 @@
 		776B1BDC28378CCD00D85C73 /* QNLiveKitDemo */ = {
 			isa = PBXGroup;
 			children = (
+				77A8D20A2876D09B001A3C2C /* QNLiveKit.framework */,
+				77A8D1EA2876CB77001A3C2C /* resources */,
+				77A8D1C32876CAD5001A3C2C /* models */,
+				77A8D1BF28757128001A3C2C /* SENSEME.lic */,
+				77781C7D283E1EB2009DC71C /* QNIMSDK.framework */,
 				776B1BDD28378CCD00D85C73 /* AppDelegate.h */,
 				776B1BDE28378CCD00D85C73 /* AppDelegate.m */,
 				77781C82283E1EE6009DC71C /* Tools */,
@@ -369,6 +440,83 @@
 			path = Personal;
 			sourceTree = "<group>";
 		};
+		77A8D1C32876CAD5001A3C2C /* models */ = {
+			isa = PBXGroup;
+			children = (
+				77A8D1C42876CAD5001A3C2C /* M_SenseME_Segment_Head_1.0.3.model */,
+				77A8D1C52876CAD5001A3C2C /* M_SenseME_DogFace_2.0.0.model */,
+				77A8D1C62876CAD5001A3C2C /* M_SenseAR_Segment_MouthOcclusion_FastV1_1.1.2.model */,
+				77A8D1C72876CAD5001A3C2C /* M_SenseME_Segment_MouthOcclusion_FastV1_1.1.3.model */,
+				77A8D1C82876CAD5001A3C2C /* SenseAR_v6.11.0(Effects)_Model_Usage_Instructions.pdf */,
+				77A8D1C92876CAD5001A3C2C /* M_SenseME_Segment_Skin_1.1.1.model */,
+				77A8D1CA2876CAD5001A3C2C /* M_SenseME_CatFace_3.2.0.model */,
+				77A8D1CB2876CAD5001A3C2C /* M_SenseME_Segment_4.12.8.model */,
+				77A8D1CC2876CAD5001A3C2C /* M_SenseME_Face_Extra_Advanced_6.0.13.model */,
+				77A8D1CD2876CAD5001A3C2C /* M_SenseME_Hand_5.4.0.model */,
+				77A8D1CE2876CAD5001A3C2C /* M_SenseME_Face_Video_7.0.0.model */,
+				77A8D1CF2876CAD6001A3C2C /* M_SenseME_Segment_4.12.11.model */,
+				77A8D1D02876CAD6001A3C2C /* M_SenseME_Segment_Hair_1.3.4.model */,
+				77A8D1D12876CAD6001A3C2C /* M_SenseME_Segment_DBL_Face_1.0.7.model */,
+				77A8D1D22876CAD6001A3C2C /* M_SenseME_Segment_Sky_1.0.3.model */,
+				77A8D1D32876CAD6001A3C2C /* M_SenseME_Attribute_1.0.1.model */,
+				77A8D1D42876CAD6001A3C2C /* SenseAR_v8.5.0(Effects)_Model_Usage_Instructions的.pdf */,
+				77A8D1D52876CAD6001A3C2C /* M_SenseME_Avatar_Help_2.2.0.model */,
+			);
+			path = models;
+			sourceTree = "<group>";
+		};
+		77A8D1EA2876CB77001A3C2C /* resources */ = {
+			isa = PBXGroup;
+			children = (
+				77A8D1EB2876CB77001A3C2C /* Filters */,
+				77A8D1F02876CB77001A3C2C /* Color */,
+				77A8D1F22876CB77001A3C2C /* Makeup */,
+				77A8D1FA2876CB77001A3C2C /* StickerZipAndIcons */,
+			);
+			path = resources;
+			sourceTree = "<group>";
+		};
+		77A8D1EB2876CB77001A3C2C /* Filters */ = {
+			isa = PBXGroup;
+			children = (
+				77A8D1EC2876CB77001A3C2C /* PortraitFilters.bundle */,
+				77A8D1ED2876CB77001A3C2C /* SceneryFilters.bundle */,
+				77A8D1EE2876CB77001A3C2C /* StillLifeFilters.bundle */,
+				77A8D1EF2876CB77001A3C2C /* DeliciousFoodFilters.bundle */,
+			);
+			path = Filters;
+			sourceTree = "<group>";
+		};
+		77A8D1F02876CB77001A3C2C /* Color */ = {
+			isa = PBXGroup;
+			children = (
+				77A8D1F12876CB77001A3C2C /* whiten_gif.zip */,
+			);
+			path = Color;
+			sourceTree = "<group>";
+		};
+		77A8D1F22876CB77001A3C2C /* Makeup */ = {
+			isa = PBXGroup;
+			children = (
+				77A8D1F32876CB77001A3C2C /* eyelash.bundle */,
+				77A8D1F42876CB77001A3C2C /* lips.bundle */,
+				77A8D1F52876CB77001A3C2C /* brow.bundle */,
+				77A8D1F62876CB77001A3C2C /* wholemakeup.bundle */,
+				77A8D1F72876CB77001A3C2C /* face.bundle */,
+				77A8D1F82876CB77001A3C2C /* eyeshadow.bundle */,
+				77A8D1F92876CB77001A3C2C /* blush.bundle */,
+			);
+			path = Makeup;
+			sourceTree = "<group>";
+		};
+		77A8D1FA2876CB77001A3C2C /* StickerZipAndIcons */ = {
+			isa = PBXGroup;
+			children = (
+				77A8D1FB2876CB77001A3C2C /* my_sticker.bundle */,
+			);
+			path = StickerZipAndIcons;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -478,9 +626,41 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				77A8D2042876CB77001A3C2C /* wholemakeup.bundle in Resources */,
+				77A8D2082876CB77001A3C2C /* my_sticker.bundle in Resources */,
+				77A8D1E42876CAD6001A3C2C /* M_SenseME_Segment_Hair_1.3.4.model in Resources */,
+				77A8D2052876CB77001A3C2C /* face.bundle in Resources */,
+				77A8D1E32876CAD6001A3C2C /* M_SenseME_Segment_4.12.11.model in Resources */,
+				77A8D1E72876CAD6001A3C2C /* M_SenseME_Attribute_1.0.1.model in Resources */,
+				77A8D1FF2876CB77001A3C2C /* DeliciousFoodFilters.bundle in Resources */,
 				776B1BED28378CCF00D85C73 /* LaunchScreen.storyboard in Resources */,
+				77A8D1DA2876CAD6001A3C2C /* M_SenseAR_Segment_MouthOcclusion_FastV1_1.1.2.model in Resources */,
+				77A8D2072876CB77001A3C2C /* blush.bundle in Resources */,
+				77A8D1E02876CAD6001A3C2C /* M_SenseME_Face_Extra_Advanced_6.0.13.model in Resources */,
+				77A8D1E52876CAD6001A3C2C /* M_SenseME_Segment_DBL_Face_1.0.7.model in Resources */,
+				77A8D1D82876CAD6001A3C2C /* M_SenseME_Segment_Head_1.0.3.model in Resources */,
+				77A8D1DD2876CAD6001A3C2C /* M_SenseME_Segment_Skin_1.1.1.model in Resources */,
+				77A8D1E62876CAD6001A3C2C /* M_SenseME_Segment_Sky_1.0.3.model in Resources */,
+				77A8D1E22876CAD6001A3C2C /* M_SenseME_Face_Video_7.0.0.model in Resources */,
+				77A8D1C028757128001A3C2C /* SENSEME.lic in Resources */,
+				77A8D1DF2876CAD6001A3C2C /* M_SenseME_Segment_4.12.8.model in Resources */,
+				77A8D1E12876CAD6001A3C2C /* M_SenseME_Hand_5.4.0.model in Resources */,
+				77A8D2032876CB77001A3C2C /* brow.bundle in Resources */,
+				77A8D2002876CB77001A3C2C /* whiten_gif.zip in Resources */,
+				77A8D1DC2876CAD6001A3C2C /* SenseAR_v6.11.0(Effects)_Model_Usage_Instructions.pdf in Resources */,
+				77A8D2012876CB77001A3C2C /* eyelash.bundle in Resources */,
+				77A8D1FD2876CB77001A3C2C /* SceneryFilters.bundle in Resources */,
+				77A8D1E92876CAD6001A3C2C /* M_SenseME_Avatar_Help_2.2.0.model in Resources */,
 				776B1BEA28378CCF00D85C73 /* Assets.xcassets in Resources */,
+				77A8D1FC2876CB77001A3C2C /* PortraitFilters.bundle in Resources */,
 				776B1BE828378CCD00D85C73 /* Main.storyboard in Resources */,
+				77A8D1D92876CAD6001A3C2C /* M_SenseME_DogFace_2.0.0.model in Resources */,
+				77A8D2022876CB77001A3C2C /* lips.bundle in Resources */,
+				77A8D1DB2876CAD6001A3C2C /* M_SenseME_Segment_MouthOcclusion_FastV1_1.1.3.model in Resources */,
+				77A8D1FE2876CB77001A3C2C /* StillLifeFilters.bundle in Resources */,
+				77A8D1DE2876CAD6001A3C2C /* M_SenseME_CatFace_3.2.0.model in Resources */,
+				77A8D2062876CB77001A3C2C /* eyeshadow.bundle in Resources */,
+				77A8D1E82876CAD6001A3C2C /* SenseAR_v8.5.0(Effects)_Model_Usage_Instructions的.pdf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -811,13 +991,10 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = GDFHW66V92;
 				ENABLE_BITCODE = NO;
-				EXCLUDED_ARCHS = "EXCLUDED_ARCHS__EFFECTIVE_PLATFORM_SUFFIX_simulator__NATIVE_ARCH_64_BIT_x86_64=arm64 arm64e armv7 armv7s armv6 armv8 EXCLUDED_ARCHS=$(inherited) $(EXCLUDED_ARCHS__EFFECTIVE_PLATFORM_SUFFIX_$(EFFECTIVE_PLATFORM_SUFFIX)__NATIVE_ARCH_64_BIT_$(NATIVE_ARCH_64_BIT))";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/QNLiveKitDemo",
 					"$(PROJECT_DIR)",
-					"\"$(SRCROOT)/QNLiveKit.framework\"",
-					"\"$(SRCROOT)/QNIMSDK.framework\"",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = /Users/guoqian/Desktop/QNLiveKit_iOS/QNLiveKitDemo/QNLiveKitDemo/LiveDemoPrefixHeader.pch;
@@ -825,16 +1002,17 @@
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"${PODS_CONFIGURATION_BUILD_DIR}/AFNetworking/AFNetworking.framework/Headers\"",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/HappyDNS/HappyDNS.framework/Headers\"",
 					"\"${PODS_CONFIGURATION_BUILD_DIR}/IQKeyboardManager/IQKeyboardManager.framework/Headers\"",
 					"\"${PODS_CONFIGURATION_BUILD_DIR}/MBProgressHUD/MBProgressHUD.framework/Headers\"",
 					"\"${PODS_CONFIGURATION_BUILD_DIR}/MJExtension/MJExtension.framework/Headers\"",
 					"\"${PODS_CONFIGURATION_BUILD_DIR}/MJRefresh/MJRefresh.framework/Headers\"",
-					"\"$(SRCROOT)/QNIMSDK.framework/Headers\"",
 					"\"${PODS_CONFIGURATION_BUILD_DIR}/Masonry/Masonry.framework/Headers\"",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/Qiniu/Qiniu.framework/Headers\"",
 					"\"${PODS_CONFIGURATION_BUILD_DIR}/SDWebImage/SDWebImage.framework/Headers\"",
 					"\"${PODS_CONFIGURATION_BUILD_DIR}/SocketRocket/SocketRocket.framework/Headers\"",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/PLShortVideoKit-SenseTime/PLShortVideoKit-SenseTime-1.4.0/PLSTArEffects.framework/Headers\"",
 					"\"${PODS_CONFIGURATION_BUILD_DIR}/YYCategories/YYCategories.framework/Headers\"",
-					"\"$(SRCROOT)/QNLiveKit.framework/Headers\"",
 				);
 				INFOPLIST_FILE = QNLiveKitDemo/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = "互动直播";
@@ -847,24 +1025,21 @@
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
 				LIBRARY_SEARCH_PATHS = (
-					"\"$(SRCROOT)/QNLiveKit.framework\"",
-					"\"$(SRCROOT)/QNIMSDK.framework\"",
+					"$(inherited)",
+					"$(SRCROOT)/QNLiveKitDemo/Effect/SenseArSourceService/lib/ios_universal",
+					"$(SRCROOT)/QNLiveKitDemo/Effect/st_mobile_sdk/lib/ios_os",
 				);
-				MARKETING_VERSION = 2.0.6;
-				PRODUCT_BUNDLE_IDENTIFIER = "com.qiniu.QiNiu-Solution-iOS";
+				MARKETING_VERSION = 1.0.1;
+				OTHER_CODE_SIGN_FLAGS = "--generate-entitlement-der";
+				PRODUCT_BUNDLE_IDENTIFIER = com.qiniu.LiveKit;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				TARGETED_DEVICE_FAMILY = "1,2";
-				USER_HEADER_SEARCH_PATHS = (
-					"\"$(SRCROOT)/QNLiveKit.framework/Header\"",
-					"\"$(SRCROOT)/QNIMSDK.framework/Header\"",
-				);
 			};
 			name = Debug;
 		};
@@ -878,13 +1053,10 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = GDFHW66V92;
 				ENABLE_BITCODE = NO;
-				EXCLUDED_ARCHS = "EXCLUDED_ARCHS__EFFECTIVE_PLATFORM_SUFFIX_simulator__NATIVE_ARCH_64_BIT_x86_64=arm64 arm64e armv7 armv7s armv6 armv8 EXCLUDED_ARCHS=$(inherited) $(EXCLUDED_ARCHS__EFFECTIVE_PLATFORM_SUFFIX_$(EFFECTIVE_PLATFORM_SUFFIX)__NATIVE_ARCH_64_BIT_$(NATIVE_ARCH_64_BIT))";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/QNLiveKitDemo",
 					"$(PROJECT_DIR)",
-					"\"$(SRCROOT)/QNLiveKit.framework\"",
-					"\"$(SRCROOT)/QNIMSDK.framework\"",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = /Users/guoqian/Desktop/QNLiveKit_iOS/QNLiveKitDemo/QNLiveKitDemo/LiveDemoPrefixHeader.pch;
@@ -892,16 +1064,17 @@
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"${PODS_CONFIGURATION_BUILD_DIR}/AFNetworking/AFNetworking.framework/Headers\"",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/HappyDNS/HappyDNS.framework/Headers\"",
 					"\"${PODS_CONFIGURATION_BUILD_DIR}/IQKeyboardManager/IQKeyboardManager.framework/Headers\"",
 					"\"${PODS_CONFIGURATION_BUILD_DIR}/MBProgressHUD/MBProgressHUD.framework/Headers\"",
 					"\"${PODS_CONFIGURATION_BUILD_DIR}/MJExtension/MJExtension.framework/Headers\"",
 					"\"${PODS_CONFIGURATION_BUILD_DIR}/MJRefresh/MJRefresh.framework/Headers\"",
-					"\"$(SRCROOT)/QNIMSDK.framework/Headers\"",
 					"\"${PODS_CONFIGURATION_BUILD_DIR}/Masonry/Masonry.framework/Headers\"",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/Qiniu/Qiniu.framework/Headers\"",
 					"\"${PODS_CONFIGURATION_BUILD_DIR}/SDWebImage/SDWebImage.framework/Headers\"",
 					"\"${PODS_CONFIGURATION_BUILD_DIR}/SocketRocket/SocketRocket.framework/Headers\"",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/PLShortVideoKit-SenseTime/PLShortVideoKit-SenseTime-1.4.0/PLSTArEffects.framework/Headers\"",
 					"\"${PODS_CONFIGURATION_BUILD_DIR}/YYCategories/YYCategories.framework/Headers\"",
-					"\"$(SRCROOT)/QNLiveKit.framework/Headers\"",
 				);
 				INFOPLIST_FILE = QNLiveKitDemo/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = "互动直播";
@@ -914,24 +1087,22 @@
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
 				LIBRARY_SEARCH_PATHS = (
-					"\"$(SRCROOT)/QNLiveKit.framework\"",
-					"\"$(SRCROOT)/QNIMSDK.framework\"",
+					"$(inherited)",
+					"$(SRCROOT)/QNLiveKitDemo/Effect/SenseArSourceService/lib/ios_universal",
+					"$(SRCROOT)/QNLiveKitDemo/Effect/st_mobile_sdk/lib/ios_os",
 				);
-				MARKETING_VERSION = 2.0.6;
-				PRODUCT_BUNDLE_IDENTIFIER = "com.qiniu.QiNiu-Solution-iOS";
+				MARKETING_VERSION = 1.0.1;
+				ONLY_ACTIVE_ARCH = YES;
+				OTHER_CODE_SIGN_FLAGS = "--generate-entitlement-der";
+				PRODUCT_BUNDLE_IDENTIFIER = com.qiniu.LiveKit;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				TARGETED_DEVICE_FAMILY = "1,2";
-				USER_HEADER_SEARCH_PATHS = (
-					"\"$(SRCROOT)/QNLiveKit.framework/Header\"",
-					"\"$(SRCROOT)/QNIMSDK.framework/Header\"",
-				);
 			};
 			name = Release;
 		};

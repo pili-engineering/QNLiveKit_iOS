@@ -1,0 +1,6 @@
+framework module QNIMSDK {
+  umbrella header "QNIMSDK.h"
+
+  export *
+  module * { export * }
+}

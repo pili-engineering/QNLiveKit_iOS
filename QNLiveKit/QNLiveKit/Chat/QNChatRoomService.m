@@ -46,6 +46,11 @@
     
     [[QNIMChatService sharedOption] addDelegate:self delegateQueue:dispatch_get_main_queue()];
     self.chatRoomListener = listener;
+    
+    
+    [[QNIMGroupService sharedOption] getMembersWithGroupId:self.roomInfo.chat_id.longLongValue forceRefresh:YES completion:^(NSArray<QNIMGroupMember *> * _Nonnull groupList, QNIMError * _Nonnull error) {
+            
+    }];
 }
 
 //移除聊天监听
@@ -130,10 +135,6 @@
     
     QNIMMessageObject *msg = messages.firstObject;
     
-    if (self.lastMessageId == msg.msgId) {
-        return;
-    }
-    
     [[NSNotificationCenter defaultCenter] postNotificationName:ReceiveIMMessageNotification object:nil userInfo:msg.content.mj_keyValues];
     
     QIMModel *imModel = [QIMModel mj_objectWithKeyValues:msg.content.mj_keyValues];
@@ -175,7 +176,6 @@
         }
     } 
     
-    self.lastMessageId=msg.msgId;
 
 }
 

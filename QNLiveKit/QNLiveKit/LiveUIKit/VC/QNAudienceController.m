@@ -33,8 +33,6 @@
 
 @implementation QNAudienceController
 
-
-
 - (void)viewWillAppear:(BOOL)animated {
     self.preview.frame = CGRectZero;
 }
@@ -61,6 +59,10 @@
     
     [self.chatService sendWelComeMsg:^(QNIMMessageObject * _Nonnull msg) {
         [weakSelf.chatRoomView showMessage:msg];
+    }];
+    
+    [[QNIMGroupService sharedOption] getGroupInfoByGroupId:self.roomInfo.chat_id.longLongValue forceRefresh:YES completion:^(QNIMGroup * _Nonnull group, QNIMError * _Nonnull error) {
+        NSLog(@"群成员数量%@",@(group.membersCount));
     }];
 }
 

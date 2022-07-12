@@ -15,6 +15,7 @@
 #import "QNLoginInfoModel.h"
 #import <MJExtension/MJExtension.h>
 #import "MBProgressHUD+QNShow.h"
+#import <QNIMSDK/QNIMSDK.h>
 #import <QNLiveKit/QNLiveKit.h>
 
 
@@ -147,13 +148,16 @@
         [defaults setObject:responseData[@"accessToken"] forKey:Live_Token];
         [defaults synchronize];
         
-        [QLive initWithToken:responseData[@"accessToken"]];
+        [QLive initWithToken:responseData[@"accessToken"] serverURL:LiveAPI errorBack:^(NSError * _Nonnull error) {
+            
+        }];
         [QLive setUser:user.avatar nick:user.nickname extension:nil];
 
         } failure:^(NSError *error) {
         
         }];
 }
+
 
 //记录登录信息
 - (void)saveLoginInfoToUserDefaults:(QNLoginInfoModel *)loginModel {

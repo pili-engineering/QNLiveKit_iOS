@@ -29,14 +29,43 @@
     
     [self requestConficInfo];
     [self setUpStatusBar];
-    [self initQLive];
-    
+    if (QN_Live_Token.length > 0) {
+        [self initQLive];
+    }
     return YES;
 }
 
 - (void)initQLive {
-    [QLive initWithToken:QN_Live_Token];
+    
+    __weak typeof(self)weakSelf = self;
+    [QLive initWithToken:QN_Live_Token serverURL:LiveAPI errorBack:^(NSError * _Nonnull error) {
+        
+        //如果token过期
+        [weakSelf getLiveToken:^(NSString * _Nonnull token) {
+            
+            [QLive initWithToken:token serverURL:LiveAPI errorBack:nil];
+            [QLive setUser:QN_User_avatar nick:QN_User_nickname extension:nil];
+        }];
+        
+    }];
     [QLive setUser:QN_User_avatar nick:QN_User_nickname extension:nil];
+}
+
+//获取liveToken
+- (void)getLiveToken:(nullable void (^)(NSString * _Nonnull token))callBack {
+    
+    NSString *action = [NSString stringWithFormat:@"live/auth_token?userID=%@&deviceID=%@",QN_User_id,@"111"];
+    [QNNetworkUtil getRequestWithAction:action params:nil success:^(NSDictionary *responseData) {
+        
+        NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+        [defaults setObject:responseData[@"accessToken"] forKey:Live_Token];
+        [defaults synchronize];
+        
+        callBack(responseData[@"accessToken"]);
+
+        } failure:^(NSError *error) {
+        
+        }];
 }
 
 // 请求APP全局配置
@@ -60,32 +89,29 @@
     [UIApplication.sharedApplication clearLaunchScreenCache];
 
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
-
-    if (welcomeModel.image.length == 0) {
-        
-        NSString *loginToken = [[NSUserDefaults standardUserDefaults] stringForKey:QN_LOGIN_TOKEN_KEY];
-        
-        if (loginToken.length == 0) {
-            QNLoginViewController *loginVC = [[QNLoginViewController alloc] init];
-            UINavigationController *navigationController = [[UINavigationController alloc] initWithRootViewController:loginVC];
-            self.window.rootViewController = navigationController;
-        } else {
-            QNTabBarViewController *tabBarVc = [[QNTabBarViewController alloc]init];
-            self.window.rootViewController = tabBarVc;
-        }
-        
+    
+    NSString *loginToken = [[NSUserDefaults standardUserDefaults] stringForKey:QN_LOGIN_TOKEN_KEY];
+    
+    if (loginToken.length == 0) {
+        QNLoginViewController *loginVC = [[QNLoginViewController alloc] init];
+        UINavigationController *navigationController = [[UINavigationController alloc] initWithRootViewController:loginVC];
+        self.window.rootViewController = navigationController;
     } else {
         
-        self.urlStr = welcomeModel.url;
-        QNAppStartPlayerController *startVc = [[QNAppStartPlayerController alloc]init];
-        [startVc setImageInIndexWithURL:[NSURL URLWithString:welcomeModel.image] localImageName:@"niucube_bg" timeCount:3];
-        
-        UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(gotoPage)];
-        [startVc.view addGestureRecognizer:tap];
+        if (welcomeModel.image.length == 0) {
+            QNTabBarViewController *tabBarVc = [[QNTabBarViewController alloc]init];
+            self.window.rootViewController = tabBarVc;
+        } else {
+            self.urlStr = welcomeModel.url;
+            QNAppStartPlayerController *startVc = [[QNAppStartPlayerController alloc]init];
+            [startVc setImageInIndexWithURL:[NSURL URLWithString:welcomeModel.image] localImageName:@"niucube_bg" timeCount:3];
+            
+            UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(gotoPage)];
+            [startVc.view addGestureRecognizer:tap];
 
-        self.window.rootViewController = startVc;
+            self.window.rootViewController = startVc;
+        }
     }
-        
     if (@available(iOS 13.0, *)) {
         self.window.overrideUserInterfaceStyle = UIUserInterfaceStyleLight;
     } else {
