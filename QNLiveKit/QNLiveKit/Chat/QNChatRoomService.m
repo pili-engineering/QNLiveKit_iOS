@@ -28,7 +28,6 @@
 
 @property (nonatomic, weak)id<QNChatRoomServiceListener> chatRoomListener;
 
-
 @end
 
 @implementation QNChatRoomService
@@ -46,11 +45,6 @@
     
     [[QNIMChatService sharedOption] addDelegate:self delegateQueue:dispatch_get_main_queue()];
     self.chatRoomListener = listener;
-    
-    
-    [[QNIMGroupService sharedOption] getMembersWithGroupId:self.roomInfo.chat_id.longLongValue forceRefresh:YES completion:^(NSArray<QNIMGroupMember *> * _Nonnull groupList, QNIMError * _Nonnull error) {
-            
-    }];
 }
 
 //移除聊天监听

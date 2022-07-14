@@ -256,7 +256,7 @@
 - (ImageButtonView *)pubchatView {
     if (!_pubchatView) {
         _pubchatView = [[ImageButtonView alloc]init];
-        [_pubchatView createDefaultView:CGRectMake(15, SCREEN_H - 80, 220, 45) onView:self.view];
+        [_pubchatView createDefaultView:CGRectMake(15, SCREEN_H - 80, 170, 45) onView:self.view];
         [_pubchatView bundleNormalImage:@"chat_input_bar" selectImage:@"chat_input_bar"];
         __weak typeof(self)weakSelf = self;
         _pubchatView.clickBlock = ^(BOOL selected){
@@ -273,36 +273,45 @@
         NSMutableArray *slotList = [NSMutableArray array];
         __weak typeof(self)weakSelf = self;
         
+        //连麦
         ImageButtonView *link = [[ImageButtonView alloc]init];
         [link bundleNormalImage:@"link" selectImage:@"link"];
         link.clickBlock = ^(BOOL selected){
             
             [weakSelf.linkService ApplyLink:weakSelf.roomInfo.anchor_info];
             [QToastView showToast:@"连麦申请已发送"];
-            NSLog(@"点击了连麦");
         };
         [slotList addObject:link];
         
+        //购物车
+        ImageButtonView *shopping = [[ImageButtonView alloc]init];
+        [shopping bundleNormalImage:@"shopping" selectImage:@"shopping"];
+        shopping.clickBlock = ^(BOOL selected){
+            
+            
+        };
+        [slotList addObject:shopping];
+        
+        //弹幕
         ImageButtonView *message = [[ImageButtonView alloc]init];
         [message bundleNormalImage:@"message" selectImage:@"message"];
         message.clickBlock = ^(BOOL selected){
             [weakSelf.chatRoomView commentBtnPressedWithPubchat:NO];
-            NSLog(@"点击了私信");
         };
         [slotList addObject:message];
         
+        //关闭
         ImageButtonView *close = [[ImageButtonView alloc]init];
         [close bundleNormalImage:@"live_close" selectImage:@"live_close"];
         close.clickBlock = ^(BOOL selected){
             [weakSelf.chatService sendLeaveMsg];
             [weakSelf dismissViewControllerAnimated:YES completion:nil];
-            NSLog(@"点击了关闭");
         };
         [slotList addObject:close];
         
         _bottomMenuView = [[BottomMenuView alloc]init];
         _bottomMenuView.slotList = slotList.copy;
-        [_bottomMenuView createDefaultView:CGRectMake(240, SCREEN_H - 80, SCREEN_W - 240, 45) onView:self.view];
+        [_bottomMenuView createDefaultView:CGRectMake(200, SCREEN_H - 80, SCREEN_W - 200, 45) onView:self.view];
 
     }
     return _bottomMenuView;

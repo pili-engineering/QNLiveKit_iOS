@@ -29,7 +29,8 @@ NSInteger const Interval = 8;
                                                               @"application/octet-stream",
                                                               @"text/json",
                                                               @"multipart/form-data",
-                                                              @"charset=utf-8",nil];
+                                                              @"charset=utf-8",
+                                                              @"application/xml",nil];
     
     manager.requestSerializer = [AFJSONRequestSerializer serializer];
     manager.responseSerializer = [AFJSONResponseSerializer serializer];

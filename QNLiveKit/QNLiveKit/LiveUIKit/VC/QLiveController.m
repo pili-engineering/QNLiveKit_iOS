@@ -31,6 +31,10 @@
 #import "PubChatModel.h"
 #import "QToastView.h"
 #import <QNIMSDK/QNIMSDK.h>
+#import "GoodsListController.h"
+#import "GoodsModel.h"
+#import "QLiveNetworkUtil.h"
+
 
 @interface QLiveController ()<QNPushClientListener,QNRoomLifeCycleListener,QNPushClientListener,QNChatRoomServiceListener,FDanmakuViewProtocol,LiveChatRoomViewDelegate,MicLinkerListener,PKServiceListener>
 
@@ -299,7 +303,7 @@
 - (ImageButtonView *)pubchatView {
     if (!_pubchatView) {
         _pubchatView = [[ImageButtonView alloc]init];
-        [_pubchatView createDefaultView:CGRectMake(15, SCREEN_H - 80, 220, 45) onView:self.view];
+        [_pubchatView createDefaultView:CGRectMake(15, SCREEN_H - 80, 170, 45) onView:self.view];
         [_pubchatView bundleNormalImage:@"chat_input_bar" selectImage:@"chat_input_bar"];
         __weak typeof(self)weakSelf = self;
         _pubchatView.clickBlock = ^(BOOL selected){
@@ -328,6 +332,15 @@
         };
         [slotList addObject:pk];
         self.pkSlot = pk;
+        
+        //购物车
+        ImageButtonView *shopping = [[ImageButtonView alloc]init];
+        [shopping bundleNormalImage:@"shopping" selectImage:@"shopping"];
+        shopping.clickBlock = ^(BOOL selected){
+            [weakSelf popGoodListView];            
+        };
+        [slotList addObject:shopping];
+        
         //弹幕
         ImageButtonView *message = [[ImageButtonView alloc]init];
         [message bundleNormalImage:@"message" selectImage:@"message"];
@@ -345,9 +358,20 @@
         
         _bottomMenuView = [[BottomMenuView alloc]init];
         _bottomMenuView.slotList = slotList.copy;
-        [_bottomMenuView createDefaultView:CGRectMake(240, SCREEN_H - 80, SCREEN_W - 240, 45) onView:self.view];
+        [_bottomMenuView createDefaultView:CGRectMake(200, SCREEN_H - 80, SCREEN_W - 200, 45) onView:self.view];
     }
     return _bottomMenuView;
+}
+
+- (void)popGoodListView {
+
+        GoodsListController *vc = [[GoodsListController alloc] initWithLiveID:self.roomInfo.live_id];
+        vc.view.frame = CGRectMake(0, 0, SCREEN_W, SCREEN_H);
+        vc.modalPresentationStyle = UIModalPresentationFullScreen;
+        [self addChildViewController:vc];
+        [self.view addSubview:vc.view];
+        
+
 }
 
 //邀请面板
