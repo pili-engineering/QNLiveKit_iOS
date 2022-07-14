@@ -24,6 +24,7 @@
 #import "QToastView.h"
 #import <QNIMSDK/QNIMSDK.h>
 #import "QLinkMicService.h"
+#import "GoodsBuyListController.h"
 
 @interface QNAudienceController ()<QNChatRoomServiceListener,QNPushClientListener,LiveChatRoomViewDelegate,FDanmakuViewProtocol,PLPlayerDelegate,MicLinkerListener,PKServiceListener>
 
@@ -288,7 +289,7 @@
         [shopping bundleNormalImage:@"shopping" selectImage:@"shopping"];
         shopping.clickBlock = ^(BOOL selected){
             
-            
+            [weakSelf popGoodListView];
         };
         [slotList addObject:shopping];
         
@@ -315,6 +316,16 @@
 
     }
     return _bottomMenuView;
+}
+
+- (void)popGoodListView {
+        
+        GoodsBuyListController *vc = [[GoodsBuyListController alloc] initWithLiveID:self.roomInfo.live_id];
+        vc.view.frame = CGRectMake(0, 0, SCREEN_W, SCREEN_H);
+        vc.modalPresentationStyle = UIModalPresentationFullScreen;
+        [self addChildViewController:vc];
+        [self.view addSubview:vc.view];
+        
 }
 
 - (void)popLinkSLot {

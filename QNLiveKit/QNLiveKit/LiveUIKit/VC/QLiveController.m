@@ -31,7 +31,7 @@
 #import "PubChatModel.h"
 #import "QToastView.h"
 #import <QNIMSDK/QNIMSDK.h>
-#import "GoodsListController.h"
+#import "GoodsSellListController.h"
 #import "GoodsModel.h"
 #import "QLiveNetworkUtil.h"
 
@@ -365,7 +365,7 @@
 
 - (void)popGoodListView {
 
-        GoodsListController *vc = [[GoodsListController alloc] initWithLiveID:self.roomInfo.live_id];
+        GoodsSellListController *vc = [[GoodsSellListController alloc] initWithLiveID:self.roomInfo.live_id];
         vc.view.frame = CGRectMake(0, 0, SCREEN_W, SCREEN_H);
         vc.modalPresentationStyle = UIModalPresentationFullScreen;
         [self addChildViewController:vc];
