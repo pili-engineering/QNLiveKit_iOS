@@ -34,37 +34,39 @@ static const CGFloat People_Count_L = 5;//人数左间距
 @implementation RoomHostView
 
 //默认
-- (void)createDefaultView:(CGRect)frame onView:(UIView *)onView {
+- (instancetype)initWithFrame:(CGRect)frame {
+    
+    if (self = [super initWithFrame:frame]) {
+        self.backgroundColor = [UIColor whiteColor];
+        self.layer.backgroundColor = [UIColor colorWithRed:0 green:0 blue:0 alpha:0.25].CGColor;
+        self.layer.cornerRadius = frame.size.height/2;
+        
+        self.avatarView = [[UIImageView alloc]initWithFrame:CGRectMake(0, 0, frame.size.height, frame.size.height)];
+        self.avatarView.layer.cornerRadius = frame.size.height/2;
+        self.avatarView.layer.masksToBounds = YES;
+        [self addSubview:self.avatarView];
+        
+        self.roomNameLabel = [[UILabel alloc] initWithFrame:CGRectMake(CGRectGetMaxX(self.avatarView.frame)+RoomNameLabel_L, RoomNameLabel_T, RoomNameLabel_W, RoomNameLabel_H)];
+        self.roomNameLabel.textColor = [UIColor whiteColor];
+        self.roomNameLabel.font = [UIFont systemFontOfSize:12];
+        [self addSubview:self.roomNameLabel];
+        
+        self.countImgView = [[UIImageView alloc] initWithFrame:CGRectMake(CGRectGetMaxX(self.avatarView.frame)+RoomNameLabel_L, CGRectGetMaxY(self.roomNameLabel.frame)+People_Count_Icon_T, People_Count_Icon_W, People_Count_Icon_W)];
+        self.countImgView.image = [UIImage imageNamed:@"people"];
+        [self addSubview:self.countImgView];
+        
+        self.hostNameLabel = [[UILabel alloc] initWithFrame:CGRectMake(CGRectGetMaxX(self.countImgView.frame)+People_Count_L, CGRectGetMaxY(self.roomNameLabel.frame)+People_Count_T, People_Count_W, People_Count_H)];
+        self.hostNameLabel.textColor = [UIColor whiteColor];
+        self.hostNameLabel.font = [UIFont systemFontOfSize:9];
+        [self addSubview:self.hostNameLabel];
+        
+        UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(click)];
+        self.userInteractionEnabled = YES;
+        [self addGestureRecognizer:tap];
+        
+    }
 
-    UIView *view = [[UIView alloc] initWithFrame:frame];
-    view.backgroundColor = [UIColor whiteColor];
-    view.layer.backgroundColor = [UIColor colorWithRed:0 green:0 blue:0 alpha:0.25].CGColor;
-    view.layer.cornerRadius = frame.size.height/2;
-    
-    self.avatarView = [[UIImageView alloc]initWithFrame:CGRectMake(0, 0, frame.size.height, frame.size.height)];
-    self.avatarView.layer.cornerRadius = frame.size.height/2;
-    self.avatarView.layer.masksToBounds = YES;
-    [view addSubview:self.avatarView];
-    
-    self.roomNameLabel = [[UILabel alloc] initWithFrame:CGRectMake(CGRectGetMaxX(self.avatarView.frame)+RoomNameLabel_L, RoomNameLabel_T, RoomNameLabel_W, RoomNameLabel_H)];
-    self.roomNameLabel.textColor = [UIColor whiteColor];
-    self.roomNameLabel.font = [UIFont systemFontOfSize:12];
-    [view addSubview:self.roomNameLabel];
-    
-    self.countImgView = [[UIImageView alloc] initWithFrame:CGRectMake(CGRectGetMaxX(self.avatarView.frame)+RoomNameLabel_L, CGRectGetMaxY(self.roomNameLabel.frame)+People_Count_Icon_T, People_Count_Icon_W, People_Count_Icon_W)];
-    self.countImgView.image = [UIImage imageNamed:@"people"];
-    [view addSubview:self.countImgView];
-    
-    self.hostNameLabel = [[UILabel alloc] initWithFrame:CGRectMake(CGRectGetMaxX(self.countImgView.frame)+People_Count_L, CGRectGetMaxY(self.roomNameLabel.frame)+People_Count_T, People_Count_W, People_Count_H)];
-    self.hostNameLabel.textColor = [UIColor whiteColor];
-    self.hostNameLabel.font = [UIFont systemFontOfSize:9];
-    [view addSubview:self.hostNameLabel];
-    
-    UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(click)];
-    view.userInteractionEnabled = YES;
-    [view addGestureRecognizer:tap];
-    
-    [onView addSubview:view];
+    return self;
 
 }
 
@@ -80,17 +82,5 @@ static const CGFloat People_Count_L = 5;//人数左间距
     self.roomNameLabel.text = roomInfo.title ?: @"房间名";
     self.hostNameLabel.text = roomInfo.anchor_info.nick ?: @"";
 }
-
-//自定义
-- (void)createCustomView:(UIView *)view onView:(UIView *)onView {
-    
-    UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(click)];
-    view.userInteractionEnabled = YES;
-    [view addGestureRecognizer:tap];
-    
-    [onView addSubview:view];
-    
-}
-
 
 @end

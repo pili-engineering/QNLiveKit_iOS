@@ -11,6 +11,8 @@
 @interface GoodBuyItemCell()
 //商品图
 @property (nonatomic,strong)UIImageView *iconImageView;
+//商品序号
+@property (nonatomic,strong)UILabel *orderLabel;
 //商品名称
 @property (nonatomic,strong)UILabel *titleLabel;
 //标签
@@ -38,6 +40,7 @@
         self.contentView.backgroundColor = [UIColor whiteColor];
         
         [self iconImageView];
+        [self orderLabel];
         [self titleLabel];
         [self tagLabel];
         [self currentPriceLabel];
@@ -51,6 +54,7 @@
 - (void)updateWithModel:(GoodsModel *)itemModel {
     self.itemModel = itemModel;
     [self.iconImageView sd_setImageWithURL:[NSURL URLWithString:itemModel.thumbnail]];
+    self.orderLabel.text = itemModel.order;
     self.titleLabel.text = itemModel.title;
     self.tagLabel.text = [itemModel.tags componentsSeparatedByString:@","].firstObject;
     self.currentPriceLabel.text = itemModel.current_price;
@@ -77,6 +81,25 @@
         }];
     }
     return _iconImageView;
+}
+
+- (UILabel *)orderLabel {
+    if (!_orderLabel) {
+        _orderLabel = [[UILabel alloc]init];
+        _orderLabel.backgroundColor = [[UIColor colorWithHexString:@"000000"] colorWithAlphaComponent:0.6];
+        _orderLabel.textColor = [UIColor whiteColor];
+        _orderLabel.text = @"0";
+        _orderLabel.textAlignment = NSTextAlignmentCenter;
+        _orderLabel.clipsToBounds = YES;
+        _orderLabel.font = [UIFont systemFontOfSize:8];
+        [self.iconImageView addSubview:_orderLabel];
+        [_orderLabel mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.left.top.equalTo(self.iconImageView);
+            make.width.mas_equalTo(25);
+            make.height.mas_equalTo(20);
+        }];
+    }
+    return _orderLabel;
 }
 
 - (UILabel *)titleLabel {

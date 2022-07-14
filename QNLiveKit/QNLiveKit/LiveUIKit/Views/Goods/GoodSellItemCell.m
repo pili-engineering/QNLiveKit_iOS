@@ -11,6 +11,8 @@
 @interface GoodSellItemCell ()
 //商品图
 @property (nonatomic,strong)UIImageView *iconImageView;
+//商品序号
+@property (nonatomic,strong)UILabel *orderLabel;
 //商品名称
 @property (nonatomic,strong)UILabel *titleLabel;
 //标签
@@ -27,6 +29,7 @@
 @property (nonatomic,strong)UIButton *explainButton;
 
 @property (nonatomic,strong)GoodsModel *itemModel;
+
 @end
 
 @implementation GoodSellItemCell
@@ -35,11 +38,8 @@
     if ([super initWithStyle:style reuseIdentifier:reuseIdentifier]) {
         self.contentView.backgroundColor = [UIColor whiteColor];
         
-        UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(itemClieked)];
-        self.contentView.userInteractionEnabled = YES;
-        [self.contentView addGestureRecognizer:tap];
-        
         [self iconImageView];
+        [self orderLabel];
         [self titleLabel];
         [self tagLabel];
         [self currentPriceLabel];
@@ -51,16 +51,11 @@
     return self;
 }
 
-- (void)itemClieked {
-//    if (self.listClickedBlock) {
-//        self.listClickedBlock(self.model);
-//    }
-}
-
 - (void)updateWithModel:(GoodsModel *)itemModel {
     self.itemModel = itemModel;
     [self.iconImageView sd_setImageWithURL:[NSURL URLWithString:itemModel.thumbnail]];
     self.titleLabel.text = itemModel.title;
+    self.orderLabel.text = itemModel.order;
     self.tagLabel.text = [itemModel.tags componentsSeparatedByString:@","].firstObject;
     self.currentPriceLabel.text = itemModel.current_price;
     if (itemModel.status == QLiveGoodsStatusTakeOn) {
@@ -68,7 +63,6 @@
     } else {
         [self.takeDownButton setTitle:@"上架商品" forState:UIControlStateNormal];
     }
-    
     self.explainButton.backgroundColor = itemModel.isExplaining ? [UIColor colorWithHexString:@"F5F5F5"] : [UIColor colorWithHexString:@"E34D59"];
     
     NSString *explainButtonTitle = itemModel.isExplaining ? @"结束讲解" : @"讲解";
@@ -111,6 +105,25 @@
         }];
     }
     return _iconImageView;
+}
+
+- (UILabel *)orderLabel {
+    if (!_orderLabel) {
+        _orderLabel = [[UILabel alloc]init];
+        _orderLabel.backgroundColor = [[UIColor colorWithHexString:@"000000"] colorWithAlphaComponent:0.6];
+        _orderLabel.textColor = [UIColor whiteColor];
+        _orderLabel.text = @"0";
+        _orderLabel.textAlignment = NSTextAlignmentCenter;
+        _orderLabel.clipsToBounds = YES;
+        _orderLabel.font = [UIFont systemFontOfSize:8];
+        [self.iconImageView addSubview:_orderLabel];
+        [_orderLabel mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.left.top.equalTo(self.iconImageView);
+            make.width.mas_equalTo(25);
+            make.height.mas_equalTo(20);
+        }];
+    }
+    return _orderLabel;
 }
 
 - (UILabel *)titleLabel {

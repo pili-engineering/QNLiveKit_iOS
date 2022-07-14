@@ -35,6 +35,7 @@
 #import "GoodsSellListController.h"
 #import "GoodsModel.h"
 #import "QLiveNetworkUtil.h"
+#import "ExplainingGoodView.h"
 
 @interface BeautyLiveViewController ()<QNPushClientListener,QNRoomLifeCycleListener,QNPushClientListener,QNChatRoomServiceListener,FDanmakuViewProtocol,LiveChatRoomViewDelegate,MicLinkerListener,PKServiceListener,QNLocalVideoTrackDelegate>
 
@@ -1018,11 +1019,10 @@
 
 - (RoomHostView *)roomHostView {
     if (!_roomHostView) {
-        _roomHostView = [[RoomHostView alloc]init];
-        [_roomHostView createDefaultView:CGRectMake(20, 60, 135, 40) onView:self.view];
+        _roomHostView = [[RoomHostView alloc]initWithFrame:CGRectMake(20, 60, 135, 40)];
+        [self.view addSubview:_roomHostView];
         [_roomHostView updateWith:self.roomInfo];;
         _roomHostView.clickBlock = ^(BOOL selected) {
-            NSLog(@"点击了房主头像");
         };
     }
     return _roomHostView;
@@ -1030,11 +1030,10 @@
 
 - (OnlineUserView *)onlineUserView {
     if (!_onlineUserView) {
-        _onlineUserView = [[OnlineUserView alloc]init];
-       [_onlineUserView createDefaultView:CGRectMake(self.view.frame.size.width - 150, 60, 150, 60) onView:self.view];
+        _onlineUserView = [[OnlineUserView alloc]initWithFrame:CGRectMake(self.view.frame.size.width - 150, 60, 150, 60)];
+        [self.view addSubview:_onlineUserView];
         [_onlineUserView updateWith:self.roomInfo];
         _onlineUserView.clickBlock = ^(BOOL selected){
-            NSLog(@"点击了在线人数");
         };
     }
     return _onlineUserView;
@@ -1042,13 +1041,13 @@
 
 - (ImageButtonView *)pubchatView {
     if (!_pubchatView) {
-        _pubchatView = [[ImageButtonView alloc]init];
-        [_pubchatView createDefaultView:CGRectMake(15, SCREEN_H - 80, 100, 45) onView:self.view];
+        _pubchatView = [[ImageButtonView alloc]initWithFrame:CGRectMake(15, SCREEN_H - 60, 100, 45)];
         [_pubchatView bundleNormalImage:@"chat_input_bar" selectImage:@"chat_input_bar"];
+        [self.view addSubview:_pubchatView];
+        
         __weak typeof(self)weakSelf = self;
         _pubchatView.clickBlock = ^(BOOL selected){
             [weakSelf.chatRoomView commentBtnPressedWithPubchat:YES];
-            NSLog(@"点击了公聊");
         };
     }
     return _pubchatView;
@@ -1056,10 +1055,14 @@
 
 - (BottomMenuView *)bottomMenuView {
     if (!_bottomMenuView) {
+        
+        _bottomMenuView = [[BottomMenuView alloc]initWithFrame:CGRectMake(130, SCREEN_H - 60, SCREEN_W - 130, 45)];
+        [self.view addSubview:_bottomMenuView];
+        
         NSMutableArray *slotList = [NSMutableArray array];
         __weak typeof(self)weakSelf = self;
         //pk
-        ImageButtonView *pk = [[ImageButtonView alloc]init];
+        ImageButtonView *pk = [[ImageButtonView alloc]initWithFrame:CGRectZero];
         [pk bundleNormalImage:@"pk" selectImage:@"end_pk"];
         pk.clickBlock = ^(BOOL selected){
             if (!selected) {
@@ -1074,7 +1077,7 @@
         self.pkSlot = pk;
         
         //购物车
-        ImageButtonView *shopping = [[ImageButtonView alloc]init];
+        ImageButtonView *shopping = [[ImageButtonView alloc]initWithFrame:CGRectZero];
         [shopping bundleNormalImage:@"shopping" selectImage:@"shopping"];
         shopping.clickBlock = ^(BOOL selected){
             [weakSelf popGoodListView];
@@ -1082,7 +1085,7 @@
         [slotList addObject:shopping];
         
         //美颜
-        ImageButtonView *beauty = [[ImageButtonView alloc]init];
+        ImageButtonView *beauty = [[ImageButtonView alloc]initWithFrame:CGRectZero];
         [beauty bundleNormalImage:@"btn_beauty" selectImage:@"btn_beauty_selected"];
         beauty.clickBlock = ^(BOOL selected) {
             [weakSelf clickBottomViewButton:weakSelf.beautyBtn];
@@ -1090,7 +1093,7 @@
         [slotList addObject:beauty];
         
         //特效
-        ImageButtonView *specialEffects = [[ImageButtonView alloc]init];
+        ImageButtonView *specialEffects = [[ImageButtonView alloc]initWithFrame:CGRectZero];
         [specialEffects bundleNormalImage:@"btn_special_effects" selectImage:@"btn_special_effects_selected"];
         specialEffects.clickBlock = ^(BOOL selected) {
             [weakSelf clickBottomViewButton:weakSelf.specialEffectsBtn];
@@ -1098,23 +1101,22 @@
         [slotList addObject:specialEffects];
         
         //弹幕
-        ImageButtonView *message = [[ImageButtonView alloc]init];
+        ImageButtonView *message = [[ImageButtonView alloc]initWithFrame:CGRectZero];
         [message bundleNormalImage:@"message" selectImage:@"message"];
         message.clickBlock = ^(BOOL selected){
             [weakSelf.chatRoomView commentBtnPressedWithPubchat:NO];
         };
         [slotList addObject:message];
         //关闭
-        ImageButtonView *close = [[ImageButtonView alloc]init];
+        ImageButtonView *close = [[ImageButtonView alloc]initWithFrame:CGRectZero];
         [close bundleNormalImage:@"live_close" selectImage:@"live_close"];
         close.clickBlock = ^(BOOL selected){
             [weakSelf dismissViewControllerAnimated:YES completion:nil];
         };
         [slotList addObject:close];
         
-        _bottomMenuView = [[BottomMenuView alloc]init];
-        _bottomMenuView.slotList = slotList.copy;
-        [_bottomMenuView createDefaultView:CGRectMake(130, SCREEN_H - 80, SCREEN_W - 130, 45) onView:self.view];
+        [_bottomMenuView updateWithSlotList:slotList.copy];
+        
     }
     return _bottomMenuView;
 }

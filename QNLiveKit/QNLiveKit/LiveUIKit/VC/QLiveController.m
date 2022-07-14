@@ -278,8 +278,8 @@
 
 - (RoomHostView *)roomHostView {
     if (!_roomHostView) {
-        _roomHostView = [[RoomHostView alloc]init];
-        [_roomHostView createDefaultView:CGRectMake(20, 60, 135, 40) onView:self.view];
+        _roomHostView = [[RoomHostView alloc]initWithFrame:CGRectMake(20, 60, 135, 40)];
+        [self.view addSubview:_roomHostView];
         [_roomHostView updateWith:self.roomInfo];;
         _roomHostView.clickBlock = ^(BOOL selected) {
             NSLog(@"点击了房主头像");
@@ -290,8 +290,8 @@
 
 - (OnlineUserView *)onlineUserView {
     if (!_onlineUserView) {
-        _onlineUserView = [[OnlineUserView alloc]init];
-       [_onlineUserView createDefaultView:CGRectMake(self.view.frame.size.width - 150, 60, 150, 60) onView:self.view];
+        _onlineUserView = [[OnlineUserView alloc]initWithFrame:CGRectMake(self.view.frame.size.width - 150, 60, 150, 60)];
+        [self.view addSubview:_onlineUserView];
         [_onlineUserView updateWith:self.roomInfo];
         _onlineUserView.clickBlock = ^(BOOL selected){
             NSLog(@"点击了在线人数");
@@ -302,8 +302,8 @@
 
 - (ImageButtonView *)pubchatView {
     if (!_pubchatView) {
-        _pubchatView = [[ImageButtonView alloc]init];
-        [_pubchatView createDefaultView:CGRectMake(15, SCREEN_H - 80, 170, 45) onView:self.view];
+        _pubchatView = [[ImageButtonView alloc]initWithFrame:CGRectMake(15, SCREEN_H - 60, 170, 45)];
+        [self.view addSubview:_pubchatView];
         [_pubchatView bundleNormalImage:@"chat_input_bar" selectImage:@"chat_input_bar"];
         __weak typeof(self)weakSelf = self;
         _pubchatView.clickBlock = ^(BOOL selected){
@@ -319,7 +319,7 @@
         NSMutableArray *slotList = [NSMutableArray array];
         __weak typeof(self)weakSelf = self;
         //pk
-        ImageButtonView *pk = [[ImageButtonView alloc]init];
+        ImageButtonView *pk = [[ImageButtonView alloc]initWithFrame:CGRectZero];
         [pk bundleNormalImage:@"pk" selectImage:@"end_pk"];
         pk.clickBlock = ^(BOOL selected){
             if (!selected) {
@@ -334,7 +334,7 @@
         self.pkSlot = pk;
         
         //购物车
-        ImageButtonView *shopping = [[ImageButtonView alloc]init];
+        ImageButtonView *shopping = [[ImageButtonView alloc]initWithFrame:CGRectZero];
         [shopping bundleNormalImage:@"shopping" selectImage:@"shopping"];
         shopping.clickBlock = ^(BOOL selected){
             [weakSelf popGoodListView];            
@@ -342,23 +342,23 @@
         [slotList addObject:shopping];
         
         //弹幕
-        ImageButtonView *message = [[ImageButtonView alloc]init];
+        ImageButtonView *message = [[ImageButtonView alloc]initWithFrame:CGRectZero];
         [message bundleNormalImage:@"message" selectImage:@"message"];
         message.clickBlock = ^(BOOL selected){
             [weakSelf.chatRoomView commentBtnPressedWithPubchat:NO];
         };
         [slotList addObject:message];
         //关闭
-        ImageButtonView *close = [[ImageButtonView alloc]init];
+        ImageButtonView *close = [[ImageButtonView alloc]initWithFrame:CGRectZero];
         [close bundleNormalImage:@"live_close" selectImage:@"live_close"];
         close.clickBlock = ^(BOOL selected){
             [weakSelf dismissViewControllerAnimated:YES completion:nil];
         };
         [slotList addObject:close];
         
-        _bottomMenuView = [[BottomMenuView alloc]init];
-        _bottomMenuView.slotList = slotList.copy;
-        [_bottomMenuView createDefaultView:CGRectMake(200, SCREEN_H - 80, SCREEN_W - 200, 45) onView:self.view];
+        _bottomMenuView = [[BottomMenuView alloc]initWithFrame:CGRectMake(200, SCREEN_H - 60, SCREEN_W - 200, 45)];
+        [_bottomMenuView updateWithSlotList:slotList.copy];
+        [self.view addSubview:_bottomMenuView];
     }
     return _bottomMenuView;
 }
