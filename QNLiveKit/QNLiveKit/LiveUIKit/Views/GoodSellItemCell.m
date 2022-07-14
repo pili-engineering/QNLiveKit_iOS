@@ -1,14 +1,14 @@
 //
-//  GoodsItemCell.m
+//  GoodSellItemCell.m
 //  QNLiveKit
 //
 //  Created by 郭茜 on 2022/7/13.
 //
 
-#import "GoodsItemCell.h"
+#import "GoodSellItemCell.h"
 #import "GoodsModel.h"
 
-@interface GoodsItemCell ()
+@interface GoodSellItemCell ()
 //商品图
 @property (nonatomic,strong)UIImageView *iconImageView;
 //商品名称
@@ -29,7 +29,7 @@
 @property (nonatomic,strong)GoodsModel *itemModel;
 @end
 
-@implementation GoodsItemCell
+@implementation GoodSellItemCell
 
 - (instancetype)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier {
     if ([super initWithStyle:style reuseIdentifier:reuseIdentifier]) {

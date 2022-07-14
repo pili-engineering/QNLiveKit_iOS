@@ -1,16 +1,16 @@
 //
-//  GoodsListController.m
+//  GoodsBuyListController.m
 //  QNLiveKit
 //
-//  Created by 郭茜 on 2022/7/13.
+//  Created by 郭茜 on 2022/7/14.
 //
 
-#import "GoodsListController.h"
-#import "GoodsItemCell.h"
+#import "GoodsBuyListController.h"
+#import "GoodBuyItemCell.h"
 #import "GoodsModel.h"
 #import "QLiveNetworkUtil.h"
 
-@interface GoodsListController ()<UITableViewDelegate,UITableViewDataSource>
+@interface GoodsBuyListController ()<UITableViewDelegate,UITableViewDataSource>
 
 @property (nonatomic, strong) UITableView *tableView;
 @property (nonatomic, strong) NSArray <GoodsModel *> *ListModel;
@@ -19,7 +19,7 @@
 @property (nonatomic, copy) NSString *liveID;
 @end
 
-@implementation GoodsListController
+@implementation GoodsBuyListController
 
 - (instancetype)initWithLiveID:(NSString *)liveID{
     if (self = [super init]) {
@@ -36,20 +36,19 @@
     headView.backgroundColor = [UIColor whiteColor];
     [self.view addSubview:headView];
     
-    _label = [[UILabel alloc]initWithFrame:CGRectMake(20, 10, 100, 20)];
+    _label = [[UILabel alloc]initWithFrame:CGRectMake((SCREEN_W - 100)/2, 10, 100, 20)];
     _label.text = @"商品列表";
+    _label.textAlignment = NSTextAlignmentCenter;
     _label.font = [UIFont systemFontOfSize:14];
     _label.textColor = [UIColor blackColor];
     [headView addSubview:_label];
     
     UIButton *button = [[UIButton alloc]init];
-    [button setTitle:@"管理" forState:UIControlStateNormal];
-    button.titleLabel.font = [UIFont systemFontOfSize:14];
-    [button setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
+    [button setImage:[UIImage imageNamed:@"close_gray"] forState:UIControlStateNormal];
     [button addTarget:self action:@selector(dismissController) forControlEvents:UIControlEventTouchUpInside];
     [headView addSubview:button];
     [button mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.right.equalTo(headView.mas_right).offset(-20);
+        make.left.equalTo(headView).offset(20);
         make.centerY.equalTo(self.label);
     }];
     
@@ -62,11 +61,23 @@
     
     NSString *action = [NSString stringWithFormat:@"client/item/%@",self.liveID];
     [QLiveNetworkUtil getRequestWithAction:action params:nil success:^(NSDictionary * _Nonnull responseData) {
-        self.ListModel = [GoodsModel mj_objectArrayWithKeyValuesArray:responseData];
-        [self.tableView reloadData];
+        NSMutableArray <GoodsModel *> *goods = [GoodsModel mj_objectArrayWithKeyValuesArray:responseData];
+        //只显示上架中的商品
+        NSMutableArray *resultArr = [NSMutableArray array];
+        for (GoodsModel *good in goods) {
+            if (good.status == QLiveGoodsStatusTakeOn) {
+                [resultArr addObject:good];
+            }
+        }
+        self.ListModel = [NSArray arrayWithArray:resultArr];
+        [self getExplainGood];
     } failure:^(NSError * _Nonnull error) {
         
     }];
+    __weak typeof(self)weakSelf = self;
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(3 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+        [weakSelf requestData];
+    });
 }
 
 
@@ -93,49 +104,16 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
         
-    GoodsItemCell *cell = [tableView dequeueReusableCellWithIdentifier:@"GoodsItemCell" forIndexPath:indexPath];
+    GoodBuyItemCell *cell = [tableView dequeueReusableCellWithIdentifier:@"GoodBuyItemCell" forIndexPath:indexPath];
     [cell updateWithModel:self.ListModel[indexPath.row]];
     __weak typeof(self)weakSelf = self;
-    cell.takeDownClickedBlock = ^(GoodsModel * _Nonnull itemModel) {
-        [weakSelf takeDownGoods:itemModel];
-    };
-    cell.explainClickedBlock = ^(GoodsModel * _Nonnull itemModel) {
-        if (itemModel.isExplaining) {
-            [weakSelf explainGood:itemModel];            
-        } else {
-            [weakSelf endExplainGood];
+    cell.buyClickedBlock = ^(GoodsModel * _Nonnull itemModel) {
+        if (weakSelf.buyClickedBlock) {
+            weakSelf.buyClickedBlock(itemModel);
         }
     };
     cell.selectionStyle = UITableViewCellSelectionStyleNone;
-
     return cell;;
-}
-
-//讲解商品
-- (void)explainGood:(GoodsModel *)itemModel {
-    NSString *action = [NSString stringWithFormat:@"client/item/demonstrate/%@/%@",self.liveID,itemModel.item_id];
-    [QLiveNetworkUtil postRequestWithAction:action params:nil success:^(NSDictionary * _Nonnull responseData) {
-        [self getExplainGood];
-    } failure:^(NSError * _Nonnull error) {
-        
-    }];
-}
-
-//取消讲解商品
-- (void)endExplainGood {
-    NSString *action = [NSString stringWithFormat:@"client/item/demonstrate/%@",self.liveID];
-    [QLiveNetworkUtil deleteRequestWithAction:action params:nil success:^(NSDictionary * _Nonnull responseData) {
-        
-        NSMutableArray<GoodsModel *> *array = [NSMutableArray arrayWithArray:self.ListModel];
-        
-        [array enumerateObjectsUsingBlock:^(GoodsModel * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
-            obj.isExplaining = NO;
-        }];
-        self.ListModel = array;
-        [self.tableView reloadData];
-    } failure:^(NSError * _Nonnull error) {
-        
-    }];
 }
 
 //查看正在讲解的商品
@@ -195,9 +173,10 @@
             make.left.right.bottom.equalTo(self.view);
             make.top.equalTo(self.label.mas_bottom).offset(15);
         }];
-        [_tableView registerClass:[GoodsItemCell class] forCellReuseIdentifier:@"GoodsItemCell"];
+        [_tableView registerClass:[GoodBuyItemCell class] forCellReuseIdentifier:@"GoodBuyItemCell"];
     }
     return _tableView;
 }
+
 
 @end
