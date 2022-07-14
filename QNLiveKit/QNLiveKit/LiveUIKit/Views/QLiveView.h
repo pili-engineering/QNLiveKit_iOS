@@ -5,7 +5,7 @@
 //  Created by 郭茜 on 2022/5/31.
 //
 
-#import <Foundation/Foundation.h>
+#import <UIKit/UIKit.h>
 
 NS_ASSUME_NONNULL_BEGIN
 
@@ -14,13 +14,9 @@ NS_ASSUME_NONNULL_BEGIN
 typedef void (^onClickBlock)(BOOL selected);
 
 //UI组件基类
-@interface QLiveView : NSObject
+@interface QLiveView : UIView
 
 @property (nonatomic, copy)onClickBlock clickBlock;
-
-- (void)createDefaultView:(CGRect)frame onView:(UIView *)onView;
-
-- (void)createCustomView:(UIView *)view onView:(UIView *)onView;
 
 @end
 

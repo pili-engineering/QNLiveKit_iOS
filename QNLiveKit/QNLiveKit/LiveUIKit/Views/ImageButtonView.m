@@ -15,14 +15,22 @@
 
 @implementation ImageButtonView
 
-- (void)createDefaultView:(CGRect)frame onView:(UIView *)onView {
-    self.button.frame = frame;
-    [self.button addTarget:self action:@selector(click:) forControlEvents:UIControlEventTouchUpInside];
-    [onView addSubview:self.button];
+- (instancetype)initWithFrame:(CGRect)frame {
+    
+    if (self = [super initWithFrame:frame]) {
+        self.button = [[UIButton alloc]initWithFrame:CGRectMake(0, 0, 55, 55)];
+        if (frame.size.width > 0) {
+            self.button.frame = CGRectMake(0, 0, frame.size.width, frame.size.height);
+        }
+        [self.button setImage:[UIImage imageNamed:@"shopping"] forState:UIControlStateNormal];
+        [self.button setImage:[UIImage imageNamed:@"shopping"] forState:UIControlStateSelected];
+        [self.button addTarget:self action:@selector(click:) forControlEvents:UIControlEventTouchUpInside];
+        [self addSubview:self.button];
+    }
+    return self;
 }
 
 - (void)bundleNormalImage:(NSString *)normalImage selectImage:(NSString *)selectImage {
-    
     [self.button setImage:[UIImage imageNamed:normalImage] forState:UIControlStateNormal];
     [self.button setImage:[UIImage imageNamed:selectImage] forState:UIControlStateSelected];
 }
@@ -40,24 +48,6 @@
     if (self.clickBlock) {
         self.clickBlock(button.selected);
     }
-}
-
-- (UIButton *)button {
-    if (!_button) {
-        _button = [[UIButton alloc]init];
-    }
-    return _button;
-}
-
-//自定义
-- (void)createCustomView:(UIView *)view onView:(UIView *)onView {
-    
-    UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(click)];
-    view.userInteractionEnabled = YES;
-    [view addGestureRecognizer:tap];
-    
-    [onView addSubview:view];
-    
 }
 
 @end

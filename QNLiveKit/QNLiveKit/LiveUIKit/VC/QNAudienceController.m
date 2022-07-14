@@ -25,6 +25,9 @@
 #import <QNIMSDK/QNIMSDK.h>
 #import "QLinkMicService.h"
 #import "GoodsBuyListController.h"
+#import "ExplainingGoodView.h"
+#import "QLiveNetworkUtil.h"
+#import "GoodsModel.h"
 
 @interface QNAudienceController ()<QNChatRoomServiceListener,QNPushClientListener,LiveChatRoomViewDelegate,FDanmakuViewProtocol,PLPlayerDelegate,MicLinkerListener,PKServiceListener>
 
@@ -67,6 +70,22 @@
     }];
 }
 
+//正在讲解的商品
+- (void)getExplainGood {
+    NSString *action = [NSString stringWithFormat:@"client/item/demonstrate/%@",self.roomInfo.live_id];
+    [QLiveNetworkUtil getRequestWithAction:action params:nil success:^(NSDictionary * _Nonnull responseData) {
+        
+        GoodsModel *explainGood = [GoodsModel mj_objectWithKeyValues:responseData];
+        if (explainGood) {
+            self.goodView.hidden = NO;
+            [self.goodView updateWithModel:explainGood];
+        } else {
+            self.goodView.hidden = YES;
+        }
+        
+    } failure:^(NSError * _Nonnull error) {}];
+}
+
 - (void)playWithUrl:(NSString *)url {
     PLPlayerOption *option = [PLPlayerOption defaultOption];
     PLPlayFormat format = kPLPLAY_FORMAT_UnKnown;
@@ -105,6 +124,7 @@
         [self.roomHostView updateWith:roomInfo];
         [self.onlineUserView updateWith:roomInfo];
     }];
+    [self getExplainGood];
     __weak typeof(self)weakSelf = self;
     dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(3 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
         [weakSelf updateRoomInfo];
@@ -232,8 +252,8 @@
 
 - (RoomHostView *)roomHostView {
     if (!_roomHostView) {
-        _roomHostView = [[RoomHostView alloc]init];
-        [_roomHostView createDefaultView:CGRectMake(20, 60, 135, 40) onView:self.view];
+        _roomHostView = [[RoomHostView alloc]initWithFrame:CGRectMake(20, 60, 135, 40)];
+        [self.view addSubview:_roomHostView];
         [_roomHostView updateWith:self.roomInfo];;
         _roomHostView.clickBlock = ^(BOOL selected){
             NSLog(@"点击了房主头像");
@@ -244,8 +264,8 @@
 
 - (OnlineUserView *)onlineUserView {
     if (!_onlineUserView) {
-        _onlineUserView = [[OnlineUserView alloc]init];
-        [_onlineUserView createDefaultView:CGRectMake(self.view.frame.size.width - 150, 60, 150, 60) onView:self.view];
+        _onlineUserView = [[OnlineUserView alloc]initWithFrame:CGRectMake(self.view.frame.size.width - 150, 60, 150, 60)];
+        [self.view addSubview:_onlineUserView];
         [_onlineUserView updateWith:self.roomInfo];
         _onlineUserView.clickBlock = ^(BOOL selected){
             NSLog(@"点击了在线人数");
@@ -256,8 +276,8 @@
 
 - (ImageButtonView *)pubchatView {
     if (!_pubchatView) {
-        _pubchatView = [[ImageButtonView alloc]init];
-        [_pubchatView createDefaultView:CGRectMake(15, SCREEN_H - 80, 170, 45) onView:self.view];
+        _pubchatView = [[ImageButtonView alloc]initWithFrame:CGRectMake(15, SCREEN_H - 60, 170, 45)];
+        [self.view addSubview:_pubchatView];
         [_pubchatView bundleNormalImage:@"chat_input_bar" selectImage:@"chat_input_bar"];
         __weak typeof(self)weakSelf = self;
         _pubchatView.clickBlock = ^(BOOL selected){
@@ -275,7 +295,7 @@
         __weak typeof(self)weakSelf = self;
         
         //连麦
-        ImageButtonView *link = [[ImageButtonView alloc]init];
+        ImageButtonView *link = [[ImageButtonView alloc]initWithFrame:CGRectZero];
         [link bundleNormalImage:@"link" selectImage:@"link"];
         link.clickBlock = ^(BOOL selected){
             
@@ -285,7 +305,7 @@
         [slotList addObject:link];
         
         //购物车
-        ImageButtonView *shopping = [[ImageButtonView alloc]init];
+        ImageButtonView *shopping = [[ImageButtonView alloc]initWithFrame:CGRectZero];
         [shopping bundleNormalImage:@"shopping" selectImage:@"shopping"];
         shopping.clickBlock = ^(BOOL selected){
             
@@ -294,7 +314,7 @@
         [slotList addObject:shopping];
         
         //弹幕
-        ImageButtonView *message = [[ImageButtonView alloc]init];
+        ImageButtonView *message = [[ImageButtonView alloc]initWithFrame:CGRectZero];
         [message bundleNormalImage:@"message" selectImage:@"message"];
         message.clickBlock = ^(BOOL selected){
             [weakSelf.chatRoomView commentBtnPressedWithPubchat:NO];
@@ -302,7 +322,7 @@
         [slotList addObject:message];
         
         //关闭
-        ImageButtonView *close = [[ImageButtonView alloc]init];
+        ImageButtonView *close = [[ImageButtonView alloc]initWithFrame:CGRectZero];
         [close bundleNormalImage:@"live_close" selectImage:@"live_close"];
         close.clickBlock = ^(BOOL selected){
             [weakSelf.chatService sendLeaveMsg];
@@ -310,9 +330,9 @@
         };
         [slotList addObject:close];
         
-        _bottomMenuView = [[BottomMenuView alloc]init];
-        _bottomMenuView.slotList = slotList.copy;
-        [_bottomMenuView createDefaultView:CGRectMake(200, SCREEN_H - 80, SCREEN_W - 200, 45) onView:self.view];
+        _bottomMenuView = [[BottomMenuView alloc]initWithFrame:CGRectMake(200, SCREEN_H - 60, SCREEN_W - 200, 45)];
+        [_bottomMenuView updateWithSlotList:slotList.copy];
+        [self.view addSubview:_bottomMenuView];
 
     }
     return _bottomMenuView;
@@ -329,8 +349,8 @@
 }
 
 - (void)popLinkSLot {
-    _linkSView = [[LinkStateView alloc]init];
-    [_linkSView createDefaultView:CGRectMake(0, SCREEN_H - 230, SCREEN_W, 230) onView:self.view];
+    _linkSView = [[LinkStateView alloc]initWithFrame:CGRectMake(0, SCREEN_H - 230, SCREEN_W, 230)];
+    [self.view addSubview:_linkSView];
     __weak typeof(self)weakSelf = self;
     _linkSView.microphoneBlock = ^(BOOL mute) {
         [[QLive createPusherClient] muteMicrophone:mute];
@@ -353,6 +373,14 @@
         [weakSelf playWithUrl:weakSelf.roomInfo.rtmp_url];
         NSLog(@"点击了结束连麦");
     };
+}
+
+- (ExplainingGoodView *)goodView {
+    if (!_goodView) {
+        _goodView = [[ExplainingGoodView alloc]initWithFrame:CGRectMake(SCREEN_W - 130, SCREEN_H - 240, 115, 170)];
+        [self.view addSubview:_goodView];
+    }
+    return _goodView;
 }
 
 - (QNLiveUser *)user {

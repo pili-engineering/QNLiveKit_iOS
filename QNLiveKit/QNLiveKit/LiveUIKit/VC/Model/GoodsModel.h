@@ -29,6 +29,8 @@ typedef NS_ENUM(NSUInteger, QLiveGoodsStatus) {
 
 @property(nonatomic, copy) NSString *link;//商品链接 url
 
+@property(nonatomic, copy) NSString *order;//商品序号
+
 @property(nonatomic, copy) NSString *current_price;//当前价格字符串
 
 @property(nonatomic, copy) NSString *origin_price;//原始价格字符串

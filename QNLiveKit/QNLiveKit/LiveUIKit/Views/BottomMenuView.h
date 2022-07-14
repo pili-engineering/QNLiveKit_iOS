@@ -13,8 +13,7 @@ NS_ASSUME_NONNULL_BEGIN
 //底部操作栏槽位
 @interface BottomMenuView : QLiveView
 
-//菜单列表
-@property (nonatomic,copy)NSArray <ImageButtonView *> *slotList;
+- (void)updateWithSlotList:(NSArray <ImageButtonView *> *)slotList;
 
 @end
 
