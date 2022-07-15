@@ -7,13 +7,21 @@
 
 #import "GoodsSellListController.h"
 #import "GoodSellItemCell.h"
+#import "GoodsOperationCell.h"
 #import "GoodsModel.h"
 #import "QLiveNetworkUtil.h"
+#import "GoodsOperationView.h"
+#import "GoodStatusView.h"
 
 @interface GoodsSellListController ()<UITableViewDelegate,UITableViewDataSource>
 
 @property (nonatomic, strong) UITableView *tableView;
-@property (nonatomic, strong) NSArray <GoodsModel *> *ListModel;
+@property (nonatomic, strong) NSArray <GoodsModel *> *ListModel;//展示的商品
+@property (nonatomic, strong) NSArray <GoodsModel *> *totalListModel;//所有商品
+@property (nonatomic, strong) NSMutableArray <GoodsModel *> *selectModel;//选中的商品
+@property (nonatomic, strong) GoodsOperationView *operationView;//底部批量操作视图
+//@property (nonatomic, strong) GoodStatusView *statusView;//状态分类试图
+@property (nonatomic, assign) BOOL isEditing;//商品管理编辑中
 @property (nonatomic, strong) UILabel *label;
 @property (nonatomic, strong) UIButton *button;
 @property (nonatomic, copy) NSString *liveID;
@@ -46,7 +54,7 @@
     [button setTitle:@"管理" forState:UIControlStateNormal];
     button.titleLabel.font = [UIFont systemFontOfSize:14];
     [button setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
-    [button addTarget:self action:@selector(dismissController) forControlEvents:UIControlEventTouchUpInside];
+    [button addTarget:self action:@selector(manageGoods:) forControlEvents:UIControlEventTouchUpInside];
     [headView addSubview:button];
     [button mas_makeConstraints:^(MASConstraintMaker *make) {
         make.right.equalTo(headView.mas_right).offset(-20);
@@ -62,13 +70,26 @@
     
     NSString *action = [NSString stringWithFormat:@"client/item/%@",self.liveID];
     [QLiveNetworkUtil getRequestWithAction:action params:nil success:^(NSDictionary * _Nonnull responseData) {
-        self.ListModel = [GoodsModel mj_objectArrayWithKeyValuesArray:responseData];
+        self.totalListModel = [GoodsModel mj_objectArrayWithKeyValuesArray:responseData];
+        self.ListModel = self.totalListModel;
         [self.tableView reloadData];
     } failure:^(NSError * _Nonnull error) {
         
     }];
 }
 
+//点击管理商品
+- (void)manageGoods:(UIButton *)button {
+    button.selected = !button.selected;
+    if (button.selected) {
+        [button setTitle:@"完成" forState:UIControlStateNormal];
+    } else {
+        [button setTitle:@"管理" forState:UIControlStateNormal];
+    }
+    self.operationView.hidden = !button.selected;
+    self.isEditing = button.selected;
+    [self.tableView reloadData];
+}
 
 - (void)dismissController {
     [self removeFromParentViewController];
@@ -83,21 +104,74 @@
     return self.ListModel.count;
 }
 
+- (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section {
+    if (self.isEditing) {
+        GoodStatusView *statusView=[[GoodStatusView alloc]initWithFrame:CGRectMake(0, 0, SCREEN_W, 25)];
+        [statusView updateWithModel:self.totalListModel];
+        __weak typeof(self)weakSelf = self;
+        statusView.typeClickedBlock = ^(QLiveGoodsStatus status) {
+            
+            NSMutableArray *arr = [NSMutableArray array];
+            for (GoodsModel *good in weakSelf.totalListModel) {
+                if (good.status == status) {
+                    [arr addObject:good];
+                }
+            }
+            weakSelf.ListModel = arr.count == 0 ? weakSelf.totalListModel : arr;
+            [weakSelf.tableView reloadData];
+        };
+        return statusView;
+    }
+    return [UIView new];
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section {
+    return self.isEditing ? 25 : 0;
+}
+
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
     return 1;
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
-    return 150;
+    return self.isEditing ? 130 : 150;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
         
+    if (self.isEditing) {
+        GoodsOperationCell *cell = [tableView dequeueReusableCellWithIdentifier:@"GoodsOperationCell" forIndexPath:indexPath];
+        [cell updateWithModel:self.ListModel[indexPath.row]];
+        
+        __weak typeof(self)weakSelf = self;
+        cell.selectButtonClickedBlock = ^(GoodsModel * _Nonnull itemModel) {
+            
+            if (itemModel.isSelected) {
+                [weakSelf.selectModel addObject:itemModel];
+                
+            } else {
+                [weakSelf.selectModel enumerateObjectsUsingBlock:^(GoodsModel * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+                    if ([obj.item_id isEqualToString:itemModel.item_id]) {
+                        [weakSelf.selectModel removeObject:obj];
+                    }
+                }];
+            }
+            
+            weakSelf.ListModel[indexPath.row].isSelected = itemModel.isSelected;
+            [weakSelf.tableView reloadData];
+        };
+        return cell;
+    }
+    
     GoodSellItemCell *cell = [tableView dequeueReusableCellWithIdentifier:@"GoodSellItemCell" forIndexPath:indexPath];
     [cell updateWithModel:self.ListModel[indexPath.row]];
     __weak typeof(self)weakSelf = self;
     cell.takeDownClickedBlock = ^(GoodsModel * _Nonnull itemModel) {
-        [weakSelf takeDownGoods:itemModel];
+        if (itemModel.status == QLiveGoodsStatusTakeOn) {
+            [weakSelf updateGoodsStatus:@[itemModel] status:QLiveGoodsStatusTakeDown];
+        } else {
+            [weakSelf updateGoodsStatus:@[itemModel] status:QLiveGoodsStatusTakeOn];
+        }
     };
     cell.explainClickedBlock = ^(GoodsModel * _Nonnull itemModel) {
         if (itemModel.isExplaining) {
@@ -160,23 +234,57 @@
     }];
 }
 
-//上/下架某商品
-- (void)takeDownGoods:(GoodsModel *)itemModel {
-    
+//批量修改商品状态
+- (void)updateGoodsStatus:(NSArray <GoodsModel *>*)goods status:(QLiveGoodsStatus)status {
     NSMutableDictionary *params = [NSMutableDictionary dictionary];
     params[@"live_id"] = self.liveID;
-    GoodsModel *model = [GoodsModel new];
-    model.item_id = itemModel.item_id;
-    if (itemModel.status == QLiveGoodsStatusTakeOn) {
-        model.status = QLiveGoodsStatusTakeDown;
-    } else {
-        model.status = QLiveGoodsStatusTakeOn;
+    
+    NSMutableArray *arr = [NSMutableArray array];
+    for (GoodsModel *good in goods) {
+        GoodsModel *model = [GoodsModel new];
+        model.item_id = good.item_id;
+        model.status = status;
+        [arr addObject:model.mj_keyValues];
     }
-    params[@"items"] = @[model.mj_keyValues];
+    params[@"items"] = arr;
     [QLiveNetworkUtil postRequestWithAction:@"client/item/status" params:params success:^(NSDictionary * _Nonnull responseData) {
         [self requestData];
         } failure:^(NSError * _Nonnull error) {}];
 }
+
+//移除商品
+- (void)removeGoods:(NSArray <GoodsModel *>*)goods {
+    
+    NSMutableDictionary *params = [NSMutableDictionary dictionary];
+    params[@"live_id"] = self.liveID;
+    
+    NSMutableArray *arr = [NSMutableArray array];
+    for (GoodsModel *good in goods) {
+        [arr addObject:good.item_id];
+    }
+    params[@"items"] = arr;
+    [QLiveNetworkUtil postRequestWithAction:@"client/item/delete" params:params success:^(NSDictionary * _Nonnull responseData) {
+        [self requestData];
+        } failure:^(NSError * _Nonnull error) {}];
+}
+
+//上/下架某商品
+//- (void)takeDownGood:(GoodsModel *)itemModel {
+//
+//    NSMutableDictionary *params = [NSMutableDictionary dictionary];
+//    params[@"live_id"] = self.liveID;
+//    GoodsModel *model = [GoodsModel new];
+//    model.item_id = itemModel.item_id;
+//    if (itemModel.status == QLiveGoodsStatusTakeOn) {
+//        model.status = QLiveGoodsStatusTakeDown;
+//    } else {
+//        model.status = QLiveGoodsStatusTakeOn;
+//    }
+//    params[@"items"] = @[model.mj_keyValues];
+//    [QLiveNetworkUtil postRequestWithAction:@"client/item/status" params:params success:^(NSDictionary * _Nonnull responseData) {
+//        [self requestData];
+//        } failure:^(NSError * _Nonnull error) {}];
+//}
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
@@ -196,8 +304,39 @@
             make.top.equalTo(self.label.mas_bottom).offset(15);
         }];
         [_tableView registerClass:[GoodSellItemCell class] forCellReuseIdentifier:@"GoodSellItemCell"];
+        [_tableView registerClass:[GoodsOperationCell class] forCellReuseIdentifier:@"GoodsOperationCell"];
+        
     }
     return _tableView;
 }
 
+- (NSMutableArray<GoodsModel *> *)selectModel {
+    if (!_selectModel) {
+        _selectModel = [NSMutableArray array];
+    }
+    return _selectModel;
+}
+
+- (GoodsOperationView *)operationView {
+    if (!_operationView) {
+        _operationView = [[GoodsOperationView alloc] initWithFrame:CGRectMake(0, SCREEN_H - 50, SCREEN_W, 50)];
+        _operationView.hidden =YES;
+        [self.view addSubview:_operationView];
+        __weak typeof(self)weakSelf = self;
+        _operationView.takeOnClickedBlock = ^{
+            [weakSelf updateGoodsStatus:weakSelf.selectModel status:QLiveGoodsStatusTakeOn];
+            [weakSelf.selectModel removeAllObjects];
+        };
+        _operationView.takeDownClickedBlock = ^{
+            [weakSelf updateGoodsStatus:weakSelf.selectModel status:QLiveGoodsStatusTakeDown];
+            [weakSelf.selectModel removeAllObjects];
+        };
+        _operationView.removeClickedBlock = ^{
+            [weakSelf removeGoods:weakSelf.selectModel];
+            [weakSelf.selectModel removeAllObjects];
+        };
+    }
+    return _operationView;
+}
+ 
 @end
