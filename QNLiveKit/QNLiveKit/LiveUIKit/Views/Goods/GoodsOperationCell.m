@@ -1,14 +1,16 @@
 //
-//  GoodBuyItemCell.m
+//  GoodsOperationCell.m
 //  QNLiveKit
 //
 //  Created by 郭茜 on 2022/7/14.
 //
 
-#import "GoodBuyItemCell.h"
+#import "GoodsOperationCell.h"
 #import "GoodsModel.h"
 
-@interface GoodBuyItemCell()
+@interface GoodsOperationCell ()
+//选中按钮
+@property (nonatomic,strong)UIButton *selectButton;
 //商品图
 @property (nonatomic,strong)UIImageView *iconImageView;
 //商品序号
@@ -21,31 +23,24 @@
 @property (nonatomic,strong)UILabel *currentPriceLabel;
 //原价
 @property (nonatomic,strong)UILabel *originPriceLabel;
-//下架按钮
-@property (nonatomic,strong)UIButton *takeDownButton;
-//购买按钮
-@property (nonatomic,strong)UIButton *buyButton;
-//讲解中View
-@property (nonatomic,strong)UIView *explainView;
+//排序按钮
+@property (nonatomic,strong)UIButton *sortButton;
 
 @property (nonatomic,strong)GoodsModel *itemModel;
-
-
 @end
 
-@implementation GoodBuyItemCell
+@implementation GoodsOperationCell
 
 - (instancetype)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier {
     if ([super initWithStyle:style reuseIdentifier:reuseIdentifier]) {
         self.contentView.backgroundColor = [UIColor whiteColor];
-        
+        [self selectButton];
         [self iconImageView];
         [self orderLabel];
         [self titleLabel];
         [self tagLabel];
         [self currentPriceLabel];
-        [self buyButton];
-        [self explainView];
+        [self sortButton];
         
     }
     return self;
@@ -58,14 +53,32 @@
     self.titleLabel.text = itemModel.title;
     self.tagLabel.text = [itemModel.tags componentsSeparatedByString:@","].firstObject;
     self.currentPriceLabel.text = itemModel.current_price;
-    self.explainView.hidden = !itemModel.isExplaining;
+    self.selectButton.selected = itemModel.isSelected;
 }
 
-- (void)buy:(UIButton *)button {
-
-    if (self.buyClickedBlock) {
-        self.buyClickedBlock(self.itemModel);
+- (void)selectButtonClicked:(UIButton *)button {
+    button.selected = !button.selected;
+    self.itemModel.isSelected = button.selected;
+    if (self.selectButtonClickedBlock) {
+        self.selectButtonClickedBlock(self.itemModel);
     }
+}
+
+- (UIButton *)selectButton {
+    if (!_selectButton) {
+        _selectButton = [[UIButton alloc]init];
+        [_selectButton setImage:[UIImage imageNamed:@"good_no_select"] forState:UIControlStateNormal];
+        [_selectButton setImage:[UIImage imageNamed:@"good_select"] forState:UIControlStateSelected];
+        _selectButton.selected = NO;
+        [_selectButton addTarget:self action:@selector(selectButtonClicked:) forControlEvents:UIControlEventTouchUpInside];
+        [self.contentView addSubview:_selectButton];
+        [_selectButton mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.left.equalTo(self.contentView).offset(20);
+            make.centerY.equalTo(self.contentView);
+            make.width.height.mas_equalTo(30);
+        }];
+    }
+    return _selectButton;
 }
 
 - (UIImageView *)iconImageView {
@@ -75,8 +88,8 @@
         _iconImageView.layer.cornerRadius = 10;
         [self.contentView addSubview:_iconImageView];
         [_iconImageView mas_makeConstraints:^(MASConstraintMaker *make) {
-            make.left.equalTo(self.contentView).offset(20);
-            make.top.equalTo(self.contentView).offset(5);
+            make.left.equalTo(self.selectButton.mas_right).offset(20);
+            make.centerY.equalTo(self.contentView);
             make.width.height.mas_equalTo(80);
         }];
     }
@@ -150,56 +163,19 @@
 }
 
 
-- (UIButton *)buyButton {
-    if (!_buyButton) {
-        _buyButton = [[UIButton alloc]init];
-        _buyButton.backgroundColor = [UIColor colorWithHexString:@"E34D59"];
-        _buyButton.titleLabel.font = [UIFont systemFontOfSize:14];
-        [_buyButton setTitle:@"去购买" forState:UIControlStateNormal];
-        [_buyButton setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
-        [_buyButton addTarget:self action:@selector(buy:) forControlEvents:UIControlEventTouchUpInside];
-        [self.contentView addSubview:_buyButton];
-        [_buyButton mas_makeConstraints:^(MASConstraintMaker *make) {
+- (UIButton *)sortButton {
+    if (!_sortButton) {
+        _sortButton = [[UIButton alloc]init];
+        [_sortButton setImage:[UIImage imageNamed:@"sort"] forState:UIControlStateNormal];
+//        [_buyButton addTarget:self action:@selector(buy:) forControlEvents:UIControlEventTouchUpInside];
+        [self.contentView addSubview:_sortButton];
+        [_sortButton mas_makeConstraints:^(MASConstraintMaker *make) {
             make.bottom.equalTo(self.iconImageView.mas_bottom);
             make.right.equalTo(self.contentView.mas_right).offset(-15);
-            make.width.mas_equalTo(75);
-            make.height.mas_equalTo(25);
         }];
     }
-    return _buyButton;
+    return _sortButton;
 }
 
-- (UIView *)explainView {
-    if (!_explainView) {
-        _explainView = [[UIView alloc]init];
-        _explainView.backgroundColor = [[UIColor colorWithHexString:@"EF4149"] colorWithAlphaComponent:0.75];
-        _explainView.layer.cornerRadius = 10;
-        _explainView.clipsToBounds = YES;
-        [self.iconImageView addSubview:_explainView];
-        [_explainView mas_makeConstraints:^(MASConstraintMaker *make) {
-            make.left.right.bottom.equalTo(self.iconImageView);
-            make.height.mas_equalTo(25);
-        }];
-        
-        UIImageView *imageView = [[UIImageView alloc]initWithImage:[UIImage imageNamed:@"explaining"]];
-        [_explainView addSubview:imageView];
-        [imageView mas_makeConstraints:^(MASConstraintMaker *make) {
-            make.centerY.equalTo(self.explainView.mas_centerY);
-            make.left.equalTo(self.explainView).offset(15);
-        }];
-        
-        UILabel *explainLabel = [[UILabel alloc]init];
-        explainLabel.text = @"讲解中";
-        explainLabel.textColor = [UIColor whiteColor];
-        explainLabel.font = [UIFont systemFontOfSize:12];
-        [_explainView addSubview:explainLabel];
-        [explainLabel mas_makeConstraints:^(MASConstraintMaker *make) {
-            make.centerY.equalTo(self.explainView.mas_centerY);
-            make.left.equalTo(imageView.mas_right).offset(3);
-        }];
-        _explainView.hidden = YES;
-    }
-    return _explainView;
-}
 
 @end

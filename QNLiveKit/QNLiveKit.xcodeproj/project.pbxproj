@@ -19,6 +19,12 @@
 		77062FBF288005CE00E9FD7D /* GoodBuyItemCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 77062FBD288005CE00E9FD7D /* GoodBuyItemCell.m */; };
 		77062FC62880294900E9FD7D /* ExplainingGoodView.h in Headers */ = {isa = PBXBuildFile; fileRef = 77062FC42880294900E9FD7D /* ExplainingGoodView.h */; };
 		77062FC72880294900E9FD7D /* ExplainingGoodView.m in Sources */ = {isa = PBXBuildFile; fileRef = 77062FC52880294900E9FD7D /* ExplainingGoodView.m */; };
+		77062FCA288062D600E9FD7D /* GoodsOperationCell.h in Headers */ = {isa = PBXBuildFile; fileRef = 77062FC8288062D600E9FD7D /* GoodsOperationCell.h */; };
+		77062FCB288062D600E9FD7D /* GoodsOperationCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 77062FC9288062D600E9FD7D /* GoodsOperationCell.m */; };
+		77062FCE288080D300E9FD7D /* GoodsOperationView.h in Headers */ = {isa = PBXBuildFile; fileRef = 77062FCC288080D300E9FD7D /* GoodsOperationView.h */; };
+		77062FCF288080D300E9FD7D /* GoodsOperationView.m in Sources */ = {isa = PBXBuildFile; fileRef = 77062FCD288080D300E9FD7D /* GoodsOperationView.m */; };
+		77062FD22880920000E9FD7D /* GoodStatusView.h in Headers */ = {isa = PBXBuildFile; fileRef = 77062FD0288091FF00E9FD7D /* GoodStatusView.h */; };
+		77062FD32880920000E9FD7D /* GoodStatusView.m in Sources */ = {isa = PBXBuildFile; fileRef = 77062FD12880920000E9FD7D /* GoodStatusView.m */; };
 		77204D4E285873BF0053B1AD /* QRooms.h in Headers */ = {isa = PBXBuildFile; fileRef = 77204D4C285873BF0053B1AD /* QRooms.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		77204D4F285873BF0053B1AD /* QRooms.m in Sources */ = {isa = PBXBuildFile; fileRef = 77204D4D285873BF0053B1AD /* QRooms.m */; };
 		77204D58285981B00053B1AD /* CYProtocolManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 77204D56285981B00053B1AD /* CYProtocolManager.m */; };
@@ -354,6 +360,12 @@
 		77062FBD288005CE00E9FD7D /* GoodBuyItemCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GoodBuyItemCell.m; sourceTree = "<group>"; };
 		77062FC42880294900E9FD7D /* ExplainingGoodView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ExplainingGoodView.h; sourceTree = "<group>"; };
 		77062FC52880294900E9FD7D /* ExplainingGoodView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ExplainingGoodView.m; sourceTree = "<group>"; };
+		77062FC8288062D600E9FD7D /* GoodsOperationCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GoodsOperationCell.h; sourceTree = "<group>"; };
+		77062FC9288062D600E9FD7D /* GoodsOperationCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GoodsOperationCell.m; sourceTree = "<group>"; };
+		77062FCC288080D300E9FD7D /* GoodsOperationView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GoodsOperationView.h; sourceTree = "<group>"; };
+		77062FCD288080D300E9FD7D /* GoodsOperationView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GoodsOperationView.m; sourceTree = "<group>"; };
+		77062FD0288091FF00E9FD7D /* GoodStatusView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GoodStatusView.h; sourceTree = "<group>"; };
+		77062FD12880920000E9FD7D /* GoodStatusView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GoodStatusView.m; sourceTree = "<group>"; };
 		77204D4C285873BF0053B1AD /* QRooms.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = QRooms.h; sourceTree = "<group>"; };
 		77204D4D285873BF0053B1AD /* QRooms.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = QRooms.m; sourceTree = "<group>"; };
 		77204D56285981B00053B1AD /* CYProtocolManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CYProtocolManager.m; sourceTree = "<group>"; };
@@ -700,8 +712,14 @@
 				77062FB5287EAA8D00E9FD7D /* GoodSellItemCell.m */,
 				77062FBC288005CE00E9FD7D /* GoodBuyItemCell.h */,
 				77062FBD288005CE00E9FD7D /* GoodBuyItemCell.m */,
+				77062FC8288062D600E9FD7D /* GoodsOperationCell.h */,
+				77062FC9288062D600E9FD7D /* GoodsOperationCell.m */,
 				77062FC42880294900E9FD7D /* ExplainingGoodView.h */,
 				77062FC52880294900E9FD7D /* ExplainingGoodView.m */,
+				77062FCC288080D300E9FD7D /* GoodsOperationView.h */,
+				77062FCD288080D300E9FD7D /* GoodsOperationView.m */,
+				77062FD0288091FF00E9FD7D /* GoodStatusView.h */,
+				77062FD12880920000E9FD7D /* GoodStatusView.m */,
 			);
 			path = Goods;
 			sourceTree = "<group>";
@@ -1462,6 +1480,7 @@
 				7773668C2873031A00245EDB /* st_mobile_animal.h in Headers */,
 				77781CB42840C059009DC71C /* QNFoundation.h in Headers */,
 				776B1C8E283CBB2100D85C73 /* QNLivePushClient.h in Headers */,
+				77062FD22880920000E9FD7D /* GoodStatusView.h in Headers */,
 				776B1C92283CBBA100D85C73 /* QNCameraParams.h in Headers */,
 				777B7A77284F419B005032B7 /* UIColor+QNColor.h in Headers */,
 				77781C0A283D1337009DC71C /* QNPKSession.h in Headers */,
@@ -1479,6 +1498,7 @@
 				77781D7128486D3D009DC71C /* QTextMessageCell.h in Headers */,
 				77781D7028486D3D009DC71C /* QMessageBaseCell.h in Headers */,
 				77781D6628486D35009DC71C /* QInputBarControl.h in Headers */,
+				77062FCE288080D300E9FD7D /* GoodsOperationView.h in Headers */,
 				77781D5428486D13009DC71C /* LiveChatRoom.h in Headers */,
 				77781D6528486D35009DC71C /* QInputView.h in Headers */,
 				77781D9F28488932009DC71C /* QNBaseRTCController.h in Headers */,
@@ -1518,6 +1538,7 @@
 				77EDC3FA286DA564002B4226 /* STMobileLog.h in Headers */,
 				77EDC476286DA565002B4226 /* STBeautySlider.h in Headers */,
 				77EDC44B286DA565002B4226 /* STScrollTitleView.h in Headers */,
+				77062FCA288062D600E9FD7D /* GoodsOperationCell.h in Headers */,
 				77EDC44C286DA565002B4226 /* STViewButton.h in Headers */,
 				77EDC45C286DA565002B4226 /* STBMPCollectionViewCell.h in Headers */,
 				77EDC44D286DA565002B4226 /* STFilterView.h in Headers */,
@@ -1807,6 +1828,7 @@
 				777186A42862C5D100C5CABC /* QToastView.m in Sources */,
 				77EDC440286DA565002B4226 /* STMovieRecorder.m in Sources */,
 				776B1C93283CBBA100D85C73 /* QNCameraParams.m in Sources */,
+				77062FCF288080D300E9FD7D /* GoodsOperationView.m in Sources */,
 				776B1C83283CB2AA00D85C73 /* QNLiveUser.m in Sources */,
 				77204D88285F97A20053B1AD /* PubChatModel.m in Sources */,
 				77EDC474286DA565002B4226 /* EffectsCollectionView.m in Sources */,
@@ -1893,7 +1915,9 @@
 				77781CB32840C059009DC71C /* NSObject+QNCoding.m in Sources */,
 				77781D5128460813009DC71C /* ImageButtonView.m in Sources */,
 				77781C0B283D1337009DC71C /* QNPKSession.m in Sources */,
+				77062FCB288062D600E9FD7D /* GoodsOperationCell.m in Sources */,
 				77EDC43C286DA564002B4226 /* SoundInfomation.m in Sources */,
+				77062FD32880920000E9FD7D /* GoodStatusView.m in Sources */,
 				77EDC443286DA565002B4226 /* LicenseUtil.m in Sources */,
 				77781C42283DE000009DC71C /* Extension.m in Sources */,
 				77062FBF288005CE00E9FD7D /* GoodBuyItemCell.m in Sources */,

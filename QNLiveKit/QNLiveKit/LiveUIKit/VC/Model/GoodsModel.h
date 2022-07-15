@@ -14,6 +14,7 @@ typedef NS_ENUM(NSUInteger, QLiveGoodsStatus) {
     QLiveGoodsStatusTakeDown = 0,//下架(用户不可见)
     QLiveGoodsStatusTakeOn = 1, //上架(用户可见)
     QLiveGoodsStatusForbidden = 2, //上架不能购买
+    QLiveGoodsStatusTakeAll  = 3,
 };
 
 //商品model
@@ -40,7 +41,8 @@ typedef NS_ENUM(NSUInteger, QLiveGoodsStatus) {
 @property(nonatomic, strong) NSDictionary *extends;//扩展信息
 
 @property(nonatomic, assign) BOOL isExplaining;//商品是否正在讲解中
-                                                                                                            
+  
+@property(nonatomic, assign) BOOL isSelected;//商品是否选中
 @end
 
 NS_ASSUME_NONNULL_END
