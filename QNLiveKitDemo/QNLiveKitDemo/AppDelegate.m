@@ -44,11 +44,10 @@
         [weakSelf getLiveToken:^(NSString * _Nonnull token) {
             
             [QLive initWithToken:token serverURL:LiveAPI errorBack:nil];
-            [QLive setUser:QN_User_avatar nick:QN_User_nickname extension:nil];
         }];
         
     }];
-    [QLive setUser:QN_User_avatar nick:QN_User_nickname extension:nil];
+
 }
 
 //获取liveToken

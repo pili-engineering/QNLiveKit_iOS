@@ -21,7 +21,7 @@
 
 @implementation QLive
 
-+ (void)initWithToken:(NSString *)token serverURL:(nonnull NSString *)serverURL errorBack:(nullable void (^)(NSError * _Nonnull))errorBack {
++ (void)initWithToken:(NSString *)token serverURL:(nonnull NSString *)serverURL errorBack:(nullable void (^)(NSError * _Nullable))errorBack{
     if (token.length == 0) {
         return;
     }
@@ -31,18 +31,19 @@
     [defaults setObject:serverURL forKey:Live_URL];
     [defaults synchronize];
     
-    [QLiveNetworkUtil getRequestWithAction:@"client/user/profile" params:nil success:^(NSDictionary * _Nonnull responseData) {
+    [QLive getSelfUser:^(QNLiveUser * _Nullable user, NSError * _Nullable QError) {
         
-        if ([responseData isKindOfClass:[NSNull class]] || [responseData isEqual:[NSNull null]]) {
-
-            NSDictionary *info = @{NSLocalizedDescriptionKey : @"token error"};
-            NSError *error = [NSError errorWithDomain:@"token error" code:404000 userInfo:info];
-            errorBack(error);
+        if (user) {
+            [[QNIMClient sharedClient] signInByName:user.im_username password:user.im_password completion:^(QNIMError * _Nonnull error) {
+//                NSLog(@"---七牛IM服务器连接状态-%li",[QNIMClient sharedClient].connectStatus);
+            }];
+        } else {
+            if (errorBack) {
+                errorBack(QError);
+            }
         }
         
-        } failure:^(NSError * _Nonnull error) {
-            errorBack(error);
-        }];
+    }];
     
 }
 
@@ -89,13 +90,6 @@
     
     [QLiveNetworkUtil putRequestWithAction:@"client/user/user" params:params success:^(NSDictionary * _Nonnull responseData) {
         
-        [QLive getSelfUser:^(QNLiveUser *user) {
-            
-            [[QNIMClient sharedClient] signInByName:user.im_username password:user.im_password completion:^(QNIMError * _Nonnull error) {
-                NSLog(@"---七牛IM服务器连接状态-%li",[QNIMClient sharedClient].connectStatus);
-            }];
-        }];
-        
         } failure:^(NSError * _Nonnull error) {
 
         }];
@@ -124,7 +118,7 @@
 }
 
 //获取自己的信息
-+ (void)getSelfUser:(void (^)(QNLiveUser * _Nonnull))callBack {
++ (void)getSelfUser:(void (^)(QNLiveUser * _Nullable, NSError * _Nullable))callBack {
     
     [QLiveNetworkUtil getRequestWithAction:@"client/user/profile" params:nil success:^(NSDictionary * _Nonnull responseData) {
         
@@ -136,9 +130,10 @@
         [defaults setObject:user.im_password forKey:QN_IM_USER_PASSWORD_KEY];
         [defaults synchronize];
         
-        callBack(user);
+        callBack(user,nil);
+        
         } failure:^(NSError * _Nonnull error) {
-            callBack(nil);
+            callBack(nil,error);
         }];
 }
 
