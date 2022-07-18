@@ -15,6 +15,7 @@ NS_ASSUME_NONNULL_BEGIN
 @interface QNBaseRTCController : UIViewController
 
 @property (nonatomic, strong) QRenderView *preview;//自己画面的预览视图
+@property (nonatomic, strong) QRenderView *remoteView;//远端画面
 @property (nonatomic, strong) UIView *renderBackgroundView;//上面只能添加视频流画面
 @property (nonatomic,strong) QNLiveRoomInfo *roomInfo;
 @property (nonatomic, strong) QNChatRoomService * chatService;
