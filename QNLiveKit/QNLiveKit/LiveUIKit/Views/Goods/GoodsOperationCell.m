@@ -40,7 +40,7 @@
         [self titleLabel];
         [self tagLabel];
         [self currentPriceLabel];
-        [self sortButton];
+//        [self sortButton];
         
     }
     return self;
@@ -73,7 +73,7 @@
         [_selectButton addTarget:self action:@selector(selectButtonClicked:) forControlEvents:UIControlEventTouchUpInside];
         [self.contentView addSubview:_selectButton];
         [_selectButton mas_makeConstraints:^(MASConstraintMaker *make) {
-            make.left.equalTo(self.contentView).offset(20);
+            make.left.equalTo(self.contentView);
             make.centerY.equalTo(self.contentView);
             make.width.height.mas_equalTo(30);
         }];
@@ -155,7 +155,7 @@
         _currentPriceLabel.font = [UIFont systemFontOfSize:16];
         [self.contentView addSubview:_currentPriceLabel];
         [_currentPriceLabel mas_makeConstraints:^(MASConstraintMaker *make) {
-            make.left.equalTo(self.tagLabel).offset(15);
+            make.left.equalTo(self.tagLabel);
             make.bottom.equalTo(self.iconImageView.mas_bottom);
         }];
     }

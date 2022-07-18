@@ -18,7 +18,8 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, copy) void (^takeDownClickedBlock)(GoodsModel *itemModel);
 //讲解商品
 @property (nonatomic, copy) void (^explainClickedBlock)(GoodsModel *itemModel);
-
+//商品被点击
+@property (nonatomic, copy) void (^goodClickedBlock)(GoodsModel *itemModel);
 @end
 
 NS_ASSUME_NONNULL_END
