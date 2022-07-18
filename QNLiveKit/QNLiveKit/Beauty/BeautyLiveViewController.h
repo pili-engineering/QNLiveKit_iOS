@@ -6,13 +6,13 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "STBaseViewController.h"
+#import "BeautyBaseController.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
 @class QNLiveRoomInfo,QNLivePushClient,QNLiveRoomClient,QNChatRoomService,LiveChatRoom,QNMergeOption,QPKService,QRenderView,FDanmakuView,QLinkMicService,RoomHostView,OnlineUserView,ImageButtonView,BottomMenuView,STBaseViewController;
 
-@interface BeautyLiveViewController : STBaseViewController
+@interface BeautyLiveViewController : BeautyBaseController
 
 @property (nonatomic, strong) RoomHostView *roomHostView;//房主槽位
 @property (nonatomic, strong) OnlineUserView *onlineUserView;//右上角在线人数槽位

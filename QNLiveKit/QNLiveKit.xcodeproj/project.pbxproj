@@ -178,6 +178,8 @@
 		777B7A88284F5BC5005032B7 /* QNInvitationMemberListController.m in Sources */ = {isa = PBXBuildFile; fileRef = 777B7A86284F5BC4005032B7 /* QNInvitationMemberListController.m */; };
 		7798A79928814872009DEB27 /* UITableView+MoveCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 7798A79728814872009DEB27 /* UITableView+MoveCell.m */; };
 		7798A79A28814872009DEB27 /* UITableView+MoveCell.h in Headers */ = {isa = PBXBuildFile; fileRef = 7798A79828814872009DEB27 /* UITableView+MoveCell.h */; };
+		77A11C6028854A7A00020149 /* BeautyBaseController.h in Headers */ = {isa = PBXBuildFile; fileRef = 77A11C5E28854A7A00020149 /* BeautyBaseController.h */; };
+		77A11C6128854A7A00020149 /* BeautyBaseController.m in Sources */ = {isa = PBXBuildFile; fileRef = 77A11C5F28854A7A00020149 /* BeautyBaseController.m */; };
 		77A8D26E28782DF0001A3C2C /* AssetsLibrary.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 77A8D26D28782DF0001A3C2C /* AssetsLibrary.framework */; };
 		77E02E31284E245A00EE8A28 /* QNAudienceController.h in Headers */ = {isa = PBXBuildFile; fileRef = 77E02E2F284E245A00EE8A28 /* QNAudienceController.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		77E02E32284E245A00EE8A28 /* QNAudienceController.m in Sources */ = {isa = PBXBuildFile; fileRef = 77E02E30284E245A00EE8A28 /* QNAudienceController.m */; };
@@ -297,8 +299,6 @@
 		77EDC476286DA565002B4226 /* STBeautySlider.h in Headers */ = {isa = PBXBuildFile; fileRef = 77EDC3CF286DA563002B4226 /* STBeautySlider.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		77EDC477286DA565002B4226 /* STBMPCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 77EDC3D0286DA563002B4226 /* STBMPCollectionViewCell.m */; };
 		77EDC478286DA565002B4226 /* UIView+Toast.m in Sources */ = {isa = PBXBuildFile; fileRef = 77EDC3D1286DA564002B4226 /* UIView+Toast.m */; };
-		77EDC49B286DA9AB002B4226 /* BeautyContainerView.h in Headers */ = {isa = PBXBuildFile; fileRef = 77EDC499286DA9AB002B4226 /* BeautyContainerView.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		77EDC49C286DA9AB002B4226 /* BeautyContainerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 77EDC49A286DA9AB002B4226 /* BeautyContainerView.m */; };
 		77EDC49F286DAD99002B4226 /* BeautyLiveViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = 77EDC49D286DAD99002B4226 /* BeautyLiveViewController.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		77EDC4A0286DAD99002B4226 /* BeautyLiveViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 77EDC49E286DAD99002B4226 /* BeautyLiveViewController.m */; };
 		77EDC4A3286EA40C002B4226 /* libSenseArSourceService.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 77EDC4A2286EA40C002B4226 /* libSenseArSourceService.a */; };
@@ -504,6 +504,8 @@
 		777B7A86284F5BC4005032B7 /* QNInvitationMemberListController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QNInvitationMemberListController.m; sourceTree = "<group>"; };
 		7798A79728814872009DEB27 /* UITableView+MoveCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UITableView+MoveCell.m"; sourceTree = "<group>"; };
 		7798A79828814872009DEB27 /* UITableView+MoveCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UITableView+MoveCell.h"; sourceTree = "<group>"; };
+		77A11C5E28854A7A00020149 /* BeautyBaseController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BeautyBaseController.h; sourceTree = "<group>"; };
+		77A11C5F28854A7A00020149 /* BeautyBaseController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BeautyBaseController.m; sourceTree = "<group>"; };
 		77A8D26D28782DF0001A3C2C /* AssetsLibrary.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AssetsLibrary.framework; path = Platforms/MacOSX.platform/Developer/SDKs/MacOSX12.3.sdk/System/iOSSupport/System/Library/Frameworks/AssetsLibrary.framework; sourceTree = DEVELOPER_DIR; };
 		77E02E2F284E245A00EE8A28 /* QNAudienceController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = QNAudienceController.h; sourceTree = "<group>"; };
 		77E02E30284E245A00EE8A28 /* QNAudienceController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = QNAudienceController.m; sourceTree = "<group>"; };
@@ -624,8 +626,6 @@
 		77EDC3D0286DA563002B4226 /* STBMPCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = STBMPCollectionViewCell.m; sourceTree = "<group>"; };
 		77EDC3D1286DA564002B4226 /* UIView+Toast.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+Toast.m"; sourceTree = "<group>"; };
 		77EDC3F2286DA564002B4226 /* VERSION */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = VERSION; sourceTree = "<group>"; };
-		77EDC499286DA9AB002B4226 /* BeautyContainerView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BeautyContainerView.h; sourceTree = "<group>"; };
-		77EDC49A286DA9AB002B4226 /* BeautyContainerView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BeautyContainerView.m; sourceTree = "<group>"; };
 		77EDC49D286DAD99002B4226 /* BeautyLiveViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BeautyLiveViewController.h; sourceTree = "<group>"; };
 		77EDC49E286DAD99002B4226 /* BeautyLiveViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BeautyLiveViewController.m; sourceTree = "<group>"; };
 		77EDC4A2286EA40C002B4226 /* libSenseArSourceService.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libSenseArSourceService.a; sourceTree = "<group>"; };
@@ -1048,8 +1048,6 @@
 				77EDC381286DA563002B4226 /* architecture */,
 				77EDC38C286DA563002B4226 /* Audio */,
 				77EDC395286DA563002B4226 /* VideoRecord */,
-				77EDC398286DA563002B4226 /* STBaseViewController.h */,
-				77EDC380286DA563002B4226 /* STBaseViewController.m */,
 				77EDC399286DA563002B4226 /* LicenseUtil */,
 				77EDC39C286DA563002B4226 /* UIElements */,
 				77EDC3D2286DA564002B4226 /* st_mobile_sdk */,
@@ -1367,10 +1365,12 @@
 			isa = PBXGroup;
 			children = (
 				77EDC339286DA563002B4226 /* Effect */,
-				77EDC499286DA9AB002B4226 /* BeautyContainerView.h */,
-				77EDC49A286DA9AB002B4226 /* BeautyContainerView.m */,
+				77EDC398286DA563002B4226 /* STBaseViewController.h */,
+				77EDC380286DA563002B4226 /* STBaseViewController.m */,
 				77EDC49D286DAD99002B4226 /* BeautyLiveViewController.h */,
 				77EDC49E286DAD99002B4226 /* BeautyLiveViewController.m */,
+				77A11C5E28854A7A00020149 /* BeautyBaseController.h */,
+				77A11C5F28854A7A00020149 /* BeautyBaseController.m */,
 			);
 			path = Beauty;
 			sourceTree = "<group>";
@@ -1465,7 +1465,6 @@
 				77EDC429286DA564002B4226 /* SenseArMaterial.h in Headers */,
 				77EDC43F286DA565002B4226 /* STMovieRecorder.h in Headers */,
 				77EDC430286DA564002B4226 /* STCoreStateManagement.h in Headers */,
-				77EDC49B286DA9AB002B4226 /* BeautyContainerView.h in Headers */,
 				77EDC403286DA564002B4226 /* DefaultBeautyParameters.h in Headers */,
 				77EDC428286DA564002B4226 /* SenseArMaterialAction.h in Headers */,
 				77EDC3FA286DA564002B4226 /* STMobileLog.h in Headers */,
@@ -1514,6 +1513,7 @@
 				777B7A83284F5A6F005032B7 /* QNInvitationMemberListCell.h in Headers */,
 				77781CC12840C05A009DC71C /* NSObject+QNCoding.h in Headers */,
 				7773668D2873031A00245EDB /* st_mobile_human_action.h in Headers */,
+				77A11C6028854A7A00020149 /* BeautyBaseController.h in Headers */,
 				777B7A6F284F1F78005032B7 /* QAlertView.h in Headers */,
 				77781D482845FC68009DC71C /* BottomMenuView.h in Headers */,
 				77204D68285F755C0053B1AD /* QCreateLiveController.h in Headers */,
@@ -1751,7 +1751,6 @@
 				776B1CAD283CC6EC00D85C73 /* QLiveNetworkUtil.m in Sources */,
 				77EDC468286DA565002B4226 /* STBMPDetailColVCell.m in Sources */,
 				776B1CF3283D0F2000D85C73 /* LinkInvitation.m in Sources */,
-				77EDC49C286DA9AB002B4226 /* BeautyContainerView.m in Sources */,
 				77EDC451286DA565002B4226 /* STMakeupDataModel.m in Sources */,
 				77EDC3F9286DA564002B4226 /* STEffectsTimer.m in Sources */,
 				77781D402845E75B009DC71C /* UIImage+QNImage.m in Sources */,
@@ -1783,6 +1782,7 @@
 				776B1C6F283C792B00D85C73 /* QLive.m in Sources */,
 				77062FAE287E795F00E9FD7D /* GoodsSellListController.m in Sources */,
 				77062FBB288004AA00E9FD7D /* GoodsBuyListController.m in Sources */,
+				77A11C6128854A7A00020149 /* BeautyBaseController.m in Sources */,
 				77EDC438286DA564002B4226 /* SystemSound.m in Sources */,
 				77781D6F28486D3D009DC71C /* QTextMessageCell.m in Sources */,
 				776B1CD6283D024E00D85C73 /* QLinkMicService.m in Sources */,
