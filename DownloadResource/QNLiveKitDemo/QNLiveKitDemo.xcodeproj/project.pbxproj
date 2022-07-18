@@ -301,9 +301,9 @@
 		776B1BDC28378CCD00D85C73 /* QNLiveKitDemo */ = {
 			isa = PBXGroup;
 			children = (
-				77A11C5B288540EC00020149 /* BeautyResource */,
 				77781C7D283E1EB2009DC71C /* QNIMSDK.framework */,
 				77A11C682885765600020149 /* QNLiveKit.framework */,
+				77A11C5B288540EC00020149 /* BeautyResource */,
 				776B1BDD28378CCD00D85C73 /* AppDelegate.h */,
 				776B1BDE28378CCD00D85C73 /* AppDelegate.m */,
 				77781C82283E1EE6009DC71C /* Tools */,
