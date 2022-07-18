@@ -98,7 +98,7 @@
 		</data>
 		<key>Headers/QNIMMessageAttachment.h</key>
 		<data>
-		2Q8Ts2+QYLt0ylD9K2YoWDAudOw=
+		ju5LzTr8hlmJ7SjAx1+zAySP2Rs=
 		</data>
 		<key>Headers/QNIMMessageConfig.h</key>
 		<data>
@@ -170,7 +170,7 @@
 		</data>
 		<key>Info.plist</key>
 		<data>
-		uGv6Ce04rWKTVP/doWFZKQTyoqA=
+		lqZMfp8Oeoynjr9F9/E1umYbuGw=
 		</data>
 		<key>Modules/module.modulemap</key>
 		<data>
@@ -436,11 +436,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			2Q8Ts2+QYLt0ylD9K2YoWDAudOw=
+			ju5LzTr8hlmJ7SjAx1+zAySP2Rs=
 			</data>
 			<key>hash2</key>
 			<data>
-			D+doSjtGEmXjb+2zOpK0sD+m92jVEK9T0hi+ZWyDzPY=
+			dP0dIQNRSiX3N6dUqiJ6IhryrgkClErvXYKekL9iw0o=
 			</data>
 		</dict>
 		<key>Headers/QNIMMessageConfig.h</key>

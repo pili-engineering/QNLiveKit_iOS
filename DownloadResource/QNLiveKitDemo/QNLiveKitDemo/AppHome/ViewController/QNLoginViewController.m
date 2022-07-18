@@ -149,7 +149,9 @@
         [defaults synchronize];
         
         [QLive initWithToken:responseData[@"accessToken"] serverURL:LiveAPI errorBack:^(NSError * _Nonnull error) {
-            
+            if (error) {
+                NSLog(@"QLive初始化错误%@",error);
+            }
         }];
         [QLive setUser:user.avatar nick:user.nickname extension:nil];
 
