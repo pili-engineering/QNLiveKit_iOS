@@ -297,25 +297,6 @@
 		77EDC476286DA565002B4226 /* STBeautySlider.h in Headers */ = {isa = PBXBuildFile; fileRef = 77EDC3CF286DA563002B4226 /* STBeautySlider.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		77EDC477286DA565002B4226 /* STBMPCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 77EDC3D0286DA563002B4226 /* STBMPCollectionViewCell.m */; };
 		77EDC478286DA565002B4226 /* UIView+Toast.m in Sources */ = {isa = PBXBuildFile; fileRef = 77EDC3D1286DA564002B4226 /* UIView+Toast.m */; };
-		77EDC479286DA565002B4226 /* SENSEME.lic in Resources */ = {isa = PBXBuildFile; fileRef = 77EDC3D4286DA564002B4226 /* SENSEME.lic */; };
-		77EDC483286DA565002B4226 /* M_SenseME_Segment_Head_1.0.3.model in Resources */ = {isa = PBXBuildFile; fileRef = 77EDC3E0286DA564002B4226 /* M_SenseME_Segment_Head_1.0.3.model */; };
-		77EDC484286DA565002B4226 /* M_SenseME_DogFace_2.0.0.model in Resources */ = {isa = PBXBuildFile; fileRef = 77EDC3E1286DA564002B4226 /* M_SenseME_DogFace_2.0.0.model */; };
-		77EDC485286DA565002B4226 /* M_SenseAR_Segment_MouthOcclusion_FastV1_1.1.2.model in Resources */ = {isa = PBXBuildFile; fileRef = 77EDC3E2286DA564002B4226 /* M_SenseAR_Segment_MouthOcclusion_FastV1_1.1.2.model */; };
-		77EDC486286DA565002B4226 /* M_SenseME_Segment_MouthOcclusion_FastV1_1.1.3.model in Resources */ = {isa = PBXBuildFile; fileRef = 77EDC3E3286DA564002B4226 /* M_SenseME_Segment_MouthOcclusion_FastV1_1.1.3.model */; };
-		77EDC487286DA565002B4226 /* SenseAR_v6.11.0(Effects)_Model_Usage_Instructions.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 77EDC3E4286DA564002B4226 /* SenseAR_v6.11.0(Effects)_Model_Usage_Instructions.pdf */; };
-		77EDC488286DA565002B4226 /* M_SenseME_Segment_Skin_1.1.1.model in Resources */ = {isa = PBXBuildFile; fileRef = 77EDC3E5286DA564002B4226 /* M_SenseME_Segment_Skin_1.1.1.model */; };
-		77EDC489286DA565002B4226 /* M_SenseME_CatFace_3.2.0.model in Resources */ = {isa = PBXBuildFile; fileRef = 77EDC3E6286DA564002B4226 /* M_SenseME_CatFace_3.2.0.model */; };
-		77EDC48A286DA565002B4226 /* M_SenseME_Segment_4.12.8.model in Resources */ = {isa = PBXBuildFile; fileRef = 77EDC3E7286DA564002B4226 /* M_SenseME_Segment_4.12.8.model */; };
-		77EDC48B286DA565002B4226 /* M_SenseME_Face_Extra_Advanced_6.0.13.model in Resources */ = {isa = PBXBuildFile; fileRef = 77EDC3E8286DA564002B4226 /* M_SenseME_Face_Extra_Advanced_6.0.13.model */; };
-		77EDC48C286DA565002B4226 /* M_SenseME_Hand_5.4.0.model in Resources */ = {isa = PBXBuildFile; fileRef = 77EDC3E9286DA564002B4226 /* M_SenseME_Hand_5.4.0.model */; };
-		77EDC48D286DA565002B4226 /* M_SenseME_Face_Video_7.0.0.model in Resources */ = {isa = PBXBuildFile; fileRef = 77EDC3EA286DA564002B4226 /* M_SenseME_Face_Video_7.0.0.model */; };
-		77EDC48E286DA565002B4226 /* M_SenseME_Segment_4.12.11.model in Resources */ = {isa = PBXBuildFile; fileRef = 77EDC3EB286DA564002B4226 /* M_SenseME_Segment_4.12.11.model */; };
-		77EDC48F286DA565002B4226 /* M_SenseME_Segment_Hair_1.3.4.model in Resources */ = {isa = PBXBuildFile; fileRef = 77EDC3EC286DA564002B4226 /* M_SenseME_Segment_Hair_1.3.4.model */; };
-		77EDC490286DA565002B4226 /* M_SenseME_Segment_DBL_Face_1.0.7.model in Resources */ = {isa = PBXBuildFile; fileRef = 77EDC3ED286DA564002B4226 /* M_SenseME_Segment_DBL_Face_1.0.7.model */; };
-		77EDC491286DA565002B4226 /* M_SenseME_Segment_Sky_1.0.3.model in Resources */ = {isa = PBXBuildFile; fileRef = 77EDC3EE286DA564002B4226 /* M_SenseME_Segment_Sky_1.0.3.model */; };
-		77EDC492286DA565002B4226 /* M_SenseME_Attribute_1.0.1.model in Resources */ = {isa = PBXBuildFile; fileRef = 77EDC3EF286DA564002B4226 /* M_SenseME_Attribute_1.0.1.model */; };
-		77EDC493286DA565002B4226 /* SenseAR_v8.5.0(Effects)_Model_Usage_Instructions的.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 77EDC3F0286DA564002B4226 /* SenseAR_v8.5.0(Effects)_Model_Usage_Instructions的.pdf */; };
-		77EDC494286DA565002B4226 /* M_SenseME_Avatar_Help_2.2.0.model in Resources */ = {isa = PBXBuildFile; fileRef = 77EDC3F1286DA564002B4226 /* M_SenseME_Avatar_Help_2.2.0.model */; };
 		77EDC49B286DA9AB002B4226 /* BeautyContainerView.h in Headers */ = {isa = PBXBuildFile; fileRef = 77EDC499286DA9AB002B4226 /* BeautyContainerView.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		77EDC49C286DA9AB002B4226 /* BeautyContainerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 77EDC49A286DA9AB002B4226 /* BeautyContainerView.m */; };
 		77EDC49F286DAD99002B4226 /* BeautyLiveViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = 77EDC49D286DAD99002B4226 /* BeautyLiveViewController.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -642,25 +623,6 @@
 		77EDC3CF286DA563002B4226 /* STBeautySlider.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = STBeautySlider.h; sourceTree = "<group>"; };
 		77EDC3D0286DA563002B4226 /* STBMPCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = STBMPCollectionViewCell.m; sourceTree = "<group>"; };
 		77EDC3D1286DA564002B4226 /* UIView+Toast.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+Toast.m"; sourceTree = "<group>"; };
-		77EDC3D4286DA564002B4226 /* SENSEME.lic */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = SENSEME.lic; sourceTree = "<group>"; };
-		77EDC3E0286DA564002B4226 /* M_SenseME_Segment_Head_1.0.3.model */ = {isa = PBXFileReference; lastKnownFileType = file; path = M_SenseME_Segment_Head_1.0.3.model; sourceTree = "<group>"; };
-		77EDC3E1286DA564002B4226 /* M_SenseME_DogFace_2.0.0.model */ = {isa = PBXFileReference; lastKnownFileType = file; path = M_SenseME_DogFace_2.0.0.model; sourceTree = "<group>"; };
-		77EDC3E2286DA564002B4226 /* M_SenseAR_Segment_MouthOcclusion_FastV1_1.1.2.model */ = {isa = PBXFileReference; lastKnownFileType = file; path = M_SenseAR_Segment_MouthOcclusion_FastV1_1.1.2.model; sourceTree = "<group>"; };
-		77EDC3E3286DA564002B4226 /* M_SenseME_Segment_MouthOcclusion_FastV1_1.1.3.model */ = {isa = PBXFileReference; lastKnownFileType = file; path = M_SenseME_Segment_MouthOcclusion_FastV1_1.1.3.model; sourceTree = "<group>"; };
-		77EDC3E4286DA564002B4226 /* SenseAR_v6.11.0(Effects)_Model_Usage_Instructions.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = "SenseAR_v6.11.0(Effects)_Model_Usage_Instructions.pdf"; sourceTree = "<group>"; };
-		77EDC3E5286DA564002B4226 /* M_SenseME_Segment_Skin_1.1.1.model */ = {isa = PBXFileReference; lastKnownFileType = file; path = M_SenseME_Segment_Skin_1.1.1.model; sourceTree = "<group>"; };
-		77EDC3E6286DA564002B4226 /* M_SenseME_CatFace_3.2.0.model */ = {isa = PBXFileReference; lastKnownFileType = file; path = M_SenseME_CatFace_3.2.0.model; sourceTree = "<group>"; };
-		77EDC3E7286DA564002B4226 /* M_SenseME_Segment_4.12.8.model */ = {isa = PBXFileReference; lastKnownFileType = file; path = M_SenseME_Segment_4.12.8.model; sourceTree = "<group>"; };
-		77EDC3E8286DA564002B4226 /* M_SenseME_Face_Extra_Advanced_6.0.13.model */ = {isa = PBXFileReference; lastKnownFileType = file; path = M_SenseME_Face_Extra_Advanced_6.0.13.model; sourceTree = "<group>"; };
-		77EDC3E9286DA564002B4226 /* M_SenseME_Hand_5.4.0.model */ = {isa = PBXFileReference; lastKnownFileType = file; path = M_SenseME_Hand_5.4.0.model; sourceTree = "<group>"; };
-		77EDC3EA286DA564002B4226 /* M_SenseME_Face_Video_7.0.0.model */ = {isa = PBXFileReference; lastKnownFileType = file; path = M_SenseME_Face_Video_7.0.0.model; sourceTree = "<group>"; };
-		77EDC3EB286DA564002B4226 /* M_SenseME_Segment_4.12.11.model */ = {isa = PBXFileReference; lastKnownFileType = file; path = M_SenseME_Segment_4.12.11.model; sourceTree = "<group>"; };
-		77EDC3EC286DA564002B4226 /* M_SenseME_Segment_Hair_1.3.4.model */ = {isa = PBXFileReference; lastKnownFileType = file; path = M_SenseME_Segment_Hair_1.3.4.model; sourceTree = "<group>"; };
-		77EDC3ED286DA564002B4226 /* M_SenseME_Segment_DBL_Face_1.0.7.model */ = {isa = PBXFileReference; lastKnownFileType = file; path = M_SenseME_Segment_DBL_Face_1.0.7.model; sourceTree = "<group>"; };
-		77EDC3EE286DA564002B4226 /* M_SenseME_Segment_Sky_1.0.3.model */ = {isa = PBXFileReference; lastKnownFileType = file; path = M_SenseME_Segment_Sky_1.0.3.model; sourceTree = "<group>"; };
-		77EDC3EF286DA564002B4226 /* M_SenseME_Attribute_1.0.1.model */ = {isa = PBXFileReference; lastKnownFileType = file; path = M_SenseME_Attribute_1.0.1.model; sourceTree = "<group>"; };
-		77EDC3F0286DA564002B4226 /* SenseAR_v8.5.0(Effects)_Model_Usage_Instructions的.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = "SenseAR_v8.5.0(Effects)_Model_Usage_Instructions的.pdf"; sourceTree = "<group>"; };
-		77EDC3F1286DA564002B4226 /* M_SenseME_Avatar_Help_2.2.0.model */ = {isa = PBXFileReference; lastKnownFileType = file; path = M_SenseME_Avatar_Help_2.2.0.model; sourceTree = "<group>"; };
 		77EDC3F2286DA564002B4226 /* VERSION */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = VERSION; sourceTree = "<group>"; };
 		77EDC499286DA9AB002B4226 /* BeautyContainerView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BeautyContainerView.h; sourceTree = "<group>"; };
 		77EDC49A286DA9AB002B4226 /* BeautyContainerView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BeautyContainerView.m; sourceTree = "<group>"; };
@@ -1379,45 +1341,10 @@
 			isa = PBXGroup;
 			children = (
 				777366812873031A00245EDB /* include */,
-				77EDC3D3286DA564002B4226 /* license */,
-				77EDC3DF286DA564002B4226 /* models */,
 				77EDC3F2286DA564002B4226 /* VERSION */,
 				77EDC3F3286DA564002B4226 /* lib */,
 			);
 			path = st_mobile_sdk;
-			sourceTree = "<group>";
-		};
-		77EDC3D3286DA564002B4226 /* license */ = {
-			isa = PBXGroup;
-			children = (
-				77EDC3D4286DA564002B4226 /* SENSEME.lic */,
-			);
-			path = license;
-			sourceTree = "<group>";
-		};
-		77EDC3DF286DA564002B4226 /* models */ = {
-			isa = PBXGroup;
-			children = (
-				77EDC3E0286DA564002B4226 /* M_SenseME_Segment_Head_1.0.3.model */,
-				77EDC3E1286DA564002B4226 /* M_SenseME_DogFace_2.0.0.model */,
-				77EDC3E2286DA564002B4226 /* M_SenseAR_Segment_MouthOcclusion_FastV1_1.1.2.model */,
-				77EDC3E3286DA564002B4226 /* M_SenseME_Segment_MouthOcclusion_FastV1_1.1.3.model */,
-				77EDC3E4286DA564002B4226 /* SenseAR_v6.11.0(Effects)_Model_Usage_Instructions.pdf */,
-				77EDC3E5286DA564002B4226 /* M_SenseME_Segment_Skin_1.1.1.model */,
-				77EDC3E6286DA564002B4226 /* M_SenseME_CatFace_3.2.0.model */,
-				77EDC3E7286DA564002B4226 /* M_SenseME_Segment_4.12.8.model */,
-				77EDC3E8286DA564002B4226 /* M_SenseME_Face_Extra_Advanced_6.0.13.model */,
-				77EDC3E9286DA564002B4226 /* M_SenseME_Hand_5.4.0.model */,
-				77EDC3EA286DA564002B4226 /* M_SenseME_Face_Video_7.0.0.model */,
-				77EDC3EB286DA564002B4226 /* M_SenseME_Segment_4.12.11.model */,
-				77EDC3EC286DA564002B4226 /* M_SenseME_Segment_Hair_1.3.4.model */,
-				77EDC3ED286DA564002B4226 /* M_SenseME_Segment_DBL_Face_1.0.7.model */,
-				77EDC3EE286DA564002B4226 /* M_SenseME_Segment_Sky_1.0.3.model */,
-				77EDC3EF286DA564002B4226 /* M_SenseME_Attribute_1.0.1.model */,
-				77EDC3F0286DA564002B4226 /* SenseAR_v8.5.0(Effects)_Model_Usage_Instructions的.pdf */,
-				77EDC3F1286DA564002B4226 /* M_SenseME_Avatar_Help_2.2.0.model */,
-			);
-			path = models;
 			sourceTree = "<group>";
 		};
 		77EDC3F3286DA564002B4226 /* lib */ = {
@@ -1711,40 +1638,21 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				77EDC487286DA565002B4226 /* SenseAR_v6.11.0(Effects)_Model_Usage_Instructions.pdf in Resources */,
-				77EDC492286DA565002B4226 /* M_SenseME_Attribute_1.0.1.model in Resources */,
 				77EDC416286DA564002B4226 /* eyelash.bundle in Resources */,
 				77EDC40A286DA564002B4226 /* StillLifeFilters.bundle in Resources */,
-				77EDC494286DA565002B4226 /* M_SenseME_Avatar_Help_2.2.0.model in Resources */,
 				77EDC419286DA564002B4226 /* wholemakeup.bundle in Resources */,
-				77EDC490286DA565002B4226 /* M_SenseME_Segment_DBL_Face_1.0.7.model in Resources */,
-				77EDC48D286DA565002B4226 /* M_SenseME_Face_Video_7.0.0.model in Resources */,
 				77EDC41C286DA564002B4226 /* blush.bundle in Resources */,
 				77EDC409286DA564002B4226 /* SceneryFilters.bundle in Resources */,
 				77EDC408286DA564002B4226 /* PortraitFilters.bundle in Resources */,
 				77EDC41D286DA564002B4226 /* my_sticker.bundle in Resources */,
-				77EDC484286DA565002B4226 /* M_SenseME_DogFace_2.0.0.model in Resources */,
-				77EDC483286DA565002B4226 /* M_SenseME_Segment_Head_1.0.3.model in Resources */,
-				77EDC493286DA565002B4226 /* SenseAR_v8.5.0(Effects)_Model_Usage_Instructions的.pdf in Resources */,
 				77EDC40C286DA564002B4226 /* whiten_gif.zip in Resources */,
-				77EDC48E286DA565002B4226 /* M_SenseME_Segment_4.12.11.model in Resources */,
-				77EDC485286DA565002B4226 /* M_SenseAR_Segment_MouthOcclusion_FastV1_1.1.2.model in Resources */,
-				77EDC48B286DA565002B4226 /* M_SenseME_Face_Extra_Advanced_6.0.13.model in Resources */,
-				77EDC48F286DA565002B4226 /* M_SenseME_Segment_Hair_1.3.4.model in Resources */,
 				77EDC417286DA564002B4226 /* lips.bundle in Resources */,
-				77EDC48A286DA565002B4226 /* M_SenseME_Segment_4.12.8.model in Resources */,
-				77EDC479286DA565002B4226 /* SENSEME.lic in Resources */,
 				77781D6328486D35009DC71C /* EmojiList.plist in Resources */,
 				77EDC418286DA564002B4226 /* brow.bundle in Resources */,
-				77EDC48C286DA565002B4226 /* M_SenseME_Hand_5.4.0.model in Resources */,
-				77EDC491286DA565002B4226 /* M_SenseME_Segment_Sky_1.0.3.model in Resources */,
 				77EDC40B286DA564002B4226 /* DeliciousFoodFilters.bundle in Resources */,
 				77EDC41A286DA564002B4226 /* face.bundle in Resources */,
 				77EDC42D286DA564002B4226 /* VERSION in Resources */,
 				77EDC41B286DA564002B4226 /* eyeshadow.bundle in Resources */,
-				77EDC486286DA565002B4226 /* M_SenseME_Segment_MouthOcclusion_FastV1_1.1.3.model in Resources */,
-				77EDC488286DA565002B4226 /* M_SenseME_Segment_Skin_1.1.1.model in Resources */,
-				77EDC489286DA565002B4226 /* M_SenseME_CatFace_3.2.0.model in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
