@@ -44,6 +44,7 @@
 		77781CDA2840C768009DC71C /* QNQuitLoginCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 77781CCE2840C768009DC71C /* QNQuitLoginCell.m */; };
 		77781CDB2840C768009DC71C /* QNPersonalViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 77781CD12840C768009DC71C /* QNPersonalViewModel.m */; };
 		77781CDC2840C768009DC71C /* QNPersonInfoTopView.m in Sources */ = {isa = PBXBuildFile; fileRef = 77781CD22840C768009DC71C /* QNPersonInfoTopView.m */; };
+		77A11C692885765600020149 /* QNLiveKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 77A11C682885765600020149 /* QNLiveKit.framework */; };
 		77A8D1C028757128001A3C2C /* SENSEME.lic in Resources */ = {isa = PBXBuildFile; fileRef = 77A8D1BF28757128001A3C2C /* SENSEME.lic */; };
 		77A8D1D82876CAD6001A3C2C /* M_SenseME_Segment_Head_1.0.3.model in Resources */ = {isa = PBXBuildFile; fileRef = 77A8D1C42876CAD5001A3C2C /* M_SenseME_Segment_Head_1.0.3.model */; };
 		77A8D1D92876CAD6001A3C2C /* M_SenseME_DogFace_2.0.0.model in Resources */ = {isa = PBXBuildFile; fileRef = 77A8D1C52876CAD5001A3C2C /* M_SenseME_DogFace_2.0.0.model */; };
@@ -76,7 +77,6 @@
 		77A8D2062876CB77001A3C2C /* eyeshadow.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 77A8D1F82876CB77001A3C2C /* eyeshadow.bundle */; };
 		77A8D2072876CB77001A3C2C /* blush.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 77A8D1F92876CB77001A3C2C /* blush.bundle */; };
 		77A8D2082876CB77001A3C2C /* my_sticker.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 77A8D1FB2876CB77001A3C2C /* my_sticker.bundle */; };
-		77A8D20B2876D09B001A3C2C /* QNLiveKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 77A8D20A2876D09B001A3C2C /* QNLiveKit.framework */; };
 		C5993B91A021CD7EDC4A0F36 /* Pods_QNLiveKitDemo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F467E60A07D600FCAAE77FD1 /* Pods_QNLiveKitDemo.framework */; };
 /* End PBXBuildFile section */
 
@@ -182,6 +182,7 @@
 		77781CD42840C768009DC71C /* QNAppReleaseInfoCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QNAppReleaseInfoCell.h; sourceTree = "<group>"; };
 		77781CD52840C768009DC71C /* QNQuitLoginCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QNQuitLoginCell.h; sourceTree = "<group>"; };
 		77781CDF2840C833009DC71C /* QNPublicHeader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QNPublicHeader.h; sourceTree = "<group>"; };
+		77A11C682885765600020149 /* QNLiveKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = QNLiveKit.framework; sourceTree = "<group>"; };
 		77A8D1BF28757128001A3C2C /* SENSEME.lic */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = SENSEME.lic; sourceTree = "<group>"; };
 		77A8D1C42876CAD5001A3C2C /* M_SenseME_Segment_Head_1.0.3.model */ = {isa = PBXFileReference; lastKnownFileType = file; path = M_SenseME_Segment_Head_1.0.3.model; sourceTree = "<group>"; };
 		77A8D1C52876CAD5001A3C2C /* M_SenseME_DogFace_2.0.0.model */ = {isa = PBXFileReference; lastKnownFileType = file; path = M_SenseME_DogFace_2.0.0.model; sourceTree = "<group>"; };
@@ -214,7 +215,6 @@
 		77A8D1F82876CB77001A3C2C /* eyeshadow.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = eyeshadow.bundle; sourceTree = "<group>"; };
 		77A8D1F92876CB77001A3C2C /* blush.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = blush.bundle; sourceTree = "<group>"; };
 		77A8D1FB2876CB77001A3C2C /* my_sticker.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = my_sticker.bundle; sourceTree = "<group>"; };
-		77A8D20A2876D09B001A3C2C /* QNLiveKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = QNLiveKit.framework; sourceTree = SOURCE_ROOT; };
 		86543AFAB4A8EADB1F77D392 /* Pods-QNLiveKitDemoTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-QNLiveKitDemoTests.release.xcconfig"; path = "Target Support Files/Pods-QNLiveKitDemoTests/Pods-QNLiveKitDemoTests.release.xcconfig"; sourceTree = "<group>"; };
 		B31E3F409ADE08D9D13B003F /* Pods-QNLiveKitDemo-QNLiveKitDemoUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-QNLiveKitDemo-QNLiveKitDemoUITests.release.xcconfig"; path = "Target Support Files/Pods-QNLiveKitDemo-QNLiveKitDemoUITests/Pods-QNLiveKitDemo-QNLiveKitDemoUITests.release.xcconfig"; sourceTree = "<group>"; };
 		B86C108BE2C7758CCFFA24C9 /* Pods-QNLiveKitDemo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-QNLiveKitDemo.release.xcconfig"; path = "Target Support Files/Pods-QNLiveKitDemo/Pods-QNLiveKitDemo.release.xcconfig"; sourceTree = "<group>"; };
@@ -228,7 +228,7 @@
 			files = (
 				7773669C2873E32100245EDB /* AssetsLibrary.framework in Frameworks */,
 				77781C7F283E1EBC009DC71C /* QNIMSDK.framework in Frameworks */,
-				77A8D20B2876D09B001A3C2C /* QNLiveKit.framework in Frameworks */,
+				77A11C692885765600020149 /* QNLiveKit.framework in Frameworks */,
 				C5993B91A021CD7EDC4A0F36 /* Pods_QNLiveKitDemo.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -301,11 +301,9 @@
 		776B1BDC28378CCD00D85C73 /* QNLiveKitDemo */ = {
 			isa = PBXGroup;
 			children = (
-				77A8D20A2876D09B001A3C2C /* QNLiveKit.framework */,
-				77A8D1EA2876CB77001A3C2C /* resources */,
-				77A8D1C32876CAD5001A3C2C /* models */,
-				77A8D1BF28757128001A3C2C /* SENSEME.lic */,
+				77A11C5B288540EC00020149 /* BeautyResource */,
 				77781C7D283E1EB2009DC71C /* QNIMSDK.framework */,
+				77A11C682885765600020149 /* QNLiveKit.framework */,
 				776B1BDD28378CCD00D85C73 /* AppDelegate.h */,
 				776B1BDE28378CCD00D85C73 /* AppDelegate.m */,
 				77781C82283E1EE6009DC71C /* Tools */,
@@ -438,6 +436,16 @@
 				77781CD52840C768009DC71C /* QNQuitLoginCell.h */,
 			);
 			path = Personal;
+			sourceTree = "<group>";
+		};
+		77A11C5B288540EC00020149 /* BeautyResource */ = {
+			isa = PBXGroup;
+			children = (
+				77A8D1BF28757128001A3C2C /* SENSEME.lic */,
+				77A8D1C32876CAD5001A3C2C /* models */,
+				77A8D1EA2876CB77001A3C2C /* resources */,
+			);
+			path = BeautyResource;
 			sourceTree = "<group>";
 		};
 		77A8D1C32876CAD5001A3C2C /* models */ = {
@@ -994,7 +1002,6 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/QNLiveKitDemo",
-					"$(PROJECT_DIR)",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = /Users/guoqian/Desktop/QNLiveKit_iOS/QNLiveKitDemo/QNLiveKitDemo/LiveDemoPrefixHeader.pch;
@@ -1056,7 +1063,6 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/QNLiveKitDemo",
-					"$(PROJECT_DIR)",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = /Users/guoqian/Desktop/QNLiveKit_iOS/QNLiveKitDemo/QNLiveKitDemo/LiveDemoPrefixHeader.pch;
