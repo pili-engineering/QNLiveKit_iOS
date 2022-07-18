@@ -18,12 +18,12 @@ NS_ASSUME_NONNULL_BEGIN
 
 //麦位监听
 @protocol MicLinkerListener <NSObject>
-
+@optional
 /// 有人上麦
 - (void)onUserJoinLink:(QNMicLinker *)micLinker;
 
 /// 有人下麦
-- (void)onUserLeave:(QNMicLinker *)micLinker;
+- (void)onUserLeaveLink:(QNMicLinker *)micLinker;
 
 /// 有人麦克风变化
 - (void)onUserMicrophoneStatusChange:(NSString *)uid mute:(BOOL)mute;

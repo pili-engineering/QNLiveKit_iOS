@@ -44,11 +44,7 @@
     
     self.renderBackgroundView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, SCREEN_W, SCREEN_H)];
     [self.view insertSubview:self.renderBackgroundView atIndex:1];
-    
-    self.preview = [[QRenderView alloc] init];
-    self.preview.userId= QN_User_id;
-    self.preview.frame = CGRectMake(0, 0, SCREEN_W, SCREEN_H);
-    self.preview.fillMode = QNVideoFillModePreserveAspectRatioAndFill;
+        
     [self.renderBackgroundView addSubview:self.preview];
 }
 
@@ -71,6 +67,16 @@
             [userView removeFromSuperview];
         }
     }];
+}
+
+- (QRenderView *)preview {
+    if (!_preview) {
+        _preview = [[QRenderView alloc] init];
+        _preview.userId= QN_User_id;
+        _preview.frame = CGRectMake(0, 0, SCREEN_W, SCREEN_H);
+        _preview.fillMode = QNVideoFillModePreserveAspectRatioAndFill;
+    }
+    return _preview;
 }
 
 - (LiveChatRoom *)chatRoomView {

@@ -47,6 +47,10 @@
 
 @implementation QLiveController
 
+- (void)viewDidDisappear:(BOOL)animated {
+    [self.chatService removeChatServiceListener];
+    [[QLive createPusherClient] closeRoom];
+}
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -126,19 +130,19 @@
         for (QNRemoteTrack *track in tracks) {
             if (track.kind == QNTrackKindVideo) {
                 QNRemoteVideoTrack *videoTrack = (QNRemoteVideoTrack *)track;
-                QRenderView *remoteView = [[QRenderView alloc]initWithFrame:CGRectMake(SCREEN_W - 120, 120, 100, 100)];
-                remoteView.userId = userID;
-                remoteView.trackId = videoTrack.trackID;
-                remoteView.layer.cornerRadius = 50;
-                remoteView.clipsToBounds = YES;
-                [self.renderBackgroundView addSubview:remoteView];
-                [videoTrack play:remoteView];
+                self.remoteView = [[QRenderView alloc]initWithFrame:CGRectMake(SCREEN_W - 120, 120, 100, 100)];
+                self.remoteView.userId = userID;
+                self.remoteView.trackId = videoTrack.trackID;
+                self.remoteView.layer.cornerRadius = 50;
+                self.remoteView.clipsToBounds = YES;
+                [self.renderBackgroundView addSubview:self.remoteView];
+                [videoTrack play:self.remoteView];
                 
                 if (self.pk_other_user) {
                     
                     self.preview.frame = CGRectMake(0, 130, SCREEN_W/2, SCREEN_W/1.5);
-                    remoteView.frame = CGRectMake(SCREEN_W/2, 130, SCREEN_W/2, SCREEN_W/1.5);
-                    remoteView.layer.cornerRadius = 0;
+                    self.remoteView.frame = CGRectMake(SCREEN_W/2, 130, SCREEN_W/2, SCREEN_W/1.5);
+                    self.remoteView.layer.cornerRadius = 0;
                               
                     [[[QLive createPusherClient] getMixStreamManager] updateMixStreamSize:CGSizeMake(720, 419)];
                     CameraMergeOption *userOption = [CameraMergeOption new];
@@ -210,9 +214,8 @@
 }
 
 //收到下麦消息
-- (void)onReceivedDownMic:(QNMicLinker *)linker {
-    QRenderView *userView = [self getUserView:linker.user.user_id];
-    [userView removeFromSuperview];
+- (void)onUserLeaveLink:(QNMicLinker *)linker {
+    [self.remoteView removeFromSuperview];
 }
 
 //收到公聊消息
@@ -221,13 +224,12 @@
 }
 
 //收到开关视频消息
-- (void)onReceivedVideoMute:(BOOL)mute user:(NSString *)uid {
-    QRenderView *userView = [self getUserView:uid];
-    userView.hidden = mute;
+- (void)onUserCameraStatusChange:(NSString *)uid mute:(BOOL)mute{
+    self.remoteView.hidden = mute;
 }
 
 //收到开关音频消息
-- (void)onReceivedAudioMute:(BOOL)mute user:(NSString *)uid {
+- (void)onUserMicrophoneStatusChange:(NSString *)uid mute:(BOOL)mute {
     
 }
 

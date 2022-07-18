@@ -49,8 +49,8 @@
         //下麦消息
         QNMicLinker *model = [QNMicLinker mj_objectWithKeyValues:imModel.data];
         
-        if ([self.micLinkerListener respondsToSelector:@selector(onUserLeave:)]) {
-            [self.micLinkerListener onUserLeave:model];
+        if ([self.micLinkerListener respondsToSelector:@selector(onUserLeaveLink:)]) {
+            [self.micLinkerListener onUserLeaveLink:model];
         }
     } else if ([imModel.action isEqualToString:liveroom_miclinker_microphone_mute]) {
         //开关音频消息

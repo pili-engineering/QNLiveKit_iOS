@@ -9,6 +9,7 @@
 #import <QNLiveKit/QNLiveKit.h>
 #import "QNLiveListCell.h"
 #import "QCreateLiveController.h"
+#import "CreateBeautyLiveController.h"
 
 
 @interface QLiveListController ()<UICollectionViewDelegate,UICollectionViewDataSource>
@@ -64,7 +65,7 @@
 
 - (void)addLiveRoom {
     
-    QCreateLiveController *vc = [QCreateLiveController new];
+    CreateBeautyLiveController *vc = [CreateBeautyLiveController new];
     vc.modalPresentationStyle = UIModalPresentationFullScreen;
     [self presentViewController:vc animated:YES completion:nil];
 }
