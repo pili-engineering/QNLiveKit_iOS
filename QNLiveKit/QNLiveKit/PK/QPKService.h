@@ -13,7 +13,7 @@ NS_ASSUME_NONNULL_BEGIN
 @class QNPKSession,QInvitationModel;
 
 @protocol PKServiceListener <NSObject>
-
+@optional
 //收到PK邀请
 - (void)onReceivePKInvitation:(QInvitationModel *)model;
 //PK邀请被接受

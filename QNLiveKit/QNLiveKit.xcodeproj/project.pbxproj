@@ -180,6 +180,8 @@
 		7798A79A28814872009DEB27 /* UITableView+MoveCell.h in Headers */ = {isa = PBXBuildFile; fileRef = 7798A79828814872009DEB27 /* UITableView+MoveCell.h */; };
 		77A11C6028854A7A00020149 /* BeautyBaseController.h in Headers */ = {isa = PBXBuildFile; fileRef = 77A11C5E28854A7A00020149 /* BeautyBaseController.h */; };
 		77A11C6128854A7A00020149 /* BeautyBaseController.m in Sources */ = {isa = PBXBuildFile; fileRef = 77A11C5F28854A7A00020149 /* BeautyBaseController.m */; };
+		77A11C64288556AA00020149 /* CreateBeautyLiveController.h in Headers */ = {isa = PBXBuildFile; fileRef = 77A11C62288556AA00020149 /* CreateBeautyLiveController.h */; };
+		77A11C65288556AA00020149 /* CreateBeautyLiveController.m in Sources */ = {isa = PBXBuildFile; fileRef = 77A11C63288556AA00020149 /* CreateBeautyLiveController.m */; };
 		77A8D26E28782DF0001A3C2C /* AssetsLibrary.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 77A8D26D28782DF0001A3C2C /* AssetsLibrary.framework */; };
 		77E02E31284E245A00EE8A28 /* QNAudienceController.h in Headers */ = {isa = PBXBuildFile; fileRef = 77E02E2F284E245A00EE8A28 /* QNAudienceController.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		77E02E32284E245A00EE8A28 /* QNAudienceController.m in Sources */ = {isa = PBXBuildFile; fileRef = 77E02E30284E245A00EE8A28 /* QNAudienceController.m */; };
@@ -493,6 +495,8 @@
 		7798A79828814872009DEB27 /* UITableView+MoveCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UITableView+MoveCell.h"; sourceTree = "<group>"; };
 		77A11C5E28854A7A00020149 /* BeautyBaseController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BeautyBaseController.h; sourceTree = "<group>"; };
 		77A11C5F28854A7A00020149 /* BeautyBaseController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BeautyBaseController.m; sourceTree = "<group>"; };
+		77A11C62288556AA00020149 /* CreateBeautyLiveController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CreateBeautyLiveController.h; sourceTree = "<group>"; };
+		77A11C63288556AA00020149 /* CreateBeautyLiveController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CreateBeautyLiveController.m; sourceTree = "<group>"; };
 		77A8D26D28782DF0001A3C2C /* AssetsLibrary.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AssetsLibrary.framework; path = Platforms/MacOSX.platform/Developer/SDKs/MacOSX12.3.sdk/System/iOSSupport/System/Library/Frameworks/AssetsLibrary.framework; sourceTree = DEVELOPER_DIR; };
 		77E02E2F284E245A00EE8A28 /* QNAudienceController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = QNAudienceController.h; sourceTree = "<group>"; };
 		77E02E30284E245A00EE8A28 /* QNAudienceController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = QNAudienceController.m; sourceTree = "<group>"; };
@@ -1290,6 +1294,8 @@
 				77EDC380286DA563002B4226 /* STBaseViewController.m */,
 				77EDC49D286DAD99002B4226 /* BeautyLiveViewController.h */,
 				77EDC49E286DAD99002B4226 /* BeautyLiveViewController.m */,
+				77A11C62288556AA00020149 /* CreateBeautyLiveController.h */,
+				77A11C63288556AA00020149 /* CreateBeautyLiveController.m */,
 				77A11C5E28854A7A00020149 /* BeautyBaseController.h */,
 				77A11C5F28854A7A00020149 /* BeautyBaseController.m */,
 			);
@@ -1416,6 +1422,7 @@
 				77EDC42B286DA564002B4226 /* SenseArMaterialService.h in Headers */,
 				7773668F2873031A00245EDB /* st_mobile_face_attribute.h in Headers */,
 				77EDC453286DA565002B4226 /* EffectsCollectionViewCell.h in Headers */,
+				77A11C64288556AA00020149 /* CreateBeautyLiveController.h in Headers */,
 				77EDC41F286DA564002B4226 /* STGLPreview3.h in Headers */,
 				77EDC426286DA564002B4226 /* STGLPreview2.h in Headers */,
 				77EDC457286DA565002B4226 /* EffectsCollectionView.h in Headers */,
@@ -1666,6 +1673,7 @@
 				776B1C8B283CB6B300D85C73 /* QNLiveService.m in Sources */,
 				77EDC45D286DA565002B4226 /* STBeautySlider.m in Sources */,
 				77EDC3FC286DA564002B4226 /* STConvert.m in Sources */,
+				77A11C65288556AA00020149 /* CreateBeautyLiveController.m in Sources */,
 				77204D66285F755C0053B1AD /* QCreateLiveController.m in Sources */,
 				77EDC456286DA565002B4226 /* STCustomMemoryCache.m in Sources */,
 				77EDC454286DA565002B4226 /* STTitleViewItem.m in Sources */,

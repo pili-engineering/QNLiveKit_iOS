@@ -527,6 +527,8 @@ NSString *appkey = @"e4156e4d61b040d2bcbf896c798d06e3";
     [self.view addSubview:self.specialEffectsBtn];
     [self.view addSubview:self.beautyBtn];
     [self.view addSubview:self.btnCompare];
+    [self.view addSubview:self.triggerView];
+    [self.view addSubview:self.resetBtn];
 //    [self.view addSubview:self.sliderView];
 #if ENABLE_FACE_ATTRIBUTE_DETECT
     [self.view addSubview:self.lblAttribute];

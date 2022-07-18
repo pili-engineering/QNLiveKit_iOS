@@ -49,7 +49,6 @@
 @implementation BeautyLiveViewController
 
 + (void)initialize {
-    NSBundle *bud = [NSBundle mainBundle] ;
     NSString* path = [[NSBundle mainBundle] pathForResource:@"SENSEME" ofType:@"lic"];
     NSData* license = [NSData dataWithContentsOfFile:path];
     [[STDefaultSetting sharedInstace] checkActiveCodeWithData:license];
@@ -57,15 +56,15 @@
 
 - (void)viewDidDisappear:(BOOL)animated {
     [self.chatService removeChatServiceListener];
-    [[QLive createPlayerClient] leaveRoom:self.roomInfo.live_id];
+    [[QLive createPusherClient] closeRoom];
 }
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-        
+    [[QLive createPusherClient] setVideoFrameListener:self];
     [[QLive createPusherClient] enableCamera:nil renderView:self.preview];
     [QLive createPusherClient].pushClientListener = self;
-    [[QLive createPusherClient] setVideoFrameListener:self];
+    
     self.linkService.micLinkerListener = self;
     self.pkService.delegate = self;
     self.danmakuView.delegate = self;
@@ -142,19 +141,19 @@
         for (QNRemoteTrack *track in tracks) {
             if (track.kind == QNTrackKindVideo) {
                 QNRemoteVideoTrack *videoTrack = (QNRemoteVideoTrack *)track;
-                QRenderView *remoteView = [[QRenderView alloc]initWithFrame:CGRectMake(SCREEN_W - 120, 120, 100, 100)];
-                remoteView.userId = userID;
-                remoteView.trackId = videoTrack.trackID;
-                remoteView.layer.cornerRadius = 50;
-                remoteView.clipsToBounds = YES;
-                [self.renderBackgroundView addSubview:remoteView];
-                [videoTrack play:remoteView];
+                self.remoteView = [[QRenderView alloc]initWithFrame:CGRectMake(SCREEN_W - 120, 120, 100, 100)];
+                self.remoteView.userId = userID;
+                self.remoteView.trackId = videoTrack.trackID;
+                self.remoteView.layer.cornerRadius = 50;
+                self.remoteView.clipsToBounds = YES;
+                [self.renderBackgroundView addSubview:self.remoteView];
+                [videoTrack play:self.remoteView];
                 
                 if (self.pk_other_user) {
                     
                     self.preview.frame = CGRectMake(0, 130, SCREEN_W/2, SCREEN_W/1.5);
-                    remoteView.frame = CGRectMake(SCREEN_W/2, 130, SCREEN_W/2, SCREEN_W/1.5);
-                    remoteView.layer.cornerRadius = 0;
+                    self.remoteView.frame = CGRectMake(SCREEN_W/2, 130, SCREEN_W/2, SCREEN_W/1.5);
+                    self.remoteView.layer.cornerRadius = 0;
                               
                     [[[QLive createPusherClient] getMixStreamManager] updateMixStreamSize:CGSizeMake(720, 419)];
                     CameraMergeOption *userOption = [CameraMergeOption new];
@@ -250,9 +249,8 @@
 }
 
 //收到下麦消息
-- (void)onReceivedDownMic:(QNMicLinker *)linker {
-    QRenderView *userView = [self getUserView:linker.user.user_id];
-    [userView removeFromSuperview];
+- (void)onUserLeaveLink:(QNMicLinker *)linker {
+    [self.remoteView removeFromSuperview];
 }
 
 //收到公聊消息
@@ -261,13 +259,12 @@
 }
 
 //收到开关视频消息
-- (void)onReceivedVideoMute:(BOOL)mute user:(NSString *)uid {
-    QRenderView *userView = [self getUserView:uid];
-    userView.hidden = mute;
+- (void)onUserCameraStatusChange:(NSString *)uid mute:(BOOL)mute{
+    self.remoteView.hidden = mute;
 }
 
 //收到开关音频消息
-- (void)onReceivedAudioMute:(BOOL)mute user:(NSString *)uid {
+- (void)onUserMicrophoneStatusChange:(NSString *)uid mute:(BOOL)mute {
     
 }
 
@@ -421,13 +418,13 @@
 }
 
 - (void)popGoodListView {
-        
-        GoodsSellListController *vc = [[GoodsSellListController alloc] initWithLiveID:self.roomInfo.live_id];
-        vc.view.frame = CGRectMake(0, 0, SCREEN_W, SCREEN_H);
-        vc.modalPresentationStyle = UIModalPresentationFullScreen;
-        [self addChildViewController:vc];
-        [self.view addSubview:vc.view];
-        
+    
+    GoodsSellListController *vc = [[GoodsSellListController alloc] initWithLiveID:self.roomInfo.live_id];
+    vc.view.frame = CGRectMake(0, 0, SCREEN_W, SCREEN_H);
+    vc.modalPresentationStyle = UIModalPresentationFullScreen;
+    [self addChildViewController:vc];
+    [self.view addSubview:vc.view];
+    
 }
 
 //邀请面板
@@ -437,7 +434,7 @@
     QNInvitationMemberListController *vc = [[QNInvitationMemberListController alloc] initWithList:resultList];
     __weak typeof(self)weakSelf = self;
     vc.invitationClickedBlock = ^(QNLiveRoomInfo * _Nonnull itemModel) {
-       
+        
         [weakSelf.pkService applyPK:itemModel.live_id receiveUser:itemModel.anchor_info];
         weakSelf.selectPkRoomInfo = itemModel;
         [QToastView showToast:@"pk邀请已发送"];
@@ -452,7 +449,7 @@
     }];
 }
 
- //筛除掉自己的直播间
+//筛除掉自己的直播间
 - (NSArray<QNLiveRoomInfo *> *)filterListWithList:(NSArray<QNLiveRoomInfo *> *)list{
     NSMutableArray *resultList = [NSMutableArray array];
     for (QNLiveRoomInfo *room in list) {
