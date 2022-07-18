@@ -142,7 +142,7 @@
         _currentPriceLabel.font = [UIFont systemFontOfSize:16];
         [self.contentView addSubview:_currentPriceLabel];
         [_currentPriceLabel mas_makeConstraints:^(MASConstraintMaker *make) {
-            make.left.equalTo(self.tagLabel).offset(15);
+            make.left.equalTo(self.tagLabel);
             make.bottom.equalTo(self.iconImageView.mas_bottom);
         }];
     }

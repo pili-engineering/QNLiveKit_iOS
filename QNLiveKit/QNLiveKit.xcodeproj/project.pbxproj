@@ -176,6 +176,8 @@
 		777B7A84284F5A6F005032B7 /* QNInvitationMemberListCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 777B7A82284F5A6F005032B7 /* QNInvitationMemberListCell.m */; };
 		777B7A87284F5BC5005032B7 /* QNInvitationMemberListController.h in Headers */ = {isa = PBXBuildFile; fileRef = 777B7A85284F5BC4005032B7 /* QNInvitationMemberListController.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		777B7A88284F5BC5005032B7 /* QNInvitationMemberListController.m in Sources */ = {isa = PBXBuildFile; fileRef = 777B7A86284F5BC4005032B7 /* QNInvitationMemberListController.m */; };
+		7798A79928814872009DEB27 /* UITableView+MoveCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 7798A79728814872009DEB27 /* UITableView+MoveCell.m */; };
+		7798A79A28814872009DEB27 /* UITableView+MoveCell.h in Headers */ = {isa = PBXBuildFile; fileRef = 7798A79828814872009DEB27 /* UITableView+MoveCell.h */; };
 		77A8D26E28782DF0001A3C2C /* AssetsLibrary.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 77A8D26D28782DF0001A3C2C /* AssetsLibrary.framework */; };
 		77E02E31284E245A00EE8A28 /* QNAudienceController.h in Headers */ = {isa = PBXBuildFile; fileRef = 77E02E2F284E245A00EE8A28 /* QNAudienceController.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		77E02E32284E245A00EE8A28 /* QNAudienceController.m in Sources */ = {isa = PBXBuildFile; fileRef = 77E02E30284E245A00EE8A28 /* QNAudienceController.m */; };
@@ -519,6 +521,8 @@
 		777B7A82284F5A6F005032B7 /* QNInvitationMemberListCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QNInvitationMemberListCell.m; sourceTree = "<group>"; };
 		777B7A85284F5BC4005032B7 /* QNInvitationMemberListController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QNInvitationMemberListController.h; sourceTree = "<group>"; };
 		777B7A86284F5BC4005032B7 /* QNInvitationMemberListController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QNInvitationMemberListController.m; sourceTree = "<group>"; };
+		7798A79728814872009DEB27 /* UITableView+MoveCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UITableView+MoveCell.m"; sourceTree = "<group>"; };
+		7798A79828814872009DEB27 /* UITableView+MoveCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UITableView+MoveCell.h"; sourceTree = "<group>"; };
 		77A8D26D28782DF0001A3C2C /* AssetsLibrary.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AssetsLibrary.framework; path = Platforms/MacOSX.platform/Developer/SDKs/MacOSX12.3.sdk/System/iOSSupport/System/Library/Frameworks/AssetsLibrary.framework; sourceTree = DEVELOPER_DIR; };
 		77E02E2F284E245A00EE8A28 /* QNAudienceController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = QNAudienceController.h; sourceTree = "<group>"; };
 		77E02E30284E245A00EE8A28 /* QNAudienceController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = QNAudienceController.m; sourceTree = "<group>"; };
@@ -826,6 +830,8 @@
 				776B1CC5283CFCF200D85C73 /* QNLiveTypeDefines.h */,
 				77204D57285981B00053B1AD /* CYProtocolManager.h */,
 				77204D56285981B00053B1AD /* CYProtocolManager.m */,
+				7798A79828814872009DEB27 /* UITableView+MoveCell.h */,
+				7798A79728814872009DEB27 /* UITableView+MoveCell.m */,
 				776B1CAA283CC6EC00D85C73 /* QLiveNetworkUtil.h */,
 				776B1CAB283CC6EC00D85C73 /* QLiveNetworkUtil.m */,
 			);
@@ -1550,6 +1556,7 @@
 				77EDC439286DA564002B4226 /* SoundInfomation.h in Headers */,
 				77EDC447286DA565002B4226 /* STPlayerControlBar.h in Headers */,
 				77EDC442286DA565002B4226 /* LicenseUtil.h in Headers */,
+				7798A79A28814872009DEB27 /* UITableView+MoveCell.h in Headers */,
 				77EDC46B286DA565002B4226 /* STTitleViewItem.h in Headers */,
 				77EDC400286DA564002B4226 /* NSBundle+language.h in Headers */,
 				77EDC472286DA565002B4226 /* STParamUtil.h in Headers */,
@@ -1911,6 +1918,7 @@
 				77EDC420286DA564002B4226 /* STGLShader.m in Sources */,
 				77781CC02840C05A009DC71C /* QNFoundation.m in Sources */,
 				77EDC46C286DA565002B4226 /* EffectsCollectionViewCell.m in Sources */,
+				7798A79928814872009DEB27 /* UITableView+MoveCell.m in Sources */,
 				776B1CD2283D010D00D85C73 /* QNMicLinker.m in Sources */,
 				77781CB32840C059009DC71C /* NSObject+QNCoding.m in Sources */,
 				77781D5128460813009DC71C /* ImageButtonView.m in Sources */,

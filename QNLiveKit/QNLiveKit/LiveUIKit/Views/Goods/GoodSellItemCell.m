@@ -7,10 +7,13 @@
 
 #import "GoodSellItemCell.h"
 #import "GoodsModel.h"
+#import "QAlertView.h"
 
 @interface GoodSellItemCell ()
 //商品图
 @property (nonatomic,strong)UIImageView *iconImageView;
+//下架覆盖层
+@property (nonatomic,strong) UIButton *downView;
 //商品序号
 @property (nonatomic,strong)UILabel *orderLabel;
 //商品名称
@@ -37,8 +40,11 @@
 - (instancetype)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier {
     if ([super initWithStyle:style reuseIdentifier:reuseIdentifier]) {
         self.contentView.backgroundColor = [UIColor whiteColor];
-        
+        UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(click)];
+        [self.contentView addGestureRecognizer:tap];
+        self.contentView.userInteractionEnabled = YES;
         [self iconImageView];
+        [self downView];
         [self orderLabel];
         [self titleLabel];
         [self tagLabel];
@@ -51,6 +57,12 @@
     return self;
 }
 
+- (void)click {
+    if(self.goodClickedBlock) {
+        self.goodClickedBlock(self.itemModel);
+    }
+}
+
 - (void)updateWithModel:(GoodsModel *)itemModel {
     self.itemModel = itemModel;
     [self.iconImageView sd_setImageWithURL:[NSURL URLWithString:itemModel.thumbnail]];
@@ -59,32 +71,53 @@
     self.tagLabel.text = [itemModel.tags componentsSeparatedByString:@","].firstObject;
     self.currentPriceLabel.text = itemModel.current_price;
     if (itemModel.status == QLiveGoodsStatusTakeOn) {
+        self.downView.hidden = YES;
         [self.takeDownButton setTitle:@"下架商品" forState:UIControlStateNormal];
     } else {
+        self.downView.hidden = NO;
         [self.takeDownButton setTitle:@"上架商品" forState:UIControlStateNormal];
     }
-    self.explainButton.backgroundColor = itemModel.isExplaining ? [UIColor colorWithHexString:@"F5F5F5"] : [UIColor colorWithHexString:@"E34D59"];
     
-    NSString *explainButtonTitle = itemModel.isExplaining ? @"结束讲解" : @"讲解";
+    UIColor *explainButtonTitleColor;
+    NSString *explainButtonTitle;
+    
+    if (itemModel.isExplaining) {
+        
+        explainButtonTitle = @"结束讲解";
+        self.explainButton.backgroundColor = [UIColor colorWithHexString:@"F5F5F5"];
+        explainButtonTitleColor = [UIColor colorWithHexString:@"E34D59"];
+        self.explainButton.userInteractionEnabled = YES;
+        
+    } else {
+        
+        if (itemModel.status == QLiveGoodsStatusTakeOn) {
+            self.explainButton.backgroundColor = [UIColor colorWithHexString:@"E34D59"];
+            self.explainButton.userInteractionEnabled = YES;
+        } else {
+            self.explainButton.backgroundColor = [[UIColor colorWithHexString:@"E34D59"] colorWithAlphaComponent:0.4];
+            self.explainButton.userInteractionEnabled = NO;
+        }
+        explainButtonTitle = @"讲解";
+        explainButtonTitleColor = [UIColor whiteColor];
+    }
+        
     [self.explainButton setTitle:explainButtonTitle forState:UIControlStateNormal];
-    
-    UIColor *explainButtonTitleColor = itemModel.isExplaining ? [UIColor colorWithHexString:@"E34D59"] : [UIColor whiteColor];
     [self.explainButton setTitleColor:explainButtonTitleColor forState:UIControlStateNormal];
 }
 
 - (void)takeDown:(UIButton *)button {
-    if (self.takeDownClickedBlock) {
-        self.takeDownClickedBlock(self.itemModel);
-    }
+    
+    NSString *title = self.itemModel.status == QLiveGoodsStatusTakeOn ? @"确定下架该商品吗？" : @"确定上架该商品吗？";
+    
+    [QAlertView showBaseAlertWithTitle:title content:@"" handler:^(UIAlertAction * _Nonnull action) {
+        if (self.takeDownClickedBlock) {
+            self.takeDownClickedBlock(self.itemModel);
+        }
+    }];
+    
 }
 
 - (void)explain:(UIButton *)button {
-//    button.selected = !button.selected;
-//    if (button.selected) {
-//        self.explainButton.backgroundColor = [UIColor colorWithHexString:@"F5F5F5"];
-//    } else {
-//        self.explainButton.backgroundColor = [UIColor colorWithHexString:@"E34D59"];
-//    }
     self.itemModel.isExplaining = !self.itemModel.isExplaining;
     if (self.explainClickedBlock) {
         self.explainClickedBlock(self.itemModel);
@@ -105,6 +138,25 @@
         }];
     }
     return _iconImageView;
+}
+
+- (UIButton *)downView {
+    if (!_downView) {
+        _downView = [[UIButton alloc]init];
+        _downView.backgroundColor = [[UIColor blackColor]colorWithAlphaComponent:0.7];
+        [_downView setTitle:@"下架已隐藏" forState:UIControlStateNormal];
+        _downView.clipsToBounds = YES;
+        _downView.layer.cornerRadius = 10;
+        [_downView setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
+        _downView.titleLabel.font = [UIFont systemFontOfSize:12];
+        _downView.hidden = YES;
+        [self.contentView addSubview:_downView];
+        
+        [_downView mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.left.top.right.bottom.equalTo(self.iconImageView);
+        }];
+    }
+    return _downView;
 }
 
 - (UILabel *)orderLabel {
@@ -166,7 +218,7 @@
         _currentPriceLabel.font = [UIFont systemFontOfSize:16];
         [self.contentView addSubview:_currentPriceLabel];
         [_currentPriceLabel mas_makeConstraints:^(MASConstraintMaker *make) {
-            make.left.equalTo(self.tagLabel).offset(15);
+            make.left.equalTo(self.tagLabel);
             make.bottom.equalTo(self.iconImageView.mas_bottom);
         }];
     }

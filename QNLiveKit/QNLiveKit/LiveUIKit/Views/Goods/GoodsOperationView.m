@@ -36,6 +36,7 @@
 }
 
 - (void)takeOnClick {
+        
     if (self.takeOnClickedBlock) {
         self.takeOnClickedBlock();
     }
