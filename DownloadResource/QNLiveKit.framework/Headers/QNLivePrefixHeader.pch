@@ -21,6 +21,7 @@
 #define QN_IM_USER_NAME_KEY @"QN_IM_USER_NAME"
 #define QN_IM_USER_PASSWORD_KEY @"QN_IM_USER_PASSWORD"
 #define Live_Token @"Live_Token"//直播token
+#define Live_URL @"Live_URL"//直播域名
 
 //get登录token
 #define QN_Login_token  [[NSUserDefaults standardUserDefaults] stringForKey:QN_LOGIN_TOKEN_KEY]
@@ -38,7 +39,8 @@
 #define QN_IM_psw  [[NSUserDefaults standardUserDefaults] stringForKey:QN_IM_USER_PASSWORD_KEY]
 //get直播token
 #define QN_Live_Token [[NSUserDefaults standardUserDefaults] stringForKey:Live_Token]
-
+//get直播域名
+#define QN_Live_URL [[NSUserDefaults standardUserDefaults] stringForKey:Live_URL]
 
 #define liveroom_welcome  @"liveroom-welcome"
 #define liveroom_bye_bye  @"liveroom-bye-bye"//离开房间信令
@@ -66,11 +68,15 @@
 #define invite_accept  @"invite_accept"
 #define invite_reject  @"invite_reject"
 
+#pragma mark -----NotificationName
+
+#define ReceiveIMMessageNotification @"ReceiveIMMessageNotification"
+
 #pragma mark ----------API
 //线上
-#define MAINAPI @"https://live-api.qiniu.com/%@"
+//#define LiveAPI @"https://live-api.qiniu.com/%@"
 //测试
-//#define MAINAPI @"http://10.200.20.28:8099/%@"
+//#define LiveAPI @"http://10.200.20.28:8099/%@"
 
 
 #import <QNRTCKit/QNRTCKit.h>

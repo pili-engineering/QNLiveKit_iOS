@@ -8,21 +8,13 @@
 		<data>
 		0bUWMN/CO1P90uVnT4hEFUXcy2A=
 		</data>
-		<key>Frameworks/QNIMSDK.framework/Info.plist</key>
+		<key>Headers/BeautyLiveViewController.h</key>
 		<data>
-		uGv6Ce04rWKTVP/doWFZKQTyoqA=
-		</data>
-		<key>Frameworks/QNIMSDK.framework/QNIMSDK</key>
-		<data>
-		x2o5Y9VjUQP87G/6Vre8RBn1vZE=
-		</data>
-		<key>Frameworks/QNIMSDK.framework/_CodeSignature/CodeResources</key>
-		<data>
-		Y3O2/pXDfF7R9kkFhAaOJEtro9M=
+		wWImOS3HqwKGwmKZlXn60uWbvCI=
 		</data>
 		<key>Headers/BottomMenuView.h</key>
 		<data>
-		zMT3l6Sw9iJeigPQOF6QZYLKsRs=
+		4SVY7b8OX1Hj5wv9iRSSEkeJJjM=
 		</data>
 		<key>Headers/CALayer+Aimate.h</key>
 		<data>
@@ -35,6 +27,18 @@
 		<key>Headers/CreateSignalHandler.h</key>
 		<data>
 		GYwisD+cuzDdYES2swWEh60W73s=
+		</data>
+		<key>Headers/DefaultBeautyParameters.h</key>
+		<data>
+		iUE1zBx7yVbSXidwYggnzoFGb/k=
+		</data>
+		<key>Headers/EffectsCollectionView.h</key>
+		<data>
+		ByrKLS8CKN43dHs6w3EWoXoYIQ4=
+		</data>
+		<key>Headers/EffectsCollectionViewCell.h</key>
+		<data>
+		GbJo7W/N9qVYjIKe63AJmsi1Kzk=
 		</data>
 		<key>Headers/Extension.h</key>
 		<data>
@@ -52,9 +56,33 @@
 		<data>
 		UotWwhuF8e/WTKscizBoNK23ot4=
 		</data>
+		<key>Headers/GoodBuyItemCell.h</key>
+		<data>
+		E+YHkO4+n6MZfMl/KWwC/7sEAJ0=
+		</data>
+		<key>Headers/GoodSellItemCell.h</key>
+		<data>
+		++N+rwLQJYIQ43+Fdtczhru1TdY=
+		</data>
+		<key>Headers/GoodsBuyListController.h</key>
+		<data>
+		LGIts1TjkcKUkp5sFjA76h17bCo=
+		</data>
+		<key>Headers/GoodsModel.h</key>
+		<data>
+		2Jdv8LNdovOyBfP/dJAUIDRL40s=
+		</data>
+		<key>Headers/GoodsSellListController.h</key>
+		<data>
+		7dlQnkqMe6QnIVGR5rn+sJlVqEg=
+		</data>
 		<key>Headers/ImageButtonView.h</key>
 		<data>
 		qJbksyQfN4PkMNbv+iJr4klGlro=
+		</data>
+		<key>Headers/LicenseUtil.h</key>
+		<data>
+		KyNng12hP57+VFh1haTH/MkoPUc=
 		</data>
 		<key>Headers/LinkInvitation.h</key>
 		<data>
@@ -71,6 +99,10 @@
 		<key>Headers/LiveChatRoom.h</key>
 		<data>
 		3fI3AU1nQSt3ZZ6XIMTWqOACo6k=
+		</data>
+		<key>Headers/NSBundle+language.h</key>
+		<data>
+		D/YnybzGy1tMaA+g58wHu52lvwc=
 		</data>
 		<key>Headers/OnlineUserView.h</key>
 		<data>
@@ -118,11 +150,11 @@
 		</data>
 		<key>Headers/QLinkMicService.h</key>
 		<data>
-		VsyeRmPJXzwQKzfsS0+GrbNhrYE=
+		yKoEVL7xCbSB6pLgNhpMnmqhxog=
 		</data>
 		<key>Headers/QLive.h</key>
 		<data>
-		glnG9D/sdIYtQWJk3jB4iQxvqws=
+		rUZjKYG4OhpucJftzNZcpFcB06M=
 		</data>
 		<key>Headers/QLiveController.h</key>
 		<data>
@@ -138,7 +170,7 @@
 		</data>
 		<key>Headers/QLiveView.h</key>
 		<data>
-		wPax+65E/W8uIAiKzmcO7MtcaIo=
+		6BhZWpkB2lY03+HplNKFjYqcf3I=
 		</data>
 		<key>Headers/QMessageBaseCell.h</key>
 		<data>
@@ -150,11 +182,11 @@
 		</data>
 		<key>Headers/QNAudienceController.h</key>
 		<data>
-		8BghQ+xn5GARindC3xeNaUaWXjE=
+		yjzadpNUDoS8aOdV6XHg/vyuugI=
 		</data>
 		<key>Headers/QNBaseRTCController.h</key>
 		<data>
-		rNMwhiv9nLrpxMStOlle4IWPKaw=
+		xGxWKguPsGGDygqz8LWkwphQosg=
 		</data>
 		<key>Headers/QNCameraParams.h</key>
 		<data>
@@ -162,7 +194,7 @@
 		</data>
 		<key>Headers/QNChatRoomService.h</key>
 		<data>
-		uRqpC8+j+11Zv4Qj4psPkTvb7Bc=
+		zlRktFTERNpjpocOY+xRhUZqxps=
 		</data>
 		<key>Headers/QNCreateRoomParam.h</key>
 		<data>
@@ -178,7 +210,7 @@
 		</data>
 		<key>Headers/QNLiveKit.h</key>
 		<data>
-		KrP0bMXNOvCq3vy5wTpzjSq2GeM=
+		AAKgqzY7/IUQ5JSa9mno2MUYNuM=
 		</data>
 		<key>Headers/QNLiveListCell.h</key>
 		<data>
@@ -186,7 +218,7 @@
 		</data>
 		<key>Headers/QNLivePrefixHeader.pch</key>
 		<data>
-		2epKXnvlI2N/iMkuc5e2KGh68oI=
+		cX27k+vltMdgCzJAIAkYepTIrO0=
 		</data>
 		<key>Headers/QNLivePullClient.h</key>
 		<data>
@@ -234,7 +266,7 @@
 		</data>
 		<key>Headers/QPKService.h</key>
 		<data>
-		4+Wy/4V2qb8P+PwsErskO9cLW1k=
+		5siXMI2m33r0tuW6rYAYjWEJk6U=
 		</data>
 		<key>Headers/QRenderView.h</key>
 		<data>
@@ -256,13 +288,217 @@
 		<data>
 		E+7xILLxX3OBIGvJEr6UzCNxzMk=
 		</data>
+		<key>Headers/STAudioManager.h</key>
+		<data>
+		YvGMPud0mZ2nW/rrmmGP/SMGonE=
+		</data>
+		<key>Headers/STBMPCollectionView.h</key>
+		<data>
+		VzYxKxYzYrKwd8BriUmOWf2Fzkw=
+		</data>
+		<key>Headers/STBMPCollectionViewCell.h</key>
+		<data>
+		qEISE2BCjPGucHHkoJFLSWOcjQM=
+		</data>
+		<key>Headers/STBMPDetailColV.h</key>
+		<data>
+		Tj/rImc8RTSVCW55aoRamYBAVQ8=
+		</data>
+		<key>Headers/STBMPDetailColVCell.h</key>
+		<data>
+		ohfuxnFXfZkjsK3SYW7Tgx1fQF8=
+		</data>
+		<key>Headers/STBaseViewController.h</key>
+		<data>
+		xriMrRb1MCcfnInhT4/yGPtT+dE=
+		</data>
+		<key>Headers/STBeautySlider.h</key>
+		<data>
+		wetOGIejNW1iig6RMqP3ZKVB/Oo=
+		</data>
+		<key>Headers/STBmpStrengthView.h</key>
+		<data>
+		BOdPQFOuNJtBfOVuev65manYewc=
+		</data>
+		<key>Headers/STButton.h</key>
+		<data>
+		cODqJ4V5w/sKQ9suBkwoDMV3la8=
+		</data>
+		<key>Headers/STCamera.h</key>
+		<data>
+		/nhDvZO08p6tGS/LbrotoO7lMrY=
+		</data>
+		<key>Headers/STCollectionView.h</key>
+		<data>
+		gcm0xyUjr+gNqJyNYz2DG5DnuWE=
+		</data>
+		<key>Headers/STCollectionViewCell.h</key>
+		<data>
+		x7kHUILyhptbIgQeqCX0Ry78w5w=
+		</data>
+		<key>Headers/STColorConversion.h</key>
+		<data>
+		WjJr1lC4qfft3/q+y/SWHoBDKkE=
+		</data>
+		<key>Headers/STCommonObjectContainerView.h</key>
+		<data>
+		7XVXTx8mpIcfB/7Awi2L4PlHB4k=
+		</data>
+		<key>Headers/STCommonObjectView.h</key>
+		<data>
+		CecbySoN0R3oPlzkFnQHCA6hMns=
+		</data>
+		<key>Headers/STConvert.h</key>
+		<data>
+		S+V/L98HeZFyH+q1fRpHKEbGEeU=
+		</data>
+		<key>Headers/STCoreStateManagement.h</key>
+		<data>
+		3lvSSuYwxJCsgl5ydkyTAiZ7W8k=
+		</data>
+		<key>Headers/STCoreStateManagementFilterModel.h</key>
+		<data>
+		sM4nhR0G8lPZFxcD+QaOBoKJa/8=
+		</data>
+		<key>Headers/STCoreStateManagementModel.h</key>
+		<data>
+		4LtNtj6scNOOLDCgoQMYaNHg07E=
+		</data>
+		<key>Headers/STCoreStateManagementValueChangeDelegate.h</key>
+		<data>
+		+fheOmx6Rb74+xUTYu03PgY/LZU=
+		</data>
+		<key>Headers/STCustomCollectionView.h</key>
+		<data>
+		fA0uwkfkOMY7VJyFahuwzOZyBN8=
+		</data>
+		<key>Headers/STCustomMemoryCache.h</key>
+		<data>
+		7y2bw9wTvXd+Smg2TUABQPOmn8Q=
+		</data>
+		<key>Headers/STDefaultSetting.h</key>
+		<data>
+		DEDcmN2UE/Z/iTfZmzu44PyqA3E=
+		</data>
+		<key>Headers/STDefaultSettingDataSourseGenerator.h</key>
+		<data>
+		CMcpGHKmqeiKoYXcT6hkGKorC30=
+		</data>
+		<key>Headers/STEffectsAudioPlayer.h</key>
+		<data>
+		IhDLwgEO1HfeukZN2jPMSLMyCms=
+		</data>
+		<key>Headers/STEffectsTimer.h</key>
+		<data>
+		NAp6YoyNCFZIxwQEeKxRjc81UbU=
+		</data>
+		<key>Headers/STFilterView.h</key>
+		<data>
+		PQDL1KpEwrqhSF8U9IlOoYtwbNA=
+		</data>
+		<key>Headers/STGLPreview2.h</key>
+		<data>
+		/SRQNu+uhjbJJFlnXRvS1+HRz1w=
+		</data>
+		<key>Headers/STGLPreview3.h</key>
+		<data>
+		1sGbU9pNLj0YPNDYOxQMk5/nuqE=
+		</data>
+		<key>Headers/STGLShader.h</key>
+		<data>
+		6FvPI8m8DTFbg2GQCXn8FngCoFI=
+		</data>
+		<key>Headers/STLock.h</key>
+		<data>
+		uC75Wj/41kSvKVpQNjekzalG2kM=
+		</data>
+		<key>Headers/STMakeupDataModel.h</key>
+		<data>
+		Bkm5z5MCXAyLxcN+LRWu3Ahxaks=
+		</data>
+		<key>Headers/STMobileLog.h</key>
+		<data>
+		gRjrXrGoQpvR0CCEpLKOy5uAinM=
+		</data>
+		<key>Headers/STMovieRecorder.h</key>
+		<data>
+		2HRoxgn6z7qaTz/wA0uxyf+eafE=
+		</data>
+		<key>Headers/STParamUtil.h</key>
+		<data>
+		1qyWTPtrmC5HSOZzSyPnH+R48zY=
+		</data>
+		<key>Headers/STPlayerControlBar.h</key>
+		<data>
+		peh3HmsHL0VjfgyK0D7kSS9FXH8=
+		</data>
+		<key>Headers/STScrollTitleView.h</key>
+		<data>
+		BdcuvgYPTfZ8BM/CCIrtNlg4kHo=
+		</data>
+		<key>Headers/STSlideView.h</key>
+		<data>
+		VABc0230jxECz/NwquAFTcvkgv8=
+		</data>
+		<key>Headers/STTitleViewItem.h</key>
+		<data>
+		DrwkUslSVbaFI7LIhdZb/hxu0nM=
+		</data>
+		<key>Headers/STTriggerView.h</key>
+		<data>
+		oTXwYVYm5tpBPWoZQyeaZ3VMuNc=
+		</data>
+		<key>Headers/STVFShader.h</key>
+		<data>
+		DG3JUTXVcgzHMovgrywSKGkiPfc=
+		</data>
+		<key>Headers/STViewButton.h</key>
+		<data>
+		vapXM1/cBXoyoiL0eSwzuYBVA4Y=
+		</data>
+		<key>Headers/SenseArMaterial.h</key>
+		<data>
+		elCrVYVr0lC5v8iX/1ZPXRsc9/c=
+		</data>
+		<key>Headers/SenseArMaterialAction.h</key>
+		<data>
+		0k2Rj8kI+zw/P84qN4TBKtOOfYM=
+		</data>
+		<key>Headers/SenseArMaterialGroup.h</key>
+		<data>
+		Xn9c8kDb2cBuPMsSj8ScaJvTpb0=
+		</data>
+		<key>Headers/SenseArMaterialService.h</key>
+		<data>
+		dPH//kSAiIlbZ0JlO5HWHaqGrik=
+		</data>
+		<key>Headers/SenseArSourceService.h</key>
+		<data>
+		Q44b3bYTtNpkgw6rhqFUkTA6/io=
+		</data>
+		<key>Headers/SoundInfomation.h</key>
+		<data>
+		Zb/F9J3xPZKHbz89pTi8K+s1+XE=
+		</data>
+		<key>Headers/SystemSound.h</key>
+		<data>
+		AygzZTXF3eEhNm4KliKbSFtPEbA=
+		</data>
+		<key>Headers/UIView+Toast.h</key>
+		<data>
+		mfXmLP9J8XYssI1priECpAz4SAk=
+		</data>
 		<key>Info.plist</key>
 		<data>
-		m6cQEIEjfxYm3/OTbv5Mx0pgVjU=
+		zhwM9USsN3k/MNrg3H+MrN2HOJ4=
 		</data>
 		<key>Modules/module.modulemap</key>
 		<data>
 		WlBz3qeFxd4VaBbfDJizBj7G4aQ=
+		</data>
+		<key>VERSION</key>
+		<data>
+		10Jhk7Kk4GqbWyy8wisCBFB2hZU=
 		</data>
 	</dict>
 	<key>files2</key>
@@ -278,48 +514,26 @@
 			llWVJZsL119zvfCNeeCNaTMXucYOIsPDGgANpNLJi90=
 			</data>
 		</dict>
-		<key>Frameworks/QNIMSDK.framework/Info.plist</key>
+		<key>Headers/BeautyLiveViewController.h</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			uGv6Ce04rWKTVP/doWFZKQTyoqA=
+			wWImOS3HqwKGwmKZlXn60uWbvCI=
 			</data>
 			<key>hash2</key>
 			<data>
-			ptetYwCuduvHMAaRPRvlgSVY34UZ1seI0Y8+v8vZzvE=
-			</data>
-		</dict>
-		<key>Frameworks/QNIMSDK.framework/QNIMSDK</key>
-		<dict>
-			<key>hash</key>
-			<data>
-			x2o5Y9VjUQP87G/6Vre8RBn1vZE=
-			</data>
-			<key>hash2</key>
-			<data>
-			RZIMODRscimjUj0JSU5S7+LyWvgInksUwWgnG5cAWsI=
-			</data>
-		</dict>
-		<key>Frameworks/QNIMSDK.framework/_CodeSignature/CodeResources</key>
-		<dict>
-			<key>hash</key>
-			<data>
-			Y3O2/pXDfF7R9kkFhAaOJEtro9M=
-			</data>
-			<key>hash2</key>
-			<data>
-			dhc7HUlZ8CjoN+UUL8rvgppgV3ORfm2/40hFT1shJXM=
+			xJTR/xEuZY/jl5wPm4Ky+QiVHxQPTPWYGMWRmeQXCb4=
 			</data>
 		</dict>
 		<key>Headers/BottomMenuView.h</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			zMT3l6Sw9iJeigPQOF6QZYLKsRs=
+			4SVY7b8OX1Hj5wv9iRSSEkeJJjM=
 			</data>
 			<key>hash2</key>
 			<data>
-			eJTb9lSFN71v+NrwCBI/iBTFb0tlTQUFl727XDvMmQk=
+			i6bEA/D8cYfk3FxJX6RhA0X+B6iuj3Bm9MLEeqKCt0o=
 			</data>
 		</dict>
 		<key>Headers/CALayer+Aimate.h</key>
@@ -353,6 +567,39 @@
 			<key>hash2</key>
 			<data>
 			Q75JjQO721s/P8tLMQrQ/ZDFy23HfvFRIy6y1ipISZk=
+			</data>
+		</dict>
+		<key>Headers/DefaultBeautyParameters.h</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			iUE1zBx7yVbSXidwYggnzoFGb/k=
+			</data>
+			<key>hash2</key>
+			<data>
+			TW0dhCUrAp+5ECGzuCT/1jYkUvLWNQVMqDucAmxEcuk=
+			</data>
+		</dict>
+		<key>Headers/EffectsCollectionView.h</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			ByrKLS8CKN43dHs6w3EWoXoYIQ4=
+			</data>
+			<key>hash2</key>
+			<data>
+			xxGJKpuuReRc9F0hn3uCvyQ5vzJ6ZcA4SBCnR2lT2cg=
+			</data>
+		</dict>
+		<key>Headers/EffectsCollectionViewCell.h</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			GbJo7W/N9qVYjIKe63AJmsi1Kzk=
+			</data>
+			<key>hash2</key>
+			<data>
+			rRwPXjhZ3HumMYAsMeLPdHlaKNBiy/nF56ka4lW7H6o=
 			</data>
 		</dict>
 		<key>Headers/Extension.h</key>
@@ -399,6 +646,61 @@
 			C9VkDV36I1OZPoNiST+twSWVM4orYF9dxxJvE7K+Z3M=
 			</data>
 		</dict>
+		<key>Headers/GoodBuyItemCell.h</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			E+YHkO4+n6MZfMl/KWwC/7sEAJ0=
+			</data>
+			<key>hash2</key>
+			<data>
+			YBAVCTGP0oE6cu6TikGKJWWfM9xsRfVnFo6Xl0rt2W4=
+			</data>
+		</dict>
+		<key>Headers/GoodSellItemCell.h</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			++N+rwLQJYIQ43+Fdtczhru1TdY=
+			</data>
+			<key>hash2</key>
+			<data>
+			Tq2IwmnuSqbD2eyt+ctSbm2IPgslIbkUUsyAh2oouMo=
+			</data>
+		</dict>
+		<key>Headers/GoodsBuyListController.h</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			LGIts1TjkcKUkp5sFjA76h17bCo=
+			</data>
+			<key>hash2</key>
+			<data>
+			tCX0tnFm2o1gG4rBcCBVYRqRTUYXGtpRCV0Dl6vaBOk=
+			</data>
+		</dict>
+		<key>Headers/GoodsModel.h</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			2Jdv8LNdovOyBfP/dJAUIDRL40s=
+			</data>
+			<key>hash2</key>
+			<data>
+			tCVyq6WPVW+DTZwnYYmHCFqeuEAdX3tJgasaeC2R+9Q=
+			</data>
+		</dict>
+		<key>Headers/GoodsSellListController.h</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			7dlQnkqMe6QnIVGR5rn+sJlVqEg=
+			</data>
+			<key>hash2</key>
+			<data>
+			aXigVx2Y3lQ4AyfOulzbdxhlSQeVkAzsiHR9nuh2z/g=
+			</data>
+		</dict>
 		<key>Headers/ImageButtonView.h</key>
 		<dict>
 			<key>hash</key>
@@ -408,6 +710,17 @@
 			<key>hash2</key>
 			<data>
 			I5+h3LsTvei7vp/Q+AczWHuEsEAqjrI0O3bZfCuCgfI=
+			</data>
+		</dict>
+		<key>Headers/LicenseUtil.h</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			KyNng12hP57+VFh1haTH/MkoPUc=
+			</data>
+			<key>hash2</key>
+			<data>
+			4IepQbbR2oFaQFPAnOCnUronpLNbZVCM9PJNU7T5+Mg=
 			</data>
 		</dict>
 		<key>Headers/LinkInvitation.h</key>
@@ -452,6 +765,17 @@
 			<key>hash2</key>
 			<data>
 			Tuvr6O3+zQedscRcPY0zR5AwBWS1DJ7U/4CMIhntzyw=
+			</data>
+		</dict>
+		<key>Headers/NSBundle+language.h</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			D/YnybzGy1tMaA+g58wHu52lvwc=
+			</data>
+			<key>hash2</key>
+			<data>
+			W6l7UvIOJkUopCX3KPGtVEz+UnZyGeUlrXgCtSGzFvE=
 			</data>
 		</dict>
 		<key>Headers/OnlineUserView.h</key>
@@ -579,22 +903,22 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			VsyeRmPJXzwQKzfsS0+GrbNhrYE=
+			yKoEVL7xCbSB6pLgNhpMnmqhxog=
 			</data>
 			<key>hash2</key>
 			<data>
-			uoFwbF/MsEWIwIV+QXYoPBRIReIz4CI/cMWsks+dekM=
+			OSFpDqK+wssDe6HdxkM9bh41lXUTdu/3oi/X9z1FojY=
 			</data>
 		</dict>
 		<key>Headers/QLive.h</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			glnG9D/sdIYtQWJk3jB4iQxvqws=
+			rUZjKYG4OhpucJftzNZcpFcB06M=
 			</data>
 			<key>hash2</key>
 			<data>
-			GxTRVVgRe37Alg14b39/2z4X3ZMsZ7flkRSxDZwuNBo=
+			Vdbn6GO0gG7laSZdmbBwhdkBsc8g9U3St8Rl2QXZbk4=
 			</data>
 		</dict>
 		<key>Headers/QLiveController.h</key>
@@ -634,11 +958,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			wPax+65E/W8uIAiKzmcO7MtcaIo=
+			6BhZWpkB2lY03+HplNKFjYqcf3I=
 			</data>
 			<key>hash2</key>
 			<data>
-			TKeC93VC1/acgc66QvloxDG6ypaX92BeobNdvdnQEvs=
+			6wjrbC5d1JXr/lqPbk69+s7jt2PSZ5TvN0BZMHB1c6k=
 			</data>
 		</dict>
 		<key>Headers/QMessageBaseCell.h</key>
@@ -667,22 +991,22 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			8BghQ+xn5GARindC3xeNaUaWXjE=
+			yjzadpNUDoS8aOdV6XHg/vyuugI=
 			</data>
 			<key>hash2</key>
 			<data>
-			mCt9SnG11rOmaGQ5DNn05So6HuGT8ke3gOMgeMauk2M=
+			L578Js1TkFB9BuBahej9tIAKxyQPVEndx5xnorz3nLk=
 			</data>
 		</dict>
 		<key>Headers/QNBaseRTCController.h</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			rNMwhiv9nLrpxMStOlle4IWPKaw=
+			xGxWKguPsGGDygqz8LWkwphQosg=
 			</data>
 			<key>hash2</key>
 			<data>
-			9MN3Eh9HIyb1JJhvFCK3xZiWZ7KflJxKBh8wGbopSDQ=
+			CWqL8iNx2IwMjWn6Y+nuz9QRlpI5pzsT59jIhSPJQYI=
 			</data>
 		</dict>
 		<key>Headers/QNCameraParams.h</key>
@@ -700,11 +1024,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			uRqpC8+j+11Zv4Qj4psPkTvb7Bc=
+			zlRktFTERNpjpocOY+xRhUZqxps=
 			</data>
 			<key>hash2</key>
 			<data>
-			crAwHBgVwzYyym2NAssL2fXtBsqF0V0pVABEcnlfj3E=
+			o4pz3WNfEcBVV+eup0ncXK8SFouTtmR8sDCVPFWULPg=
 			</data>
 		</dict>
 		<key>Headers/QNCreateRoomParam.h</key>
@@ -744,11 +1068,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			KrP0bMXNOvCq3vy5wTpzjSq2GeM=
+			AAKgqzY7/IUQ5JSa9mno2MUYNuM=
 			</data>
 			<key>hash2</key>
 			<data>
-			GsoIEHJghGYTeVuYFwaYSoaZK+OQqhXFJkTQJUBvA60=
+			ijZvk68ye86y8z1NnXkfzQNDw3vws0M5DfBn4Vmjp/I=
 			</data>
 		</dict>
 		<key>Headers/QNLiveListCell.h</key>
@@ -766,11 +1090,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			2epKXnvlI2N/iMkuc5e2KGh68oI=
+			cX27k+vltMdgCzJAIAkYepTIrO0=
 			</data>
 			<key>hash2</key>
 			<data>
-			qSUKImCyLLiXxWrZh4aKAOetQTSFKU0D8TTSh+5+fWU=
+			6MGxg8B3nsyVRf99c5Wz8BwOYONOmACeXykYHWS7joE=
 			</data>
 		</dict>
 		<key>Headers/QNLivePullClient.h</key>
@@ -898,11 +1222,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			4+Wy/4V2qb8P+PwsErskO9cLW1k=
+			5siXMI2m33r0tuW6rYAYjWEJk6U=
 			</data>
 			<key>hash2</key>
 			<data>
-			Qw9BFGGsUrGDitsBdBvJHemOBRRJzpRvw6H8tbm2xQ4=
+			HPoR6SvV1B98pT+bC2WqcKgETLlYTgWlfve3AhzXNL4=
 			</data>
 		</dict>
 		<key>Headers/QRenderView.h</key>
@@ -960,6 +1284,556 @@
 			6aMDpEOfydOWr4clTijDPJ6f65dZBOHZiS2VS0yrFHc=
 			</data>
 		</dict>
+		<key>Headers/STAudioManager.h</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			YvGMPud0mZ2nW/rrmmGP/SMGonE=
+			</data>
+			<key>hash2</key>
+			<data>
+			T6ClqBzKYCKmppdVy+UbYumBrBvaPOsQ0BOh4kt4TH0=
+			</data>
+		</dict>
+		<key>Headers/STBMPCollectionView.h</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			VzYxKxYzYrKwd8BriUmOWf2Fzkw=
+			</data>
+			<key>hash2</key>
+			<data>
+			txucZttuijbnw7VTy7Vu2/HWt/OxFG5nhEl3U5hQIyg=
+			</data>
+		</dict>
+		<key>Headers/STBMPCollectionViewCell.h</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			qEISE2BCjPGucHHkoJFLSWOcjQM=
+			</data>
+			<key>hash2</key>
+			<data>
+			ps5Zo9iFc1Lk3F1VdhfPSEupiV9lLSpRJ7C++5w0y2c=
+			</data>
+		</dict>
+		<key>Headers/STBMPDetailColV.h</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			Tj/rImc8RTSVCW55aoRamYBAVQ8=
+			</data>
+			<key>hash2</key>
+			<data>
+			WMbDTXOQON6SfWHsYcR0+5TSSzjunaxMMf6qA927QPY=
+			</data>
+		</dict>
+		<key>Headers/STBMPDetailColVCell.h</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			ohfuxnFXfZkjsK3SYW7Tgx1fQF8=
+			</data>
+			<key>hash2</key>
+			<data>
+			dLC03+5F2hEJGB5THY933t7gWTWKDnu8qWBZlHkn978=
+			</data>
+		</dict>
+		<key>Headers/STBaseViewController.h</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			xriMrRb1MCcfnInhT4/yGPtT+dE=
+			</data>
+			<key>hash2</key>
+			<data>
+			wVNS5fWoKrH9pZg0ts9nYTzPXVIFJPAt5gT5lSLyvHs=
+			</data>
+		</dict>
+		<key>Headers/STBeautySlider.h</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			wetOGIejNW1iig6RMqP3ZKVB/Oo=
+			</data>
+			<key>hash2</key>
+			<data>
+			rx/BE8GW/H3StvtS9zy8m+sTh/JxodIfK/KXi2Uf6uU=
+			</data>
+		</dict>
+		<key>Headers/STBmpStrengthView.h</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			BOdPQFOuNJtBfOVuev65manYewc=
+			</data>
+			<key>hash2</key>
+			<data>
+			Eth1YihWGRp+qQXT/OEy1kSotDeuW/5x7qmPK3Spn6E=
+			</data>
+		</dict>
+		<key>Headers/STButton.h</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			cODqJ4V5w/sKQ9suBkwoDMV3la8=
+			</data>
+			<key>hash2</key>
+			<data>
+			8ZYFeOtWBiEQndnAmlrEakAoO3RJg60A3jJhUKfgsss=
+			</data>
+		</dict>
+		<key>Headers/STCamera.h</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			/nhDvZO08p6tGS/LbrotoO7lMrY=
+			</data>
+			<key>hash2</key>
+			<data>
+			reKz+eiRnfQWHzywokuY6vlmR4AZFacQJGorbS5tRGo=
+			</data>
+		</dict>
+		<key>Headers/STCollectionView.h</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			gcm0xyUjr+gNqJyNYz2DG5DnuWE=
+			</data>
+			<key>hash2</key>
+			<data>
+			Ya0jnyyklUNnBY/MpL/CrJrA2hCrRVGc+H3BWFX6Lds=
+			</data>
+		</dict>
+		<key>Headers/STCollectionViewCell.h</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			x7kHUILyhptbIgQeqCX0Ry78w5w=
+			</data>
+			<key>hash2</key>
+			<data>
+			O/zE/z6FHiC3Bq7d3v36yBfyZklqZzV9Ohf5V2JxyyE=
+			</data>
+		</dict>
+		<key>Headers/STColorConversion.h</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			WjJr1lC4qfft3/q+y/SWHoBDKkE=
+			</data>
+			<key>hash2</key>
+			<data>
+			DtAI8lCbc8giEFwZpjSYyGXcg0y2PyXA6sH4Yzo1nsc=
+			</data>
+		</dict>
+		<key>Headers/STCommonObjectContainerView.h</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			7XVXTx8mpIcfB/7Awi2L4PlHB4k=
+			</data>
+			<key>hash2</key>
+			<data>
+			MvYd9eJVLyimsp9W0cbpBbd4OMfhqpgGskYYHCYj8kQ=
+			</data>
+		</dict>
+		<key>Headers/STCommonObjectView.h</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			CecbySoN0R3oPlzkFnQHCA6hMns=
+			</data>
+			<key>hash2</key>
+			<data>
+			Esvu6pgvaQ2oS5ygw4isnFQZNTpCmmQO/2jO49f4GUg=
+			</data>
+		</dict>
+		<key>Headers/STConvert.h</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			S+V/L98HeZFyH+q1fRpHKEbGEeU=
+			</data>
+			<key>hash2</key>
+			<data>
+			vRImUHoxDJksOR2T3Vy3HUaug6waYygSl+I45fAYKc4=
+			</data>
+		</dict>
+		<key>Headers/STCoreStateManagement.h</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			3lvSSuYwxJCsgl5ydkyTAiZ7W8k=
+			</data>
+			<key>hash2</key>
+			<data>
+			2dIfFDfDsdW1LWVdjavAadKp2YthkIZJ3U/vbVlaNJY=
+			</data>
+		</dict>
+		<key>Headers/STCoreStateManagementFilterModel.h</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			sM4nhR0G8lPZFxcD+QaOBoKJa/8=
+			</data>
+			<key>hash2</key>
+			<data>
+			GvJYof1MalxYKPMGnQ5I/EvJHPoe8M5ju2hR+tFd164=
+			</data>
+		</dict>
+		<key>Headers/STCoreStateManagementModel.h</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			4LtNtj6scNOOLDCgoQMYaNHg07E=
+			</data>
+			<key>hash2</key>
+			<data>
+			BTtANa9e7+lyJeA+ELJAugSgajzgsOABx91hOEDTyyg=
+			</data>
+		</dict>
+		<key>Headers/STCoreStateManagementValueChangeDelegate.h</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			+fheOmx6Rb74+xUTYu03PgY/LZU=
+			</data>
+			<key>hash2</key>
+			<data>
+			Hobf3lN/0cZ4jup1/xKagbs2i5xaywUZID9FUvKVGsY=
+			</data>
+		</dict>
+		<key>Headers/STCustomCollectionView.h</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			fA0uwkfkOMY7VJyFahuwzOZyBN8=
+			</data>
+			<key>hash2</key>
+			<data>
+			cTs73e5M4Lh1TuFGBokz4BaRRLRrmYoE+aL9+rrNIsk=
+			</data>
+		</dict>
+		<key>Headers/STCustomMemoryCache.h</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			7y2bw9wTvXd+Smg2TUABQPOmn8Q=
+			</data>
+			<key>hash2</key>
+			<data>
+			IPxbximmw/S5HH2SoyaS+27SksHGG+ZkxT0mj+bTOP8=
+			</data>
+		</dict>
+		<key>Headers/STDefaultSetting.h</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			DEDcmN2UE/Z/iTfZmzu44PyqA3E=
+			</data>
+			<key>hash2</key>
+			<data>
+			lUKM3BrNHWhKh9pUApjpF5YbcOg7i0ARK8RDvd2TPV8=
+			</data>
+		</dict>
+		<key>Headers/STDefaultSettingDataSourseGenerator.h</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			CMcpGHKmqeiKoYXcT6hkGKorC30=
+			</data>
+			<key>hash2</key>
+			<data>
+			LVVZjpKdK1FvpPOiM80YVE1z9ZtliBD8DqfnQeeQq4s=
+			</data>
+		</dict>
+		<key>Headers/STEffectsAudioPlayer.h</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			IhDLwgEO1HfeukZN2jPMSLMyCms=
+			</data>
+			<key>hash2</key>
+			<data>
+			Cwka5Alwoqyb8kpI6VpawpdIXFSpmNVB5G1m4v3mPWY=
+			</data>
+		</dict>
+		<key>Headers/STEffectsTimer.h</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			NAp6YoyNCFZIxwQEeKxRjc81UbU=
+			</data>
+			<key>hash2</key>
+			<data>
+			0t26uv0Ed4XVsPE97CnCCiws0MTgf5V6SCyS/jqj5/Y=
+			</data>
+		</dict>
+		<key>Headers/STFilterView.h</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			PQDL1KpEwrqhSF8U9IlOoYtwbNA=
+			</data>
+			<key>hash2</key>
+			<data>
+			cuBn0xaqu5sK3kl7lBqTwYww8uRSOqQJXo5lSBn/XFk=
+			</data>
+		</dict>
+		<key>Headers/STGLPreview2.h</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			/SRQNu+uhjbJJFlnXRvS1+HRz1w=
+			</data>
+			<key>hash2</key>
+			<data>
+			i6IVXrY+3Yw/8HiFhyjRF278nPmb8EaylOw3y9poYbU=
+			</data>
+		</dict>
+		<key>Headers/STGLPreview3.h</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			1sGbU9pNLj0YPNDYOxQMk5/nuqE=
+			</data>
+			<key>hash2</key>
+			<data>
+			GZtFE6jEHk8udo1x0RaOkJWPBxHQwMJIxAfN9Eq2BLM=
+			</data>
+		</dict>
+		<key>Headers/STGLShader.h</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			6FvPI8m8DTFbg2GQCXn8FngCoFI=
+			</data>
+			<key>hash2</key>
+			<data>
+			rsBi+yE2xUYLSuMwOaxhIpZL+VvjUNiZhsvt4TZ0le0=
+			</data>
+		</dict>
+		<key>Headers/STLock.h</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			uC75Wj/41kSvKVpQNjekzalG2kM=
+			</data>
+			<key>hash2</key>
+			<data>
+			oFlEjWqeYWC/mTrGkdrjsMxAfTLTI+jfYOSNw2TWKcY=
+			</data>
+		</dict>
+		<key>Headers/STMakeupDataModel.h</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			Bkm5z5MCXAyLxcN+LRWu3Ahxaks=
+			</data>
+			<key>hash2</key>
+			<data>
+			FX0q6w/osOYv6PRfToiIVgGDQmxBLYmxBJS7cClx1HY=
+			</data>
+		</dict>
+		<key>Headers/STMobileLog.h</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			gRjrXrGoQpvR0CCEpLKOy5uAinM=
+			</data>
+			<key>hash2</key>
+			<data>
+			e4Kzde5lfdSb0yFLUD+hA4hyonPP5nUu0v5d7TTqaNA=
+			</data>
+		</dict>
+		<key>Headers/STMovieRecorder.h</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			2HRoxgn6z7qaTz/wA0uxyf+eafE=
+			</data>
+			<key>hash2</key>
+			<data>
+			wM8/UiC6NWYHS4oevjgZZc8/UfYCfSCYDf+4cPPlLss=
+			</data>
+		</dict>
+		<key>Headers/STParamUtil.h</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			1qyWTPtrmC5HSOZzSyPnH+R48zY=
+			</data>
+			<key>hash2</key>
+			<data>
+			QYUqi/J/Q1sZHoGsee6LDUAICDdT6cNuJAI8vAuWXu0=
+			</data>
+		</dict>
+		<key>Headers/STPlayerControlBar.h</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			peh3HmsHL0VjfgyK0D7kSS9FXH8=
+			</data>
+			<key>hash2</key>
+			<data>
+			Y5hgLjgy+C8rFEI9a3XPO0sLUDNYzplf7Fhlk1s60MI=
+			</data>
+		</dict>
+		<key>Headers/STScrollTitleView.h</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			BdcuvgYPTfZ8BM/CCIrtNlg4kHo=
+			</data>
+			<key>hash2</key>
+			<data>
+			QlgEdE5pLz4yHcQpTsOQ+zlCvhmkz89Z7+mJGsGGVSk=
+			</data>
+		</dict>
+		<key>Headers/STSlideView.h</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			VABc0230jxECz/NwquAFTcvkgv8=
+			</data>
+			<key>hash2</key>
+			<data>
+			UY3ifd4iZxC1BtNlMblBKxP8+Kl0TAX3lhFxRsbL7PY=
+			</data>
+		</dict>
+		<key>Headers/STTitleViewItem.h</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			DrwkUslSVbaFI7LIhdZb/hxu0nM=
+			</data>
+			<key>hash2</key>
+			<data>
+			D4YHhnc6pJ5T4AzgSlx1I4ZP/G6zkFmb83ao0VAgzog=
+			</data>
+		</dict>
+		<key>Headers/STTriggerView.h</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			oTXwYVYm5tpBPWoZQyeaZ3VMuNc=
+			</data>
+			<key>hash2</key>
+			<data>
+			h92A1VlzvVwWzxLCOd87zcyqq8J/VsgvOnQaPMG3ijk=
+			</data>
+		</dict>
+		<key>Headers/STVFShader.h</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			DG3JUTXVcgzHMovgrywSKGkiPfc=
+			</data>
+			<key>hash2</key>
+			<data>
+			ISnQs1SUNw68Hc+dQt1rJKvIrP4lOjvOeuuxVUPULts=
+			</data>
+		</dict>
+		<key>Headers/STViewButton.h</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			vapXM1/cBXoyoiL0eSwzuYBVA4Y=
+			</data>
+			<key>hash2</key>
+			<data>
+			8ax75yPWsVahfjoOgXA1RBnWsGYDwT/cLXzKA5U7UkU=
+			</data>
+		</dict>
+		<key>Headers/SenseArMaterial.h</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			elCrVYVr0lC5v8iX/1ZPXRsc9/c=
+			</data>
+			<key>hash2</key>
+			<data>
+			WZH4xfOzVhPrALi7+6AIzdiH3Xt95g8xwGKj0Nz9cjQ=
+			</data>
+		</dict>
+		<key>Headers/SenseArMaterialAction.h</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			0k2Rj8kI+zw/P84qN4TBKtOOfYM=
+			</data>
+			<key>hash2</key>
+			<data>
+			gp4wm7djnu4aQSwKuAVi56r5YhEAaLYRSpCvH2Vh3xU=
+			</data>
+		</dict>
+		<key>Headers/SenseArMaterialGroup.h</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			Xn9c8kDb2cBuPMsSj8ScaJvTpb0=
+			</data>
+			<key>hash2</key>
+			<data>
+			UHYJ/oYRkDz/IekkWQFOFlxeGAQAeCqipCgZnZ5vVTU=
+			</data>
+		</dict>
+		<key>Headers/SenseArMaterialService.h</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			dPH//kSAiIlbZ0JlO5HWHaqGrik=
+			</data>
+			<key>hash2</key>
+			<data>
+			tnvValWbVKGh6f1elpIIkbrMvQ3RRWU0awRz/dBw3Ng=
+			</data>
+		</dict>
+		<key>Headers/SenseArSourceService.h</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			Q44b3bYTtNpkgw6rhqFUkTA6/io=
+			</data>
+			<key>hash2</key>
+			<data>
+			BZiG8j/HtA2rXtOubYToelSsbMxblSWOcaisMptnD/8=
+			</data>
+		</dict>
+		<key>Headers/SoundInfomation.h</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			Zb/F9J3xPZKHbz89pTi8K+s1+XE=
+			</data>
+			<key>hash2</key>
+			<data>
+			RkYoPcGoJJ4SrEC6Un6GdS6f9dg5FfDNWtx7CHOOYZs=
+			</data>
+		</dict>
+		<key>Headers/SystemSound.h</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			AygzZTXF3eEhNm4KliKbSFtPEbA=
+			</data>
+			<key>hash2</key>
+			<data>
+			ZX29uBpBvqJAS+h2KxR25+kJpgHjbHFlJ21OShRKF3w=
+			</data>
+		</dict>
+		<key>Headers/UIView+Toast.h</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			mfXmLP9J8XYssI1priECpAz4SAk=
+			</data>
+			<key>hash2</key>
+			<data>
+			BHqQsY+IyXJJ2Qo0Y/RBtlCwZFtlkHTE8n85lErDhm4=
+			</data>
+		</dict>
 		<key>Modules/module.modulemap</key>
 		<dict>
 			<key>hash</key>
@@ -969,6 +1843,17 @@
 			<key>hash2</key>
 			<data>
 			0QKKnvuwRGY4EurZh3ymFfnGJZJLuIx6wH8tqa45ZKA=
+			</data>
+		</dict>
+		<key>VERSION</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			10Jhk7Kk4GqbWyy8wisCBFB2hZU=
+			</data>
+			<key>hash2</key>
+			<data>
+			3z+FKBJmTOrjYPon9Y1PO7naWshln1D2rtqhXlcjb7o=
 			</data>
 		</dict>
 	</dict>

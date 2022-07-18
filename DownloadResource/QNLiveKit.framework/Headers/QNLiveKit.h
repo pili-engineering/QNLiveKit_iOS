@@ -46,6 +46,11 @@ FOUNDATION_EXPORT const unsigned char QNLiveKitVersionString[];
 #import "QNMergeOption.h"
 #import "QNAudienceController.h"
 #import "QRooms.h"
+#import "GoodsSellListController.h"
+
+//#import "STBaseViewController.h"
+//#import "BeautyLiveViewController.h"
+
 
 // In this header, you should import all the public headers of your framework using statements like #import <QNLiveKit/PublicHeader.h>
 

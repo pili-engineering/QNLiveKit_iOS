@@ -10,24 +10,38 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-@class QNPKSession,QRenderView;
+@class QNPKSession,QInvitationModel;
 
+@protocol PKServiceListener <NSObject>
+@optional
+//收到PK邀请
+- (void)onReceivePKInvitation:(QInvitationModel *)model;
+//PK邀请被接受
+- (void)onReceivePKInvitationAccept:(QNPKSession *)model;
+//PK邀请被拒绝
+- (void)onReceivePKInvitationReject:(QInvitationModel *)model;
+//PK开始
+- (void)onReceiveStartPKSession:(QNPKSession *)pkSession;
+//pk结束
+- (void)onReceiveStopPKSession:(QNPKSession *)pkSession;
+
+@end
 
 @interface QPKService : QNLiveService
 
-- (instancetype)initWithRoomId:(NSString *)roomId ;
+@property (nonatomic, weak)id<PKServiceListener> delegate;
 
-//开始pk 
-- (void)startWithReceiverRoomId:(NSString *)receiverRoomId receiverUid:(NSString *)receiverUid extensions:(NSString *)extensions callBack:(nullable void (^)(QNPKSession *_Nullable pkSession))callBack;
+//申请pk
+- (void)applyPK:(NSString *)receiveRoomId receiveUser:(QNLiveUser *)receiveUser;
 
-//获取pk token
-- (void)getPKToken:(NSString *)relayID callBack:(nullable void (^)(QNPKSession * _Nullable pkSession))callBack;
+//接受PK申请
+- (void)AcceptPK:(QInvitationModel *)invitationModel;
 
-//通知服务端跨房完成
-- (void)PKStartedWithRelayID:(NSString *)relayID;
+//拒绝PK申请
+- (void)sendPKReject:(QInvitationModel *)invitationModel;
 
 //结束pk
-- (void)stopWithRelayID:(NSString *)relayID callBack:(nullable void (^)(void))callBack;
+- (void)stopPK:(nullable void (^)(void))callBack;
 
 @end
 
