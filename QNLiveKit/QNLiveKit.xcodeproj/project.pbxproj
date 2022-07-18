@@ -199,19 +199,6 @@
 		77EDC405286DA564002B4226 /* STDefaultSetting.m in Sources */ = {isa = PBXBuildFile; fileRef = 77EDC34A286DA563002B4226 /* STDefaultSetting.m */; };
 		77EDC406286DA564002B4226 /* STCamera.h in Headers */ = {isa = PBXBuildFile; fileRef = 77EDC34C286DA563002B4226 /* STCamera.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		77EDC407286DA564002B4226 /* STCamera.m in Sources */ = {isa = PBXBuildFile; fileRef = 77EDC34D286DA563002B4226 /* STCamera.m */; };
-		77EDC408286DA564002B4226 /* PortraitFilters.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 77EDC350286DA563002B4226 /* PortraitFilters.bundle */; };
-		77EDC409286DA564002B4226 /* SceneryFilters.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 77EDC351286DA563002B4226 /* SceneryFilters.bundle */; };
-		77EDC40A286DA564002B4226 /* StillLifeFilters.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 77EDC352286DA563002B4226 /* StillLifeFilters.bundle */; };
-		77EDC40B286DA564002B4226 /* DeliciousFoodFilters.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 77EDC353286DA563002B4226 /* DeliciousFoodFilters.bundle */; };
-		77EDC40C286DA564002B4226 /* whiten_gif.zip in Resources */ = {isa = PBXBuildFile; fileRef = 77EDC355286DA563002B4226 /* whiten_gif.zip */; };
-		77EDC416286DA564002B4226 /* eyelash.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 77EDC361286DA563002B4226 /* eyelash.bundle */; };
-		77EDC417286DA564002B4226 /* lips.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 77EDC362286DA563002B4226 /* lips.bundle */; };
-		77EDC418286DA564002B4226 /* brow.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 77EDC363286DA563002B4226 /* brow.bundle */; };
-		77EDC419286DA564002B4226 /* wholemakeup.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 77EDC364286DA563002B4226 /* wholemakeup.bundle */; };
-		77EDC41A286DA564002B4226 /* face.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 77EDC365286DA563002B4226 /* face.bundle */; };
-		77EDC41B286DA564002B4226 /* eyeshadow.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 77EDC366286DA563002B4226 /* eyeshadow.bundle */; };
-		77EDC41C286DA564002B4226 /* blush.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 77EDC367286DA563002B4226 /* blush.bundle */; };
-		77EDC41D286DA564002B4226 /* my_sticker.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 77EDC369286DA563002B4226 /* my_sticker.bundle */; };
 		77EDC41E286DA564002B4226 /* STColorConversion.h in Headers */ = {isa = PBXBuildFile; fileRef = 77EDC36B286DA563002B4226 /* STColorConversion.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		77EDC41F286DA564002B4226 /* STGLPreview3.h in Headers */ = {isa = PBXBuildFile; fileRef = 77EDC36C286DA563002B4226 /* STGLPreview3.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		77EDC420286DA564002B4226 /* STGLShader.m in Sources */ = {isa = PBXBuildFile; fileRef = 77EDC36D286DA563002B4226 /* STGLShader.m */; };
@@ -525,19 +512,6 @@
 		77EDC34A286DA563002B4226 /* STDefaultSetting.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = STDefaultSetting.m; sourceTree = "<group>"; };
 		77EDC34C286DA563002B4226 /* STCamera.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = STCamera.h; sourceTree = "<group>"; };
 		77EDC34D286DA563002B4226 /* STCamera.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = STCamera.m; sourceTree = "<group>"; };
-		77EDC350286DA563002B4226 /* PortraitFilters.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = PortraitFilters.bundle; sourceTree = "<group>"; };
-		77EDC351286DA563002B4226 /* SceneryFilters.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = SceneryFilters.bundle; sourceTree = "<group>"; };
-		77EDC352286DA563002B4226 /* StillLifeFilters.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = StillLifeFilters.bundle; sourceTree = "<group>"; };
-		77EDC353286DA563002B4226 /* DeliciousFoodFilters.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = DeliciousFoodFilters.bundle; sourceTree = "<group>"; };
-		77EDC355286DA563002B4226 /* whiten_gif.zip */ = {isa = PBXFileReference; lastKnownFileType = archive.zip; path = whiten_gif.zip; sourceTree = "<group>"; };
-		77EDC361286DA563002B4226 /* eyelash.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = eyelash.bundle; sourceTree = "<group>"; };
-		77EDC362286DA563002B4226 /* lips.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = lips.bundle; sourceTree = "<group>"; };
-		77EDC363286DA563002B4226 /* brow.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = brow.bundle; sourceTree = "<group>"; };
-		77EDC364286DA563002B4226 /* wholemakeup.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = wholemakeup.bundle; sourceTree = "<group>"; };
-		77EDC365286DA563002B4226 /* face.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = face.bundle; sourceTree = "<group>"; };
-		77EDC366286DA563002B4226 /* eyeshadow.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = eyeshadow.bundle; sourceTree = "<group>"; };
-		77EDC367286DA563002B4226 /* blush.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = blush.bundle; sourceTree = "<group>"; };
-		77EDC369286DA563002B4226 /* my_sticker.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = my_sticker.bundle; sourceTree = "<group>"; };
 		77EDC36B286DA563002B4226 /* STColorConversion.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = STColorConversion.h; sourceTree = "<group>"; };
 		77EDC36C286DA563002B4226 /* STGLPreview3.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = STGLPreview3.h; sourceTree = "<group>"; };
 		77EDC36D286DA563002B4226 /* STGLShader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = STGLShader.m; sourceTree = "<group>"; };
@@ -1042,7 +1016,6 @@
 				77EDC33A286DA563002B4226 /* Util */,
 				77EDC344286DA563002B4226 /* SampleDefaultSetting */,
 				77EDC34B286DA563002B4226 /* Camera */,
-				77EDC34E286DA563002B4226 /* resources */,
 				77EDC36A286DA563002B4226 /* Render */,
 				77EDC375286DA563002B4226 /* SenseArSourceService */,
 				77EDC381286DA563002B4226 /* architecture */,
@@ -1098,58 +1071,6 @@
 				77EDC34D286DA563002B4226 /* STCamera.m */,
 			);
 			path = Camera;
-			sourceTree = "<group>";
-		};
-		77EDC34E286DA563002B4226 /* resources */ = {
-			isa = PBXGroup;
-			children = (
-				77EDC34F286DA563002B4226 /* Filters */,
-				77EDC354286DA563002B4226 /* Color */,
-				77EDC360286DA563002B4226 /* Makeup */,
-				77EDC368286DA563002B4226 /* StickerZipAndIcons */,
-			);
-			path = resources;
-			sourceTree = "<group>";
-		};
-		77EDC34F286DA563002B4226 /* Filters */ = {
-			isa = PBXGroup;
-			children = (
-				77EDC350286DA563002B4226 /* PortraitFilters.bundle */,
-				77EDC351286DA563002B4226 /* SceneryFilters.bundle */,
-				77EDC352286DA563002B4226 /* StillLifeFilters.bundle */,
-				77EDC353286DA563002B4226 /* DeliciousFoodFilters.bundle */,
-			);
-			path = Filters;
-			sourceTree = "<group>";
-		};
-		77EDC354286DA563002B4226 /* Color */ = {
-			isa = PBXGroup;
-			children = (
-				77EDC355286DA563002B4226 /* whiten_gif.zip */,
-			);
-			path = Color;
-			sourceTree = "<group>";
-		};
-		77EDC360286DA563002B4226 /* Makeup */ = {
-			isa = PBXGroup;
-			children = (
-				77EDC361286DA563002B4226 /* eyelash.bundle */,
-				77EDC362286DA563002B4226 /* lips.bundle */,
-				77EDC363286DA563002B4226 /* brow.bundle */,
-				77EDC364286DA563002B4226 /* wholemakeup.bundle */,
-				77EDC365286DA563002B4226 /* face.bundle */,
-				77EDC366286DA563002B4226 /* eyeshadow.bundle */,
-				77EDC367286DA563002B4226 /* blush.bundle */,
-			);
-			path = Makeup;
-			sourceTree = "<group>";
-		};
-		77EDC368286DA563002B4226 /* StickerZipAndIcons */ = {
-			isa = PBXGroup;
-			children = (
-				77EDC369286DA563002B4226 /* my_sticker.bundle */,
-			);
-			path = StickerZipAndIcons;
 			sourceTree = "<group>";
 		};
 		77EDC36A286DA563002B4226 /* Render */ = {
@@ -1638,21 +1559,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				77EDC416286DA564002B4226 /* eyelash.bundle in Resources */,
-				77EDC40A286DA564002B4226 /* StillLifeFilters.bundle in Resources */,
-				77EDC419286DA564002B4226 /* wholemakeup.bundle in Resources */,
-				77EDC41C286DA564002B4226 /* blush.bundle in Resources */,
-				77EDC409286DA564002B4226 /* SceneryFilters.bundle in Resources */,
-				77EDC408286DA564002B4226 /* PortraitFilters.bundle in Resources */,
-				77EDC41D286DA564002B4226 /* my_sticker.bundle in Resources */,
-				77EDC40C286DA564002B4226 /* whiten_gif.zip in Resources */,
-				77EDC417286DA564002B4226 /* lips.bundle in Resources */,
 				77781D6328486D35009DC71C /* EmojiList.plist in Resources */,
-				77EDC418286DA564002B4226 /* brow.bundle in Resources */,
-				77EDC40B286DA564002B4226 /* DeliciousFoodFilters.bundle in Resources */,
-				77EDC41A286DA564002B4226 /* face.bundle in Resources */,
 				77EDC42D286DA564002B4226 /* VERSION in Resources */,
-				77EDC41B286DA564002B4226 /* eyeshadow.bundle in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
