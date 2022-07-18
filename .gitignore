@@ -1,7 +1,7 @@
 QNLiveKitDemo/Pods/
 QNLiveKitDemo/*.lock
 QNLiveKitDemo/*.xcworkspace
-QNLiveKitDemo/QNLiveKitDemo/*.lic
+QNLiveKitDemo/QNLiveKitDemo/BeautyResource/*.lic
 QNLiveKit/Pods/
 QNLiveKit/*.lock
 DownloadResource/QNLiveKitDemo/*.lock

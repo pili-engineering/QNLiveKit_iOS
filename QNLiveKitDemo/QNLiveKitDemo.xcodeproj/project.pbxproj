@@ -316,9 +316,7 @@
 		776B1BDC28378CCD00D85C73 /* QNLiveKitDemo */ = {
 			isa = PBXGroup;
 			children = (
-				77A8D1EA2876CB77001A3C2C /* resources */,
-				77A8D1C32876CAD5001A3C2C /* models */,
-				77A8D1BF28757128001A3C2C /* SENSEME.lic */,
+				77A11C5B288540EC00020149 /* BeautyResource */,
 				77781C7D283E1EB2009DC71C /* QNIMSDK.framework */,
 				776B1BDD28378CCD00D85C73 /* AppDelegate.h */,
 				776B1BDE28378CCD00D85C73 /* AppDelegate.m */,
@@ -461,6 +459,16 @@
 				77781CD52840C768009DC71C /* QNQuitLoginCell.h */,
 			);
 			path = Personal;
+			sourceTree = "<group>";
+		};
+		77A11C5B288540EC00020149 /* BeautyResource */ = {
+			isa = PBXGroup;
+			children = (
+				77A8D1BF28757128001A3C2C /* SENSEME.lic */,
+				77A8D1C32876CAD5001A3C2C /* models */,
+				77A8D1EA2876CB77001A3C2C /* resources */,
+			);
+			path = BeautyResource;
 			sourceTree = "<group>";
 		};
 		77A8D1C32876CAD5001A3C2C /* models */ = {
