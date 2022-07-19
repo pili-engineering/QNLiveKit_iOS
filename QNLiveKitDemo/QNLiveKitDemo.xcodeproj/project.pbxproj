@@ -319,7 +319,6 @@
 		776B1BDC28378CCD00D85C73 /* QNLiveKitDemo */ = {
 			isa = PBXGroup;
 			children = (
-				77A11CB72886922F00020149 /* PLSTArEffects.framework */,
 				77781C7D283E1EB2009DC71C /* QNIMSDK.framework */,
 				77A11C5B288540EC00020149 /* BeautyResource */,
 				776B1BDD28378CCD00D85C73 /* AppDelegate.h */,
@@ -468,6 +467,7 @@
 		77A11C5B288540EC00020149 /* BeautyResource */ = {
 			isa = PBXGroup;
 			children = (
+				77A11CB72886922F00020149 /* PLSTArEffects.framework */,
 				77A8D1BF28757128001A3C2C /* SENSEME.lic */,
 				77A8D1C32876CAD5001A3C2C /* models */,
 				77A8D1EA2876CB77001A3C2C /* resources */,
@@ -1052,6 +1052,7 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/QNLiveKitDemo",
+					"\"$(SRCROOT)/QNLiveKitDemo/BeautyResource\"",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = /Users/guoqian/Desktop/QNLiveKit_iOS/QNLiveKitDemo/QNLiveKitDemo/LiveDemoPrefixHeader.pch;
@@ -1070,6 +1071,7 @@
 					"\"${PODS_CONFIGURATION_BUILD_DIR}/SocketRocket/SocketRocket.framework/Headers\"",
 					"\"${PODS_CONFIGURATION_BUILD_DIR}/PLShortVideoKit-SenseTime/PLShortVideoKit-SenseTime-1.4.0/PLSTArEffects.framework/Headers\"",
 					"\"${PODS_CONFIGURATION_BUILD_DIR}/YYCategories/YYCategories.framework/Headers\"",
+					"\"$(SRCROOT)/QNLiveKitDemo/BeautyResource/PLSTArEffects.framework/Headers\"",
 				);
 				INFOPLIST_FILE = QNLiveKitDemo/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = "互动直播";
@@ -1113,6 +1115,7 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/QNLiveKitDemo",
+					"\"$(SRCROOT)/QNLiveKitDemo/BeautyResource\"",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = /Users/guoqian/Desktop/QNLiveKit_iOS/QNLiveKitDemo/QNLiveKitDemo/LiveDemoPrefixHeader.pch;
@@ -1131,6 +1134,7 @@
 					"\"${PODS_CONFIGURATION_BUILD_DIR}/SocketRocket/SocketRocket.framework/Headers\"",
 					"\"${PODS_CONFIGURATION_BUILD_DIR}/PLShortVideoKit-SenseTime/PLShortVideoKit-SenseTime-1.4.0/PLSTArEffects.framework/Headers\"",
 					"\"${PODS_CONFIGURATION_BUILD_DIR}/YYCategories/YYCategories.framework/Headers\"",
+					"\"$(SRCROOT)/QNLiveKitDemo/BeautyResource/PLSTArEffects.framework/Headers\"",
 				);
 				INFOPLIST_FILE = QNLiveKitDemo/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = "互动直播";
