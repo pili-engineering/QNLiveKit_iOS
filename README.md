@@ -20,8 +20,14 @@
         pod 'SDWebImage'
         pod 'AFNetworking'
     
-    信令依赖：将QNIMSDK拖入项目中，并在General的中选择 Embed & sign
-    将资源包livekitResource文件拖入项目中
+    信令依赖：将QNIMSDK拖入项目中，并在General的中选择 Embed & sign。
+    图片资源：将livekitResource文件拖入项目的Assets中。
+    
+    美颜依赖：1、将BeautyResource拖入项目中，
+            2、在Targets->Build Settings->Framework Search Paths中添加BeautyResource路径
+            3、Targets->Build Settings->Header Search Paths中添加BeautyResource/PLSTArEffects.framework/Headers路径
+            4、请求美颜证书SENSEME.lic并放入项目（不使用美颜功能可不放）
+    
     
 ### 快速接入
 
@@ -44,24 +50,33 @@
         
         跳转方式二
         
-        //创建直播页：（无参数跳转）
+        //创建直播页：
         QCreateLiveController *createLiveVc = [QCreateLiveController new];
         createLiveVc.modalPresentationStyle = UIModalPresentationFullScreen;
         [self presentViewController:createLiveVc animated:YES completion:nil];
         
+       //创建直播页：（需要美颜）
+        CreateBeautyLiveController *createLiveVc = [CreateBeautyLiveController new];
+        createLiveVc.modalPresentationStyle = UIModalPresentationFullScreen;
+        [self presentViewController:createLiveVc animated:YES completion:nil];
         
         跳转方式三
         
-        //直播进行页：（带QNLiveRoomInfo参数跳转）
+        //直播进行页（不带美颜）：
         QLiveController *liveVc = [QLiveController new];
         liveVc.roomInfo = roomInfo;
         liveVc.modalPresentationStyle = UIModalPresentationFullScreen;
         [self presentViewController:liveVc animated:YES completion:nil];
         
+        //直播进行页（带美颜）
+        BeautyLiveViewController *liveVc = [BeautyLiveViewController new];
+        liveVc.roomInfo = roomInfo;
+        liveVc.modalPresentationStyle = UIModalPresentationFullScreen;
+        [self presentViewController:liveVc animated:YES completion:nil];
         
         跳转方式四
         
-        //观众观看页面：（带QNLiveRoomInfo参数跳转）
+        //观众观看页面：
         QNAudienceController *vc = [QNAudienceController new];
         vc.roomInfo = roomInfo;
         vc.modalPresentationStyle = UIModalPresentationFullScreen;
