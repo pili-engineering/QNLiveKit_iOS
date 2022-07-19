@@ -182,6 +182,8 @@
 		77A11C6128854A7A00020149 /* BeautyBaseController.m in Sources */ = {isa = PBXBuildFile; fileRef = 77A11C5F28854A7A00020149 /* BeautyBaseController.m */; };
 		77A11C64288556AA00020149 /* CreateBeautyLiveController.h in Headers */ = {isa = PBXBuildFile; fileRef = 77A11C62288556AA00020149 /* CreateBeautyLiveController.h */; };
 		77A11C65288556AA00020149 /* CreateBeautyLiveController.m in Sources */ = {isa = PBXBuildFile; fileRef = 77A11C63288556AA00020149 /* CreateBeautyLiveController.m */; };
+		77A11CB228868D7300020149 /* PLSTArEffects.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 77A11CB128868D7300020149 /* PLSTArEffects.framework */; };
+		77A11CB4288691C500020149 /* Pods_QNLiveKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 93FD8D2BCC60F127C6FB7DA1 /* Pods_QNLiveKit.framework */; };
 		77A8D26E28782DF0001A3C2C /* AssetsLibrary.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 77A8D26D28782DF0001A3C2C /* AssetsLibrary.framework */; };
 		77E02E31284E245A00EE8A28 /* QNAudienceController.h in Headers */ = {isa = PBXBuildFile; fileRef = 77E02E2F284E245A00EE8A28 /* QNAudienceController.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		77E02E32284E245A00EE8A28 /* QNAudienceController.m in Sources */ = {isa = PBXBuildFile; fileRef = 77E02E30284E245A00EE8A28 /* QNAudienceController.m */; };
@@ -292,7 +294,6 @@
 		77EDC4A0286DAD99002B4226 /* BeautyLiveViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 77EDC49E286DAD99002B4226 /* BeautyLiveViewController.m */; };
 		77EDC4A3286EA40C002B4226 /* libSenseArSourceService.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 77EDC4A2286EA40C002B4226 /* libSenseArSourceService.a */; };
 		77EDC4A5286ECDCC002B4226 /* libst_mobile.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 77EDC4A4286ECDCB002B4226 /* libst_mobile.a */; };
-		C486089576C27F3A6ABEE3DB /* Pods_QNLiveKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 93FD8D2BCC60F127C6FB7DA1 /* Pods_QNLiveKit.framework */; };
 		F18E863D1EEF8227B50115B4 /* Pods_QNLiveKitTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 948C15C1847BC94017A63290 /* Pods_QNLiveKitTests.framework */; };
 /* End PBXBuildFile section */
 
@@ -497,6 +498,7 @@
 		77A11C5F28854A7A00020149 /* BeautyBaseController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BeautyBaseController.m; sourceTree = "<group>"; };
 		77A11C62288556AA00020149 /* CreateBeautyLiveController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CreateBeautyLiveController.h; sourceTree = "<group>"; };
 		77A11C63288556AA00020149 /* CreateBeautyLiveController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CreateBeautyLiveController.m; sourceTree = "<group>"; };
+		77A11CB128868D7300020149 /* PLSTArEffects.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = PLSTArEffects.framework; sourceTree = "<group>"; };
 		77A8D26D28782DF0001A3C2C /* AssetsLibrary.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AssetsLibrary.framework; path = Platforms/MacOSX.platform/Developer/SDKs/MacOSX12.3.sdk/System/iOSSupport/System/Library/Frameworks/AssetsLibrary.framework; sourceTree = DEVELOPER_DIR; };
 		77E02E2F284E245A00EE8A28 /* QNAudienceController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = QNAudienceController.h; sourceTree = "<group>"; };
 		77E02E30284E245A00EE8A28 /* QNAudienceController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = QNAudienceController.m; sourceTree = "<group>"; };
@@ -622,7 +624,8 @@
 			files = (
 				77A8D26E28782DF0001A3C2C /* AssetsLibrary.framework in Frameworks */,
 				77781D9928486DBA009DC71C /* QNIMSDK.framework in Frameworks */,
-				C486089576C27F3A6ABEE3DB /* Pods_QNLiveKit.framework in Frameworks */,
+				77A11CB4288691C500020149 /* Pods_QNLiveKit.framework in Frameworks */,
+				77A11CB228868D7300020149 /* PLSTArEffects.framework in Frameworks */,
 				77EDC4A5286ECDCC002B4226 /* libst_mobile.a in Frameworks */,
 				77EDC4A3286EA40C002B4226 /* libSenseArSourceService.a in Frameworks */,
 			);
@@ -719,6 +722,7 @@
 		776B1C4B283C78D800D85C73 /* QNLiveKit */ = {
 			isa = PBXGroup;
 			children = (
+				77A11CB128868D7300020149 /* PLSTArEffects.framework */,
 				77781D9728486DAD009DC71C /* QNIMSDK.framework */,
 				77EDC498286DA86B002B4226 /* Beauty */,
 				77781D242845E56A009DC71C /* LiveUIKit */,
@@ -1919,6 +1923,7 @@
 					"$(PROJECT_DIR)Demo/Pods/QNRTCKit-iOS/pod/iphoneos",
 					"$(PROJECT_DIR)/QNLiveKit",
 					"\"$(SRCROOT)/QNLiveKit/Beauty/Effect\"",
+					"\"$(SRCROOT)/QNLiveKit/PLSTArEffects.framework\"",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = /Users/guoqian/Desktop/QNLiveKit_iOS/QNLiveKit/QNLiveKit/QNLivePrefixHeader.pch;
@@ -1929,6 +1934,7 @@
 					"\"${PODS_CONFIGURATION_BUILD_DIR}/Masonry/Masonry.framework/Headers\"",
 					"\"${PODS_CONFIGURATION_BUILD_DIR}/SDWebImage/SDWebImage.framework/Headers\"",
 					"\"$(SRCROOT)/QNLiveKit/Beauty/Effect\"",
+					"\"$(SRCROOT)/QNLiveKit/PLSTArEffects.framework/Headers\"",
 				);
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
@@ -1979,6 +1985,7 @@
 					"$(PROJECT_DIR)Demo/Pods/QNRTCKit-iOS/pod/iphoneos",
 					"$(PROJECT_DIR)/QNLiveKit",
 					"\"$(SRCROOT)/QNLiveKit/Beauty/Effect\"",
+					"\"$(SRCROOT)/QNLiveKit/PLSTArEffects.framework\"",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = /Users/guoqian/Desktop/QNLiveKit_iOS/QNLiveKit/QNLiveKit/QNLivePrefixHeader.pch;
@@ -1989,6 +1996,7 @@
 					"\"${PODS_CONFIGURATION_BUILD_DIR}/Masonry/Masonry.framework/Headers\"",
 					"\"${PODS_CONFIGURATION_BUILD_DIR}/SDWebImage/SDWebImage.framework/Headers\"",
 					"\"$(SRCROOT)/QNLiveKit/Beauty/Effect\"",
+					"\"$(SRCROOT)/QNLiveKit/PLSTArEffects.framework/Headers\"",
 				);
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
