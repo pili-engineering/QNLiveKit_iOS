@@ -88,12 +88,14 @@
     return _titleTf;
 }
 
+//美颜
 - (void)beautyButtonClick {
     [self clickBottomViewButton:self.beautyBtn];
 }
 
+//翻转摄像头
 - (void)turnAroundButtonClick {
-    [self clickBottomViewButton:self.specialEffectsBtn];
+    [[QNLivePushClient createPushClient] switchCamera];
 }
 
 - (void)beautyButton {
