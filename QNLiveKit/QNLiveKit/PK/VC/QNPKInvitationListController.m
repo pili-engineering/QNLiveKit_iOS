@@ -1,15 +1,15 @@
 //
-//  QNInvitationMemberListController.m
+//  QNPKInvitationListController.m
 //  QiNiu_Solution_iOS
 //
 //  Created by 郭茜 on 2021/12/8.
 //
 
-#import "QNInvitationMemberListController.h"
-#import "QNInvitationMemberListCell.h"
+#import "QNPKInvitationListController.h"
+#import "QNPKInvitationListCell.h"
 #import "QNLiveRoomInfo.h"
 
-@interface QNInvitationMemberListController ()<UITableViewDelegate,UITableViewDataSource>
+@interface QNPKInvitationListController ()<UITableViewDelegate,UITableViewDataSource>
 
 @property (nonatomic, strong) UITableView *tableView;
 @property (nonatomic, strong) NSArray <QNLiveRoomInfo *> *ListModel;
@@ -17,7 +17,7 @@
 @property (nonatomic, strong) UIButton *button;
 @end
 
-@implementation QNInvitationMemberListController
+@implementation QNPKInvitationListController
 
 - (instancetype)initWithList:(NSArray<QNLiveRoomInfo *> *)list {
     if (self = [super init]) {
@@ -68,7 +68,7 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
         
-    QNInvitationMemberListCell *cell = [tableView dequeueReusableCellWithIdentifier:@"QNInvitationMemberListCell" forIndexPath:indexPath];
+    QNPKInvitationListCell *cell = [tableView dequeueReusableCellWithIdentifier:@"QNInvitationMemberListCell" forIndexPath:indexPath];
     cell.itemModel = self.ListModel[indexPath.row];
     __weak typeof(self)weakSelf = self;
     cell.listClickedBlock = ^(QNLiveRoomInfo * _Nonnull itemModel) {
@@ -106,7 +106,7 @@
             make.top.equalTo(self.label.mas_bottom).offset(10);
         }];
         
-        [_tableView registerClass:[QNInvitationMemberListCell class] forCellReuseIdentifier:@"QNInvitationMemberListCell"];
+        [_tableView registerClass:[QNPKInvitationListCell class] forCellReuseIdentifier:@"QNInvitationMemberListCell"];
         
     }
     return _tableView;

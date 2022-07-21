@@ -1,15 +1,15 @@
 //
-//  QNMovieMemberListCell.m
-//  QiNiu_Solution_iOS
+//  QNPKInvitationListCell.m
+//  QNLiveKit
 //
 //  Created by 郭茜 on 2021/12/8.
 //
 
-#import "QNInvitationMemberListCell.h"
+#import "QNPKInvitationListCell.h"
 #import "QNLiveUser.h"
 #import "QNLiveRoomInfo.h"
 
-@interface QNInvitationMemberListCell ()
+@interface QNPKInvitationListCell ()
 
 @property (nonatomic,strong)UIImageView *iconImageView;
 
@@ -23,7 +23,7 @@
 
 @end
 
-@implementation QNInvitationMemberListCell
+@implementation QNPKInvitationListCell
 
 - (instancetype)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier {
     if ([super initWithStyle:style reuseIdentifier:reuseIdentifier]) {

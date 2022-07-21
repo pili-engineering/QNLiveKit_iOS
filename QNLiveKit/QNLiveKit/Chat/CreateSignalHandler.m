@@ -16,6 +16,7 @@
 #import "LinkInvitation.h"
 #import "QIMModel.h"
 #import "QNPKSession.h"
+#import "GoodsModel.h"
 
 @interface CreateSignalHandler ()
 
@@ -328,6 +329,18 @@
     message.senderName = QN_User_nickname;
     return message;
     
+}
+
+//切换讲解商品消息
+- (QNIMMessageObject *)createExplainGoodMsg:(GoodsModel *)model {
+
+    QIMModel *messageModel = [QIMModel new];
+    messageModel.action = liveroom_shopping_explaining;
+    messageModel.data = model.mj_keyValues;
+    
+    QNIMMessageObject *message = [[QNIMMessageObject alloc]initWithQNIMMessageText:messageModel.mj_JSONString fromId:QN_IM_userId.longLongValue toId:self.toId.longLongValue type:QNIMMessageTypeGroup conversationId:self.toId.longLongValue];
+    message.senderName = QN_User_nickname;
+    return message;
 }
 
 //生成进房/离房/点赞/聊天/弹幕消息

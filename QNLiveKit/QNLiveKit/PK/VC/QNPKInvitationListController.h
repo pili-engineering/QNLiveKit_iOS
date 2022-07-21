@@ -1,5 +1,5 @@
 //
-//  QNInvitationMemberListController.h
+//  QNPKInvitationListController.h
 //  QiNiu_Solution_iOS
 //
 //  Created by 郭茜 on 2021/12/8.
@@ -11,7 +11,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 @class QNLiveRoomInfo;
 
-@interface QNInvitationMemberListController : UIViewController
+@interface QNPKInvitationListController : UIViewController
 
 @property (nonatomic, copy) void (^invitationClickedBlock)(QNLiveRoomInfo *itemModel);
 

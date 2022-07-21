@@ -1,11 +1,11 @@
 //
-//  GoodsSellListController.m
+//  ShopSellListController.m
 //  QNLiveKit
 //
 //  Created by 郭茜 on 2022/7/13.
 //
 
-#import "GoodsSellListController.h"
+#import "ShopSellListController.h"
 #import "GoodSellItemCell.h"
 #import "GoodsOperationCell.h"
 #import "GoodsModel.h"
@@ -14,11 +14,15 @@
 #import "GoodStatusView.h"
 #import "UITableView+MoveCell.h"
 #import "QAlertView.h"
+#import "QShopService.h"
+#import "QNLiveRoomInfo.h"
 
 
-@interface GoodsSellListController ()<UITableViewDelegate,UITableViewDataSource>
+@interface ShopSellListController ()<UITableViewDelegate,UITableViewDataSource>
 
 @property (nonatomic, strong) UITableView *tableView;
+@property (nonatomic, strong) QNLiveRoomInfo *roomInfo;
+@property (nonatomic, strong) QShopService *shopService;
 @property (nonatomic, strong) NSArray <GoodsModel *> *ListModel;//展示的商品
 @property (nonatomic, strong) NSArray <GoodsModel *> *totalListModel;//所有商品
 @property (nonatomic, strong) NSMutableArray <GoodsModel *> *selectModel;//选中的商品
@@ -30,11 +34,12 @@
 @property (nonatomic, copy) NSString *liveID;
 @end
 
-@implementation GoodsSellListController
+@implementation ShopSellListController
 
-- (instancetype)initWithLiveID:(NSString *)liveID{
+- (instancetype)initWithLiveInfo:(QNLiveRoomInfo *)liveInfo {
     if (self = [super init]) {
-        self.liveID = liveID;
+//        self.liveID = liveInfo.live_id;
+        self.roomInfo = liveInfo;
     }
     return self;
 }
@@ -70,14 +75,10 @@
 
 //刷新商品列表
 - (void)requestData {
-    
-    NSString *action = [NSString stringWithFormat:@"client/item/%@",self.liveID];
-    [QLiveNetworkUtil getRequestWithAction:action params:nil success:^(NSDictionary * _Nonnull responseData) {
-        self.totalListModel = [GoodsModel mj_objectArrayWithKeyValuesArray:responseData];
+    [self.shopService getGoodList:^(NSArray<GoodsModel *> * _Nullable goodList) {
+        self.totalListModel = goodList;
         self.ListModel = self.totalListModel;
         [self.tableView reloadData];
-    } failure:^(NSError * _Nonnull error) {
-        
     }];
 }
 
@@ -216,51 +217,38 @@
 
 //调整商品顺序
 - (void)sortGood:(GoodsModel *)good fromIndex:(NSInteger)fromIndex toIndex:(NSInteger)toIndex {
-    NSMutableDictionary *params = [NSMutableDictionary dictionary];
-    params[@"live_id"] = self.liveID;
-    params[@"item_id"] = good.item_id;
-    params[@"from"] = @(fromIndex);
-    params[@"to"] = @(toIndex);
-    [QLiveNetworkUtil postRequestWithAction:@"client/item/order/single" params:params success:^(NSDictionary * _Nonnull responseData) {
+    [self.shopService sortGood:good fromIndex:fromIndex toIndex:toIndex callBack:^{
         [self requestData];
-    } failure:^(NSError * _Nonnull error) {
-        
     }];
 }
 
 //讲解商品
 - (void)explainGood:(GoodsModel *)itemModel {
-    NSString *action = [NSString stringWithFormat:@"client/item/demonstrate/%@/%@",self.liveID,itemModel.item_id];
-    [QLiveNetworkUtil postRequestWithAction:action params:nil success:^(NSDictionary * _Nonnull responseData) {
+    [self.shopService explainGood:itemModel callBack:^{
         [self getExplainGood];
-    } failure:^(NSError * _Nonnull error) {
-        
     }];
 }
 
 //取消讲解商品
 - (void)endExplainGood {
-    NSString *action = [NSString stringWithFormat:@"client/item/demonstrate/%@",self.liveID];
-    [QLiveNetworkUtil deleteRequestWithAction:action params:nil success:^(NSDictionary * _Nonnull responseData) {
+    
+    [self.shopService endExplainGood:^{
         
         NSMutableArray<GoodsModel *> *array = [NSMutableArray arrayWithArray:self.ListModel];
-        
         [array enumerateObjectsUsingBlock:^(GoodsModel * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
             obj.isExplaining = NO;
         }];
         self.ListModel = array;
         [self.tableView reloadData];
-    } failure:^(NSError * _Nonnull error) {
-        
     }];
+
 }
 
 //查看正在讲解的商品
 - (void)getExplainGood {
-    NSString *action = [NSString stringWithFormat:@"client/item/demonstrate/%@",self.liveID];
-    [QLiveNetworkUtil getRequestWithAction:action params:nil success:^(NSDictionary * _Nonnull responseData) {
-        
-        GoodsModel *explainGood = [GoodsModel mj_objectWithKeyValues:responseData];
+    
+    [self.shopService getExplainGood:^(GoodsModel * _Nullable good) {
+        GoodsModel *explainGood = good;
         NSMutableArray<GoodsModel *> *array = [NSMutableArray arrayWithArray:self.ListModel];
         
         [array enumerateObjectsUsingBlock:^(GoodsModel * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
@@ -272,43 +260,24 @@
         }];
         self.ListModel = array;
         [self.tableView reloadData];
-    } failure:^(NSError * _Nonnull error) {
-        
     }];
 }
 
 //批量修改商品状态
 - (void)updateGoodsStatus:(NSArray <GoodsModel *>*)goods status:(QLiveGoodsStatus)status {
-    NSMutableDictionary *params = [NSMutableDictionary dictionary];
-    params[@"live_id"] = self.liveID;
     
-    NSMutableArray *arr = [NSMutableArray array];
-    for (GoodsModel *good in goods) {
-        GoodsModel *model = [GoodsModel new];
-        model.item_id = good.item_id;
-        model.status = status;
-        [arr addObject:model.mj_keyValues];
-    }
-    params[@"items"] = arr;
-    [QLiveNetworkUtil postRequestWithAction:@"client/item/status" params:params success:^(NSDictionary * _Nonnull responseData) {
+    [self.shopService updateGoodsStatus:goods status:status callBack:^{
         [self requestData];
-        } failure:^(NSError * _Nonnull error) {}];
+    }];
 }
 
 //移除商品
 - (void)removeGoods:(NSArray <GoodsModel *>*)goods {
     
-    NSMutableDictionary *params = [NSMutableDictionary dictionary];
-    params[@"live_id"] = self.liveID;
-    
-    NSMutableArray *arr = [NSMutableArray array];
-    for (GoodsModel *good in goods) {
-        [arr addObject:good.item_id];
-    }
-    params[@"items"] = arr;
-    [QLiveNetworkUtil postRequestWithAction:@"client/item/delete" params:params success:^(NSDictionary * _Nonnull responseData) {
+    [self.shopService removeGoods:goods callBack:^{
         [self requestData];
-        } failure:^(NSError * _Nonnull error) {}];
+    }];
+    
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -374,6 +343,14 @@
         };
     }
     return _operationView;
+}
+
+- (QShopService *)shopService {
+    if (!_shopService) {
+        _shopService = [[QShopService alloc]init];
+        _shopService.roomInfo = self.roomInfo;
+    }
+    return _shopService;
 }
  
 @end

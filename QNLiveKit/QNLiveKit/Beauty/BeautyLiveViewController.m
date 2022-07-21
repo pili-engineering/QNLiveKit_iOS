@@ -21,7 +21,7 @@
 #import "QRenderView.h"
 #import "QLive.h"
 #import "QNLiveUser.h"
-#import "QNInvitationMemberListController.h"
+#import "QNPKInvitationListController.h"
 #import "QPKService.h"
 #import "LinkInvitation.h"
 #import <QNRTCKit/QNRTCKit.h>
@@ -31,7 +31,7 @@
 #import "PubChatModel.h"
 #import "QToastView.h"
 #import <QNIMSDK/QNIMSDK.h>
-#import "GoodsSellListController.h"
+#import "ShopSellListController.h"
 #import "GoodsModel.h"
 #import "QLiveNetworkUtil.h"
 #import "ExplainingGoodView.h"
@@ -426,7 +426,7 @@
 
 - (void)popGoodListView {
     
-    GoodsSellListController *vc = [[GoodsSellListController alloc] initWithLiveID:self.roomInfo.live_id];
+    ShopSellListController *vc = [[ShopSellListController alloc] initWithLiveInfo:self.roomInfo];
     vc.view.frame = CGRectMake(0, 0, SCREEN_W, SCREEN_H);
     vc.modalPresentationStyle = UIModalPresentationFullScreen;
     [self addChildViewController:vc];
@@ -438,7 +438,7 @@
 - (void)popInvitationPKView:(NSArray<QNLiveRoomInfo *> *)list {
     
     NSArray<QNLiveRoomInfo *> *resultList = [self filterListWithList:list];
-    QNInvitationMemberListController *vc = [[QNInvitationMemberListController alloc] initWithList:resultList];
+    QNPKInvitationListController *vc = [[QNPKInvitationListController alloc] initWithList:resultList];
     __weak typeof(self)weakSelf = self;
     vc.invitationClickedBlock = ^(QNLiveRoomInfo * _Nonnull itemModel) {
         

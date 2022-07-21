@@ -9,7 +9,7 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-@class QNIMMessageObject,QGiftModel,QNLiveUser,QInvitationModel,QNPKSession;
+@class QNIMMessageObject,QGiftModel,QNLiveUser,QInvitationModel,QNPKSession,GoodsModel;
 
 //快速创建消息/信令
 @interface CreateSignalHandler : NSObject
@@ -75,6 +75,9 @@ NS_ASSUME_NONNULL_BEGIN
 
 //结束pk信令 
 - (QNIMMessageObject *)createStopPKMessage:(QNPKSession *)pkSession;
+
+//切换讲解商品消息
+- (QNIMMessageObject *)createExplainGoodMsg:(GoodsModel *)model;
 
 @end
 

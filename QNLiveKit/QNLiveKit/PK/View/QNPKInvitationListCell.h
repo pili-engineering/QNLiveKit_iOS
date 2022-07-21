@@ -1,6 +1,6 @@
 //
-//  QNMovieMemberListCell.h
-//  QiNiu_Solution_iOS
+//  QNPKInvitationListCell.h
+//  QNLiveKit
 //
 //  Created by 郭茜 on 2021/12/8.
 //
@@ -11,7 +11,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 @class QNLiveRoomInfo;
 
-@interface QNInvitationMemberListCell : UITableViewCell
+@interface QNPKInvitationListCell : UITableViewCell
 
 @property (nonatomic,strong) QNLiveRoomInfo *itemModel;
 
