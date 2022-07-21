@@ -111,6 +111,10 @@
         if (self.pk_other_user) {
             [self stopPK];
         }
+        
+        if (self.remoteView.superview && [self.remoteView.userId isEqualToString:userID]) {
+            [self.remoteView removeFromSuperview];
+        }
     });
 }
 
@@ -215,7 +219,9 @@
 
 //收到下麦消息
 - (void)onUserLeaveLink:(QNMicLinker *)linker {
-    [self.remoteView removeFromSuperview];
+    if (self.remoteView.superview) {
+        [self.remoteView removeFromSuperview];
+    }
 }
 
 //收到公聊消息
