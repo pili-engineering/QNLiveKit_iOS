@@ -1,5 +1,5 @@
 //
-//  GoodsSellListController.h
+//  ShopSellListController.h
 //  QNLiveKit
 //
 //  Created by 郭茜 on 2022/7/13.
@@ -9,10 +9,12 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-//商品列表页面(主播)
-@interface GoodsSellListController : UIViewController
+@class QNLiveRoomInfo;
 
-- (instancetype)initWithLiveID:(NSString *)liveID;
+//商品列表页面(主播)
+@interface ShopSellListController : UIViewController
+
+- (instancetype)initWithLiveInfo:(QNLiveRoomInfo *)liveInfo;
 
 @end
 

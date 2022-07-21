@@ -68,6 +68,8 @@
 #define invite_accept  @"invite_accept"
 #define invite_reject  @"invite_reject"
 
+#define liveroom_shopping_explaining @"liveroom_shopping_explaining"
+
 #pragma mark -----NotificationName
 
 #define ReceiveIMMessageNotification @"ReceiveIMMessageNotification"
