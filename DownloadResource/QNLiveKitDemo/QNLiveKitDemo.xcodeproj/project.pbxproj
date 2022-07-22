@@ -45,6 +45,7 @@
 		77781CDB2840C768009DC71C /* QNPersonalViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 77781CD12840C768009DC71C /* QNPersonalViewModel.m */; };
 		77781CDC2840C768009DC71C /* QNPersonInfoTopView.m in Sources */ = {isa = PBXBuildFile; fileRef = 77781CD22840C768009DC71C /* QNPersonInfoTopView.m */; };
 		77A11C692885765600020149 /* QNLiveKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 77A11C682885765600020149 /* QNLiveKit.framework */; };
+		77A11CD2288A492C00020149 /* PLSTArEffects.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 77A11CD1288A492C00020149 /* PLSTArEffects.framework */; };
 		77A8D1C028757128001A3C2C /* SENSEME.lic in Resources */ = {isa = PBXBuildFile; fileRef = 77A8D1BF28757128001A3C2C /* SENSEME.lic */; };
 		77A8D1D82876CAD6001A3C2C /* M_SenseME_Segment_Head_1.0.3.model in Resources */ = {isa = PBXBuildFile; fileRef = 77A8D1C42876CAD5001A3C2C /* M_SenseME_Segment_Head_1.0.3.model */; };
 		77A8D1D92876CAD6001A3C2C /* M_SenseME_DogFace_2.0.0.model in Resources */ = {isa = PBXBuildFile; fileRef = 77A8D1C52876CAD5001A3C2C /* M_SenseME_DogFace_2.0.0.model */; };
@@ -183,6 +184,7 @@
 		77781CD52840C768009DC71C /* QNQuitLoginCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QNQuitLoginCell.h; sourceTree = "<group>"; };
 		77781CDF2840C833009DC71C /* QNPublicHeader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QNPublicHeader.h; sourceTree = "<group>"; };
 		77A11C682885765600020149 /* QNLiveKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = QNLiveKit.framework; sourceTree = "<group>"; };
+		77A11CD1288A492C00020149 /* PLSTArEffects.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = PLSTArEffects.framework; sourceTree = "<group>"; };
 		77A8D1BF28757128001A3C2C /* SENSEME.lic */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = SENSEME.lic; sourceTree = "<group>"; };
 		77A8D1C42876CAD5001A3C2C /* M_SenseME_Segment_Head_1.0.3.model */ = {isa = PBXFileReference; lastKnownFileType = file; path = M_SenseME_Segment_Head_1.0.3.model; sourceTree = "<group>"; };
 		77A8D1C52876CAD5001A3C2C /* M_SenseME_DogFace_2.0.0.model */ = {isa = PBXFileReference; lastKnownFileType = file; path = M_SenseME_DogFace_2.0.0.model; sourceTree = "<group>"; };
@@ -226,6 +228,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				77A11CD2288A492C00020149 /* PLSTArEffects.framework in Frameworks */,
 				7773669C2873E32100245EDB /* AssetsLibrary.framework in Frameworks */,
 				77781C7F283E1EBC009DC71C /* QNIMSDK.framework in Frameworks */,
 				77A11C692885765600020149 /* QNLiveKit.framework in Frameworks */,
@@ -301,6 +304,7 @@
 		776B1BDC28378CCD00D85C73 /* QNLiveKitDemo */ = {
 			isa = PBXGroup;
 			children = (
+				77A11CD1288A492C00020149 /* PLSTArEffects.framework */,
 				77781C7D283E1EB2009DC71C /* QNIMSDK.framework */,
 				77A11C682885765600020149 /* QNLiveKit.framework */,
 				77A11C5B288540EC00020149 /* BeautyResource */,
