@@ -26,7 +26,7 @@
 		</data>
 		<key>Headers/CreateSignalHandler.h</key>
 		<data>
-		GYwisD+cuzDdYES2swWEh60W73s=
+		aaz26xfkxiYzRZxhbQkC60bN+qY=
 		</data>
 		<key>Headers/DefaultBeautyParameters.h</key>
 		<data>
@@ -64,17 +64,9 @@
 		<data>
 		++N+rwLQJYIQ43+Fdtczhru1TdY=
 		</data>
-		<key>Headers/GoodsBuyListController.h</key>
-		<data>
-		LGIts1TjkcKUkp5sFjA76h17bCo=
-		</data>
 		<key>Headers/GoodsModel.h</key>
 		<data>
 		2Jdv8LNdovOyBfP/dJAUIDRL40s=
-		</data>
-		<key>Headers/GoodsSellListController.h</key>
-		<data>
-		7dlQnkqMe6QnIVGR5rn+sJlVqEg=
 		</data>
 		<key>Headers/ImageButtonView.h</key>
 		<data>
@@ -200,17 +192,9 @@
 		<data>
 		eUY40vaE+zSklCkWu2wXdyzLMXM=
 		</data>
-		<key>Headers/QNInvitationMemberListCell.h</key>
-		<data>
-		cVp/IEc7kvd4mtswr3Y0TEZKJco=
-		</data>
-		<key>Headers/QNInvitationMemberListController.h</key>
-		<data>
-		ox96KS+o5L50y6Wq8rWQwxLHnBk=
-		</data>
 		<key>Headers/QNLiveKit.h</key>
 		<data>
-		AAKgqzY7/IUQ5JSa9mno2MUYNuM=
+		vep0gjDnuGlm01oFDn6WfE0f2AE=
 		</data>
 		<key>Headers/QNLiveListCell.h</key>
 		<data>
@@ -218,7 +202,7 @@
 		</data>
 		<key>Headers/QNLivePrefixHeader.pch</key>
 		<data>
-		cX27k+vltMdgCzJAIAkYepTIrO0=
+		cT/k+IV3EvFrpl/E2twNZki4VjY=
 		</data>
 		<key>Headers/QNLivePullClient.h</key>
 		<data>
@@ -259,6 +243,14 @@
 		<key>Headers/QNMicrophoneParams.h</key>
 		<data>
 		B/DxydjF8cWTzt0X2yXEAhs4gmc=
+		</data>
+		<key>Headers/QNPKInvitationListCell.h</key>
+		<data>
+		wTI+aO5DaRaPYWDO48K7jsNlkmQ=
+		</data>
+		<key>Headers/QNPKInvitationListController.h</key>
+		<data>
+		LQoVOPXYMi2GLTUOw1W5wAEisBU=
 		</data>
 		<key>Headers/QNPKSession.h</key>
 		<data>
@@ -476,6 +468,14 @@
 		<data>
 		Q44b3bYTtNpkgw6rhqFUkTA6/io=
 		</data>
+		<key>Headers/ShopBuyListController.h</key>
+		<data>
+		tN0bDNiXSlpfWgnWPzb6e8d1Frk=
+		</data>
+		<key>Headers/ShopSellListController.h</key>
+		<data>
+		JXBX91xr/ggeUxOEbhvRid1Wtto=
+		</data>
 		<key>Headers/SoundInfomation.h</key>
 		<data>
 		Zb/F9J3xPZKHbz89pTi8K+s1+XE=
@@ -487,6 +487,42 @@
 		<key>Headers/UIView+Toast.h</key>
 		<data>
 		mfXmLP9J8XYssI1priECpAz4SAk=
+		</data>
+		<key>Headers/st_mobile_animal.h</key>
+		<data>
+		QE56gVtkaw+n0Z8oproRG5oa8+o=
+		</data>
+		<key>Headers/st_mobile_avatar.h</key>
+		<data>
+		7QjRL3RRLLtxZsb4/tKAgwEfL9I=
+		</data>
+		<key>Headers/st_mobile_color_convert.h</key>
+		<data>
+		JIXnctiFAr06tox3e2fTCA8dNy8=
+		</data>
+		<key>Headers/st_mobile_common.h</key>
+		<data>
+		zXPCZa0Hx6Plut3/rXv7mNLQPc0=
+		</data>
+		<key>Headers/st_mobile_effect.h</key>
+		<data>
+		2eSHahDTDyRGBsOP8TE8Nd5OFGQ=
+		</data>
+		<key>Headers/st_mobile_face_attribute.h</key>
+		<data>
+		NPECXTDAQXeXc2rUkm6a2wqapow=
+		</data>
+		<key>Headers/st_mobile_human_action.h</key>
+		<data>
+		ozIKGddGsiJBDzoUtHpaxyYOspo=
+		</data>
+		<key>Headers/st_mobile_license.h</key>
+		<data>
+		Z5VYleXYw1Zp9aynQCTd4X8yu0Q=
+		</data>
+		<key>Headers/st_mobile_object.h</key>
+		<data>
+		aux+B3bu2iTMwtE7Of2A6Ur2CRo=
 		</data>
 		<key>Info.plist</key>
 		<data>
@@ -562,11 +598,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			GYwisD+cuzDdYES2swWEh60W73s=
+			aaz26xfkxiYzRZxhbQkC60bN+qY=
 			</data>
 			<key>hash2</key>
 			<data>
-			Q75JjQO721s/P8tLMQrQ/ZDFy23HfvFRIy6y1ipISZk=
+			4babq3LJDNrXo8X8OEpNcL4Zaw7Zr9ltlL8eaVyklwE=
 			</data>
 		</dict>
 		<key>Headers/DefaultBeautyParameters.h</key>
@@ -668,17 +704,6 @@
 			Tq2IwmnuSqbD2eyt+ctSbm2IPgslIbkUUsyAh2oouMo=
 			</data>
 		</dict>
-		<key>Headers/GoodsBuyListController.h</key>
-		<dict>
-			<key>hash</key>
-			<data>
-			LGIts1TjkcKUkp5sFjA76h17bCo=
-			</data>
-			<key>hash2</key>
-			<data>
-			tCX0tnFm2o1gG4rBcCBVYRqRTUYXGtpRCV0Dl6vaBOk=
-			</data>
-		</dict>
 		<key>Headers/GoodsModel.h</key>
 		<dict>
 			<key>hash</key>
@@ -688,17 +713,6 @@
 			<key>hash2</key>
 			<data>
 			tCVyq6WPVW+DTZwnYYmHCFqeuEAdX3tJgasaeC2R+9Q=
-			</data>
-		</dict>
-		<key>Headers/GoodsSellListController.h</key>
-		<dict>
-			<key>hash</key>
-			<data>
-			7dlQnkqMe6QnIVGR5rn+sJlVqEg=
-			</data>
-			<key>hash2</key>
-			<data>
-			aXigVx2Y3lQ4AyfOulzbdxhlSQeVkAzsiHR9nuh2z/g=
 			</data>
 		</dict>
 		<key>Headers/ImageButtonView.h</key>
@@ -1042,37 +1056,15 @@
 			YjVPP3fd0xNHLLIsUCl1hCOrLbOLSVlWqrclcd1UgMo=
 			</data>
 		</dict>
-		<key>Headers/QNInvitationMemberListCell.h</key>
-		<dict>
-			<key>hash</key>
-			<data>
-			cVp/IEc7kvd4mtswr3Y0TEZKJco=
-			</data>
-			<key>hash2</key>
-			<data>
-			CvexaU3jzwtlGYW/KMv+ZpRQx8HBRbn2rTWNIEpH+tI=
-			</data>
-		</dict>
-		<key>Headers/QNInvitationMemberListController.h</key>
-		<dict>
-			<key>hash</key>
-			<data>
-			ox96KS+o5L50y6Wq8rWQwxLHnBk=
-			</data>
-			<key>hash2</key>
-			<data>
-			tvodGj50lFQsZhvEoPcGdEkE0vHMx5pYLrmi3bN3AS8=
-			</data>
-		</dict>
 		<key>Headers/QNLiveKit.h</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			AAKgqzY7/IUQ5JSa9mno2MUYNuM=
+			vep0gjDnuGlm01oFDn6WfE0f2AE=
 			</data>
 			<key>hash2</key>
 			<data>
-			ijZvk68ye86y8z1NnXkfzQNDw3vws0M5DfBn4Vmjp/I=
+			5U/RcWx6IG22yrVP0etSaxKw5yicJ3CTo0M/5NIFh/8=
 			</data>
 		</dict>
 		<key>Headers/QNLiveListCell.h</key>
@@ -1090,11 +1082,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			cX27k+vltMdgCzJAIAkYepTIrO0=
+			cT/k+IV3EvFrpl/E2twNZki4VjY=
 			</data>
 			<key>hash2</key>
 			<data>
-			6MGxg8B3nsyVRf99c5Wz8BwOYONOmACeXykYHWS7joE=
+			hftnAUdZyy9/hRXG6xoDf1QI9RMi3L5HJJdnVno4n4A=
 			</data>
 		</dict>
 		<key>Headers/QNLivePullClient.h</key>
@@ -1205,6 +1197,28 @@
 			<key>hash2</key>
 			<data>
 			YNrymG+n4hn9jbZjfki9pG6rDBqvOSyHPb1bPGR1648=
+			</data>
+		</dict>
+		<key>Headers/QNPKInvitationListCell.h</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			wTI+aO5DaRaPYWDO48K7jsNlkmQ=
+			</data>
+			<key>hash2</key>
+			<data>
+			elnUO9tS1P/TLynGL/yc1eg9OvVDWm/D9biFpWVcwjI=
+			</data>
+		</dict>
+		<key>Headers/QNPKInvitationListController.h</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			LQoVOPXYMi2GLTUOw1W5wAEisBU=
+			</data>
+			<key>hash2</key>
+			<data>
+			msTCK2VYEn0TJmlUXU5ULaOe4uszTrj7MKbZXQAjA68=
 			</data>
 		</dict>
 		<key>Headers/QNPKSession.h</key>
@@ -1801,6 +1815,28 @@
 			BZiG8j/HtA2rXtOubYToelSsbMxblSWOcaisMptnD/8=
 			</data>
 		</dict>
+		<key>Headers/ShopBuyListController.h</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			tN0bDNiXSlpfWgnWPzb6e8d1Frk=
+			</data>
+			<key>hash2</key>
+			<data>
+			tntVK8XmLJI4h7LhU+sjb3FgTP4sWX9gXCzgnn8UKmc=
+			</data>
+		</dict>
+		<key>Headers/ShopSellListController.h</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			JXBX91xr/ggeUxOEbhvRid1Wtto=
+			</data>
+			<key>hash2</key>
+			<data>
+			pKb1/jxF1jT2CJayzWbi4d2Wo7gHu0AHXTR1jwM9DiE=
+			</data>
+		</dict>
 		<key>Headers/SoundInfomation.h</key>
 		<dict>
 			<key>hash</key>
@@ -1832,6 +1868,105 @@
 			<key>hash2</key>
 			<data>
 			BHqQsY+IyXJJ2Qo0Y/RBtlCwZFtlkHTE8n85lErDhm4=
+			</data>
+		</dict>
+		<key>Headers/st_mobile_animal.h</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			QE56gVtkaw+n0Z8oproRG5oa8+o=
+			</data>
+			<key>hash2</key>
+			<data>
+			1OTX+retkFw9DStDf+9zXcUGfwYAjijtVEBz89ODKD0=
+			</data>
+		</dict>
+		<key>Headers/st_mobile_avatar.h</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			7QjRL3RRLLtxZsb4/tKAgwEfL9I=
+			</data>
+			<key>hash2</key>
+			<data>
+			0UBMe1eQnOFr6l4uqecQG7nD8LipUJeGsZD/Jv7jVfs=
+			</data>
+		</dict>
+		<key>Headers/st_mobile_color_convert.h</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			JIXnctiFAr06tox3e2fTCA8dNy8=
+			</data>
+			<key>hash2</key>
+			<data>
+			qMb4Z/XcBKa5AjfWOdWOTAP1ZtFzWnM2qdgrMhCznw0=
+			</data>
+		</dict>
+		<key>Headers/st_mobile_common.h</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			zXPCZa0Hx6Plut3/rXv7mNLQPc0=
+			</data>
+			<key>hash2</key>
+			<data>
+			IU1yCOirwoDkUXueIfqh3cg8eu25mWuivSj+yPupyzw=
+			</data>
+		</dict>
+		<key>Headers/st_mobile_effect.h</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			2eSHahDTDyRGBsOP8TE8Nd5OFGQ=
+			</data>
+			<key>hash2</key>
+			<data>
+			c9YDqfolIGHvnelaJUNoB+9/354O9R1tyT5XHsrbN38=
+			</data>
+		</dict>
+		<key>Headers/st_mobile_face_attribute.h</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			NPECXTDAQXeXc2rUkm6a2wqapow=
+			</data>
+			<key>hash2</key>
+			<data>
+			NmVId1ond7IEuZDYDpS4qRXuHB8B7H6O2iu77GWDyL4=
+			</data>
+		</dict>
+		<key>Headers/st_mobile_human_action.h</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			ozIKGddGsiJBDzoUtHpaxyYOspo=
+			</data>
+			<key>hash2</key>
+			<data>
+			Sp5w62ZBdcNvjDIejEqkjIZYvPu3s2shwv97X7G2pCA=
+			</data>
+		</dict>
+		<key>Headers/st_mobile_license.h</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			Z5VYleXYw1Zp9aynQCTd4X8yu0Q=
+			</data>
+			<key>hash2</key>
+			<data>
+			ttMOvsngHlxIhmW2EKmpfh0CJt0mAB6kEkmkLMTSj1I=
+			</data>
+		</dict>
+		<key>Headers/st_mobile_object.h</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			aux+B3bu2iTMwtE7Of2A6Ur2CRo=
+			</data>
+			<key>hash2</key>
+			<data>
+			9vujrIpcIoU12S2ytBIJ+lTa2vSP5uxieIC7zULgyW4=
 			</data>
 		</dict>
 		<key>Modules/module.modulemap</key>
