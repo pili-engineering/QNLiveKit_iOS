@@ -17,6 +17,7 @@
         pod 'QNRTCKit-iOS','5.0.0'
         pod 'PLPlayerKit', '3.4.7'
         pod 'Masonry'
+        pod 'MJExtension'
         pod 'SDWebImage'
         pod 'AFNetworking'
     
