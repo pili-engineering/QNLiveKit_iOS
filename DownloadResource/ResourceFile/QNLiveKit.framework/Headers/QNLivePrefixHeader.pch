@@ -84,7 +84,7 @@
 
 
 #import <QNRTCKit/QNRTCKit.h>
-#import "NSObject+QNKeyValue.h"
+#import <MJExtension/MJExtension.h>
 #import <Masonry/Masonry.h>
 #import "QNLiveTypeDefines.h"
 #import <SDWebImage/SDWebImage.h>
