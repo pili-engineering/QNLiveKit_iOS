@@ -22,7 +22,7 @@
     
     信令依赖：将QNIMSDK拖入项目中，并在General的中选择 Embed & sign。
     图片资源：将livekitResource文件拖入项目的Assets中。
-    
+    系统库依赖：在Targets->Build Phases->Link Library With Libraries中添加AssetsLibrary.frameWork系统库。
     美颜依赖：1、将BeautyResource拖入项目中，
             2、在Targets->Build Settings->Framework Search Paths中添加BeautyResource路径
             3、Targets->Build Settings->Header Search Paths中添加BeautyResource/PLSTArEffects.framework/Headers路径
