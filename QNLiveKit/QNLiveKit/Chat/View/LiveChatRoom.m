@@ -11,7 +11,6 @@
 #import "PubChatModel.h"
 #import "CreateSignalHandler.h"
 #import "QIMModel.h"
-#import "NSObject+QNKeyValue.h"
 #import <QNIMSDK/QNIMSDK.h>
 
 #define SCREENSIZE [UIScreen mainScreen].bounds.size
