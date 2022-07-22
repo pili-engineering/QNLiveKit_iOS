@@ -1866,7 +1866,7 @@
 					"\"$(SRCROOT)/QNLiveKit/PLSTArEffects.framework\"",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = /Users/guoqian/Desktop/QNLiveKit_iOS/QNLiveKit/QNLiveKit/QNLivePrefixHeader.pch;
+				GCC_PREFIX_HEADER = "$(PROJECT_DIR)/QNLiveKit/QNLivePrefixHeader.pch";
 				GENERATE_INFOPLIST_FILE = YES;
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
@@ -1928,7 +1928,7 @@
 					"\"$(SRCROOT)/QNLiveKit/PLSTArEffects.framework\"",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = /Users/guoqian/Desktop/QNLiveKit_iOS/QNLiveKit/QNLiveKit/QNLivePrefixHeader.pch;
+				GCC_PREFIX_HEADER = "$(PROJECT_DIR)/QNLiveKit/QNLivePrefixHeader.pch";
 				GENERATE_INFOPLIST_FILE = YES;
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",

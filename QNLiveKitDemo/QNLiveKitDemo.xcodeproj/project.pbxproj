@@ -1055,7 +1055,7 @@
 					"\"$(SRCROOT)/QNLiveKitDemo/BeautyResource\"",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = /Users/guoqian/Desktop/QNLiveKit_iOS/QNLiveKitDemo/QNLiveKitDemo/LiveDemoPrefixHeader.pch;
+				GCC_PREFIX_HEADER = "$(PROJECT_DIR)/QNLiveKitDemo/LiveDemoPrefixHeader.pch";
 				GENERATE_INFOPLIST_FILE = YES;
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
@@ -1119,7 +1119,7 @@
 					"\"$(SRCROOT)/QNLiveKitDemo/BeautyResource\"",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = /Users/guoqian/Desktop/QNLiveKit_iOS/QNLiveKitDemo/QNLiveKitDemo/LiveDemoPrefixHeader.pch;
+				GCC_PREFIX_HEADER = "$(PROJECT_DIR)/QNLiveKitDemo/LiveDemoPrefixHeader.pch";
 				GENERATE_INFOPLIST_FILE = YES;
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
