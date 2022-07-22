@@ -343,6 +343,18 @@
     return message;
 }
 
+//商品列表更新
+- (QNIMMessageObject *)createRefreshGoodMsg {
+    
+    QIMModel *messageModel = [QIMModel new];
+    messageModel.action = liveroom_shopping_refresh;
+    messageModel.data = [NSDictionary dictionary];
+    
+    QNIMMessageObject *message = [[QNIMMessageObject alloc]initWithQNIMMessageText:messageModel.mj_JSONString fromId:QN_IM_userId.longLongValue toId:self.toId.longLongValue type:QNIMMessageTypeGroup conversationId:self.toId.longLongValue];
+    message.senderName = QN_User_nickname;
+    return message;
+}
+
 //生成进房/离房/点赞/聊天/弹幕消息
 - (PubChatModel *)messageWithAction:(NSString *)action content:(NSString *)content {
     

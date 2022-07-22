@@ -746,6 +746,8 @@
 			isa = PBXGroup;
 			children = (
 				77781C9C2840C059009DC71C /* QNExtension */,
+				774E641B2848DB6700C9FB7F /* CreateSignalHandler.h */,
+				774E641A2848DB6700C9FB7F /* CreateSignalHandler.m */,
 				776B1CC5283CFCF200D85C73 /* QNLiveTypeDefines.h */,
 				77204D57285981B00053B1AD /* CYProtocolManager.h */,
 				77204D56285981B00053B1AD /* CYProtocolManager.m */,
@@ -896,8 +898,6 @@
 				777186A62862D50500C5CABC /* View */,
 				77781C1E283DD63C009DC71C /* QNChatRoomService.h */,
 				77781C1F283DD63C009DC71C /* QNChatRoomService.m */,
-				774E641B2848DB6700C9FB7F /* CreateSignalHandler.h */,
-				774E641A2848DB6700C9FB7F /* CreateSignalHandler.m */,
 				77204D78285F97A20053B1AD /* Model */,
 			);
 			path = Chat;
