@@ -12,11 +12,12 @@
 #import "QShopService.h"
 #import "QNLiveRoomInfo.h"
 
-@interface ShopBuyListController ()<UITableViewDelegate,UITableViewDataSource,ShopServiceListener>
+@interface ShopBuyListController ()<UITableViewDelegate,UITableViewDataSource,ShopServiceListener,QNChatRoomServiceListener>
 
 @property (nonatomic, strong) UITableView *tableView;
 @property (nonatomic, strong) QNLiveRoomInfo *roomInfo;
 @property (nonatomic, strong) QShopService *shopService;
+@property (nonatomic, strong) QNChatRoomService * chatService;
 @property (nonatomic, strong) NSArray <GoodsModel *> *ListModel;
 @property (nonatomic, strong) UILabel *label;
 @property (nonatomic, strong) UIButton *button;
@@ -36,6 +37,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.view.backgroundColor = [UIColor clearColor];
+    [self.chatService addChatServiceListener:self];
     self.shopService.delegate = self;
     UIView *headView = [[UIView alloc]initWithFrame:CGRectMake(0, 240, SCREEN_W, 50)];
     headView.backgroundColor = [UIColor whiteColor];
@@ -61,8 +63,14 @@
     [self requestData];
 }
 
+//讲解商品切换监听
 - (void)onExplainingUpdate:(GoodsModel *)good {
-    [self dealExplainGood:good];
+    [self getExplainGood];
+}
+
+//商品信息更新监听
+- (void)onGoodsRefresh {
+    [self requestData];
 }
 
 //刷新商品列表
@@ -165,6 +173,14 @@
         _shopService.roomInfo = self.roomInfo;
     }
     return _shopService;
+}
+
+- (QNChatRoomService *)chatService {
+    if (!_chatService) {
+        _chatService = [[QNChatRoomService alloc] init];
+        _chatService.roomInfo = self.roomInfo;
+    }
+    return _chatService;
 }
 
 @end

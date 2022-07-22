@@ -15,6 +15,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 //正在讲解商品更新通知
 - (void)onExplainingUpdate:(GoodsModel *)good;
+//商品列表更新通知
+- (void)onGoodsRefresh;
 
 @end
 

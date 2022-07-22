@@ -13,7 +13,7 @@
 #import "QIMModel.h"
 #import "CreateSignalHandler.h"
 
-@interface QShopService ()
+@interface QShopService ()<QNChatRoomServiceListener>
 
 @property (nonatomic,strong)CreateSignalHandler *creater;
 
@@ -40,10 +40,16 @@
         if ([self.delegate respondsToSelector:@selector(onExplainingUpdate:)]) {
             [self.delegate onExplainingUpdate:model];
         }
-   }
+        
+    } else if ([imModel.action isEqualToString:liveroom_shopping_refresh]) {
+        //收到商品信息刷新信令
+        if ([self.delegate respondsToSelector:@selector(onGoodsRefresh)]) {
+            [self.delegate onGoodsRefresh];
+        }
+    }
 }
 
-//获取商品列表
+//获取所有商品
 - (void)getGoodList:(nullable void (^)(NSArray <GoodsModel *> * _Nullable goodList))callBack {
     
     NSString *action = [NSString stringWithFormat:@"client/item/%@",self.roomInfo.live_id];
@@ -59,6 +65,7 @@
     }];
 }
 
+//获取上架中的商品
 - (void)getOnlineGoodList:(nullable void (^)(NSArray <GoodsModel *> * _Nullable goodList))callBack {
     NSString *action = [NSString stringWithFormat:@"client/item/%@",self.roomInfo.live_id];
     [QLiveNetworkUtil getRequestWithAction:action params:nil success:^(NSDictionary * _Nonnull responseData) {
@@ -88,6 +95,7 @@
     params[@"from"] = @(fromIndex);
     params[@"to"] = @(toIndex);
     [QLiveNetworkUtil postRequestWithAction:@"client/item/order/single" params:params success:^(NSDictionary * _Nonnull responseData) {
+        [self sendRefreshGoodMsg];
         if (callBack) {
             callBack();
         }
@@ -113,6 +121,7 @@
 - (void)endExplainGood:(nullable void (^)(void))callBack {
     NSString *action = [NSString stringWithFormat:@"client/item/demonstrate/%@",self.roomInfo.live_id];
     [QLiveNetworkUtil deleteRequestWithAction:action params:nil success:^(NSDictionary * _Nonnull responseData) {
+        [self sendExplainGoodMsg:[GoodsModel new]];
         if (callBack) {
             callBack();
         }
@@ -152,6 +161,7 @@
     }
     params[@"items"] = arr;
     [QLiveNetworkUtil postRequestWithAction:@"client/item/status" params:params success:^(NSDictionary * _Nonnull responseData) {
+        [self sendRefreshGoodMsg];
         if (callBack) {
             callBack();
         }
@@ -172,6 +182,7 @@
     }
     params[@"items"] = arr;
     [QLiveNetworkUtil postRequestWithAction:@"client/item/delete" params:params success:^(NSDictionary * _Nonnull responseData) {
+        [self sendRefreshGoodMsg];
         if (callBack) {
             callBack();
         }
@@ -183,6 +194,12 @@
 //发送切换讲解商品信令
 -(void)sendExplainGoodMsg:(GoodsModel *)model {
     QNIMMessageObject *message = [self.creater  createExplainGoodMsg:model];
+    [[QNIMChatService sharedOption] sendMessage:message];
+}
+
+//发送商品列表刷新信令
+-(void)sendRefreshGoodMsg {
+    QNIMMessageObject *message = [self.creater  createRefreshGoodMsg];
     [[QNIMChatService sharedOption] sendMessage:message];
 }
 

@@ -76,8 +76,11 @@ NS_ASSUME_NONNULL_BEGIN
 //结束pk信令 
 - (QNIMMessageObject *)createStopPKMessage:(QNPKSession *)pkSession;
 
-//切换讲解商品消息
+//切换讲解商品
 - (QNIMMessageObject *)createExplainGoodMsg:(GoodsModel *)model;
+
+//刷新商品
+- (QNIMMessageObject *)createRefreshGoodMsg;
 
 @end
 

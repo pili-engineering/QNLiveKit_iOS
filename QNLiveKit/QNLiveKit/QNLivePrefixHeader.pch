@@ -68,10 +68,12 @@
 #define invite_accept  @"invite_accept"
 #define invite_reject  @"invite_reject"
 
-#define liveroom_shopping_explaining @"liveroom_shopping_explaining"
+#define liveroom_shopping_explaining @"liveroom_shopping_explaining"//切换讲解商品
+#define liveroom_shopping_refresh @"liveroom_shopping_refresh"//商品列表有更新
 
 #pragma mark -----NotificationName
 
+//接收IM消息通知
 #define ReceiveIMMessageNotification @"ReceiveIMMessageNotification"
 
 #pragma mark ----------API

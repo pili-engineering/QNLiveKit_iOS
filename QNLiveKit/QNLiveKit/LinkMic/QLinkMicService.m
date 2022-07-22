@@ -35,6 +35,7 @@
 }
 
 - (void)receiveIMMessageNotification:(NSNotification *)notice {
+    
     NSDictionary *dic = notice.userInfo;
     QIMModel *imModel = [QIMModel mj_objectWithKeyValues:dic.mj_keyValues];
     
