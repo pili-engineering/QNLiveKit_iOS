@@ -17,16 +17,17 @@
         pod 'QNRTCKit-iOS','5.0.0'
         pod 'PLPlayerKit', '3.4.7'
         pod 'Masonry'
+        pod 'MJExtension'
         pod 'SDWebImage'
         pod 'AFNetworking'
     
-    信令依赖：将QNIMSDK拖入项目中，并在General的中选择 Embed & sign。
     图片资源：将livekitResource文件拖入项目的Assets中。
-    
-    美颜依赖：1、将BeautyResource拖入项目中，
-            2、在Targets->Build Settings->Framework Search Paths中添加BeautyResource路径
-            3、Targets->Build Settings->Header Search Paths中添加BeautyResource/PLSTArEffects.framework/Headers路径
-            4、请求美颜证书SENSEME.lic并放入项目（不使用美颜功能可不放）
+    系统库：在Targets->Build Phases->Link Library With Libraries中添加AssetsLibrary.frameWork系统库。
+    依赖配置：1、将ResourceFile拖入项目中，
+            2、在Targets->Build Settings->Framework Search Paths中添加ResourceFile路径
+            3、Targets->Build Settings->Header Search Paths中添加ResourceFile/PLSTArEffects.framework/Headers路径
+            4、在General中选择QNIMSDK设置Embed & sign
+            5、请求美颜证书SENSEME.lic并放入项目（不使用美颜功能可不放）
     
     
 ### 快速接入
