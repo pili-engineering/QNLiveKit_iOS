@@ -31,7 +31,6 @@
 #define QN_USER_AVATAR_KEY @"QN_USER_AVATAR"
 #define QN_ACCOUNT_ID_KEY @"QN_ACCOUNT_ID"
 #define QN_NICKNAME_KEY @"QN_NICKNAME"
-#define QN_IM_APPID @"cigzypnhoyno"
 #define APPSERVER @"http://seallive.qiniuapi.com/"
 #define QN_IM_USER_ID_KEY @"QN_IM_USER_ID"
 #define QN_IM_USER_NAME_KEY @"QN_IM_USER_NAME"

@@ -35,7 +35,7 @@
         
         if (user) {
             [[QNIMClient sharedClient] signInByName:user.im_username password:user.im_password completion:^(QNIMError * _Nonnull error) {
-//                NSLog(@"---七牛IM服务器连接状态-%li",[QNIMClient sharedClient].connectStatus);
+                NSLog(@"---七牛IM服务器连接状态-%li",[QNIMClient sharedClient].connectStatus);
             }];
         } else {
             if (errorBack) {
@@ -68,9 +68,15 @@
 
     NSString *phone = [NSString stringWithFormat:@"设备名称:%@;%@;%@;%@", phoneName,localizedModel,systemName,phoneVersion];
 
-    QNSDKConfig *config = [[QNSDKConfig alloc]initConfigWithDataDir:dataDir cacheDir:cacheDir pushCertName:@"" userAgent:phone];
-    config.appID = QN_IM_APPID;
-    [[QNIMClient sharedClient] registerWithSDKConfig:config];
+    [QLiveNetworkUtil getRequestWithAction:@"client/app/config" params:nil success:^(NSDictionary * _Nonnull responseData) {
+        
+        QNSDKConfig *config = [[QNSDKConfig alloc]initConfigWithDataDir:dataDir cacheDir:cacheDir pushCertName:@"" userAgent:phone];
+        config.appID = responseData[@"im_app_id"];
+        [[QNIMClient sharedClient] registerWithSDKConfig:config];
+        
+    } failure:^(NSError * _Nonnull error) {
+
+    }];
     
 }
 
