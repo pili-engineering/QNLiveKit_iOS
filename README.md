@@ -365,25 +365,6 @@
     - (void)onReceivedDamaku:(PubChatModel *)msg;
     @end
     
-    
-#### UI替换
-    
-    几个固定槽位均继承QLiveView类，可在外部替换。    
-    
-    
-    //重新布置UI
-    - (void)createCustomView:(UIView *)view onView:(UIView *)onView;
-    
-    //设置点击事件
-    @property (nonatomic, copy)onClickBlock clickBlock;
-    
-    
-        
-    也可直接在源码修改样式
-    
-    QLiveListController //直播列表页
-    QNAudienceController //观众页
-    QCreateLiveController //创建直播页
-    QLiveController //主播页
+   
     
     
