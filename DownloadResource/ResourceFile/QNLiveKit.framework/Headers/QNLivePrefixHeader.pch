@@ -75,13 +75,6 @@
 //接收IM消息通知
 #define ReceiveIMMessageNotification @"ReceiveIMMessageNotification"
 
-#pragma mark ----------API
-//线上
-//#define LiveAPI @"https://live-api.qiniu.com/%@"
-//测试
-//#define LiveAPI @"http://10.200.20.28:8099/%@"
-
-
 #import <QNRTCKit/QNRTCKit.h>
 #import <MJExtension/MJExtension.h>
 #import <Masonry/Masonry.h>

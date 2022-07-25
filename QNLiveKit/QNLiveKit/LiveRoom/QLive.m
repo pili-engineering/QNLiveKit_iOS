@@ -26,9 +26,10 @@
         return;
     }
     [QLive initializeQNIM];
+    NSString *appendUrl = [serverURL stringByAppendingString:@"/%@"];
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
     [defaults setObject:token forKey:Live_Token];
-    [defaults setObject:serverURL forKey:Live_URL];
+    [defaults setObject:appendUrl forKey:Live_URL];
     [defaults synchronize];
     
     [QLive getSelfUser:^(QNLiveUser * _Nullable user, NSError * _Nullable QError) {
