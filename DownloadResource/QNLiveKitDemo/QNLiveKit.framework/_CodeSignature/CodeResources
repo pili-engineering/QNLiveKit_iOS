@@ -8,6 +8,10 @@
 		<data>
 		0bUWMN/CO1P90uVnT4hEFUXcy2A=
 		</data>
+		<key>Headers/BeautyBaseController.h</key>
+		<data>
+		HN0/+REjpVq4mdOq9hzAGa4Jjtk=
+		</data>
 		<key>Headers/BeautyLiveViewController.h</key>
 		<data>
 		wWImOS3HqwKGwmKZlXn60uWbvCI=
@@ -24,6 +28,10 @@
 		<data>
 		XcTCVEHwqL9BfRokoAHWBGfXGW0=
 		</data>
+		<key>Headers/CreateBeautyLiveController.h</key>
+		<data>
+		m34xS3RpbIq2LbhHdBdWODilSC4=
+		</data>
 		<key>Headers/CreateSignalHandler.h</key>
 		<data>
 		aaz26xfkxiYzRZxhbQkC60bN+qY=
@@ -39,6 +47,10 @@
 		<key>Headers/EffectsCollectionViewCell.h</key>
 		<data>
 		GbJo7W/N9qVYjIKe63AJmsi1Kzk=
+		</data>
+		<key>Headers/ExplainingGoodView.h</key>
+		<data>
+		0xk3Qr9dXJLwOCGOxf5k4rST/Fk=
 		</data>
 		<key>Headers/Extension.h</key>
 		<data>
@@ -64,9 +76,21 @@
 		<data>
 		++N+rwLQJYIQ43+Fdtczhru1TdY=
 		</data>
+		<key>Headers/GoodStatusView.h</key>
+		<data>
+		QlTmhuvINn+wer5a7iXd8qBoTo4=
+		</data>
 		<key>Headers/GoodsModel.h</key>
 		<data>
 		2Jdv8LNdovOyBfP/dJAUIDRL40s=
+		</data>
+		<key>Headers/GoodsOperationCell.h</key>
+		<data>
+		6Z7eqUQzwU+t+7AwhnzBmVFyivg=
+		</data>
+		<key>Headers/GoodsOperationView.h</key>
+		<data>
+		wDQxp3OCXJurv7NHjQwk7wR9HSM=
 		</data>
 		<key>Headers/ImageButtonView.h</key>
 		<data>
@@ -267,6 +291,10 @@
 		<key>Headers/QRooms.h</key>
 		<data>
 		0HVtpdv1A8rv62GxdHbioVyjftc=
+		</data>
+		<key>Headers/QShopService.h</key>
+		<data>
+		PRDhn4pwUhljwua2M0KrEqTreeA=
 		</data>
 		<key>Headers/QTextMessageCell.h</key>
 		<data>
@@ -484,6 +512,18 @@
 		<data>
 		AygzZTXF3eEhNm4KliKbSFtPEbA=
 		</data>
+		<key>Headers/UIColor+QNColor.h</key>
+		<data>
+		cP3M7p/6v31o0/LhzOoSp12fl8s=
+		</data>
+		<key>Headers/UIImage+QNImage.h</key>
+		<data>
+		qOyVAlxgYG6OR/CCildmTRe1lpA=
+		</data>
+		<key>Headers/UITableView+MoveCell.h</key>
+		<data>
+		05boLV7ATL2WmsSvnBOUSUk+0DI=
+		</data>
 		<key>Headers/UIView+Toast.h</key>
 		<data>
 		mfXmLP9J8XYssI1priECpAz4SAk=
@@ -550,6 +590,17 @@
 			llWVJZsL119zvfCNeeCNaTMXucYOIsPDGgANpNLJi90=
 			</data>
 		</dict>
+		<key>Headers/BeautyBaseController.h</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			HN0/+REjpVq4mdOq9hzAGa4Jjtk=
+			</data>
+			<key>hash2</key>
+			<data>
+			4lc4lOYOSGq50wWnA/Ewuv/HyYVMGcSRLiQYaxKcPAw=
+			</data>
+		</dict>
 		<key>Headers/BeautyLiveViewController.h</key>
 		<dict>
 			<key>hash</key>
@@ -594,6 +645,17 @@
 			DAIyYe6KhUTLmlWDV/q9SBqHveIyAsKz2OeviWW58rQ=
 			</data>
 		</dict>
+		<key>Headers/CreateBeautyLiveController.h</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			m34xS3RpbIq2LbhHdBdWODilSC4=
+			</data>
+			<key>hash2</key>
+			<data>
+			jvkqdtCjMhKFrxk5XjZAwvL0eWsVE/kOJ/uaNyA9Ty4=
+			</data>
+		</dict>
 		<key>Headers/CreateSignalHandler.h</key>
 		<dict>
 			<key>hash</key>
@@ -636,6 +698,17 @@
 			<key>hash2</key>
 			<data>
 			rRwPXjhZ3HumMYAsMeLPdHlaKNBiy/nF56ka4lW7H6o=
+			</data>
+		</dict>
+		<key>Headers/ExplainingGoodView.h</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			0xk3Qr9dXJLwOCGOxf5k4rST/Fk=
+			</data>
+			<key>hash2</key>
+			<data>
+			4Qcxa8s7icJoWsrsO/b5OqOTNouAWmd9DMomIAtHt+g=
 			</data>
 		</dict>
 		<key>Headers/Extension.h</key>
@@ -704,6 +777,17 @@
 			Tq2IwmnuSqbD2eyt+ctSbm2IPgslIbkUUsyAh2oouMo=
 			</data>
 		</dict>
+		<key>Headers/GoodStatusView.h</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			QlTmhuvINn+wer5a7iXd8qBoTo4=
+			</data>
+			<key>hash2</key>
+			<data>
+			Bot+I3ybMaC9RfF6ausvZpRmXJvwmiMFemHkbMdigQw=
+			</data>
+		</dict>
 		<key>Headers/GoodsModel.h</key>
 		<dict>
 			<key>hash</key>
@@ -713,6 +797,28 @@
 			<key>hash2</key>
 			<data>
 			tCVyq6WPVW+DTZwnYYmHCFqeuEAdX3tJgasaeC2R+9Q=
+			</data>
+		</dict>
+		<key>Headers/GoodsOperationCell.h</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			6Z7eqUQzwU+t+7AwhnzBmVFyivg=
+			</data>
+			<key>hash2</key>
+			<data>
+			UePubtf68g5+h/1EV3JU6YSnM+Tgx12wjIX7gfhYxqU=
+			</data>
+		</dict>
+		<key>Headers/GoodsOperationView.h</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			wDQxp3OCXJurv7NHjQwk7wR9HSM=
+			</data>
+			<key>hash2</key>
+			<data>
+			nsJ1X80Kc/0s1w/aiW7uJJj9bd98cpG7SgOCHUGJWDk=
 			</data>
 		</dict>
 		<key>Headers/ImageButtonView.h</key>
@@ -1263,6 +1369,17 @@
 			<key>hash2</key>
 			<data>
 			L1UcSV+5SCBl6h3HcbEWiCsIRVV+09Hd0RoX/K+xZQc=
+			</data>
+		</dict>
+		<key>Headers/QShopService.h</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			PRDhn4pwUhljwua2M0KrEqTreeA=
+			</data>
+			<key>hash2</key>
+			<data>
+			V3M8HVcnE7ETYKVvAWNVxfebxAb5JBTuW2JxBh+nswU=
 			</data>
 		</dict>
 		<key>Headers/QTextMessageCell.h</key>
@@ -1857,6 +1974,39 @@
 			<key>hash2</key>
 			<data>
 			ZX29uBpBvqJAS+h2KxR25+kJpgHjbHFlJ21OShRKF3w=
+			</data>
+		</dict>
+		<key>Headers/UIColor+QNColor.h</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			cP3M7p/6v31o0/LhzOoSp12fl8s=
+			</data>
+			<key>hash2</key>
+			<data>
+			OQM2AnQsbfmpzdBQH5XAoiwXOX2Z5KkDsCkSYlGStuk=
+			</data>
+		</dict>
+		<key>Headers/UIImage+QNImage.h</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			qOyVAlxgYG6OR/CCildmTRe1lpA=
+			</data>
+			<key>hash2</key>
+			<data>
+			SiRYCPG1ubYzOMcEtV/3Hst5JEHnwjguG4ycuhTYemw=
+			</data>
+		</dict>
+		<key>Headers/UITableView+MoveCell.h</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			05boLV7ATL2WmsSvnBOUSUk+0DI=
+			</data>
+			<key>hash2</key>
+			<data>
+			eLNwt9bTPgPB+xvsA8YnMqsiXOhJ0vYKbZYzBoH9p5Y=
 			</data>
 		</dict>
 		<key>Headers/UIView+Toast.h</key>
