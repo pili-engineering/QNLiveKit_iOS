@@ -42,40 +42,12 @@
         
         如果需要使用内置UI，直接跳转至特定的ViewController即可
         
-        跳转方式一
-        
-        
+         Tips:如果需要使用内置美颜，在初始化后调用[QLive setBeauty:YES]; 
+            
         //直播列表页：
         QLiveListController *listVc = [QLiveListController new];
         [self.navigationController pushViewController:listVc animated:YES];
-        
-        跳转方式二
-        
-        //创建直播页：
-        QCreateLiveController *createLiveVc = [QCreateLiveController new];
-        createLiveVc.modalPresentationStyle = UIModalPresentationFullScreen;
-        [self presentViewController:createLiveVc animated:YES completion:nil];
-        
-       //创建直播页：（需要美颜）
-        CreateBeautyLiveController *createLiveVc = [CreateBeautyLiveController new];
-        createLiveVc.modalPresentationStyle = UIModalPresentationFullScreen;
-        [self presentViewController:createLiveVc animated:YES completion:nil];
-        
-        跳转方式三
-        
-        //直播进行页（不带美颜）：
-        QLiveController *liveVc = [QLiveController new];
-        liveVc.roomInfo = roomInfo;
-        liveVc.modalPresentationStyle = UIModalPresentationFullScreen;
-        [self presentViewController:liveVc animated:YES completion:nil];
-        
-        //直播进行页（带美颜）
-        BeautyLiveViewController *liveVc = [BeautyLiveViewController new];
-        liveVc.roomInfo = roomInfo;
-        liveVc.modalPresentationStyle = UIModalPresentationFullScreen;
-        [self presentViewController:liveVc animated:YES completion:nil];
-        
-        跳转方式四
+               
         
         //观众观看页面：
         QNAudienceController *vc = [QNAudienceController new];
