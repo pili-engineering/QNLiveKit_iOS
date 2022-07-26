@@ -25,34 +25,42 @@
     if (token.length == 0) {
         return;
     }
-    [QLive initializeQNIM];
     NSString *appendUrl = [serverURL stringByAppendingString:@"/%@"];
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
     [defaults setObject:token forKey:Live_Token];
     [defaults setObject:appendUrl forKey:Live_URL];
     [defaults synchronize];
     
-    [QLive getSelfUser:^(QNLiveUser * _Nullable user, NSError * _Nullable QError) {
-        
-        if (user) {
-            [[QNIMClient sharedClient] signInByName:user.im_username password:user.im_password completion:^(QNIMError * _Nonnull error) {
-                NSLog(@"---七牛IM服务器连接状态-%li",[QNIMClient sharedClient].connectStatus);
-                if (error) {
-                    NSError *qnError = [[NSError alloc] initWithDomain:NSCocoaErrorDomain code:error.errorCode userInfo:@{NSLocalizedDescriptionKey : error.errorMessage}];
-                    if (errorBack) {
-                        errorBack(qnError);
+    [QLive initializeQNIM:^{
+
+        [QLive getSelfUser:^(QNLiveUser * _Nullable user, NSError * _Nullable QError) {
+            
+            if (user) {
+                [[QNIMClient sharedClient] signInByName:user.im_username password:user.im_password completion:^(QNIMError * _Nonnull error) {
+                    NSLog(@"---七牛IM服务器连接状态-%li",[QNIMClient sharedClient].connectStatus);
+                    if (error) {
+                        NSError *qnError = [[NSError alloc] initWithDomain:NSCocoaErrorDomain code:error.errorCode userInfo:@{NSLocalizedDescriptionKey : error.errorMessage}];
+                        if (errorBack) {
+                            errorBack(qnError);
+                        }
                     }
+                }];
+            } else {
+                if (errorBack) {
+                    errorBack(QError);
                 }
-            }];
-        } else {
-            if (errorBack) {
-                errorBack(QError);
             }
-        }
+        }];
     }];
+    
 }
 
-+ (void)initializeQNIM{
++ (void)setBeauty:(BOOL)needBeauty {
+    QNLivePushClient *pushClient = [QNLivePushClient createPushClient];
+    pushClient.needBeauty = needBeauty;
+}
+
++ (void)initializeQNIM:(nullable void (^)(void))callBack{
     
     NSString* dataDir = [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES).firstObject stringByAppendingPathComponent:@"ChatData"];
     NSFileManager *fileManager = [NSFileManager defaultManager];
@@ -78,6 +86,7 @@
         QNSDKConfig *config = [[QNSDKConfig alloc]initConfigWithDataDir:dataDir cacheDir:cacheDir pushCertName:@"" userAgent:phone];
         config.appID = responseData[@"im_app_id"];
         [[QNIMClient sharedClient] registerWithSDKConfig:config];
+        callBack();
         
     } failure:^(NSError * _Nonnull error) {
 
