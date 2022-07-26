@@ -93,15 +93,15 @@
 		7771869D2861B8A800C5CABC /* FDanmakuView.m in Sources */ = {isa = PBXBuildFile; fileRef = 777186962861B8A800C5CABC /* FDanmakuView.m */; };
 		777186A32862C5D100C5CABC /* QToastView.h in Headers */ = {isa = PBXBuildFile; fileRef = 777186A12862C5D100C5CABC /* QToastView.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		777186A42862C5D100C5CABC /* QToastView.m in Sources */ = {isa = PBXBuildFile; fileRef = 777186A22862C5D100C5CABC /* QToastView.m */; };
-		7773668B2873031A00245EDB /* st_mobile_common.h in Headers */ = {isa = PBXBuildFile; fileRef = 777366822873031A00245EDB /* st_mobile_common.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		7773668C2873031A00245EDB /* st_mobile_animal.h in Headers */ = {isa = PBXBuildFile; fileRef = 777366832873031A00245EDB /* st_mobile_animal.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		7773668D2873031A00245EDB /* st_mobile_human_action.h in Headers */ = {isa = PBXBuildFile; fileRef = 777366842873031A00245EDB /* st_mobile_human_action.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		7773668E2873031A00245EDB /* st_mobile_object.h in Headers */ = {isa = PBXBuildFile; fileRef = 777366852873031A00245EDB /* st_mobile_object.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		7773668F2873031A00245EDB /* st_mobile_face_attribute.h in Headers */ = {isa = PBXBuildFile; fileRef = 777366862873031A00245EDB /* st_mobile_face_attribute.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		777366902873031A00245EDB /* st_mobile_license.h in Headers */ = {isa = PBXBuildFile; fileRef = 777366872873031A00245EDB /* st_mobile_license.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		777366912873031A00245EDB /* st_mobile_effect.h in Headers */ = {isa = PBXBuildFile; fileRef = 777366882873031A00245EDB /* st_mobile_effect.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		777366922873031A00245EDB /* st_mobile_color_convert.h in Headers */ = {isa = PBXBuildFile; fileRef = 777366892873031A00245EDB /* st_mobile_color_convert.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		777366932873031A00245EDB /* st_mobile_avatar.h in Headers */ = {isa = PBXBuildFile; fileRef = 7773668A2873031A00245EDB /* st_mobile_avatar.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		7773668B2873031A00245EDB /* st_mobile_common.h in Headers */ = {isa = PBXBuildFile; fileRef = 777366822873031A00245EDB /* st_mobile_common.h */; };
+		7773668C2873031A00245EDB /* st_mobile_animal.h in Headers */ = {isa = PBXBuildFile; fileRef = 777366832873031A00245EDB /* st_mobile_animal.h */; };
+		7773668D2873031A00245EDB /* st_mobile_human_action.h in Headers */ = {isa = PBXBuildFile; fileRef = 777366842873031A00245EDB /* st_mobile_human_action.h */; };
+		7773668E2873031A00245EDB /* st_mobile_object.h in Headers */ = {isa = PBXBuildFile; fileRef = 777366852873031A00245EDB /* st_mobile_object.h */; };
+		7773668F2873031A00245EDB /* st_mobile_face_attribute.h in Headers */ = {isa = PBXBuildFile; fileRef = 777366862873031A00245EDB /* st_mobile_face_attribute.h */; };
+		777366902873031A00245EDB /* st_mobile_license.h in Headers */ = {isa = PBXBuildFile; fileRef = 777366872873031A00245EDB /* st_mobile_license.h */; };
+		777366912873031A00245EDB /* st_mobile_effect.h in Headers */ = {isa = PBXBuildFile; fileRef = 777366882873031A00245EDB /* st_mobile_effect.h */; };
+		777366922873031A00245EDB /* st_mobile_color_convert.h in Headers */ = {isa = PBXBuildFile; fileRef = 777366892873031A00245EDB /* st_mobile_color_convert.h */; };
+		777366932873031A00245EDB /* st_mobile_avatar.h in Headers */ = {isa = PBXBuildFile; fileRef = 7773668A2873031A00245EDB /* st_mobile_avatar.h */; };
 		77781C0A283D1337009DC71C /* QNPKSession.h in Headers */ = {isa = PBXBuildFile; fileRef = 77781C08283D1337009DC71C /* QNPKSession.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		77781C0B283D1337009DC71C /* QNPKSession.m in Sources */ = {isa = PBXBuildFile; fileRef = 77781C09283D1337009DC71C /* QNPKSession.m */; };
 		77781C0E283DD181009DC71C /* QPKService.h in Headers */ = {isa = PBXBuildFile; fileRef = 77781C0C283DD181009DC71C /* QPKService.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -1394,20 +1394,11 @@
 				77204D83285F97A20053B1AD /* PubChatModel.h in Headers */,
 				77204D67285F755C0053B1AD /* QLiveListController.h in Headers */,
 				77062FBE288005CE00E9FD7D /* GoodBuyItemCell.h in Headers */,
-				7773668C2873031A00245EDB /* st_mobile_animal.h in Headers */,
-				777366922873031A00245EDB /* st_mobile_color_convert.h in Headers */,
 				77204D86285F97A20053B1AD /* QInvitationModel.h in Headers */,
-				777366932873031A00245EDB /* st_mobile_avatar.h in Headers */,
 				77062FB2287EA0A300E9FD7D /* GoodsModel.h in Headers */,
-				777366912873031A00245EDB /* st_mobile_effect.h in Headers */,
 				77204D65285F755C0053B1AD /* QNLiveListCell.h in Headers */,
 				77062FBA288004AA00E9FD7D /* ShopBuyListController.h in Headers */,
-				7773668F2873031A00245EDB /* st_mobile_face_attribute.h in Headers */,
-				7773668D2873031A00245EDB /* st_mobile_human_action.h in Headers */,
-				7773668B2873031A00245EDB /* st_mobile_common.h in Headers */,
 				77062FAD287E795F00E9FD7D /* ShopSellListController.h in Headers */,
-				777366902873031A00245EDB /* st_mobile_license.h in Headers */,
-				7773668E2873031A00245EDB /* st_mobile_object.h in Headers */,
 				77062FB6287EAA8D00E9FD7D /* GoodSellItemCell.h in Headers */,
 				77204D59285981B00053B1AD /* CYProtocolManager.h in Headers */,
 				777B7A87284F5BC5005032B7 /* QNPKInvitationListController.h in Headers */,
@@ -1433,6 +1424,15 @@
 				77E02E31284E245A00EE8A28 /* QNAudienceController.h in Headers */,
 				77781D5028460813009DC71C /* ImageButtonView.h in Headers */,
 				77781C41283DE000009DC71C /* Extension.h in Headers */,
+				777366912873031A00245EDB /* st_mobile_effect.h in Headers */,
+				777366932873031A00245EDB /* st_mobile_avatar.h in Headers */,
+				777366922873031A00245EDB /* st_mobile_color_convert.h in Headers */,
+				7773668C2873031A00245EDB /* st_mobile_animal.h in Headers */,
+				7773668B2873031A00245EDB /* st_mobile_common.h in Headers */,
+				777366902873031A00245EDB /* st_mobile_license.h in Headers */,
+				7773668D2873031A00245EDB /* st_mobile_human_action.h in Headers */,
+				7773668E2873031A00245EDB /* st_mobile_object.h in Headers */,
+				7773668F2873031A00245EDB /* st_mobile_face_attribute.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
