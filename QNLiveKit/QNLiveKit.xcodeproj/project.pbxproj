@@ -45,6 +45,8 @@
 		77204D8C285F97A20053B1AD /* QInvitationModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 77204D82285F97A20053B1AD /* QInvitationModel.m */; };
 		77204D97285F9AF50053B1AD /* LinkOptionModel.h in Headers */ = {isa = PBXBuildFile; fileRef = 77204D95285F9AF50053B1AD /* LinkOptionModel.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		77204D98285F9AF50053B1AD /* LinkOptionModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 77204D96285F9AF50053B1AD /* LinkOptionModel.m */; };
+		773D512F288F9D2E004B2D5F /* QNIMSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 77781D9728486DAD009DC71C /* QNIMSDK.framework */; platformFilter = ios; };
+		773D5130288F9D2E004B2D5F /* QNIMSDK.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 77781D9728486DAD009DC71C /* QNIMSDK.framework */; platformFilter = ios; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		774E641C2848DB6800C9FB7F /* CreateSignalHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = 774E641A2848DB6700C9FB7F /* CreateSignalHandler.m */; };
 		774E641D2848DB6800C9FB7F /* CreateSignalHandler.h in Headers */ = {isa = PBXBuildFile; fileRef = 774E641B2848DB6700C9FB7F /* CreateSignalHandler.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		774E6421284DF8E800C9FB7F /* QMixStreamManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 774E641F284DF8E800C9FB7F /* QMixStreamManager.m */; };
@@ -93,15 +95,6 @@
 		7771869D2861B8A800C5CABC /* FDanmakuView.m in Sources */ = {isa = PBXBuildFile; fileRef = 777186962861B8A800C5CABC /* FDanmakuView.m */; };
 		777186A32862C5D100C5CABC /* QToastView.h in Headers */ = {isa = PBXBuildFile; fileRef = 777186A12862C5D100C5CABC /* QToastView.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		777186A42862C5D100C5CABC /* QToastView.m in Sources */ = {isa = PBXBuildFile; fileRef = 777186A22862C5D100C5CABC /* QToastView.m */; };
-		7773668B2873031A00245EDB /* st_mobile_common.h in Headers */ = {isa = PBXBuildFile; fileRef = 777366822873031A00245EDB /* st_mobile_common.h */; };
-		7773668C2873031A00245EDB /* st_mobile_animal.h in Headers */ = {isa = PBXBuildFile; fileRef = 777366832873031A00245EDB /* st_mobile_animal.h */; };
-		7773668D2873031A00245EDB /* st_mobile_human_action.h in Headers */ = {isa = PBXBuildFile; fileRef = 777366842873031A00245EDB /* st_mobile_human_action.h */; };
-		7773668E2873031A00245EDB /* st_mobile_object.h in Headers */ = {isa = PBXBuildFile; fileRef = 777366852873031A00245EDB /* st_mobile_object.h */; };
-		7773668F2873031A00245EDB /* st_mobile_face_attribute.h in Headers */ = {isa = PBXBuildFile; fileRef = 777366862873031A00245EDB /* st_mobile_face_attribute.h */; };
-		777366902873031A00245EDB /* st_mobile_license.h in Headers */ = {isa = PBXBuildFile; fileRef = 777366872873031A00245EDB /* st_mobile_license.h */; };
-		777366912873031A00245EDB /* st_mobile_effect.h in Headers */ = {isa = PBXBuildFile; fileRef = 777366882873031A00245EDB /* st_mobile_effect.h */; };
-		777366922873031A00245EDB /* st_mobile_color_convert.h in Headers */ = {isa = PBXBuildFile; fileRef = 777366892873031A00245EDB /* st_mobile_color_convert.h */; };
-		777366932873031A00245EDB /* st_mobile_avatar.h in Headers */ = {isa = PBXBuildFile; fileRef = 7773668A2873031A00245EDB /* st_mobile_avatar.h */; };
 		77781C0A283D1337009DC71C /* QNPKSession.h in Headers */ = {isa = PBXBuildFile; fileRef = 77781C08283D1337009DC71C /* QNPKSession.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		77781C0B283D1337009DC71C /* QNPKSession.m in Sources */ = {isa = PBXBuildFile; fileRef = 77781C09283D1337009DC71C /* QNPKSession.m */; };
 		77781C0E283DD181009DC71C /* QPKService.h in Headers */ = {isa = PBXBuildFile; fileRef = 77781C0C283DD181009DC71C /* QPKService.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -136,7 +129,6 @@
 		77781D6F28486D3D009DC71C /* QTextMessageCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 77781D6B28486D3D009DC71C /* QTextMessageCell.m */; };
 		77781D7028486D3D009DC71C /* QMessageBaseCell.h in Headers */ = {isa = PBXBuildFile; fileRef = 77781D6C28486D3D009DC71C /* QMessageBaseCell.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		77781D7128486D3D009DC71C /* QTextMessageCell.h in Headers */ = {isa = PBXBuildFile; fileRef = 77781D6D28486D3D009DC71C /* QTextMessageCell.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		77781D9928486DBA009DC71C /* QNIMSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 77781D9728486DAD009DC71C /* QNIMSDK.framework */; platformFilter = ios; };
 		77781D9F28488932009DC71C /* QNBaseRTCController.h in Headers */ = {isa = PBXBuildFile; fileRef = 77781D9B28488931009DC71C /* QNBaseRTCController.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		77781DA028488932009DC71C /* QLiveController.h in Headers */ = {isa = PBXBuildFile; fileRef = 77781D9C28488931009DC71C /* QLiveController.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		77781DA128488932009DC71C /* QNBaseRTCController.m in Sources */ = {isa = PBXBuildFile; fileRef = 77781D9D28488932009DC71C /* QNBaseRTCController.m */; };
@@ -289,6 +281,17 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
+		773D5131288F9D2E004B2D5F /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				773D5130288F9D2E004B2D5F /* QNIMSDK.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		777188F22864554E00C5CABC /* CopyFiles */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
@@ -390,15 +393,6 @@
 		777186962861B8A800C5CABC /* FDanmakuView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FDanmakuView.m; sourceTree = "<group>"; };
 		777186A12862C5D100C5CABC /* QToastView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = QToastView.h; sourceTree = "<group>"; };
 		777186A22862C5D100C5CABC /* QToastView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = QToastView.m; sourceTree = "<group>"; };
-		777366822873031A00245EDB /* st_mobile_common.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = st_mobile_common.h; sourceTree = "<group>"; };
-		777366832873031A00245EDB /* st_mobile_animal.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = st_mobile_animal.h; sourceTree = "<group>"; };
-		777366842873031A00245EDB /* st_mobile_human_action.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = st_mobile_human_action.h; sourceTree = "<group>"; };
-		777366852873031A00245EDB /* st_mobile_object.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = st_mobile_object.h; sourceTree = "<group>"; };
-		777366862873031A00245EDB /* st_mobile_face_attribute.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = st_mobile_face_attribute.h; sourceTree = "<group>"; };
-		777366872873031A00245EDB /* st_mobile_license.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = st_mobile_license.h; sourceTree = "<group>"; };
-		777366882873031A00245EDB /* st_mobile_effect.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = st_mobile_effect.h; sourceTree = "<group>"; };
-		777366892873031A00245EDB /* st_mobile_color_convert.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = st_mobile_color_convert.h; sourceTree = "<group>"; };
-		7773668A2873031A00245EDB /* st_mobile_avatar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = st_mobile_avatar.h; sourceTree = "<group>"; };
 		777366992873E2F300245EDB /* AssetsLibrary.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AssetsLibrary.framework; path = Platforms/MacOSX.platform/Developer/SDKs/MacOSX12.1.sdk/System/iOSSupport/System/Library/Frameworks/AssetsLibrary.framework; sourceTree = DEVELOPER_DIR; };
 		77781C08283D1337009DC71C /* QNPKSession.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = QNPKSession.h; sourceTree = "<group>"; };
 		77781C09283D1337009DC71C /* QNPKSession.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = QNPKSession.m; sourceTree = "<group>"; };
@@ -567,7 +561,6 @@
 		77EDC3CF286DA563002B4226 /* STBeautySlider.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = STBeautySlider.h; sourceTree = "<group>"; };
 		77EDC3D0286DA563002B4226 /* STBMPCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = STBMPCollectionViewCell.m; sourceTree = "<group>"; };
 		77EDC3D1286DA564002B4226 /* UIView+Toast.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+Toast.m"; sourceTree = "<group>"; };
-		77EDC3F2286DA564002B4226 /* VERSION */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = VERSION; sourceTree = "<group>"; };
 		77EDC49D286DAD99002B4226 /* BeautyLiveViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BeautyLiveViewController.h; sourceTree = "<group>"; };
 		77EDC49E286DAD99002B4226 /* BeautyLiveViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BeautyLiveViewController.m; sourceTree = "<group>"; };
 		77EDC4A2286EA40C002B4226 /* libSenseArSourceService.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libSenseArSourceService.a; sourceTree = "<group>"; };
@@ -585,10 +578,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				77A8D26E28782DF0001A3C2C /* AssetsLibrary.framework in Frameworks */,
-				77781D9928486DBA009DC71C /* QNIMSDK.framework in Frameworks */,
 				77A11CB4288691C500020149 /* Pods_QNLiveKit.framework in Frameworks */,
 				77A11CB228868D7300020149 /* PLSTArEffects.framework in Frameworks */,
 				77EDC4A5286ECDCC002B4226 /* libst_mobile.a in Frameworks */,
+				773D512F288F9D2E004B2D5F /* QNIMSDK.framework in Frameworks */,
 				77EDC4A3286EA40C002B4226 /* libSenseArSourceService.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -814,22 +807,6 @@
 				77781D5628486D34009DC71C /* InputBar */,
 			);
 			path = View;
-			sourceTree = "<group>";
-		};
-		777366812873031A00245EDB /* include */ = {
-			isa = PBXGroup;
-			children = (
-				777366822873031A00245EDB /* st_mobile_common.h */,
-				777366832873031A00245EDB /* st_mobile_animal.h */,
-				777366842873031A00245EDB /* st_mobile_human_action.h */,
-				777366852873031A00245EDB /* st_mobile_object.h */,
-				777366862873031A00245EDB /* st_mobile_face_attribute.h */,
-				777366872873031A00245EDB /* st_mobile_license.h */,
-				777366882873031A00245EDB /* st_mobile_effect.h */,
-				777366892873031A00245EDB /* st_mobile_color_convert.h */,
-				7773668A2873031A00245EDB /* st_mobile_avatar.h */,
-			);
-			path = include;
 			sourceTree = "<group>";
 		};
 		77781C06283D1313009DC71C /* PK */ = {
@@ -1226,8 +1203,6 @@
 		77EDC3D2286DA564002B4226 /* st_mobile_sdk */ = {
 			isa = PBXGroup;
 			children = (
-				777366812873031A00245EDB /* include */,
-				77EDC3F2286DA564002B4226 /* VERSION */,
 				77EDC3F3286DA564002B4226 /* lib */,
 			);
 			path = st_mobile_sdk;
@@ -1424,15 +1399,6 @@
 				77E02E31284E245A00EE8A28 /* QNAudienceController.h in Headers */,
 				77781D5028460813009DC71C /* ImageButtonView.h in Headers */,
 				77781C41283DE000009DC71C /* Extension.h in Headers */,
-				777366912873031A00245EDB /* st_mobile_effect.h in Headers */,
-				777366932873031A00245EDB /* st_mobile_avatar.h in Headers */,
-				777366922873031A00245EDB /* st_mobile_color_convert.h in Headers */,
-				7773668C2873031A00245EDB /* st_mobile_animal.h in Headers */,
-				7773668B2873031A00245EDB /* st_mobile_common.h in Headers */,
-				777366902873031A00245EDB /* st_mobile_license.h in Headers */,
-				7773668D2873031A00245EDB /* st_mobile_human_action.h in Headers */,
-				7773668E2873031A00245EDB /* st_mobile_object.h in Headers */,
-				7773668F2873031A00245EDB /* st_mobile_face_attribute.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1449,6 +1415,7 @@
 				776B1C46283C78D800D85C73 /* Frameworks */,
 				776B1C47283C78D800D85C73 /* Resources */,
 				777188F22864554E00C5CABC /* CopyFiles */,
+				773D5131288F9D2E004B2D5F /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
@@ -1875,6 +1842,7 @@
 					"\"${PODS_CONFIGURATION_BUILD_DIR}/SDWebImage/SDWebImage.framework/Headers\"",
 					"\"$(SRCROOT)/QNLiveKit/Beauty/Effect\"",
 					"\"$(SRCROOT)/QNLiveKit/PLSTArEffects.framework/Headers\"",
+					"\"$(SRCROOT)/QNLiveKit/PLSTArEffects.framework/Headers/core/include\"",
 				);
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
@@ -1937,6 +1905,7 @@
 					"\"${PODS_CONFIGURATION_BUILD_DIR}/SDWebImage/SDWebImage.framework/Headers\"",
 					"\"$(SRCROOT)/QNLiveKit/Beauty/Effect\"",
 					"\"$(SRCROOT)/QNLiveKit/PLSTArEffects.framework/Headers\"",
+					"\"$(SRCROOT)/QNLiveKit/PLSTArEffects.framework/Headers/core/include\"",
 				);
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
