@@ -155,11 +155,11 @@
         for (QNRemoteTrack *track in tracks) {
             if (track.kind == QNTrackKindVideo) {
                 
-                QRenderView *remoteView = [[QRenderView alloc]initWithFrame:CGRectMake(0, 0, SCREEN_W, SCREEN_H)];
-                remoteView.userId = userID;
-                remoteView.trackId = track.trackID;
-                [self.renderBackgroundView insertSubview:remoteView atIndex:0];
-                [(QNRemoteVideoTrack *)track play:remoteView];
+                self.remoteView = [[QRenderView alloc]initWithFrame:CGRectMake(0, 0, SCREEN_W, SCREEN_H)];
+                self.remoteView.userId = userID;
+                self.remoteView.trackId = track.trackID;
+                [self.renderBackgroundView insertSubview:self.remoteView atIndex:0];
+                [(QNRemoteVideoTrack *)track play:self.remoteView];
             } else {
             }
         }
@@ -365,10 +365,9 @@
         
         [weakSelf.linkService downMic];
         weakSelf.preview.frame = CGRectZero;
-        for (QRenderView *userView in weakSelf.renderBackgroundView.subviews) {
-            if (![userView.userId isEqualToString:QN_User_id]) {
-                [userView removeFromSuperview];
-            }
+
+        if (weakSelf.remoteView.superview && ![weakSelf.remoteView.userId isEqualToString:LIVE_User_id]) {
+            [weakSelf.remoteView removeFromSuperview];
         }
         [weakSelf playWithUrl:weakSelf.roomInfo.rtmp_url];
         NSLog(@"点击了结束连麦");
@@ -386,11 +385,11 @@
 - (QNLiveUser *)user {
     
     QNLiveUser *user = [QNLiveUser new];
-    user.user_id = QN_User_id;
-    user.nick = QN_User_nickname;
-    user.avatar = QN_User_avatar;
-    user.im_userid = QN_IM_userId;
-    user.im_username = QN_IM_userName;
+    user.user_id = LIVE_User_id;
+    user.nick = LIVE_User_nickname;
+    user.avatar = LIVE_User_avatar;
+    user.im_userid = LIVE_IM_userId;
+    user.im_username = LIVE_IM_userName;
     return user;
 }
 

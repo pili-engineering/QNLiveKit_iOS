@@ -407,7 +407,7 @@
 - (NSArray<QNLiveRoomInfo *> *)filterListWithList:(NSArray<QNLiveRoomInfo *> *)list{
     NSMutableArray *resultList = [NSMutableArray array];
     for (QNLiveRoomInfo *room in list) {
-        if (![room.anchor_info.user_id isEqualToString:QN_User_id]) {
+        if (![room.anchor_info.user_id isEqualToString:LIVE_User_id]) {
             [resultList addObject:room];
         }
     }

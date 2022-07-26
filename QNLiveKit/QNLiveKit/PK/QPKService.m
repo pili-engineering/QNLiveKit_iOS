@@ -39,7 +39,7 @@
     if ([imModel.action isEqualToString:invite_send]) {
        //收到pk邀请消息
        QInvitationModel *model = [QInvitationModel mj_objectWithKeyValues:imModel.data];
-       if ([model.invitation.msg.receiver.user_id isEqualToString:QN_User_id]) {
+       if ([model.invitation.msg.receiver.user_id isEqualToString:LIVE_User_id]) {
            if ([model.invitationName isEqualToString:liveroom_pk_invitation]) {
                if ([self.delegate respondsToSelector:@selector(onReceivePKInvitation:)]) {
                    [self.delegate onReceivePKInvitation:model];
@@ -80,7 +80,7 @@
        //开始pk
        QNPKSession *model = [QNPKSession mj_objectWithKeyValues:imModel.data];
        
-       if ([QN_User_id isEqualToString:model.initiator.user_id] || [QN_User_id isEqualToString:model.receiver.user_id]) {
+       if ([LIVE_User_id isEqualToString:model.initiator.user_id] || [LIVE_User_id isEqualToString:model.receiver.user_id]) {
            
            [self getPKToken:model.relay_id callBack:^(QNPKSession * session) {
                
@@ -246,13 +246,13 @@
     return _creater;
 }
 
-- (QNLiveUser *)selfUser {
+- (QNLiveUser *)user {    
     QNLiveUser *user = [QNLiveUser new];
-    user.user_id = QN_User_id;
-    user.nick = QN_User_nickname;
-    user.avatar = QN_User_avatar;
-    user.im_userid = QN_IM_userId;
-    user.im_username = QN_IM_userName;
+    user.user_id = LIVE_User_id;
+    user.nick = LIVE_User_nickname;
+    user.avatar = LIVE_User_avatar;
+    user.im_userid = LIVE_IM_userId;
+    user.im_username = LIVE_IM_userName;
     return user;
 }
 

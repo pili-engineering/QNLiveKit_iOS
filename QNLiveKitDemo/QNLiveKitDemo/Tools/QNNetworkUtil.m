@@ -29,7 +29,7 @@
     manager.requestSerializer = [AFJSONRequestSerializer serializer];
     manager.responseSerializer = [AFJSONResponseSerializer serializer];
     
-    NSString *token = [[NSUserDefaults standardUserDefaults] stringForKey:QN_LOGIN_TOKEN_KEY];
+    NSString *token = [[NSUserDefaults standardUserDefaults] stringForKey:DEMO_LOGIN_TOKEN_KEY];
     if (token.length > 0) {
         [manager.requestSerializer setValue:[@"Bearer " stringByAppendingString:token] forHTTPHeaderField:@"Authorization"];
     }

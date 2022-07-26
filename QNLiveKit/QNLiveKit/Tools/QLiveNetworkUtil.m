@@ -35,7 +35,7 @@ NSInteger const Interval = 8;
     manager.requestSerializer = [AFJSONRequestSerializer serializer];
     manager.responseSerializer = [AFJSONResponseSerializer serializer];
     
-    NSString *token = QN_Live_Token;
+    NSString *token = LIVE_Live_Token;
     if (token.length > 0) {
         [manager.requestSerializer setValue:token forHTTPHeaderField:@"Authorization"];
     }
@@ -49,7 +49,7 @@ NSInteger const Interval = 8;
 
 + (void)getRequestWithAction:(NSString *)action params:(nullable NSDictionary *)params success:(SuccessBlock)success failure:(FailureBlock)failure {
         
-    NSString *url = QN_Live_URL;
+    NSString *url = LIVE_Live_URL;
     if (url.length == 0) {
         url = @"https://live-api.qiniu.com/%@";
     }
@@ -72,7 +72,7 @@ NSInteger const Interval = 8;
     }];
     
     //原生网络请求实现
-//    NSString *urlString = [NSString stringWithFormat:@"%@%@",QN_Live_URL,action];
+//    NSString *urlString = [NSString stringWithFormat:@"%@%@",LIVE_Live_URL,action];
 //    if (params) {
 //        NSString *paramStr = [self dealWithParam:params];
 //        urlString = [urlString stringByAppendingString:paramStr];
@@ -110,7 +110,7 @@ NSInteger const Interval = 8;
 + (void)postRequestWithAction:(NSString *)action params:(nullable NSDictionary *)params success:(SuccessBlock)success failure:(FailureBlock)failure {
     
     AFHTTPSessionManager *manager = [QLiveNetworkUtil manager];
-    NSString *url = QN_Live_URL;
+    NSString *url = LIVE_Live_URL;
     if (url.length == 0) {
         url = @"https://live-api.qiniu.com/%@";
     }
@@ -132,7 +132,7 @@ NSInteger const Interval = 8;
         }];
     }];
     //原生网络请求实现
-//    NSString *requestUrl = [NSString stringWithFormat:@"%@%@",QN_Live_URL,action];
+//    NSString *requestUrl = [NSString stringWithFormat:@"%@%@",LIVE_Live_URL,action];
 //
 //    NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:requestUrl]];
 //    [request setHTTPMethod:HTTPMethod];
@@ -175,7 +175,7 @@ NSInteger const Interval = 8;
 + (void)deleteRequestWithAction:(NSString *)action params:(nullable NSDictionary *)params success:(SuccessBlock)success failure:(FailureBlock)failure {
     
     AFHTTPSessionManager *manager = [QLiveNetworkUtil manager];
-    NSString *url = QN_Live_URL;
+    NSString *url = LIVE_Live_URL;
     if (url.length == 0) {
         url = @"https://live-api.qiniu.com/%@";
     }
@@ -200,7 +200,7 @@ NSInteger const Interval = 8;
 + (void)putRequestWithAction:(NSString *)action params:(nullable NSDictionary *)params success:(SuccessBlock)success failure:(FailureBlock)failure {
     
     AFHTTPSessionManager *manager = [QLiveNetworkUtil manager];
-    NSString *url = QN_Live_URL;
+    NSString *url = LIVE_Live_URL;
     if (url.length == 0) {
         url = @"https://live-api.qiniu.com/%@";
     }
@@ -225,7 +225,7 @@ NSInteger const Interval = 8;
 + (void)dealSuccessResult:(id)responseObject success:(SuccessBlock)success failure:(FailureBlock)failure {
     if ([responseObject[@"code"] isEqualToNumber:@(499)]) {
         
-        NSString *action = [NSString stringWithFormat:@"live/auth_token?userID=%@&deviceID=1111",QN_User_id];
+        NSString *action = [NSString stringWithFormat:@"live/auth_token?userID=%@&deviceID=1111",LIVE_User_id];
         [QLiveNetworkUtil getRequestWithAction:action params:nil success:^(NSDictionary * _Nonnull responseData) {
             
             NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
@@ -243,7 +243,7 @@ NSInteger const Interval = 8;
 + (void)dealFailure:(NSError *)error failure:(FailureBlock)failure {
     
     if (error.code == 401) {
-        NSString *action = [NSString stringWithFormat:@"live/auth_token?userID=%@&deviceID=1111",QN_User_id];
+        NSString *action = [NSString stringWithFormat:@"live/auth_token?userID=%@&deviceID=1111",LIVE_User_id];
         [QLiveNetworkUtil getRequestWithAction:action params:nil success:^(NSDictionary * _Nonnull responseData) {
             
             NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];

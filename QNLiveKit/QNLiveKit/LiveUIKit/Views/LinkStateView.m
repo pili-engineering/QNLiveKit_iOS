@@ -32,7 +32,7 @@
         self.layer.cornerRadius = 15;
         
         self.avatarImage = [[UIImageView alloc]initWithFrame:CGRectMake((frame.size.width - 56)/2, 50, 56, 56)];
-        [self.avatarImage sd_setImageWithURL:[NSURL URLWithString:QN_User_avatar] placeholderImage:[UIImage imageNamed:@"titleImage"]];
+        [self.avatarImage sd_setImageWithURL:[NSURL URLWithString:LIVE_User_avatar] placeholderImage:[UIImage imageNamed:@"titleImage"]];
         [self addSubview:self.avatarImage];
         
         self.label = [[UILabel alloc] initWithFrame:CGRectMake(0, 120, frame.size.width, 20)];

@@ -102,8 +102,8 @@
     
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
 
-    [defaults setObject:nick forKey:QN_NICKNAME_KEY];
-    [defaults setObject:avatar forKey:QN_USER_AVATAR_KEY];
+    [defaults setObject:nick forKey:LIVE_NICKNAME_KEY];
+    [defaults setObject:avatar forKey:LIVE_USER_AVATAR_KEY];
     
     [defaults synchronize];
     
@@ -144,12 +144,12 @@
         QNLiveUser *user = [QNLiveUser mj_objectWithKeyValues:responseData];
         
         NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
-        [defaults setObject:user.user_id forKey:QN_ACCOUNT_ID_KEY];
-        [defaults setObject:user.im_userid forKey:QN_IM_USER_ID_KEY];
-        [defaults setObject:user.im_username forKey:QN_IM_USER_NAME_KEY];
-        [defaults setObject:user.im_password forKey:QN_IM_USER_PASSWORD_KEY];
-        [defaults setObject:user.nick forKey:QN_NICKNAME_KEY];
-        [defaults setObject:user.avatar forKey:QN_USER_AVATAR_KEY];
+        [defaults setObject:user.user_id forKey:LIVE_ACCOUNT_ID_KEY];
+        [defaults setObject:user.im_userid forKey:LIVE_IM_USER_ID_KEY];
+        [defaults setObject:user.im_username forKey:LIVE_IM_USER_NAME_KEY];
+        [defaults setObject:user.im_password forKey:LIVE_IM_USER_PASSWORD_KEY];
+        [defaults setObject:user.nick forKey:LIVE_NICKNAME_KEY];
+        [defaults setObject:user.avatar forKey:LIVE_USER_AVATAR_KEY];
         [defaults synchronize];
         
         callBack(user,nil);
