@@ -132,7 +132,7 @@
         [QNNetworkUtil postRequestWithAction:@"signOut" params:nil success:^(NSDictionary *responseData) {
             
             NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
-            [defaults removeObjectForKey:QN_LOGIN_TOKEN_KEY];
+            [defaults removeObjectForKey:DEMO_LOGIN_TOKEN_KEY];
             [defaults synchronize];
             
             QNLoginViewController *loginVC = [[QNLoginViewController alloc] init];

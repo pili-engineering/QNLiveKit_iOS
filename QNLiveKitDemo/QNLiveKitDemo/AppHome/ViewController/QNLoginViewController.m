@@ -145,10 +145,10 @@
     [QNNetworkUtil getRequestWithAction:action params:nil success:^(NSDictionary *responseData) {
         
         NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
-        [defaults setObject:responseData[@"accessToken"] forKey:Live_Token];
+        [defaults setObject:responseData[@"accessToken"] forKey:DEMO_LIVE_TOKEN];
         [defaults synchronize];
         
-        [QLive initWithToken:responseData[@"accessToken"] serverURL:LiveAPI errorBack:^(NSError * _Nonnull error) {
+        [QLive initWithToken:responseData[@"accessToken"] serverURL:DEMOLiveAPI errorBack:^(NSError * _Nonnull error) {
             if (error) {
                 NSLog(@"QLive初始化错误%@",error);
             }
@@ -165,9 +165,9 @@
 - (void)saveLoginInfoToUserDefaults:(QNLoginInfoModel *)loginModel {
     
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
-    [defaults setObject:loginModel.loginToken forKey:QN_LOGIN_TOKEN_KEY];
-    [defaults setObject:loginModel.accountId forKey:QN_ACCOUNT_ID_KEY];
-    [defaults setObject:loginModel.nickname forKey:QN_NICKNAME_KEY];
+    [defaults setObject:loginModel.loginToken forKey:DEMO_LOGIN_TOKEN_KEY];
+    [defaults setObject:loginModel.accountId forKey:DEMO_ACCOUNT_ID_KEY];
+    [defaults setObject:loginModel.nickname forKey:DEMO_NICKNAME_KEY];
     
     [defaults synchronize];
 

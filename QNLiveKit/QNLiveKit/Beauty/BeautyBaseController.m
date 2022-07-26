@@ -755,7 +755,7 @@
 //移除所有远端view
 - (void)removeRemoteUserView {
     [self.renderBackgroundView.subviews enumerateObjectsUsingBlock:^(__kindof QRenderView * _Nonnull userView, NSUInteger idx, BOOL * _Nonnull stop) {
-        if (![userView.userId isEqualToString:QN_User_id]) {
+        if (![userView.userId isEqualToString:LIVE_User_id]) {
             [userView removeFromSuperview];
         }
     }];
@@ -764,7 +764,7 @@
 - (QRenderView *)preview {
     if (!_preview) {
         _preview = [[QRenderView alloc] init];
-        _preview.userId= QN_User_id;
+        _preview.userId= LIVE_User_id;
         _preview.frame = CGRectMake(0, 0, SCREEN_W, SCREEN_H);
         _preview.fillMode = QNVideoFillModePreserveAspectRatioAndFill;
     }

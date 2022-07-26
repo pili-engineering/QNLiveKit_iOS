@@ -197,7 +197,6 @@
 		77781CD32840C768009DC71C /* QNAppRulesCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QNAppRulesCell.h; sourceTree = "<group>"; };
 		77781CD42840C768009DC71C /* QNAppReleaseInfoCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QNAppReleaseInfoCell.h; sourceTree = "<group>"; };
 		77781CD52840C768009DC71C /* QNQuitLoginCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QNQuitLoginCell.h; sourceTree = "<group>"; };
-		77781CDF2840C833009DC71C /* QNPublicHeader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QNPublicHeader.h; sourceTree = "<group>"; };
 		77A11CB72886922F00020149 /* PLSTArEffects.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = PLSTArEffects.framework; sourceTree = "<group>"; };
 		77A8D1BF28757128001A3C2C /* SENSEME.lic */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = SENSEME.lic; sourceTree = "<group>"; };
 		77A8D1C42876CAD5001A3C2C /* M_SenseME_Segment_Head_1.0.3.model */ = {isa = PBXFileReference; lastKnownFileType = file; path = M_SenseME_Segment_Head_1.0.3.model; sourceTree = "<group>"; };
@@ -423,7 +422,6 @@
 		77781C82283E1EE6009DC71C /* Tools */ = {
 			isa = PBXGroup;
 			children = (
-				77781CDF2840C833009DC71C /* QNPublicHeader.h */,
 				77781C88283E1EE7009DC71C /* MBProgressHUD+QNShow.h */,
 				77781C8C283E1EE7009DC71C /* MBProgressHUD+QNShow.m */,
 				77781C92283E1EE7009DC71C /* NSArray+Sudoku.h */,

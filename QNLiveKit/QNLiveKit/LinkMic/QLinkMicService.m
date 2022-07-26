@@ -77,7 +77,7 @@
     } else if ([imModel.action isEqualToString:invite_send]) {
         //连麦邀请消息
         QInvitationModel *model = [QInvitationModel mj_objectWithKeyValues:imModel.data];
-        if ([model.invitation.msg.receiver.user_id isEqualToString:QN_User_id]) {
+        if ([model.invitation.msg.receiver.user_id isEqualToString:LIVE_User_id]) {
             if ([model.invitationName isEqualToString:liveroom_linkmic_invitation]) {
                 if ([self.micLinkerListener respondsToSelector:@selector(onReceiveLinkInvitation:)]) {
                     [self.micLinkerListener onReceiveLinkInvitation:model];
@@ -200,7 +200,7 @@
     
     NSMutableDictionary *params = [NSMutableDictionary dictionary];
     params[@"live_id"] = self.roomInfo.live_id;
-    params[@"user_id"] = QN_User_id;
+    params[@"user_id"] = LIVE_User_id;
     params[@"type"] = type;
     params[@"flag"] = @(flag);
 
@@ -239,7 +239,7 @@
     
     NSMutableDictionary *params = [NSMutableDictionary dictionary];
     params[@"live_id"] = self.roomInfo.live_id;
-    params[@"user_id"] = QN_User_id;
+    params[@"user_id"] = LIVE_User_id;
     params[@"extends"] = extension;
 
     [QLiveNetworkUtil putRequestWithAction:@"client/mic/extension" params:params success:^(NSDictionary * _Nonnull responseData) {
@@ -276,11 +276,11 @@
 - (QNLiveUser *)user {
     
     QNLiveUser *user = [QNLiveUser new];
-    user.user_id = QN_User_id;
-    user.nick = QN_User_nickname;
-    user.avatar = QN_User_avatar;
-    user.im_userid = QN_IM_userId;
-    user.im_username = QN_IM_userName;
+    user.user_id = LIVE_User_id;
+    user.nick = LIVE_User_nickname;
+    user.avatar = LIVE_User_avatar;
+    user.im_userid = LIVE_IM_userId;
+    user.im_username = LIVE_IM_userName;
     return user;
 }
 

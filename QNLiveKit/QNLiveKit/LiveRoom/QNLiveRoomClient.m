@@ -97,13 +97,11 @@
 
 - (QNLiveUser *)selfUser {
     QNLiveUser *user = [QNLiveUser new];
-    user.user_id = QN_User_id;
-    user.nick = QN_User_nickname;
-    user.avatar = QN_User_avatar;
-    user.im_userid = QN_IM_userId;
-    user.im_username = QN_IM_userName;
+    user.user_id = LIVE_User_id;
+    user.nick = LIVE_User_nickname;
+    user.avatar = LIVE_User_avatar;
+    user.im_userid = LIVE_IM_userId;
+    user.im_username = LIVE_IM_userName;
     return user;
 }
-
-
 @end

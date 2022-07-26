@@ -45,8 +45,8 @@
     messageModel.action = liveroom_welcome;
     messageModel.data = model.mj_keyValues;
     
-    QNIMMessageObject *message = [[QNIMMessageObject alloc]initWithQNIMMessageText:messageModel.mj_JSONString fromId:QN_IM_userId.longLongValue toId:self.toId.longLongValue type:QNIMMessageTypeGroup conversationId:self.toId.longLongValue];
-    message.senderName = QN_User_nickname;
+    QNIMMessageObject *message = [[QNIMMessageObject alloc]initWithQNIMMessageText:messageModel.mj_JSONString fromId:LIVE_IM_userId.longLongValue toId:self.toId.longLongValue type:QNIMMessageTypeGroup conversationId:self.toId.longLongValue];
+    message.senderName = LIVE_User_nickname;
     return message;
 }
 
@@ -59,8 +59,8 @@
     messageModel.action = liveroom_welcome;
     messageModel.data = model.mj_keyValues;
     
-    QNIMMessageObject *message = [[QNIMMessageObject alloc]initWithQNIMMessageText:messageModel.mj_JSONString fromId:QN_IM_userId.longLongValue toId:self.toId.longLongValue type:QNIMMessageTypeGroup conversationId:self.toId.longLongValue];
-    message.senderName = QN_User_nickname;
+    QNIMMessageObject *message = [[QNIMMessageObject alloc]initWithQNIMMessageText:messageModel.mj_JSONString fromId:LIVE_IM_userId.longLongValue toId:self.toId.longLongValue type:QNIMMessageTypeGroup conversationId:self.toId.longLongValue];
+    message.senderName = LIVE_User_nickname;
     return message;
 }
 
@@ -73,8 +73,8 @@
     messageModel.action = liveroom_pubchat;
     messageModel.data = model.mj_keyValues;
     
-    QNIMMessageObject *message = [[QNIMMessageObject alloc]initWithQNIMMessageText:messageModel.mj_JSONString fromId:QN_IM_userId.longLongValue toId:self.toId.longLongValue type:QNIMMessageTypeGroup conversationId:self.toId.longLongValue];
-    message.senderName = QN_User_nickname;    
+    QNIMMessageObject *message = [[QNIMMessageObject alloc]initWithQNIMMessageText:messageModel.mj_JSONString fromId:LIVE_IM_userId.longLongValue toId:self.toId.longLongValue type:QNIMMessageTypeGroup conversationId:self.toId.longLongValue];
+    message.senderName = LIVE_User_nickname;
     return message;
 }
 
@@ -87,8 +87,8 @@
     messageModel.action = liveroom_pubchat;
     messageModel.data = model.mj_keyValues;
     
-    QNIMMessageObject *message = [[QNIMMessageObject alloc]initWithQNIMMessageText:messageModel.mj_JSONString fromId:QN_IM_userId.longLongValue toId:self.toId.longLongValue type:QNIMMessageTypeGroup conversationId:self.toId.longLongValue];
-    message.senderName = QN_User_nickname;
+    QNIMMessageObject *message = [[QNIMMessageObject alloc]initWithQNIMMessageText:messageModel.mj_JSONString fromId:LIVE_IM_userId.longLongValue toId:self.toId.longLongValue type:QNIMMessageTypeGroup conversationId:self.toId.longLongValue];
+    message.senderName = LIVE_User_nickname;
     return message;
 }
 
@@ -101,8 +101,8 @@
     messageModel.action = liveroom_pubchat;
     messageModel.data = model.mj_keyValues;
     
-    QNIMMessageObject *message = [[QNIMMessageObject alloc]initWithQNIMMessageText:messageModel.mj_JSONString fromId:QN_IM_userId.longLongValue toId:self.toId.longLongValue type:QNIMMessageTypeGroup conversationId:self.toId.longLongValue];
-    message.senderName = QN_User_nickname;
+    QNIMMessageObject *message = [[QNIMMessageObject alloc]initWithQNIMMessageText:messageModel.mj_JSONString fromId:LIVE_IM_userId.longLongValue toId:self.toId.longLongValue type:QNIMMessageTypeGroup conversationId:self.toId.longLongValue];
+    message.senderName = LIVE_User_nickname;
     return message;
 }
 
@@ -115,8 +115,8 @@
     messageModel.action = living_danmu;
     messageModel.data = model.mj_keyValues;
     
-    QNIMMessageObject *message = [[QNIMMessageObject alloc]initWithQNIMMessageText:messageModel.mj_JSONString fromId:QN_IM_userId.longLongValue toId:self.toId.longLongValue type:QNIMMessageTypeGroup conversationId:self.toId.longLongValue];
-    message.senderName = QN_User_nickname;
+    QNIMMessageObject *message = [[QNIMMessageObject alloc]initWithQNIMMessageText:messageModel.mj_JSONString fromId:LIVE_IM_userId.longLongValue toId:self.toId.longLongValue type:QNIMMessageTypeGroup conversationId:self.toId.longLongValue];
+    message.senderName = LIVE_User_nickname;
     
     return message;
 }
@@ -125,9 +125,9 @@
 - (QNIMMessageObject *)createGiftMessage:(QGiftModel *)giftModel number:(NSInteger)number extMsg:(NSString *)extMsg {
     
     QGiftMsgModel *giftMsgModel = [QGiftMsgModel new];
-    giftMsgModel.senderUid = QN_User_id;
-    giftMsgModel.senderName = QN_User_nickname;
-    giftMsgModel.senderAvatar = QN_User_avatar;
+    giftMsgModel.senderUid = LIVE_User_id;
+    giftMsgModel.senderName = LIVE_User_nickname;
+    giftMsgModel.senderAvatar = LIVE_User_avatar;
     giftMsgModel.senderRoomId = self.toId;
     giftMsgModel.sendGift = giftModel;
     giftMsgModel.number = number;
@@ -137,8 +137,8 @@
     model.action = @"living_gift";
     model.data = giftMsgModel.mj_keyValues;
     
-    QNIMMessageObject *message = [[QNIMMessageObject alloc]initWithQNIMMessageText:model.mj_JSONString fromId:QN_IM_userId.longLongValue toId:self.toId.longLongValue type:QNIMMessageTypeGroup conversationId:self.toId.longLongValue];
-    message.senderName = QN_User_nickname;
+    QNIMMessageObject *message = [[QNIMMessageObject alloc]initWithQNIMMessageText:model.mj_JSONString fromId:LIVE_IM_userId.longLongValue toId:self.toId.longLongValue type:QNIMMessageTypeGroup conversationId:self.toId.longLongValue];
+    message.senderName = LIVE_User_nickname;
     return message;
 }
 
@@ -165,8 +165,8 @@
     messageModel.action = liveroom_miclinker_kick;
     messageModel.data = model.mj_keyValues;
     
-    QNIMMessageObject *message = [[QNIMMessageObject alloc]initWithQNIMMessageText:messageModel.mj_JSONString fromId:QN_IM_userId.longLongValue toId:self.toId.longLongValue type:QNIMMessageTypeGroup conversationId:self.toId.longLongValue];
-    message.senderName = QN_User_nickname;
+    QNIMMessageObject *message = [[QNIMMessageObject alloc]initWithQNIMMessageText:messageModel.mj_JSONString fromId:LIVE_IM_userId.longLongValue toId:self.toId.longLongValue type:QNIMMessageTypeGroup conversationId:self.toId.longLongValue];
+    message.senderName = LIVE_User_nickname;
     return message;
 }
 
@@ -174,30 +174,30 @@
 //开关麦信令（音频）
 - (QNIMMessageObject *)createMicStatusMessage:(BOOL)openAudio {
     LinkOptionModel *model = [LinkOptionModel new];
-    model.uid = QN_User_id;
+    model.uid = LIVE_User_id;
     model.mute = !openAudio;
 
     QIMModel *messageModel = [QIMModel new];
     messageModel.action = liveroom_miclinker_microphone_mute;
     messageModel.data = model.mj_keyValues;
     
-    QNIMMessageObject *message = [[QNIMMessageObject alloc]initWithQNIMMessageText:messageModel.mj_JSONString fromId:QN_IM_userId.longLongValue toId:self.toId.longLongValue type:QNIMMessageTypeGroup conversationId:self.toId.longLongValue];
-    message.senderName = QN_User_nickname;
+    QNIMMessageObject *message = [[QNIMMessageObject alloc]initWithQNIMMessageText:messageModel.mj_JSONString fromId:LIVE_IM_userId.longLongValue toId:self.toId.longLongValue type:QNIMMessageTypeGroup conversationId:self.toId.longLongValue];
+    message.senderName = LIVE_User_nickname;
     return message;
 }
 
 //开关麦信令（视频）
 - (QNIMMessageObject *)createCameraStatusMessage:(BOOL)openVideo {
     LinkOptionModel *model = [LinkOptionModel new];
-    model.uid = QN_User_id;
+    model.uid = LIVE_User_id;
     model.mute = !openVideo;
 
     QIMModel *messageModel = [QIMModel new];
     messageModel.action = liveroom_miclinker_camera_mute;
     messageModel.data = model.mj_keyValues;
     
-    QNIMMessageObject *message = [[QNIMMessageObject alloc]initWithQNIMMessageText:messageModel.mj_JSONString fromId:QN_IM_userId.longLongValue toId:self.toId.longLongValue type:QNIMMessageTypeGroup conversationId:self.toId.longLongValue];
-    message.senderName = QN_User_nickname;
+    QNIMMessageObject *message = [[QNIMMessageObject alloc]initWithQNIMMessageText:messageModel.mj_JSONString fromId:LIVE_IM_userId.longLongValue toId:self.toId.longLongValue type:QNIMMessageTypeGroup conversationId:self.toId.longLongValue];
+    message.senderName = LIVE_User_nickname;
     return message;
 }
 
@@ -212,8 +212,8 @@
     messageModel.action = liveroom_miclinker_microphone_forbidden;
     messageModel.data = model.mj_keyValues;
     
-    QNIMMessageObject *message = [[QNIMMessageObject alloc]initWithQNIMMessageText:messageModel.mj_JSONString fromId:QN_IM_userId.longLongValue toId:self.toId.longLongValue type:QNIMMessageTypeGroup conversationId:self.toId.longLongValue];
-    message.senderName = QN_User_nickname;
+    QNIMMessageObject *message = [[QNIMMessageObject alloc]initWithQNIMMessageText:messageModel.mj_JSONString fromId:LIVE_IM_userId.longLongValue toId:self.toId.longLongValue type:QNIMMessageTypeGroup conversationId:self.toId.longLongValue];
+    message.senderName = LIVE_User_nickname;
     return message;
 }
 
@@ -228,8 +228,8 @@
     messageModel.action = liveroom_miclinker_camera_forbidden;
     messageModel.data = model.mj_keyValues;
     
-    QNIMMessageObject *message = [[QNIMMessageObject alloc]initWithQNIMMessageText:messageModel.mj_JSONString fromId:QN_IM_userId.longLongValue toId:self.toId.longLongValue type:QNIMMessageTypeGroup conversationId:self.toId.longLongValue];
-    message.senderName = QN_User_nickname;
+    QNIMMessageObject *message = [[QNIMMessageObject alloc]initWithQNIMMessageText:messageModel.mj_JSONString fromId:LIVE_IM_userId.longLongValue toId:self.toId.longLongValue type:QNIMMessageTypeGroup conversationId:self.toId.longLongValue];
+    message.senderName = LIVE_User_nickname;
     return message;
 }
 
@@ -268,12 +268,12 @@
     model.data = pkSession.mj_keyValues;
     
     if (singleMsg) {
-        QNIMMessageObject *message = [[QNIMMessageObject alloc]initWithQNIMMessageText:model.mj_JSONString fromId:QN_IM_userId.longLongValue toId:pkSession.receiver.im_userid.longLongValue type:QNIMMessageTypeSingle conversationId:pkSession.receiver.im_userid.longLongValue];
-        message.senderName = QN_User_nickname;        
+        QNIMMessageObject *message = [[QNIMMessageObject alloc]initWithQNIMMessageText:model.mj_JSONString fromId:LIVE_IM_userId.longLongValue toId:pkSession.receiver.im_userid.longLongValue type:QNIMMessageTypeSingle conversationId:pkSession.receiver.im_userid.longLongValue];
+        message.senderName = LIVE_User_nickname;
         return message;
     }
-    QNIMMessageObject *message = [[QNIMMessageObject alloc]initWithQNIMMessageText:model.mj_JSONString fromId:QN_IM_userId.longLongValue toId:self.toId.longLongValue type:QNIMMessageTypeGroup conversationId:self.toId.longLongValue];
-    message.senderName = QN_User_nickname;
+    QNIMMessageObject *message = [[QNIMMessageObject alloc]initWithQNIMMessageText:model.mj_JSONString fromId:LIVE_IM_userId.longLongValue toId:self.toId.longLongValue type:QNIMMessageTypeGroup conversationId:self.toId.longLongValue];
+    message.senderName = LIVE_User_nickname;
     return message;
 
 }
@@ -285,8 +285,8 @@
     model.action = liveroom_pk_stop;
     model.data = pkSession.mj_keyValues;
     
-    QNIMMessageObject *message = [[QNIMMessageObject alloc]initWithQNIMMessageText:model.mj_JSONString fromId:QN_IM_userId.longLongValue toId:self.toId.longLongValue type:QNIMMessageTypeGroup conversationId:self.toId.longLongValue];
-    message.senderName = QN_User_nickname;
+    QNIMMessageObject *message = [[QNIMMessageObject alloc]initWithQNIMMessageText:model.mj_JSONString fromId:LIVE_IM_userId.longLongValue toId:self.toId.longLongValue type:QNIMMessageTypeGroup conversationId:self.toId.longLongValue];
+    message.senderName = LIVE_User_nickname;
     return message;
 }
 
@@ -296,8 +296,8 @@
     model.action = action;
     model.data = invitationModel.mj_keyValues;
 
-    QNIMMessageObject *message = [[QNIMMessageObject alloc]initWithQNIMMessageText:model.mj_JSONString fromId:QN_IM_userId.longLongValue toId:invitationModel.invitation.msg.initiator.im_userid.longLongValue type:QNIMMessageTypeSingle conversationId:invitationModel.invitation.msg.initiator.im_userid.longLongValue];
-    message.senderName = QN_User_nickname;
+    QNIMMessageObject *message = [[QNIMMessageObject alloc]initWithQNIMMessageText:model.mj_JSONString fromId:LIVE_IM_userId.longLongValue toId:invitationModel.invitation.msg.initiator.im_userid.longLongValue type:QNIMMessageTypeSingle conversationId:invitationModel.invitation.msg.initiator.im_userid.longLongValue];
+    message.senderName = LIVE_User_nickname;
     return message;
 }
 
@@ -312,7 +312,7 @@
     
     QInvitationInfo *info = [QInvitationInfo new];
 //    info.channelId = self.toId;
-    info.initiatorUid = QN_User_id;
+    info.initiatorUid = LIVE_User_id;
     info.msg = link;
 //    info.receiver =  receiverId;
     info.timeStamp = [self getNowTimeTimestamp3];
@@ -325,8 +325,8 @@
     model.action = action;
     model.data = invitationData.mj_keyValues;
     
-    QNIMMessageObject *message = [[QNIMMessageObject alloc]initWithQNIMMessageText:model.mj_JSONString fromId:QN_IM_userId.longLongValue toId:receiveUser.im_userid.longLongValue type:QNIMMessageTypeSingle conversationId:receiveUser.im_userid.longLongValue];
-    message.senderName = QN_User_nickname;
+    QNIMMessageObject *message = [[QNIMMessageObject alloc]initWithQNIMMessageText:model.mj_JSONString fromId:LIVE_IM_userId.longLongValue toId:receiveUser.im_userid.longLongValue type:QNIMMessageTypeSingle conversationId:receiveUser.im_userid.longLongValue];
+    message.senderName = LIVE_User_nickname;
     return message;
     
 }
@@ -338,8 +338,8 @@
     messageModel.action = liveroom_shopping_explaining;
     messageModel.data = model.mj_keyValues;
     
-    QNIMMessageObject *message = [[QNIMMessageObject alloc]initWithQNIMMessageText:messageModel.mj_JSONString fromId:QN_IM_userId.longLongValue toId:self.toId.longLongValue type:QNIMMessageTypeGroup conversationId:self.toId.longLongValue];
-    message.senderName = QN_User_nickname;
+    QNIMMessageObject *message = [[QNIMMessageObject alloc]initWithQNIMMessageText:messageModel.mj_JSONString fromId:LIVE_IM_userId.longLongValue toId:self.toId.longLongValue type:QNIMMessageTypeGroup conversationId:self.toId.longLongValue];
+    message.senderName = LIVE_User_nickname;
     return message;
 }
 
@@ -350,8 +350,8 @@
     messageModel.action = liveroom_shopping_refresh;
     messageModel.data = [NSDictionary dictionary];
     
-    QNIMMessageObject *message = [[QNIMMessageObject alloc]initWithQNIMMessageText:messageModel.mj_JSONString fromId:QN_IM_userId.longLongValue toId:self.toId.longLongValue type:QNIMMessageTypeGroup conversationId:self.toId.longLongValue];
-    message.senderName = QN_User_nickname;
+    QNIMMessageObject *message = [[QNIMMessageObject alloc]initWithQNIMMessageText:messageModel.mj_JSONString fromId:LIVE_IM_userId.longLongValue toId:self.toId.longLongValue type:QNIMMessageTypeGroup conversationId:self.toId.longLongValue];
+    message.senderName = LIVE_User_nickname;
     return message;
 }
 
@@ -383,12 +383,12 @@
     if ([action isEqualToString:liveroom_miclinker_join]) {
         messageModel.data = mic.mj_keyValues;
     } else {
-        messageModel.data = @{@"uid" : QN_User_id};
+        messageModel.data = @{@"uid" : LIVE_User_id};
     }
     
     
-    QNIMMessageObject *message = [[QNIMMessageObject alloc]initWithQNIMMessageText:messageModel.mj_JSONString fromId:QN_IM_userId.longLongValue toId:self.toId.longLongValue type:QNIMMessageTypeGroup conversationId:self.toId.longLongValue];
-    message.senderName = QN_User_nickname;
+    QNIMMessageObject *message = [[QNIMMessageObject alloc]initWithQNIMMessageText:messageModel.mj_JSONString fromId:LIVE_IM_userId.longLongValue toId:self.toId.longLongValue type:QNIMMessageTypeGroup conversationId:self.toId.longLongValue];
+    message.senderName = LIVE_User_nickname;
     
     return message;
     
@@ -419,11 +419,11 @@
 - (QNLiveUser *)user {
     
     QNLiveUser *user = [QNLiveUser new];
-    user.user_id = QN_User_id;
-    user.nick = QN_User_nickname;
-    user.avatar = QN_User_avatar;
-    user.im_userid = QN_IM_userId;
-    user.im_username = QN_IM_userName;
+    user.user_id = LIVE_User_id;
+    user.nick = LIVE_User_nickname;
+    user.avatar = LIVE_User_avatar;
+    user.im_userid = LIVE_IM_userId;
+    user.im_username = LIVE_IM_userName;
     return user;
 }
 

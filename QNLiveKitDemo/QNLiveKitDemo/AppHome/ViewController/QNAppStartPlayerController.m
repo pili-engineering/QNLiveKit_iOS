@@ -144,7 +144,7 @@
 
 - (void)enterMainAction{
     
-    NSString *loginToken = [[NSUserDefaults standardUserDefaults] stringForKey:QN_LOGIN_TOKEN_KEY];
+    NSString *loginToken = [[NSUserDefaults standardUserDefaults] stringForKey:DEMO_LOGIN_TOKEN_KEY];
     
     if (loginToken.length == 0) {
         QNLoginViewController *loginVC = [[QNLoginViewController alloc] init];
