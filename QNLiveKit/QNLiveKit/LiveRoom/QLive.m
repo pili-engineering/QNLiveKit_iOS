@@ -37,15 +37,19 @@
         if (user) {
             [[QNIMClient sharedClient] signInByName:user.im_username password:user.im_password completion:^(QNIMError * _Nonnull error) {
                 NSLog(@"---七牛IM服务器连接状态-%li",[QNIMClient sharedClient].connectStatus);
+                if (error) {
+                    NSError *qnError = [[NSError alloc] initWithDomain:NSCocoaErrorDomain code:error.errorCode userInfo:@{NSLocalizedDescriptionKey : error.errorMessage}];
+                    if (errorBack) {
+                        errorBack(qnError);
+                    }
+                }
             }];
         } else {
             if (errorBack) {
                 errorBack(QError);
             }
         }
-        
     }];
-    
 }
 
 + (void)initializeQNIM{
