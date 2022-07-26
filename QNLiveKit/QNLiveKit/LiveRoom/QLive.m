@@ -52,7 +52,6 @@
             }
         }];
     }];
-    
 }
 
 + (void)setBeauty:(BOOL)needBeauty {
