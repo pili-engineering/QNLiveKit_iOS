@@ -182,7 +182,7 @@
 		</data>
 		<key>Headers/QLive.h</key>
 		<data>
-		rUZjKYG4OhpucJftzNZcpFcB06M=
+		haYjMccUfkAsANFsSmLIPsrG8Ws=
 		</data>
 		<key>Headers/QLiveController.h</key>
 		<data>
@@ -246,7 +246,7 @@
 		</data>
 		<key>Headers/QNLivePushClient.h</key>
 		<data>
-		Lno4B8DvNGHxfuMS2w4Kk2jt1KY=
+		+6OhPkGCzZ86asasvLXZ+k2lwtM=
 		</data>
 		<key>Headers/QNLiveRoomClient.h</key>
 		<data>
@@ -1043,11 +1043,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			rUZjKYG4OhpucJftzNZcpFcB06M=
+			haYjMccUfkAsANFsSmLIPsrG8Ws=
 			</data>
 			<key>hash2</key>
 			<data>
-			Vdbn6GO0gG7laSZdmbBwhdkBsc8g9U3St8Rl2QXZbk4=
+			3hmLdYMzovB1S+veHbILaMm/Zc19pYXqz/VzuRY9vmA=
 			</data>
 		</dict>
 		<key>Headers/QLiveController.h</key>
@@ -1219,11 +1219,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			Lno4B8DvNGHxfuMS2w4Kk2jt1KY=
+			+6OhPkGCzZ86asasvLXZ+k2lwtM=
 			</data>
 			<key>hash2</key>
 			<data>
-			4z0uNuekSQcW4qr0CstSw7mksphUJF534dfEMiPMURQ=
+			72r2bWPecu2AMnDErt/ULI6VSXXsuE80SvORVQV80fw=
 			</data>
 		</dict>
 		<key>Headers/QNLiveRoomClient.h</key>

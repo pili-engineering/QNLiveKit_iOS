@@ -70,7 +70,7 @@
 //主播停止直播
 - (void)closeRoom {
     
-    NSString *action = [NSString stringWithFormat:@"client//live/room/%@",self.roomInfo.live_id];
+    NSString *action = [NSString stringWithFormat:@"client/live/room/%@",self.roomInfo.live_id];
     [QLiveNetworkUtil deleteRequestWithAction:action params:@{} success:^(NSDictionary * _Nonnull responseData) {
         
         if ([self.roomLifeCycleListener respondsToSelector:@selector(onRoomClose)]) {

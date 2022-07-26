@@ -11,7 +11,7 @@
 #import "QLiveController.h"
 #import "QNCreateRoomParam.h"
 #import "QNLivePushClient.h"
-#import "BeautyLiveViewController.h"
+#import "QLiveController.h"
 
 @interface QCreateLiveController ()
 @property (nonatomic, strong) UITextField *titleTf;
@@ -92,7 +92,7 @@
     
     [[QLive getRooms] createRoom:params callBack:^(QNLiveRoomInfo * _Nonnull roomInfo) {
 
-        BeautyLiveViewController *vc = [BeautyLiveViewController new];
+        QLiveController *vc = [QLiveController new];
         vc.roomInfo = roomInfo;
         vc.modalPresentationStyle = UIModalPresentationFullScreen;
         [self presentViewController:vc animated:YES completion:nil];

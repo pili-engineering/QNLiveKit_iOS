@@ -20,6 +20,8 @@ NS_ASSUME_NONNULL_BEGIN
 /// @param serverURL 域名
 /// @param errorBack 错误回调
 + (void)initWithToken:(NSString *)token serverURL:(NSString *)serverURL errorBack:(nullable void (^)(NSError *_Nullable error))errorBack;
+//是否需要使用内置美颜功能，默认为NO
++ (void)setBeauty:(BOOL)needBeauty;
 //绑定用户信息
 + (void)setUser:(NSString *)avatar nick:(NSString *)nick extension:(nullable NSDictionary *)extension;
 //创建主播端

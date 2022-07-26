@@ -65,9 +65,19 @@
 
 - (void)addLiveRoom {
     
-    CreateBeautyLiveController *vc = [CreateBeautyLiveController new];
-    vc.modalPresentationStyle = UIModalPresentationFullScreen;
-    [self presentViewController:vc animated:YES completion:nil];
+    if ([QLive createPusherClient].needBeauty) {
+        
+        CreateBeautyLiveController *vc = [CreateBeautyLiveController new];
+        vc.modalPresentationStyle = UIModalPresentationFullScreen;
+        [self presentViewController:vc animated:YES completion:nil];
+        
+    } else {
+        
+        QCreateLiveController *vc = [QCreateLiveController new];
+        vc.modalPresentationStyle = UIModalPresentationFullScreen;
+        [self presentViewController:vc animated:YES completion:nil];
+    }
+    
 }
 
 - (NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView {
