@@ -8,6 +8,18 @@
 		<data>
 		0bUWMN/CO1P90uVnT4hEFUXcy2A=
 		</data>
+		<key>Frameworks/QNIMSDK.framework/Info.plist</key>
+		<data>
+		lqZMfp8Oeoynjr9F9/E1umYbuGw=
+		</data>
+		<key>Frameworks/QNIMSDK.framework/QNIMSDK</key>
+		<data>
+		4eJuQ+Zhqk8CpxdmrKEGiV2Zb5w=
+		</data>
+		<key>Frameworks/QNIMSDK.framework/_CodeSignature/CodeResources</key>
+		<data>
+		xhgFP0VIAQjeq16KQLtLFG/eOYw=
+		</data>
 		<key>Headers/BeautyBaseController.h</key>
 		<data>
 		HN0/+REjpVq4mdOq9hzAGa4Jjtk=
@@ -552,6 +564,39 @@
 			<key>hash2</key>
 			<data>
 			llWVJZsL119zvfCNeeCNaTMXucYOIsPDGgANpNLJi90=
+			</data>
+		</dict>
+		<key>Frameworks/QNIMSDK.framework/Info.plist</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			lqZMfp8Oeoynjr9F9/E1umYbuGw=
+			</data>
+			<key>hash2</key>
+			<data>
+			K8XjaEZoAAscE683l3hjZUGuxxg+Vg5ean0TgBJawpU=
+			</data>
+		</dict>
+		<key>Frameworks/QNIMSDK.framework/QNIMSDK</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			4eJuQ+Zhqk8CpxdmrKEGiV2Zb5w=
+			</data>
+			<key>hash2</key>
+			<data>
+			YnCkqmw3+xF76HP1eOLyZsRLlDjIGbyt6vBio89dId0=
+			</data>
+		</dict>
+		<key>Frameworks/QNIMSDK.framework/_CodeSignature/CodeResources</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			xhgFP0VIAQjeq16KQLtLFG/eOYw=
+			</data>
+			<key>hash2</key>
+			<data>
+			srf1Q09QMX+hEkpvRs654Vr0w9fg2Ce+cHWXCpOPT7M=
 			</data>
 		</dict>
 		<key>Headers/BeautyBaseController.h</key>
