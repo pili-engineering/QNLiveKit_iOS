@@ -230,6 +230,7 @@
         QNVideoEncoderConfig *config = [[QNVideoEncoderConfig alloc] initWithBitrate:400*1000 videoEncodeSize:videoEncodeSize videoFrameRate:15];
         QNCameraVideoTrackConfig * cameraConfig = [[QNCameraVideoTrackConfig alloc] initWithSourceTag:@"camera" config:config multiStreamEnable:NO];
         _localVideoTrack = [QNRTC createCameraVideoTrackWithConfig:cameraConfig];
+        [_localVideoTrack setBeautifyModeOn:YES];
     }
     return _localVideoTrack;
 }
