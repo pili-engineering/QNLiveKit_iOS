@@ -145,12 +145,12 @@
         for (QNRemoteTrack *track in tracks) {
             if (track.kind == QNTrackKindVideo) {
                 QNRemoteVideoTrack *videoTrack = (QNRemoteVideoTrack *)track;
-                self.remoteView = [[QRenderView alloc]initWithFrame:CGRectMake(SCREEN_W - 120, 120, 100, 100)];
+                self.remoteView.frame = CGRectMake(SCREEN_W - 120, 120, 100, 100);
                 self.remoteView.userId = userID;
                 self.remoteView.trackId = videoTrack.trackID;
                 self.remoteView.layer.cornerRadius = 50;
                 self.remoteView.clipsToBounds = YES;
-                [self.renderBackgroundView addSubview:self.remoteView];
+//                [self.renderBackgroundView addSubview:self.remoteView];
                 [videoTrack play:self.remoteView];
                 
                 if (self.pk_other_user) {
@@ -278,7 +278,9 @@
 //接受到连麦邀请
 - (void)onReceiveLinkInvitation:(QInvitationModel *)model {
     NSString *title = [model.invitation.msg.initiator.nick stringByAppendingString:@"申请加入连麦，是否同意？"];
-    [QAlertView showBaseAlertWithTitle:title content:@"" handler:^(UIAlertAction * _Nonnull action) {
+    [QAlertView showBaseAlertWithTitle:title content:@"" cancelHandler:^(UIAlertAction * _Nonnull action) {
+        
+    } confirmHandler:^(UIAlertAction * _Nonnull action) {
         [self.linkService AcceptLink:model];
     }];
 }
@@ -286,7 +288,9 @@
 //接收到pk邀请
 - (void)onReceivePKInvitation:(QInvitationModel *)model {
     NSString *title = [model.invitation.msg.initiator.nick stringByAppendingString:@"邀请您PK，是否同意？"];
-    [QAlertView showBaseAlertWithTitle:title content:@"" handler:^(UIAlertAction * _Nonnull action) {
+    [QAlertView showBaseAlertWithTitle:title content:@"" cancelHandler:^(UIAlertAction * _Nonnull action) {
+        
+    } confirmHandler:^(UIAlertAction * _Nonnull action) {
         [self.pkService AcceptPK:model];
         self.pk_other_user = model.invitation.msg.initiator;
     }];

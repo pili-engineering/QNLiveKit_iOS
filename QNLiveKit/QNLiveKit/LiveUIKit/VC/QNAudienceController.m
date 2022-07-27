@@ -155,10 +155,11 @@
         for (QNRemoteTrack *track in tracks) {
             if (track.kind == QNTrackKindVideo) {
                 
-                self.remoteView = [[QRenderView alloc]initWithFrame:CGRectMake(0, 0, SCREEN_W, SCREEN_H)];
+                self.remoteView.frame = CGRectMake(0, 0, SCREEN_W, SCREEN_H);
                 self.remoteView.userId = userID;
                 self.remoteView.trackId = track.trackID;
-                [self.renderBackgroundView insertSubview:self.remoteView atIndex:0];
+                [self.renderBackgroundView bringSubviewToFront:self.remoteView];
+//                [self.renderBackgroundView insertSubview:self.remoteView atIndex:0];
                 [(QNRemoteVideoTrack *)track play:self.remoteView];
             } else {
             }

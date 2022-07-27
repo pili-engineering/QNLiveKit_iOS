@@ -320,7 +320,10 @@
         __weak typeof(self)weakSelf = self;
         _operationView.takeOnClickedBlock = ^{
             
-            [QAlertView showBaseAlertWithTitle:@"确定上架商品吗？" content:@"" handler:^(UIAlertAction * _Nonnull action) {
+            [QAlertView showBaseAlertWithTitle:@"确定上架商品吗？" content:@"" cancelHandler:^(UIAlertAction * _Nonnull action) {
+                
+            } confirmHandler:^(UIAlertAction * _Nonnull action) {
+                
                 [weakSelf updateGoodsStatus:weakSelf.selectModel status:QLiveGoodsStatusTakeOn];
                 [weakSelf.selectModel removeAllObjects];
             }];
@@ -328,14 +331,18 @@
         };
         _operationView.takeDownClickedBlock = ^{
             
-            [QAlertView showBaseAlertWithTitle:@"确定下架商品吗" content:@"下架后，买家将无法在商品列表查看本商品，确定下架？" handler:^(UIAlertAction * _Nonnull action) {
+            [QAlertView showBaseAlertWithTitle:@"确定下架商品吗" content:@"下架后，买家将无法在商品列表查看本商品，确定下架？" cancelHandler:^(UIAlertAction * _Nonnull action) {
+                
+            } confirmHandler:^(UIAlertAction * _Nonnull action) {
                 [weakSelf updateGoodsStatus:weakSelf.selectModel status:QLiveGoodsStatusTakeDown];
                 [weakSelf.selectModel removeAllObjects];
             }];
         };
         _operationView.removeClickedBlock = ^{
             
-            [QAlertView showBaseAlertWithTitle:@"确定移除商品吗？" content:@"" handler:^(UIAlertAction * _Nonnull action) {
+            [QAlertView showBaseAlertWithTitle:@"确定移除商品吗？" content:@"" cancelHandler:^(UIAlertAction * _Nonnull action) {
+                
+            } confirmHandler:^(UIAlertAction * _Nonnull action) {
                 [weakSelf removeGoods:weakSelf.selectModel];
                 [weakSelf.selectModel removeAllObjects];
             }];
