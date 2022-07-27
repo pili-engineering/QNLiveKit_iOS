@@ -285,8 +285,16 @@
     model.action = liveroom_pk_stop;
     model.data = pkSession.mj_keyValues;
     
+    //告诉对面主播
+    NSString *toID = [pkSession.initiator.im_userid isEqualToString:LIVE_IM_userId] ? pkSession.receiver.im_userid : pkSession.initiator.im_userid;
+    QNIMMessageObject *singleMessage = [[QNIMMessageObject alloc]initWithQNIMMessageText:model.mj_JSONString fromId:LIVE_IM_userId.longLongValue toId:toID.longLongValue type:QNIMMessageTypeSingle conversationId:toID.longLongValue];
+    singleMessage.senderName = LIVE_User_nickname;
+    [[QNIMChatService sharedOption] sendMessage:singleMessage];
+    
+    //告诉观众
     QNIMMessageObject *message = [[QNIMMessageObject alloc]initWithQNIMMessageText:model.mj_JSONString fromId:LIVE_IM_userId.longLongValue toId:self.toId.longLongValue type:QNIMMessageTypeGroup conversationId:self.toId.longLongValue];
     message.senderName = LIVE_User_nickname;
+    
     return message;
 }
 
