@@ -46,6 +46,7 @@
     [self.view insertSubview:self.renderBackgroundView atIndex:1];
         
     [self.renderBackgroundView addSubview:self.preview];
+    [self.renderBackgroundView addSubview:self.remoteView];
 }
 
 //获取某人的画面
@@ -77,6 +78,14 @@
         _preview.fillMode = QNVideoFillModePreserveAspectRatioAndFill;
     }
     return _preview;
+}
+
+- (QRenderView *)remoteView {
+    if (!_remoteView) {
+        _remoteView = [[QRenderView alloc]initWithFrame:CGRectZero];
+        _remoteView.fillMode = QNVideoFillModePreserveAspectRatioAndFill;
+    }
+    return _remoteView;
 }
 
 - (LiveChatRoom *)chatRoomView {

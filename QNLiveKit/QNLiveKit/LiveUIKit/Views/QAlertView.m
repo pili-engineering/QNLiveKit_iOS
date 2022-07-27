@@ -9,16 +9,17 @@
 
 @implementation QAlertView
 
-+ (void)showBaseAlertWithTitle:(NSString *)title content:(NSString *)content handler:(void (^ __nullable)(UIAlertAction *action))handler {
++ (void)showBaseAlertWithTitle:(NSString *)title content:(NSString *)content cancelHandler:(void (^ __nullable)(UIAlertAction *action))cancelHandler confirmHandler:(void (^ __nullable)(UIAlertAction *action))confirmHandler {
     
     UIAlertController *alertController = [UIAlertController alertControllerWithTitle:title message:content preferredStyle:UIAlertControllerStyleAlert];
 
     UIAlertAction *cancelBtn = [UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleCancel handler:^(UIAlertAction * _Nonnull action) {
+        cancelHandler(action);
     }];
     [alertController addAction:cancelBtn];
     
     UIAlertAction *changeBtn = [UIAlertAction actionWithTitle:@"确认" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
-        handler(action);
+        confirmHandler(action);
     }];
     [alertController addAction:changeBtn];
     
@@ -54,7 +55,7 @@
     UIView *alertContentView = subView.subviews.lastObject;
     
     for (UIView *subSubView in alertContentView.subviews) {
-        subSubView.backgroundColor = [UIColor blueColor];
+        subSubView.backgroundColor = [UIColor blackColor];
     }
     
     UIAlertAction *cancelBtn = [UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleCancel handler:^(UIAlertAction * _Nonnull action) {

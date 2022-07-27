@@ -51,6 +51,7 @@
     [self.view insertSubview:self.renderBackgroundView atIndex:1];
     
     [self.renderBackgroundView addSubview:self.preview];
+    [self.renderBackgroundView addSubview:self.remoteView];
     
 }
 
@@ -769,6 +770,14 @@
         _preview.fillMode = QNVideoFillModePreserveAspectRatioAndFill;
     }
     return _preview;
+}
+
+- (QRenderView *)remoteView {
+    if (!_remoteView) {
+        _remoteView = [[QRenderView alloc]initWithFrame:CGRectZero];
+        _remoteView.fillMode = QNVideoFillModePreserveAspectRatioAndFill;
+    }
+    return _remoteView;
 }
 
 - (LiveChatRoom *)chatRoomView {

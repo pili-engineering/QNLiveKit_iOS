@@ -10,7 +10,9 @@
 #import "QNLiveListCell.h"
 #import "QCreateLiveController.h"
 #import "CreateBeautyLiveController.h"
-
+#import "QLiveController.h"
+#import "QNLiveRoomInfo.h"
+#import "BeautyLiveViewController.h"
 
 @interface QLiveListController ()<UICollectionViewDelegate,UICollectionViewDataSource>
 
@@ -100,10 +102,31 @@
     
     QNLiveRoomInfo *model = self.rooms[indexPath.item];
     
-    QNAudienceController *vc = [QNAudienceController new];
-    vc.roomInfo = model;
-    vc.modalPresentationStyle = UIModalPresentationFullScreen;
-    [self presentViewController:vc animated:YES completion:nil];
+    if ([model.anchor_info.user_id isEqualToString:LIVE_User_id]) {
+        
+        if ([QLive createPusherClient].needBeauty) {
+            
+            //带美颜
+            BeautyLiveViewController *vc = [BeautyLiveViewController new];
+            vc.roomInfo = model;
+            vc.modalPresentationStyle = UIModalPresentationFullScreen;
+            [self presentViewController:vc animated:YES completion:nil];
+            
+        } else {
+            //不带美颜
+            QLiveController *vc = [QLiveController new];
+            vc.roomInfo = model;
+            vc.modalPresentationStyle = UIModalPresentationFullScreen;
+            [self presentViewController:vc animated:YES completion:nil];
+        }
+        
+    } else {
+        
+        QNAudienceController *vc = [QNAudienceController new];
+        vc.roomInfo = model;
+        vc.modalPresentationStyle = UIModalPresentationFullScreen;
+        [self presentViewController:vc animated:YES completion:nil];
+    }
 }
 
 - (UICollectionView *)collectionView {

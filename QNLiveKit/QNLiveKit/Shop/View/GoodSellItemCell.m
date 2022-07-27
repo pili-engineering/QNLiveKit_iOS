@@ -109,7 +109,10 @@
     
     NSString *title = self.itemModel.status == QLiveGoodsStatusTakeOn ? @"确定下架该商品吗？" : @"确定上架该商品吗？";
     
-    [QAlertView showBaseAlertWithTitle:title content:@"" handler:^(UIAlertAction * _Nonnull action) {
+    [QAlertView showBaseAlertWithTitle:title content:@"" cancelHandler:^(UIAlertAction * _Nonnull action) {
+        
+    } confirmHandler:^(UIAlertAction * _Nonnull action) {
+        
         if (self.takeDownClickedBlock) {
             self.takeDownClickedBlock(self.itemModel);
         }
