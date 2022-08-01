@@ -144,9 +144,22 @@
             [[QLive createPusherClient] enableCamera:nil renderView:self.preview];
             [self popLinkSLot];
 
+        } else if (state == QNConnectionStateDisconnected) {
+            [self endLinkToLive];
         }
     });
-   
+}
+
+//有人离开rtc
+- (void)onUserLeaveRTC:(NSString *)userID {
+    dispatch_async(dispatch_get_main_queue(), ^{
+        if ([userID isEqualToString:self.roomInfo.anchor_info.user_id]) {
+
+            [self endLinkToLive];
+            [QToastView showToast:@"主播已离线"];
+            [self dismissViewControllerAnimated:YES completion:nil];
+        }
+    });
 }
 
 - (void)onUserPublishTracks:(NSArray<QNRemoteTrack *> *)tracks ofUserID:(NSString *)userID {
@@ -177,6 +190,11 @@
 
 - (void)onReceivedPuChatMsg:(PubChatModel *)msg message:(QNIMMessageObject *)message {
     [self.chatRoomView showMessage:message];
+}
+
+//收到被踢消息
+- (void)onUserBeKick:(LinkOptionModel *)micLinker {
+    [self.linkService downMic];
 }
 
 //连麦邀请被接受
@@ -363,16 +381,20 @@
         [weakSelf.linkService updateMicStatusType:@"camera" flag:!mute];
     };
     _linkSView.clickBlock = ^(BOOL selected){
-        
-        [weakSelf.linkService downMic];
-        weakSelf.preview.frame = CGRectZero;
-
-        if (weakSelf.remoteView.superview && ![weakSelf.remoteView.userId isEqualToString:LIVE_User_id]) {
-            [weakSelf.remoteView removeFromSuperview];
-        }
-        [weakSelf playWithUrl:weakSelf.roomInfo.rtmp_url];
-        NSLog(@"点击了结束连麦");
+        [weakSelf endLinkToLive];
     };
+}
+
+//离开连麦，变为观看直播
+- (void)endLinkToLive {
+    [self.linkService downMic];
+    self.preview.frame = CGRectZero;
+    self.remoteView.frame = CGRectZero;
+//    if (self.remoteView.superview && ![self.remoteView.userId isEqualToString:LIVE_User_id]) {
+//        [self.remoteView removeFromSuperview];
+//    }
+    [self playWithUrl:self.roomInfo.rtmp_url];
+    NSLog(@"结束连麦");
 }
 
 - (ExplainingGoodView *)goodView {
