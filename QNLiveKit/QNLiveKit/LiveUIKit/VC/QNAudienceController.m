@@ -31,8 +31,6 @@
 
 @interface QNAudienceController ()<QNChatRoomServiceListener,QNPushClientListener,LiveChatRoomViewDelegate,FDanmakuViewProtocol,PLPlayerDelegate,MicLinkerListener,PKServiceListener>
 
-@property (nonatomic, strong) PLPlayer *player;
-
 @end
 
 @implementation QNAudienceController
