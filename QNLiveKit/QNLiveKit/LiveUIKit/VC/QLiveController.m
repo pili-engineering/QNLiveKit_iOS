@@ -112,7 +112,7 @@
         }
         
         if (self.remoteView.superview && [self.remoteView.userId isEqualToString:userID]) {
-            [self.remoteView removeFromSuperview];
+            self.remoteView.frame = CGRectZero;
         }
     });
 }
@@ -219,7 +219,7 @@
 //收到下麦消息
 - (void)onUserLeaveLink:(QNMicLinker *)linker {
     if (self.remoteView.superview) {
-        [self.remoteView removeFromSuperview];
+        self.remoteView.frame = CGRectZero;
     }
 }
 
