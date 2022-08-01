@@ -40,7 +40,6 @@
 
 @property (nonatomic, strong) QNLiveRoomInfo *selectPkRoomInfo;
 @property (nonatomic, strong) QNPKSession *pkSession;//正在进行的pk
-@property (nonatomic, strong) QNLiveUser *pk_other_user;//pk对象
 @property (nonatomic, strong) ImageButtonView *pkSlot;
 
 @end
