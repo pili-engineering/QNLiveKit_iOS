@@ -14,7 +14,7 @@
 		</data>
 		<key>Frameworks/QNIMSDK.framework/QNIMSDK</key>
 		<data>
-		4eJuQ+Zhqk8CpxdmrKEGiV2Zb5w=
+		148XJU37HwtRTHy7UwgYDIKwWxI=
 		</data>
 		<key>Frameworks/QNIMSDK.framework/_CodeSignature/CodeResources</key>
 		<data>
@@ -126,7 +126,7 @@
 		</data>
 		<key>Headers/LiveChatRoom.h</key>
 		<data>
-		3fI3AU1nQSt3ZZ6XIMTWqOACo6k=
+		ECOiLxAXsEVtSVhAMTxSEY/ZpEE=
 		</data>
 		<key>Headers/NSBundle+language.h</key>
 		<data>
@@ -186,7 +186,7 @@
 		</data>
 		<key>Headers/QLiveController.h</key>
 		<data>
-		sfZ8fmofzgQnY84iMlA97E+prFo=
+		vDY9hEy9Sp2UwTohWxwPZiFYlpY=
 		</data>
 		<key>Headers/QLiveListController.h</key>
 		<data>
@@ -210,7 +210,7 @@
 		</data>
 		<key>Headers/QNAudienceController.h</key>
 		<data>
-		yjzadpNUDoS8aOdV6XHg/vyuugI=
+		DQGTR9FdWP2bV/MSzlUYvLanWW0=
 		</data>
 		<key>Headers/QNBaseRTCController.h</key>
 		<data>
@@ -581,11 +581,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			4eJuQ+Zhqk8CpxdmrKEGiV2Zb5w=
+			148XJU37HwtRTHy7UwgYDIKwWxI=
 			</data>
 			<key>hash2</key>
 			<data>
-			YnCkqmw3+xF76HP1eOLyZsRLlDjIGbyt6vBio89dId0=
+			seTzApZf64eW7dYo+FwFoNm9D7r2Gi3Jfw5RUMEVdQ4=
 			</data>
 		</dict>
 		<key>Frameworks/QNIMSDK.framework/_CodeSignature/CodeResources</key>
@@ -889,11 +889,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			3fI3AU1nQSt3ZZ6XIMTWqOACo6k=
+			ECOiLxAXsEVtSVhAMTxSEY/ZpEE=
 			</data>
 			<key>hash2</key>
 			<data>
-			Tuvr6O3+zQedscRcPY0zR5AwBWS1DJ7U/4CMIhntzyw=
+			8U9Kw+B2YTCO4uItLux5F8eXb37ukYtCOXQA5XeHq2I=
 			</data>
 		</dict>
 		<key>Headers/NSBundle+language.h</key>
@@ -1054,11 +1054,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			sfZ8fmofzgQnY84iMlA97E+prFo=
+			vDY9hEy9Sp2UwTohWxwPZiFYlpY=
 			</data>
 			<key>hash2</key>
 			<data>
-			fmPdw9QugeqtUDUgQ4zl/9BKpLySVJ8OIcqW3rDJu/4=
+			TXMn2SU/sECYtSyLeTwYdXYHYJR7zUxvfOsXyGL5pYs=
 			</data>
 		</dict>
 		<key>Headers/QLiveListController.h</key>
@@ -1120,11 +1120,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			yjzadpNUDoS8aOdV6XHg/vyuugI=
+			DQGTR9FdWP2bV/MSzlUYvLanWW0=
 			</data>
 			<key>hash2</key>
 			<data>
-			L578Js1TkFB9BuBahej9tIAKxyQPVEndx5xnorz3nLk=
+			+y5y05jFZ1DIhyootwiXYx8+lO8d0Pi9mH8rJ7hf2ho=
 			</data>
 		</dict>
 		<key>Headers/QNBaseRTCController.h</key>
