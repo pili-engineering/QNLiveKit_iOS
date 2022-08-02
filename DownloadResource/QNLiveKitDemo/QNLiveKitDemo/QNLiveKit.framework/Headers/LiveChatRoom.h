@@ -14,6 +14,9 @@ NS_ASSUME_NONNULL_BEGIN
 
 @protocol LiveChatRoomViewDelegate <NSObject>
 @optional
+//消息文本编辑完成  return 是否需要发送
+- (BOOL)didEndEditMessageContent:(NSString *)content;
+//消息发送完成
 -(void)didSendMessageModel:(QNIMMessageObject *)model;
 
 @end

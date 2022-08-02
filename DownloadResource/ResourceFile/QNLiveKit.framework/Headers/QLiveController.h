@@ -10,7 +10,7 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-@class RoomHostView,OnlineUserView,ImageButtonView,BottomMenuView;
+@class RoomHostView,OnlineUserView,ImageButtonView,BottomMenuView,QNLiveUser;
 
 @interface QLiveController : QNBaseRTCController
 
@@ -18,6 +18,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, strong) OnlineUserView *onlineUserView;//右上角在线人数槽位
 @property (nonatomic, strong) ImageButtonView *pubchatView;//左下角聊天框槽位
 @property (nonatomic, strong) BottomMenuView *bottomMenuView;//右下角操作槽位
+@property (nonatomic, strong) QNLiveUser *pk_other_user;//pk对象
 
 
 @end
