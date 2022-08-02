@@ -1075,6 +1075,7 @@
 				INFOPLIST_KEY_CFBundleDisplayName = "互动直播";
 				INFOPLIST_KEY_NSCameraUsageDescription = YES;
 				INFOPLIST_KEY_NSMicrophoneUsageDescription = YES;
+				INFOPLIST_KEY_NSPhotoLibraryUsageDescription = "";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
@@ -1139,6 +1140,7 @@
 				INFOPLIST_KEY_CFBundleDisplayName = "互动直播";
 				INFOPLIST_KEY_NSCameraUsageDescription = YES;
 				INFOPLIST_KEY_NSMicrophoneUsageDescription = YES;
+				INFOPLIST_KEY_NSPhotoLibraryUsageDescription = "";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;

@@ -190,11 +190,6 @@
     [self.chatRoomView showMessage:message];
 }
 
-//收到被踢消息
-- (void)onUserBeKick:(LinkOptionModel *)micLinker {
-    [self.linkService downMic];
-}
-
 //连麦邀请被接受
 - (void)onReceiveLinkInvitationAccept:(QInvitationModel *)model {
     [QToastView showToast:@"主播同意了你的连麦申请"];
@@ -265,7 +260,11 @@
     }
 }
 
-
+- (void)onUserBeKick:(LinkOptionModel *)micLinker {
+    self.preview.frame = CGRectZero;
+    self.remoteView.frame = CGRectZero;
+    [self playWithUrl:self.roomInfo.rtmp_url];
+}
 
 - (RoomHostView *)roomHostView {
     if (!_roomHostView) {

@@ -234,15 +234,22 @@ static int clickPraiseBtnTimes  = 0 ;
 
 //  发送消息
 - (void)onTouchSendButton:(NSString *)text {
-        [self touristSendMessage:text];
-}
-
-- (void)touristSendMessage:(NSString *)text {
-        
+    
     [self.inputBar clearInputView];
     self.inputBar.hidden = YES;
     [self.inputBar resignFirstResponder];
     
+    BOOL isSending = YES;
+    if ([self.delegate respondsToSelector:@selector(didEndEditMessageContent:)]) {
+        isSending = [self.delegate didEndEditMessageContent:text];
+    }
+    if (isSending) {
+        [self touristSendMessage:text];
+    }
+}
+
+- (void)touristSendMessage:(NSString *)text {
+        
     if (text.length == 0) {
         return;
     }
