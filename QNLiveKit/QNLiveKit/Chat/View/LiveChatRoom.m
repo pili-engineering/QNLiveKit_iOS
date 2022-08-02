@@ -44,6 +44,8 @@ static int clickPraiseBtnTimes  = 0 ;
 @property(nonatomic, assign) BOOL isNeedScrollToButtom;
 
 @property(nonatomic, assign) BOOL isPubchat;
+
+@property(nonatomic, assign) BOOL isAllowToSend;//是否允许发送
 /**
  *  滚动条不在底部的时候，接收到消息不滚动到底部，记录未读消息数
  */
@@ -89,6 +91,7 @@ static int clickPraiseBtnTimes  = 0 ;
         [self registerClass:[QTextMessageCell class]forCellWithReuseIdentifier:textCellIndentifier];
         [self registerClass:[QTextMessageCell class]forCellWithReuseIdentifier:startAndEndCellIndentifier];
         
+        self.isAllowToSend = YES;
 //        [[QNIMChatService sharedOption] addDelegate:self delegateQueue:dispatch_get_main_queue()];
         
     }
@@ -239,11 +242,10 @@ static int clickPraiseBtnTimes  = 0 ;
     self.inputBar.hidden = YES;
     [self.inputBar resignFirstResponder];
     
-    BOOL isSending = YES;
     if ([self.delegate respondsToSelector:@selector(didEndEditMessageContent:)]) {
-        isSending = [self.delegate didEndEditMessageContent:text];
+        self.isAllowToSend = [self.delegate didEndEditMessageContent:text];
     }
-    if (isSending) {
+    if (self.isAllowToSend) {
         [self touristSendMessage:text];
     }
 }
@@ -271,7 +273,7 @@ static int clickPraiseBtnTimes  = 0 ;
  @param messageContent 消息
  */
 - (void)sendMessage:(QNIMMessageObject *)messageContent{
-       
+           
     [[QNIMChatService sharedOption] sendMessage:messageContent];
     if ([self.delegate respondsToSelector:@selector(didSendMessageModel:)]) {
         [self.delegate didSendMessageModel:messageContent];
