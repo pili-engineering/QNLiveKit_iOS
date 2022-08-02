@@ -14,7 +14,7 @@
 
     
     //  podfile文件中加入以下依赖项，如果项目中已经依赖可以忽略
-        pod 'QNRTCKit-iOS','5.0.0'
+        pod 'QNRTCKit-iOS','5.1.1'
         pod 'PLPlayerKit', '3.4.7'
         pod 'Masonry'
         pod 'MJExtension'
