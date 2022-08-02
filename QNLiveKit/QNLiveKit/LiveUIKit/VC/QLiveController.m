@@ -52,6 +52,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
     __weak typeof(self)weakSelf = self;
     [[QLive createPusherClient] enableCamera:nil renderView:self.preview];
     [QLive createPusherClient].pushClientListener = self;
@@ -140,6 +141,9 @@
 //                [self.renderBackgroundView addSubview:self.remoteView];
                 [videoTrack play:self.remoteView];
                 
+//                UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(kick)];
+//                self.remoteView.userInteractionEnabled = YES;
+//                [self.remoteView addGestureRecognizer:tap];
                 if (self.pk_other_user) {
                     
                     self.preview.frame = CGRectMake(0, 130, SCREEN_W/2, SCREEN_W/1.5);
@@ -163,6 +167,17 @@
             }
         }
     });
+}
+
+//- (void)kick {
+//    [self.linkService kickOutUser:self.remoteView.userId msg:@"你被踢了" callBack:^(QNMicLinker * _Nullable) {
+//
+//    }];
+//}
+
+- (void)onUserBeKick:(LinkOptionModel *)micLinker {
+    self.remoteView.frame = CGRectZero;
+    self.preview.frame = self.view.frame;
 }
 
 #pragma mark ---------QNChatRoomServiceListener
@@ -214,6 +229,10 @@
         [self.danmakuView.modelsArr addObject:danmuModel];
     }
 }
+
+//- (BOOL)didEndEditMessageContent:(NSString *)content {
+//    return NO;
+//}
 
 //收到下麦消息
 - (void)onUserLeaveLink:(QNMicLinker *)linker {

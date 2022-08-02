@@ -18,6 +18,7 @@
 #import "QIMModel.h"
 #import "LinkOptionModel.h"
 #import "QInvitationModel.h"
+#import "QNLiveUser.h"
 
 @interface QLinkMicService ()
 
@@ -70,6 +71,13 @@
     } else if ([imModel.action isEqualToString:liveroom_miclinker_kick]) {
         //被踢消息
         LinkOptionModel *model = [LinkOptionModel mj_objectWithKeyValues:imModel.data];
+        
+        //如果被踢的是自己 发送群消息被踢了
+        if ([model.uid isEqualToString:LIVE_User_id]) {
+            [self beKickAndDownMic];
+            QNIMMessageObject *message = [self.creater createKickMessage:model.uid msg:model.msg];
+            [[QNIMChatService sharedOption] sendMessage:message];
+        }
         
         if ([self.micLinkerListener respondsToSelector:@selector(onUserBeKick:)]) {
             [self.micLinkerListener onUserBeKick:model];
@@ -164,6 +172,21 @@
         }];
 }
 
+//被踢后下麦（不发下麦消息）
+- (void)beKickAndDownMic {
+    [[QLive createPusherClient].rtcClient leave];
+    
+    NSMutableDictionary *params = [NSMutableDictionary dictionary];
+    params[@"live_id"] = self.roomInfo.live_id;
+    params[@"mic"] = @(NO);
+    params[@"camera"] = @(NO);
+
+    [QLiveNetworkUtil deleteRequestWithAction:@"client/mic" params:params success:^(NSDictionary * _Nonnull responseData) {
+        
+        } failure:^(NSError * _Nonnull error) {
+        }];
+}
+
 //下麦
 - (void)downMic{
     
@@ -181,6 +204,8 @@
         }];
     
 }
+
+
 
 //获取用户麦位状态
 - (void)getMicStatus:(NSString *)uid type:(NSString *)type callBack:(nullable void (^)(void))callBack{
@@ -212,9 +237,27 @@
 //踢人
 - (void)kickOutUser:(NSString *)uid msg:(nullable NSString *)msg callBack:(nullable void (^)(QNMicLinker * _Nullable))callBack {
 
-    QNIMMessageObject *message = [self.creater createKickMessage:uid msg:msg];
-    [[QNIMChatService sharedOption] sendMessage:message];
+    LinkOptionModel *model = [LinkOptionModel new];
+    model.uid = uid;
+    model.msg = msg;
+
+    QIMModel *messageModel = [QIMModel new];
+    messageModel.action = liveroom_miclinker_kick;
+    messageModel.data = model.mj_keyValues;
     
+    [self getAllLinker:^(NSArray<QNMicLinker *> * _Nonnull list) {
+            
+        [list enumerateObjectsUsingBlock:^(QNMicLinker * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+            if ([obj.user.user_id isEqualToString:uid]) {
+                QNIMMessageObject *message = [[QNIMMessageObject alloc]initWithQNIMMessageText:messageModel.mj_JSONString fromId:LIVE_IM_userId.longLongValue toId:obj.user.im_userid.longLongValue type:QNIMMessageTypeSingle conversationId:obj.user.im_userid.longLongValue];
+               
+               message.senderName = LIVE_User_nickname;
+               [[QNIMChatService sharedOption] sendMessage:message];
+            }
+        }];
+    }];
+    
+         
     NSMutableDictionary *params = [NSMutableDictionary dictionary];
     params[@"live_id"] = self.roomInfo.live_id;
     params[@"user_id"] = uid;

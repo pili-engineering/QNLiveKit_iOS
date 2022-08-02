@@ -154,7 +154,7 @@
             }
         }];
         [QLive setUser:user.avatar nick:user.nickname extension:nil];
-
+//        [QLive setBeauty:YES];
         } failure:^(NSError *error) {
         
         }];

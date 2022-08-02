@@ -17,6 +17,8 @@
 #import "QIMModel.h"
 #import "QNPKSession.h"
 #import "GoodsModel.h"
+#import "QNLivePushClient.h"
+#import "QNLiveUser.h"
 
 @interface CreateSignalHandler ()
 
@@ -154,7 +156,7 @@
     return message;
 }
 
-//连麦踢人信令
+
 - (QNIMMessageObject *)createKickMessage:(NSString *)uid msg:(NSString *)msg {
     
     LinkOptionModel *model = [LinkOptionModel new];
@@ -165,7 +167,8 @@
     messageModel.action = liveroom_miclinker_kick;
     messageModel.data = model.mj_keyValues;
     
-    QNIMMessageObject *message = [[QNIMMessageObject alloc]initWithQNIMMessageText:messageModel.mj_JSONString fromId:LIVE_IM_userId.longLongValue toId:self.toId.longLongValue type:QNIMMessageTypeGroup conversationId:self.toId.longLongValue];
+     QNIMMessageObject *message = [[QNIMMessageObject alloc]initWithQNIMMessageText:messageModel.mj_JSONString fromId:LIVE_IM_userId.longLongValue toId:self.toId.longLongValue type:QNIMMessageTypeGroup conversationId:self.toId.longLongValue];
+    
     message.senderName = LIVE_User_nickname;
     return message;
 }
