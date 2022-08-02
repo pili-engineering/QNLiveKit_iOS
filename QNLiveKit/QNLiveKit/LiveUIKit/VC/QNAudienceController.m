@@ -167,7 +167,6 @@
                 self.remoteView.userId = userID;
                 self.remoteView.trackId = track.trackID;
                 [self.renderBackgroundView bringSubviewToFront:self.remoteView];
-//                [self.renderBackgroundView insertSubview:self.remoteView atIndex:0];
                 [(QNRemoteVideoTrack *)track play:self.remoteView];
             } else {
             }
