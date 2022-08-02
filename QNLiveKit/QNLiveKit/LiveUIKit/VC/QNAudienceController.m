@@ -63,9 +63,6 @@
         [weakSelf.chatRoomView showMessage:msg];
     }];
     
-    [[QNIMGroupService sharedOption] getGroupInfoByGroupId:self.roomInfo.chat_id.longLongValue forceRefresh:YES completion:^(QNIMGroup * _Nonnull group, QNIMError * _Nonnull error) {
-        NSLog(@"群成员数量%@",@(group.membersCount));
-    }];
 }
 
 //正在讲解的商品

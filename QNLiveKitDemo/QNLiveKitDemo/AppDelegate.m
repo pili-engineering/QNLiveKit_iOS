@@ -48,7 +48,7 @@
         
     }];
     
-//    [QLive setBeauty:YES];
+    [QLive setBeauty:YES];
 
 }
 
