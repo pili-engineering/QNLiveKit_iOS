@@ -35,6 +35,7 @@
 #import "GoodsModel.h"
 #import "QLiveNetworkUtil.h"
 #import "ExplainingGoodView.h"
+#import "QAlertView.h"
 
 @interface BeautyLiveViewController ()<QNPushClientListener,QNRoomLifeCycleListener,QNPushClientListener,QNChatRoomServiceListener,FDanmakuViewProtocol,LiveChatRoomViewDelegate,MicLinkerListener,PKServiceListener,QNLocalVideoTrackDelegate>
 
@@ -54,10 +55,6 @@
     [[STDefaultSetting sharedInstace] checkActiveCodeWithData:license];
 }
 
-- (void)viewDidDisappear:(BOOL)animated {
-    [self.chatService removeChatServiceListener];
-    [[QLive createPusherClient] closeRoom];
-}
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -109,7 +106,7 @@
 
         } else if (state == QNConnectionStateDisconnected) {
             [self.chatService sendLeaveMsg];
-            [[QLive createPusherClient] closeRoom];
+//            [[QLive createPusherClient] closeRoom];
             [QToastView showToast:@"您已离线"];
             [self dismissViewControllerAnimated:YES completion:nil];
             
@@ -124,7 +121,7 @@
         }
         
         if (self.remoteView.superview && [self.remoteView.userId isEqualToString:userID]) {
-            [self.remoteView removeFromSuperview];
+            self.remoteView.frame = CGRectZero;
         }
     });
 }
@@ -150,7 +147,7 @@
                 self.remoteView.trackId = videoTrack.trackID;
                 self.remoteView.layer.cornerRadius = 50;
                 self.remoteView.clipsToBounds = YES;
-//                [self.renderBackgroundView addSubview:self.remoteView];
+
                 [videoTrack play:self.remoteView];
                 
                 if (self.pk_other_user) {
@@ -178,7 +175,6 @@
     });
 }
 
-
 - (void)localVideoTrack:(QNLocalVideoTrack *)localVideoTrack didGetPixelBuffer:(CVPixelBufferRef)pixelBuffer {
     
     QNCameraVideoTrack *track = (QNCameraVideoTrack *)localVideoTrack;
@@ -200,8 +196,6 @@
     [self.detector detect:pixelBuffer cameraOrientation:track.videoOrientation detectConfig:detectConfig allResult:&res];
     [self.effectManager processBuffer:pixelBuffer cameraOrientation:track.videoOrientation detectResult:&res];
 }
-
-
 
 #pragma mark ---------QNChatRoomServiceListener
 
@@ -257,6 +251,14 @@
 - (void)onUserLeaveLink:(QNMicLinker *)linker {
     if (self.remoteView.superview) {
         [self.remoteView removeFromSuperview];
+    }
+}
+
+//有人被踢消息
+- (void)onUserBeKick:(LinkOptionModel *)micLinker {
+    if ([self.remoteView.userId isEqualToString:micLinker.uid]) {
+        self.remoteView.frame = CGRectZero;
+        self.preview.frame = self.view.frame;
     }
 }
 
@@ -418,7 +420,16 @@
         ImageButtonView *close = [[ImageButtonView alloc]initWithFrame:CGRectZero];
         [close bundleNormalImage:@"live_close" selectImage:@"live_close"];
         close.clickBlock = ^(BOOL selected){
-            [weakSelf dismissViewControllerAnimated:YES completion:nil];
+            [QAlertView showBaseAlertWithTitle:@"确定关闭直播间吗？" content:@"关闭后无法再进入该直播间" cancelHandler:^(UIAlertAction * _Nonnull action) {
+                            
+                [weakSelf dismissViewControllerAnimated:YES completion:nil];
+                
+                        } confirmHandler:^(UIAlertAction * _Nonnull action) {
+                            
+                            [weakSelf dismissViewControllerAnimated:YES completion:nil];
+                            [[QLive createPusherClient] closeRoom];
+                            
+                        }];
         };
         [slotList addObject:close];
         

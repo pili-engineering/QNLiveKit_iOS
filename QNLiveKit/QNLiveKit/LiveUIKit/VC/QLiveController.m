@@ -34,6 +34,7 @@
 #import "ShopSellListController.h"
 #import "GoodsModel.h"
 #import "QLiveNetworkUtil.h"
+#import "ExplainingGoodView.h"
 #import "QAlertView.h"
 
 @interface QLiveController ()<QNPushClientListener,QNRoomLifeCycleListener,QNPushClientListener,QNChatRoomServiceListener,FDanmakuViewProtocol,LiveChatRoomViewDelegate,MicLinkerListener,PKServiceListener>
@@ -46,9 +47,6 @@
 
 @implementation QLiveController
 
-- (void)viewDidDisappear:(BOOL)animated {
-    [self.chatService removeChatServiceListener];
-}
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -138,12 +136,9 @@
                 self.remoteView.trackId = videoTrack.trackID;
                 self.remoteView.layer.cornerRadius = 50;
                 self.remoteView.clipsToBounds = YES;
-//                [self.renderBackgroundView addSubview:self.remoteView];
+
                 [videoTrack play:self.remoteView];
                 
-//                UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(kick)];
-//                self.remoteView.userInteractionEnabled = YES;
-//                [self.remoteView addGestureRecognizer:tap];
                 if (self.pk_other_user) {
                     
                     self.preview.frame = CGRectMake(0, 130, SCREEN_W/2, SCREEN_W/1.5);
@@ -167,17 +162,6 @@
             }
         }
     });
-}
-
-//- (void)kick {
-//    [self.linkService kickOutUser:self.remoteView.userId msg:@"你被踢了" callBack:^(QNMicLinker * _Nullable) {
-//
-//    }];
-//}
-
-- (void)onUserBeKick:(LinkOptionModel *)micLinker {
-    self.remoteView.frame = CGRectZero;
-    self.preview.frame = self.view.frame;
 }
 
 #pragma mark ---------QNChatRoomServiceListener
@@ -230,14 +214,18 @@
     }
 }
 
-//- (BOOL)didEndEditMessageContent:(NSString *)content {
-//    return NO;
-//}
-
 //收到下麦消息
 - (void)onUserLeaveLink:(QNMicLinker *)linker {
     if (self.remoteView.superview) {
         self.remoteView.frame = CGRectZero;
+    }
+}
+
+//有人被踢消息
+- (void)onUserBeKick:(LinkOptionModel *)micLinker {
+    if ([self.remoteView.userId isEqualToString:micLinker.uid]) {
+        self.remoteView.frame = CGRectZero;
+        self.preview.frame = self.view.frame;
     }
 }
 
@@ -311,7 +299,6 @@
         [self.view addSubview:_roomHostView];
         [_roomHostView updateWith:self.roomInfo];;
         _roomHostView.clickBlock = ^(BOOL selected) {
-            NSLog(@"点击了房主头像");
         };
     }
     return _roomHostView;
@@ -323,7 +310,6 @@
         [self.view addSubview:_onlineUserView];
         [_onlineUserView updateWith:self.roomInfo];
         _onlineUserView.clickBlock = ^(BOOL selected){
-            NSLog(@"点击了在线人数");
         };
     }
     return _onlineUserView;
@@ -337,7 +323,6 @@
         __weak typeof(self)weakSelf = self;
         _pubchatView.clickBlock = ^(BOOL selected){
             [weakSelf.chatRoomView commentBtnPressedWithPubchat:YES];
-            NSLog(@"点击了公聊");
         };
     }
     return _pubchatView;
