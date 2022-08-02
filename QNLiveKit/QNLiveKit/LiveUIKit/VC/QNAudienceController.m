@@ -196,6 +196,15 @@
     [self stopPlay];
 }
 
+//收到有人被踢消息
+- (void)onUserBeKick:(LinkOptionModel *)micLinker {
+    if ([micLinker.uid isEqualToString:LIVE_User_id]) {
+        self.preview.frame = CGRectZero;
+        self.remoteView.frame = CGRectZero;
+        [self playWithUrl:self.roomInfo.rtmp_url];
+    }
+}
+
 //收到主播开始pk信令
 - (void)onReceiveStartPKSession:(QNPKSession *)pkSession {
     
@@ -245,6 +254,7 @@
     
 }
 
+//消息已发送
 - (void)didSendMessageModel:(QNIMMessageObject *)model {
     QIMModel *imModel = [QIMModel mj_objectWithKeyValues:model.content.mj_keyValues];
     PubChatModel *chatModel = [PubChatModel mj_objectWithKeyValues:imModel.data];
@@ -257,11 +267,7 @@
     }
 }
 
-- (void)onUserBeKick:(LinkOptionModel *)micLinker {
-    self.preview.frame = CGRectZero;
-    self.remoteView.frame = CGRectZero;
-    [self playWithUrl:self.roomInfo.rtmp_url];
-}
+
 
 - (RoomHostView *)roomHostView {
     if (!_roomHostView) {
