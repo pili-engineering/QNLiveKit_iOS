@@ -80,6 +80,9 @@
         [self presentViewController:vc animated:YES completion:nil];
     }
     
+    if (self.createRoomClickedBlock) {
+        self.createRoomClickedBlock();
+    }    
 }
 
 - (NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView {
@@ -120,12 +123,20 @@
             [self presentViewController:vc animated:YES completion:nil];
         }
         
+        if (self.masterJoinBlock) {
+            self.masterJoinBlock(model);
+        }
+        
     } else {
         
         QNAudienceController *vc = [QNAudienceController new];
         vc.roomInfo = model;
         vc.modalPresentationStyle = UIModalPresentationFullScreen;
         [self presentViewController:vc animated:YES completion:nil];
+        
+        if (self.audienceJoinBlock) {
+            self.audienceJoinBlock(model);
+        }
     }
 }
 
