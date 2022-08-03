@@ -359,6 +359,12 @@
 - (void)popGoodListView {
         
         ShopBuyListController *vc = [[ShopBuyListController alloc] initWithLiveInfo:self.roomInfo];
+        __weak typeof(self)weakSelf = self;
+        vc.buyClickedBlock = ^(GoodsModel * _Nonnull itemModel) {
+            if (weakSelf.goodClickedBlock) {
+                weakSelf.goodClickedBlock(itemModel);
+            }
+        };
         vc.view.frame = CGRectMake(0, 0, SCREEN_W, SCREEN_H);
         vc.modalPresentationStyle = UIModalPresentationFullScreen;
         [self addChildViewController:vc];
@@ -399,6 +405,12 @@
 - (ExplainingGoodView *)goodView {
     if (!_goodView) {
         _goodView = [[ExplainingGoodView alloc]initWithFrame:CGRectMake(SCREEN_W - 130, SCREEN_H - 240, 115, 170)];
+        __weak typeof(self)weakSelf = self;
+        _goodView.buyClickedBlock = ^(GoodsModel * _Nonnull itemModel) {
+            if (weakSelf.goodClickedBlock) {
+                weakSelf.goodClickedBlock(itemModel);
+            }
+        };
         [self.view addSubview:_goodView];
     }
     return _goodView;

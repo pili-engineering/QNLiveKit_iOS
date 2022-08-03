@@ -10,7 +10,7 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-@class RoomHostView,OnlineUserView,ImageButtonView,BottomMenuView,LinkStateView,ExplainingGoodView,PLPlayer;
+@class RoomHostView,OnlineUserView,ImageButtonView,BottomMenuView,LinkStateView,ExplainingGoodView,PLPlayer,GoodsModel;
 
 @interface QNAudienceController : QNBaseRTCController
 
@@ -21,6 +21,8 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, strong) LinkStateView *linkSView;
 @property (nonatomic, strong) ExplainingGoodView *goodView;
 @property (nonatomic, strong) PLPlayer *player;
+//商品点击回调
+@property (nonatomic, copy) void (^goodClickedBlock)(GoodsModel *itemModel);
 
 @end
 

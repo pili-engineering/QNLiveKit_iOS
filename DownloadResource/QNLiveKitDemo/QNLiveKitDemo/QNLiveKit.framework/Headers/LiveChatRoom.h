@@ -58,7 +58,8 @@ NS_ASSUME_NONNULL_BEGIN
  数据模型
  */
 - (void)commentBtnPressedWithPubchat:(BOOL)isPubchat;
-
+- (void)onTouchSendButton:(NSString *)text;
+//发送
 - (void)sendMessage:(QNIMMessageObject *)messageContent;
 //展示message
 - (void)showMessage:(QNIMMessageObject *)message;
