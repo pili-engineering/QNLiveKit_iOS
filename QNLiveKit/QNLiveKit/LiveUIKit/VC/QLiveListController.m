@@ -67,6 +67,12 @@
 
 - (void)addLiveRoom {
     
+    
+    if (self.createRoomClickedBlock) {
+        self.createRoomClickedBlock();
+        return;
+    }
+    
     if ([QLive createPusherClient].needBeauty) {
         
         CreateBeautyLiveController *vc = [CreateBeautyLiveController new];
@@ -80,9 +86,7 @@
         [self presentViewController:vc animated:YES completion:nil];
     }
     
-    if (self.createRoomClickedBlock) {
-        self.createRoomClickedBlock();
-    }    
+        
 }
 
 - (NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView {
@@ -107,6 +111,11 @@
     
     if ([model.anchor_info.user_id isEqualToString:LIVE_User_id]) {
         
+        if (self.masterJoinBlock) {
+            self.masterJoinBlock(model);
+            return;
+        }
+        
         if ([QLive createPusherClient].needBeauty) {
             
             //带美颜
@@ -123,20 +132,17 @@
             [self presentViewController:vc animated:YES completion:nil];
         }
         
-        if (self.masterJoinBlock) {
-            self.masterJoinBlock(model);
-        }
-        
     } else {
         
+        if (self.audienceJoinBlock) {
+            self.audienceJoinBlock(model);
+            return;
+        }
         QNAudienceController *vc = [QNAudienceController new];
         vc.roomInfo = model;
         vc.modalPresentationStyle = UIModalPresentationFullScreen;
         [self presentViewController:vc animated:YES completion:nil];
-        
-        if (self.audienceJoinBlock) {
-            self.audienceJoinBlock(model);
-        }
+                
     }
 }
 
