@@ -15,10 +15,13 @@
 #import "QNLiveRoomInfo.h"
 #import "QNMicrophoneParams.h"
 #import "QNCameraParams.h"
+#import "QRooms.h"
 
-@interface QNLivePushClient ()<QNRTCClientDelegate>
+@interface QNLivePushClient ()<QNRTCClientDelegate,QNRoomsListener>
 
 @property (nonatomic, strong) QMixStreamManager *mixManager;
+
+@property (nonatomic, weak) id <QNRoomsListener> roomsListener;
 
 @property (nonatomic, strong) QNMergeOption *option;
 
@@ -43,6 +46,7 @@
         pushClient.rtcClient = [QNRTC createRTCClient:config];
         [pushClient.rtcClient setClientRole:QNClientRoleBroadcaster completeCallback:nil];
         pushClient.rtcClient.delegate = pushClient;
+                
     });
     return pushClient;
 }
@@ -55,6 +59,11 @@
         
         QNLiveRoomInfo *model = [QNLiveRoomInfo mj_objectWithKeyValues:responseData];
         self.roomInfo = model;
+        
+        [QLiveNetworkUtil postRequestWithAction:[NSString stringWithFormat:@"client/live/room/user/%@",roomID] params:@{} success:^(NSDictionary * _Nonnull responseData) {
+        } failure:^(NSError * _Nonnull error) {
+        }];
+        
         self.mixManager = [[QMixStreamManager alloc]initWithPushUrl:self.roomInfo.push_url client:self.rtcClient streamID:self.roomInfo.live_id];
         if ([self.roomLifeCycleListener respondsToSelector:@selector(onRoomJoined:)]) {
             [self.roomLifeCycleListener onRoomJoined:model];
@@ -77,9 +86,27 @@
             [self.roomLifeCycleListener onRoomClose];
         }
         
+        if ([[QLive getRooms].roomsListener respondsToSelector:@selector(onRoomClose)]) {
+            [[QLive getRooms].roomsListener onRoomClose];
+        }
+        
         } failure:^(NSError * _Nonnull error) {
         }];
+    
     [self.rtcClient leave];
+}
+
+//主播暂时离开
+- (void)leaveRoom {
+    
+    NSString *action = [NSString stringWithFormat:@"client/live/room/user/%@",self.roomInfo.live_id];
+    [QLiveNetworkUtil deleteRequestWithAction:action params:nil success:^(NSDictionary * _Nonnull responseData) {
+        
+        } failure:^(NSError * _Nonnull error) {
+        }];
+    
+    [self.rtcClient leave];
+    
 }
 
 /// 启动视频采集

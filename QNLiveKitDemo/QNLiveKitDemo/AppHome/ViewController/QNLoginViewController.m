@@ -168,7 +168,7 @@
     [defaults setObject:loginModel.loginToken forKey:DEMO_LOGIN_TOKEN_KEY];
     [defaults setObject:loginModel.accountId forKey:DEMO_ACCOUNT_ID_KEY];
     [defaults setObject:loginModel.nickname forKey:DEMO_NICKNAME_KEY];
-    
+//    [defaults setObject:loginModel.avatar forKey:];
     [defaults synchronize];
 
     QNTabBarViewController *tabBarVc = [[QNTabBarViewController alloc]init];

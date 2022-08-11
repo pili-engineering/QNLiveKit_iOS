@@ -7,6 +7,7 @@
 
 #import "QNLiveListCell.h"
 #import <QNLiveKit/QNLiveKit.h>
+#import "QGradient.h"
 
 @interface QNLiveListCell ()
 
@@ -46,6 +47,7 @@
         _imageView = [[UIImageView alloc]init];
         _imageView.layer.cornerRadius = 5;
         _imageView.clipsToBounds = YES;
+        _imageView.contentMode = UIViewContentModeScaleAspectFill;
         [self.contentView addSubview:_imageView];
         
         [_imageView mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -58,16 +60,10 @@
 
 - (UIView *)bg {
     if (!_bg) {
-        _bg = [[UIView alloc]init];
-        _bg.backgroundColor= [UIColor blackColor];
-        _bg.alpha = 0.3;
-        _bg.layer.cornerRadius = 5;
-        _bg.clipsToBounds = YES;
+        _bg = [[UIView alloc]initWithFrame:CGRectMake(5, self.contentView.frame.size.height - 45, self.contentView.frame.size.width, 50)];
         [self.contentView addSubview:_bg];
-        [_bg mas_makeConstraints:^(MASConstraintMaker *make) {
-            make.left.right.bottom.equalTo(self.contentView).offset(5);
-            make.height.mas_equalTo(30);
-        }];
+        
+        [QGradient setTopToBottomGradientColor:[UIColor blackColor] view:_bg];
     }
     return _bg;
 }
@@ -75,14 +71,13 @@
 - (UILabel *)nameLabel {
     if (!_nameLabel) {
         _nameLabel = [[UILabel alloc]init];
-        _nameLabel.text = @"ssfdf";
         _nameLabel.textColor = [UIColor whiteColor];
         _nameLabel.font = [UIFont systemFontOfSize:13];
         [self.bg addSubview:_nameLabel];
         
         [_nameLabel mas_makeConstraints:^(MASConstraintMaker *make) {
             make.left.equalTo(self.contentView).offset(10);
-            make.centerY.equalTo(self.bg);
+            make.bottom.equalTo(self.imageView).offset(-15);
         }];
     }
     return _nameLabel;
@@ -91,14 +86,13 @@
 - (UILabel *)numLabel {
     if (!_numLabel) {
         _numLabel = [[UILabel alloc]init];
-        _numLabel.text = @"123";
         _numLabel.textColor = [UIColor whiteColor];
         _numLabel.font = [UIFont systemFontOfSize:13];
         [self.bg addSubview:_numLabel];
         
         [_numLabel mas_makeConstraints:^(MASConstraintMaker *make) {
             make.right.equalTo(self.contentView).offset(-10);
-            make.centerY.equalTo(self.bg);
+            make.bottom.equalTo(self.imageView).offset(-15);
         }];
     }
     return _numLabel;

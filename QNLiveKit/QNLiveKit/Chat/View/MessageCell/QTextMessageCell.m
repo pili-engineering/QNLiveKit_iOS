@@ -123,7 +123,8 @@ alpha:1.0]
         _avatarImageView = [[UIImageView alloc]init];
         [self addSubview:_avatarImageView];
         _avatarImageView.backgroundColor = [UIColor yellowColor];
-        _avatarImageView.layer.cornerRadius = 12;
+        _avatarImageView.layer.cornerRadius = 15;
+        _avatarImageView.contentMode = UIViewContentModeScaleAspectFit;
         _avatarImageView.clipsToBounds = YES;
         [_avatarImageView mas_makeConstraints:^(MASConstraintMaker *make) {
             make.left.equalTo(self).offset(10);
