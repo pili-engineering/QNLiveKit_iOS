@@ -44,6 +44,7 @@ static const CGFloat People_Count_L = 5;//人数左间距
         self.avatarView = [[UIImageView alloc]initWithFrame:CGRectMake(0, 0, frame.size.height, frame.size.height)];
         self.avatarView.layer.cornerRadius = frame.size.height/2;
         self.avatarView.layer.masksToBounds = YES;
+        self.avatarView.contentMode = UIViewContentModeScaleAspectFill;
         [self addSubview:self.avatarView];
         
         self.roomNameLabel = [[UILabel alloc] initWithFrame:CGRectMake(CGRectGetMaxX(self.avatarView.frame)+RoomNameLabel_L, RoomNameLabel_T, RoomNameLabel_W, RoomNameLabel_H)];

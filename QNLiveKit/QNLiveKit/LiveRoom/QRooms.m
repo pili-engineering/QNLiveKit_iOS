@@ -20,6 +20,10 @@
             
         QNLiveRoomInfo *model = [QNLiveRoomInfo mj_objectWithKeyValues:responseData];
         callBack(model);
+        
+        if ([self.roomsListener respondsToSelector:@selector(onRoomCreated:)]) {
+            [self.roomsListener onRoomCreated:model];
+        }
 
         } failure:^(NSError * _Nonnull error) {
             callBack(nil);

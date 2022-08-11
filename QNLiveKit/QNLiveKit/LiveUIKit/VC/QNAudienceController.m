@@ -30,7 +30,7 @@
 #import "GoodsModel.h"
 
 @interface QNAudienceController ()<QNChatRoomServiceListener,QNPushClientListener,LiveChatRoomViewDelegate,FDanmakuViewProtocol,PLPlayerDelegate,MicLinkerListener,PKServiceListener>
-
+@property (nonatomic,strong)UILabel *masterLeaveLabel;
 @end
 
 @implementation QNAudienceController
@@ -95,22 +95,29 @@
     } else {
         self.player.playerView.frame = CGRectMake(0, 150, SCREEN_W, SCREEN_W *0.6);
     }
+    self.player.playerView.backgroundColor = [UIColor clearColor];
     self.player.delegate = self;
     self.player.delegateQueue = dispatch_get_main_queue();
     [self.player play];
 }
 
+- (void)player:(nonnull PLPlayer *)player stoppedWithError:(nullable NSError *)error {
+    [self.player.playerView  removeFromSuperview];
+    self.masterLeaveLabel.hidden = NO;
+}
+
 - (void)player:(nonnull PLPlayer *)player width:(int)width height:(int)height {
+    self.masterLeaveLabel.hidden = YES;
     if (height > 500) {
         self.player.playerView.frame = self.view.frame;
     } else {
-        self.player.playerView.frame = CGRectMake(0, 150, SCREEN_W, SCREEN_W *0.6);
+        self.player.playerView.frame = CGRectMake(0, 150, SCREEN_W, SCREEN_W *0.6);        
     }
 }
 
 - (void)stopPlay {
-    [self.player stop];
     [self.player.playerView  removeFromSuperview];
+    [self.player stop];
 }
 
 - (void)updateRoomInfo {
@@ -118,6 +125,25 @@
         self.roomInfo = roomInfo;
         [self.roomHostView updateWith:roomInfo];
         [self.onlineUserView updateWith:roomInfo];
+        
+        if (roomInfo.AnchorStatus == QNAnchorStatusLeave) {
+            [self.player.playerView  removeFromSuperview];
+            [self.player stop];            
+            self.masterLeaveLabel.hidden = NO;
+        } else {
+            self.masterLeaveLabel.hidden = YES;
+            if (!self.player.playerView.superview) {
+                [self.view insertSubview:self.player.playerView atIndex:2];
+            }
+            if (self.player.status != PLPlayerStatusPlaying) {
+                [self.player play];
+            }
+            if (self.roomInfo.pk_id.length == 0) {
+                self.player.playerView.frame = self.view.frame;
+            } else {
+                self.player.playerView.frame = CGRectMake(0, 150, SCREEN_W, SCREEN_W *0.6);
+            }
+        }
     }];
     [self getExplainGood];
     __weak typeof(self)weakSelf = self;
@@ -266,7 +292,22 @@
     }
 }
 
-
+- (UILabel *)masterLeaveLabel {
+    if (!_masterLeaveLabel) {
+        _masterLeaveLabel = [[UILabel alloc]init];
+        _masterLeaveLabel.textColor = [UIColor whiteColor];
+        _masterLeaveLabel.text = @"主播马上回来，敬请期待。";
+        _masterLeaveLabel.textAlignment = NSTextAlignmentCenter;
+        _masterLeaveLabel.font = [UIFont systemFontOfSize:14];
+        _masterLeaveLabel.hidden = YES;
+        [self.view addSubview:_masterLeaveLabel];
+        [_masterLeaveLabel mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.top.equalTo(self.view).offset(300);
+            make.centerX.equalTo(self.view);
+        }];
+    }
+    return _masterLeaveLabel;
+}
 
 - (RoomHostView *)roomHostView {
     if (!_roomHostView) {
@@ -294,13 +335,19 @@
 
 - (ImageButtonView *)pubchatView {
     if (!_pubchatView) {
-        _pubchatView = [[ImageButtonView alloc]initWithFrame:CGRectMake(15, SCREEN_H - 60, 170, 45)];
+        _pubchatView = [[ImageButtonView alloc]initWithFrame:CGRectMake(15, SCREEN_H - 52.5, 170, 30)];
+        _pubchatView.backgroundColor = [[UIColor blackColor] colorWithAlphaComponent:0.3];
+        _pubchatView.layer.cornerRadius = 15;
+        _pubchatView.clipsToBounds = YES;
         [self.view addSubview:_pubchatView];
-        [_pubchatView bundleNormalImage:@"chat_input_bar" selectImage:@"chat_input_bar"];
+        
+        UIImageView *imageView = [[UIImageView alloc]initWithImage:[UIImage imageNamed:@"pub_chat"]];
+        imageView.frame = CGRectMake(10, 7, 16, 16);
+        [_pubchatView addSubview:imageView];
+        
         __weak typeof(self)weakSelf = self;
         _pubchatView.clickBlock = ^(BOOL selected){
             [weakSelf.chatRoomView commentBtnPressedWithPubchat:YES];
-            NSLog(@"点击了公聊");
         };
         
     }

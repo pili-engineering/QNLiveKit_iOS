@@ -107,7 +107,7 @@
         } else if (state == QNConnectionStateDisconnected) {
             [self.chatService sendLeaveMsg];
 //            [[QLive createPusherClient] closeRoom];
-            [QToastView showToast:@"您已离线"];
+//            [QToastView showToast:@"您已离线"];
             [self dismissViewControllerAnimated:YES completion:nil];
             
         }
@@ -350,9 +350,15 @@
 
 - (ImageButtonView *)pubchatView {
     if (!_pubchatView) {
-        _pubchatView = [[ImageButtonView alloc]initWithFrame:CGRectMake(15, SCREEN_H - 60, 100, 45)];
-        [_pubchatView bundleNormalImage:@"chat_input_bar" selectImage:@"chat_input_bar"];
+        _pubchatView = [[ImageButtonView alloc]initWithFrame:CGRectMake(15, SCREEN_H - 52.5, 100, 30)];
+        _pubchatView.backgroundColor = [[UIColor blackColor] colorWithAlphaComponent:0.3];
+        _pubchatView.layer.cornerRadius = 15;
+        _pubchatView.clipsToBounds = YES;
         [self.view addSubview:_pubchatView];
+        
+        UIImageView *imageView = [[UIImageView alloc]initWithImage:[UIImage imageNamed:@"pub_chat"]];
+        imageView.frame = CGRectMake(10, 7, 16, 16);
+        [_pubchatView addSubview:imageView];
         
         __weak typeof(self)weakSelf = self;
         _pubchatView.clickBlock = ^(BOOL selected){
@@ -421,7 +427,7 @@
         [close bundleNormalImage:@"live_close" selectImage:@"live_close"];
         close.clickBlock = ^(BOOL selected){
             [QAlertView showBaseAlertWithTitle:@"确定关闭直播间吗？" content:@"关闭后无法再进入该直播间" cancelHandler:^(UIAlertAction * _Nonnull action) {
-                            
+                [[QLive createPusherClient] leaveRoom];
                 [weakSelf dismissViewControllerAnimated:YES completion:nil];
                 
                         } confirmHandler:^(UIAlertAction * _Nonnull action) {

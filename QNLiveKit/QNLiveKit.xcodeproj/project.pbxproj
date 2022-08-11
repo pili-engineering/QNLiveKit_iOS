@@ -95,6 +95,8 @@
 		7771869D2861B8A800C5CABC /* FDanmakuView.m in Sources */ = {isa = PBXBuildFile; fileRef = 777186962861B8A800C5CABC /* FDanmakuView.m */; };
 		777186A32862C5D100C5CABC /* QToastView.h in Headers */ = {isa = PBXBuildFile; fileRef = 777186A12862C5D100C5CABC /* QToastView.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		777186A42862C5D100C5CABC /* QToastView.m in Sources */ = {isa = PBXBuildFile; fileRef = 777186A22862C5D100C5CABC /* QToastView.m */; };
+		77758CDE28A4EE34005CBB59 /* QGradient.h in Headers */ = {isa = PBXBuildFile; fileRef = 77758CDC28A4EE34005CBB59 /* QGradient.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		77758CDF28A4EE34005CBB59 /* QGradient.m in Sources */ = {isa = PBXBuildFile; fileRef = 77758CDD28A4EE34005CBB59 /* QGradient.m */; };
 		77781C0A283D1337009DC71C /* QNPKSession.h in Headers */ = {isa = PBXBuildFile; fileRef = 77781C08283D1337009DC71C /* QNPKSession.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		77781C0B283D1337009DC71C /* QNPKSession.m in Sources */ = {isa = PBXBuildFile; fileRef = 77781C09283D1337009DC71C /* QNPKSession.m */; };
 		77781C0E283DD181009DC71C /* QPKService.h in Headers */ = {isa = PBXBuildFile; fileRef = 77781C0C283DD181009DC71C /* QPKService.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -394,6 +396,8 @@
 		777186A12862C5D100C5CABC /* QToastView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = QToastView.h; sourceTree = "<group>"; };
 		777186A22862C5D100C5CABC /* QToastView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = QToastView.m; sourceTree = "<group>"; };
 		777366992873E2F300245EDB /* AssetsLibrary.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AssetsLibrary.framework; path = Platforms/MacOSX.platform/Developer/SDKs/MacOSX12.1.sdk/System/iOSSupport/System/Library/Frameworks/AssetsLibrary.framework; sourceTree = DEVELOPER_DIR; };
+		77758CDC28A4EE34005CBB59 /* QGradient.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = QGradient.h; sourceTree = "<group>"; };
+		77758CDD28A4EE34005CBB59 /* QGradient.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = QGradient.m; sourceTree = "<group>"; };
 		77781C08283D1337009DC71C /* QNPKSession.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = QNPKSession.h; sourceTree = "<group>"; };
 		77781C09283D1337009DC71C /* QNPKSession.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = QNPKSession.m; sourceTree = "<group>"; };
 		77781C0C283DD181009DC71C /* QPKService.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = QPKService.h; sourceTree = "<group>"; };
@@ -793,6 +797,8 @@
 				777186A22862C5D100C5CABC /* QToastView.m */,
 				77781D282845E56A009DC71C /* RoomHostView.h */,
 				77781D2E2845E56A009DC71C /* RoomHostView.m */,
+				77758CDC28A4EE34005CBB59 /* QGradient.h */,
+				77758CDD28A4EE34005CBB59 /* QGradient.m */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -1395,6 +1401,7 @@
 				77A11CD8288A724E00020149 /* UIColor+QNColor.h in Headers */,
 				7798A79A28814872009DEB27 /* UITableView+MoveCell.h in Headers */,
 				77204D84285F97A20053B1AD /* QGiftMsgModel.h in Headers */,
+				77758CDE28A4EE34005CBB59 /* QGradient.h in Headers */,
 				77204D4E285873BF0053B1AD /* QRooms.h in Headers */,
 				77E02E31284E245A00EE8A28 /* QNAudienceController.h in Headers */,
 				77781D5028460813009DC71C /* ImageButtonView.h in Headers */,
@@ -1603,6 +1610,7 @@
 				77EDC4A0286DAD99002B4226 /* BeautyLiveViewController.m in Sources */,
 				777186982861B8A800C5CABC /* FDanmakuModel.m in Sources */,
 				777186972861B8A800C5CABC /* CALayer+Aimate.m in Sources */,
+				77758CDF28A4EE34005CBB59 /* QGradient.m in Sources */,
 				77EDC461286DA565002B4226 /* STViewButton.m in Sources */,
 				77062FC72880294900E9FD7D /* ExplainingGoodView.m in Sources */,
 				776B1CC9283CFEE800D85C73 /* QNLivePullClient.m in Sources */,

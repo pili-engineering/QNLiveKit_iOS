@@ -12,6 +12,7 @@
 #import "CreateSignalHandler.h"
 #import "QIMModel.h"
 #import <QNIMSDK/QNIMSDK.h>
+#import "QGradient.h"
 
 #define SCREENSIZE [UIScreen mainScreen].bounds.size
 
@@ -67,7 +68,9 @@ static int clickPraiseBtnTimes  = 0 ;
         [self addSubview:self.messageContentView];
         
         [self.messageContentView  addSubview:self.conversationMessageCollectionView];
-        [self.conversationMessageCollectionView setFrame:CGRectMake(0, 0, size.width, self.messageContentView.frame.size.height - 50)];
+        
+        
+        [self.conversationMessageCollectionView setFrame:CGRectMake(0, 0, size.width, self.messageContentView.frame.size.height)];
         UICollectionViewFlowLayout *customFlowLayout = [[UICollectionViewFlowLayout alloc] init];
         customFlowLayout.minimumLineSpacing = 2;
         customFlowLayout.sectionInset = UIEdgeInsetsMake(10.0f, 0.0f,5.0f, 0.0f);

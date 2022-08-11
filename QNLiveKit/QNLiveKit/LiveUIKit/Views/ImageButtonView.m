@@ -22,8 +22,6 @@
         if (frame.size.width > 0) {
             self.button.frame = CGRectMake(0, 0, frame.size.width, frame.size.height);
         }
-        [self.button setImage:[UIImage imageNamed:@"shopping"] forState:UIControlStateNormal];
-        [self.button setImage:[UIImage imageNamed:@"shopping"] forState:UIControlStateSelected];
         [self.button addTarget:self action:@selector(click:) forControlEvents:UIControlEventTouchUpInside];
         [self addSubview:self.button];
     }
