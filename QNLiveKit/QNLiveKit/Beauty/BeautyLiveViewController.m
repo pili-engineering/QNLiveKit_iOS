@@ -426,16 +426,19 @@
         ImageButtonView *close = [[ImageButtonView alloc]initWithFrame:CGRectZero];
         [close bundleNormalImage:@"live_close" selectImage:@"live_close"];
         close.clickBlock = ^(BOOL selected){
-            [QAlertView showBaseAlertWithTitle:@"确定关闭直播间吗？" content:@"关闭后无法再进入该直播间" cancelHandler:^(UIAlertAction * _Nonnull action) {
-                [[QLive createPusherClient] leaveRoom];
-                [weakSelf dismissViewControllerAnimated:YES completion:nil];
+            [QAlertView showThreeActionAlertWithTitle:@"确定关闭直播间吗？" content:@"关闭后无法再进入该直播间" firstAction:@"结束直播" firstHandler:^(UIAlertAction * _Nonnull action) {
                 
-                        } confirmHandler:^(UIAlertAction * _Nonnull action) {
-                            
-                            [weakSelf dismissViewControllerAnimated:YES completion:nil];
-                            [[QLive createPusherClient] closeRoom];
-                            
-                        }];
+                [weakSelf dismissViewControllerAnimated:YES completion:nil];
+                [[QLive createPusherClient] closeRoom];
+                
+                    } secondAction:@"仅暂停直播" secondHandler:^(UIAlertAction * _Nonnull action) {
+                        
+                        [[QLive createPusherClient] leaveRoom];
+                        [weakSelf dismissViewControllerAnimated:YES completion:nil];
+                        
+                    } threeHandler:^(UIAlertAction * _Nonnull action) {
+                        
+                    }];
         };
         [slotList addObject:close];
         
