@@ -26,6 +26,28 @@
     [[QAlertView topViewController] presentViewController:alertController animated:YES completion:nil];
 }
 
++ (void)showThreeActionAlertWithTitle:(NSString *)title content:(NSString *)content firstAction:(NSString *)firstAction firstHandler:(void (^ __nullable)(UIAlertAction *action))firstHandler secondAction:(NSString *)secondAction secondHandler:(void (^ __nullable)(UIAlertAction *action))secondHandler threeHandler:(void (^ __nullable)(UIAlertAction *action))threeHandler {
+    
+    UIAlertController *alertController = [UIAlertController alertControllerWithTitle:title message:content preferredStyle:UIAlertControllerStyleAlert];
+    
+    UIAlertAction *fitstBtn = [UIAlertAction actionWithTitle:firstAction style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+        firstHandler(action);
+    }];
+    [alertController addAction:fitstBtn];
+    
+    UIAlertAction *secondBtn = [UIAlertAction actionWithTitle:secondAction style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+        secondHandler(action);
+    }];
+    [alertController addAction:secondBtn];
+    
+    UIAlertAction *cancelBtn = [UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleCancel handler:^(UIAlertAction * _Nonnull action) {
+        threeHandler(action);
+    }];
+    [alertController addAction:cancelBtn];
+    
+    [[QAlertView topViewController] presentViewController:alertController animated:YES completion:nil];
+}
+
 + (void)showTextAlertWithTitle:(NSString *)title content:(NSString *)content cancelHandler:(void (^ __nullable)(UIAlertAction *action))cancelHandler confirmHandler:(void (^)(NSString *text))confirmHandler {
     
     UIAlertController *alertController = [UIAlertController alertControllerWithTitle:title message:content preferredStyle:UIAlertControllerStyleAlert];
