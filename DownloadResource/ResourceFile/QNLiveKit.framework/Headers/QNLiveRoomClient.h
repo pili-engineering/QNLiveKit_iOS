@@ -15,9 +15,6 @@ NS_ASSUME_NONNULL_BEGIN
 @protocol QNRoomLifeCycleListener <NSObject>
 
 @optional
-/// 进入房间回调
-/// @param user 用户
-- (void)onRoomEnter:(QNLiveUser *)user;
 
 /// 加入房间回调
 /// @param roomInfo 房间信息
@@ -26,10 +23,7 @@ NS_ASSUME_NONNULL_BEGIN
 //直播间某个属性变化
 - (BOOL)onRoomExtensions:(NSString *)extension;
 
-/// 离开回调
-- (void)onRoomLeave:(QNLiveUser *)user;
-
-/// 销毁回调
+/// 房间被销毁
 - (void)onRoomClose;
 
 @end

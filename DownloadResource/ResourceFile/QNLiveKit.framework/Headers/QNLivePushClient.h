@@ -62,7 +62,8 @@ NS_ASSUME_NONNULL_BEGIN
 - (void)startLive:(NSString *)roomID callBack:(nullable void (^)(QNLiveRoomInfo *_Nullable roomInfo))callBack;
 // 主播停止直播
 - (void)closeRoom;
-
+// 主播暂时离开直播
+- (void)leaveRoom;
 #pragma mark ---- 推流
 
 /// 启动视频采集

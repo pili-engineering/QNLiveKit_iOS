@@ -11,7 +11,22 @@ NS_ASSUME_NONNULL_BEGIN
 
 @class QNCreateRoomParam,QNLiveRoomInfo;
 
+//场景回调
+@protocol QNRoomsListener <NSObject>
+
+@optional
+
+/// 有直播房间被创建
+- (void)onRoomCreated:(QNLiveRoomInfo *)roomInfo;
+
+/// 有直播房间被关闭
+- (void)onRoomClose;
+
+@end
+
 @interface QRooms : NSObject
+
+@property (nonatomic, weak) id <QNRoomsListener> roomsListener;
 
 /// 创建房间
 /// @param param 创建房间参数
