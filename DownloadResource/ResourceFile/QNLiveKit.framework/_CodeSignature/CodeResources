@@ -142,7 +142,7 @@
 		</data>
 		<key>Headers/QAlertView.h</key>
 		<data>
-		mZ5pYWUuhf9TN57TeJq6rB4CEXs=
+		FYDTnUbtnRmS37wqUqSwv1IvMJo=
 		</data>
 		<key>Headers/QCreateLiveController.h</key>
 		<data>
@@ -159,6 +159,10 @@
 		<key>Headers/QGiftMsgModel.h</key>
 		<data>
 		gNr55Jgxt8jXyr6i/PFILHEPRNk=
+		</data>
+		<key>Headers/QGradient.h</key>
+		<data>
+		Qr/ItO4OGx5MR9W9w5xSQ/Fpehc=
 		</data>
 		<key>Headers/QIMModel.h</key>
 		<data>
@@ -190,7 +194,7 @@
 		</data>
 		<key>Headers/QLiveListController.h</key>
 		<data>
-		RA+zl6dtYdSQ4tRQYpMXc7NJSvM=
+		iMHE79IC61+xuMXezkAep3YYIik=
 		</data>
 		<key>Headers/QLiveNetworkUtil.h</key>
 		<data>
@@ -230,7 +234,7 @@
 		</data>
 		<key>Headers/QNLiveKit.h</key>
 		<data>
-		vep0gjDnuGlm01oFDn6WfE0f2AE=
+		V8MmZ6bX683crJcnDKlItdZaefg=
 		</data>
 		<key>Headers/QNLiveListCell.h</key>
 		<data>
@@ -246,15 +250,15 @@
 		</data>
 		<key>Headers/QNLivePushClient.h</key>
 		<data>
-		+6OhPkGCzZ86asasvLXZ+k2lwtM=
+		7vZoXtwVbZt2wVctD/C1DmyIkt4=
 		</data>
 		<key>Headers/QNLiveRoomClient.h</key>
 		<data>
-		QoPypq6oxpp/cGQWqSTXvs0TK14=
+		39fo3amaQ/Z9wkXPvn6qyiO6f78=
 		</data>
 		<key>Headers/QNLiveRoomInfo.h</key>
 		<data>
-		bJ84xcPb92PswPuakmZW8B8AM6w=
+		kpu4YcNVxxfRBMqDUUnaQt+zRLs=
 		</data>
 		<key>Headers/QNLiveService.h</key>
 		<data>
@@ -262,7 +266,7 @@
 		</data>
 		<key>Headers/QNLiveTypeDefines.h</key>
 		<data>
-		D1twgT6YQV+mHzPYnW3Jb7WXdZI=
+		FAZ+TS7AB2mBjmZet8uhrcn4QO8=
 		</data>
 		<key>Headers/QNLiveUser.h</key>
 		<data>
@@ -302,7 +306,7 @@
 		</data>
 		<key>Headers/QRooms.h</key>
 		<data>
-		0HVtpdv1A8rv62GxdHbioVyjftc=
+		sAvbwVuf1MnBeT8EIvpvmpTNcAk=
 		</data>
 		<key>Headers/QShopService.h</key>
 		<data>
@@ -933,11 +937,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			mZ5pYWUuhf9TN57TeJq6rB4CEXs=
+			FYDTnUbtnRmS37wqUqSwv1IvMJo=
 			</data>
 			<key>hash2</key>
 			<data>
-			0p7+pdI5YPzdqBoC8kchJGK1W++9WeeY+5kYALlMWU0=
+			DV4A7Yl3Df8iWNoK1DshZdpuva28R0a4+B3smOl/U1M=
 			</data>
 		</dict>
 		<key>Headers/QCreateLiveController.h</key>
@@ -982,6 +986,17 @@
 			<key>hash2</key>
 			<data>
 			+N3AZL/gTxJ5ML+B2jUPP2f4XalY9656ysGINW2/oT4=
+			</data>
+		</dict>
+		<key>Headers/QGradient.h</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			Qr/ItO4OGx5MR9W9w5xSQ/Fpehc=
+			</data>
+			<key>hash2</key>
+			<data>
+			6HlBtN2dpWAhhKYrwlR8l1q/JdhgdkxH9HEOP8474WM=
 			</data>
 		</dict>
 		<key>Headers/QIMModel.h</key>
@@ -1065,11 +1080,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			RA+zl6dtYdSQ4tRQYpMXc7NJSvM=
+			iMHE79IC61+xuMXezkAep3YYIik=
 			</data>
 			<key>hash2</key>
 			<data>
-			IM4iEc0Ck1YaWUzIPXtLCX5lGp9NKBoDNaEAFYOYq/A=
+			/vHv6kOInVU35R7mzxP2+RMXYHM2rRvDjuCWfKT78Ig=
 			</data>
 		</dict>
 		<key>Headers/QLiveNetworkUtil.h</key>
@@ -1175,11 +1190,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			vep0gjDnuGlm01oFDn6WfE0f2AE=
+			V8MmZ6bX683crJcnDKlItdZaefg=
 			</data>
 			<key>hash2</key>
 			<data>
-			5U/RcWx6IG22yrVP0etSaxKw5yicJ3CTo0M/5NIFh/8=
+			jAsd17F4oarO6pL4iOwCNkYnE8hPpTQewMs7PV4qVvU=
 			</data>
 		</dict>
 		<key>Headers/QNLiveListCell.h</key>
@@ -1219,33 +1234,33 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			+6OhPkGCzZ86asasvLXZ+k2lwtM=
+			7vZoXtwVbZt2wVctD/C1DmyIkt4=
 			</data>
 			<key>hash2</key>
 			<data>
-			72r2bWPecu2AMnDErt/ULI6VSXXsuE80SvORVQV80fw=
+			oWuOvYkBdeF1IVNaVgoNjQZIEDP8O4loNJgrmJG6fNg=
 			</data>
 		</dict>
 		<key>Headers/QNLiveRoomClient.h</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			QoPypq6oxpp/cGQWqSTXvs0TK14=
+			39fo3amaQ/Z9wkXPvn6qyiO6f78=
 			</data>
 			<key>hash2</key>
 			<data>
-			6lK+WA98Q8HxqDezrrQW9Fu33CkZSTPSs0RBQoGZvaE=
+			CuhO8xBR8SrpZ4bVUChWdHz95hFJrTXPJ/eb8DYruq0=
 			</data>
 		</dict>
 		<key>Headers/QNLiveRoomInfo.h</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			bJ84xcPb92PswPuakmZW8B8AM6w=
+			kpu4YcNVxxfRBMqDUUnaQt+zRLs=
 			</data>
 			<key>hash2</key>
 			<data>
-			DPquaY9g3zt0DdBkkRWZznTi81gwkSSxLZcAYPPhrII=
+			ylgK5gTsSCwJ0Q9JuPK2/KZnTXAPFdxn2NCITYtlAaU=
 			</data>
 		</dict>
 		<key>Headers/QNLiveService.h</key>
@@ -1263,11 +1278,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			D1twgT6YQV+mHzPYnW3Jb7WXdZI=
+			FAZ+TS7AB2mBjmZet8uhrcn4QO8=
 			</data>
 			<key>hash2</key>
 			<data>
-			t6epEz9IwgahxLDlEVhOpLOtuSd3eQOqVSsWY5jOnac=
+			KSKVQ3TuntoQmeCUCUduS+Di9TVR0yaInlBsROQwI+U=
 			</data>
 		</dict>
 		<key>Headers/QNLiveUser.h</key>
@@ -1373,11 +1388,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			0HVtpdv1A8rv62GxdHbioVyjftc=
+			sAvbwVuf1MnBeT8EIvpvmpTNcAk=
 			</data>
 			<key>hash2</key>
 			<data>
-			L1UcSV+5SCBl6h3HcbEWiCsIRVV+09Hd0RoX/K+xZQc=
+			etkNgo1T/fBvBWX9RUiDd1gp0YqIlsNI0LjYEDKYKxk=
 			</data>
 		</dict>
 		<key>Headers/QShopService.h</key>

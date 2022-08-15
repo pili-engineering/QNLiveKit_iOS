@@ -15,6 +15,12 @@ typedef NS_ENUM(NSUInteger, QNLiveRoomStatus) {
     QNLiveRoomStatusOff = 2,
 };
 
+//主播状态
+typedef NS_ENUM(NSUInteger, QNAnchorStatus) {
+    QNAnchorStatusLeave = 0,//离线
+    QNAnchorStatusOnline = 1,//在线
+};
+
 //房间推流状态
 typedef NS_ENUM(NSUInteger, QNLinkType) {
     QNLinkTypeAudienceToMaster = 0,
