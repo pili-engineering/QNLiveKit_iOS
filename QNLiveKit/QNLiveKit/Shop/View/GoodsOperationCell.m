@@ -87,6 +87,7 @@
         _iconImageView.clipsToBounds = YES;
         _iconImageView.layer.cornerRadius = 10;
         [self.contentView addSubview:_iconImageView];
+        _iconImageView.contentMode = UIViewContentModeScaleAspectFit;
         [_iconImageView mas_makeConstraints:^(MASConstraintMaker *make) {
             make.left.equalTo(self.selectButton.mas_right).offset(20);
             make.centerY.equalTo(self.contentView);

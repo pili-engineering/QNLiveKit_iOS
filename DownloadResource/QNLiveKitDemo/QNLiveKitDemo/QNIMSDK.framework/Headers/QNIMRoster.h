@@ -34,14 +34,9 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic,copy) NSString *nickName;
 
 /**
- 好友头像（上传到七牛域名的图片url）
+ 好友头像
  */
 @property (nonatomic,copy) NSString *avatarUrl;
-
-/**
- 好友头像直接地址（其他域名的图片url）
- */
-@property (nonatomic,copy) NSString *avatarRatelUrl;
 
 /**
  好友头像本地存储路径

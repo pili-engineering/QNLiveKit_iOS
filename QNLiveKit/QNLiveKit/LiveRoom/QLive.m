@@ -39,7 +39,7 @@
                 [[QNIMClient sharedClient] signInByName:user.im_username password:user.im_password completion:^(QNIMError * _Nonnull error) {
                     NSLog(@"---七牛IM服务器连接状态-%li",[QNIMClient sharedClient].connectStatus);
                     if (error) {
-                        NSError *qnError = [NSError errorWithDomain:error.errorMessage code:error.errorCode userInfo:nil];
+                        NSError *qnError = [NSError errorWithDomain:@"IM 登录失败" code:error.errorCode userInfo:nil];
                         if (errorBack) {
                             errorBack(qnError);
                         }

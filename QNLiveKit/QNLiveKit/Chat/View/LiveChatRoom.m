@@ -80,7 +80,7 @@ static int clickPraiseBtnTimes  = 0 ;
         
         [self.messageContentView  addSubview:self.inputBar];
         [self.inputBar setBackgroundColor: [UIColor whiteColor]];
-        [self.inputBar setFrame:CGRectMake(0, self.messageContentView.frame.size.height - 50, size.width , 50)];
+        [self.inputBar setFrame:CGRectMake(0, self.messageContentView.frame.size.height - 50, SCREEN_W , 50)];
         [self.inputBar setHidden:YES];
         
         //  底部按钮
