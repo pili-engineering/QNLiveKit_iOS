@@ -30,7 +30,7 @@
 		</data>
 		<key>Headers/QNIMCreatGroupOption.h</key>
 		<data>
-		KQfqSQz/KyT2DJHVnIAZh0r+C1Y=
+		aTps9Kfhn/L8xwE0xPc34lKgyO4=
 		</data>
 		<key>Headers/QNIMDefines.h</key>
 		<data>
@@ -50,7 +50,7 @@
 		</data>
 		<key>Headers/QNIMGroup.h</key>
 		<data>
-		iq2AvNQZ4xTRLbm8+cwLdUHRzY4=
+		xA9isy3FJg5AFpJsFqrPIcRTrEE=
 		</data>
 		<key>Headers/QNIMGroupAnnounment.h</key>
 		<data>
@@ -62,7 +62,7 @@
 		</data>
 		<key>Headers/QNIMGroupBannedMember.h</key>
 		<data>
-		1K+nYFSPG2UZig7Om57mc+2/fZE=
+		ubkw40TsP16h9vtMYjLPfTXutoU=
 		</data>
 		<key>Headers/QNIMGroupInvitation.h</key>
 		<data>
@@ -70,7 +70,7 @@
 		</data>
 		<key>Headers/QNIMGroupMember.h</key>
 		<data>
-		nDp7GhH7OYj0Bi/hb2wYQWxVQCI=
+		RkHyV7NraOrOXIUzn4fg5LL8F+g=
 		</data>
 		<key>Headers/QNIMGroupService.h</key>
 		<data>
@@ -130,7 +130,7 @@
 		</data>
 		<key>Headers/QNIMRoster.h</key>
 		<data>
-		OkaWQMV9uhWDtKOz4ZNsy6+ZTpw=
+		B7lKCQmR/REuR8/hYALOVlUu1h8=
 		</data>
 		<key>Headers/QNIMRosterService.h</key>
 		<data>
@@ -166,11 +166,11 @@
 		</data>
 		<key>Headers/QNSDKConfig.h</key>
 		<data>
-		oJuF1oeeHEK8GSMP2athfqksFnE=
+		uasoESRzPqF57MznSfo0pfR4aI8=
 		</data>
 		<key>Info.plist</key>
 		<data>
-		lqZMfp8Oeoynjr9F9/E1umYbuGw=
+		xCwi8JRDbFqu7eca3u2onKj+qr4=
 		</data>
 		<key>Modules/module.modulemap</key>
 		<data>
@@ -249,11 +249,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			KQfqSQz/KyT2DJHVnIAZh0r+C1Y=
+			aTps9Kfhn/L8xwE0xPc34lKgyO4=
 			</data>
 			<key>hash2</key>
 			<data>
-			qkzrdUmedSe2nj7EAt7mMAU0iPCvmbwm7xDT3UtEKeA=
+			7gr3ntH7zEx3F2HeydEy/jDlfiDA0hJZgWNXgihgIJU=
 			</data>
 		</dict>
 		<key>Headers/QNIMDefines.h</key>
@@ -304,11 +304,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			iq2AvNQZ4xTRLbm8+cwLdUHRzY4=
+			xA9isy3FJg5AFpJsFqrPIcRTrEE=
 			</data>
 			<key>hash2</key>
 			<data>
-			/pZ9JaGS21uGi0ozmWN5AqN7WJ9xTIepbG5wiCsSqsc=
+			Fz11YRsbjjz2PJvxrmVu3ukZbZ0VdSOflAyR31JGQN4=
 			</data>
 		</dict>
 		<key>Headers/QNIMGroupAnnounment.h</key>
@@ -337,11 +337,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			1K+nYFSPG2UZig7Om57mc+2/fZE=
+			ubkw40TsP16h9vtMYjLPfTXutoU=
 			</data>
 			<key>hash2</key>
 			<data>
-			YpVDHryHHOMEi3l9Cr175bWSn3/sUudDaI8AX5lUH0k=
+			RvNvuEhzcT9fgPze3N6ul4AkN44aftU5BAD4NfnpJVs=
 			</data>
 		</dict>
 		<key>Headers/QNIMGroupInvitation.h</key>
@@ -359,11 +359,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			nDp7GhH7OYj0Bi/hb2wYQWxVQCI=
+			RkHyV7NraOrOXIUzn4fg5LL8F+g=
 			</data>
 			<key>hash2</key>
 			<data>
-			dI76vBuY1Gq7rJwXJwQcJkuGFj8nHl/WUJPoXYo5Uog=
+			MRu//rG3SVDGAJNciM9SPbcqge5tVfSOY5O3NKAnVGU=
 			</data>
 		</dict>
 		<key>Headers/QNIMGroupService.h</key>
@@ -524,11 +524,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			OkaWQMV9uhWDtKOz4ZNsy6+ZTpw=
+			B7lKCQmR/REuR8/hYALOVlUu1h8=
 			</data>
 			<key>hash2</key>
 			<data>
-			afJYAFBowe0R8iAOOHnLxpgaii/fQe/g+30xpys67yA=
+			vRomGYU/f0XlyBIVHMN/wgerAh53zACZnuFsx28X/+o=
 			</data>
 		</dict>
 		<key>Headers/QNIMRosterService.h</key>
@@ -623,11 +623,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			oJuF1oeeHEK8GSMP2athfqksFnE=
+			uasoESRzPqF57MznSfo0pfR4aI8=
 			</data>
 			<key>hash2</key>
 			<data>
-			9GCp9ZK2G2qCykSmUX1+qmy15YEuafnqYnmgQs800yk=
+			yQOaTCy0hlZiNZiMGsdBzos2fvEcAVvRib7kCwGFbGM=
 			</data>
 		</dict>
 		<key>Modules/module.modulemap</key>

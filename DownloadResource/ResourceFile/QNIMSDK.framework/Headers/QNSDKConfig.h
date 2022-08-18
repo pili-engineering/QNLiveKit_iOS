@@ -20,7 +20,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 @property (nonatomic, copy) NSString *vsn;
 
-@property (nonatomic, copy, readonly) NSString *sdkVersion;
+@property (nonatomic, copy) NSString *sdkVersion;
 
 @property (nonatomic, copy) NSString *pushCertName;
 
@@ -28,7 +28,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 @property (nonatomic,assign) BOOL enableDeliveryAck;
 
-@property (nonatomic, assign, readonly) QNIMLogLevel logoLevelType;
+@property (nonatomic, assign) QNIMLogLevel logLevelType;
 
 @property (nonatomic, assign) BOOL consoleOutput;
 

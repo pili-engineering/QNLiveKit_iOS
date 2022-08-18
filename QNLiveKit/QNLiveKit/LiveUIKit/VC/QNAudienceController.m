@@ -37,6 +37,7 @@
 
 - (void)viewWillAppear:(BOOL)animated {
     self.preview.frame = CGRectZero;
+    self.player.mute = NO;
 }
 
 - (void)viewDidLoad {
@@ -411,6 +412,7 @@
             if (weakSelf.goodClickedBlock) {
                 weakSelf.goodClickedBlock(itemModel);
             }
+            self.player.mute = YES;
         };
         vc.view.frame = CGRectMake(0, 0, SCREEN_W, SCREEN_H);
         vc.modalPresentationStyle = UIModalPresentationFullScreen;

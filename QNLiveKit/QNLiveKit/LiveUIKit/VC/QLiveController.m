@@ -36,6 +36,7 @@
 #import "QLiveNetworkUtil.h"
 #import "ExplainingGoodView.h"
 #import "QAlertView.h"
+#import "UIViewController+QViewController.h"
 
 @interface QLiveController ()<QNPushClientListener,QNRoomLifeCycleListener,QNPushClientListener,QNChatRoomServiceListener,FDanmakuViewProtocol,LiveChatRoomViewDelegate,MicLinkerListener,PKServiceListener>
 
@@ -377,14 +378,15 @@
             
             [QAlertView showThreeActionAlertWithTitle:@"确定关闭直播间吗？" content:@"关闭后无法再进入该直播间" firstAction:@"结束直播" firstHandler:^(UIAlertAction * _Nonnull action) {
                 
-                [weakSelf dismissViewControllerAnimated:YES completion:nil];
                 [[QLive createPusherClient] closeRoom];
+                [weakSelf dismissViewControllerWithCount:2 animated:YES];
                 
-                    } secondAction:@"仅暂停直播" secondHandler:^(UIAlertAction * _Nonnull action) {
+            } secondAction:@"仅暂停直播" secondHandler:^(UIAlertAction * _Nonnull action) {
                         
                         [[QLive createPusherClient] leaveRoom];
-                        [weakSelf dismissViewControllerAnimated:YES completion:nil];
-                        
+                       
+                        [self dismissViewControllerWithCount:2 animated:YES];
+                
                     } threeHandler:^(UIAlertAction * _Nonnull action) {
                         
                     }];

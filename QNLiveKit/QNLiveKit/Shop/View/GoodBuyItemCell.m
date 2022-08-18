@@ -7,6 +7,7 @@
 
 #import "GoodBuyItemCell.h"
 #import "GoodsModel.h"
+#import "QTagList.h"
 
 @interface GoodBuyItemCell()
 //商品图
@@ -16,7 +17,7 @@
 //商品名称
 @property (nonatomic,strong)UILabel *titleLabel;
 //标签
-@property (nonatomic,strong)UILabel *tagLabel;
+@property (nonatomic, strong)QTagList *tagList;
 //现价
 @property (nonatomic,strong)UILabel *currentPriceLabel;
 //原价
@@ -42,8 +43,9 @@
         [self iconImageView];
         [self orderLabel];
         [self titleLabel];
-        [self tagLabel];
+        [self tagList];
         [self currentPriceLabel];
+        [self originPriceLabel];
         [self buyButton];
         [self explainView];
         
@@ -56,8 +58,11 @@
     [self.iconImageView sd_setImageWithURL:[NSURL URLWithString:itemModel.thumbnail]];
     self.orderLabel.text = itemModel.order;
     self.titleLabel.text = itemModel.title;
-    self.tagLabel.text = [itemModel.tags componentsSeparatedByString:@","].firstObject;
+    if (self.tagList.tagArray.count == 0) {
+        [self.tagList addTags: [itemModel.tags componentsSeparatedByString:@","]];
+    } 
     self.currentPriceLabel.text = itemModel.current_price;
+    self.originPriceLabel.text = itemModel.origin_price;
     self.explainView.hidden = !itemModel.isExplaining;
 }
 
@@ -73,6 +78,7 @@
         _iconImageView = [[UIImageView alloc]init];
         _iconImageView.clipsToBounds = YES;
         _iconImageView.layer.cornerRadius = 10;
+        _iconImageView.contentMode = UIViewContentModeScaleAspectFit;
         [self.contentView addSubview:_iconImageView];
         [_iconImageView mas_makeConstraints:^(MASConstraintMaker *make) {
             make.left.equalTo(self.contentView).offset(20);
@@ -88,7 +94,6 @@
         _orderLabel = [[UILabel alloc]init];
         _orderLabel.backgroundColor = [[UIColor colorWithHexString:@"000000"] colorWithAlphaComponent:0.6];
         _orderLabel.textColor = [UIColor whiteColor];
-        _orderLabel.text = @"0";
         _orderLabel.textAlignment = NSTextAlignmentCenter;
         _orderLabel.clipsToBounds = YES;
         _orderLabel.font = [UIFont systemFontOfSize:8];
@@ -106,7 +111,6 @@
     if (!_titleLabel) {
         _titleLabel = [[UILabel alloc]init];
         _titleLabel.textColor = [UIColor blackColor];
-        _titleLabel.text = @"手机";
         _titleLabel.font = [UIFont systemFontOfSize:14];
         [self.contentView addSubview:_titleLabel];
         [_titleLabel mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -118,37 +122,60 @@
     return _titleLabel;
 }
 
-- (UILabel *)tagLabel {
-    if (!_tagLabel) {
-        _tagLabel = [[UILabel alloc]init];
-        _tagLabel.backgroundColor = [UIColor orangeColor];
-        _tagLabel.textColor = [UIColor whiteColor];
-        _tagLabel.text = @"大减价";
-        _tagLabel.font = [UIFont systemFontOfSize:10];
-        [self.contentView addSubview:_tagLabel];
-        [_tagLabel mas_makeConstraints:^(MASConstraintMaker *make) {
-            make.left.equalTo(self.iconImageView.mas_right).offset(15);
-            make.top.equalTo(self.titleLabel.mas_bottom).offset(8);
-        }];
+- (QTagList *)tagList {
+    if (!_tagList) {
+        _tagList = [[QTagList alloc] init];
+        _tagList.backgroundColor = [UIColor whiteColor];
+        _tagList.frame = CGRectMake(110, 25, 250, 0);
+        _tagList.tagBackgroundColor = [UIColor orangeColor];
+        _tagList.tagColor = [UIColor whiteColor];
+        _tagList.tagButtonMargin = 2;
+        _tagList.tagMargin = 5;
+        _tagList.tagSize = CGSizeMake(40, 0);
+        _tagList.tagFont = [UIFont systemFontOfSize:10];
+        [self.contentView addSubview:_tagList];
     }
-    return _tagLabel;
+    return _tagList;
 }
 
 - (UILabel *)currentPriceLabel {
     if (!_currentPriceLabel) {
         _currentPriceLabel = [[UILabel alloc]init];
         _currentPriceLabel.textColor = [UIColor colorWithHexString:@"E34D59"];
-        _currentPriceLabel.text = @"¥399";
         _currentPriceLabel.font = [UIFont systemFontOfSize:16];
         [self.contentView addSubview:_currentPriceLabel];
         [_currentPriceLabel mas_makeConstraints:^(MASConstraintMaker *make) {
-            make.left.equalTo(self.tagLabel);
+            make.left.equalTo(self.iconImageView.mas_right).offset(15);
             make.bottom.equalTo(self.iconImageView.mas_bottom);
         }];
     }
     return _currentPriceLabel;
 }
 
+- (UILabel *)originPriceLabel {
+    if (!_originPriceLabel) {
+        _originPriceLabel = [[UILabel alloc]init];
+        _originPriceLabel.textColor = [UIColor grayColor];
+        _originPriceLabel.font = [UIFont systemFontOfSize:12];
+        
+        [self.contentView addSubview:_originPriceLabel];
+        
+        [_originPriceLabel mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.left.equalTo(self.currentPriceLabel.mas_right).offset(5);
+            make.bottom.equalTo(self.currentPriceLabel);
+        }];
+        
+        UIView *view = [[UIView alloc]init];
+        view.backgroundColor = [UIColor grayColor];
+        [_originPriceLabel addSubview:view];
+        [view mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.centerY.equalTo(self.originPriceLabel);
+            make.left.right.equalTo(self.originPriceLabel);
+            make.height.mas_equalTo(1);
+        }];
+    }
+    return _originPriceLabel;
+}
 
 - (UIButton *)buyButton {
     if (!_buyButton) {

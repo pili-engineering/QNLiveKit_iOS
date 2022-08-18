@@ -160,7 +160,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, copy ) NSString *jsonextension;
 
 
-@property (nonatomic, strong ) QNIMGroupSharedFile *shareFile;
+//@property (nonatomic, strong ) QNIMGroupSharedFile *shareFile;
 
 /**
  * 群成员

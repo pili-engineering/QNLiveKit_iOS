@@ -11,9 +11,9 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface QNIMGroupMember : NSObject
 
-@property (nonatomic, readonly) NSInteger uid;
-@property (nonatomic, copy, readonly) NSString *groupNickname;
-@property (nonatomic, readonly) long long createTime;
+@property (nonatomic, assign) NSInteger uid;
+@property (nonatomic, copy) NSString *groupNickname;
+@property (nonatomic, assign) long long createTime;
 
 @end
 

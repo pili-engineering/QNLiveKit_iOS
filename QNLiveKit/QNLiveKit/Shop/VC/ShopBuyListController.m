@@ -140,6 +140,7 @@
         if (weakSelf.buyClickedBlock) {
             weakSelf.buyClickedBlock(itemModel);
         }
+        [weakSelf dismissController];
     };
     cell.selectionStyle = UITableViewCellSelectionStyleNone;
     return cell;;
@@ -147,6 +148,9 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
+    if (self.buyClickedBlock) {
+        self.buyClickedBlock(self.ListModel[indexPath.row]);
+    }
     [self dismissController];
 }
 
