@@ -39,10 +39,9 @@
         //绑定自己服务器的头像和昵称 extension为扩展字段，可以自定义同步的内容
         [QLive setUser:user.avatar nick:user.nickname extension:nil];
         
-        
-        如果需要使用内置UI，直接跳转至特定的ViewController即可
-        
-         Tips:如果需要使用内置美颜，在初始化后调用[QLive setBeauty:YES]; 
+                
+         //Tips:如果需要使用内置美颜，在初始化后调用
+         [QLive setBeauty:YES]; 
             
         //直播列表页：
         QLiveListController *listVc = [QLiveListController new];
