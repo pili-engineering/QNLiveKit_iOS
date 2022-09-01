@@ -136,6 +136,7 @@
                 self.remoteView.userId = userID;
                 self.remoteView.trackId = videoTrack.trackID;
                 self.remoteView.layer.cornerRadius = 50;
+                self.remoteView.hidden = NO;
                 self.remoteView.clipsToBounds = YES;
 
                 [videoTrack play:self.remoteView];
