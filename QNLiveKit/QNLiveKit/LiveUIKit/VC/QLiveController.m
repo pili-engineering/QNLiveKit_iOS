@@ -379,14 +379,21 @@
             
             [QAlertView showThreeActionAlertWithTitle:@"确定关闭直播间吗？" content:@"关闭后无法再进入该直播间" firstAction:@"结束直播" firstHandler:^(UIAlertAction * _Nonnull action) {
                 
+                if (weakSelf.pk_other_user) {
+                    [weakSelf stopPK];
+                }
+                [weakSelf.chatService sendLeaveMsg];
                 [[QLive createPusherClient] closeRoom];
                 [weakSelf dismissViewControllerWithCount:2 animated:YES];
                 
             } secondAction:@"仅暂停直播" secondHandler:^(UIAlertAction * _Nonnull action) {
                         
-                        [[QLive createPusherClient] leaveRoom];
-                       
-                        [self dismissViewControllerWithCount:2 animated:YES];
+                if (self.pk_other_user) {
+                    [self stopPK];
+                }
+                
+                [[QLive createPusherClient] leaveRoom];
+                [self dismissViewControllerWithCount:2 animated:YES];
                 
                     } threeHandler:^(UIAlertAction * _Nonnull action) {
                         
