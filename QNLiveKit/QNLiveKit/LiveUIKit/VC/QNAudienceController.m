@@ -122,6 +122,7 @@
 }
 
 - (void)updateRoomInfo {
+    [[QLive createPusherClient] roomHeartBeart:self.roomInfo.live_id];
     [[QLive getRooms] getRoomInfo:self.roomInfo.live_id callBack:^(QNLiveRoomInfo * _Nonnull roomInfo) {
         self.roomInfo = roomInfo;
         [self.roomHostView updateWith:roomInfo];
@@ -133,17 +134,20 @@
             self.masterLeaveLabel.hidden = NO;
         } else {
             self.masterLeaveLabel.hidden = YES;
-            if (!self.player.playerView.superview) {
-                [self.view insertSubview:self.player.playerView atIndex:2];
+            if ([QLive createPusherClient].rtcClient.connectionState != QNConnectionStateConnected) {
+                if (!self.player.playerView.superview) {
+                    [self.view insertSubview:self.player.playerView atIndex:2];
+                }
+                if (self.player.status != PLPlayerStatusPlaying) {
+                    [self.player play];
+                }
             }
-            if (self.player.status != PLPlayerStatusPlaying) {
-                [self.player play];
-            }
-            if (self.roomInfo.pk_id.length == 0) {
-                self.player.playerView.frame = self.view.frame;
-            } else {
-                self.player.playerView.frame = CGRectMake(0, 150, SCREEN_W, SCREEN_W *0.6);
-            }
+            
+//            if (self.roomInfo.pk_id.length == 0) {
+//                self.player.playerView.frame = self.view.frame;
+//            } else {
+//                self.player.playerView.frame = CGRectMake(0, 150, SCREEN_W, SCREEN_W *0.6);
+//            }
         }
     }];
     [self getExplainGood];
@@ -193,6 +197,7 @@
                 self.remoteView.frame = CGRectMake(0, 0, SCREEN_W, SCREEN_H);
                 self.remoteView.userId = userID;
                 self.remoteView.trackId = track.trackID;
+                self.remoteView.hidden = NO;
                 [self.renderBackgroundView bringSubviewToFront:self.remoteView];
                 [(QNRemoteVideoTrack *)track play:self.remoteView];
             } else {
