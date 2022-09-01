@@ -137,9 +137,10 @@
             if ([QLive createPusherClient].rtcClient.connectionState != QNConnectionStateConnected) {
                 if (!self.player.playerView.superview) {
                     [self.view insertSubview:self.player.playerView atIndex:2];
-                }
-                if (self.player.status != PLPlayerStatusPlaying) {
-                    [self.player play];
+                } else {
+                    if (self.player.status != PLPlayerStatusPlaying) {
+                        [self.player play];
+                    }
                 }
             }
             
@@ -167,6 +168,8 @@
             self.preview.frame = CGRectMake(SCREEN_W - 120, 120, 100, 100);
             self.preview.layer.cornerRadius = 50;
             self.preview.clipsToBounds = YES;
+            self.preview.hidden = NO;
+            [self.renderBackgroundView bringSubviewToFront:self.preview];
             [[QLive createPusherClient] enableCamera:nil renderView:self.preview];
             [self popLinkSLot];
 
@@ -212,6 +215,11 @@
 
 - (void)onUserLeave:(QNLiveUser *)user message:(QNIMMessageObject *)message {
     [self.chatRoomView showMessage:message];
+    
+    if ([user.user_id isEqualToString:self.roomInfo.anchor_info.user_id]) {
+        [QToastView showToast:@"直播间已关闭"];
+        [self dismissViewControllerAnimated:YES completion:nil];
+    }
 }
 
 - (void)onReceivedPuChatMsg:(PubChatModel *)msg message:(QNIMMessageObject *)message {
@@ -396,7 +404,15 @@
         ImageButtonView *close = [[ImageButtonView alloc]initWithFrame:CGRectZero];
         [close bundleNormalImage:@"live_close" selectImage:@"live_close"];
         close.clickBlock = ^(BOOL selected){
+            
+            if ([QLive createPusherClient].rtcClient.connectionState == QNConnectionStateConnected) {
+                [[QLive createPusherClient].rtcClient leave];
+                [[QLive createPlayerClient] leaveRoom:weakSelf.roomInfo.live_id];
+                [weakSelf.linkService downMic];
+            }
+            
             [weakSelf.chatService sendLeaveMsg];
+            
             [weakSelf dismissViewControllerAnimated:YES completion:nil];
         };
         [slotList addObject:close];
