@@ -10,15 +10,15 @@
 		</data>
 		<key>Frameworks/QNIMSDK.framework/Info.plist</key>
 		<data>
-		lqZMfp8Oeoynjr9F9/E1umYbuGw=
+		xCwi8JRDbFqu7eca3u2onKj+qr4=
 		</data>
 		<key>Frameworks/QNIMSDK.framework/QNIMSDK</key>
 		<data>
-		148XJU37HwtRTHy7UwgYDIKwWxI=
+		VLaBZjfrWrNxUxqV8f67JoWXsfw=
 		</data>
 		<key>Frameworks/QNIMSDK.framework/_CodeSignature/CodeResources</key>
 		<data>
-		xhgFP0VIAQjeq16KQLtLFG/eOYw=
+		+PNeNdFAknFT5Gh4irtFfAq/6t0=
 		</data>
 		<key>Headers/BeautyBaseController.h</key>
 		<data>
@@ -234,7 +234,7 @@
 		</data>
 		<key>Headers/QNLiveKit.h</key>
 		<data>
-		V8MmZ6bX683crJcnDKlItdZaefg=
+		YCZv58GabQtl2V4pynAjrinVPAc=
 		</data>
 		<key>Headers/QNLiveListCell.h</key>
 		<data>
@@ -311,6 +311,14 @@
 		<key>Headers/QShopService.h</key>
 		<data>
 		PRDhn4pwUhljwua2M0KrEqTreeA=
+		</data>
+		<key>Headers/QTagButton.h</key>
+		<data>
+		3ur8RjGW0tcefFCA3aUAqzYqg5M=
+		</data>
+		<key>Headers/QTagList.h</key>
+		<data>
+		vrxYAUllVq0XNgjz6oxC/9O9u0U=
 		</data>
 		<key>Headers/QTextMessageCell.h</key>
 		<data>
@@ -536,6 +544,10 @@
 		<data>
 		qOyVAlxgYG6OR/CCildmTRe1lpA=
 		</data>
+		<key>Headers/UILabel+QAttributed.h</key>
+		<data>
+		b32m5HXOmsNIZPwXwEjNo4lscvQ=
+		</data>
 		<key>Headers/UITableView+MoveCell.h</key>
 		<data>
 		05boLV7ATL2WmsSvnBOUSUk+0DI=
@@ -543,6 +555,10 @@
 		<key>Headers/UIView+Toast.h</key>
 		<data>
 		mfXmLP9J8XYssI1priECpAz4SAk=
+		</data>
+		<key>Headers/UIViewController+QViewController.h</key>
+		<data>
+		8d0RhulHU2xspm4GLQYx2vWqhS0=
 		</data>
 		<key>Info.plist</key>
 		<data>
@@ -574,33 +590,33 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			lqZMfp8Oeoynjr9F9/E1umYbuGw=
+			xCwi8JRDbFqu7eca3u2onKj+qr4=
 			</data>
 			<key>hash2</key>
 			<data>
-			K8XjaEZoAAscE683l3hjZUGuxxg+Vg5ean0TgBJawpU=
+			m5t7AWEk200OirGXevtUA740gEuGa5X1FIRhK+T6fGk=
 			</data>
 		</dict>
 		<key>Frameworks/QNIMSDK.framework/QNIMSDK</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			148XJU37HwtRTHy7UwgYDIKwWxI=
+			VLaBZjfrWrNxUxqV8f67JoWXsfw=
 			</data>
 			<key>hash2</key>
 			<data>
-			seTzApZf64eW7dYo+FwFoNm9D7r2Gi3Jfw5RUMEVdQ4=
+			yDCBvOpwZF9BK9LCXAVde31Hqn2G2TTvpaBPvjePJYw=
 			</data>
 		</dict>
 		<key>Frameworks/QNIMSDK.framework/_CodeSignature/CodeResources</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			xhgFP0VIAQjeq16KQLtLFG/eOYw=
+			+PNeNdFAknFT5Gh4irtFfAq/6t0=
 			</data>
 			<key>hash2</key>
 			<data>
-			srf1Q09QMX+hEkpvRs654Vr0w9fg2Ce+cHWXCpOPT7M=
+			1braKO1KjWvlvw6OWdMbvFfmpFOae4Vn5hZyEnunXsQ=
 			</data>
 		</dict>
 		<key>Headers/BeautyBaseController.h</key>
@@ -1190,11 +1206,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			V8MmZ6bX683crJcnDKlItdZaefg=
+			YCZv58GabQtl2V4pynAjrinVPAc=
 			</data>
 			<key>hash2</key>
 			<data>
-			jAsd17F4oarO6pL4iOwCNkYnE8hPpTQewMs7PV4qVvU=
+			+Vp4f+lY8PTqe09ut2wc3Tc5ujG4hxYxAmfD1CfEky4=
 			</data>
 		</dict>
 		<key>Headers/QNLiveListCell.h</key>
@@ -1404,6 +1420,28 @@
 			<key>hash2</key>
 			<data>
 			V3M8HVcnE7ETYKVvAWNVxfebxAb5JBTuW2JxBh+nswU=
+			</data>
+		</dict>
+		<key>Headers/QTagButton.h</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			3ur8RjGW0tcefFCA3aUAqzYqg5M=
+			</data>
+			<key>hash2</key>
+			<data>
+			1eAZNHxnwe0Vo3iIQPyQ5B03llzzcIou7L+P49QFY1s=
+			</data>
+		</dict>
+		<key>Headers/QTagList.h</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			vrxYAUllVq0XNgjz6oxC/9O9u0U=
+			</data>
+			<key>hash2</key>
+			<data>
+			IJAdUaFXE0JNmWfuPdPlgWK/3LBl8nzepM9ibxc8z7Q=
 			</data>
 		</dict>
 		<key>Headers/QTextMessageCell.h</key>
@@ -2022,6 +2060,17 @@
 			SiRYCPG1ubYzOMcEtV/3Hst5JEHnwjguG4ycuhTYemw=
 			</data>
 		</dict>
+		<key>Headers/UILabel+QAttributed.h</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			b32m5HXOmsNIZPwXwEjNo4lscvQ=
+			</data>
+			<key>hash2</key>
+			<data>
+			XCRza6fTytfoLkOCHE2bU5Dkj1T8jCgxnEfHoeVkHu8=
+			</data>
+		</dict>
 		<key>Headers/UITableView+MoveCell.h</key>
 		<dict>
 			<key>hash</key>
@@ -2042,6 +2091,17 @@
 			<key>hash2</key>
 			<data>
 			BHqQsY+IyXJJ2Qo0Y/RBtlCwZFtlkHTE8n85lErDhm4=
+			</data>
+		</dict>
+		<key>Headers/UIViewController+QViewController.h</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			8d0RhulHU2xspm4GLQYx2vWqhS0=
+			</data>
+			<key>hash2</key>
+			<data>
+			u54KnJX36m+JbdFthtuBQnhZXaXxHgCx/CQriMTGw7w=
 			</data>
 		</dict>
 		<key>Modules/module.modulemap</key>
