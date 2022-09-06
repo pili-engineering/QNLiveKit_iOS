@@ -7,6 +7,14 @@
 
 #import "GoodsModel.h"
 
+@implementation GoodRecordModel
+
++ (NSDictionary *)mj_replacedKeyFromPropertyName {
+    return @{@"record_id" : @"id" };;
+}
+
+@end
+
 @implementation GoodsModel
 
 @end

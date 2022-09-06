@@ -9,8 +9,17 @@
 #import "GoodsModel.h"
 #import "QAlertView.h"
 #import "QTagList.h"
+#import "QToastView.h"
 
 @interface GoodSellItemCell ()
+
+{
+    
+    NSTimer * _timer;  //定时器
+    
+    NSInteger _seconds;
+    
+}
 //商品图
 @property (nonatomic,strong)UIImageView *iconImageView;
 //下架覆盖层
@@ -31,6 +40,11 @@
 @property (nonatomic,strong)UIButton *recordButton;
 //讲解按钮
 @property (nonatomic,strong)UIButton *explainButton;
+
+//录制状态的图片
+@property (nonatomic,strong)UIImageView *recordStatusImageView;
+
+
 
 @property (nonatomic, strong)QTagList *tagList;
 
@@ -54,13 +68,15 @@
         [self currentPriceLabel];
         [self originPriceLabel];
         [self takeDownButton];
+        [self recordButton];
+        [self recordStatusImageView];
         [self explainButton];
-//        [self recordButton];
         
     }
     return self;
 }
 
+//商品被点击
 - (void)click {
     if(self.goodClickedBlock) {
         self.goodClickedBlock(self.itemModel);
@@ -89,13 +105,20 @@
     UIColor *explainButtonTitleColor;
     NSString *explainButtonTitle;
     
+    if (itemModel.record.record_url.length > 0) {
+        self.recordButton.hidden = NO;
+        self.recordStatusImageView.image = [UIImage imageNamed:@"recorded_icon"];
+    } else {
+        self.recordButton.hidden = YES;
+    }
+    
     if (itemModel.isExplaining) {
         
         explainButtonTitle = @"结束讲解";
         self.explainButton.backgroundColor = [UIColor colorWithHexString:@"F5F5F5"];
         explainButtonTitleColor = [UIColor colorWithHexString:@"E34D59"];
         self.explainButton.userInteractionEnabled = YES;
-        
+        self.recordButton.hidden = NO;
     } else {
         
         if (itemModel.status == QLiveGoodsStatusTakeOn) {
@@ -113,6 +136,7 @@
     [self.explainButton setTitleColor:explainButtonTitleColor forState:UIControlStateNormal];
 }
 
+//下架按钮点击
 - (void)takeDown:(UIButton *)button {
     
     NSString *title = self.itemModel.status == QLiveGoodsStatusTakeOn ? @"确定下架该商品吗？" : @"确定上架该商品吗？";
@@ -128,11 +152,40 @@
     
 }
 
+//讲解按钮点击
 - (void)explain:(UIButton *)button {
     self.itemModel.isExplaining = !self.itemModel.isExplaining;
+    if (!self.itemModel.isExplaining) {
+        [_timer invalidate];
+    } else {
+        
+    }
     if (self.explainClickedBlock) {
         self.explainClickedBlock(self.itemModel);
     }
+}
+
+//录制按钮点击
+- (void)record:(UIButton *)button {
+    [QToastView showToast:@"已开始录制"];
+    self.recordStatusImageView.hidden = NO;
+    self.recordButton.userInteractionEnabled = NO;
+    [self.recordButton setTitle:@"  00:00" forState:UIControlStateNormal];
+    //计时
+    _timer=[NSTimer scheduledTimerWithTimeInterval:1 target:self selector:@selector(runAction) userInfo:nil repeats:YES];
+    [[NSRunLoop currentRunLoop] addTimer:_timer forMode:NSRunLoopCommonModes];
+    if (self.recordClickedBlock) {
+        self.recordClickedBlock(self.itemModel);
+    }
+        
+}
+
+- (void)runAction
+{
+    _seconds++;
+    NSString * startTime=[NSString stringWithFormat:@"  %02li:%02li",_seconds/100%60,_seconds%100];
+    [self.recordButton setTitle:startTime forState:UIControlStateNormal];
+    
 }
 
 - (UIImageView *)iconImageView {
@@ -259,6 +312,41 @@
     return _originPriceLabel;
 }
 
+- (UIButton *)recordButton {
+    if (!_recordButton) {
+        _recordButton = [[UIButton alloc]init];
+        _recordButton.backgroundColor = [UIColor colorWithHexString:@"F5F5F5"];
+        _recordButton.titleLabel.font = [UIFont systemFontOfSize:14];
+        [_recordButton setTitle:@"录制" forState:UIControlStateNormal];
+        [_recordButton setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
+        [_recordButton addTarget:self action:@selector(record:) forControlEvents:UIControlEventTouchUpInside];
+        _recordButton.hidden = YES;
+        [self.contentView addSubview:_recordButton];
+        [_recordButton mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.right.equalTo(self.explainButton.mas_left).offset(-10);
+            make.top.equalTo(self.iconImageView.mas_bottom).offset(10);
+            make.width.mas_equalTo(70);
+            make.height.mas_equalTo(25);
+        }];
+        
+    }
+    return _recordButton;
+}
+
+- (UIImageView *)recordStatusImageView {
+    if (!_recordStatusImageView) {
+        _recordStatusImageView = [[UIImageView alloc]initWithImage:[UIImage imageNamed:@"recording_icon"]];
+        [self.recordButton addSubview:_recordStatusImageView];
+        _recordStatusImageView.hidden = YES;
+        [_recordStatusImageView mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.centerY.equalTo(self.recordButton);
+            make.left.equalTo(self.recordButton).offset(4);
+            make.width.height.mas_equalTo(10);
+        }];
+    }
+    return _recordStatusImageView;
+}
+
 - (UIButton *)takeDownButton {
     if (!_takeDownButton) {
         _takeDownButton = [[UIButton alloc]init];
@@ -297,22 +385,5 @@
     return _explainButton;
 }
 
-- (UIButton *)recordButton {
-    if (!_recordButton) {
-        _recordButton = [[UIButton alloc]init];
-        _recordButton.backgroundColor = [UIColor colorWithHexString:@"F5F5F5"];
-        [_recordButton setTitle:@"录制" forState:UIControlStateNormal];
-        _recordButton.titleLabel.font = [UIFont systemFontOfSize:14];
-        [_recordButton setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
-        [self.contentView addSubview:_recordButton];
-        [_recordButton mas_makeConstraints:^(MASConstraintMaker *make) {
-            make.top.equalTo(self.takeDownButton);
-            make.right.equalTo(self.explainButton.mas_left).offset(-10);
-            make.width.mas_equalTo(75);
-            make.height.mas_equalTo(25);
-        }];
-    }
-    return _recordButton;
-}
 
 @end

@@ -117,8 +117,8 @@
     }];
 }
 
-//取消讲解商品
-- (void)endExplainGood:(nullable void (^)(void))callBack {
+//取消讲解商品/录制商品
+- (void)endExplainAndRecordGood:(nullable void (^)(void))callBack {
     NSString *action = [NSString stringWithFormat:@"client/item/demonstrate/%@",self.roomInfo.live_id];
     [QLiveNetworkUtil deleteRequestWithAction:action params:nil success:^(NSDictionary * _Nonnull responseData) {
         [self sendExplainGoodMsg:[GoodsModel new]];
@@ -130,6 +130,17 @@
     }];
 }
 
+//录制商品
+- (void)recordGood:(NSString *)itemID callBack:(nullable void (^)(void))callBack {
+    NSString *action = [NSString stringWithFormat:@"client/item/demonstrate/start/%@/%@",self.roomInfo.live_id,itemID];
+    [QLiveNetworkUtil postRequestWithAction:action params:@{} success:^(NSDictionary * _Nonnull responseData) {
+        if (callBack) {
+            callBack();
+        }
+        } failure:^(NSError * _Nonnull error) {
+        }];
+}
+
 //查看正在讲解的商品
 - (void)getExplainGood:(nullable void (^)(GoodsModel * _Nullable good))callBack {
     NSString *action = [NSString stringWithFormat:@"client/item/demonstrate/%@",self.roomInfo.live_id];
@@ -138,6 +149,51 @@
         GoodsModel *explainGood = [GoodsModel mj_objectWithKeyValues:responseData];
         if (callBack) {
             callBack(explainGood);
+        }
+    } failure:^(NSError * _Nonnull error) {
+        if (callBack) {
+            callBack(nil);
+        }
+    }];
+}
+
+//获取商品讲解回放
+- (void)getGoodRecord:(NSString *)itemID callBack:(nullable void (^)(GoodsModel * _Nullable good))callBack {
+    NSString *action = [NSString stringWithFormat:@"client/item/demonstrate/record/%@/%@",self.roomInfo.live_id,itemID];
+    [QLiveNetworkUtil getRequestWithAction:action params:nil success:^(NSDictionary * _Nonnull responseData) {
+        
+        GoodsModel *explainGood = [GoodsModel mj_objectWithKeyValues:responseData];
+        if (callBack) {
+            callBack(explainGood);
+        }
+    } failure:^(NSError * _Nonnull error) {
+        if (callBack) {
+            callBack(nil);
+        }
+    }];
+}
+
+//删除商品录制回放
+- (void)deleteGoodRecordIDs:(NSArray *)recordIDs callBack:(nullable void (^)(void))callBack {
+    NSMutableDictionary *params = [NSMutableDictionary dictionary];
+    params[@"live_id"] = self.roomInfo.live_id;
+    params[@"demonstrate_item"] = recordIDs.mj_keyValues;
+    [QLiveNetworkUtil postRequestWithAction:@"client/item/demonstrate/record/delete" params:params success:^(NSDictionary * _Nonnull responseData) {
+        if (callBack) {
+            callBack();
+        }
+        } failure:^(NSError * _Nonnull error) {
+        }];
+}
+
+//获取当前直播间所有商品讲解的录制
+- (void)getAllGoodRecord:(nullable void (^)(NSArray <GoodsModel *> * _Nullable goodList))callBack {
+    NSString *action = [NSString stringWithFormat:@"client/item/demonstrate/record/%@",self.roomInfo.live_id];
+    [QLiveNetworkUtil getRequestWithAction:action params:nil success:^(NSDictionary * _Nonnull responseData) {
+        
+        NSArray <GoodsModel *> *explainGoods = [GoodsModel mj_objectArrayWithKeyValuesArray:responseData];
+        if (callBack) {
+            callBack(explainGoods);
         }
     } failure:^(NSError * _Nonnull error) {
         if (callBack) {

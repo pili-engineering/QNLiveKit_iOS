@@ -17,7 +17,6 @@
 #import "QShopService.h"
 #import "QNLiveRoomInfo.h"
 
-
 @interface ShopSellListController ()<UITableViewDelegate,UITableViewDataSource>
 
 @property (nonatomic, strong) UITableView *tableView;
@@ -167,6 +166,7 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
         
     if (self.isEditing) {
+        //编辑中的cell
         GoodsOperationCell *cell = [tableView dequeueReusableCellWithIdentifier:@"GoodsOperationCell" forIndexPath:indexPath];
         [cell updateWithModel:self.ListModel[indexPath.row]];
         
@@ -190,6 +190,7 @@
         return cell;
     }
     
+    //正常显示的cell
     GoodSellItemCell *cell = [tableView dequeueReusableCellWithIdentifier:@"GoodSellItemCell" forIndexPath:indexPath];
     [cell updateWithModel:self.ListModel[indexPath.row]];
     __weak typeof(self)weakSelf = self;
@@ -205,7 +206,12 @@
             [weakSelf explainGood:itemModel];
         } else {
             [weakSelf endExplainGood];
+            [weakSelf requestData];
         }
+    };
+    cell.recordClickedBlock = ^(GoodsModel * _Nonnull itemModel) {
+        
+        [weakSelf.shopService recordGood:itemModel.item_id callBack:nil];
     };
     cell.goodClickedBlock = ^(GoodsModel * _Nonnull itemModel) {
         //商品被点击
@@ -232,7 +238,7 @@
 //取消讲解商品
 - (void)endExplainGood {
     
-    [self.shopService endExplainGood:^{
+    [self.shopService endExplainAndRecordGood:^{
         
         NSMutableArray<GoodsModel *> *array = [NSMutableArray arrayWithArray:self.ListModel];
         [array enumerateObjectsUsingBlock:^(GoodsModel * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {

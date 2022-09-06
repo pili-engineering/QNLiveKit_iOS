@@ -36,8 +36,20 @@ NS_ASSUME_NONNULL_BEGIN
 //讲解商品
 - (void)explainGood:(GoodsModel *)model callBack:(nullable void (^)(void))callBack;
 
+//录制商品
+- (void)recordGood:(NSString *)itemID callBack:(nullable void (^)(void))callBack;
+
+//获取商品讲解回放
+- (void)getGoodRecord:(NSString *)itemID callBack:(nullable void (^)(GoodsModel * _Nullable good))callBack;
+
+//获取当前直播间所有商品讲解的录制
+- (void)getAllGoodRecord:(nullable void (^)(NSArray <GoodsModel *> * _Nullable goodList))callBack;
+
+//删除商品录制回放
+- (void)deleteGoodRecordIDs:(NSArray *)recordIDs callBack:(nullable void (^)(void))callBack;
+
 //取消讲解商品
-- (void)endExplainGood:(nullable void (^)(void))callBack;
+- (void)endExplainAndRecordGood:(nullable void (^)(void))callBack;
 
 //查看正在讲解的商品
 - (void)getExplainGood:(nullable void (^)(GoodsModel * _Nullable good))callBack;

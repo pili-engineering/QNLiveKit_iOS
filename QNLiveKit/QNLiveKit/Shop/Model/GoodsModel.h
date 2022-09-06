@@ -17,6 +17,24 @@ typedef NS_ENUM(NSUInteger, QLiveGoodsStatus) {
     QLiveGoodsStatusTakeAll  = 3,
 };
 
+@interface GoodRecordModel : NSObject
+
+@property(nonatomic, copy) NSString *record_url;//录制的讲解URL
+
+@property(nonatomic, copy) NSString *live_id;//所在的直播间
+
+@property(nonatomic, copy) NSString *item_id;//商品ID
+
+@property(nonatomic, copy) NSString *record_id;//录制ID
+
+@property(nonatomic, strong) NSNumber *start;
+
+@property(nonatomic, strong) NSNumber *end;
+
+@property(nonatomic, strong) NSNumber *status;
+
+@end
+
 //商品model
 @interface GoodsModel : NSObject
 
@@ -43,6 +61,9 @@ typedef NS_ENUM(NSUInteger, QLiveGoodsStatus) {
 @property(nonatomic, assign) BOOL isExplaining;//商品是否正在讲解中
   
 @property(nonatomic, assign) BOOL isSelected;//商品是否选中
+
+@property(nonatomic, strong) GoodRecordModel *record;
+
 @end
 
 NS_ASSUME_NONNULL_END
