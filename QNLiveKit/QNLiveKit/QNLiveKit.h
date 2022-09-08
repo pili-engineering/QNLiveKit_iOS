@@ -49,6 +49,7 @@ FOUNDATION_EXPORT const unsigned char QNLiveKitVersionString[];
 #import "ShopSellListController.h"
 #import "GoodsModel.h"
 #import "QTagList.h"
+#import "QRoomDataModel.h"
 
 //#import "STBaseViewController.h"
 //#import "BeautyLiveViewController.h"

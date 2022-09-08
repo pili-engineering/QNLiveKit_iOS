@@ -19,8 +19,11 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, strong) ImageButtonView *pubchatView;//左下角聊天框槽位
 @property (nonatomic, strong) BottomMenuView *bottomMenuView;//右下角操作槽位
 @property (nonatomic, strong) QNLiveUser *pk_other_user;//pk对象
+//关闭直播间的回调
+@property (nonatomic, copy) void (^closeClickedBlock)(QNLiveRoomInfo *roomInfo);
 
-
+//暂时离开直播间的回调
+@property (nonatomic, copy) void (^leaveClickedBlock)(QNLiveRoomInfo *roomInfo);
 @end
 
 NS_ASSUME_NONNULL_END

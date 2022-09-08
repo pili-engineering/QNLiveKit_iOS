@@ -82,12 +82,12 @@
     NSString *action = [NSString stringWithFormat:@"client/live/room/%@",self.roomInfo.live_id];
     [QLiveNetworkUtil deleteRequestWithAction:action params:@{} success:^(NSDictionary * _Nonnull responseData) {
         
-        if ([self.roomLifeCycleListener respondsToSelector:@selector(onRoomClose)]) {
-            [self.roomLifeCycleListener onRoomClose];
+        if ([self.roomLifeCycleListener respondsToSelector:@selector(onRoomClose:)]) {
+            [self.roomLifeCycleListener onRoomClose:self.roomInfo];
         }
         
-        if ([[QLive getRooms].roomsListener respondsToSelector:@selector(onRoomClose)]) {
-            [[QLive getRooms].roomsListener onRoomClose];
+        if ([[QLive getRooms].roomsListener respondsToSelector:@selector(onRoomClose:)]) {
+            [[QLive getRooms].roomsListener onRoomClose:self.roomInfo];
         }
         
         } failure:^(NSError * _Nonnull error) {
