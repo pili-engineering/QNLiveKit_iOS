@@ -168,6 +168,8 @@
 		77A11CD9288A724E00020149 /* UIImage+QNImage.m in Sources */ = {isa = PBXBuildFile; fileRef = 77A11CD5288A724E00020149 /* UIImage+QNImage.m */; };
 		77A11CDA288A724E00020149 /* UIImage+QNImage.h in Headers */ = {isa = PBXBuildFile; fileRef = 77A11CD6288A724E00020149 /* UIImage+QNImage.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		77A8D26E28782DF0001A3C2C /* AssetsLibrary.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 77A8D26D28782DF0001A3C2C /* AssetsLibrary.framework */; };
+		77BE1F0928C7342A007557E9 /* QRoomDataModel.h in Headers */ = {isa = PBXBuildFile; fileRef = 77BE1F0728C7342A007557E9 /* QRoomDataModel.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		77BE1F0A28C7342A007557E9 /* QRoomDataModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 77BE1F0828C7342A007557E9 /* QRoomDataModel.m */; };
 		77E02E31284E245A00EE8A28 /* QNAudienceController.h in Headers */ = {isa = PBXBuildFile; fileRef = 77E02E2F284E245A00EE8A28 /* QNAudienceController.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		77E02E32284E245A00EE8A28 /* QNAudienceController.m in Sources */ = {isa = PBXBuildFile; fileRef = 77E02E30284E245A00EE8A28 /* QNAudienceController.m */; };
 		77EDC3F8286DA564002B4226 /* STLock.m in Sources */ = {isa = PBXBuildFile; fileRef = 77EDC33B286DA563002B4226 /* STLock.m */; };
@@ -476,6 +478,8 @@
 		77A11CD5288A724E00020149 /* UIImage+QNImage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+QNImage.m"; sourceTree = "<group>"; };
 		77A11CD6288A724E00020149 /* UIImage+QNImage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+QNImage.h"; sourceTree = "<group>"; };
 		77A8D26D28782DF0001A3C2C /* AssetsLibrary.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AssetsLibrary.framework; path = Platforms/MacOSX.platform/Developer/SDKs/MacOSX12.3.sdk/System/iOSSupport/System/Library/Frameworks/AssetsLibrary.framework; sourceTree = DEVELOPER_DIR; };
+		77BE1F0728C7342A007557E9 /* QRoomDataModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = QRoomDataModel.h; sourceTree = "<group>"; };
+		77BE1F0828C7342A007557E9 /* QRoomDataModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = QRoomDataModel.m; sourceTree = "<group>"; };
 		77E02E2F284E245A00EE8A28 /* QNAudienceController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = QNAudienceController.h; sourceTree = "<group>"; };
 		77E02E30284E245A00EE8A28 /* QNAudienceController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = QNAudienceController.m; sourceTree = "<group>"; };
 		77EDC33B286DA563002B4226 /* STLock.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = STLock.m; sourceTree = "<group>"; };
@@ -709,6 +713,8 @@
 				776B1C95283CBBB800D85C73 /* QNMicrophoneParams.m */,
 				77781C3F283DE000009DC71C /* Extension.h */,
 				77781C40283DE000009DC71C /* Extension.m */,
+				77BE1F0728C7342A007557E9 /* QRoomDataModel.h */,
+				77BE1F0828C7342A007557E9 /* QRoomDataModel.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -1439,6 +1445,7 @@
 				77E02E31284E245A00EE8A28 /* QNAudienceController.h in Headers */,
 				77758CFA28AA529C005CBB59 /* UIViewController+QViewController.h in Headers */,
 				77758CF728AA4516005CBB59 /* UILabel+QAttributed.h in Headers */,
+				77BE1F0928C7342A007557E9 /* QRoomDataModel.h in Headers */,
 				77758CF028AA3B06005CBB59 /* QTagList.h in Headers */,
 				77781D5028460813009DC71C /* ImageButtonView.h in Headers */,
 				77781C41283DE000009DC71C /* Extension.h in Headers */,
@@ -1633,6 +1640,7 @@
 				77EDC3F9286DA564002B4226 /* STEffectsTimer.m in Sources */,
 				77EDC466286DA565002B4226 /* STBMPDetailColV.m in Sources */,
 				776B1C8B283CB6B300D85C73 /* QNLiveService.m in Sources */,
+				77BE1F0A28C7342A007557E9 /* QRoomDataModel.m in Sources */,
 				77EDC45D286DA565002B4226 /* STBeautySlider.m in Sources */,
 				77EDC3FC286DA564002B4226 /* STConvert.m in Sources */,
 				77A11CCA2889385800020149 /* QShopService.m in Sources */,

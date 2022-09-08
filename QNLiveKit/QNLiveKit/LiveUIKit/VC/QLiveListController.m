@@ -116,11 +116,23 @@
             return;
         }
         
+        __weak typeof(self)weakSelf = self;
+        
         if ([QLive createPusherClient].needBeauty) {
             
             //带美颜
             BeautyLiveViewController *vc = [BeautyLiveViewController new];
             vc.roomInfo = model;
+            vc.leaveClickedBlock = ^(QNLiveRoomInfo * _Nonnull roomInfo) {
+                if (weakSelf.masterLeaveLiveBlock) {
+                    weakSelf.masterLeaveLiveBlock(roomInfo);
+                }
+            };
+            vc.closeClickedBlock = ^(QNLiveRoomInfo * _Nonnull roomInfo) {
+                if (weakSelf.masterCloseLiveBlock) {
+                    weakSelf.masterCloseLiveBlock(roomInfo);
+                }
+            };
             vc.modalPresentationStyle = UIModalPresentationFullScreen;
             [self presentViewController:vc animated:YES completion:nil];
             
@@ -128,6 +140,16 @@
             //不带美颜
             QLiveController *vc = [QLiveController new];
             vc.roomInfo = model;
+            vc.leaveClickedBlock = ^(QNLiveRoomInfo * _Nonnull roomInfo) {
+                if (weakSelf.masterLeaveLiveBlock) {
+                    weakSelf.masterLeaveLiveBlock(roomInfo);
+                }
+            };
+            vc.closeClickedBlock = ^(QNLiveRoomInfo * _Nonnull roomInfo) {
+                if (weakSelf.masterCloseLiveBlock) {
+                    weakSelf.masterCloseLiveBlock(roomInfo);
+                }
+            };
             vc.modalPresentationStyle = UIModalPresentationFullScreen;
             [self presentViewController:vc animated:YES completion:nil];
         }

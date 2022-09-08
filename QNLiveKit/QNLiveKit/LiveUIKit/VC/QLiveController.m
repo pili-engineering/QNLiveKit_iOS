@@ -384,16 +384,23 @@
                 }
                 [weakSelf.chatService sendLeaveMsg];
                 [[QLive createPusherClient] closeRoom];
+                
+                
                 [weakSelf dismissViewControllerWithCount:2 animated:YES];
+                
+                
                 
             } secondAction:@"仅暂停直播" secondHandler:^(UIAlertAction * _Nonnull action) {
                         
-                if (self.pk_other_user) {
-                    [self stopPK];
+                if (weakSelf.pk_other_user) {
+                    [weakSelf stopPK];
                 }
                 
                 [[QLive createPusherClient] leaveRoom];
-                [self dismissViewControllerWithCount:2 animated:YES];
+                
+                
+                [weakSelf dismissViewControllerWithCount:2 animated:YES];
+                
                 
                     } threeHandler:^(UIAlertAction * _Nonnull action) {
                         

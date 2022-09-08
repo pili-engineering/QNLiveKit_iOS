@@ -20,7 +20,7 @@ NS_ASSUME_NONNULL_BEGIN
 - (void)onRoomCreated:(QNLiveRoomInfo *)roomInfo;
 
 /// 有直播房间被关闭
-- (void)onRoomClose;
+- (void)onRoomClose:(QNLiveRoomInfo *)roomInfo;
 
 @end
 
