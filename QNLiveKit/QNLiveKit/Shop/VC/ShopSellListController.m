@@ -214,8 +214,13 @@
         }
     };
     cell.recordClickedBlock = ^(GoodsModel * _Nonnull itemModel) {
-        NSLog(@"录制开启");
-        [weakSelf.shopService recordGood:itemModel.item_id callBack:nil];
+        if (itemModel.record.record_url.length == 0) {
+            NSLog(@"录制开启");
+            [weakSelf.shopService recordGood:itemModel.item_id callBack:nil];
+        } else {
+            [weakSelf.shopService deleteGoodRecordIDs:@[itemModel.item_id] callBack:nil];
+        }
+        
     };
     cell.goodClickedBlock = ^(GoodsModel * _Nonnull itemModel) {
         NSLog(@"商品被点击");

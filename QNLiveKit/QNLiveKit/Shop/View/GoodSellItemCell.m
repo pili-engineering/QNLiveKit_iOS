@@ -10,6 +10,7 @@
 #import "QAlertView.h"
 #import "QTagList.h"
 #import "QToastView.h"
+#import "QShopService.h"
 
 @interface GoodSellItemCell ()
 
@@ -102,16 +103,27 @@
         [self.takeDownButton setTitle:@"上架商品" forState:UIControlStateNormal];
     }
     
+    self.recordButton.selected = !(itemModel.record.record_url.length == 0);
+    
     UIColor *explainButtonTitleColor;
     NSString *explainButtonTitle;
     
-    if (itemModel.record.record_url.length > 0) {
+    if (itemModel.isExplaining || itemModel.record.record_url.length > 0) {
         self.recordButton.hidden = NO;
-        self.recordStatusImageView.image = [UIImage imageNamed:@"recorded_icon"];
     } else {
         self.recordButton.hidden = YES;
     }
     
+    //录制按钮
+    if (itemModel.record.record_url.length > 0) {
+        self.recordStatusImageView.hidden = NO;
+        self.recordStatusImageView.image = [UIImage imageNamed:@"recorded_icon"];
+        [self.recordButton setTitle:@"00:22" forState:UIControlStateNormal];
+    } else {
+        [self.recordButton setTitle:@"录制" forState:UIControlStateNormal];
+        self.recordStatusImageView.hidden = YES;
+    }
+        
     if (itemModel.isExplaining) {
         
         explainButtonTitle = @"结束讲解";
@@ -119,8 +131,9 @@
         explainButtonTitleColor = [UIColor colorWithHexString:@"E34D59"];
         self.explainButton.userInteractionEnabled = YES;
         self.recordButton.hidden = NO;
-    } else {
         
+    } else {
+        //讲解按钮
         if (itemModel.status == QLiveGoodsStatusTakeOn) {
             self.explainButton.backgroundColor = [UIColor colorWithHexString:@"E34D59"];
             self.explainButton.userInteractionEnabled = YES;
@@ -130,6 +143,7 @@
         }
         explainButtonTitle = @"讲解";
         explainButtonTitleColor = [UIColor whiteColor];
+        
     }
         
     [self.explainButton setTitle:explainButtonTitle forState:UIControlStateNormal];
@@ -167,17 +181,40 @@
 
 //录制按钮点击
 - (void)record:(UIButton *)button {
-    [QToastView showToast:@"已开始录制"];
-    self.recordStatusImageView.hidden = NO;
-    self.recordButton.userInteractionEnabled = NO;
-    [self.recordButton setTitle:@"  00:00" forState:UIControlStateNormal];
-    //计时
-    _timer=[NSTimer scheduledTimerWithTimeInterval:1 target:self selector:@selector(runAction) userInfo:nil repeats:YES];
-    [[NSRunLoop currentRunLoop] addTimer:_timer forMode:NSRunLoopCommonModes];
-    if (self.recordClickedBlock) {
-        self.recordClickedBlock(self.itemModel);
+    
+    //讲解时才可以删除上一次录制
+    if (self.itemModel.isExplaining == NO) {
+        return;
     }
+    
+    button.selected = !button.selected;
+    if (button.selected) {
+        [QToastView showToast:@"已开始录制"];
+        self.recordStatusImageView.hidden = NO;
+        self.recordStatusImageView.image = [UIImage imageNamed:@"recording_icon"];
+        self.recordButton.userInteractionEnabled = NO;
+        [self.recordButton setTitle:@"  00:00" forState:UIControlStateNormal];
+        //计时
+        _timer=[NSTimer scheduledTimerWithTimeInterval:1 target:self selector:@selector(runAction) userInfo:nil repeats:YES];
+        [[NSRunLoop currentRunLoop] addTimer:_timer forMode:NSRunLoopCommonModes];
+        if (self.recordClickedBlock) {
+            self.recordClickedBlock(self.itemModel);
+        }
+    } else {
         
+        [QAlertView showBaseAlertWithTitle:@"确定删除商品讲解录像吗？" content:@"" cancelHandler:^(UIAlertAction * _Nonnull action) {
+                    
+                } confirmHandler:^(UIAlertAction * _Nonnull action) {
+                    
+                    if (self.recordClickedBlock) {
+                        self.recordClickedBlock(self.itemModel);
+                    }
+                    button.selected = NO;
+                    [self record:button];
+                    
+                }];
+    }
+            
 }
 
 - (void)runAction
