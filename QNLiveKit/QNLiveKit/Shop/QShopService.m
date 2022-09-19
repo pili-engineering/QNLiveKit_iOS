@@ -51,7 +51,7 @@
 
 //获取所有商品
 - (void)getGoodList:(nullable void (^)(NSArray <GoodsModel *> * _Nullable goodList))callBack {
-    
+    NSLog(@"获取所有商品");
     NSString *action = [NSString stringWithFormat:@"client/item/%@",self.roomInfo.live_id];
     [QLiveNetworkUtil getRequestWithAction:action params:nil success:^(NSDictionary * _Nonnull responseData) {
        NSArray<GoodsModel *>*list = [GoodsModel mj_objectArrayWithKeyValuesArray:responseData];
@@ -67,6 +67,7 @@
 
 //获取上架中的商品
 - (void)getOnlineGoodList:(nullable void (^)(NSArray <GoodsModel *> * _Nullable goodList))callBack {
+    NSLog(@"获取上架中的商品");
     NSString *action = [NSString stringWithFormat:@"client/item/%@",self.roomInfo.live_id];
     [QLiveNetworkUtil getRequestWithAction:action params:nil success:^(NSDictionary * _Nonnull responseData) {
         NSMutableArray <GoodsModel *> *goods = [GoodsModel mj_objectArrayWithKeyValuesArray:responseData];
@@ -88,7 +89,8 @@
 }
 
 //调整商品顺序
-- (void)sortGood:(GoodsModel *)good fromIndex:(NSInteger)fromIndex toIndex:(NSInteger)toIndex callBack:(nullable void (^)(void))callBack { 
+- (void)sortGood:(GoodsModel *)good fromIndex:(NSInteger)fromIndex toIndex:(NSInteger)toIndex callBack:(nullable void (^)(void))callBack {
+    NSLog(@"调整商品顺序");
     NSMutableDictionary *params = [NSMutableDictionary dictionary];
     params[@"live_id"] = self.roomInfo.live_id;
     params[@"item_id"] = good.item_id;
@@ -106,6 +108,7 @@
 
 //讲解商品
 - (void)explainGood:(GoodsModel *)model callBack:(nullable void (^)(void))callBack {
+    NSLog(@"讲解商品");
     NSString *action = [NSString stringWithFormat:@"client/item/demonstrate/%@/%@",self.roomInfo.live_id,model.item_id];
     [QLiveNetworkUtil postRequestWithAction:action params:nil success:^(NSDictionary * _Nonnull responseData) {
         [self sendExplainGoodMsg:model];
@@ -119,6 +122,7 @@
 
 //取消讲解商品/录制商品
 - (void)endExplainAndRecordGood:(nullable void (^)(void))callBack {
+    NSLog(@"取消讲解商品/录制商品");
     NSString *action = [NSString stringWithFormat:@"client/item/demonstrate/%@",self.roomInfo.live_id];
     [QLiveNetworkUtil deleteRequestWithAction:action params:nil success:^(NSDictionary * _Nonnull responseData) {
         [self sendExplainGoodMsg:[GoodsModel new]];
@@ -132,6 +136,7 @@
 
 //录制商品
 - (void)recordGood:(NSString *)itemID callBack:(nullable void (^)(void))callBack {
+    NSLog(@"录制商品");
     NSString *action = [NSString stringWithFormat:@"client/item/demonstrate/start/%@/%@",self.roomInfo.live_id,itemID];
     [QLiveNetworkUtil postRequestWithAction:action params:@{} success:^(NSDictionary * _Nonnull responseData) {
         if (callBack) {
@@ -143,6 +148,7 @@
 
 //查看正在讲解的商品
 - (void)getExplainGood:(nullable void (^)(GoodsModel * _Nullable good))callBack {
+    NSLog(@"查看正在讲解的商品");
     NSString *action = [NSString stringWithFormat:@"client/item/demonstrate/%@",self.roomInfo.live_id];
     [QLiveNetworkUtil getRequestWithAction:action params:nil success:^(NSDictionary * _Nonnull responseData) {
         
@@ -159,6 +165,7 @@
 
 //获取商品讲解回放
 - (void)getGoodRecord:(NSString *)itemID callBack:(nullable void (^)(GoodsModel * _Nullable good))callBack {
+    NSLog(@"获取商品讲解回放");
     NSString *action = [NSString stringWithFormat:@"client/item/demonstrate/record/%@/%@",self.roomInfo.live_id,itemID];
     [QLiveNetworkUtil getRequestWithAction:action params:nil success:^(NSDictionary * _Nonnull responseData) {
         
@@ -175,6 +182,7 @@
 
 //删除商品录制回放
 - (void)deleteGoodRecordIDs:(NSArray *)recordIDs callBack:(nullable void (^)(void))callBack {
+    NSLog(@"删除商品录制回放");
     NSMutableDictionary *params = [NSMutableDictionary dictionary];
     params[@"live_id"] = self.roomInfo.live_id;
     params[@"demonstrate_item"] = recordIDs.mj_keyValues;
@@ -188,6 +196,7 @@
 
 //获取当前直播间所有商品讲解的录制
 - (void)getAllGoodRecord:(nullable void (^)(NSArray <GoodsModel *> * _Nullable goodList))callBack {
+    NSLog(@"获取当前直播间所有商品讲解的录制");
     NSString *action = [NSString stringWithFormat:@"client/item/demonstrate/record/%@",self.roomInfo.live_id];
     [QLiveNetworkUtil getRequestWithAction:action params:nil success:^(NSDictionary * _Nonnull responseData) {
         
@@ -204,7 +213,7 @@
 
 //批量修改商品状态
 - (void)updateGoodsStatus:(NSArray <GoodsModel *>*)goods status:(QLiveGoodsStatus)status callBack:(nullable void (^)(void))callBack {
-    
+    NSLog(@"批量修改商品状态");
     NSMutableDictionary *params = [NSMutableDictionary dictionary];
     params[@"live_id"] = self.roomInfo.live_id;
     
@@ -228,6 +237,8 @@
 
 //移除商品
 - (void)removeGoods:(NSArray <GoodsModel *>*)goods callBack:(nullable void (^)(void))callBack {
+    
+    NSLog(@"移除商品");
     
     NSMutableDictionary *params = [NSMutableDictionary dictionary];
     params[@"live_id"] = self.roomInfo.live_id;
