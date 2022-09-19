@@ -28,6 +28,8 @@
 @property (nonatomic,strong)UIButton *buyButton;
 //讲解中View
 @property (nonatomic,strong)UIView *explainView;
+//看讲解View
+@property (nonatomic,strong)UIImageView *watchRecordView;
 
 @property (nonatomic,strong)GoodsModel *itemModel;
 
@@ -39,7 +41,7 @@
 - (instancetype)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier {
     if ([super initWithStyle:style reuseIdentifier:reuseIdentifier]) {
         self.contentView.backgroundColor = [UIColor whiteColor];
-        
+        self.contentView.userInteractionEnabled = YES;
         [self iconImageView];
         [self orderLabel];
         [self titleLabel];
@@ -48,6 +50,7 @@
         [self originPriceLabel];
         [self buyButton];
         [self explainView];
+        [self watchRecordView];
         
     }
     return self;
@@ -63,7 +66,8 @@
     } 
     self.currentPriceLabel.text = itemModel.current_price;
     self.originPriceLabel.text = itemModel.origin_price;
-    self.explainView.hidden = !itemModel.isExplaining;
+    self.explainView.hidden = (!itemModel.isExplaining || itemModel.record.record_url.length > 0);
+    self.watchRecordView.hidden = (itemModel.isExplaining || itemModel.record.record_url.length == 0);
 }
 
 - (void)buy:(UIButton *)button {
@@ -73,11 +77,19 @@
     }
 }
 
+//点击看讲解
+- (void)watchRecord {
+    if (self.watchRecordBlock) {
+        self.watchRecordBlock(self.itemModel);
+    }
+}
+
 - (UIImageView *)iconImageView {
     if (!_iconImageView) {
         _iconImageView = [[UIImageView alloc]init];
         _iconImageView.clipsToBounds = YES;
         _iconImageView.layer.cornerRadius = 10;
+        _iconImageView.userInteractionEnabled = YES;
         _iconImageView.contentMode = UIViewContentModeScaleAspectFit;
         [self.contentView addSubview:_iconImageView];
         [_iconImageView mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -227,6 +239,26 @@
         _explainView.hidden = YES;
     }
     return _explainView;
+}
+
+- (UIImageView *)watchRecordView {
+    if (!_watchRecordView) {
+        _watchRecordView = [[UIImageView alloc]initWithImage:[UIImage imageNamed:@"watchRecord"]];
+        [self.iconImageView addSubview:_watchRecordView];
+        [_watchRecordView mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.bottom.equalTo(self.iconImageView);
+            make.centerX.equalTo(self.iconImageView);
+        }];
+
+        _watchRecordView.hidden = YES;
+        
+        UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(watchRecord)];
+        tap.numberOfTapsRequired = 1;
+        _watchRecordView.userInteractionEnabled = YES;
+        [_watchRecordView addGestureRecognizer:tap];
+        
+    }
+    return _watchRecordView;
 }
 
 @end

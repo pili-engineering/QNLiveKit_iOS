@@ -172,6 +172,8 @@
 		77BE1F0A28C7342A007557E9 /* QRoomDataModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 77BE1F0828C7342A007557E9 /* QRoomDataModel.m */; };
 		77BE232528CB4424007557E9 /* QStatisticalService.h in Headers */ = {isa = PBXBuildFile; fileRef = 77BE232328CB4424007557E9 /* QStatisticalService.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		77BE232628CB4424007557E9 /* QStatisticalService.m in Sources */ = {isa = PBXBuildFile; fileRef = 77BE232428CB4424007557E9 /* QStatisticalService.m */; };
+		77BE233128D87177007557E9 /* WacthRecordController.h in Headers */ = {isa = PBXBuildFile; fileRef = 77BE232F28D87177007557E9 /* WacthRecordController.h */; };
+		77BE233228D87177007557E9 /* WacthRecordController.m in Sources */ = {isa = PBXBuildFile; fileRef = 77BE233028D87177007557E9 /* WacthRecordController.m */; };
 		77E02E31284E245A00EE8A28 /* QNAudienceController.h in Headers */ = {isa = PBXBuildFile; fileRef = 77E02E2F284E245A00EE8A28 /* QNAudienceController.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		77E02E32284E245A00EE8A28 /* QNAudienceController.m in Sources */ = {isa = PBXBuildFile; fileRef = 77E02E30284E245A00EE8A28 /* QNAudienceController.m */; };
 		77EDC3F8286DA564002B4226 /* STLock.m in Sources */ = {isa = PBXBuildFile; fileRef = 77EDC33B286DA563002B4226 /* STLock.m */; };
@@ -484,6 +486,8 @@
 		77BE1F0828C7342A007557E9 /* QRoomDataModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = QRoomDataModel.m; sourceTree = "<group>"; };
 		77BE232328CB4424007557E9 /* QStatisticalService.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = QStatisticalService.h; sourceTree = "<group>"; };
 		77BE232428CB4424007557E9 /* QStatisticalService.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = QStatisticalService.m; sourceTree = "<group>"; };
+		77BE232F28D87177007557E9 /* WacthRecordController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WacthRecordController.h; sourceTree = "<group>"; };
+		77BE233028D87177007557E9 /* WacthRecordController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WacthRecordController.m; sourceTree = "<group>"; };
 		77E02E2F284E245A00EE8A28 /* QNAudienceController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = QNAudienceController.h; sourceTree = "<group>"; };
 		77E02E30284E245A00EE8A28 /* QNAudienceController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = QNAudienceController.m; sourceTree = "<group>"; };
 		77EDC33B286DA563002B4226 /* STLock.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = STLock.m; sourceTree = "<group>"; };
@@ -959,6 +963,8 @@
 				77062FAC287E795F00E9FD7D /* ShopSellListController.m */,
 				77062FB8288004AA00E9FD7D /* ShopBuyListController.h */,
 				77062FB9288004AA00E9FD7D /* ShopBuyListController.m */,
+				77BE232F28D87177007557E9 /* WacthRecordController.h */,
+				77BE233028D87177007557E9 /* WacthRecordController.m */,
 			);
 			path = VC;
 			sourceTree = "<group>";
@@ -1444,6 +1450,7 @@
 				77204D8B285F97A20053B1AD /* QIMModel.h in Headers */,
 				77062FD22880920000E9FD7D /* GoodStatusView.h in Headers */,
 				77062FCE288080D300E9FD7D /* GoodsOperationView.h in Headers */,
+				77BE233128D87177007557E9 /* WacthRecordController.h in Headers */,
 				777186992861B8A800C5CABC /* FDanmakuModelProtocol.h in Headers */,
 				77062FC62880294900E9FD7D /* ExplainingGoodView.h in Headers */,
 				77A11CC92889385800020149 /* QShopService.h in Headers */,
@@ -1737,6 +1744,7 @@
 				77781C42283DE000009DC71C /* Extension.m in Sources */,
 				77062FBF288005CE00E9FD7D /* GoodBuyItemCell.m in Sources */,
 				77062FB3287EA0A300E9FD7D /* GoodsModel.m in Sources */,
+				77BE233228D87177007557E9 /* WacthRecordController.m in Sources */,
 				77781D492845FC68009DC71C /* BottomMenuView.m in Sources */,
 				776B1C97283CBBB800D85C73 /* QNMicrophoneParams.m in Sources */,
 				77781DA228488932009DC71C /* QLiveController.m in Sources */,

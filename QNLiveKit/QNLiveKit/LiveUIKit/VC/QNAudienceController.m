@@ -28,6 +28,7 @@
 #import "ExplainingGoodView.h"
 #import "QLiveNetworkUtil.h"
 #import "GoodsModel.h"
+#import "WacthRecordController.h"
 
 @interface QNAudienceController ()<QNChatRoomServiceListener,QNPushClientListener,LiveChatRoomViewDelegate,FDanmakuViewProtocol,PLPlayerDelegate,MicLinkerListener,PKServiceListener>
 @property (nonatomic,strong)UILabel *masterLeaveLabel;
@@ -433,7 +434,20 @@
             if (weakSelf.goodClickedBlock) {
                 weakSelf.goodClickedBlock(itemModel);
             }
-            self.player.mute = YES;
+            weakSelf.player.mute = YES;
+        };
+        vc.watchRecordBlock = ^(GoodsModel * _Nonnull itemModel) {
+            weakSelf.player.mute = YES;
+            
+            WacthRecordController *vc = [[WacthRecordController alloc] initWithModel:itemModel roomInfo:weakSelf.roomInfo];
+            vc.modalPresentationStyle = UIModalPresentationFullScreen;
+            vc.buyClickedBlock = ^(GoodsModel * _Nonnull itemModel) {
+                if (self.goodClickedBlock) {
+                    self.goodClickedBlock(itemModel);
+                }
+            };
+            [weakSelf presentViewController:vc animated:YES completion:nil];
+            
         };
         vc.view.frame = CGRectMake(0, 0, SCREEN_W, SCREEN_H);
         vc.modalPresentationStyle = UIModalPresentationFullScreen;

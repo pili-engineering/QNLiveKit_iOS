@@ -142,16 +142,24 @@
         }
         [weakSelf dismissController];
     };
+    
+    cell.watchRecordBlock = ^(GoodsModel * _Nonnull itemModel) {
+        //观看商品讲解
+        if (weakSelf.watchRecordBlock) {
+            weakSelf.watchRecordBlock(itemModel);
+        }
+        [weakSelf dismissController];
+    };
     cell.selectionStyle = UITableViewCellSelectionStyleNone;
     return cell;;
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
-    if (self.buyClickedBlock) {
-        self.buyClickedBlock(self.ListModel[indexPath.row]);
-    }
-    [self dismissController];
+//    if (self.buyClickedBlock) {
+//        self.buyClickedBlock(self.ListModel[indexPath.row]);
+//    }
+//    [self dismissController];
 }
 
 - (UITableView *)tableView {
@@ -186,5 +194,6 @@
     }
     return _chatService;
 }
+
 
 @end
