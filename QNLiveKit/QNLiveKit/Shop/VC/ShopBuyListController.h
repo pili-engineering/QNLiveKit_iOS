@@ -19,6 +19,9 @@ NS_ASSUME_NONNULL_BEGIN
 //点击购买商品
 @property (nonatomic, copy) void (^buyClickedBlock)(GoodsModel *itemModel);
 
+//点击看商品讲解
+@property (nonatomic, copy) void (^watchRecordBlock)(GoodsModel *itemModel);
+
 @end
 
 NS_ASSUME_NONNULL_END
