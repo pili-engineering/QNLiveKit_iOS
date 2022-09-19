@@ -170,6 +170,8 @@
 		77A8D26E28782DF0001A3C2C /* AssetsLibrary.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 77A8D26D28782DF0001A3C2C /* AssetsLibrary.framework */; };
 		77BE1F0928C7342A007557E9 /* QRoomDataModel.h in Headers */ = {isa = PBXBuildFile; fileRef = 77BE1F0728C7342A007557E9 /* QRoomDataModel.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		77BE1F0A28C7342A007557E9 /* QRoomDataModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 77BE1F0828C7342A007557E9 /* QRoomDataModel.m */; };
+		77BE232528CB4424007557E9 /* QStatisticalService.h in Headers */ = {isa = PBXBuildFile; fileRef = 77BE232328CB4424007557E9 /* QStatisticalService.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		77BE232628CB4424007557E9 /* QStatisticalService.m in Sources */ = {isa = PBXBuildFile; fileRef = 77BE232428CB4424007557E9 /* QStatisticalService.m */; };
 		77E02E31284E245A00EE8A28 /* QNAudienceController.h in Headers */ = {isa = PBXBuildFile; fileRef = 77E02E2F284E245A00EE8A28 /* QNAudienceController.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		77E02E32284E245A00EE8A28 /* QNAudienceController.m in Sources */ = {isa = PBXBuildFile; fileRef = 77E02E30284E245A00EE8A28 /* QNAudienceController.m */; };
 		77EDC3F8286DA564002B4226 /* STLock.m in Sources */ = {isa = PBXBuildFile; fileRef = 77EDC33B286DA563002B4226 /* STLock.m */; };
@@ -480,6 +482,8 @@
 		77A8D26D28782DF0001A3C2C /* AssetsLibrary.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AssetsLibrary.framework; path = Platforms/MacOSX.platform/Developer/SDKs/MacOSX12.3.sdk/System/iOSSupport/System/Library/Frameworks/AssetsLibrary.framework; sourceTree = DEVELOPER_DIR; };
 		77BE1F0728C7342A007557E9 /* QRoomDataModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = QRoomDataModel.h; sourceTree = "<group>"; };
 		77BE1F0828C7342A007557E9 /* QRoomDataModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = QRoomDataModel.m; sourceTree = "<group>"; };
+		77BE232328CB4424007557E9 /* QStatisticalService.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = QStatisticalService.h; sourceTree = "<group>"; };
+		77BE232428CB4424007557E9 /* QStatisticalService.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = QStatisticalService.m; sourceTree = "<group>"; };
 		77E02E2F284E245A00EE8A28 /* QNAudienceController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = QNAudienceController.h; sourceTree = "<group>"; };
 		77E02E30284E245A00EE8A28 /* QNAudienceController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = QNAudienceController.m; sourceTree = "<group>"; };
 		77EDC33B286DA563002B4226 /* STLock.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = STLock.m; sourceTree = "<group>"; };
@@ -680,6 +684,7 @@
 				77A11CCC288950B700020149 /* Shop */,
 				77781C06283D1313009DC71C /* PK */,
 				77781C1C283DD5FF009DC71C /* Chat */,
+				77BE232228CB43E2007557E9 /* Statistical */,
 				776B1CA5283CC68000D85C73 /* Tools */,
 				776B1C4C283C78D800D85C73 /* QNLiveKit.h */,
 				776B1CAE283CC87000D85C73 /* QNLivePrefixHeader.pch */,
@@ -996,6 +1001,15 @@
 				77062FD12880920000E9FD7D /* GoodStatusView.m */,
 			);
 			path = View;
+			sourceTree = "<group>";
+		};
+		77BE232228CB43E2007557E9 /* Statistical */ = {
+			isa = PBXGroup;
+			children = (
+				77BE232328CB4424007557E9 /* QStatisticalService.h */,
+				77BE232428CB4424007557E9 /* QStatisticalService.m */,
+			);
+			path = Statistical;
 			sourceTree = "<group>";
 		};
 		77EDC339286DA563002B4226 /* Effect */ = {
@@ -1447,6 +1461,7 @@
 				77758CF728AA4516005CBB59 /* UILabel+QAttributed.h in Headers */,
 				77BE1F0928C7342A007557E9 /* QRoomDataModel.h in Headers */,
 				77758CF028AA3B06005CBB59 /* QTagList.h in Headers */,
+				77BE232528CB4424007557E9 /* QStatisticalService.h in Headers */,
 				77781D5028460813009DC71C /* ImageButtonView.h in Headers */,
 				77781C41283DE000009DC71C /* Extension.h in Headers */,
 			);
@@ -1695,6 +1710,7 @@
 				776B1CEF283D0D8100D85C73 /* QNMergeOption.m in Sources */,
 				777B7A70284F1F78005032B7 /* QAlertView.m in Sources */,
 				77EDC424286DA564002B4226 /* STGLPreview3.m in Sources */,
+				77BE232628CB4424007557E9 /* QStatisticalService.m in Sources */,
 				77EDC465286DA565002B4226 /* STPlayerControlBar.m in Sources */,
 				77758CEF28AA3B06005CBB59 /* QTagButton.m in Sources */,
 				77204D4F285873BF0053B1AD /* QRooms.m in Sources */,

@@ -50,6 +50,8 @@ FOUNDATION_EXPORT const unsigned char QNLiveKitVersionString[];
 #import "GoodsModel.h"
 #import "QTagList.h"
 #import "QRoomDataModel.h"
+#import "QStatisticalService.h"
+
 
 //#import "STBaseViewController.h"
 //#import "BeautyLiveViewController.h"

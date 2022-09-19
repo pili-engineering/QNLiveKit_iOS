@@ -9,7 +9,7 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-@class QNLiveUser,QNLiveRoomInfo,QLinkMicService,QRoomDataModel;
+@class QNLiveUser,QNLiveRoomInfo,QLinkMicService;
 
 /// 房间生命周期
 @protocol QNRoomLifeCycleListener <NSObject>
@@ -56,11 +56,7 @@ NS_ASSUME_NONNULL_BEGIN
 //使用用户im uid 搜索用户
 - (void)searchUserByIMUid:(NSString *)imUid callBack:(void (^)(QNLiveUser *user))callBack;
 
-//房间数据上报
-- (void)roomDataStatistical:(NSArray <QRoomDataModel *> *)roomData;
 
-//获取房间统计数据
-- (void)getRoomData:(void (^)(NSArray <QRoomDataModel *> *model))callBack;
 
 @end
 

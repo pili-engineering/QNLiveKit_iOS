@@ -37,7 +37,6 @@
 
 - (instancetype)initWithLiveInfo:(QNLiveRoomInfo *)liveInfo {
     if (self = [super init]) {
-//        self.liveID = liveInfo.live_id;
         self.roomInfo = liveInfo;
     }
     return self;
@@ -75,6 +74,9 @@
 //刷新商品列表
 - (void)requestData {
     [self.shopService getGoodList:^(NSArray<GoodsModel *> * _Nullable goodList) {
+        if (goodList.count > 0) {
+            NSLog(@"刷新商品列表成功");
+        }
         self.totalListModel = goodList;
         self.ListModel = self.totalListModel;
         [self.tableView reloadData];
@@ -203,18 +205,20 @@
     };
     cell.explainClickedBlock = ^(GoodsModel * _Nonnull itemModel) {
         if (itemModel.isExplaining) {
+            NSLog(@"开始讲解");
             [weakSelf explainGood:itemModel];
         } else {
+            NSLog(@"结束讲解");
             [weakSelf endExplainGood];
             [weakSelf requestData];
         }
     };
     cell.recordClickedBlock = ^(GoodsModel * _Nonnull itemModel) {
-        
+        NSLog(@"录制开启");
         [weakSelf.shopService recordGood:itemModel.item_id callBack:nil];
     };
     cell.goodClickedBlock = ^(GoodsModel * _Nonnull itemModel) {
-        //商品被点击
+        NSLog(@"商品被点击");
     };
     cell.selectionStyle = UITableViewCellSelectionStyleNone;
 
