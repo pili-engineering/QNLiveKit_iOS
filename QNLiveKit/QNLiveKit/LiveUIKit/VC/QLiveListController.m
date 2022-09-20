@@ -26,13 +26,9 @@
 
 @implementation QLiveListController
 
-//- (void)viewWillAppear:(BOOL)animated {
-//    [super viewWillAppear:animated];
-//    self.tabBarController.tabBar.hidden = YES;
-//    
-////    [self.navigationController setNavigationBarHidden:YES animated:NO];
-//}
-
+- (void)viewWillAppear:(BOOL)animated {
+    [self requestData];
+}
 
 - (void)viewDidLoad {
     [super viewDidLoad];

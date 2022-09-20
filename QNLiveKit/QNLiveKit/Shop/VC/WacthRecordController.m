@@ -62,7 +62,6 @@
         configure.repeatPlay = YES;
         configure.toolBarDisappearTime = 30;
     }];
-    
     _playerView = playerView;
     [self.view addSubview:_playerView];
     _playerView.url = [NSURL URLWithString:url];

@@ -94,6 +94,8 @@
         } else {
             make.right.equalTo(self.bottomToolBar).offset(-Padding);
         }
+        make.width.mas_equalTo(40);
+        make.height.mas_equalTo(20);
     }];
     //当前播放时间
     [self.currentTimeLabel mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -188,7 +190,13 @@
 - (UIButton *) rateButton{
     if (_rateButton == nil){
         _rateButton = [[UIButton alloc] init];
-        [_rateButton setImage:[UIImage imageNamed:@"play_rate"] forState:UIControlStateNormal];
+        _rateButton.backgroundColor = [UIColor whiteColor];
+        _rateButton.layer.cornerRadius = 10;
+        _rateButton.titleLabel.font = [UIFont systemFontOfSize:10];
+        [_rateButton setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
+        _rateButton.clipsToBounds = YES;
+        [_rateButton setTitle:@"倍速" forState:UIControlStateNormal];
+//        [_rateButton setImage:[UIImage imageNamed:@"play_rate"] forState:UIControlStateNormal];
 //        [_rateButton setImage:[UIImage imageNamed:@"play_rate"] forState:UIControlStateSelected];
         [_rateButton addTarget:self action:@selector(rateButtonAction:) forControlEvents:UIControlEventTouchUpInside];
     }
@@ -284,6 +292,11 @@
     // 创建
     PSPopListView *popListView = [PSPopListView psPopListViewWithDataArray:@[@"0.5x", @"0.75x", @"1.0x", @"1.25x", @"1.5x",@"1.75x",@"2.0x"] frame:CGRectMake((SCREEN_W - 120)/2, (SCREEN_H - 160)/2, 120, 160)];
     popListView.block = ^(NSInteger index, NSString *titleName) {
+        if (index == 2) {
+            [self.rateButton setTitle:@"倍速" forState:UIControlStateNormal];
+        } else {
+            [self.rateButton setTitle:titleName forState:UIControlStateNormal];
+        }
         NSLog(@"选中第%ld行: %@", index, titleName);
     };
     [[self topViewController].view addSubview:popListView];

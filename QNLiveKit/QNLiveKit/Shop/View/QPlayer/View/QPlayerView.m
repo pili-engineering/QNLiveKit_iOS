@@ -304,7 +304,11 @@ typedef NS_ENUM(NSInteger, CLPanDirection){
             [panRecognizer setCancelsTouchesInView:YES];
             [self.maskView addGestureRecognizer:panRecognizer];
             self.player.muted = self.configure.mute;
+            if (self.rate == 0) {
+                self.rate = 1;
+            }
             self.player.rate = self.rate;
+            [self resetPlay];
         }
         else if (self.player.currentItem.status == AVPlayerItemStatusFailed) {
             self.state = CLPlayerStateFailed;
