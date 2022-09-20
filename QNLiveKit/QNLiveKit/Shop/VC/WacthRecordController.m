@@ -8,13 +8,14 @@
 #import "WacthRecordController.h"
 #import "GoodsModel.h"
 #import <PLPlayerKit/PLPlayerKit.h>
+#import "QPlayerView.h"
 #import "RoomHostView.h"
 #import "QNLiveRoomInfo.h"
 #import "OnlineUserView.h"
 #import "ExplainingGoodView.h"
 @interface WacthRecordController ()<PLPlayerDelegate>
 @property (nonatomic, strong) GoodsModel *itemModel;
-@property (nonatomic, strong) PLPlayer *player;
+@property (nonatomic, strong) QPlayerView *playerView;
 @property (nonatomic, strong) RoomHostView *roomHostView;
 @property (nonatomic, strong) OnlineUserView *onlineUserView;
 @property (nonatomic, strong) QNLiveRoomInfo *roomInfo;
@@ -47,21 +48,26 @@
 }
 
 - (void)playWithUrl:(NSString *)url {
-    PLPlayerOption *option = [PLPlayerOption defaultOption];
-    PLPlayFormat format = kPLPLAY_FORMAT_UnKnown;
     
-    [option setOptionValue:@(format) forKey:PLPlayerOptionKeyVideoPreferFormat];
-    [option setOptionValue:@(kPLLogNone) forKey:PLPlayerOptionKeyLogLevel];
+    [_playerView destroyPlayer];
+    QPlayerView *playerView = [[QPlayerView alloc] initWithFrame:CGRectMake(0, 0, SCREEN_W, SCREEN_H)];
+
+    [playerView updateWithConfigure:^(QPlayerViewConfigure *configure) {
+        configure.videoFillMode = VideoFillModeResizeAspectFill;
+        configure.backPlay = NO;
+        configure.topToolBarHiddenType = TopToolBarHiddenAlways;
+        configure.progressPlayFinishColor = [UIColor colorWithHexString:@"FFFFFF"];
+        configure.strokeColor = [UIColor whiteColor];
+        configure.autoRotate = NO;
+        configure.repeatPlay = YES;
+        configure.toolBarDisappearTime = 30;
+    }];
     
-    self.player = [PLPlayer playerWithURL:[NSURL URLWithString:url] option:option];
-    [self.view addSubview:self.player.playerView];
-    self.player.playerView.frame = self.view.frame;
-   
-    self.player.playerView.backgroundColor = [UIColor clearColor];
-    self.player.playerView.contentMode = UIViewContentModeScaleAspectFill;
-    self.player.delegate = self;
-    self.player.delegateQueue = dispatch_get_main_queue();
-    [self.player play];
+    _playerView = playerView;
+    [self.view addSubview:_playerView];
+    _playerView.url = [NSURL URLWithString:url];
+    [_playerView playVideo];
+
 }
 
 - (RoomHostView *)roomHostView {
@@ -96,7 +102,6 @@
             if (weakSelf.buyClickedBlock) {
                 weakSelf.buyClickedBlock(itemModel);
             }
-            [weakSelf dismissViewControllerAnimated:YES completion:nil];
         };
         [_goodView updateWithModel:self.itemModel];
         [self.view addSubview:_goodView];

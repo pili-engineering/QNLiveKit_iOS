@@ -214,11 +214,13 @@
         }
     };
     cell.recordClickedBlock = ^(GoodsModel * _Nonnull itemModel) {
-        if (itemModel.record.record_url.length == 0) {
+        if (itemModel.record.live_id.length == 0) {
             NSLog(@"录制开启");
             [weakSelf.shopService recordGood:itemModel.item_id callBack:nil];
         } else {
-            [weakSelf.shopService deleteGoodRecordIDs:@[itemModel.item_id] callBack:nil];
+            [weakSelf.shopService deleteGoodRecordIDs:@[@(itemModel.record.record_id.integerValue)] callBack:^{
+                [weakSelf.shopService recordGood:itemModel.item_id callBack:nil];
+            }];
         }
         
     };
@@ -254,7 +256,7 @@
             obj.isExplaining = NO;
         }];
         self.ListModel = array;
-        [self.tableView reloadData];
+//        [self.tableView reloadData];
     }];
 
 }
