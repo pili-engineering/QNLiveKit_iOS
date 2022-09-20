@@ -30,6 +30,8 @@ typedef NS_ENUM(NSUInteger, QRoomDataType) {
 @property (nonatomic, strong) NSNumber *page_view;//点击/浏览次数
 @property (nonatomic, strong) NSNumber *unique_visitor;//人数
 
+
+
 @end
 
 NS_ASSUME_NONNULL_END

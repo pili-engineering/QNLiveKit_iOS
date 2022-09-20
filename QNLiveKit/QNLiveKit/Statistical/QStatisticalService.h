@@ -14,10 +14,16 @@ NS_ASSUME_NONNULL_BEGIN
 @interface QStatisticalService : QNLiveService
 
 //房间数据上报
-- (void)roomDataStatistical:(NSArray <QRoomDataModel *> *)roomData;
+- (void)roomDataStatistical:(NSArray *)roomData;
 
 //获取房间统计数据
 - (void)getRoomData:(void (^)(NSArray <QRoomDataModel *> *model))callBack;
+
+//上报评论互动
+- (void)uploadComments;
+
+//上报商品点击
+- (void)uploadGoodClick;
 
 @end
 

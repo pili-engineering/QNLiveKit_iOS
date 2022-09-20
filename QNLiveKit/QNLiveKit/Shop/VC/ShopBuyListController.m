@@ -11,6 +11,7 @@
 #import "QLiveNetworkUtil.h"
 #import "QShopService.h"
 #import "QNLiveRoomInfo.h"
+#import "QStatisticalService.h"
 
 @interface ShopBuyListController ()<UITableViewDelegate,UITableViewDataSource,ShopServiceListener,QNChatRoomServiceListener>
 
@@ -18,6 +19,7 @@
 @property (nonatomic, strong) QNLiveRoomInfo *roomInfo;
 @property (nonatomic, strong) QShopService *shopService;
 @property (nonatomic, strong) QNChatRoomService * chatService;
+@property (nonatomic, strong) QStatisticalService *statisticalService;
 @property (nonatomic, strong) NSArray <GoodsModel *> *ListModel;
 @property (nonatomic, strong) UILabel *label;
 @property (nonatomic, strong) UIButton *button;
@@ -139,6 +141,7 @@
         if (weakSelf.buyClickedBlock) {
             weakSelf.buyClickedBlock(itemModel);
         }
+        [weakSelf.statisticalService uploadGoodClick];
         [weakSelf dismissController];
     };
     
@@ -192,6 +195,14 @@
         _chatService.roomInfo = self.roomInfo;
     }
     return _chatService;
+}
+
+- (QStatisticalService *)statisticalService {
+    if (!_statisticalService) {
+        _statisticalService = [[QStatisticalService alloc]init];
+        _statisticalService.roomInfo = self.roomInfo;
+    }
+    return _statisticalService;
 }
 
 

@@ -19,6 +19,7 @@
 #import "QPKService.h"
 #import "QRenderView.h"
 #import "FDanmakuView.h"
+#import "QStatisticalService.h"
 
 @interface QNBaseRTCController ()
 
@@ -120,6 +121,14 @@
         _linkService.roomInfo = self.roomInfo;
     }
     return _linkService;
+}
+
+- (QStatisticalService *)statisticalService {
+    if (!_statisticalService) {
+        _statisticalService = [[QStatisticalService alloc]init];
+        _statisticalService.roomInfo = self.roomInfo;
+    }
+    return _statisticalService;
 }
 
 - (FDanmakuView *)danmakuView {

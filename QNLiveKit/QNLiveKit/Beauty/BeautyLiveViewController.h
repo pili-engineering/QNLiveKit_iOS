@@ -10,7 +10,7 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-@class QNLiveRoomInfo,QNLivePushClient,QNLiveRoomClient,QNChatRoomService,LiveChatRoom,QNMergeOption,QPKService,QRenderView,FDanmakuView,QLinkMicService,RoomHostView,OnlineUserView,ImageButtonView,BottomMenuView,STBaseViewController;
+@class QNLiveRoomInfo,QNLivePushClient,QNLiveRoomClient,QNChatRoomService,LiveChatRoom,QNMergeOption,QPKService,QRenderView,FDanmakuView,QLinkMicService,RoomHostView,OnlineUserView,ImageButtonView,BottomMenuView,STBaseViewController,QStatisticalService;
 
 @interface BeautyLiveViewController : BeautyBaseController
 
@@ -27,6 +27,8 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, strong) FDanmakuView *danmakuView;
 @property (nonatomic, strong) QPKService * pkService;
 @property (nonatomic, strong) QLinkMicService *linkService;
+@property (nonatomic, strong) QStatisticalService *statisticalService;
+
 
 @end
 
