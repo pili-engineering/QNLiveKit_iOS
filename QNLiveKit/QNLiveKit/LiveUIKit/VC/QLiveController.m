@@ -214,6 +214,7 @@
         danmuModel.content = chatModel.content;
         [self.danmakuView.modelsArr addObject:danmuModel];
     }
+    [self.statisticalService uploadComments];
 }
 
 //收到下麦消息

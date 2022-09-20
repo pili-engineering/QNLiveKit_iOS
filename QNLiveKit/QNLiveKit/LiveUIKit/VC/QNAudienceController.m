@@ -305,6 +305,8 @@
         danmuModel.content = chatModel.content;
         [self.danmakuView.modelsArr addObject:danmuModel];
     }
+    
+    [self.statisticalService uploadComments];
 }
 
 - (UILabel *)masterLeaveLabel {

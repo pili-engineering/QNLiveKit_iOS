@@ -10,7 +10,7 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-@class QNLiveRoomInfo,QNLivePushClient,QNLiveRoomClient,QNChatRoomService,LiveChatRoom,QNMergeOption,QPKService,QRenderView,FDanmakuView,QLinkMicService;
+@class QNLiveRoomInfo,QNLivePushClient,QNLiveRoomClient,QNChatRoomService,LiveChatRoom,QNMergeOption,QPKService,QRenderView,FDanmakuView,QLinkMicService,QStatisticalService;
 
 @interface QNBaseRTCController : UIViewController
 
@@ -23,6 +23,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, strong) FDanmakuView *danmakuView;
 @property (nonatomic, strong) QPKService * pkService;
 @property (nonatomic, strong) QLinkMicService *linkService;
+@property (nonatomic, strong) QStatisticalService *statisticalService;
 
 
 //获取某人的画面

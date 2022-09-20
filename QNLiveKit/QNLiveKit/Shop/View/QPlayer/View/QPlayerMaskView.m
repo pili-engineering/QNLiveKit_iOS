@@ -9,13 +9,14 @@
 #import "QPlayerMaskView.h"
 #import "QSlider.h"
 #import "Masonry.h"
+#import "PSPopListView.h"
 
 //间隙
 #define Padding        10
 //顶部底部工具条高度
 #define ToolBarHeight     40
 
-@interface QPlayerMaskView ()
+@interface QPlayerMaskView ()<UITableViewDelegate, UITableViewDataSource>
 
 
 @end
@@ -135,6 +136,7 @@
     _progressPlayFinishColor      = progressPlayFinishColor;
     _slider.minimumTrackTintColor = _progressPlayFinishColor;
 }
+
 #pragma mark - 懒加载
 //顶部工具条
 - (UIView *) topToolBar{
@@ -278,6 +280,33 @@
 //    }else{
 //        NSLog(@"没有实现代理或者没有设置代理人");
 //    }
+    
+    // 创建
+    PSPopListView *popListView = [PSPopListView psPopListViewWithDataArray:@[@"0.5x", @"0.75x", @"1.0x", @"1.25x", @"1.5x",@"1.75x",@"2.0x"] frame:CGRectMake((SCREEN_W - 120)/2, (SCREEN_H - 160)/2, 120, 160)];
+    popListView.block = ^(NSInteger index, NSString *titleName) {
+        NSLog(@"选中第%ld行: %@", index, titleName);
+    };
+    [[self topViewController].view addSubview:popListView];
+
+}
+
+- (UIViewController * )topViewController {
+    UIViewController *resultVC;
+    resultVC = [self recursiveTopViewController:[[UIApplication sharedApplication].windows.firstObject rootViewController]];
+    while (resultVC.presentedViewController) {
+        resultVC = [self recursiveTopViewController:resultVC.presentedViewController];
+    }
+    return resultVC;
+}
+- (UIViewController * )recursiveTopViewController:(UIViewController *)vc {
+    if ([vc isKindOfClass:[UINavigationController class]]) {
+        return [self recursiveTopViewController:[(UINavigationController *)vc topViewController]];
+    } else if ([vc isKindOfClass:[UITabBarController class]]) {
+        return [self recursiveTopViewController:[(UITabBarController *)vc selectedViewController]];
+    } else {
+        return vc;
+    }
+    return nil;
 }
 //失败按钮
 - (void)failButtonAction:(UIButton *)button{

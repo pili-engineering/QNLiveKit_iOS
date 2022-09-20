@@ -37,6 +37,7 @@
 #import "ExplainingGoodView.h"
 #import "QAlertView.h"
 #import "UIViewController+QViewController.h"
+#import "QStatisticalService.h"
 
 @interface BeautyLiveViewController ()<QNPushClientListener,QNRoomLifeCycleListener,QNPushClientListener,QNChatRoomServiceListener,FDanmakuViewProtocol,LiveChatRoomViewDelegate,MicLinkerListener,PKServiceListener,QNLocalVideoTrackDelegate>
 
@@ -246,6 +247,7 @@
         danmuModel.content = chatModel.content;
         [self.danmakuView.modelsArr addObject:danmuModel];
     }
+    [self.statisticalService uploadComments];
 }
 
 //收到下麦消息
@@ -503,5 +505,12 @@
     return resultList;
 }
 
+- (QStatisticalService *)statisticalService {
+    if (!_statisticalService) {
+        _statisticalService = [[QStatisticalService alloc]init];
+        _statisticalService.roomInfo = self.roomInfo;
+    }
+    return _statisticalService;
+}
 
 @end
