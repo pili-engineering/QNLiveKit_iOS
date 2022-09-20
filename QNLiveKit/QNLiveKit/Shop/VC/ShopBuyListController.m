@@ -89,7 +89,6 @@
 
 //查看正在讲解的商品
 - (void)getExplainGood {
-    
     [self.shopService getExplainGood:^(GoodsModel * _Nullable good) {
         [self dealExplainGood:good];
     }];

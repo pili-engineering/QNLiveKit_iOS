@@ -1,13 +1,14 @@
 //
-//  NSDate+Operation.m
-//  QiNiu_Solution_iOS
+//  NSDate+QDate.m
+//  QNLiveKit
 //
-//  Created by 郭茜 on 2021/4/19.
+//  Created by 郭茜 on 2022/9/20.
 //
 
-#import "NSDate+Operation.h"
+#import "NSDate+QDate.h"
 
-@implementation NSDate (Operation)
+@implementation NSDate (QDate)
+
 //时间戳转换为时间格式 yyyy-MM-dd
 + (NSString *)yyyyMMddStringWithSecond:(NSTimeInterval)time {
     
@@ -81,6 +82,57 @@
     
     return timeSp;
     
+}
+
++(NSString *)twoTimestampSub:(NSString *)startTime endTime:(NSString *)endTime {
+    NSDate *date11 = [NSDate dateWithTimeIntervalSince1970:[startTime doubleValue]];
+    NSDateFormatter *formatter1 = [[NSDateFormatter alloc] init];
+    [formatter1 setDateFormat:@"yyyy-MM-dd HH:mm:ss"];
+    NSString *time1 = [formatter1 stringFromDate: date11];
+    
+    
+    NSDate *date22 = [NSDate dateWithTimeIntervalSince1970:[endTime doubleValue]];
+    NSDateFormatter *formatter2 = [[NSDateFormatter alloc] init];
+    [formatter2 setDateFormat:@"yyyy-MM-dd HH:mm:ss"];
+    NSString *time2 = [formatter2 stringFromDate: date22];
+    
+    
+    
+    // 2.将时间转换为date
+    NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
+    formatter.dateFormat = @"yyyy-MM-dd HH:mm:ss";
+    NSDate *date1 = [formatter dateFromString:time1];
+    NSDate *date2 = [formatter dateFromString:time2];
+    // 3.创建日历
+    NSCalendar *calendar = [NSCalendar currentCalendar];
+    NSCalendarUnit type = NSCalendarUnitYear | NSCalendarUnitMonth | NSCalendarUnitDay | NSCalendarUnitHour | NSCalendarUnitMinute | NSCalendarUnitSecond;
+    // 4.利用日历对象比较两个时间的差值
+    NSDateComponents *cmps = [calendar components:type fromDate:date1 toDate:date2 options:0];
+    // 5.输出结果
+//    NSLog(@"两个时间相差%ld年%ld月%ld日%ld小时%ld分钟%ld秒", cmps.year, cmps.month, cmps.day, cmps.hour, cmps.minute, cmps.second);
+//    NSString *hourStr ;
+//    if (cmps.day > 0) {
+//        hourStr = [NSString stringWithFormat:@"%ld",cmps.hour + cmps.day * 24];
+//    } else {
+//        hourStr = cmps.hour == 0 ? @"00" : [NSString stringWithFormat:@"0%ld",cmps.hour];
+//        if (cmps.hour > 9) {
+//            hourStr = @(cmps.hour).stringValue;
+//        }
+//    }
+
+    NSString *minStr = cmps.minute == 0 ? @"00" : [NSString stringWithFormat:@"0%ld",cmps.minute + (cmps.hour + cmps.day * 24) *60];
+    if (cmps.minute > 9) {
+        minStr = @(cmps.minute).stringValue;
+    }
+
+    NSString *secStr = cmps.second == 0 ? @"00" : [NSString stringWithFormat:@"0%ld",cmps.second];
+    if (cmps.second > 9) {
+        secStr = @(cmps.second).stringValue;
+    }
+    
+    NSString *timeString = [NSString stringWithFormat:@"%@:%@",minStr,secStr];
+    return timeString;
+
 }
 
 //一个时间戳距离当前时间日分秒

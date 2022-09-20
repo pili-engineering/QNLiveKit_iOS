@@ -27,9 +27,9 @@ typedef NS_ENUM(NSUInteger, QLiveGoodsStatus) {
 
 @property(nonatomic, copy) NSString *record_id;//录制ID
 
-@property(nonatomic, strong) NSNumber *start;
+@property(nonatomic, copy) NSString *start;
 
-@property(nonatomic, strong) NSNumber *end;
+@property(nonatomic, copy) NSString *end;
 
 @property(nonatomic, strong) NSNumber *status;
 

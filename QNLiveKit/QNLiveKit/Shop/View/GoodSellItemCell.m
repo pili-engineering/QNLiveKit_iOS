@@ -11,6 +11,7 @@
 #import "QTagList.h"
 #import "QToastView.h"
 #import "QShopService.h"
+#import "NSDate+QDate.h"
 
 @interface GoodSellItemCell ()
 
@@ -103,22 +104,29 @@
         [self.takeDownButton setTitle:@"上架商品" forState:UIControlStateNormal];
     }
     
-    self.recordButton.selected = !(itemModel.record.record_url.length == 0);
+    self.recordButton.selected = !(itemModel.record.live_id.length == 0);
     
     UIColor *explainButtonTitleColor;
     NSString *explainButtonTitle;
     
-    if (itemModel.isExplaining || itemModel.record.record_url.length > 0) {
+    if (itemModel.isExplaining || itemModel.record.live_id.length > 0) {
         self.recordButton.hidden = NO;
     } else {
         self.recordButton.hidden = YES;
     }
     
     //录制按钮
-    if (itemModel.record.record_url.length > 0) {
+    if (itemModel.record.live_id.length > 0) {
         self.recordStatusImageView.hidden = NO;
         self.recordStatusImageView.image = [UIImage imageNamed:@"recorded_icon"];
-        [self.recordButton setTitle:@"00:22" forState:UIControlStateNormal];
+        
+        if (itemModel.record.end == 0) {
+            itemModel.record.end = [NSDate getNowTimeTimestamp];
+        }
+        
+        NSString *timeStr = [NSDate twoTimestampSub:itemModel.record.start endTime:itemModel.record.end];
+        [self.recordButton setTitle:timeStr forState:UIControlStateNormal];
+        
     } else {
         [self.recordButton setTitle:@"录制" forState:UIControlStateNormal];
         self.recordStatusImageView.hidden = YES;
