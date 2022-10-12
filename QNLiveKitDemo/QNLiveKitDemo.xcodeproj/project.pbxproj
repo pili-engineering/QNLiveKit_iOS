@@ -1070,6 +1070,7 @@
 					"\"${PODS_CONFIGURATION_BUILD_DIR}/PLShortVideoKit-SenseTime/PLShortVideoKit-SenseTime-1.4.0/PLSTArEffects.framework/Headers\"",
 					"\"${PODS_CONFIGURATION_BUILD_DIR}/YYCategories/YYCategories.framework/Headers\"",
 					"\"$(SRCROOT)/QNLiveKitDemo/BeautyResource/PLSTArEffects.framework/Headers\"",
+					"\"$(SRCROOT)/QNLiveKitDemo/BeautyResource/PLSTArEffects.framework/Headers/core/include\"",
 				);
 				INFOPLIST_FILE = QNLiveKitDemo/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = "互动直播";
@@ -1135,6 +1136,7 @@
 					"\"${PODS_CONFIGURATION_BUILD_DIR}/PLShortVideoKit-SenseTime/PLShortVideoKit-SenseTime-1.4.0/PLSTArEffects.framework/Headers\"",
 					"\"${PODS_CONFIGURATION_BUILD_DIR}/YYCategories/YYCategories.framework/Headers\"",
 					"\"$(SRCROOT)/QNLiveKitDemo/BeautyResource/PLSTArEffects.framework/Headers\"",
+					"\"$(SRCROOT)/QNLiveKitDemo/BeautyResource/PLSTArEffects.framework/Headers/core/include\"",
 				);
 				INFOPLIST_FILE = QNLiveKitDemo/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = "互动直播";

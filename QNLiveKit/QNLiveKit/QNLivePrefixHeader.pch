@@ -41,6 +41,8 @@
 //get直播域名
 #define LIVE_Live_URL [[NSUserDefaults standardUserDefaults] stringForKey:Live_URL]
 
+#define ENABLE_MULTI_STICKER_TAB 0
+
 #define liveroom_welcome  @"liveroom-welcome"
 #define liveroom_bye_bye  @"liveroom-bye-bye"//离开房间信令
 #define liveroom_like  @"liveroom-like"//点赞消息

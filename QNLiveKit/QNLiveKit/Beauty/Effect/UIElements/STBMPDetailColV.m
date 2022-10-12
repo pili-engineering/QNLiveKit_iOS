@@ -13,6 +13,8 @@
 #import "STDefaultSetting.h"
 
 #import "DefaultBeautyParameters.h"
+#import "YYModel/YYWebImage/YYWebImage.h"
+#import "EFMaterialDownloadStatusManager.h"
 
 @interface STBMPDetailColV ()
 
@@ -128,10 +130,11 @@
         }
     }
 }
-
+//下载模型
 - (void)downloadMaterialWithModel:(STMakeupDataModel *)model
                             block:(void(^)(STMakeupDataModel *))block{
-    BOOL isMaterialExist = [[SenseArMaterialService sharedInstance] isMaterialDownloaded:model.m_material];
+//    BOOL isMaterialExist = [[SenseArMaterialService sharedInstance] isMaterialDownloaded:model.m_material];
+    BOOL isMaterialExist = [[EFMaterialDownloadStatusManager sharedInstance] efDownloadStatus:model.NewMaterial];
     BOOL isDirectory = YES;
     BOOL isFileAvalible = [[NSFileManager defaultManager] fileExistsAtPath:model.m_zipPath
                                                                isDirectory:&isDirectory];
@@ -139,18 +142,20 @@
         model.m_zipPath = nil;
         isMaterialExist = NO;
     }
-    if (model && model.m_material && !isMaterialExist) {
-        [[SenseArMaterialService sharedInstance] downloadMaterial:model.m_material
-                                                        onSuccess:^(SenseArMaterial *material){
-            model.m_zipPath = material.strMaterialPath;
-            if (block) {
-                block(model);
-            }
-        }onFailure:^(SenseArMaterial *material, int iErrorCode, NSString *strMessage) {
-            if (block) {
-                block(nil);
-            }
-        }onProgress:nil];
+    if (model && model.NewMaterial && !isMaterialExist) {
+        [[EFMaterialDownloadStatusManager sharedInstance] efStartDownload:model.NewMaterial onProgress:^(id<EFDataSourcing> material, float fProgress, int64_t iSize) {
+                    
+                } onSuccess:^(id<EFDataSourcing> material) {
+                    model.m_zipPath = material.efMaterialPath;
+                    if (block) {
+                        block(model);
+                    }
+                } onFailure:^(id<EFDataSourcing> material, int iErrorCode, NSString *strMessage) {
+                    if (block) {
+                        block(nil);
+                    }
+                }];
+
     }else{
         block(model);
     }
@@ -650,7 +655,7 @@
     }
     return cell;
 }
-
+//设置model图片
 - (void)getImageWithModel:(STMakeupDataModel *)model block:(void(^)(UIImage *))block{
     __weak typeof(self) weakSelf = self;
     dispatch_async(self.thumbQueue, ^{
@@ -658,9 +663,13 @@
         UIImage *memoryimage = [weakSelf.memoryCache objectForKey:model.m_iconDefault];
         if (!memoryimage) {
             //file cache
+            
             UIImage *fileImage = [UIImage imageNamed:[weakSelf.diskCachPath stringByAppendingPathComponent:model.m_iconDefault]];
-            if (!fileImage) {
-                NSData *imageData = [NSData dataWithContentsOfURL:[NSURL URLWithString:model.m_iconDefault] options:NSDataReadingMappedIfSafe error:nil];
+            NSURL *url = [NSURL URLWithString:model.m_iconDefault];
+            if (!fileImage && url) {
+//                model.m_iconDefault = [model.m_iconDefault stringByAddingPercentEncodingWithAllowedCharacters:[NSCharacterSet URLQueryAllowedCharacterSet]];
+                
+                NSData *imageData = [NSData dataWithContentsOfURL:url options:NSDataReadingMappedIfSafe error:nil];
                 UIImage *webImage = [UIImage imageWithData:imageData];
                 if (webImage){
                     [weakSelf.cacheLock lock];
@@ -671,6 +680,8 @@
                     [weakSelf.cacheLock unlock];
                     block(webImage);
                 }
+
+
             }else{
                 block(fileImage);
             }

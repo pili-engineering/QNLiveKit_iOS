@@ -9,6 +9,7 @@
 #import <Foundation/Foundation.h>
 #import <UIKit/UIKit.h>
 #import "SenseArMaterial.h"
+#import "EFSenseArMaterialDataModels.h"
 
 typedef NS_ENUM(NSInteger, STBMPTYPE){
     STBMPTYPE_WHOLEMAKEUP = 0,      // 整妆
@@ -34,6 +35,7 @@ typedef NS_ENUM(NSInteger, STState){
 @interface STMakeupDataModel : NSObject<NSCopying, NSMutableCopying>
 
 @property (nonatomic, strong) SenseArMaterial *m_material;
+@property (nonatomic, strong) EFDataSourceModel *NewMaterial;
 @property (nonatomic, strong) UIImage *m_thumbImage;
 @property (nonatomic,   copy) NSString *m_iconDefault;
 @property (nonatomic,   copy) NSString *m_iconHighlight;

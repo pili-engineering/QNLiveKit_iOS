@@ -29,7 +29,9 @@
 
 #import "STCoreStateManagement.h"
 #import "STDefaultSettingDataSourseGenerator.h"
-
+#import "EFDataSoure/EFResource.h"
+#import "EFDataSoure/EFSenseArMaterialDataModels.h"
+#import "EFDataSoure/EFDataSourceGenerator.h"
 typedef NS_ENUM(NSInteger, STWriterRecordingStatus){
     STWriterRecordingStatusIdle = 0,
     STWriterRecordingStatusStartingRecording,
@@ -170,7 +172,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, strong) STTriggerView *triggerView;
 @property (nonatomic, assign) BOOL addSticker;
 @property (nonatomic, strong) UIImageView *noneStickerImageView;
-
+@property (nonatomic, strong) NSMutableArray *arrModelAll;
 typedef NS_ENUM(NSUInteger, STCurrentType){
     STCurrentTypeWholeEffect,
     STCurrentTypeOther,

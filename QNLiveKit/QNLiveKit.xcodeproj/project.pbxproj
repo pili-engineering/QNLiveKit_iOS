@@ -194,6 +194,102 @@
 		77BE238828D94428007557E9 /* NSDate+QDate.m in Sources */ = {isa = PBXBuildFile; fileRef = 77BE238628D94428007557E9 /* NSDate+QDate.m */; };
 		77BE239928D96EF1007557E9 /* PSPopListView.m in Sources */ = {isa = PBXBuildFile; fileRef = 77BE238A28D96EF0007557E9 /* PSPopListView.m */; };
 		77BE23A528D96EF1007557E9 /* PSPopListView.h in Headers */ = {isa = PBXBuildFile; fileRef = 77BE239628D96EF0007557E9 /* PSPopListView.h */; };
+		77BE243228DC06A1007557E9 /* EFMaterialDownloadManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 77BE23AD28DC06A1007557E9 /* EFMaterialDownloadManager.m */; };
+		77BE243328DC06A1007557E9 /* EFDataSourceGenerator.m in Sources */ = {isa = PBXBuildFile; fileRef = 77BE23AE28DC06A1007557E9 /* EFDataSourceGenerator.m */; };
+		77BE243428DC06A1007557E9 /* EFSenseArMaterialDataModels.h in Headers */ = {isa = PBXBuildFile; fileRef = 77BE23AF28DC06A1007557E9 /* EFSenseArMaterialDataModels.h */; };
+		77BE243528DC06A1007557E9 /* NSString+sha1.m in Sources */ = {isa = PBXBuildFile; fileRef = 77BE23B028DC06A1007557E9 /* NSString+sha1.m */; };
+		77BE243628DC06A1007557E9 /* NSDictionary+sortedJson.m in Sources */ = {isa = PBXBuildFile; fileRef = 77BE23B128DC06A1007557E9 /* NSDictionary+sortedJson.m */; };
+		77BE243728DC06A1007557E9 /* EFResource.m in Sources */ = {isa = PBXBuildFile; fileRef = 77BE23B228DC06A1007557E9 /* EFResource.m */; };
+		77BE243828DC06A1007557E9 /* NSString+materialAes.m in Sources */ = {isa = PBXBuildFile; fileRef = 77BE23B328DC06A1007557E9 /* NSString+materialAes.m */; };
+		77BE243928DC06A1007557E9 /* NSData+meterialAes.m in Sources */ = {isa = PBXBuildFile; fileRef = 77BE23B428DC06A1007557E9 /* NSData+meterialAes.m */; };
+		77BE243A28DC06A1007557E9 /* YYClassInfo.h in Headers */ = {isa = PBXBuildFile; fileRef = 77BE23B628DC06A1007557E9 /* YYClassInfo.h */; };
+		77BE243B28DC06A1007557E9 /* YYModel.h in Headers */ = {isa = PBXBuildFile; fileRef = 77BE23B728DC06A1007557E9 /* YYModel.h */; };
+		77BE243C28DC06A1007557E9 /* NSObject+YYModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 77BE23B828DC06A1007557E9 /* NSObject+YYModel.m */; };
+		77BE243D28DC06A1007557E9 /* YYClassInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 77BE23B928DC06A1007557E9 /* YYClassInfo.m */; };
+		77BE243E28DC06A1007557E9 /* YYImageCache.m in Sources */ = {isa = PBXBuildFile; fileRef = 77BE23BB28DC06A1007557E9 /* YYImageCache.m */; };
+		77BE243F28DC06A1007557E9 /* YYDiskCache.m in Sources */ = {isa = PBXBuildFile; fileRef = 77BE23BD28DC06A1007557E9 /* YYDiskCache.m */; };
+		77BE244028DC06A1007557E9 /* YYKVStorage.h in Headers */ = {isa = PBXBuildFile; fileRef = 77BE23BE28DC06A1007557E9 /* YYKVStorage.h */; };
+		77BE244128DC06A1007557E9 /* YYCache.m in Sources */ = {isa = PBXBuildFile; fileRef = 77BE23BF28DC06A1007557E9 /* YYCache.m */; };
+		77BE244228DC06A1007557E9 /* YYMemoryCache.h in Headers */ = {isa = PBXBuildFile; fileRef = 77BE23C028DC06A1007557E9 /* YYMemoryCache.h */; };
+		77BE244328DC06A1007557E9 /* YYDiskCache.h in Headers */ = {isa = PBXBuildFile; fileRef = 77BE23C128DC06A1007557E9 /* YYDiskCache.h */; };
+		77BE244428DC06A1007557E9 /* YYCache.h in Headers */ = {isa = PBXBuildFile; fileRef = 77BE23C228DC06A1007557E9 /* YYCache.h */; };
+		77BE244528DC06A1007557E9 /* YYKVStorage.m in Sources */ = {isa = PBXBuildFile; fileRef = 77BE23C328DC06A1007557E9 /* YYKVStorage.m */; };
+		77BE244628DC06A1007557E9 /* YYMemoryCache.m in Sources */ = {isa = PBXBuildFile; fileRef = 77BE23C428DC06A1007557E9 /* YYMemoryCache.m */; };
+		77BE244728DC06A1007557E9 /* YYWebImageManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 77BE23C528DC06A1007557E9 /* YYWebImageManager.m */; };
+		77BE244828DC06A1007557E9 /* YYWebImageOperation.h in Headers */ = {isa = PBXBuildFile; fileRef = 77BE23C628DC06A1007557E9 /* YYWebImageOperation.h */; };
+		77BE244928DC06A1007557E9 /* YYImage.h in Headers */ = {isa = PBXBuildFile; fileRef = 77BE23C828DC06A1007557E9 /* YYImage.h */; };
+		77BE244A28DC06A1007557E9 /* YYImageCoder.h in Headers */ = {isa = PBXBuildFile; fileRef = 77BE23C928DC06A1007557E9 /* YYImageCoder.h */; };
+		77BE244B28DC06A1007557E9 /* YYFrameImage.h in Headers */ = {isa = PBXBuildFile; fileRef = 77BE23CA28DC06A1007557E9 /* YYFrameImage.h */; };
+		77BE244C28DC06A1007557E9 /* YYSpriteSheetImage.m in Sources */ = {isa = PBXBuildFile; fileRef = 77BE23CB28DC06A1007557E9 /* YYSpriteSheetImage.m */; };
+		77BE244D28DC06A1007557E9 /* YYAnimatedImageView.h in Headers */ = {isa = PBXBuildFile; fileRef = 77BE23CC28DC06A1007557E9 /* YYAnimatedImageView.h */; };
+		77BE244E28DC06A1007557E9 /* YYImage.m in Sources */ = {isa = PBXBuildFile; fileRef = 77BE23CD28DC06A1007557E9 /* YYImage.m */; };
+		77BE244F28DC06A1007557E9 /* YYImageCoder.m in Sources */ = {isa = PBXBuildFile; fileRef = 77BE23CE28DC06A1007557E9 /* YYImageCoder.m */; };
+		77BE245028DC06A1007557E9 /* YYFrameImage.m in Sources */ = {isa = PBXBuildFile; fileRef = 77BE23CF28DC06A1007557E9 /* YYFrameImage.m */; };
+		77BE245128DC06A1007557E9 /* YYAnimatedImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = 77BE23D028DC06A1007557E9 /* YYAnimatedImageView.m */; };
+		77BE245228DC06A1007557E9 /* YYSpriteSheetImage.h in Headers */ = {isa = PBXBuildFile; fileRef = 77BE23D128DC06A1007557E9 /* YYSpriteSheetImage.h */; };
+		77BE245328DC06A1007557E9 /* YYImageCache.h in Headers */ = {isa = PBXBuildFile; fileRef = 77BE23D228DC06A1007557E9 /* YYImageCache.h */; };
+		77BE245428DC06A1007557E9 /* YYWebImageManager.h in Headers */ = {isa = PBXBuildFile; fileRef = 77BE23D328DC06A1007557E9 /* YYWebImageManager.h */; };
+		77BE245528DC06A1007557E9 /* _YYWebImageSetter.m in Sources */ = {isa = PBXBuildFile; fileRef = 77BE23D528DC06A1007557E9 /* _YYWebImageSetter.m */; };
+		77BE245628DC06A1007557E9 /* UIButton+YYWebImage.h in Headers */ = {isa = PBXBuildFile; fileRef = 77BE23D628DC06A1007557E9 /* UIButton+YYWebImage.h */; };
+		77BE245728DC06A1007557E9 /* UIImageView+YYWebImage.h in Headers */ = {isa = PBXBuildFile; fileRef = 77BE23D728DC06A1007557E9 /* UIImageView+YYWebImage.h */; };
+		77BE245828DC06A1007557E9 /* CALayer+YYWebImage.h in Headers */ = {isa = PBXBuildFile; fileRef = 77BE23D828DC06A1007557E9 /* CALayer+YYWebImage.h */; };
+		77BE245928DC06A1007557E9 /* UIImage+YYWebImage.h in Headers */ = {isa = PBXBuildFile; fileRef = 77BE23D928DC06A1007557E9 /* UIImage+YYWebImage.h */; };
+		77BE245A28DC06A1007557E9 /* MKAnnotationView+YYWebImage.h in Headers */ = {isa = PBXBuildFile; fileRef = 77BE23DA28DC06A1007557E9 /* MKAnnotationView+YYWebImage.h */; };
+		77BE245B28DC06A1007557E9 /* _YYWebImageSetter.h in Headers */ = {isa = PBXBuildFile; fileRef = 77BE23DB28DC06A1007557E9 /* _YYWebImageSetter.h */; };
+		77BE245C28DC06A1007557E9 /* UIButton+YYWebImage.m in Sources */ = {isa = PBXBuildFile; fileRef = 77BE23DC28DC06A1007557E9 /* UIButton+YYWebImage.m */; };
+		77BE245D28DC06A1007557E9 /* UIImageView+YYWebImage.m in Sources */ = {isa = PBXBuildFile; fileRef = 77BE23DD28DC06A1007557E9 /* UIImageView+YYWebImage.m */; };
+		77BE245E28DC06A1007557E9 /* MKAnnotationView+YYWebImage.m in Sources */ = {isa = PBXBuildFile; fileRef = 77BE23DE28DC06A1007557E9 /* MKAnnotationView+YYWebImage.m */; };
+		77BE245F28DC06A1007557E9 /* UIImage+YYWebImage.m in Sources */ = {isa = PBXBuildFile; fileRef = 77BE23DF28DC06A1007557E9 /* UIImage+YYWebImage.m */; };
+		77BE246028DC06A1007557E9 /* CALayer+YYWebImage.m in Sources */ = {isa = PBXBuildFile; fileRef = 77BE23E028DC06A1007557E9 /* CALayer+YYWebImage.m */; };
+		77BE246128DC06A1007557E9 /* YYWebImage.h in Headers */ = {isa = PBXBuildFile; fileRef = 77BE23E128DC06A1007557E9 /* YYWebImage.h */; };
+		77BE246228DC06A1007557E9 /* YYWebImageOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 77BE23E228DC06A1007557E9 /* YYWebImageOperation.m */; };
+		77BE246328DC06A1007557E9 /* NSObject+YYModel.h in Headers */ = {isa = PBXBuildFile; fileRef = 77BE23E328DC06A1007557E9 /* NSObject+YYModel.h */; };
+		77BE246428DC06A1007557E9 /* EFSenseArMaterialDataModels.m in Sources */ = {isa = PBXBuildFile; fileRef = 77BE23E428DC06A1007557E9 /* EFSenseArMaterialDataModels.m */; };
+		77BE246528DC06A1007557E9 /* EFDataSourceGenerator.h in Headers */ = {isa = PBXBuildFile; fileRef = 77BE23E528DC06A1007557E9 /* EFDataSourceGenerator.h */; };
+		77BE246628DC06A1007557E9 /* EFMaterialDownloadManager.h in Headers */ = {isa = PBXBuildFile; fileRef = 77BE23E628DC06A1007557E9 /* EFMaterialDownloadManager.h */; };
+		77BE246728DC06A1007557E9 /* NSDictionary+sortedJson.h in Headers */ = {isa = PBXBuildFile; fileRef = 77BE23E728DC06A1007557E9 /* NSDictionary+sortedJson.h */; };
+		77BE248928DC06A1007557E9 /* NSString+sha1.h in Headers */ = {isa = PBXBuildFile; fileRef = 77BE240C28DC06A1007557E9 /* NSString+sha1.h */; };
+		77BE248D28DC06A1007557E9 /* NSString+materialAes.h in Headers */ = {isa = PBXBuildFile; fileRef = 77BE241128DC06A1007557E9 /* NSString+materialAes.h */; };
+		77BE248E28DC06A1007557E9 /* EFDataSourcing.h in Headers */ = {isa = PBXBuildFile; fileRef = 77BE241228DC06A1007557E9 /* EFDataSourcing.h */; };
+		77BE248F28DC06A1007557E9 /* EFResource.h in Headers */ = {isa = PBXBuildFile; fileRef = 77BE241328DC06A1007557E9 /* EFResource.h */; };
+		77BE249028DC06A1007557E9 /* EFMaterialDownloadStatusManager.h in Headers */ = {isa = PBXBuildFile; fileRef = 77BE241528DC06A1007557E9 /* EFMaterialDownloadStatusManager.h */; };
+		77BE249128DC06A1007557E9 /* beauties.json in Resources */ = {isa = PBXBuildFile; fileRef = 77BE241628DC06A1007557E9 /* beauties.json */; };
+		77BE249228DC06A1007557E9 /* NSDictionary+jsonFile.m in Sources */ = {isa = PBXBuildFile; fileRef = 77BE241728DC06A1007557E9 /* NSDictionary+jsonFile.m */; };
+		77BE249328DC06A1007557E9 /* EFRemoteDataSourceHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 77BE241828DC06A1007557E9 /* EFRemoteDataSourceHelper.m */; };
+		77BE249428DC06A1007557E9 /* EFStatusManagerDelegate.h in Headers */ = {isa = PBXBuildFile; fileRef = 77BE241928DC06A1007557E9 /* EFStatusManagerDelegate.h */; };
+		77BE249528DC06A1007557E9 /* EFStorageHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 77BE241A28DC06A1007557E9 /* EFStorageHelper.m */; };
+		77BE249628DC06A1007557E9 /* NSObject+dictionary.h in Headers */ = {isa = PBXBuildFile; fileRef = 77BE241B28DC06A1007557E9 /* NSObject+dictionary.h */; };
+		77BE249728DC06A1007557E9 /* EFStatusModels.h in Headers */ = {isa = PBXBuildFile; fileRef = 77BE241C28DC06A1007557E9 /* EFStatusModels.h */; };
+		77BE249828DC06A1007557E9 /* EFAuthorizeAdapter.h in Headers */ = {isa = PBXBuildFile; fileRef = 77BE241D28DC06A1007557E9 /* EFAuthorizeAdapter.h */; };
+		77BE249928DC06A1007557E9 /* EFRemoteDataSourceHelper+groupInfos.h in Headers */ = {isa = PBXBuildFile; fileRef = 77BE241E28DC06A1007557E9 /* EFRemoteDataSourceHelper+groupInfos.h */; };
+		77BE249A28DC06A1007557E9 /* EFMachineVersion.m in Sources */ = {isa = PBXBuildFile; fileRef = 77BE241F28DC06A1007557E9 /* EFMachineVersion.m */; };
+		77BE249B28DC06A1007557E9 /* EFGlobalSingleton.m in Sources */ = {isa = PBXBuildFile; fileRef = 77BE242028DC06A1007557E9 /* EFGlobalSingleton.m */; };
+		77BE249C28DC06A1007557E9 /* EFStatusManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 77BE242128DC06A1007557E9 /* EFStatusManager.m */; };
+		77BE249D28DC06A1007557E9 /* EFMaterialDownloadStatusManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 77BE242228DC06A1007557E9 /* EFMaterialDownloadStatusManager.m */; };
+		77BE249E28DC06A1007557E9 /* all_categories.json in Resources */ = {isa = PBXBuildFile; fileRef = 77BE242328DC06A1007557E9 /* all_categories.json */; };
+		77BE249F28DC06A1007557E9 /* EFRemoteDataSourceHelper.h in Headers */ = {isa = PBXBuildFile; fileRef = 77BE242428DC06A1007557E9 /* EFRemoteDataSourceHelper.h */; };
+		77BE24A028DC06A1007557E9 /* NSDictionary+jsonFile.h in Headers */ = {isa = PBXBuildFile; fileRef = 77BE242528DC06A1007557E9 /* NSDictionary+jsonFile.h */; };
+		77BE24A128DC06A1007557E9 /* NSObject+dictionary.m in Sources */ = {isa = PBXBuildFile; fileRef = 77BE242628DC06A1007557E9 /* NSObject+dictionary.m */; };
+		77BE24A228DC06A1007557E9 /* EFStatusModels.m in Sources */ = {isa = PBXBuildFile; fileRef = 77BE242728DC06A1007557E9 /* EFStatusModels.m */; };
+		77BE24A328DC06A1007557E9 /* EFStorageHelper.h in Headers */ = {isa = PBXBuildFile; fileRef = 77BE242828DC06A1007557E9 /* EFStorageHelper.h */; };
+		77BE24A428DC06A1007557E9 /* material_group_map_rulues.json in Resources */ = {isa = PBXBuildFile; fileRef = 77BE242928DC06A1007557E9 /* material_group_map_rulues.json */; };
+		77BE24A528DC06A1007557E9 /* EFStatusManager.h in Headers */ = {isa = PBXBuildFile; fileRef = 77BE242A28DC06A1007557E9 /* EFStatusManager.h */; };
+		77BE24A628DC06A1007557E9 /* EFGlobalSingleton.h in Headers */ = {isa = PBXBuildFile; fileRef = 77BE242B28DC06A1007557E9 /* EFGlobalSingleton.h */; };
+		77BE24A728DC06A1007557E9 /* effects_service_group_list.json in Resources */ = {isa = PBXBuildFile; fileRef = 77BE242C28DC06A1007557E9 /* effects_service_group_list.json */; };
+		77BE24A828DC06A1007557E9 /* EFMachineVersion.h in Headers */ = {isa = PBXBuildFile; fileRef = 77BE242D28DC06A1007557E9 /* EFMachineVersion.h */; };
+		77BE24A928DC06A1007557E9 /* all_categories_without_multi.json in Resources */ = {isa = PBXBuildFile; fileRef = 77BE242E28DC06A1007557E9 /* all_categories_without_multi.json */; };
+		77BE24AA28DC06A1007557E9 /* EFAuthorizeAdapter.m in Sources */ = {isa = PBXBuildFile; fileRef = 77BE242F28DC06A1007557E9 /* EFAuthorizeAdapter.m */; };
+		77BE24AB28DC06A1007557E9 /* EFRemoteDataSourceHelper+groupInfos.m in Sources */ = {isa = PBXBuildFile; fileRef = 77BE243028DC06A1007557E9 /* EFRemoteDataSourceHelper+groupInfos.m */; };
+		77BE24AC28DC06A1007557E9 /* NSData+meterialAes.h in Headers */ = {isa = PBXBuildFile; fileRef = 77BE243128DC06A1007557E9 /* NSData+meterialAes.h */; };
+		77BE24BA28E54280007557E9 /* st_mobile_common.h in Headers */ = {isa = PBXBuildFile; fileRef = 77BE24B128E54280007557E9 /* st_mobile_common.h */; };
+		77BE24BB28E54280007557E9 /* st_mobile_animal.h in Headers */ = {isa = PBXBuildFile; fileRef = 77BE24B228E54280007557E9 /* st_mobile_animal.h */; };
+		77BE24BC28E54280007557E9 /* st_mobile_human_action.h in Headers */ = {isa = PBXBuildFile; fileRef = 77BE24B328E54280007557E9 /* st_mobile_human_action.h */; };
+		77BE24BD28E54280007557E9 /* st_mobile_object.h in Headers */ = {isa = PBXBuildFile; fileRef = 77BE24B428E54280007557E9 /* st_mobile_object.h */; };
+		77BE24BE28E54280007557E9 /* st_mobile_face_attribute.h in Headers */ = {isa = PBXBuildFile; fileRef = 77BE24B528E54280007557E9 /* st_mobile_face_attribute.h */; };
+		77BE24BF28E54280007557E9 /* st_mobile_license.h in Headers */ = {isa = PBXBuildFile; fileRef = 77BE24B628E54280007557E9 /* st_mobile_license.h */; };
+		77BE24C028E54280007557E9 /* st_mobile_effect.h in Headers */ = {isa = PBXBuildFile; fileRef = 77BE24B728E54280007557E9 /* st_mobile_effect.h */; };
+		77BE24C128E54280007557E9 /* st_mobile_color_convert.h in Headers */ = {isa = PBXBuildFile; fileRef = 77BE24B828E54280007557E9 /* st_mobile_color_convert.h */; };
+		77BE24C228E54280007557E9 /* st_mobile_avatar.h in Headers */ = {isa = PBXBuildFile; fileRef = 77BE24B928E54280007557E9 /* st_mobile_avatar.h */; };
 		77E02E31284E245A00EE8A28 /* QNAudienceController.h in Headers */ = {isa = PBXBuildFile; fileRef = 77E02E2F284E245A00EE8A28 /* QNAudienceController.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		77E02E32284E245A00EE8A28 /* QNAudienceController.m in Sources */ = {isa = PBXBuildFile; fileRef = 77E02E30284E245A00EE8A28 /* QNAudienceController.m */; };
 		77EDC3F8286DA564002B4226 /* STLock.m in Sources */ = {isa = PBXBuildFile; fileRef = 77EDC33B286DA563002B4226 /* STLock.m */; };
@@ -528,6 +624,102 @@
 		77BE238628D94428007557E9 /* NSDate+QDate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSDate+QDate.m"; sourceTree = "<group>"; };
 		77BE238A28D96EF0007557E9 /* PSPopListView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PSPopListView.m; sourceTree = "<group>"; };
 		77BE239628D96EF0007557E9 /* PSPopListView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PSPopListView.h; sourceTree = "<group>"; };
+		77BE23AD28DC06A1007557E9 /* EFMaterialDownloadManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EFMaterialDownloadManager.m; sourceTree = "<group>"; };
+		77BE23AE28DC06A1007557E9 /* EFDataSourceGenerator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EFDataSourceGenerator.m; sourceTree = "<group>"; };
+		77BE23AF28DC06A1007557E9 /* EFSenseArMaterialDataModels.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EFSenseArMaterialDataModels.h; sourceTree = "<group>"; };
+		77BE23B028DC06A1007557E9 /* NSString+sha1.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+sha1.m"; sourceTree = "<group>"; };
+		77BE23B128DC06A1007557E9 /* NSDictionary+sortedJson.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDictionary+sortedJson.m"; sourceTree = "<group>"; };
+		77BE23B228DC06A1007557E9 /* EFResource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EFResource.m; sourceTree = "<group>"; };
+		77BE23B328DC06A1007557E9 /* NSString+materialAes.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+materialAes.m"; sourceTree = "<group>"; };
+		77BE23B428DC06A1007557E9 /* NSData+meterialAes.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSData+meterialAes.m"; sourceTree = "<group>"; };
+		77BE23B628DC06A1007557E9 /* YYClassInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YYClassInfo.h; sourceTree = "<group>"; };
+		77BE23B728DC06A1007557E9 /* YYModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YYModel.h; sourceTree = "<group>"; };
+		77BE23B828DC06A1007557E9 /* NSObject+YYModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+YYModel.m"; sourceTree = "<group>"; };
+		77BE23B928DC06A1007557E9 /* YYClassInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YYClassInfo.m; sourceTree = "<group>"; };
+		77BE23BB28DC06A1007557E9 /* YYImageCache.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YYImageCache.m; sourceTree = "<group>"; };
+		77BE23BD28DC06A1007557E9 /* YYDiskCache.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YYDiskCache.m; sourceTree = "<group>"; };
+		77BE23BE28DC06A1007557E9 /* YYKVStorage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YYKVStorage.h; sourceTree = "<group>"; };
+		77BE23BF28DC06A1007557E9 /* YYCache.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YYCache.m; sourceTree = "<group>"; };
+		77BE23C028DC06A1007557E9 /* YYMemoryCache.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YYMemoryCache.h; sourceTree = "<group>"; };
+		77BE23C128DC06A1007557E9 /* YYDiskCache.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YYDiskCache.h; sourceTree = "<group>"; };
+		77BE23C228DC06A1007557E9 /* YYCache.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YYCache.h; sourceTree = "<group>"; };
+		77BE23C328DC06A1007557E9 /* YYKVStorage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YYKVStorage.m; sourceTree = "<group>"; };
+		77BE23C428DC06A1007557E9 /* YYMemoryCache.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YYMemoryCache.m; sourceTree = "<group>"; };
+		77BE23C528DC06A1007557E9 /* YYWebImageManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YYWebImageManager.m; sourceTree = "<group>"; };
+		77BE23C628DC06A1007557E9 /* YYWebImageOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YYWebImageOperation.h; sourceTree = "<group>"; };
+		77BE23C828DC06A1007557E9 /* YYImage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YYImage.h; sourceTree = "<group>"; };
+		77BE23C928DC06A1007557E9 /* YYImageCoder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YYImageCoder.h; sourceTree = "<group>"; };
+		77BE23CA28DC06A1007557E9 /* YYFrameImage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YYFrameImage.h; sourceTree = "<group>"; };
+		77BE23CB28DC06A1007557E9 /* YYSpriteSheetImage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YYSpriteSheetImage.m; sourceTree = "<group>"; };
+		77BE23CC28DC06A1007557E9 /* YYAnimatedImageView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YYAnimatedImageView.h; sourceTree = "<group>"; };
+		77BE23CD28DC06A1007557E9 /* YYImage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YYImage.m; sourceTree = "<group>"; };
+		77BE23CE28DC06A1007557E9 /* YYImageCoder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YYImageCoder.m; sourceTree = "<group>"; };
+		77BE23CF28DC06A1007557E9 /* YYFrameImage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YYFrameImage.m; sourceTree = "<group>"; };
+		77BE23D028DC06A1007557E9 /* YYAnimatedImageView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YYAnimatedImageView.m; sourceTree = "<group>"; };
+		77BE23D128DC06A1007557E9 /* YYSpriteSheetImage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YYSpriteSheetImage.h; sourceTree = "<group>"; };
+		77BE23D228DC06A1007557E9 /* YYImageCache.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YYImageCache.h; sourceTree = "<group>"; };
+		77BE23D328DC06A1007557E9 /* YYWebImageManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YYWebImageManager.h; sourceTree = "<group>"; };
+		77BE23D528DC06A1007557E9 /* _YYWebImageSetter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = _YYWebImageSetter.m; sourceTree = "<group>"; };
+		77BE23D628DC06A1007557E9 /* UIButton+YYWebImage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIButton+YYWebImage.h"; sourceTree = "<group>"; };
+		77BE23D728DC06A1007557E9 /* UIImageView+YYWebImage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImageView+YYWebImage.h"; sourceTree = "<group>"; };
+		77BE23D828DC06A1007557E9 /* CALayer+YYWebImage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "CALayer+YYWebImage.h"; sourceTree = "<group>"; };
+		77BE23D928DC06A1007557E9 /* UIImage+YYWebImage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+YYWebImage.h"; sourceTree = "<group>"; };
+		77BE23DA28DC06A1007557E9 /* MKAnnotationView+YYWebImage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "MKAnnotationView+YYWebImage.h"; sourceTree = "<group>"; };
+		77BE23DB28DC06A1007557E9 /* _YYWebImageSetter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = _YYWebImageSetter.h; sourceTree = "<group>"; };
+		77BE23DC28DC06A1007557E9 /* UIButton+YYWebImage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIButton+YYWebImage.m"; sourceTree = "<group>"; };
+		77BE23DD28DC06A1007557E9 /* UIImageView+YYWebImage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImageView+YYWebImage.m"; sourceTree = "<group>"; };
+		77BE23DE28DC06A1007557E9 /* MKAnnotationView+YYWebImage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "MKAnnotationView+YYWebImage.m"; sourceTree = "<group>"; };
+		77BE23DF28DC06A1007557E9 /* UIImage+YYWebImage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+YYWebImage.m"; sourceTree = "<group>"; };
+		77BE23E028DC06A1007557E9 /* CALayer+YYWebImage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "CALayer+YYWebImage.m"; sourceTree = "<group>"; };
+		77BE23E128DC06A1007557E9 /* YYWebImage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YYWebImage.h; sourceTree = "<group>"; };
+		77BE23E228DC06A1007557E9 /* YYWebImageOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YYWebImageOperation.m; sourceTree = "<group>"; };
+		77BE23E328DC06A1007557E9 /* NSObject+YYModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+YYModel.h"; sourceTree = "<group>"; };
+		77BE23E428DC06A1007557E9 /* EFSenseArMaterialDataModels.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EFSenseArMaterialDataModels.m; sourceTree = "<group>"; };
+		77BE23E528DC06A1007557E9 /* EFDataSourceGenerator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EFDataSourceGenerator.h; sourceTree = "<group>"; };
+		77BE23E628DC06A1007557E9 /* EFMaterialDownloadManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EFMaterialDownloadManager.h; sourceTree = "<group>"; };
+		77BE23E728DC06A1007557E9 /* NSDictionary+sortedJson.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDictionary+sortedJson.h"; sourceTree = "<group>"; };
+		77BE240C28DC06A1007557E9 /* NSString+sha1.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+sha1.h"; sourceTree = "<group>"; };
+		77BE241128DC06A1007557E9 /* NSString+materialAes.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+materialAes.h"; sourceTree = "<group>"; };
+		77BE241228DC06A1007557E9 /* EFDataSourcing.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EFDataSourcing.h; sourceTree = "<group>"; };
+		77BE241328DC06A1007557E9 /* EFResource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EFResource.h; sourceTree = "<group>"; };
+		77BE241528DC06A1007557E9 /* EFMaterialDownloadStatusManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EFMaterialDownloadStatusManager.h; sourceTree = "<group>"; };
+		77BE241628DC06A1007557E9 /* beauties.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = beauties.json; sourceTree = "<group>"; };
+		77BE241728DC06A1007557E9 /* NSDictionary+jsonFile.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDictionary+jsonFile.m"; sourceTree = "<group>"; };
+		77BE241828DC06A1007557E9 /* EFRemoteDataSourceHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EFRemoteDataSourceHelper.m; sourceTree = "<group>"; };
+		77BE241928DC06A1007557E9 /* EFStatusManagerDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EFStatusManagerDelegate.h; sourceTree = "<group>"; };
+		77BE241A28DC06A1007557E9 /* EFStorageHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EFStorageHelper.m; sourceTree = "<group>"; };
+		77BE241B28DC06A1007557E9 /* NSObject+dictionary.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+dictionary.h"; sourceTree = "<group>"; };
+		77BE241C28DC06A1007557E9 /* EFStatusModels.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EFStatusModels.h; sourceTree = "<group>"; };
+		77BE241D28DC06A1007557E9 /* EFAuthorizeAdapter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EFAuthorizeAdapter.h; sourceTree = "<group>"; };
+		77BE241E28DC06A1007557E9 /* EFRemoteDataSourceHelper+groupInfos.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "EFRemoteDataSourceHelper+groupInfos.h"; sourceTree = "<group>"; };
+		77BE241F28DC06A1007557E9 /* EFMachineVersion.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EFMachineVersion.m; sourceTree = "<group>"; };
+		77BE242028DC06A1007557E9 /* EFGlobalSingleton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EFGlobalSingleton.m; sourceTree = "<group>"; };
+		77BE242128DC06A1007557E9 /* EFStatusManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EFStatusManager.m; sourceTree = "<group>"; };
+		77BE242228DC06A1007557E9 /* EFMaterialDownloadStatusManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EFMaterialDownloadStatusManager.m; sourceTree = "<group>"; };
+		77BE242328DC06A1007557E9 /* all_categories.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = all_categories.json; sourceTree = "<group>"; };
+		77BE242428DC06A1007557E9 /* EFRemoteDataSourceHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EFRemoteDataSourceHelper.h; sourceTree = "<group>"; };
+		77BE242528DC06A1007557E9 /* NSDictionary+jsonFile.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDictionary+jsonFile.h"; sourceTree = "<group>"; };
+		77BE242628DC06A1007557E9 /* NSObject+dictionary.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+dictionary.m"; sourceTree = "<group>"; };
+		77BE242728DC06A1007557E9 /* EFStatusModels.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EFStatusModels.m; sourceTree = "<group>"; };
+		77BE242828DC06A1007557E9 /* EFStorageHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EFStorageHelper.h; sourceTree = "<group>"; };
+		77BE242928DC06A1007557E9 /* material_group_map_rulues.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = material_group_map_rulues.json; sourceTree = "<group>"; };
+		77BE242A28DC06A1007557E9 /* EFStatusManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EFStatusManager.h; sourceTree = "<group>"; };
+		77BE242B28DC06A1007557E9 /* EFGlobalSingleton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EFGlobalSingleton.h; sourceTree = "<group>"; };
+		77BE242C28DC06A1007557E9 /* effects_service_group_list.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = effects_service_group_list.json; sourceTree = "<group>"; };
+		77BE242D28DC06A1007557E9 /* EFMachineVersion.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EFMachineVersion.h; sourceTree = "<group>"; };
+		77BE242E28DC06A1007557E9 /* all_categories_without_multi.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = all_categories_without_multi.json; sourceTree = "<group>"; };
+		77BE242F28DC06A1007557E9 /* EFAuthorizeAdapter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EFAuthorizeAdapter.m; sourceTree = "<group>"; };
+		77BE243028DC06A1007557E9 /* EFRemoteDataSourceHelper+groupInfos.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "EFRemoteDataSourceHelper+groupInfos.m"; sourceTree = "<group>"; };
+		77BE243128DC06A1007557E9 /* NSData+meterialAes.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSData+meterialAes.h"; sourceTree = "<group>"; };
+		77BE24B128E54280007557E9 /* st_mobile_common.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = st_mobile_common.h; sourceTree = "<group>"; };
+		77BE24B228E54280007557E9 /* st_mobile_animal.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = st_mobile_animal.h; sourceTree = "<group>"; };
+		77BE24B328E54280007557E9 /* st_mobile_human_action.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = st_mobile_human_action.h; sourceTree = "<group>"; };
+		77BE24B428E54280007557E9 /* st_mobile_object.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = st_mobile_object.h; sourceTree = "<group>"; };
+		77BE24B528E54280007557E9 /* st_mobile_face_attribute.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = st_mobile_face_attribute.h; sourceTree = "<group>"; };
+		77BE24B628E54280007557E9 /* st_mobile_license.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = st_mobile_license.h; sourceTree = "<group>"; };
+		77BE24B728E54280007557E9 /* st_mobile_effect.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = st_mobile_effect.h; sourceTree = "<group>"; };
+		77BE24B828E54280007557E9 /* st_mobile_color_convert.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = st_mobile_color_convert.h; sourceTree = "<group>"; };
+		77BE24B928E54280007557E9 /* st_mobile_avatar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = st_mobile_avatar.h; sourceTree = "<group>"; };
 		77E02E2F284E245A00EE8A28 /* QNAudienceController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = QNAudienceController.h; sourceTree = "<group>"; };
 		77E02E30284E245A00EE8A28 /* QNAudienceController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = QNAudienceController.m; sourceTree = "<group>"; };
 		77EDC33B286DA563002B4226 /* STLock.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = STLock.m; sourceTree = "<group>"; };
@@ -1102,9 +1294,168 @@
 			path = View;
 			sourceTree = "<group>";
 		};
+		77BE23AC28DC06A1007557E9 /* EFDataSoure */ = {
+			isa = PBXGroup;
+			children = (
+				77BE23E528DC06A1007557E9 /* EFDataSourceGenerator.h */,
+				77BE23AE28DC06A1007557E9 /* EFDataSourceGenerator.m */,
+				77BE241228DC06A1007557E9 /* EFDataSourcing.h */,
+				77BE23E628DC06A1007557E9 /* EFMaterialDownloadManager.h */,
+				77BE23AD28DC06A1007557E9 /* EFMaterialDownloadManager.m */,
+				77BE241328DC06A1007557E9 /* EFResource.h */,
+				77BE23B228DC06A1007557E9 /* EFResource.m */,
+				77BE23AF28DC06A1007557E9 /* EFSenseArMaterialDataModels.h */,
+				77BE23E428DC06A1007557E9 /* EFSenseArMaterialDataModels.m */,
+				77BE241428DC06A1007557E9 /* helpers */,
+				77BE243128DC06A1007557E9 /* NSData+meterialAes.h */,
+				77BE23B428DC06A1007557E9 /* NSData+meterialAes.m */,
+				77BE23E728DC06A1007557E9 /* NSDictionary+sortedJson.h */,
+				77BE23B128DC06A1007557E9 /* NSDictionary+sortedJson.m */,
+				77BE241128DC06A1007557E9 /* NSString+materialAes.h */,
+				77BE23B328DC06A1007557E9 /* NSString+materialAes.m */,
+				77BE240C28DC06A1007557E9 /* NSString+sha1.h */,
+				77BE23B028DC06A1007557E9 /* NSString+sha1.m */,
+				77BE23B528DC06A1007557E9 /* YYModel */,
+			);
+			path = EFDataSoure;
+			sourceTree = "<group>";
+		};
+		77BE23B528DC06A1007557E9 /* YYModel */ = {
+			isa = PBXGroup;
+			children = (
+				77BE23B628DC06A1007557E9 /* YYClassInfo.h */,
+				77BE23B728DC06A1007557E9 /* YYModel.h */,
+				77BE23B828DC06A1007557E9 /* NSObject+YYModel.m */,
+				77BE23B928DC06A1007557E9 /* YYClassInfo.m */,
+				77BE23BA28DC06A1007557E9 /* YYWebImage */,
+				77BE23E328DC06A1007557E9 /* NSObject+YYModel.h */,
+			);
+			path = YYModel;
+			sourceTree = "<group>";
+		};
+		77BE23BA28DC06A1007557E9 /* YYWebImage */ = {
+			isa = PBXGroup;
+			children = (
+				77BE23BB28DC06A1007557E9 /* YYImageCache.m */,
+				77BE23BC28DC06A1007557E9 /* Cache */,
+				77BE23C528DC06A1007557E9 /* YYWebImageManager.m */,
+				77BE23C628DC06A1007557E9 /* YYWebImageOperation.h */,
+				77BE23C728DC06A1007557E9 /* Image */,
+				77BE23D228DC06A1007557E9 /* YYImageCache.h */,
+				77BE23D328DC06A1007557E9 /* YYWebImageManager.h */,
+				77BE23D428DC06A1007557E9 /* Categories */,
+				77BE23E128DC06A1007557E9 /* YYWebImage.h */,
+				77BE23E228DC06A1007557E9 /* YYWebImageOperation.m */,
+			);
+			path = YYWebImage;
+			sourceTree = "<group>";
+		};
+		77BE23BC28DC06A1007557E9 /* Cache */ = {
+			isa = PBXGroup;
+			children = (
+				77BE23BD28DC06A1007557E9 /* YYDiskCache.m */,
+				77BE23BE28DC06A1007557E9 /* YYKVStorage.h */,
+				77BE23BF28DC06A1007557E9 /* YYCache.m */,
+				77BE23C028DC06A1007557E9 /* YYMemoryCache.h */,
+				77BE23C128DC06A1007557E9 /* YYDiskCache.h */,
+				77BE23C228DC06A1007557E9 /* YYCache.h */,
+				77BE23C328DC06A1007557E9 /* YYKVStorage.m */,
+				77BE23C428DC06A1007557E9 /* YYMemoryCache.m */,
+			);
+			path = Cache;
+			sourceTree = "<group>";
+		};
+		77BE23C728DC06A1007557E9 /* Image */ = {
+			isa = PBXGroup;
+			children = (
+				77BE23C828DC06A1007557E9 /* YYImage.h */,
+				77BE23C928DC06A1007557E9 /* YYImageCoder.h */,
+				77BE23CA28DC06A1007557E9 /* YYFrameImage.h */,
+				77BE23CB28DC06A1007557E9 /* YYSpriteSheetImage.m */,
+				77BE23CC28DC06A1007557E9 /* YYAnimatedImageView.h */,
+				77BE23CD28DC06A1007557E9 /* YYImage.m */,
+				77BE23CE28DC06A1007557E9 /* YYImageCoder.m */,
+				77BE23CF28DC06A1007557E9 /* YYFrameImage.m */,
+				77BE23D028DC06A1007557E9 /* YYAnimatedImageView.m */,
+				77BE23D128DC06A1007557E9 /* YYSpriteSheetImage.h */,
+			);
+			path = Image;
+			sourceTree = "<group>";
+		};
+		77BE23D428DC06A1007557E9 /* Categories */ = {
+			isa = PBXGroup;
+			children = (
+				77BE23D528DC06A1007557E9 /* _YYWebImageSetter.m */,
+				77BE23D628DC06A1007557E9 /* UIButton+YYWebImage.h */,
+				77BE23D728DC06A1007557E9 /* UIImageView+YYWebImage.h */,
+				77BE23D828DC06A1007557E9 /* CALayer+YYWebImage.h */,
+				77BE23D928DC06A1007557E9 /* UIImage+YYWebImage.h */,
+				77BE23DA28DC06A1007557E9 /* MKAnnotationView+YYWebImage.h */,
+				77BE23DB28DC06A1007557E9 /* _YYWebImageSetter.h */,
+				77BE23DC28DC06A1007557E9 /* UIButton+YYWebImage.m */,
+				77BE23DD28DC06A1007557E9 /* UIImageView+YYWebImage.m */,
+				77BE23DE28DC06A1007557E9 /* MKAnnotationView+YYWebImage.m */,
+				77BE23DF28DC06A1007557E9 /* UIImage+YYWebImage.m */,
+				77BE23E028DC06A1007557E9 /* CALayer+YYWebImage.m */,
+			);
+			path = Categories;
+			sourceTree = "<group>";
+		};
+		77BE241428DC06A1007557E9 /* helpers */ = {
+			isa = PBXGroup;
+			children = (
+				77BE242E28DC06A1007557E9 /* all_categories_without_multi.json */,
+				77BE242328DC06A1007557E9 /* all_categories.json */,
+				77BE241628DC06A1007557E9 /* beauties.json */,
+				77BE241D28DC06A1007557E9 /* EFAuthorizeAdapter.h */,
+				77BE242F28DC06A1007557E9 /* EFAuthorizeAdapter.m */,
+				77BE242C28DC06A1007557E9 /* effects_service_group_list.json */,
+				77BE242B28DC06A1007557E9 /* EFGlobalSingleton.h */,
+				77BE242028DC06A1007557E9 /* EFGlobalSingleton.m */,
+				77BE242D28DC06A1007557E9 /* EFMachineVersion.h */,
+				77BE241F28DC06A1007557E9 /* EFMachineVersion.m */,
+				77BE241528DC06A1007557E9 /* EFMaterialDownloadStatusManager.h */,
+				77BE242228DC06A1007557E9 /* EFMaterialDownloadStatusManager.m */,
+				77BE242428DC06A1007557E9 /* EFRemoteDataSourceHelper.h */,
+				77BE241828DC06A1007557E9 /* EFRemoteDataSourceHelper.m */,
+				77BE241E28DC06A1007557E9 /* EFRemoteDataSourceHelper+groupInfos.h */,
+				77BE243028DC06A1007557E9 /* EFRemoteDataSourceHelper+groupInfos.m */,
+				77BE242A28DC06A1007557E9 /* EFStatusManager.h */,
+				77BE242128DC06A1007557E9 /* EFStatusManager.m */,
+				77BE241928DC06A1007557E9 /* EFStatusManagerDelegate.h */,
+				77BE241C28DC06A1007557E9 /* EFStatusModels.h */,
+				77BE242728DC06A1007557E9 /* EFStatusModels.m */,
+				77BE242828DC06A1007557E9 /* EFStorageHelper.h */,
+				77BE241A28DC06A1007557E9 /* EFStorageHelper.m */,
+				77BE242928DC06A1007557E9 /* material_group_map_rulues.json */,
+				77BE242528DC06A1007557E9 /* NSDictionary+jsonFile.h */,
+				77BE241728DC06A1007557E9 /* NSDictionary+jsonFile.m */,
+				77BE241B28DC06A1007557E9 /* NSObject+dictionary.h */,
+				77BE242628DC06A1007557E9 /* NSObject+dictionary.m */,
+			);
+			path = helpers;
+			sourceTree = "<group>";
+		};
+		77BE24B028E54280007557E9 /* include */ = {
+			isa = PBXGroup;
+			children = (
+				77BE24B128E54280007557E9 /* st_mobile_common.h */,
+				77BE24B228E54280007557E9 /* st_mobile_animal.h */,
+				77BE24B328E54280007557E9 /* st_mobile_human_action.h */,
+				77BE24B428E54280007557E9 /* st_mobile_object.h */,
+				77BE24B528E54280007557E9 /* st_mobile_face_attribute.h */,
+				77BE24B628E54280007557E9 /* st_mobile_license.h */,
+				77BE24B728E54280007557E9 /* st_mobile_effect.h */,
+				77BE24B828E54280007557E9 /* st_mobile_color_convert.h */,
+				77BE24B928E54280007557E9 /* st_mobile_avatar.h */,
+			);
+			path = include;
+			sourceTree = "<group>";
+		};
 		77EDC339286DA563002B4226 /* Effect */ = {
 			isa = PBXGroup;
 			children = (
+				77BE23AC28DC06A1007557E9 /* EFDataSoure */,
 				77EDC33A286DA563002B4226 /* Util */,
 				77EDC344286DA563002B4226 /* SampleDefaultSetting */,
 				77EDC34B286DA563002B4226 /* Camera */,
@@ -1351,6 +1702,7 @@
 		77EDC3D2286DA564002B4226 /* st_mobile_sdk */ = {
 			isa = PBXGroup;
 			children = (
+				77BE24B028E54280007557E9 /* include */,
 				77EDC3F3286DA564002B4226 /* lib */,
 			);
 			path = st_mobile_sdk;
@@ -1417,9 +1769,13 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				77BE245B28DC06A1007557E9 /* _YYWebImageSetter.h in Headers */,
+				77BE244A28DC06A1007557E9 /* YYImageCoder.h in Headers */,
+				77BE244328DC06A1007557E9 /* YYDiskCache.h in Headers */,
 				77BE23A528D96EF1007557E9 /* PSPopListView.h in Headers */,
 				776B1C73283C79BB00D85C73 /* QNCreateRoomParam.h in Headers */,
 				776B1C6E283C792B00D85C73 /* QLive.h in Headers */,
+				77BE246528DC06A1007557E9 /* EFDataSourceGenerator.h in Headers */,
 				776B1C77283C79DB00D85C73 /* QNLiveRoomInfo.h in Headers */,
 				77BE238728D94428007557E9 /* NSDate+QDate.h in Headers */,
 				776B1C82283CB2AA00D85C73 /* QNLiveUser.h in Headers */,
@@ -1433,9 +1789,13 @@
 				77781C20283DD63C009DC71C /* QNChatRoomService.h in Headers */,
 				776B1CF2283D0F2000D85C73 /* LinkInvitation.h in Headers */,
 				776B1C96283CBBB800D85C73 /* QNMicrophoneParams.h in Headers */,
+				77BE244228DC06A1007557E9 /* YYMemoryCache.h in Headers */,
 				77781CE728449A60009DC71C /* QNLiveTypeDefines.h in Headers */,
+				77BE248D28DC06A1007557E9 /* NSString+materialAes.h in Headers */,
+				77BE245428DC06A1007557E9 /* YYWebImageManager.h in Headers */,
 				776B1C8A283CB6B300D85C73 /* QNLiveService.h in Headers */,
 				776B1CC8283CFEE800D85C73 /* QNLivePullClient.h in Headers */,
+				77BE244028DC06A1007557E9 /* YYKVStorage.h in Headers */,
 				776B1CAF283CC87000D85C73 /* QNLivePrefixHeader.pch in Headers */,
 				77781D7128486D3D009DC71C /* QTextMessageCell.h in Headers */,
 				77781D7028486D3D009DC71C /* QMessageBaseCell.h in Headers */,
@@ -1447,16 +1807,20 @@
 				77EDC49F286DAD99002B4226 /* BeautyLiveViewController.h in Headers */,
 				77BE237A28D8CAEC007557E9 /* QSlider.h in Headers */,
 				77781D6728486D35009DC71C /* QEmojiBoardView.h in Headers */,
+				77BE249428DC06A1007557E9 /* EFStatusManagerDelegate.h in Headers */,
 				77EDC441286DA565002B4226 /* STBaseViewController.h in Headers */,
 				77781DA028488932009DC71C /* QLiveController.h in Headers */,
 				77EDC431286DA564002B4226 /* STCoreStateManagementModel.h in Headers */,
 				77EDC434286DA564002B4226 /* STCoreStateManagementFilterModel.h in Headers */,
+				77BE24BF28E54280007557E9 /* st_mobile_license.h in Headers */,
 				77EDC45F286DA565002B4226 /* STTriggerView.h in Headers */,
 				77EDC464286DA565002B4226 /* STButton.h in Headers */,
+				77BE243428DC06A1007557E9 /* EFSenseArMaterialDataModels.h in Headers */,
 				77EDC45A286DA565002B4226 /* STCommonObjectView.h in Headers */,
 				776B1CAC283CC6EC00D85C73 /* QLiveNetworkUtil.h in Headers */,
 				776B1CD5283D024E00D85C73 /* QLinkMicService.h in Headers */,
 				77EDC41E286DA564002B4226 /* STColorConversion.h in Headers */,
+				77BE249828DC06A1007557E9 /* EFAuthorizeAdapter.h in Headers */,
 				77EDC45E286DA565002B4226 /* STCommonObjectContainerView.h in Headers */,
 				77EDC46E286DA565002B4226 /* STMakeupDataModel.h in Headers */,
 				776B1CD1283D010D00D85C73 /* QNMicLinker.h in Headers */,
@@ -1473,30 +1837,45 @@
 				77EDC430286DA564002B4226 /* STCoreStateManagement.h in Headers */,
 				77EDC403286DA564002B4226 /* DefaultBeautyParameters.h in Headers */,
 				77BE237628D8CAEC007557E9 /* UIViewController+QPlayerRotation.h in Headers */,
+				77BE24BD28E54280007557E9 /* st_mobile_object.h in Headers */,
 				77EDC428286DA564002B4226 /* SenseArMaterialAction.h in Headers */,
 				77EDC3FA286DA564002B4226 /* STMobileLog.h in Headers */,
+				77BE249628DC06A1007557E9 /* NSObject+dictionary.h in Headers */,
+				77BE246128DC06A1007557E9 /* YYWebImage.h in Headers */,
 				77EDC476286DA565002B4226 /* STBeautySlider.h in Headers */,
 				77EDC44B286DA565002B4226 /* STScrollTitleView.h in Headers */,
+				77BE24BB28E54280007557E9 /* st_mobile_animal.h in Headers */,
 				77EDC44C286DA565002B4226 /* STViewButton.h in Headers */,
+				77BE249F28DC06A1007557E9 /* EFRemoteDataSourceHelper.h in Headers */,
 				77EDC45C286DA565002B4226 /* STBMPCollectionViewCell.h in Headers */,
 				77EDC44D286DA565002B4226 /* STFilterView.h in Headers */,
 				77EDC455286DA565002B4226 /* STCollectionView.h in Headers */,
 				77EDC471286DA565002B4226 /* STCustomCollectionView.h in Headers */,
+				77BE245828DC06A1007557E9 /* CALayer+YYWebImage.h in Headers */,
+				77BE244928DC06A1007557E9 /* YYImage.h in Headers */,
+				77BE24C228E54280007557E9 /* st_mobile_avatar.h in Headers */,
 				77EDC452286DA565002B4226 /* STCollectionViewCell.h in Headers */,
 				77EDC44A286DA565002B4226 /* STSlideView.h in Headers */,
 				77EDC439286DA564002B4226 /* SoundInfomation.h in Headers */,
+				77BE246628DC06A1007557E9 /* EFMaterialDownloadManager.h in Headers */,
 				77EDC447286DA565002B4226 /* STPlayerControlBar.h in Headers */,
 				77EDC442286DA565002B4226 /* LicenseUtil.h in Headers */,
 				77EDC46B286DA565002B4226 /* STTitleViewItem.h in Headers */,
+				77BE248E28DC06A1007557E9 /* EFDataSourcing.h in Headers */,
 				77EDC400286DA564002B4226 /* NSBundle+language.h in Headers */,
 				77EDC472286DA565002B4226 /* STParamUtil.h in Headers */,
 				77EDC3FD286DA564002B4226 /* STLock.h in Headers */,
 				77EDC404286DA564002B4226 /* STDefaultSetting.h in Headers */,
+				77BE249728DC06A1007557E9 /* EFStatusModels.h in Headers */,
+				77BE24A828DC06A1007557E9 /* EFMachineVersion.h in Headers */,
 				77EDC421286DA564002B4226 /* STVFShader.h in Headers */,
 				77EDC450286DA565002B4226 /* STBMPCollectionView.h in Headers */,
+				77BE245728DC06A1007557E9 /* UIImageView+YYWebImage.h in Headers */,
 				77EDC473286DA565002B4226 /* STCustomMemoryCache.h in Headers */,
+				77BE245A28DC06A1007557E9 /* MKAnnotationView+YYWebImage.h in Headers */,
 				77EDC446286DA565002B4226 /* STBMPDetailColV.h in Headers */,
 				77EDC42B286DA564002B4226 /* SenseArMaterialService.h in Headers */,
+				77BE248F28DC06A1007557E9 /* EFResource.h in Headers */,
 				77EDC453286DA565002B4226 /* EffectsCollectionViewCell.h in Headers */,
 				77EDC41F286DA564002B4226 /* STGLPreview3.h in Headers */,
 				77EDC426286DA564002B4226 /* STGLPreview2.h in Headers */,
@@ -1504,35 +1883,51 @@
 				77EDC43E286DA565002B4226 /* STAudioManager.h in Headers */,
 				77EDC42C286DA564002B4226 /* SenseArMaterialGroup.h in Headers */,
 				77EDC406286DA564002B4226 /* STCamera.h in Headers */,
+				77BE244828DC06A1007557E9 /* YYWebImageOperation.h in Headers */,
+				77BE244D28DC06A1007557E9 /* YYAnimatedImageView.h in Headers */,
 				77BE237228D8CAEC007557E9 /* QPlayerView.h in Headers */,
 				77EDC467286DA565002B4226 /* STBmpStrengthView.h in Headers */,
 				77EDC45B286DA565002B4226 /* UIView+Toast.h in Headers */,
 				77EDC435286DA564002B4226 /* STCoreStateManagementValueChangeDelegate.h in Headers */,
 				77EDC43D286DA565002B4226 /* SystemSound.h in Headers */,
 				77781D322845E56A009DC71C /* RoomHostView.h in Headers */,
+				77BE248928DC06A1007557E9 /* NSString+sha1.h in Headers */,
 				774E641D2848DB6800C9FB7F /* CreateSignalHandler.h in Headers */,
 				774E6422284DF8E800C9FB7F /* QMixStreamManager.h in Headers */,
+				77BE24BE28E54280007557E9 /* st_mobile_face_attribute.h in Headers */,
 				77781D342845E56B009DC71C /* QLiveView.h in Headers */,
 				77BE237328D8CAEC007557E9 /* UINavigationController+QPlayerRotation.h in Headers */,
+				77BE24C128E54280007557E9 /* st_mobile_color_convert.h in Headers */,
+				77BE244B28DC06A1007557E9 /* YYFrameImage.h in Headers */,
 				777B7A7F284F4B0D005032B7 /* QRenderView.h in Headers */,
 				777B7A83284F5A6F005032B7 /* QNPKInvitationListCell.h in Headers */,
+				77BE24C028E54280007557E9 /* st_mobile_effect.h in Headers */,
+				77BE24BC28E54280007557E9 /* st_mobile_human_action.h in Headers */,
 				777B7A6F284F1F78005032B7 /* QAlertView.h in Headers */,
 				77781D482845FC68009DC71C /* BottomMenuView.h in Headers */,
 				77204D68285F755C0053B1AD /* QCreateLiveController.h in Headers */,
+				77BE243A28DC06A1007557E9 /* YYClassInfo.h in Headers */,
 				777B7A73284F375A005032B7 /* LinkStateView.h in Headers */,
 				77204D83285F97A20053B1AD /* PubChatModel.h in Headers */,
+				77BE244428DC06A1007557E9 /* YYCache.h in Headers */,
 				77BE237028D8CAEC007557E9 /* QGCDTimerManager.h in Headers */,
 				77204D67285F755C0053B1AD /* QLiveListController.h in Headers */,
 				77BE238028D8CAEC007557E9 /* QPlayerMaskView.h in Headers */,
+				77BE24A328DC06A1007557E9 /* EFStorageHelper.h in Headers */,
 				77062FBE288005CE00E9FD7D /* GoodBuyItemCell.h in Headers */,
 				77204D86285F97A20053B1AD /* QInvitationModel.h in Headers */,
 				77062FB2287EA0A300E9FD7D /* GoodsModel.h in Headers */,
 				77204D65285F755C0053B1AD /* QNLiveListCell.h in Headers */,
+				77BE24A628DC06A1007557E9 /* EFGlobalSingleton.h in Headers */,
+				77BE24BA28E54280007557E9 /* st_mobile_common.h in Headers */,
 				77062FBA288004AA00E9FD7D /* ShopBuyListController.h in Headers */,
 				77062FAD287E795F00E9FD7D /* ShopSellListController.h in Headers */,
+				77BE24AC28DC06A1007557E9 /* NSData+meterialAes.h in Headers */,
 				77062FB6287EAA8D00E9FD7D /* GoodSellItemCell.h in Headers */,
 				77204D59285981B00053B1AD /* CYProtocolManager.h in Headers */,
+				77BE24A028DC06A1007557E9 /* NSDictionary+jsonFile.h in Headers */,
 				777B7A87284F5BC5005032B7 /* QNPKInvitationListController.h in Headers */,
+				77BE249028DC06A1007557E9 /* EFMaterialDownloadStatusManager.h in Headers */,
 				77204D97285F9AF50053B1AD /* LinkOptionModel.h in Headers */,
 				77A11C6028854A7A00020149 /* BeautyBaseController.h in Headers */,
 				77A11C64288556AA00020149 /* CreateBeautyLiveController.h in Headers */,
@@ -1544,12 +1939,16 @@
 				77062FCE288080D300E9FD7D /* GoodsOperationView.h in Headers */,
 				77BE233128D87177007557E9 /* WacthRecordController.h in Headers */,
 				777186992861B8A800C5CABC /* FDanmakuModelProtocol.h in Headers */,
+				77BE245628DC06A1007557E9 /* UIButton+YYWebImage.h in Headers */,
 				77062FC62880294900E9FD7D /* ExplainingGoodView.h in Headers */,
 				77A11CC92889385800020149 /* QShopService.h in Headers */,
 				7771869B2861B8A800C5CABC /* CALayer+Aimate.h in Headers */,
 				777186A32862C5D100C5CABC /* QToastView.h in Headers */,
+				77BE24A528DC06A1007557E9 /* EFStatusManager.h in Headers */,
 				77A11CDA288A724E00020149 /* UIImage+QNImage.h in Headers */,
+				77BE245928DC06A1007557E9 /* UIImage+YYWebImage.h in Headers */,
 				77A11CD8288A724E00020149 /* UIColor+QNColor.h in Headers */,
+				77BE245228DC06A1007557E9 /* YYSpriteSheetImage.h in Headers */,
 				7798A79A28814872009DEB27 /* UITableView+MoveCell.h in Headers */,
 				77204D84285F97A20053B1AD /* QGiftMsgModel.h in Headers */,
 				77758CDE28A4EE34005CBB59 /* QGradient.h in Headers */,
@@ -1558,13 +1957,18 @@
 				77758CF128AA3B06005CBB59 /* QTagButton.h in Headers */,
 				77E02E31284E245A00EE8A28 /* QNAudienceController.h in Headers */,
 				77758CFA28AA529C005CBB59 /* UIViewController+QViewController.h in Headers */,
+				77BE246328DC06A1007557E9 /* NSObject+YYModel.h in Headers */,
+				77BE246728DC06A1007557E9 /* NSDictionary+sortedJson.h in Headers */,
 				77758CF728AA4516005CBB59 /* UILabel+QAttributed.h in Headers */,
 				77BE1F0928C7342A007557E9 /* QRoomDataModel.h in Headers */,
+				77BE243B28DC06A1007557E9 /* YYModel.h in Headers */,
 				77758CF028AA3B06005CBB59 /* QTagList.h in Headers */,
 				77BE232528CB4424007557E9 /* QStatisticalService.h in Headers */,
 				77BE238128D8CAEC007557E9 /* UITabBarController+QPlayerRotation.h in Headers */,
 				77781D5028460813009DC71C /* ImageButtonView.h in Headers */,
 				77781C41283DE000009DC71C /* Extension.h in Headers */,
+				77BE249928DC06A1007557E9 /* EFRemoteDataSourceHelper+groupInfos.h in Headers */,
+				77BE245328DC06A1007557E9 /* YYImageCache.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1652,8 +2056,13 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				77BE249E28DC06A1007557E9 /* all_categories.json in Resources */,
 				77781D6328486D35009DC71C /* EmojiList.plist in Resources */,
+				77BE24A428DC06A1007557E9 /* material_group_map_rulues.json in Resources */,
+				77BE24A928DC06A1007557E9 /* all_categories_without_multi.json in Resources */,
 				77EDC42D286DA564002B4226 /* VERSION in Resources */,
+				77BE249128DC06A1007557E9 /* beauties.json in Resources */,
+				77BE24A728DC06A1007557E9 /* effects_service_group_list.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1719,24 +2128,32 @@
 			buildActionMask = 2147483647;
 			files = (
 				77204D6A285F755C0053B1AD /* QLiveListController.m in Sources */,
+				77BE243928DC06A1007557E9 /* NSData+meterialAes.m in Sources */,
+				77BE243D28DC06A1007557E9 /* YYClassInfo.m in Sources */,
 				774E6421284DF8E800C9FB7F /* QMixStreamManager.m in Sources */,
+				77BE245F28DC06A1007557E9 /* UIImage+YYWebImage.m in Sources */,
 				77758CF628AA4516005CBB59 /* UILabel+QAttributed.m in Sources */,
 				77EDC44E286DA565002B4226 /* STCommonObjectContainerView.m in Sources */,
 				77BE237828D8CAEC007557E9 /* QPlayerMaskView.m in Sources */,
+				77BE243C28DC06A1007557E9 /* NSObject+YYModel.m in Sources */,
 				77781D6E28486D3D009DC71C /* QMessageBaseCell.m in Sources */,
 				77781D302845E56A009DC71C /* QLiveView.m in Sources */,
 				77EDC422286DA564002B4226 /* STGLPreview2.m in Sources */,
 				77EDC43B286DA564002B4226 /* STEffectsAudioPlayer.m in Sources */,
+				77BE244C28DC06A1007557E9 /* YYSpriteSheetImage.m in Sources */,
 				77EDC436286DA564002B4226 /* STCoreStateManagement.m in Sources */,
 				77781D6028486D35009DC71C /* QInputView.m in Sources */,
 				77204D87285F97A20053B1AD /* QIMModel.m in Sources */,
+				77BE249B28DC06A1007557E9 /* EFGlobalSingleton.m in Sources */,
 				77781D372845E56B009DC71C /* OnlineUserView.m in Sources */,
 				777B7A74284F375A005032B7 /* LinkStateView.m in Sources */,
 				777B7A80284F4B0D005032B7 /* QRenderView.m in Sources */,
 				77EDC458286DA565002B4226 /* STParamUtil.m in Sources */,
 				77EDC46D286DA565002B4226 /* STCollectionViewCell.m in Sources */,
 				77781D6228486D35009DC71C /* QInputBarControl.m in Sources */,
+				77BE243F28DC06A1007557E9 /* YYDiskCache.m in Sources */,
 				77EDC3F8286DA564002B4226 /* STLock.m in Sources */,
+				77BE243228DC06A1007557E9 /* EFMaterialDownloadManager.m in Sources */,
 				77EDC469286DA565002B4226 /* STCollectionView.m in Sources */,
 				77EDC460286DA565002B4226 /* STFilterView.m in Sources */,
 				77EDC445286DA565002B4226 /* STBmpStrengthView.m in Sources */,
@@ -1747,46 +2164,61 @@
 				77BE238828D94428007557E9 /* NSDate+QDate.m in Sources */,
 				77EDC440286DA565002B4226 /* STMovieRecorder.m in Sources */,
 				776B1C93283CBBA100D85C73 /* QNCameraParams.m in Sources */,
+				77BE244628DC06A1007557E9 /* YYMemoryCache.m in Sources */,
 				77062FCF288080D300E9FD7D /* GoodsOperationView.m in Sources */,
+				77BE249D28DC06A1007557E9 /* EFMaterialDownloadStatusManager.m in Sources */,
 				776B1C83283CB2AA00D85C73 /* QNLiveUser.m in Sources */,
 				77BE237D28D8CAEC007557E9 /* UIViewController+QPlayerRotation.m in Sources */,
+				77BE244128DC06A1007557E9 /* YYCache.m in Sources */,
 				77204D88285F97A20053B1AD /* PubChatModel.m in Sources */,
 				77EDC474286DA565002B4226 /* EffectsCollectionView.m in Sources */,
 				77BE237C28D8CAEC007557E9 /* QGCDTimerManager.m in Sources */,
 				77758CF228AA3B06005CBB59 /* QTagList.m in Sources */,
 				776B1CAD283CC6EC00D85C73 /* QLiveNetworkUtil.m in Sources */,
+				77BE24A228DC06A1007557E9 /* EFStatusModels.m in Sources */,
 				77EDC468286DA565002B4226 /* STBMPDetailColVCell.m in Sources */,
 				776B1CF3283D0F2000D85C73 /* LinkInvitation.m in Sources */,
 				77EDC451286DA565002B4226 /* STMakeupDataModel.m in Sources */,
 				77EDC3F9286DA564002B4226 /* STEffectsTimer.m in Sources */,
 				77EDC466286DA565002B4226 /* STBMPDetailColV.m in Sources */,
 				776B1C8B283CB6B300D85C73 /* QNLiveService.m in Sources */,
+				77BE249328DC06A1007557E9 /* EFRemoteDataSourceHelper.m in Sources */,
+				77BE24AA28DC06A1007557E9 /* EFAuthorizeAdapter.m in Sources */,
 				77BE1F0A28C7342A007557E9 /* QRoomDataModel.m in Sources */,
 				77EDC45D286DA565002B4226 /* STBeautySlider.m in Sources */,
+				77BE249528DC06A1007557E9 /* EFStorageHelper.m in Sources */,
 				77EDC3FC286DA564002B4226 /* STConvert.m in Sources */,
 				77A11CCA2889385800020149 /* QShopService.m in Sources */,
 				77A11C65288556AA00020149 /* CreateBeautyLiveController.m in Sources */,
 				77204D66285F755C0053B1AD /* QCreateLiveController.m in Sources */,
 				77EDC456286DA565002B4226 /* STCustomMemoryCache.m in Sources */,
 				77EDC454286DA565002B4226 /* STTitleViewItem.m in Sources */,
+				77BE246228DC06A1007557E9 /* YYWebImageOperation.m in Sources */,
 				77EDC44F286DA565002B4226 /* STTriggerView.m in Sources */,
 				777B7A84284F5A6F005032B7 /* QNPKInvitationListCell.m in Sources */,
 				77EDC46F286DA565002B4226 /* STBMPCollectionView.m in Sources */,
 				77EDC43A286DA564002B4226 /* STAudioManager.m in Sources */,
+				77BE245E28DC06A1007557E9 /* MKAnnotationView+YYWebImage.m in Sources */,
 				77E02E32284E245A00EE8A28 /* QNAudienceController.m in Sources */,
 				77EDC4A0286DAD99002B4226 /* BeautyLiveViewController.m in Sources */,
 				777186982861B8A800C5CABC /* FDanmakuModel.m in Sources */,
 				777186972861B8A800C5CABC /* CALayer+Aimate.m in Sources */,
+				77BE243E28DC06A1007557E9 /* YYImageCache.m in Sources */,
 				77758CDF28A4EE34005CBB59 /* QGradient.m in Sources */,
+				77BE245528DC06A1007557E9 /* _YYWebImageSetter.m in Sources */,
 				77EDC461286DA565002B4226 /* STViewButton.m in Sources */,
 				77062FC72880294900E9FD7D /* ExplainingGoodView.m in Sources */,
 				776B1CC9283CFEE800D85C73 /* QNLivePullClient.m in Sources */,
 				77EDC477286DA565002B4226 /* STBMPCollectionViewCell.m in Sources */,
 				77BE239928D96EF1007557E9 /* PSPopListView.m in Sources */,
+				77BE243328DC06A1007557E9 /* EFDataSourceGenerator.m in Sources */,
 				777B7A88284F5BC5005032B7 /* QNPKInvitationListController.m in Sources */,
 				776B1C4E283C78D800D85C73 /* QNLiveKit.docc in Sources */,
+				77BE244E28DC06A1007557E9 /* YYImage.m in Sources */,
+				77BE244728DC06A1007557E9 /* YYWebImageManager.m in Sources */,
 				77EDC463286DA565002B4226 /* STScrollTitleView.m in Sources */,
 				77781C0F283DD181009DC71C /* QPKService.m in Sources */,
+				77BE245028DC06A1007557E9 /* YYFrameImage.m in Sources */,
 				776B1C6F283C792B00D85C73 /* QLive.m in Sources */,
 				77062FAE287E795F00E9FD7D /* ShopSellListController.m in Sources */,
 				77062FBB288004AA00E9FD7D /* ShopBuyListController.m in Sources */,
@@ -1794,22 +2226,30 @@
 				77EDC438286DA564002B4226 /* SystemSound.m in Sources */,
 				77781D6F28486D3D009DC71C /* QTextMessageCell.m in Sources */,
 				776B1CD6283D024E00D85C73 /* QLinkMicService.m in Sources */,
+				77BE244528DC06A1007557E9 /* YYKVStorage.m in Sources */,
 				77EDC462286DA565002B4226 /* STSlideView.m in Sources */,
 				77204D8C285F97A20053B1AD /* QInvitationModel.m in Sources */,
 				77A11CD7288A724E00020149 /* UIColor+QNColor.m in Sources */,
 				7771869D2861B8A800C5CABC /* FDanmakuView.m in Sources */,
+				77BE249228DC06A1007557E9 /* NSDictionary+jsonFile.m in Sources */,
+				77BE249A28DC06A1007557E9 /* EFMachineVersion.m in Sources */,
 				77EDC470286DA565002B4226 /* STCommonObjectView.m in Sources */,
 				77BE237E28D8CAEC007557E9 /* QRotateAnimationView.m in Sources */,
 				77204D69285F755C0053B1AD /* QNLiveListCell.m in Sources */,
 				77EDC3FB286DA564002B4226 /* NSBundle+language.m in Sources */,
 				77BE237728D8CAEC007557E9 /* UITabBarController+QPlayerRotation.m in Sources */,
+				77BE24AB28DC06A1007557E9 /* EFRemoteDataSourceHelper+groupInfos.m in Sources */,
 				77EDC42F286DA564002B4226 /* STBaseViewController.m in Sources */,
+				77BE249C28DC06A1007557E9 /* EFStatusManager.m in Sources */,
 				77EDC423286DA564002B4226 /* STColorConversion.m in Sources */,
 				776B1C78283C79DB00D85C73 /* QNLiveRoomInfo.m in Sources */,
 				776B1C87283CB60D00D85C73 /* QNLiveRoomClient.m in Sources */,
 				774E641C2848DB6800C9FB7F /* CreateSignalHandler.m in Sources */,
 				77EDC449286DA565002B4226 /* STButton.m in Sources */,
+				77BE243828DC06A1007557E9 /* NSString+materialAes.m in Sources */,
 				77EDC427286DA564002B4226 /* STVFShader.m in Sources */,
+				77BE245128DC06A1007557E9 /* YYAnimatedImageView.m in Sources */,
+				77BE245D28DC06A1007557E9 /* UIImageView+YYWebImage.m in Sources */,
 				77204D98285F9AF50053B1AD /* LinkOptionModel.m in Sources */,
 				77781C21283DD63C009DC71C /* QNChatRoomService.m in Sources */,
 				77BE237928D8CAEC007557E9 /* UINavigationController+QPlayerRotation.m in Sources */,
@@ -1819,6 +2259,7 @@
 				77781DA128488932009DC71C /* QNBaseRTCController.m in Sources */,
 				776B1CEF283D0D8100D85C73 /* QNMergeOption.m in Sources */,
 				777B7A70284F1F78005032B7 /* QAlertView.m in Sources */,
+				77BE246428DC06A1007557E9 /* EFSenseArMaterialDataModels.m in Sources */,
 				77EDC424286DA564002B4226 /* STGLPreview3.m in Sources */,
 				77BE232628CB4424007557E9 /* QStatisticalService.m in Sources */,
 				77EDC465286DA565002B4226 /* STPlayerControlBar.m in Sources */,
@@ -1829,10 +2270,13 @@
 				77204D8A285F97A20053B1AD /* QGiftMsgModel.m in Sources */,
 				77781D6428486D35009DC71C /* QEmojiCollectionCell.m in Sources */,
 				776B1C8F283CBB2100D85C73 /* QNLivePushClient.m in Sources */,
+				77BE243628DC06A1007557E9 /* NSDictionary+sortedJson.m in Sources */,
+				77BE246028DC06A1007557E9 /* CALayer+YYWebImage.m in Sources */,
 				77781D6128486D35009DC71C /* QEmojiBoardView.m in Sources */,
 				77EDC432286DA564002B4226 /* STCoreStateManagementModel.m in Sources */,
 				77EDC478286DA565002B4226 /* UIView+Toast.m in Sources */,
 				77781D5528486D13009DC71C /* LiveChatRoom.m in Sources */,
+				77BE245C28DC06A1007557E9 /* UIButton+YYWebImage.m in Sources */,
 				77EDC420286DA564002B4226 /* STGLShader.m in Sources */,
 				77EDC46C286DA565002B4226 /* EffectsCollectionViewCell.m in Sources */,
 				7798A79928814872009DEB27 /* UITableView+MoveCell.m in Sources */,
@@ -1841,20 +2285,24 @@
 				77781C0B283D1337009DC71C /* QNPKSession.m in Sources */,
 				77758CFB28AA529C005CBB59 /* UIViewController+QViewController.m in Sources */,
 				77A11CD9288A724E00020149 /* UIImage+QNImage.m in Sources */,
+				77BE24A128DC06A1007557E9 /* NSObject+dictionary.m in Sources */,
 				77062FCB288062D600E9FD7D /* GoodsOperationCell.m in Sources */,
 				77EDC43C286DA564002B4226 /* SoundInfomation.m in Sources */,
 				77062FD32880920000E9FD7D /* GoodStatusView.m in Sources */,
 				77EDC443286DA565002B4226 /* LicenseUtil.m in Sources */,
 				77781C42283DE000009DC71C /* Extension.m in Sources */,
 				77062FBF288005CE00E9FD7D /* GoodBuyItemCell.m in Sources */,
+				77BE243728DC06A1007557E9 /* EFResource.m in Sources */,
 				77062FB3287EA0A300E9FD7D /* GoodsModel.m in Sources */,
 				77BE233228D87177007557E9 /* WacthRecordController.m in Sources */,
 				77781D492845FC68009DC71C /* BottomMenuView.m in Sources */,
+				77BE243528DC06A1007557E9 /* NSString+sha1.m in Sources */,
 				776B1C97283CBBB800D85C73 /* QNMicrophoneParams.m in Sources */,
 				77781DA228488932009DC71C /* QLiveController.m in Sources */,
 				77062FB7287EAA8D00E9FD7D /* GoodSellItemCell.m in Sources */,
 				77EDC407286DA564002B4226 /* STCamera.m in Sources */,
 				77EDC405286DA564002B4226 /* STDefaultSetting.m in Sources */,
+				77BE244F28DC06A1007557E9 /* YYImageCoder.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -2015,6 +2463,8 @@
 					"$(PROJECT_DIR)/QNLiveKit",
 					"\"$(SRCROOT)/QNLiveKit/Beauty/Effect\"",
 					"\"$(SRCROOT)/QNLiveKit/PLSTArEffects.framework\"",
+					"\"$(SRCROOT)/QNLiveKit/Beauty/Effect/EFDataSoure\"",
+					"\"$(SRCROOT)/QNLiveKit/Beauty/Effect/EFDataSoure/helpers\"",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "$(PROJECT_DIR)/QNLiveKit/QNLivePrefixHeader.pch";
@@ -2027,6 +2477,7 @@
 					"\"$(SRCROOT)/QNLiveKit/Beauty/Effect\"",
 					"\"$(SRCROOT)/QNLiveKit/PLSTArEffects.framework/Headers\"",
 					"\"$(SRCROOT)/QNLiveKit/PLSTArEffects.framework/Headers/core/include\"",
+					"\"$(SRCROOT)/QNLiveKit/Beauty/Effect/SenseArSourceService/include\"",
 				);
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
@@ -2053,7 +2504,11 @@
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;
 				SWIFT_EMIT_LOC_STRINGS = YES;
-				SYSTEM_HEADER_SEARCH_PATHS = "\"$(SRCROOT)/QNLiveKit/Beauty/Effect\"";
+				SYSTEM_HEADER_SEARCH_PATHS = (
+					"\"$(SRCROOT)/QNLiveKit/Beauty/Effect\"",
+					"\"$(SRCROOT)/QNLiveKit/Beauty/Effect/EFDataSoure\"",
+					"\"$(SRCROOT)/QNLiveKit/Beauty/Effect/EFDataSoure/helpers\"",
+				);
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
@@ -2078,6 +2533,8 @@
 					"$(PROJECT_DIR)/QNLiveKit",
 					"\"$(SRCROOT)/QNLiveKit/Beauty/Effect\"",
 					"\"$(SRCROOT)/QNLiveKit/PLSTArEffects.framework\"",
+					"\"$(SRCROOT)/QNLiveKit/Beauty/Effect/EFDataSoure\"",
+					"\"$(SRCROOT)/QNLiveKit/Beauty/Effect/EFDataSoure/helpers\"",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "$(PROJECT_DIR)/QNLiveKit/QNLivePrefixHeader.pch";
@@ -2090,6 +2547,7 @@
 					"\"$(SRCROOT)/QNLiveKit/Beauty/Effect\"",
 					"\"$(SRCROOT)/QNLiveKit/PLSTArEffects.framework/Headers\"",
 					"\"$(SRCROOT)/QNLiveKit/PLSTArEffects.framework/Headers/core/include\"",
+					"\"$(SRCROOT)/QNLiveKit/Beauty/Effect/SenseArSourceService/include\"",
 				);
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
@@ -2116,7 +2574,11 @@
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;
 				SWIFT_EMIT_LOC_STRINGS = YES;
-				SYSTEM_HEADER_SEARCH_PATHS = "\"$(SRCROOT)/QNLiveKit/Beauty/Effect\"";
+				SYSTEM_HEADER_SEARCH_PATHS = (
+					"\"$(SRCROOT)/QNLiveKit/Beauty/Effect\"",
+					"\"$(SRCROOT)/QNLiveKit/Beauty/Effect/EFDataSoure\"",
+					"\"$(SRCROOT)/QNLiveKit/Beauty/Effect/EFDataSoure/helpers\"",
+				);
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;

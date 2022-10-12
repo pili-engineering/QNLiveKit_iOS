@@ -11,12 +11,12 @@
 NS_ASSUME_NONNULL_BEGIN
 
 @interface STSlideView : UIView
-@property (strong, nonatomic)  UILabel  *makeupLabel;
-@property (strong, nonatomic)  UILabel  *filterLabel;
-@property (strong, nonatomic)  UISlider *makeupSlide;
-@property (strong, nonatomic)  UISlider *filterSlide;
-@property (strong, nonatomic)  UILabel  *makeupValue;
-@property (strong, nonatomic)  UILabel  *filterValue;
+@property (weak, nonatomic) IBOutlet UILabel  *makeupLabel;
+@property (weak, nonatomic) IBOutlet UILabel  *filterLabel;
+@property (weak, nonatomic) IBOutlet UISlider *makeupSlide;
+@property (weak, nonatomic) IBOutlet UISlider *filterSlide;
+@property (weak, nonatomic) IBOutlet UILabel  *makeupValue;
+@property (weak, nonatomic) IBOutlet UILabel  *filterValue;
 
 @end
 

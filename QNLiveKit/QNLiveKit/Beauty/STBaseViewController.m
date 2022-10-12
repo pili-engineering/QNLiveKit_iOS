@@ -10,10 +10,11 @@
 #import "STConvert.h"
 #import "UIView+Toast.h"
 #import "DefaultBeautyParameters.h"
-
-NSString *appID = @"6dc0af51b69247d0af4b0a676e11b5ee";
-NSString *appkey = @"e4156e4d61b040d2bcbf896c798d06e3";
-
+#import "EFMaterialDownloadStatusManager.h"
+#import "EFDataSourceGenerator.h"
+#import "EFDataSoure/YYModel/YYWebImage/YYWebImage.h"
+//沙河路径
+#define kDocumentPath [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) firstObject]
 
 @interface STBaseViewController () <STCoreStateManagementValueChangeDelegate>
 
@@ -27,6 +28,7 @@ NSString *appkey = @"e4156e4d61b040d2bcbf896c798d06e3";
     [self setupSenseArService];
     [self requestPermissions];
     [self addNotifications];
+    
 }
 
 -(void)viewWillAppear:(BOOL)animated {
@@ -47,7 +49,7 @@ NSString *appkey = @"e4156e4d61b040d2bcbf896c798d06e3";
 }
 
 - (void)setupThumbnailCache{
-    self.thumbDownlaodQueue = dispatch_queue_create("com.sensetime.thumbDownloadQueue", NULL);
+    self.thumbDownlaodQueue = dispatch_queue_create("com.sensetime.thumbDownloadQueue", DISPATCH_QUEUE_SERIAL);
     self.imageLoadQueue = [[NSOperationQueue alloc] init];
     self.imageLoadQueue.maxConcurrentOperationCount = 20;
     
@@ -76,11 +78,6 @@ NSString *appkey = @"e4156e4d61b040d2bcbf896c798d06e3";
     
     
     self.isFirstLaunch = YES;
-    
-//    self.isFirstLaunch = [[NSUserDefaults standardUserDefaults] objectForKey:@"FIRSTLAUNCH"] == nil;
-//    if (self.isFirstLaunch) {
-//        [[NSUserDefaults standardUserDefaults] setObject:@(1) forKey:@"FIRSTLAUNCH"];
-//    }
 }
 
 
@@ -97,92 +94,10 @@ NSString *appkey = @"e4156e4d61b040d2bcbf896c798d06e3";
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(applicationWillTerminate:) name:UIApplicationWillTerminateNotification object:nil];
     
 }
-
-- (void)setupSenseArService {
-    STWeakSelf;
-    [[SenseArMaterialService sharedInstance] authorizeWithAppID:appID
-                                                         appKey:appkey
-                                                      onSuccess:^{
-#if USE_SERVER_ONLINE_ACTIVATION
-        [weakSelf checkLicenseFromServer];
-        dispatch_async(dispatch_get_main_queue(), ^{
-            [weakSelf initResourceAndStartPreview];
-        });
-        [[SenseArMaterialService sharedInstance] setMaxCacheSize:120000000];
-        [weakSelf fetchLists];
-#elif USE_SDK_ONLINE_ACTIVATION
-        [self checkSDKFromServer];
-        [[SenseArMaterialService sharedInstance] setMaxCacheSize:120000000];
-        [self fetchLists];
-#else
-        //离线激活
-        BOOL ret =  [self checkLicenseFromLocal];
-        if (!ret) {
-            NSLog(@"check license fail");
-        }
-        dispatch_async(dispatch_get_main_queue(), ^{
-            [weakSelf initResourceAndStartPreview];
-        });
-        [[SenseArMaterialService sharedInstance] setMaxCacheSize:120000000];
-        dispatch_async(dispatch_get_main_queue(), ^{
-            [self fetchLists];
-        });
-#endif
-    }
-                                                      onFailure:^(SenseArAuthorizeError iErrorCode, NSString * errMessage) {
-        
-        dispatch_async(dispatch_get_main_queue(), ^{
-            
-            //离线激活
-            [self checkLicenseFromLocal];
-            [[SenseArMaterialService sharedInstance] setMaxCacheSize:120000000];
-            [self fetchLists];
-            
-            NSArray *actions = @[@"知道了"];
-            UIAlertController *alert = [STParamUtil showAlertWithTitle:@"提示" Message:@"" actions:actions onVC:self];
-            
-            switch (iErrorCode) {
-                    
-                case AUTHORIZE_ERROR_KEY_NOT_MATCHED:
-                {
-                    [alert setMessage:@"无效 AppID/SDKKey"];
-                }
-                    break;
-                    
-                    
-                case AUTHORIZE_ERROR_NETWORK_NOT_AVAILABLE:
-                {
-                    [alert setMessage:@"网络不可用"];
-                }
-                    break;
-                    
-                case AUTHORIZE_ERROR_DECRYPT_FAILED:
-                {
-                    [alert setMessage:@"解密失败"];
-                }
-                    break;
-                    
-                case AUTHORIZE_ERROR_DATA_PARSE_FAILED:
-                {
-                    [alert setMessage:@"解析失败"];
-                }
-                    break;
-                    
-                case AUTHORIZE_ERROR_UNKNOWN:
-                {
-                    [alert setMessage:@"未知错误"];
-                }
-                    break;
-                    
-                default:
-                    break;
-            }
-            
-            [self presentViewController:alert animated:YES completion:nil];
-            
-        });
-    }];
+-(void) setupSenseArService{
+    [self fetchLists];
 }
+
 
 - (void)initResourceAndStartPreview{}
 
@@ -202,6 +117,12 @@ NSString *appkey = @"e4156e4d61b040d2bcbf896c798d06e3";
     [generator stm_generatMakeupDataSourceWholeMake:^(NSArray<STMakeupDataModel *> *wholeMakeDatasource) {
         self.m_wholeMakeArr = [wholeMakeDatasource mutableCopy];
         [STDefaultSetting sharedInstace].m_wholeMakeArr = self.m_wholeMakeArr;
+        
+        //默认美妆效果
+        [self.bmpColView wholeMakeUp:STBeautyTypeMakeupNvshen];
+        self.bmpStrenghView.hidden = YES;
+        [self.beautyCollectionView reloadData];
+        
     } andLips:^(NSArray<STMakeupDataModel *> *lipsDatasource) {
         self.m_lipsArr = [lipsDatasource mutableCopy];
         [STDefaultSetting sharedInstace].m_lipsArr = self.m_lipsArr;
@@ -334,29 +255,10 @@ NSString *appkey = @"e4156e4d61b040d2bcbf896c798d06e3";
     }
     
     self.coreStateMangement.curEffectStickerType = STEffectsTypeStickerNew;
-    if (![SenseArMaterialService isAuthorized]) {
-        return;
-    }
-    
-    [self fetchMaterialsAndReloadDataWithGroupID:@"ff81fc70f6c111e899f602f2be7c2171"
-                                            type:STEffectsTypeStickerNew];
-    [self fetchMaterialsAndReloadDataWithGroupID:@"3cd2dae0f6c211e8877702f2beb67403"
-                                            type:STEffectsTypeSticker2D];
-    [self fetchMaterialsAndReloadDataWithGroupID:@"46028a20f6c211e888ea020d88863a42"
-                                            type:STEffectsTypeStickerAvatar];
-    [self fetchMaterialsAndReloadDataWithGroupID:@"4e869010f6c211e888ea020d88863a42"
-                                            type:STEffectsTypeSticker3D];
-    [self fetchMaterialsAndReloadDataWithGroupID:@"5aea6840f6c211e899f602f2be7c2171"
-                                            type:STEffectsTypeStickerGesture];
-    [self fetchMaterialsAndReloadDataWithGroupID:@"65365cf0f6c211e8877702f2beb67403"
-                                            type:STEffectsTypeStickerSegment];
-    [self fetchMaterialsAndReloadDataWithGroupID:@"6d036ef0f6c211e899f602f2be7c2171"
-                                            type:STEffectsTypeStickerFaceDeformation];
-    [self fetchMaterialsAndReloadDataWithGroupID:@"73bffb50f6c211e899f602f2be7c2171"
-                                            type:STEffectsTypeStickerFaceChange];
-    [self fetchMaterialsAndReloadDataWithGroupID:@"7c6089f0f6c211e8877702f2beb67403"
-                                            type:STEffectsTypeStickerParticle];
+        
+    [self fetchMaterialsAndReloadDataWithGroup];
     [self getAddStickerResouces];
+
 }
 
 - (void)getAddStickerResouces{
@@ -380,6 +282,7 @@ NSString *appkey = @"e4156e4d61b040d2bcbf896c798d06e3";
             model.iEffetsType = STEffectsTypeStickerAdd;
             model.state = Downloaded;
             model.indexOfItem = indexOfItem;
+           
             model.imageThumb = imageThumb;
             model.strMaterialPath = strMaterialPath;
             [arrLocalModels addObject:model];
@@ -389,68 +292,147 @@ NSString *appkey = @"e4156e4d61b040d2bcbf896c798d06e3";
     [self.coreStateMangement.effectsDataSource setObject:arrLocalModels
                                                   forKey:@(STEffectsTypeStickerAdd)];
 }
+-(void)fetchMaterialsAndReloadDataWithGroup{
+    [[EFDataSourceGenerator sharedInstance] efGeneratAllDataSourceWithCallback:^(id<EFDataSourcing> datasource) {
 
-- (void)fetchMaterialsAndReloadDataWithGroupID:(NSString *)strGroupID
-                                          type:(STEffectsType)iType{
-//    __weak typeof(self) self = self;
-    
-    [[SenseArMaterialService sharedInstance]
-     fetchMaterialsWithUserID:@"testUserID"
-     GroupID:strGroupID
-     onSuccess:^(NSArray<SenseArMaterial *> *arrMaterials) {
-        
-        NSMutableArray *arrModels = [NSMutableArray array];
-        
-        for (int i = 0; i < arrMaterials.count; i ++) {
-            
-            SenseArMaterial *material = [arrMaterials objectAtIndex:i];
-            
-            EffectsCollectionViewCellModel *model = [[EffectsCollectionViewCellModel alloc] init];
-            
-            model.material = material;
-            model.indexOfItem = i;
-            model.state = [[SenseArMaterialService sharedInstance] isMaterialDownloaded:material] ? Downloaded : NotDownloaded;
-            model.iEffetsType = iType;
-            
-            if (material.strMaterialPath) {
-                
-                model.strMaterialPath = material.strMaterialPath;
+        self.arrModelAll = [NSMutableArray array];
+        for (EFDataSourceModel * materialClassOne in datasource.efSubDataSources) {
+            NSInteger one = 0;
+            for (EFDataSourceModel *materialClassTwo in materialClassOne.efSubDataSources) {
+                NSInteger two = 0;
+                NSMutableArray *arrModel = [NSMutableArray array];
+                for (EFDataSourceModel *matericalClassThree in materialClassTwo.efSubDataSources) {
+                    
+                    EffectsCollectionViewCellModel *model = [[EffectsCollectionViewCellModel alloc] init];
+                    model.NewMaterial = matericalClassThree;
+                   switch([[EFMaterialDownloadStatusManager sharedInstance] efDownloadStatus:matericalClassThree]) {
+                       case EFMaterialDownloadStatusNotDownload:
+                           model.state = NotDownloaded;
+                           break;
+                       case EFMaterialDownloadStatusDownloading:
+                           model.state = IsDownloading;
+                           break;
+                       case EFMaterialDownloadStatusDownloaded:
+                           model.state = Downloaded;
+                           break;
+                   };
+                    model.NameOne = materialClassOne.efName;
+                    model.NameTwo = materialClassTwo.efName;
+                    model.NameThree = matericalClassThree.efName;
+                    if ([materialClassOne.efName  isEqual: @"Avatar"] || [materialClassOne.efName  isEqual: @"滤镜"] || [materialClassOne.efName  isEqual: @"美妆"]) {
+                        
+                        model.iEffetsType = [self efNameToSTEffectsType:materialClassOne.efName];
+                    }else{
+                        
+                        model.iEffetsType = [self efNameToSTEffectsType:materialClassTwo.efName];
+                    }
+                    
+                    if (matericalClassThree.efMaterialPath) {
+                        model.strMaterialPath = matericalClassThree.efMaterialPath;
+                    }
+                    model.imageThumbUrl = matericalClassThree.efThumbnailDefault;
+                    model.NewMaterial = matericalClassThree;
+                    model.indexOfItem = (int)two;
+                    [arrModel addObject:model];
+                    [self.arrModelAll addObject:model];
+                    two++;
+                    
+                }
+                [self.coreStateMangement.effectsDataSource setObject:arrModel forKey:@([self efNameToSTEffectsType:materialClassTwo.efName])];
+//                if ([self efNameToSTEffectsType:materialClassTwo.efName] == self.coreStateMangement.curEffectStickerType) {
+
+                if([self efNameToSTEffectsType:materialClassTwo.efName] == STEffectsTypeSticker2D){
+                    self.coreStateMangement.arrCurrentModels = [self.coreStateMangement.effectsDataSource objectForKey:@([self efNameToSTEffectsType:materialClassTwo.efName])];
+                    
+                    [self.effectsList reloadData];
+
+                }
+                one++;
             }
-            
-            [arrModels addObject:model];
         }
         
-        [self.coreStateMangement.effectsDataSource setObject:arrModels forKey:@(iType)];
-        
-        if (iType == self.coreStateMangement.curEffectStickerType) {
-            self.coreStateMangement.arrCurrentModels = [self.coreStateMangement.effectsDataSource objectForKey:@(iType)];
-            
-            dispatch_async(dispatch_get_main_queue(), ^{
+            for (EffectsCollectionViewCellModel *model in _arrModelAll) {
                 
-                [self.effectsList reloadData];
-            });
-        }
+                dispatch_async(self.thumbDownlaodQueue, ^{
+
+                        [self cacheThumbnailOfModel:model];
+                    
+                    
+                });
+            }
+//        dispatch_sync(self.thumbDownlaodQueue, ^{
+//            NSLog(@"加载完成---------------");
+//            self.scrollTitleView.userInteractionEnabled =NO;
+////            [self.effectsList reloadData];
+//
+//        });
+//        dispatch_sync(self.thumbDownlaodQueue, ^{
+//            self.scrollTitleView.userInteractionEnabled = YES;
+//        });
+        [self getAddStickerResouces];
         
-        for (EffectsCollectionViewCellModel *model in arrModels) {
-            
-            dispatch_async(self.thumbDownlaodQueue, ^{
-                
-                [self cacheThumbnailOfModel:model];
-            });
-        }
-    } onFailure:^(int iErrorCode, NSString *strMessage){
-        dispatch_async(dispatch_get_main_queue(), ^{
-            
-            NSArray *actions = @[@"知道了"];
-            UIAlertController *alertVC = [STParamUtil showAlertWithTitle:@"提示" Message:@"获取贴纸列表失败" actions:actions onVC:self];
-            [self presentViewController:alertVC animated:YES completion:nil];
-        });
+//        [self.effectsList reloadData];
     }];
+    
+    
 }
+//efName 转STEffectsType
+-(STEffectsType)efNameToSTEffectsType:(NSString *)efName{
+    if ([efName isEqual:@"最新"]) {
+        return STEffectsTypeStickerNew;
+    }
+    else if ([efName isEqual:@"2D贴纸"]){
+        return STEffectsTypeSticker2D;
+    }
+    else if ([efName isEqual:@"3D贴纸"]){
+        return STEffectsTypeSticker3D;
+    }
+    else if ([efName isEqual:@"手势贴纸"]){
+        return STEffectsTypeStickerGesture;
+    }
+    else if ([efName isEqual:@"分割"]){
+        return STEffectsTypeStickerSegment;
+    }
+    else if ([efName isEqual:@"脸部变形"]){
+        return STEffectsTypeStickerFaceDeformation;
+    }
+    else if ([efName isEqual:@"粒子效果"]){
+        return STEffectsTypeStickerParticle;
+    }
+    else if ([efName isEqual:@"大头特效"]){
+        return STEffectsTypeStickerFaceChange;
+    }
+    else if ([efName isEqual:@"Avatar"]){
+        return STEffectsTypeStickerAvatar;
+    }
+    else if ([efName isEqual:@"基础美颜"]){
+        return STEffectsTypeBeautyBase;
+    }
+    else if ([efName isEqual:@"美形"]){
+        return STEffectsTypeBeautyShape;
+    }
+    else if ([efName isEqual:@"微整形"]){
+        return STEffectsTypeBeautyMicroSurgery;
+    }
+    else if ([efName isEqual:@"调整"]){
+        return STEffectsTypeBeautyAdjust;
+    }
+    else if ([efName isEqual:@"滤镜"]){
+        return STEffectsTypeBeautyFilter;
+    }
+    else if ([efName isEqual:@"美妆"]){
+        return STEffectsTypeBeautyMakeUp;
+    }
+    else {
+        return STEffectsTypeNone;
+    }
+
+}
+
 
 - (void)cacheThumbnailOfModel:(EffectsCollectionViewCellModel *)model{
     __weak typeof(self) weakSelf = self;
-    NSString *strFileID = model.material.strMaterialFileID;
+    NSString *strFileID = model.NewMaterial.efMaterialPath;
     
     id cacheObj = [weakSelf.thumbnailCache objectForKey:strFileID];
     
@@ -467,11 +449,11 @@ NSString *appkey = @"e4156e4d61b040d2bcbf896c798d06e3";
                 
                 UIImage *imageDownloaded = nil;
                 
-                if ([model.material.strThumbnailURL isKindOfClass:[NSString class]]) {
+                if ([model.imageThumbUrl isKindOfClass:[NSString class]] && [NSURL URLWithString:model.imageThumbUrl]) {
                     
                     NSError *error = nil;
                     
-                    NSData *imageData = [NSData dataWithContentsOfURL:[NSURL URLWithString:model.material.strThumbnailURL] options:NSDataReadingMappedIfSafe error:&error];
+                    NSData *imageData = [NSData dataWithContentsOfURL:[NSURL URLWithString:model.imageThumbUrl] options:NSDataReadingMappedIfSafe error:&error];
                     
                     imageDownloaded = [UIImage imageWithData:imageData];
                     
@@ -500,6 +482,7 @@ NSString *appkey = @"e4156e4d61b040d2bcbf896c798d06e3";
                     dispatch_async(dispatch_get_main_queue(), ^{
                         
                         [weakSelf.effectsList reloadItemsAtIndexPaths:@[[NSIndexPath indexPathForItem:model.indexOfItem inSection:0]]];
+//                        [weakSelf.effectsList reloadData];
                     });
                 }
             }];
@@ -527,9 +510,7 @@ NSString *appkey = @"e4156e4d61b040d2bcbf896c798d06e3";
     [self.view addSubview:self.specialEffectsBtn];
     [self.view addSubview:self.beautyBtn];
     [self.view addSubview:self.btnCompare];
-    [self.view addSubview:self.triggerView];
-    [self.view addSubview:self.resetBtn];
-//    [self.view addSubview:self.sliderView];
+    [self.view addSubview:self.sliderView];
 #if ENABLE_FACE_ATTRIBUTE_DETECT
     [self.view addSubview:self.lblAttribute];
 #endif
@@ -608,33 +589,40 @@ NSString *appkey = @"e4156e4d61b040d2bcbf896c798d06e3";
         weakSelf.overlap_callback_block = nil;
     };
 }
-
 - (EffectsCollectionView *)effectsList
 {
+    
+    STWeakSelf;
     if (!_effectsList) {
         
-        STWeakSelf;
         _effectsList = [[EffectsCollectionView alloc] initWithFrame:CGRectMake(0, 41, SCREEN_WIDTH, 140)];
+        [_effectsList registerNib:[UINib nibWithNibName:@"EffectsCollectionViewCell"
+                                                 bundle:[NSBundle mainBundle]]
+       forCellWithReuseIdentifier:@"EffectsCollectionViewCell"];
         
-        [_effectsList registerClass:[EffectsCollectionViewCell class] forCellWithReuseIdentifier:@"EffectsCollectionViewCell"];
-
         _effectsList.numberOfSectionsInView = ^NSInteger(STCustomCollectionView *collectionView) {
             
             return 1;
         };
         _effectsList.numberOfItemsInSection = ^NSInteger(STCustomCollectionView *collectionView, NSInteger section) {
-            
+//            EffectsCollectionViewCellModel *model = weakSelf.coreStateMangement.arrCurrentModels[section];
+//            if (model.iEffetsType == STEffectsTypeStickerGesture) {
+//                NSLog(@"手势 %ld ---------",(unsigned long)weakSelf.coreStateMangement.arrCurrentModels.count);
+//            }
             return weakSelf.coreStateMangement.arrCurrentModels.count;
         };
         _effectsList.cellForItemAtIndexPath = ^UICollectionViewCell *(STCustomCollectionView *collectionView, NSIndexPath *indexPath) {
             
-            EffectsCollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"EffectsCollectionViewCell" forIndexPath:indexPath];
+            static NSString *strIdentifier = @"EffectsCollectionViewCell";
+            
+            EffectsCollectionViewCell *cell = (EffectsCollectionViewCell *)[collectionView dequeueReusableCellWithReuseIdentifier:strIdentifier forIndexPath:indexPath];
+           
+//            int start=0;
             NSArray *arrModels = weakSelf.coreStateMangement.arrCurrentModels;
             
             if (arrModels.count) {
                 
                 EffectsCollectionViewCellModel *model = arrModels[indexPath.item];
-                
                 if (model.iEffetsType != STEffectsTypeStickerMy && model.iEffetsType != STEffectsTypeStickerAdd) {
                     
                     id cacheObj = [weakSelf.thumbnailCache objectForKey:model.material.strMaterialFileID];
@@ -667,10 +655,8 @@ NSString *appkey = @"e4156e4d61b040d2bcbf896c798d06e3";
             [weakSelf handleStickerChanged:arrModels[indexPath.item]];
         };
     }
-    
     return _effectsList;
 }
-
 - (UIView *)beautyContainerView {
     
     if (!_beautyContainerView) {
@@ -728,9 +714,10 @@ NSString *appkey = @"e4156e4d61b040d2bcbf896c798d06e3";
     if (!_filterCategoryView) {
         _filterCategoryView = [[UIView alloc] initWithFrame:CGRectMake(0, 41, SCREEN_WIDTH, 300)];
         _filterCategoryView.backgroundColor = [[UIColor blackColor] colorWithAlphaComponent:0.5];
-        STViewButton *portraitViewBtn = [[STViewButton alloc] initWithFrame:CGRectMake(SCREEN_WIDTH / 2 - 143, 20, 40, 70)];
+        STViewButton *portraitViewBtn = [[[NSBundle mainBundle] loadNibNamed:@"STViewButton" owner:nil options:nil] firstObject];
         portraitViewBtn.tag = STEffectsTypeFilterPortrait;
         portraitViewBtn.backgroundColor = [UIColor clearColor];
+        portraitViewBtn.frame =  CGRectMake(SCREEN_WIDTH / 2 - 143, 20, 40, 70);
         portraitViewBtn.imageView.image = [UIImage imageNamed:@"portrait"];
         portraitViewBtn.imageView.highlightedImage = [UIImage imageNamed:@"portrait_highlighted"];
         portraitViewBtn.titleLabel.font = [UIFont systemFontOfSize:14];
@@ -748,9 +735,10 @@ NSString *appkey = @"e4156e4d61b040d2bcbf896c798d06e3";
         
         
         
-        STViewButton *sceneryViewBtn = [[STViewButton alloc] initWithFrame:CGRectMake(SCREEN_WIDTH / 2 - 60, 20, 40, 70)];
+        STViewButton *sceneryViewBtn = [[[NSBundle mainBundle] loadNibNamed:@"STViewButton" owner:nil options:nil] firstObject];
         sceneryViewBtn.tag = STEffectsTypeFilterScenery;
         sceneryViewBtn.backgroundColor = [UIColor clearColor];
+        sceneryViewBtn.frame =  CGRectMake(SCREEN_WIDTH / 2 - 60, 20, 40, 70);
         sceneryViewBtn.imageView.image = [UIImage imageNamed:@"scenery"];
         sceneryViewBtn.imageView.highlightedImage = [UIImage imageNamed:@"scenery_highlighted"];
         sceneryViewBtn.titleLabel.font = [UIFont systemFontOfSize:14];
@@ -765,9 +753,10 @@ NSString *appkey = @"e4156e4d61b040d2bcbf896c798d06e3";
         [sceneryViewBtn addGestureRecognizer:sceneryRecognizer];
         [self.arrFilterCategoryViews addObject:sceneryViewBtn];
         [_filterCategoryView addSubview:sceneryViewBtn];
-        STViewButton *stillLifeViewBtn = [[STViewButton alloc] initWithFrame:CGRectMake(SCREEN_WIDTH / 2 + 27, 20, 40, 70)];
+        STViewButton *stillLifeViewBtn = [[[NSBundle mainBundle] loadNibNamed:@"STViewButton" owner:nil options:nil] firstObject];
         stillLifeViewBtn.tag = STEffectsTypeFilterStillLife;
         stillLifeViewBtn.backgroundColor = [UIColor clearColor];
+        stillLifeViewBtn.frame =  CGRectMake(SCREEN_WIDTH / 2 + 27, 20, 40, 70);
         stillLifeViewBtn.imageView.image = [UIImage imageNamed:@"still_life"];
         stillLifeViewBtn.imageView.highlightedImage = [UIImage imageNamed:@"still_life_highlighted"];
         stillLifeViewBtn.titleLabel.font = [UIFont systemFontOfSize:14];
@@ -781,9 +770,10 @@ NSString *appkey = @"e4156e4d61b040d2bcbf896c798d06e3";
         [stillLifeViewBtn addGestureRecognizer:stillLifeRecognizer];
         [self.arrFilterCategoryViews addObject:stillLifeViewBtn];
         [_filterCategoryView addSubview:stillLifeViewBtn];
-        STViewButton *deliciousFoodViewBtn = [[STViewButton alloc] initWithFrame:CGRectMake(SCREEN_WIDTH / 2 + 110, 20, 40, 70)];
+        STViewButton *deliciousFoodViewBtn = [[[NSBundle mainBundle] loadNibNamed:@"STViewButton" owner:nil options:nil] firstObject];
         deliciousFoodViewBtn.tag = STEffectsTypeFilterDeliciousFood;
         deliciousFoodViewBtn.backgroundColor = [UIColor clearColor];
+        deliciousFoodViewBtn.frame =  CGRectMake(SCREEN_WIDTH / 2 + 110, 20, 40, 70);
         deliciousFoodViewBtn.imageView.image = [UIImage imageNamed:@"delicious_food"];
         deliciousFoodViewBtn.imageView.highlightedImage = [UIImage imageNamed:@"delicious_food_highlighted"];
         deliciousFoodViewBtn.titleLabel.font = [UIFont systemFontOfSize:14];
@@ -837,6 +827,7 @@ NSString *appkey = @"e4156e4d61b040d2bcbf896c798d06e3";
     if (!_beautyCollectionView) {
         STWeakSelf;
         _beautyCollectionView = [[STNewBeautyCollectionView alloc] initWithFrame:CGRectMake(0, 41, SCREEN_WIDTH, 220) models:self.baseBeautyModels delegateBlock:^(STNewBeautyCollectionViewModel *model) {
+            
             [weakSelf handleBeautyTypeChanged:model];
         }];
         _beautyCollectionView.backgroundColor = [[UIColor blackColor] colorWithAlphaComponent:0.5];
@@ -898,9 +889,11 @@ NSString *appkey = @"e4156e4d61b040d2bcbf896c798d06e3";
 
 - (STViewButton *)specialEffectsBtn {
     if (!_specialEffectsBtn) {
-        UIImage *image = [UIImage imageNamed:@"btn_special_effects.png"];
-        _specialEffectsBtn = [[STViewButton alloc] initWithFrame:CGRectMake([self layoutWidthWithValue:143], SCREEN_HEIGHT - 73.5, image.size.width, 50)];
+        
+        _specialEffectsBtn = [[[NSBundle mainBundle] loadNibNamed:@"STViewButton" owner:nil options:nil] firstObject];
         [_specialEffectsBtn setExclusiveTouch:YES];
+        UIImage *image = [UIImage imageNamed:@"btn_special_effects.png"];
+        _specialEffectsBtn.frame = CGRectMake([self layoutWidthWithValue:143], SCREEN_HEIGHT - 73.5, image.size.width, 50);
         //        _specialEffectsBtn.center = CGPointMake(_specialEffectsBtn.center.x, self.snapBtn.center.y);
         _specialEffectsBtn.backgroundColor = [UIColor clearColor];
         _specialEffectsBtn.imageView.image = [UIImage imageNamed:@"btn_special_effects.png"];
@@ -921,9 +914,10 @@ NSString *appkey = @"e4156e4d61b040d2bcbf896c798d06e3";
 }
 - (STViewButton *)beautyBtn {
     if (!_beautyBtn) {
-        UIImage *image = [UIImage imageNamed:@"btn_beauty.png"];
-        _beautyBtn = [[STViewButton alloc] initWithFrame:CGRectMake(SCREEN_WIDTH - [self layoutWidthWithValue:143] - image.size.width, SCREEN_HEIGHT - 73.5, image.size.width, image.size.width + 8)];
+        _beautyBtn = [[[NSBundle mainBundle] loadNibNamed:@"STViewButton" owner:nil options:nil] firstObject];
         [_beautyBtn setExclusiveTouch:YES];
+        UIImage *image = [UIImage imageNamed:@"btn_beauty.png"];
+        _beautyBtn.frame = CGRectMake(SCREEN_WIDTH - [self layoutWidthWithValue:143] - image.size.width, SCREEN_HEIGHT - 73.5, image.size.width, 50);
         //        _beautyBtn.center = CGPointMake(_beautyBtn.center.x, self.snapBtn.center.y);
         _beautyBtn.backgroundColor = [UIColor clearColor];
         _beautyBtn.imageView.image = [UIImage imageNamed:@"btn_beauty.png"];
@@ -961,13 +955,13 @@ NSString *appkey = @"e4156e4d61b040d2bcbf896c798d06e3";
 
 - (STSlideView *)sliderView {
     if (!_sliderView) {
-        _sliderView = [[STSlideView alloc]initWithFrame:CGRectMake(0, SCREEN_HEIGHT - 300, SCREEN_WIDTH, 105)];
-//        _sliderView.center = CGPointMake(-100, -100);
+        _sliderView = [[[NSBundle mainBundle] loadNibNamed:@"STSlideView" owner:nil options:nil] firstObject];
+        _sliderView.center = CGPointMake(-100, -100);
         _sliderView.hidden = YES;
         [_sliderView.makeupSlide addTarget:self action:@selector(makeupSlideAction:) forControlEvents:UIControlEventValueChanged];
         [_sliderView.filterSlide addTarget:self action:@selector(filterSlideAction:) forControlEvents:UIControlEventValueChanged];
-//        _sliderView.filterLabel.text = NSLocalizedString(@"美妆", nil);
-//        _sliderView.makeupLabel.text = NSLocalizedString(@"滤镜", nil);
+        _sliderView.filterLabel.text = NSLocalizedString(@"美妆", nil);
+        _sliderView.makeupLabel.text = NSLocalizedString(@"滤镜", nil);
     }
     return _sliderView;
 }
@@ -978,49 +972,49 @@ NSString *appkey = @"e4156e4d61b040d2bcbf896c798d06e3";
         STWeakSelf;
         
         NSArray *stickerTypeArray = @[
-            @(STEffectsTypeStickerNew),
+//            @(STEffectsTypeStickerNew),
             @(STEffectsTypeSticker2D),
-            @(STEffectsTypeStickerAvatar),
+//            @(STEffectsTypeStickerAvatar),
             @(STEffectsTypeSticker3D),
             @(STEffectsTypeStickerGesture),
             @(STEffectsTypeStickerSegment),
-            @(STEffectsTypeStickerFaceDeformation),
-            @(STEffectsTypeStickerFaceChange),
-            @(STEffectsTypeStickerParticle),
+//            @(STEffectsTypeStickerFaceDeformation),
+//            @(STEffectsTypeStickerFaceChange),
+//            @(STEffectsTypeStickerParticle),
 //            @(STEffectsTypeObjectTrack),
-            @(STEffectsTypeStickerMy),
+//            @(STEffectsTypeStickerMy),
 //#if DEBUG
 //            @(STEffectsTypeStickerAdd),
 //#endif
         ];
         NSArray *normalImages = @[
-            [UIImage imageNamed:@"new_sticker.png"],
+//            [UIImage imageNamed:@"new_sticker.png"],
             [UIImage imageNamed:@"2d.png"],
-            [UIImage imageNamed:@"avatar.png"],
+//            [UIImage imageNamed:@"avatar.png"],
             [UIImage imageNamed:@"3d.png"],
             [UIImage imageNamed:@"sticker_gesture.png"],
             [UIImage imageNamed:@"sticker_segment.png"],
-            [UIImage imageNamed:@"sticker_face_deformation.png"],
-            [UIImage imageNamed:@"face_painting.png"],
-            [UIImage imageNamed:@"particle_effect.png"],
+//            [UIImage imageNamed:@"sticker_face_deformation.png"],
+//            [UIImage imageNamed:@"face_painting.png"],
+//            [UIImage imageNamed:@"particle_effect.png"],
 //            [UIImage imageNamed:@"common_object_track.png"],
-            [UIImage imageNamed:@"native.png"],
+//            [UIImage imageNamed:@"native.png"],
 //#if DEBUG
 //            [UIImage imageNamed:@"native.png"],
 //#endif
         ];
         NSArray *selectedImages = @[
-            [UIImage imageNamed:@"new_sticker_selected.png"],
+//            [UIImage imageNamed:@"new_sticker_selected.png"],
             [UIImage imageNamed:@"2d_selected.png"],
-            [UIImage imageNamed:@"avatar_selected.png"],
+//            [UIImage imageNamed:@"avatar_selected.png"],
             [UIImage imageNamed:@"3d_selected.png"],
             [UIImage imageNamed:@"sticker_gesture_selected.png"],
             [UIImage imageNamed:@"sticker_segment_selected.png"],
-            [UIImage imageNamed:@"sticker_face_deformation_selected.png"],
-            [UIImage imageNamed:@"face_painting_selected.png"],
-            [UIImage imageNamed:@"particle_effect_selected.png"],
-            [UIImage imageNamed:@"common_object_track_selected.png"],
-            [UIImage imageNamed:@"native_selected.png"],
+//            [UIImage imageNamed:@"sticker_face_deformation_selected.png"],
+//            [UIImage imageNamed:@"face_painting_selected.png"],
+//            [UIImage imageNamed:@"particle_effect_selected.png"],
+//            [UIImage imageNamed:@"common_object_track_selected.png"],
+//            [UIImage imageNamed:@"native_selected.png"],
 //#if DEBUG
 //            [UIImage imageNamed:@"native_selected.png"],
 //#endif
@@ -1142,7 +1136,8 @@ NSString *appkey = @"e4156e4d61b040d2bcbf896c798d06e3";
 - (UIButton *)resetBtn {
     if (!_resetBtn) {
         
-        _resetBtn = [[UIButton alloc] initWithFrame:CGRectMake(SCREEN_WIDTH - 80, SCREEN_HEIGHT - 290, 100, 30)];
+        _resetBtn = [[UIButton alloc] initWithFrame:CGRectMake(SCREEN_WIDTH - 100, SCREEN_HEIGHT - 50, 100, 30)];
+        _resetBtn.center = CGPointMake(_resetBtn.center.x, self.beautyBtn.center.y);
         
         [_resetBtn setImage:[UIImage imageNamed:@"reset"] forState:UIControlStateNormal];
         [_resetBtn setTitle:NSLocalizedString(@"重置", nil)  forState:UIControlStateNormal];
@@ -1171,7 +1166,7 @@ NSString *appkey = @"e4156e4d61b040d2bcbf896c798d06e3";
     [UIView animateWithDuration:0.05 delay:0.0 options:UIViewAnimationOptionCurveEaseInOut animations:^{
         self.beautyContainerView.frame = CGRectMake(0, SCREEN_HEIGHT - 260, SCREEN_WIDTH, 260);
         self.btnCompare.frame = CGRectMake(SCREEN_WIDTH - 80, SCREEN_HEIGHT - 260 - 35.5 - 40, 70, 35);
-        self.sliderView.frame = CGRectMake(0, SCREEN_HEIGHT - 300, SCREEN_WIDTH, 105);
+        self.sliderView.frame = CGRectMake(0, SCREEN_HEIGHT - 430, SCREEN_WIDTH, 105);
         if (self.coreStateMangement.curEffectBeautyType == STEffectsTypeBeautyWholeMakeup) {
             for(int i = 0; i < self.wholeMakeUpModels.count; ++i){
                 if (self.wholeMakeUpModels[i].selected) {
@@ -1314,14 +1309,16 @@ NSString *appkey = @"e4156e4d61b040d2bcbf896c798d06e3";
 // MARK: 切换贴纸
 - (void)handleStickerChanged:(EffectsCollectionViewCellModel *)model {
     self.coreStateMangement.prepareModel = model;
+    
     if (STEffectsTypeStickerMy == model.iEffetsType) {
         [self setMaterialModel:model];
         return;
     }
     STWeakSelf;
-    BOOL isMaterialExist = [[SenseArMaterialService sharedInstance] isMaterialDownloaded:model.material];
+    BOOL isMaterialExist = [[EFMaterialDownloadStatusManager sharedInstance] efDownloadStatus:model.NewMaterial];
     BOOL isDirectory = YES;
-    BOOL isFileAvalible = [[NSFileManager defaultManager] fileExistsAtPath:model.material.strMaterialPath
+
+    BOOL isFileAvalible = [[NSFileManager defaultManager] fileExistsAtPath:model.NewMaterial.efMaterialPath
                                                                isDirectory:&isDirectory];
     if (isMaterialExist && (isDirectory || !isFileAvalible)) {
 
@@ -1330,42 +1327,34 @@ NSString *appkey = @"e4156e4d61b040d2bcbf896c798d06e3";
         isMaterialExist = NO;
     }
     
-    if (model && model.material && !isMaterialExist) {
+    if (model && model.NewMaterial && !isMaterialExist) {
         
         model.state = IsDownloading;
         [self.effectsList reloadData];
-        
-        [[SenseArMaterialService sharedInstance]
-         downloadMaterial:model.material
-         onSuccess:^(SenseArMaterial *material)
-         {
+        [[EFMaterialDownloadStatusManager sharedInstance] efStartDownload:model.NewMaterial onProgress:^(id<EFDataSourcing> material, float fProgress, int64_t iSize) {
             
-            model.state = Downloaded;
-            model.strMaterialPath = material.strMaterialPath;
-            
-            if (model == weakSelf.coreStateMangement.prepareModel) {
-                dispatch_async(dispatch_get_main_queue(), ^{
+                } onSuccess:^(id<EFDataSourcing> material) {
+                                model.state = Downloaded;
+                                model.strMaterialPath = material.efMaterialPath;
                     
-                    [weakSelf setMaterialModel:model];
-                });
-                
-            }else{
-                
-                dispatch_async(dispatch_get_main_queue(), ^{
+                                if (model == weakSelf.coreStateMangement.prepareModel) {
+                                    dispatch_async(dispatch_get_main_queue(), ^{
                     
-                    [weakSelf.effectsList reloadData];
-                });
-            }
-        }
-         onFailure:^(SenseArMaterial *material, int iErrorCode, NSString *strMessage) {
-            
-            model.state = NotDownloaded;
-            dispatch_async(dispatch_get_main_queue(), ^{
-                
-                [weakSelf.effectsList reloadData];
-            });
-        }
-         onProgress:nil];
+                                        [weakSelf setMaterialModel:model];
+                                    });
+                    
+                                }else{
+                    
+                                    dispatch_async(dispatch_get_main_queue(), ^{
+                    
+                                        [weakSelf.effectsList reloadData];
+                                    });
+                                }
+                } onFailure:^(id<EFDataSourcing> material, int iErrorCode, NSString *strMessage) {
+                    
+                    NSLog(@"下载失败: [PLST] Error Id : %d Message : %@",iErrorCode,strMessage);
+                }];
+
     }else{
         [self setMaterialModel:model];
     }
@@ -1397,9 +1386,7 @@ NSString *appkey = @"e4156e4d61b040d2bcbf896c798d06e3";
     self.beautySlider.hidden = NO;
     
     switch (model.beautyType) {
-        case STBeautyTypeNone:{
-            
-        }
+        case STBeautyTypeNone:
         case STBeautyTypeMakeupZBYuanQi:
         case STBeautyTypeMakeupZBZiRan:
         case STBeautyTypeMakeupZPYuanQi:
@@ -1705,7 +1692,7 @@ NSString *appkey = @"e4156e4d61b040d2bcbf896c798d06e3";
 }
 
 - (void)resetBmpModels{
-    //     _bmp_Eye_Value = _bmp_EyeLiner_Value = _bmp_EyeLash_Value = _bmp_Lip_Value = _bmp_Brow_Value = _bmp_Nose_Value = _bmp_EyeShadow_Value = _bmp_Blush_Value = _bmp_Eyeball_Value = _bmp_Maskhair_Value = _bmp_WholeMakeUp_Value = 0.8;
+//         _bmp_Eye_Value = _bmp_EyeLiner_Value = _bmp_EyeLash_Value = _bmp_Lip_Value = _bmp_Brow_Value = _bmp_Nose_Value = _bmp_EyeShadow_Value = _bmp_Blush_Value = _bmp_Eyeball_Value = _bmp_Maskhair_Value = _bmp_WholeMakeUp_Value = 0.8;
 }
 
 #pragma mark 重置美颜参数
@@ -2161,7 +2148,6 @@ NSString *appkey = @"e4156e4d61b040d2bcbf896c798d06e3";
             [_selMakeUpsOther addObject:model];
         }
     }
-    
     _bmp_Current_Model = model;
     st_effect_beauty_type_t makeupType = [self getMakeUpType:model.m_bmpType];
     if (!model.m_selected) {
@@ -2480,6 +2466,7 @@ NSString *appkey = @"e4156e4d61b040d2bcbf896c798d06e3";
             self.arrFilterCategoryViews[i].highlighted = NO;
         }
     }
+    
 }
 - (void)beautySliderValueChanged:(UISlider *)sender {
     

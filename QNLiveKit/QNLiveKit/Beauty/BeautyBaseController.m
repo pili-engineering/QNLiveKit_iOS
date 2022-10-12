@@ -20,7 +20,7 @@
 #import "QRenderView.h"
 #import "FDanmakuView.h"
 #import <PLSTArEffects/PLSTArEffects.h>
-
+#import "st_mobile_object.h"
 
 @interface BeautyBaseController ()
 
@@ -57,7 +57,7 @@
 
 -(void)setupSenseAR{
     
-    self.effectManager = [[PLSTEffectManager alloc] initWithContext:[[EAGLContext alloc] initWithAPI:kEAGLRenderingAPIOpenGLES2]];
+    self.effectManager = [[PLSTEffectManager alloc] initWithContext:[[EAGLContext alloc] initWithAPI:kEAGLRenderingAPIOpenGLES2] handleConfig:EFFECT_CONFIG_NONE];
     self.effectManager.effectOn = YES;
     _detector = [[PLSTDetector alloc] initWithConfig:ST_MOBILE_HUMAN_ACTION_DEFAULT_CONFIG_VIDEO];
     NSAssert(_detector, @"");
