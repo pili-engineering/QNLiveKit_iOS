@@ -323,7 +323,7 @@
 
 - (ImageButtonView *)pubchatView {
     if (!_pubchatView) {
-        _pubchatView = [[ImageButtonView alloc]initWithFrame:CGRectMake(15, SCREEN_H - 52.5, 170, 30)];
+        _pubchatView = [[ImageButtonView alloc]initWithFrame:CGRectMake(15, SCREEN_H - 52.5, 100, 30)];
         _pubchatView.backgroundColor = [[UIColor blackColor] colorWithAlphaComponent:0.3];
         _pubchatView.layer.cornerRadius = 15;
         _pubchatView.clipsToBounds = YES;
@@ -359,7 +359,7 @@
         ImageButtonView *pk = [[ImageButtonView alloc]initWithFrame:CGRectZero];
         [pk bundleNormalImage:@"pk" selectImage:@"end_pk"];
         pk.clickBlock = ^(BOOL selected){
-            if (!selected) {
+            if (selected) {
                 [[QLive getRooms] listRoom:1 pageSize:20 callBack:^(NSArray<QNLiveRoomInfo *> * _Nonnull list) {
                     [weakSelf popInvitationPKView:list];
                 }];
@@ -423,7 +423,7 @@
         };
         [slotList addObject:close];
         
-        _bottomMenuView = [[BottomMenuView alloc]initWithFrame:CGRectMake(200, SCREEN_H - 60, SCREEN_W - 200, 45)];
+        _bottomMenuView = [[BottomMenuView alloc]initWithFrame:CGRectMake(130, SCREEN_H - 60, SCREEN_W - 130, 45)];
         [_bottomMenuView updateWithSlotList:slotList.copy];
         [self.view addSubview:_bottomMenuView];
     }
