@@ -19,6 +19,7 @@ NS_ASSUME_NONNULL_BEGIN
 //封面图片
 @property (nonatomic, copy)NSString *cover_url;
 @property (nonatomic, strong)NSDictionary *extension;
+@property (nonatomic, copy)NSString *start_at;
 
 @end
 
