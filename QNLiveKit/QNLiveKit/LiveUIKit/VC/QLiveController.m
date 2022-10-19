@@ -37,12 +37,15 @@
 #import "ExplainingGoodView.h"
 #import "QAlertView.h"
 #import "UIViewController+QViewController.h"
+#import "LiveBottomMoreView.h"
 
 @interface QLiveController ()<QNPushClientListener,QNRoomLifeCycleListener,QNPushClientListener,QNChatRoomServiceListener,FDanmakuViewProtocol,LiveChatRoomViewDelegate,MicLinkerListener,PKServiceListener>
 
 @property (nonatomic, strong) QNLiveRoomInfo *selectPkRoomInfo;
 @property (nonatomic, strong) QNPKSession *pkSession;//正在进行的pk
 @property (nonatomic, strong) ImageButtonView *pkSlot;
+@property (nonatomic, strong) LiveBottomMoreView *moreView;
+
 
 @end
 
@@ -342,6 +345,16 @@
     if (!_bottomMenuView) {
         NSMutableArray *slotList = [NSMutableArray array];
         __weak typeof(self)weakSelf = self;
+        
+        //弹幕
+        ImageButtonView *message = [[ImageButtonView alloc]initWithFrame:CGRectZero];
+        [message bundleNormalImage:@"icon_danmu" selectImage:@"icon_danmu"];
+        message.clickBlock = ^(BOOL selected){
+            [weakSelf.chatRoomView commentBtnPressedWithPubchat:NO];
+        };
+        [slotList addObject:message];
+
+        
         //pk
         ImageButtonView *pk = [[ImageButtonView alloc]initWithFrame:CGRectZero];
         [pk bundleNormalImage:@"pk" selectImage:@"end_pk"];
@@ -365,13 +378,14 @@
         };
         [slotList addObject:shopping];
         
-        //弹幕
-        ImageButtonView *message = [[ImageButtonView alloc]initWithFrame:CGRectZero];
-        [message bundleNormalImage:@"icon_danmu" selectImage:@"icon_danmu"];
-        message.clickBlock = ^(BOOL selected){
-            [weakSelf.chatRoomView commentBtnPressedWithPubchat:NO];
-        };
-        [slotList addObject:message];
+        //更多
+        ImageButtonView *more = [[ImageButtonView alloc]initWithFrame:CGRectZero];
+        [more bundleNormalImage:@"icon_more" selectImage:@"icon_more"];
+        more.clickBlock = ^(BOOL selected) {
+            [weakSelf popMoreView];
+                 };
+        [slotList addObject:more];
+
         //关闭
         ImageButtonView *close = [[ImageButtonView alloc]initWithFrame:CGRectZero];
         [close bundleNormalImage:@"live_close" selectImage:@"live_close"];
@@ -415,6 +429,22 @@
     }
     return _bottomMenuView;
 }
+
+
+- (void)popMoreView {
+    self.moreView = [[LiveBottomMoreView alloc]initWithFrame:CGRectMake(0, SCREEN_H - 200, SCREEN_W, 200)];
+    self.moreView.cameraChangeBlock = ^{
+        [[QNLivePushClient createPushClient] switchCamera];
+    };
+    self.moreView.microphoneBlock = ^(BOOL mute) {
+        [[QNLivePushClient createPushClient] muteMicrophone:mute];
+    };
+    self.moreView.cameraMirrorBlock = ^(BOOL mute) {
+        [QNLivePushClient createPushClient].localVideoTrack.previewMirrorFrontFacing = !mute;
+    };
+    [self.view addSubview:self.moreView];
+}
+
 
 - (void)popGoodListView {
 
