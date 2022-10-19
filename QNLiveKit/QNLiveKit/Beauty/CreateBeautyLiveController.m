@@ -12,9 +12,15 @@
 #import "QNCreateRoomParam.h"
 #import "QNLivePushClient.h"
 #import "BeautyLiveViewController.h"
+#import "DateTimePickerView.h"
 
 @interface CreateBeautyLiveController () <QNLocalVideoTrackDelegate>
 @property (nonatomic, strong) UITextField *titleTf;
+@property (nonatomic, strong) UITextField *commendTf;
+@property (nonatomic, strong) UIButton *nowButton;
+@property (nonatomic, strong) UIButton *waitButton;
+@property (nonatomic, strong) UITextField *liveTimeTf;
+@property (nonatomic, strong) DateTimePickerView * dateTimePickerView;
 @end
 
 @implementation CreateBeautyLiveController
@@ -41,6 +47,9 @@
     [bg addSubview:self.preview];
         
     [self titleTf];
+    [self commendTf];
+    [self selectPoint];
+    [self liveTimeTf];
     [self beautyButton];
     [self startButton];
     [self turnAroundButton];
@@ -74,7 +83,7 @@
 - (UITextField *)titleTf {
     if (!_titleTf) {
         _titleTf = [[UITextField alloc]initWithFrame:CGRectMake(30, 100, 200, 30)];
-        _titleTf.font = [UIFont systemFontOfSize:15];
+        _titleTf.font = [UIFont systemFontOfSize:18];
         _titleTf.textColor = [UIColor whiteColor];
         _titleTf.textAlignment = NSTextAlignmentLeft;
         NSAttributedString *placeHolderStr = [[NSAttributedString alloc]initWithString:@"请输入直播标题" attributes:@{
@@ -86,6 +95,23 @@
         
     }
     return _titleTf;
+}
+
+- (UITextField *)commendTf {
+    if (!_commendTf) {
+        _commendTf = [[UITextField alloc]initWithFrame:CGRectMake(30, 150, 200, 30)];
+        _commendTf.font = [UIFont systemFontOfSize:15];
+        _commendTf.textColor = [UIColor whiteColor];
+        _commendTf.textAlignment = NSTextAlignmentLeft;
+        NSAttributedString *placeHolderStr = [[NSAttributedString alloc]initWithString:@"请输入直播公告" attributes:@{
+            NSForegroundColorAttributeName:[UIColor whiteColor],
+            NSFontAttributeName:_commendTf.font
+        }];
+        _commendTf.attributedPlaceholder = placeHolderStr;
+        [self.view addSubview:_commendTf];
+        
+    }
+    return _commendTf;
 }
 
 //美颜
@@ -103,6 +129,84 @@
     [button setImage:[UIImage imageNamed:@"create_beauty"] forState:UIControlStateNormal];
     [button addTarget:self action:@selector(beautyButtonClick) forControlEvents:UIControlEventTouchUpInside];
     [self.view addSubview:button];
+}
+
+- (void)selectPoint {
+    NSArray *selectArr = @[@"live_time", @"now_select",@"wait_select"];
+    NSArray *disSelectArr = @[@"live_time",@"now_disSelect",@"wait_disSelect"];
+    for (int i = 0; i < 3; i ++) {
+        UIButton *button = [[UIButton alloc]initWithFrame:CGRectMake(20 + (80 + 30) *i, 200, 80, 30)];
+        [button setImage:[UIImage imageNamed:disSelectArr[i]] forState:UIControlStateNormal];
+        [button setImage:[UIImage imageNamed:selectArr[i]] forState:UIControlStateSelected];
+        [button addTarget:self action:@selector(livebeginSelect:) forControlEvents:UIControlEventTouchUpInside];
+        [self.view addSubview:button];
+        if (i == 1) {
+            self.nowButton = button;
+        }
+        if (i == 2) {
+            self.waitButton = button;
+        }
+        self.nowButton.selected = YES;
+    }
+}
+
+- (UITextField *)liveTimeTf {
+    if (!_liveTimeTf) {
+        _liveTimeTf = [[UITextField alloc]initWithFrame:CGRectMake(30, 150, 200, 30)];
+        _liveTimeTf.font = [UIFont systemFontOfSize:15];
+        _liveTimeTf.textColor = [UIColor grayColor];
+        _liveTimeTf.backgroundColor = [UIColor whiteColor];
+        _liveTimeTf.textAlignment = NSTextAlignmentLeft;
+        _liveTimeTf.placeholder = @"请选择日期";
+        _liveTimeTf.hidden = YES;
+        [self.view addSubview:_liveTimeTf];
+        
+        [_liveTimeTf mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.right.equalTo(self.waitButton.mas_right);
+            make.top.equalTo(self.waitButton.mas_bottom).offset(8);
+            make.width.mas_equalTo(200);
+            make.height.mas_equalTo(30);
+        }];
+        
+        UIImageView *image = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"choose_date"]];
+        [_liveTimeTf addSubview:image];
+        [image mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.centerY.equalTo(self.liveTimeTf);
+            make.right.equalTo (self.liveTimeTf.mas_right).offset(-15);
+        }];
+        
+        UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(showDatePicker)];
+        _liveTimeTf.userInteractionEnabled = YES;
+        [_liveTimeTf addGestureRecognizer:tap];
+        
+    }
+    return _liveTimeTf;
+}
+
+- (void)showDatePicker {
+    __weak typeof(self)weakSelf = self;
+    DateTimePickerView *dateTimePickerView = [[DateTimePickerView alloc] initWithDatePickerMode:DatePickerDateHourMinuteMode defaultDateTime:[[NSDate alloc]initWithTimeIntervalSinceNow:1000]];
+    dateTimePickerView.clickedOkBtn = ^(NSString * datetimeStr){
+        NSLog(@"%@", datetimeStr);
+        weakSelf.liveTimeTf.text = datetimeStr;
+    };
+    if (dateTimePickerView) {
+        [self.view addSubview:dateTimePickerView];
+        [dateTimePickerView showHcdDateTimePicker];
+    }
+}
+
+- (void)livebeginSelect:(UIButton *)btn {
+    if (btn == self.waitButton) {
+        self.waitButton.selected = !self.waitButton.selected;
+        self.nowButton.selected = !self.waitButton.selected;
+    } else if (btn == self.nowButton) {
+        self.nowButton.selected = !self.nowButton.selected;
+        self.waitButton.selected = !self.nowButton.selected;
+    }
+    
+    self.liveTimeTf.hidden = !self.waitButton.selected;
+    
 }
 
 - (void)startButton {
@@ -136,8 +240,14 @@
 - (void)createLive {
     QNCreateRoomParam *params = [QNCreateRoomParam new];
     params.title = self.titleTf.text;
-//    params.notice = @"";
+    if (self.commendTf.text.length > 0) {
+        params.notice = self.commendTf.text;
+    }
     params.cover_url = LIVE_User_avatar;
+    if (self.waitButton.selected == YES) {
+        params.start_at = [self.liveTimeTf.text stringByAppendingString:@":00"];
+    }
+    
 //    params.extension = @"";
     
     [[QLive getRooms] createRoom:params callBack:^(QNLiveRoomInfo * _Nonnull roomInfo) {
