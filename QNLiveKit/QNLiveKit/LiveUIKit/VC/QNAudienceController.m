@@ -397,7 +397,7 @@
         
         //弹幕
         ImageButtonView *message = [[ImageButtonView alloc]initWithFrame:CGRectZero];
-        [message bundleNormalImage:@"message" selectImage:@"message"];
+        [message bundleNormalImage:@"icon_danmu" selectImage:@"icon_danmu"];
         message.clickBlock = ^(BOOL selected){
             [weakSelf.chatRoomView commentBtnPressedWithPubchat:NO];
         };

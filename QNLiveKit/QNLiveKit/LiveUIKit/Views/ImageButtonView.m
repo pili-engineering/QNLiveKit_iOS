@@ -42,7 +42,8 @@
     self.button.selected = selected;
 }
 
-- (void)click:(UIButton *)button {    
+- (void)click:(UIButton *)button {
+    button.selected = !button.selected;
     if (self.clickBlock) {
         self.clickBlock(button.selected);
     }
