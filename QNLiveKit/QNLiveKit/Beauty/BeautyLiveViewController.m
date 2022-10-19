@@ -38,6 +38,7 @@
 #import "QAlertView.h"
 #import "UIViewController+QViewController.h"
 #import "QStatisticalService.h"
+#import "LiveBottomMoreView.h"
 
 @interface BeautyLiveViewController ()<QNPushClientListener,QNRoomLifeCycleListener,QNPushClientListener,QNChatRoomServiceListener,FDanmakuViewProtocol,LiveChatRoomViewDelegate,MicLinkerListener,PKServiceListener,QNLocalVideoTrackDelegate>
 
@@ -45,6 +46,7 @@
 @property (nonatomic, strong) QNPKSession *pkSession;//正在进行的pk
 @property (nonatomic, strong) QNLiveUser *pk_other_user;//pk对象
 @property (nonatomic, strong) ImageButtonView *pkSlot;
+@property (nonatomic, strong) LiveBottomMoreView *moreView;
 
 
 @end
@@ -379,6 +381,15 @@
         
         NSMutableArray *slotList = [NSMutableArray array];
         __weak typeof(self)weakSelf = self;
+        
+        //弹幕
+        ImageButtonView *message = [[ImageButtonView alloc]initWithFrame:CGRectZero];
+        [message bundleNormalImage:@"icon_danmu" selectImage:@"icon_danmu"];
+        message.clickBlock = ^(BOOL selected){
+            [weakSelf.chatRoomView commentBtnPressedWithPubchat:NO];
+        };
+        [slotList addObject:message];
+        
         //pk
         ImageButtonView *pk = [[ImageButtonView alloc]initWithFrame:CGRectZero];
         [pk bundleNormalImage:@"pk" selectImage:@"end_pk"];
@@ -402,29 +413,32 @@
         };
         [slotList addObject:shopping];
         
-        //美颜
-        ImageButtonView *beauty = [[ImageButtonView alloc]initWithFrame:CGRectZero];
-        [beauty bundleNormalImage:@"btn_beauty" selectImage:@"btn_beauty_selected"];
-        beauty.clickBlock = ^(BOOL selected) {
-            [weakSelf clickBottomViewButton:weakSelf.beautyBtn];
+        //更多
+        ImageButtonView *more = [[ImageButtonView alloc]initWithFrame:CGRectZero];
+        [more bundleNormalImage:@"icon_more" selectImage:@"icon_more"];
+        more.clickBlock = ^(BOOL selected) {
+            [weakSelf popMoreView];
+//            [weakSelf clickBottomViewButton:weakSelf.specialEffectsBtn];
         };
-        [slotList addObject:beauty];
+        [slotList addObject:more];
         
-        //特效
-        ImageButtonView *specialEffects = [[ImageButtonView alloc]initWithFrame:CGRectZero];
-        [specialEffects bundleNormalImage:@"btn_special_effects" selectImage:@"btn_special_effects_selected"];
-        specialEffects.clickBlock = ^(BOOL selected) {
-            [weakSelf clickBottomViewButton:weakSelf.specialEffectsBtn];
-        };
-        [slotList addObject:specialEffects];
+//        //美颜
+//        ImageButtonView *beauty = [[ImageButtonView alloc]initWithFrame:CGRectZero];
+//        [beauty bundleNormalImage:@"btn_beauty" selectImage:@"btn_beauty_selected"];
+//        beauty.clickBlock = ^(BOOL selected) {
+//            [weakSelf clickBottomViewButton:weakSelf.beautyBtn];
+//        };
+//        [slotList addObject:beauty];
+//
+//        //特效
+//        ImageButtonView *specialEffects = [[ImageButtonView alloc]initWithFrame:CGRectZero];
+//        [specialEffects bundleNormalImage:@"btn_special_effects" selectImage:@"btn_special_effects_selected"];
+//        specialEffects.clickBlock = ^(BOOL selected) {
+//            [weakSelf clickBottomViewButton:weakSelf.specialEffectsBtn];
+//        };
+//        [slotList addObject:specialEffects];
         
-        //弹幕
-        ImageButtonView *message = [[ImageButtonView alloc]initWithFrame:CGRectZero];
-        [message bundleNormalImage:@"message" selectImage:@"message"];
-        message.clickBlock = ^(BOOL selected){
-            [weakSelf.chatRoomView commentBtnPressedWithPubchat:NO];
-        };
-        [slotList addObject:message];
+       
         //关闭
         ImageButtonView *close = [[ImageButtonView alloc]initWithFrame:CGRectZero];
         [close bundleNormalImage:@"live_close" selectImage:@"live_close"];
@@ -460,6 +474,27 @@
         
     }
     return _bottomMenuView;
+}
+
+- (void)popMoreView {
+    __weak typeof(self)weakSelf = self;
+    self.moreView = [[LiveBottomMoreView alloc]initWithFrame:CGRectMake(0, SCREEN_H - 200, SCREEN_W, 200)];
+    self.moreView.cameraChangeBlock = ^{
+        [[QNLivePushClient createPushClient] switchCamera];
+    };
+    self.moreView.microphoneBlock = ^(BOOL mute) {
+        [[QNLivePushClient createPushClient] muteMicrophone:mute];
+    };
+    self.moreView.cameraMirrorBlock = ^(BOOL mute) {
+        [QNLivePushClient createPushClient].localVideoTrack.previewMirrorFrontFacing = !mute;
+    };
+    self.moreView.beautyBlock = ^{
+        [weakSelf clickBottomViewButton:weakSelf.beautyBtn];
+    };
+    self.moreView.effectsBlock = ^ {
+        [weakSelf clickBottomViewButton:weakSelf.specialEffectsBtn];
+    };
+    [self.view addSubview:self.moreView];
 }
 
 - (void)popGoodListView {
