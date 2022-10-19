@@ -29,6 +29,7 @@
 #import "QLiveNetworkUtil.h"
 #import "GoodsModel.h"
 #import "WacthRecordController.h"
+#import "WatchBottomMoreView.h"
 
 @interface QNAudienceController ()<QNChatRoomServiceListener,QNPushClientListener,LiveChatRoomViewDelegate,FDanmakuViewProtocol,PLPlayerDelegate,MicLinkerListener,PKServiceListener>
 @property (nonatomic,strong)UILabel *masterLeaveLabel;
@@ -376,15 +377,13 @@
         NSMutableArray *slotList = [NSMutableArray array];
         __weak typeof(self)weakSelf = self;
         
-        //连麦
-        ImageButtonView *link = [[ImageButtonView alloc]initWithFrame:CGRectZero];
-        [link bundleNormalImage:@"link" selectImage:@"link"];
-        link.clickBlock = ^(BOOL selected){
-            
-            [weakSelf.linkService ApplyLink:weakSelf.roomInfo.anchor_info];
-            [QToastView showToast:@"连麦申请已发送"];
+        //弹幕
+        ImageButtonView *message = [[ImageButtonView alloc]initWithFrame:CGRectZero];
+        [message bundleNormalImage:@"icon_danmu" selectImage:@"icon_danmu"];
+        message.clickBlock = ^(BOOL selected){
+            [weakSelf.chatRoomView commentBtnPressedWithPubchat:NO];
         };
-        [slotList addObject:link];
+        [slotList addObject:message];
         
         //购物车
         ImageButtonView *shopping = [[ImageButtonView alloc]initWithFrame:CGRectZero];
@@ -395,13 +394,13 @@
         };
         [slotList addObject:shopping];
         
-        //弹幕
-        ImageButtonView *message = [[ImageButtonView alloc]initWithFrame:CGRectZero];
-        [message bundleNormalImage:@"icon_danmu" selectImage:@"icon_danmu"];
-        message.clickBlock = ^(BOOL selected){
-            [weakSelf.chatRoomView commentBtnPressedWithPubchat:NO];
-        };
-        [slotList addObject:message];
+        //更多
+        ImageButtonView *more = [[ImageButtonView alloc]initWithFrame:CGRectZero];
+        [more bundleNormalImage:@"icon_more" selectImage:@"icon_more"];
+        more.clickBlock = ^(BOOL selected) {
+            [weakSelf popMoreView];
+                 };
+        [slotList addObject:more];
         
         //关闭
         ImageButtonView *close = [[ImageButtonView alloc]initWithFrame:CGRectZero];
@@ -426,6 +425,23 @@
 
     }
     return _bottomMenuView;
+}
+
+- (void)popMoreView {
+    __weak typeof(self)weakSelf = self;
+
+    WatchBottomMoreView *moreView = [[WatchBottomMoreView alloc]initWithFrame:CGRectMake(0, SCREEN_H - 200, SCREEN_W, 200)];
+    moreView.giftBlock = ^{
+        
+        
+        
+    };
+    moreView.applyLinkBlock = ^ {
+        [weakSelf.linkService ApplyLink:weakSelf.roomInfo.anchor_info];
+        [QToastView showToast:@"连麦申请已发送"];
+    };
+
+    [self.view addSubview:moreView];
 }
 
 - (void)popGoodListView {

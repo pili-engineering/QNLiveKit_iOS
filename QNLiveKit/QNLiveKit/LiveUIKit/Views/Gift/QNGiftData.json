@@ -1,0 +1,62 @@
+{
+    "code": 0,
+    "data": [
+             
+             {
+             "giftId": "0",
+             "giftImage": "gift_cake",
+             "giftName": "蛋糕",
+             "giftPrice": "20",
+             "giftGifImage": "cat",
+             },
+             {
+             "giftId": "1",
+             "giftImage": "gift_flower",
+             "giftName": "花儿",
+             "giftPrice": "30",
+             "giftGifImage": "lu",
+             },
+             {
+             "giftId": "2",
+             "giftImage": "gift_necklace",
+             "giftName": "项链",
+             "giftPrice": "10",
+             "giftGifImage": "shengdan",
+             },
+             {
+             "giftId": "3",
+             "giftImage": "gift_ring",
+             "giftName": "戒指",
+             "giftPrice": "10",
+             "giftGifImage": "gift_anim_bell",
+             },
+             {
+             "giftId": "4",
+             "giftImage": "gift_ballon",
+             "giftName": "气球",
+             "giftPrice": "40",
+             "giftGifImage": "cat",
+             },
+             {
+             "giftId": "5",
+             "giftImage": "gift_necklace",
+             "giftName": "项链",
+             "giftPrice": "10",
+             "giftGifImage": "shengdan",
+             },
+             {
+             "giftId": "6",
+             "giftImage": "gift_ring",
+             "giftName": "戒指",
+             "giftPrice": "10",
+             "giftGifImage": "gift_anim_bell",
+             },
+             {
+             "giftId": "7",
+             "giftImage": "gift_ballon",
+             "giftName": "气球",
+             "giftPrice": "40",
+             "giftGifImage": "cat",
+             }
+             ],
+}

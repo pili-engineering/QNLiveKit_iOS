@@ -394,7 +394,7 @@
         ImageButtonView *pk = [[ImageButtonView alloc]initWithFrame:CGRectZero];
         [pk bundleNormalImage:@"pk" selectImage:@"end_pk"];
         pk.clickBlock = ^(BOOL selected){
-            if (!selected) {
+            if (selected) {
                 [[QLive getRooms] listRoom:1 pageSize:20 callBack:^(NSArray<QNLiveRoomInfo *> * _Nonnull list) {
                     [weakSelf popInvitationPKView:list];
                 }];
