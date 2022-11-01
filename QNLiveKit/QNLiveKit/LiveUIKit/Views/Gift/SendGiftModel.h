@@ -16,19 +16,23 @@
 /** userId */
 @property(nonatomic,copy)NSString *userId;
 /** giftname */
-@property(nonatomic,copy)NSString *giftName;
+@property(nonatomic,copy)NSString *name;
 /** giftimage */
-@property(nonatomic,copy)NSString *giftImage;
+@property(nonatomic,copy)NSString *img;
 /** gift gifimage */
-@property(nonatomic,copy)NSString *giftGifImage;
+@property(nonatomic,copy)NSString *animation_img;
 /** gift price */
-@property(nonatomic,copy)NSString *giftPrice;
+@property(nonatomic,copy)NSString *amount;
+/** gift 排序 */
+@property(nonatomic,assign) NSInteger order;
 /** count */
 @property(nonatomic,assign) NSInteger defaultCount; //0
 /** 发送的数 */
 @property(nonatomic,assign) NSInteger sendCount;
 /** 礼物ID */
-@property(nonatomic,copy)NSString *giftId;
+@property(nonatomic,copy)NSString *gift_id;
+/** 礼物类型 */
+@property(nonatomic,assign) NSInteger type;
 /** 礼物操作的唯一Key */
 @property(nonatomic,copy)NSString *giftKey;
 /** 是否选中 */

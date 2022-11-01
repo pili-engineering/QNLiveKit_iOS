@@ -25,7 +25,7 @@ static const CGFloat showGiftView_XNum_H = 30;//礼物数高
 static const CGFloat showGiftView_XNum_L = 5;//礼物数左
 
 
-@interface GiftShowView : UIView
+@interface QNGiftShowView : UIView
 
 /**
  展示礼物动效

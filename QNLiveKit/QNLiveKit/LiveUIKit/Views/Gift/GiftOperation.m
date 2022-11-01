@@ -6,7 +6,7 @@
 //
 
 #import "GiftOperation.h"
-#import "GiftShowView.h"
+#import "QNGiftShowView.h"
 #import "SendGiftModel.h"
 
 
@@ -26,7 +26,7 @@
     return self;
 }
 
-+ (instancetype)addOperationWithView:(GiftShowView *)giftShowView OnView:(UIView *)backView Info:(SendGiftModel *)model completeBlock:(completeOpBlock)completeBlock {
++ (instancetype)addOperationWithView:(QNGiftShowView *)giftShowView OnView:(UIView *)backView Info:(SendGiftModel *)model completeBlock:(completeOpBlock)completeBlock {
     
     GiftOperation *op = [[GiftOperation alloc] init];
     op.giftShowView = giftShowView;
@@ -44,7 +44,7 @@
     }
     
     _executing = YES;
-    NSLog(@"当前队列-- %@",self.model.giftName);
+    NSLog(@"当前队列-- %@",self.model.name);
     [[NSOperationQueue mainQueue] addOperationWithBlock:^{
         
         [self.backView addSubview:self.giftShowView];

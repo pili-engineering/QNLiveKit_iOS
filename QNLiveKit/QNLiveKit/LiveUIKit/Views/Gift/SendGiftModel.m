@@ -10,7 +10,7 @@
 @implementation SendGiftModel
 
 - (NSString *)giftKey {
-    return [NSString stringWithFormat:@"%@%@",self.giftName,self.giftId];
+    return [NSString stringWithFormat:@"%@%@",self.name,self.gift_id];
 }
 
 @end

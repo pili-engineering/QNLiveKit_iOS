@@ -145,11 +145,11 @@ static const NSInteger giftMaxNum = 99;
         UIWindow *window = [UIApplication sharedApplication].keyWindow;
         [window addSubview:self.gifImageView];
         //展示本地gif
-        NSString * path = [[NSBundle mainBundle] pathForResource:giftModel.giftGifImage ofType:@"gif"];
-        NSData * data = [NSData dataWithContentsOfFile:path];
-        self.gifImageView.image = [UIImage sd_imageWithGIFData:data];
+//        NSString * path = [[NSBundle mainBundle] pathForResource:giftModel.animation_img ofType:@"gif"];
+//        NSData * data = [NSData dataWithContentsOfFile:path];
+//        self.gifImageView.image = [UIImage sd_imageWithGIFData:data];
         //展示网络gif
-//        [self.gifImageView sd_setImageWithURL:[NSURL URLWithString:giftModel.giftGifImage]];
+        [self.gifImageView sd_setImageWithURL:[NSURL URLWithString:giftModel.animation_img]];
         self.gifImageView.hidden = NO;
         
         dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(2.0 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
@@ -258,7 +258,7 @@ static const NSInteger giftMaxNum = 99;
 - (UIImageView *)gifImageView{
     
     if (!_gifImageView) {
-        _gifImageView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 60, kScreenWidth, 225)];
+        _gifImageView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 60, SCREEN_W, 225)];
         _gifImageView.hidden = YES;
     }
     return _gifImageView;

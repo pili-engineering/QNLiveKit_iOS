@@ -5,17 +5,17 @@
 //  Created by 郭茜 on 2022/1/5.
 //
 
-#import "GiftShowView.h"
+#import "QNGiftShowView.h"
 #import "SendGiftModel.h"
 #import "UIImageView+WebCache.h"
 
 static const NSInteger animationTime = 5;
 
-@interface GiftShowView()
+@interface QNGiftShowView()
 
 @end
 
-@implementation GiftShowView
+@implementation QNGiftShowView
 
 - (instancetype)init
 {
@@ -78,11 +78,11 @@ static const NSInteger animationTime = 5;
     self.finishModel = giftModel;
     [self.userIconView sd_setImageWithURL:[NSURL URLWithString:giftModel.userIcon] placeholderImage:[UIImage imageNamed:@""]];
     self.userNameLabel.text = giftModel.userName;
-    self.giftNameLabel.text = [NSString stringWithFormat:@"送出 %@",giftModel.giftName];
+    self.giftNameLabel.text = [NSString stringWithFormat:@"送出 %@",giftModel.name];
     //本地图片
-    self.giftImageView.image = [UIImage imageNamed:giftModel.giftImage];
+//    self.giftImageView.image = [UIImage imageNamed:giftModel.img];
     //网络图片
-//    [self.giftImageView sd_setImageWithURL:[NSURL URLWithString:giftModel.giftImage] placeholderImage:[UIImage imageNamed:@""]];
+    [self.giftImageView sd_setImageWithURL:[NSURL URLWithString:giftModel.img] placeholderImage:[UIImage imageNamed:@""]];
     self.hidden = NO;
     self.showViewFinishBlock = completeBlock;
     if (self.showViewKeyBlock && self.currentGiftCount == 0) {
