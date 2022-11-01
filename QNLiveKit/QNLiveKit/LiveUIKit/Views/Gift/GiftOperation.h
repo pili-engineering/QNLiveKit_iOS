@@ -8,7 +8,7 @@
 #import <Foundation/Foundation.h>
 #import <UIKit/UIKit.h>
 
-@class SendGiftModel,GiftShowView;
+@class SendGiftModel,QNGiftShowView;
 
 typedef void(^completeOpBlock)(BOOL finished,NSString *giftKey);
 
@@ -23,7 +23,7 @@ typedef void(^completeOpBlock)(BOOL finished,NSString *giftKey);
  @param completeBlock 回调操作结束
  @return 操作
  */
-+ (instancetype)addOperationWithView:(GiftShowView *)giftShowView
++ (instancetype)addOperationWithView:(QNGiftShowView *)giftShowView
                               OnView:(UIView *)backView
                                 Info:(SendGiftModel *)model
                        completeBlock:(completeOpBlock)completeBlock;
@@ -36,6 +36,6 @@ typedef void(^completeOpBlock)(BOOL finished,NSString *giftKey);
 /** block */
 @property(nonatomic,copy) completeOpBlock opFinishedBlock;
 /** showview */
-@property(nonatomic,strong) GiftShowView *giftShowView;
+@property(nonatomic,strong) QNGiftShowView *giftShowView;
 
 @end

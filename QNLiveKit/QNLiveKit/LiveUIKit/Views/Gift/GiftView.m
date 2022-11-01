@@ -9,7 +9,7 @@
 #import "GiftCollectionViewCell.h"
 #import "SendGiftModel.h"
 #import "HorizontalLayout.h"
-
+#import "QLiveNetworkUtil.h"
 //获取屏幕 宽度、高度
 #define SCREEN_WIDTH ([UIScreen mainScreen].bounds.size.width)
 #define SCREEN_HEIGHT ([UIScreen mainScreen].bounds.size.height)
@@ -65,12 +65,29 @@ static NSString *cellID = @"GiftCollectionViewCell";
 }
 
 - (void)setData {
-    NSString *filePath=[[NSBundle mainBundle]pathForResource:@"QNGiftData" ofType:@"json"];
-    NSData *jsonData = [NSData dataWithContentsOfFile:filePath];
-    NSDictionary *responseObject = [NSJSONSerialization JSONObjectWithData:jsonData options:kNilOptions error:nil];
-    NSArray *data = [responseObject objectForKey:@"data"];
-    NSMutableArray *dataArr = [NSMutableArray arrayWithArray:data];
-    self.dataArray = [SendGiftModel mj_objectArrayWithKeyValuesArray:dataArr];
+    
+    NSString *action = [NSString stringWithFormat:@"client/gift/config/%@",@"1"];
+    
+    [QLiveNetworkUtil getRequestWithAction:action params:@{} success:^(NSDictionary * _Nonnull responseData) {
+        
+        NSArray <SendGiftModel *> *list = [SendGiftModel mj_objectArrayWithKeyValuesArray:responseData];
+        self.dataArray = list;
+        
+        } failure:^(NSError * _Nonnull error) {
+            (nil);
+        }];
+   
+//    NSMutableArray *dataArr = [NSMutableArray array];
+//
+//    SendGiftModel *model = [SendGiftModel new];
+//    model.gift_id = @"0";
+//    model.img = @"gift_cake";
+//    model.name = @"蛋糕";
+//    model.amount = @"20";
+//    model.animation_img = @"cat";
+//    [dataArr addObject:model];
+//
+//    self.dataArray = [dataArr copy];
 }
 
 #pragma mark -设置UI

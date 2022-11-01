@@ -160,7 +160,6 @@
         }];
 }
 
-
 //记录登录信息
 - (void)saveLoginInfoToUserDefaults:(QNLoginInfoModel *)loginModel {
     

@@ -6,7 +6,7 @@
 //
 
 #import "GiftShowManager.h"
-#import "GiftShowView.h"
+#import "QNGiftShowView.h"
 #import "GiftOperation.h"
 #import "SendGiftModel.h"
 
@@ -38,8 +38,8 @@ static const NSInteger giftMaxNum = 99;
 @property(nonatomic,strong) NSOperationQueue *giftQueue1;
 @property(nonatomic,strong) NSOperationQueue *giftQueue2;
 /** showgift */
-@property(nonatomic,strong) GiftShowView *giftShowView1;
-@property(nonatomic,strong) GiftShowView *giftShowView2;
+@property(nonatomic,strong) QNGiftShowView *giftShowView1;
+@property(nonatomic,strong) QNGiftShowView *giftShowView2;
 /** 操作缓存 */
 @property (nonatomic,strong) NSCache *operationCache;
 
@@ -83,7 +83,7 @@ static const NSInteger giftMaxNum = 99;
     return _curentGiftKeys;
 }
 
-- (GiftShowView *)giftShowView1{
+- (QNGiftShowView *)giftShowView1{
     
     if (!_giftShowView1) {
         CGFloat itemW = SCREEN_WIDTH/4.0;
@@ -92,7 +92,7 @@ static const NSInteger giftMaxNum = 99;
         __weak typeof(self) weakSelf = self;
         CGFloat showViewW = 10+showGiftView_UserIcon_LT+showGiftView_UserIcon_WH+showGiftView_UserName_L+showGiftView_UserName_W+showGiftView_GiftIcon_W+showGiftView_XNum_L+showGiftView_XNum_W;
         CGFloat showViewY = SCREEN_HEIGHT-Bottom_Margin(44)-2*itemH-showGiftView_GiftIcon_H-10-15;
-        _giftShowView1 = [[GiftShowView alloc] initWithFrame:CGRectMake(-showViewW, showViewY, showViewW, showGiftView_GiftIcon_H)];
+        _giftShowView1 = [[QNGiftShowView alloc] initWithFrame:CGRectMake(-showViewW, showViewY, showViewW, showGiftView_GiftIcon_H)];
         [_giftShowView1 setShowViewKeyBlock:^(SendGiftModel *giftModel) {
             [weakSelf.curentGiftKeys addObject:giftModel.giftKey];
         }];
@@ -100,7 +100,7 @@ static const NSInteger giftMaxNum = 99;
     return _giftShowView1;
 }
 
-- (GiftShowView *)giftShowView2 {
+- (QNGiftShowView *)giftShowView2 {
     
     if (!_giftShowView2) {
         CGFloat itemW = SCREEN_WIDTH/4.0;
@@ -109,7 +109,7 @@ static const NSInteger giftMaxNum = 99;
         __weak typeof(self) weakSelf = self;
         CGFloat showViewW = 10+showGiftView_UserIcon_LT+showGiftView_UserIcon_WH+showGiftView_UserName_L+showGiftView_UserName_W+showGiftView_GiftIcon_W+showGiftView_XNum_L+showGiftView_XNum_W;
         CGFloat showViewY = SCREEN_HEIGHT-Bottom_Margin(44)-2*itemH-showGiftView_GiftIcon_H*2-2*10-15;
-        _giftShowView2 = [[GiftShowView alloc] initWithFrame:CGRectMake(-showViewW, showViewY, showViewW, showGiftView_GiftIcon_H)];
+        _giftShowView2 = [[QNGiftShowView alloc] initWithFrame:CGRectMake(-showViewW, showViewY, showViewW, showGiftView_GiftIcon_H)];
         [_giftShowView2 setShowViewKeyBlock:^(SendGiftModel *giftModel) {
             [weakSelf.curentGiftKeys addObject:giftModel.giftKey];
             
@@ -145,11 +145,11 @@ static const NSInteger giftMaxNum = 99;
         UIWindow *window = [UIApplication sharedApplication].keyWindow;
         [window addSubview:self.gifImageView];
         //展示本地gif
-        NSString * path = [[NSBundle mainBundle] pathForResource:giftModel.giftGifImage ofType:@"gif"];
+        NSString * path = [[NSBundle mainBundle] pathForResource:giftModel.animation_img ofType:@"gif"];
         NSData * data = [NSData dataWithContentsOfFile:path];
         self.gifImageView.image = [UIImage sd_imageWithGIFData:data];
         //展示网络gif
-//        [self.gifImageView sd_setImageWithURL:[NSURL URLWithString:giftModel.giftGifImage]];
+//        [self.gifImageView sd_setImageWithURL:[NSURL URLWithString:giftModel.animation_img]];
         self.gifImageView.hidden = NO;
         
         dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(2.0 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
@@ -179,7 +179,7 @@ static const NSInteger giftMaxNum = 99;
         }else {
             
             NSOperationQueue *queue;
-            GiftShowView *showView;
+            QNGiftShowView *showView;
             if (self.giftQueue1.operations.count <= self.giftQueue2.operations.count) {
                 queue = self.giftQueue1;
                 showView = self.giftShowView1;
@@ -225,7 +225,7 @@ static const NSInteger giftMaxNum = 99;
         }else {
             
             NSOperationQueue *queue;
-            GiftShowView *showView;
+            QNGiftShowView *showView;
             if (self.giftQueue1.operations.count <= self.giftQueue2.operations.count) {
                 queue = self.giftQueue1;
                 showView = self.giftShowView1;
@@ -258,7 +258,7 @@ static const NSInteger giftMaxNum = 99;
 - (UIImageView *)gifImageView{
     
     if (!_gifImageView) {
-        _gifImageView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 60, kScreenWidth, 225)];
+        _gifImageView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 60, SCREEN_W, 225)];
         _gifImageView.hidden = YES;
     }
     return _gifImageView;

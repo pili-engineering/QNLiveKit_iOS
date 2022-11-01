@@ -30,9 +30,14 @@
 #import "GoodsModel.h"
 #import "WacthRecordController.h"
 #import "WatchBottomMoreView.h"
+#import "GiftView.h"
+#import "SendGiftModel.h"
+#import "GiftShowManager.h"
+#import "GiftMsgModel.h"
 
-@interface QNAudienceController ()<QNChatRoomServiceListener,QNPushClientListener,LiveChatRoomViewDelegate,FDanmakuViewProtocol,PLPlayerDelegate,MicLinkerListener,PKServiceListener>
+@interface QNAudienceController ()<QNChatRoomServiceListener,QNPushClientListener,LiveChatRoomViewDelegate,FDanmakuViewProtocol,PLPlayerDelegate,MicLinkerListener,PKServiceListener,GiftViewDelegate>
 @property (nonatomic,strong)UILabel *masterLeaveLabel;
+@property(nonatomic,strong) GiftView *giftView;
 @end
 
 @implementation QNAudienceController
@@ -433,7 +438,7 @@
     WatchBottomMoreView *moreView = [[WatchBottomMoreView alloc]initWithFrame:CGRectMake(0, SCREEN_H - 200, SCREEN_W, 200)];
     moreView.giftBlock = ^{
         
-        
+        [weakSelf.giftView showGiftView];
         
     };
     moreView.applyLinkBlock = ^ {
@@ -443,6 +448,66 @@
 
     [self.view addSubview:moreView];
 }
+
+#pragma mark  --------GiftViewDelegate---------
+//点击赠送礼物的回调
+- (void)giftViewSendGiftInView:(GiftView *)giftView data:(SendGiftModel *)model {
+        
+    model.userIcon = LIVE_User_avatar;
+    model.userName = LIVE_User_nickname;
+    model.defaultCount = 0;
+    model.sendCount = 1;
+
+    [[GiftShowManager sharedManager] showGiftViewWithBackView:self.view info:model completeBlock:^(BOOL finished) {
+        NSLog(@"赠送了礼物");
+        
+    }];
+    [self requestSendGift:model];
+    [self sendGiftMessage:model];
+}
+
+- (void)requestSendGift:(SendGiftModel *)model {
+    NSMutableDictionary *dic = [NSMutableDictionary dictionary];
+    dic[@"live_id"] = self.roomInfo.live_id;
+    dic[@"gift_id"] = model.gift_id;
+    dic[@"amount"] = model.amount;
+
+    [QLiveNetworkUtil postRequestWithAction:@"client/gift/send" params:dic success:^(NSDictionary * _Nonnull responseData) {
+
+    } failure:^(NSError * _Nonnull error) {
+        
+    }];
+}
+
+//发送礼物信令和消息
+-(void)sendGiftMessage:(SendGiftModel *)model {
+    QNGiftModel *gift = [QNGiftModel new];
+    gift.giftName = model.name;
+    gift.giftId = model.gift_id;
+    
+#pragma warning -------发送礼物消息
+    
+}
+
+//收到礼物信令的操作
+//- (void)receivedGift:(GiftMsgModel *)model {
+//    SendGiftModel *sendModel = [SendGiftModel new];
+//    sendModel.userIcon = model.senderAvatar;
+//    sendModel.userName = model.senderName;
+//    sendModel.defaultCount = 0;
+//    sendModel.sendCount = model.number;
+//    sendModel.name = model.sendGift.name;
+//    //通过礼物名字找到本地的礼物图
+//    for (SendGiftModel *gift in self.giftView.dataArray) {
+//        if ([model.sendGift.name isEqualToString:gift.name]) {
+//            sendModel.img = gift.img;
+//            sendModel.animation_img = gift.animation_img;
+//        }
+//    }
+//    [[GiftShowManager sharedManager] showGiftViewWithBackView:self.view info:sendModel completeBlock:^(BOOL finished) {
+//    }];
+//}
+
 
 - (void)popGoodListView {
         
@@ -516,6 +581,14 @@
         [self.view addSubview:_goodView];
     }
     return _goodView;
+}
+
+- (GiftView *)giftView{
+    if (!_giftView) {
+        _giftView = [[GiftView alloc] init];
+        _giftView.delegate = self;
+    }
+    return _giftView;
 }
 
 - (QNLiveUser *)user {

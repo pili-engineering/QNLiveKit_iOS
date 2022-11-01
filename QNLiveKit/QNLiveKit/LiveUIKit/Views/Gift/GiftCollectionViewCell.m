@@ -67,16 +67,16 @@
 - (void)setModel:(SendGiftModel *)model {
     
     _model = model;
-    self.giftImageView.image = [UIImage imageNamed:model.giftImage];
-//    [self.giftImageView sd_setImageWithURL:[NSURL URLWithString:model.giftImage] placeholderImage:[UIImage imageNamed:@""]];
-    self.giftNameLabel.text = model.giftName;
+//    self.giftImageView.image = [UIImage imageNamed:model.img];
+    [self.giftImageView sd_setImageWithURL:[NSURL URLWithString:model.img] placeholderImage:[UIImage imageNamed:@""]];
+    self.giftNameLabel.text = model.name;
     self.bgView.backgroundColor = model.isSelected ? [UIColor orangeColor] : [UIColor blackColor];
     UIImage *img = [UIImage imageNamed:@"Live_Red_ccb"];
     self.moneyImage.image = img;
     
-    self.moneyLabel.text = model.giftPrice;
+    self.moneyLabel.text = model.amount;
     
-    CGSize size = [model.giftPrice sizeWithAttributes:@{NSFontAttributeName:self.moneyLabel.font}];
+    CGSize size = [model.amount sizeWithAttributes:@{NSFontAttributeName:self.moneyLabel.font}];
     CGFloat w = size.width+1;
     CGFloat labelX = (self.contentView.bounds.size.width-w+4+10)*0.5;
     self.moneyLabel.frame = CGRectMake(labelX, CGRectGetMaxY(self.giftNameLabel.frame), w, 16);
