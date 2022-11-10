@@ -1,6 +1,6 @@
 source 'https://mirrors.tuna.tsinghua.edu.cn/git/CocoaPods/Specs.git'
 
-platform :ios, '9.0'
+platform :ios, '10.3'
 
 target 'QNLiveKitDemo' do
   

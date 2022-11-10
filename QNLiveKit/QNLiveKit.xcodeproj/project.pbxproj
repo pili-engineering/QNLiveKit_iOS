@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		481DC1A8291CFDB0000EC0A3 /* CoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 481DC1A7291CFDB0000EC0A3 /* CoreServices.framework */; };
+		481DC1AE291CFEA0000EC0A3 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 481DC1AD291CFEA0000EC0A3 /* MapKit.framework */; };
 		77062FAD287E795F00E9FD7D /* ShopSellListController.h in Headers */ = {isa = PBXBuildFile; fileRef = 77062FAB287E795F00E9FD7D /* ShopSellListController.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		77062FAE287E795F00E9FD7D /* ShopSellListController.m in Sources */ = {isa = PBXBuildFile; fileRef = 77062FAC287E795F00E9FD7D /* ShopSellListController.m */; };
 		77062FB2287EA0A300E9FD7D /* GoodsModel.h in Headers */ = {isa = PBXBuildFile; fileRef = 77062FB0287EA0A300E9FD7D /* GoodsModel.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -437,6 +439,8 @@
 
 /* Begin PBXFileReference section */
 		081F7CF449622E077318EFB5 /* Pods-QNLiveKitTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-QNLiveKitTests.release.xcconfig"; path = "Target Support Files/Pods-QNLiveKitTests/Pods-QNLiveKitTests.release.xcconfig"; sourceTree = "<group>"; };
+		481DC1A7291CFDB0000EC0A3 /* CoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreServices.framework; path = Platforms/MacOSX.platform/Developer/SDKs/MacOSX12.3.sdk/System/Library/Frameworks/CoreServices.framework; sourceTree = DEVELOPER_DIR; };
+		481DC1AD291CFEA0000EC0A3 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = Platforms/MacOSX.platform/Developer/SDKs/MacOSX12.3.sdk/System/iOSSupport/System/Library/Frameworks/MapKit.framework; sourceTree = DEVELOPER_DIR; };
 		77062FAB287E795F00E9FD7D /* ShopSellListController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ShopSellListController.h; sourceTree = "<group>"; };
 		77062FAC287E795F00E9FD7D /* ShopSellListController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ShopSellListController.m; sourceTree = "<group>"; };
 		77062FB0287EA0A300E9FD7D /* GoodsModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GoodsModel.h; sourceTree = "<group>"; };
@@ -843,9 +847,11 @@
 			files = (
 				77A8D26E28782DF0001A3C2C /* AssetsLibrary.framework in Frameworks */,
 				77A11CB4288691C500020149 /* Pods_QNLiveKit.framework in Frameworks */,
+				481DC1AE291CFEA0000EC0A3 /* MapKit.framework in Frameworks */,
 				77A11CB228868D7300020149 /* PLSTArEffects.framework in Frameworks */,
 				77EDC4A5286ECDCC002B4226 /* libst_mobile.a in Frameworks */,
 				773D512F288F9D2E004B2D5F /* QNIMSDK.framework in Frameworks */,
+				481DC1A8291CFDB0000EC0A3 /* CoreServices.framework in Frameworks */,
 				77EDC4A3286EA40C002B4226 /* libSenseArSourceService.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1754,6 +1760,8 @@
 		F3411CD1B7D2078452FF96F4 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				481DC1AD291CFEA0000EC0A3 /* MapKit.framework */,
+				481DC1A7291CFDB0000EC0A3 /* CoreServices.framework */,
 				777366992873E2F300245EDB /* AssetsLibrary.framework */,
 				77A8D26D28782DF0001A3C2C /* AssetsLibrary.framework */,
 				93FD8D2BCC60F127C6FB7DA1 /* Pods_QNLiveKit.framework */,
