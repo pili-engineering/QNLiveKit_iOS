@@ -21,8 +21,6 @@
 - (instancetype)initWithFrame:(CGRect)frame {
     self = [super initWithFrame:frame];
     if (self) {
-        [self imageView];
-        [self titleLabel];
         [self setLongPressGesture];
     }
     return self;
@@ -102,32 +100,6 @@
     _highlighted = highlighted;
     _imageView.highlighted = highlighted;
     _titleLabel.highlighted = highlighted;
-}
-
-- (UIImageView *)imageView {
-    if (!_imageView) {
-        _imageView = [[UIImageView alloc] init];
-        [self addSubview:_imageView];
-        [_imageView mas_makeConstraints:^(MASConstraintMaker *make) {
-            make.left.top.right.equalTo(self);
-            make.bottom.equalTo(self.mas_bottom).offset(-10);
-        }];
-    }
-    return _imageView;
-}
-
-- (UILabel *)titleLabel {
-    if (!_titleLabel) {
-        _titleLabel = [[UILabel alloc]init];
-        _titleLabel.textAlignment = NSTextAlignmentCenter;
-        _titleLabel.font = [UIFont systemFontOfSize:11];
-        [self addSubview:_titleLabel];
-        [_titleLabel mas_makeConstraints:^(MASConstraintMaker *make) {
-            make.left.bottom.right.equalTo(self);
-            make.top.equalTo(self.imageView.mas_bottom);
-        }];
-    }
-    return _titleLabel;
 }
 
 @end

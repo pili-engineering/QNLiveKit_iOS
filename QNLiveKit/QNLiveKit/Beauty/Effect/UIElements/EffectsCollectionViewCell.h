@@ -9,7 +9,6 @@
 #import <UIKit/UIKit.h>
 #import "SenseArSourceService.h"
 #import "STParamUtil.h"
-
 typedef enum : NSUInteger {
     NotDownloaded = 0,
     IsDownloading,
@@ -23,9 +22,13 @@ typedef enum : NSUInteger {
 @property (nonatomic , assign) int indexOfItem;
 @property (nonatomic , assign) STEffectsType iEffetsType;
 @property (nonatomic , strong) UIImage *imageThumb;
-
+@property (nonatomic , copy) NSString *imageThumbUrl;
 @property (nonatomic , strong) SenseArMaterial *material;
+@property (nonatomic , strong) EFDataSourceModel *NewMaterial;
 @property (nonatomic , copy) NSString *strMaterialPath;
+@property (nonatomic , copy) NSString *NameOne;
+@property (nonatomic , copy) NSString *NameTwo;
+@property (nonatomic , copy) NSString *NameThree;
 
 @end
 
@@ -33,9 +36,9 @@ typedef enum : NSUInteger {
 
 @property (nonatomic , strong) EffectsCollectionViewCellModel *model;
 
-@property (strong, nonatomic) UIImageView *thumbView;
-@property (strong, nonatomic) UIImageView *loadingView;
-@property (strong, nonatomic) UIImageView *downloadSign;
+@property (weak, nonatomic) IBOutlet UIImageView *thumbView;
+@property (weak, nonatomic) IBOutlet UIImageView *loadingView;
+@property (weak, nonatomic) IBOutlet UIImageView *downloadSign;
 
 
 @end
