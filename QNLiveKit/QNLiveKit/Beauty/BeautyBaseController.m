@@ -194,8 +194,6 @@
             self.specialEffectsBtn.userInteractionEnabled = NO;
             
             if (!self.beautyContainerViewIsShow) {
-                
-
                 [self hideContainerView];
                 [self beautyContainerViewAppear];
                 
@@ -244,8 +242,8 @@
 
 - (void)hideContainerView {
     
-    self.specialEffectsBtn.hidden = NO;
-    self.beautyBtn.hidden = NO;
+//    self.specialEffectsBtn.hidden = NO;
+//    self.beautyBtn.hidden = NO;
     
     [UIView animateWithDuration:0.05 delay:0.0 options:UIViewAnimationOptionCurveEaseInOut animations:^{
         
@@ -280,8 +278,8 @@
     self.filterStrengthView.hidden = YES;
     self.beautySlider.hidden = YES;
     
-    self.beautyBtn.hidden = NO;
-    self.specialEffectsBtn.hidden = NO;
+//    self.beautyBtn.hidden = NO;
+//    self.specialEffectsBtn.hidden = NO;
     self.resetBtn.hidden = YES;
     self.bmpStrenghView.hidden = YES;
     
