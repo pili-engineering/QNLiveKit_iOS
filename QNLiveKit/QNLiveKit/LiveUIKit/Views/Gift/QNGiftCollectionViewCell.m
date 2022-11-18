@@ -7,7 +7,7 @@
 
 #import "QNGiftCollectionViewCell.h"
 #import "UIImageView+WebCache.h"
-#import "SendGiftModel.h"
+#import "QNSendGiftModel.h"
 
 @interface QNGiftCollectionViewCell()
 /** bg */
@@ -64,7 +64,7 @@
     [self.contentView  addSubview:moneyImage];
 }
 
-- (void)setModel:(SendGiftModel *)model {
+- (void)setModel:(QNSendGiftModel *)model {
     
     _model = model;
 //    self.giftImageView.image = [UIImage imageNamed:model.img];

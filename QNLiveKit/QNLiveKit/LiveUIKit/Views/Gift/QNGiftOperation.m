@@ -7,7 +7,7 @@
 
 #import "QNGiftOperation.h"
 #import "QNGiftShowView.h"
-#import "SendGiftModel.h"
+#import "QNSendGiftModel.h"
 
 
 @implementation QNGiftOperation
@@ -26,7 +26,7 @@
     return self;
 }
 
-+ (instancetype)addOperationWithView:(QNGiftShowView *)giftShowView OnView:(UIView *)backView Info:(SendGiftModel *)model completeBlock:(completeOpBlock)completeBlock {
++ (instancetype)addOperationWithView:(QNGiftShowView *)giftShowView OnView:(UIView *)backView Info:(QNSendGiftModel *)model completeBlock:(completeOpBlock)completeBlock {
     
     QNGiftOperation *op = [[QNGiftOperation alloc] init];
     op.giftShowView = giftShowView;

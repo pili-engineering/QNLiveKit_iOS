@@ -30,14 +30,14 @@
 #import "GoodsModel.h"
 #import "WacthRecordController.h"
 #import "WatchBottomMoreView.h"
-#import "GiftView.h"
-#import "SendGiftModel.h"
-#import "GiftShowManager.h"
-#import "GiftMsgModel.h"
+#import "QNGiftView.h"
+#import "QNSendGiftModel.h"
+#import "QNGiftShowManager.h"
+#import "QNGiftMsgModel.h"
 
 @interface QNAudienceController ()<QNChatRoomServiceListener,QNPushClientListener,LiveChatRoomViewDelegate,FDanmakuViewProtocol,PLPlayerDelegate,MicLinkerListener,PKServiceListener,GiftViewDelegate>
 @property (nonatomic,strong)UILabel *masterLeaveLabel;
-@property(nonatomic,strong) GiftView *giftView;
+@property(nonatomic,strong) QNGiftView *giftView;
 @end
 
 @implementation QNAudienceController
@@ -451,14 +451,14 @@
 
 #pragma mark  --------GiftViewDelegate---------
 //点击赠送礼物的回调
-- (void)giftViewSendGiftInView:(GiftView *)giftView data:(SendGiftModel *)model {
+- (void)giftViewSendGiftInView:(QNGiftView *)giftView data:(QNSendGiftModel *)model {
         
     model.userIcon = LIVE_User_avatar;
     model.userName = LIVE_User_nickname;
     model.defaultCount = 0;
     model.sendCount = 1;
 
-    [[GiftShowManager sharedManager] showGiftViewWithBackView:self.view info:model completeBlock:^(BOOL finished) {
+    [[QNGiftShowManager sharedManager] showGiftViewWithBackView:self.view info:model completeBlock:^(BOOL finished) {
         NSLog(@"赠送了礼物");
         
     }];
@@ -466,7 +466,7 @@
     [self sendGiftMessage:model];
 }
 
-- (void)requestSendGift:(SendGiftModel *)model {
+- (void)requestSendGift:(QNSendGiftModel *)model {
     NSMutableDictionary *dic = [NSMutableDictionary dictionary];
     dic[@"live_id"] = self.roomInfo.live_id;
     dic[@"gift_id"] = model.gift_id;
@@ -480,7 +480,7 @@
 }
 
 //发送礼物信令和消息
--(void)sendGiftMessage:(SendGiftModel *)model {
+-(void)sendGiftMessage:(QNSendGiftModel *)model {
     QNGiftModel *gift = [QNGiftModel new];
     gift.giftName = model.name;
     gift.giftId = model.gift_id;
@@ -583,9 +583,9 @@
     return _goodView;
 }
 
-- (GiftView *)giftView{
+- (QNGiftView *)giftView{
     if (!_giftView) {
-        _giftView = [[GiftView alloc] init];
+        _giftView = [[QNGiftView alloc] init];
         _giftView.delegate = self;
     }
     return _giftView;

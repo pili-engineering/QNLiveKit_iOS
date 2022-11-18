@@ -7,8 +7,8 @@
 
 #import "QNGiftView.h"
 #import "QNGiftCollectionViewCell.h"
-#import "SendGiftModel.h"
-#import "HorizontalLayout.h"
+#import "QNSendGiftModel.h"
+#import "QNHorizontalLayout.h"
 #import "QLiveNetworkUtil.h"
 //获取屏幕 宽度、高度
 #define SCREEN_WIDTH ([UIScreen mainScreen].bounds.size.width)
@@ -39,7 +39,7 @@ static NSString *cellID = @"GiftCollectionViewCell";
 /** ccb余额 */
 @property(nonatomic,strong) UILabel *ccbLabel;
 /** 上一次点击的model */
-@property(nonatomic,strong) SendGiftModel *preModel;
+@property(nonatomic,strong) QNSendGiftModel *preModel;
 /** pagecontro */
 @property(nonatomic,strong) UIPageControl *pageControl;
 /** money */
@@ -70,7 +70,7 @@ static NSString *cellID = @"GiftCollectionViewCell";
     
     [QLiveNetworkUtil getRequestWithAction:action params:@{} success:^(NSDictionary * _Nonnull responseData) {
         
-        NSArray <SendGiftModel *> *list = [SendGiftModel mj_objectArrayWithKeyValuesArray:responseData];
+        NSArray <QNSendGiftModel *> *list = [QNSendGiftModel mj_objectArrayWithKeyValuesArray:responseData];
         self.dataArray = list;
         
         } failure:^(NSError * _Nonnull error) {
@@ -118,7 +118,7 @@ static NSString *cellID = @"GiftCollectionViewCell";
     //110*125
     CGFloat itemW = SCREEN_WIDTH/4.0;
     CGFloat itemH = itemW*125/110.0;
-    HorizontalLayout *layout = [[HorizontalLayout alloc] init];
+    QNHorizontalLayout *layout = [[QNHorizontalLayout alloc] init];
     
     UICollectionView *collectionView = [[UICollectionView alloc] initWithFrame:CGRectMake(0, CGRectGetMinY(bottomView.frame)-2*itemH, SCREEN_WIDTH, 2*itemH) collectionViewLayout:layout];
     collectionView.backgroundColor = [UIColor blackColor];
@@ -152,7 +152,7 @@ static NSString *cellID = @"GiftCollectionViewCell";
     QNGiftCollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:cellID forIndexPath:indexPath];
     
     if (indexPath.item < self.dataArray.count) {
-        SendGiftModel *model = self.dataArray[indexPath.item];
+        QNSendGiftModel *model = self.dataArray[indexPath.item];
         cell.model = model;
     }
     
@@ -162,7 +162,7 @@ static NSString *cellID = @"GiftCollectionViewCell";
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
     
     if (indexPath.item < self.dataArray.count) {
-        SendGiftModel *model = self.dataArray[indexPath.item];
+        QNSendGiftModel *model = self.dataArray[indexPath.item];
         model.isSelected = !model.isSelected;
         if ([self.preModel isEqual:model]) {
             [collectionView reloadData];
@@ -189,7 +189,7 @@ static NSString *cellID = @"GiftCollectionViewCell";
     
     //找到已选中的礼物
     BOOL isBack = NO;
-    for (SendGiftModel *model in self.dataArray) {
+    for (QNSendGiftModel *model in self.dataArray) {
         if (model.isSelected) {
             isBack = YES;
             if ([self.delegate respondsToSelector:@selector(giftViewSendGiftInView:data:)]) {

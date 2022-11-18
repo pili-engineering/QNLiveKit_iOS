@@ -7,7 +7,7 @@
 
 #import <UIKit/UIKit.h>
 
-@class QNGiftView,SendGiftModel;
+@class QNGiftView,QNSendGiftModel;
 @protocol GiftViewDelegate <NSObject>
 /**
  赠送礼物
@@ -15,7 +15,7 @@
  @param giftView 礼物的选择的view
  @param model 礼物展示的数据
  */
-- (void)giftViewSendGiftInView:(QNGiftView *)giftView data:(SendGiftModel *)model;
+- (void)giftViewSendGiftInView:(QNGiftView *)giftView data:(QNSendGiftModel *)model;
 
 @end
 

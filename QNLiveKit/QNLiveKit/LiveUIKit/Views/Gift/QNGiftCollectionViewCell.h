@@ -8,7 +8,7 @@
 #import <UIKit/UIKit.h>
 
 @class QNSendGiftModel;
-@interface GiftCollectionViewCell : UICollectionViewCell
+@interface QNGiftCollectionViewCell : UICollectionViewCell
 
 /** model */
 @property(nonatomic,strong) QNSendGiftModel *model;
