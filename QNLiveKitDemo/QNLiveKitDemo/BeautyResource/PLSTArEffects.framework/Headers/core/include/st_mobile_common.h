@@ -1,7 +1,7 @@
 ﻿/**
 *@file st_mobile_common.h
 
-* 提供了返回值错误码、图像常用格式、创建检测模式等通用枚举类型，
+* 提供了返回值错误码、图像常用格式、创建检测模式等通用枚举类型,
 * 提供人脸结构体的定义
 * 同时提供了图像通用处理、检测阈值设置、log输出等API函数的声明
 
@@ -30,10 +30,10 @@
 #	define ST_SDK_API ST_SDK_API_
 #endif
 
-/// 句柄类型声明，本sdk以句柄来管理不同功能，每个句柄内函数多线程并不安全，单个句柄不建议顺序安全调用，注意保护每个句柄的安全和生命周期；句柄之间独立，大部分功能支持多个句柄并行处理
+/// 句柄类型声明,本sdk以句柄来管理不同功能,每个句柄内函数多线程并不安全,单个句柄不建议顺序安全调用,注意保护每个句柄的安全和生命周期；句柄之间独立,大部分功能支持多个句柄并行处理
 typedef void *st_handle_t;
 
-/// 结果声明，常用于表示运行结果，ST_OK正常， 不正常则返回相应的错误码
+/// 结果声明,常用于表示运行结果,ST_OK正常, 不正常则返回相应的错误码
 typedef int   st_result_t;
 
 #define ST_OK                               0   ///< 正常运行
@@ -69,7 +69,7 @@ typedef int   st_result_t;
 
 #define ST_E_MODEL_NOT_IN_MEMORY            -31 ///< 模型不在内存中
 #define ST_E_UNSUPPORTED_ZIP                -32 ///< 当前sdk不支持的素材包
-#define ST_E_PACKAGE_EXIST_IN_MEMORY        -33 ///< 素材包已存在在内存中，不重复加载，或相同动画正在播放，不重复播放
+#define ST_E_PACKAGE_EXIST_IN_MEMORY        -33 ///< 素材包已存在在内存中,不重复加载,或相同动画正在播放,不重复播放
 
 #define ST_E_NOT_CONNECT_TO_NETWORK         -34 ///< 设备没有联网
 #define ST_E_OTHER_LINK_ERRORS_IN_HTTPS     -35 ///< https中的其他链接错误
@@ -80,15 +80,21 @@ typedef int   st_result_t;
 #define ST_E_NOFACE                     	-38 ///< 没有检测到人脸
 
 #define ST_E_API_UNSUPPORTED                -39 ///< 该API暂不支持
-#define ST_E_API_DEPRECATED                 -40 ///< 该API已标记为废弃，应替换其他API或停止使用
+#define ST_E_API_DEPRECATED                 -40 ///< 该API已标记为废弃,应替换其他API或停止使用
 #define ST_E_ARG_UNSUPPORTED                -41 ///< 该参数不支持
 #define ST_E_PRECONDITION                   -42 ///< 前置条件不满足
 #define ST_E_SIGN_ACTIVATION_CODE_TOKEN_EXPIRE -43 ///< 激活码token过期
 #define ST_E_SIGN_ACTIVATION_CODE_EXPIRE    -44 ///< 激活码过期
 
 // 渲染相关错误码
-#define ST_E_INVALID_GL_CONTEXT             -100 ///< OpenGL Context错误，当前为空，或不一致
+#define ST_E_INVALID_GL_CONTEXT             -100 ///< OpenGL Context错误,当前为空,或不一致
 #define ST_E_RENDER_DISABLED                -101 ///< 创建句柄时候没有开启渲染
+
+
+// STA错误码
+#define ST_E_FORBID_PUSH_DATA_WHEN_STOPPING       -200 ///< 调用Stop接口过程中不再接收数据
+
+#define ST_E_OUT_OF_TIME_AREA                 -300 /// 输入的时间戳不在当前音素时间区域内
 
 #ifndef CHECK_FLAG
 #define CHECK_FLAG(action,flag) (((action)&(flag)) == flag)
@@ -121,6 +127,14 @@ typedef struct st_pointi_t {
     int y;      ///< 点的竖直方向坐标,为整数
 } st_pointi_t;
 
+// 四元数
+typedef struct st_quaternion_t {
+	float w;
+	float x;
+	float y;
+	float z;
+} st_quaternion_t;
+
 // 颜色类型
 typedef struct st_color_t {
     float r;
@@ -139,7 +153,7 @@ typedef enum {
     ST_PIX_FMT_BGR888 = 5,  ///< BGR  8:8:8   24bpp ( 3通道24bit BGR 像素 )
     ST_PIX_FMT_RGBA8888 = 6,///< RGBA 8:8:8:8 32bpp ( 4通道32bit RGBA 像素 )
     ST_PIX_FMT_RGB888 = 7,  ///< RGB  8:8:8   24bpp ( 3通道24bit RGB 像素 )
-    ST_PIX_FMT_FLOAT = 8    ///< Y    1       32bpp ( 1通道 32bit float 像素)
+    ST_PIX_FMT_FLOAT = 8  ///< Y    1       32bpp ( 1通道 32bit float 像素)
 } st_pixel_format;
 
 /// 图像旋转方向
@@ -182,7 +196,7 @@ typedef struct st_mobile_106_t {
 
 /// @brief 耳朵关键点信息
 typedef struct st_mobile_ear_t {
-	st_pointf_t *p_ear_points;          ///< 耳朵关键点. 没有检测到时为NULL.耳朵左右各有18个关键点，共36个关键点，0-4为左耳靠近内耳区域的一条线，5-17为左耳外耳廓，18-22为右耳靠近内耳区域的一条线，23-35为右耳外耳廓
+	st_pointf_t *p_ear_points;          ///< 耳朵关键点. 没有检测到时为NULL.耳朵左右各有18个关键点,共36个关键点,0-4为左耳靠近内耳区域的一条线,5-17为左耳外耳廓,18-22为右耳靠近内耳区域的一条线,23-35为右耳外耳廓
 	int ear_points_count;               ///< 耳朵关键点个数. 检测到时为ST_MOBILE_EAR_POINTS_COUNT, 没有检测到时为0
 	float left_ear_score;               ///< 左耳检测结果置信度: [0.0, 1.0]
 	float right_ear_score;              ///< 右耳检测结果置信度: [0.0, 1.0]
@@ -194,28 +208,56 @@ typedef struct st_mobile_forehead_t {
 	int forehead_points_count;          ///< 额头点个数
 } st_mobile_forehead_t, *p_st_mobile_forehead_t;
 
+/// @brief mesh部位
+typedef enum {
+	ST_MOBILE_MESH_PART_FACE = 1,     ///< 人脸部位
+	ST_MOBILE_MESH_PART_EYE = 2,      ///< 眼睛部位
+	ST_MOBILE_MESH_PART_MOUTH = 4,    ///< 嘴巴部位
+	ST_MOBILE_MESH_PART_SKULL = 8,    ///< 后脑勺部位
+	ST_MOBILE_MESH_PART_EAR = 16,     ///< 耳朵部位
+	ST_MOBILE_MESH_PART_NECK = 32,    ///< 脖子部位
+	ST_MOBILE_MESH_PART_EYEBROW = 64  ///< 眉毛部位
+} st_mobile_mesh_part;
+
+typedef struct st_mobile_mesh_part_uv_t{
+	st_mobile_mesh_part part;     ///< mesh关键部位
+	st_pointf_t* p_uv;           ///< 纹理坐标数组
+	int uv_points_count;          ///< 纹理坐标个数
+}st_mobile_mesh_part_uv_t, *p_st_mobile_mesh_part_uv_t;
+
+// 3d点的坐标系类型
+typedef enum
+{
+	ST_3D_SCREEN_COORDINATE = 0,  ///< 屏幕坐标系,也叫正交坐标系,（x,y)和图像坐标相同,z表示深度
+	ST_3D_WORLD_COORDINATE = 1,    ///< 3d世界坐标系
+	ST_3D_CAM_COORDINATE = 2      ///< 3d摄像机坐标系,是摄像头透视投影坐标系, 原点在摄像机
+} st_3d_coordinate_type;
+
 /// @brief 3d mesh关键点信息
 typedef struct st_mobile_face_mesh_t
 {
-    st_point3f_t *p_face_mesh_points;   ///< 3DMesh关键点数组
-    st_point3f_t *p_face_mesh_normal;   ///< 3DMesh法线，每个法线对应一个关键点
-    st_pointf_t *p_texcoords;           ///< 3DMesh纹理坐标，每个纹理坐标对应一个关键点
-    int face_mesh_points_count;         ///< 3DMesh关键点的数目
-    int *p_face_mesh_contour_index;     ///< 3DMesh边界点下标
-    int face_mesh_contour_count;        ///< 3DMesh边界点的数目
-    float scale;                        ///< 3DMesh相对于标准平均脸的大小信息,值越大表示人脸越大（人脸越靠前）
+	st_point3f_t *p_face_mesh_points;   ///< 3DMesh关键点数组
+	st_point3f_t *p_face_mesh_normal;   ///< 3DMesh法线,每个法线对应一个关键点
+	st_pointf_t *p_texcoords;           ///< 3DMesh纹理坐标,每个纹理坐标对应一个关键点
+	int face_mesh_points_count;         ///< 3DMesh关键点的数目
+	float scale;                        ///< 3DMesh相对于标准平均脸的大小信息,值越大表示人脸越大（人脸越靠前）
 
-    float transform_mat[4][4];          ///< 旋转变换矩阵，用于将关键点从屏幕空间变换到3D空间
-    float transform_inv_mat[4][4];      ///< 旋转变换矩阵的逆矩阵，用于将关键点从3D空间变换到屏幕空间
-    float view_mat[4][4];               ///< 视角矩阵
-    float project_mat[4][4];            ///< 投影矩阵
+	st_mobile_mesh_part_uv_t * p_part_uv; ///< uv纹理信息,目前仅支持眉毛
+	int part_uv_count;                    ///< uv纹理数目,目前仅支持眉毛
+
+	float transform_mat[4][4];          ///< 旋转变换矩阵,用于将关键点从屏幕空间变换到3D空间
+	float transform_inv_mat[4][4];      ///< 旋转变换矩阵的逆矩阵,用于将关键点从3D空间变换到屏幕空间
+	float view_mat[4][4];               ///< 视角矩阵
+	float project_mat[4][4];            ///< 投影矩阵
+	st_3d_coordinate_type coord_type;	///< 类型见st_3d_coordinate_type_t 0 屏幕坐标系  1世界坐标系 2相机坐标系
+	int extra_bits;                     ///< 3d pose 结果描述, 枚举值见 st_3dpose_extra_bit_t 目前表示当前结果与图像是否是镜像关系
 } st_mobile_face_mesh_t, *p_st_mobile_face_mesh_t;
 
-/// @brief 多平面image数据结构，支持单平面（RGBA、BGRA），双平面（NV21/NV12)、三平面（YUV420）
+/// @brief 多平面image数据结构,支持单平面（RGBA、BGRA）,双平面（NV21/NV12)、三平面（YUV420）
 typedef struct
 {
     unsigned char* planes[3];   ///< Image Plane 图像平面内存地址
-    int strides[3];             ///< image stride 图像每行的跨距，有效跨距应该与plane对应
+    int strides[3];             ///< image stride 图像每行的跨距,有效跨距应该与plane对应
     int width;                  ///< image width 图像宽度
     int height;                 ///< image height 图像高度
     st_pixel_format format;     ///< input image format 图像的格式
@@ -227,55 +269,62 @@ typedef struct st_mobile_face_extra_info {
 	int model_input_size;                  ///< 内部模型输入大小
 } st_mobile_face_extra_info;
 
-// create时指定的config， 需根据使用场景来使用， 预览使用ST_MOBILE_DETECT_MODE_VIDEO, 离线视频处理使用ST_MOBILE_TRACKING_SINGLE_THREAD， 图片使用ST_MOBILE_DETECT_MODE_IMAGE
+typedef enum
+{
+	ST_3DPOSE_NEED_MIRROR = 1,      // pose result needs mirror
+	ST_3DPOSE_DELAY_INVALID = 2,    // pose currently invalid due to delay strategy.
+} st_3dpose_extra_bit_t;
+
+typedef struct
+{
+	float mat[16];       // 4x4 column major pose matrix.
+	int extra_bits;         // detect image/result mirror flag.
+} st_3dpose_t;
+
+
+
+// create时指定的config, 需根据使用场景来使用, 预览使用ST_MOBILE_DETECT_MODE_PREVIEW, 离线视频处理使用ST_MOBILE_DETECT_MODE_VIDEO_POST_PROCESS, 图片使用ST_MOBILE_DETECT_MODE_IMAGE
 #define ST_MOBILE_TRACKING_MULTI_THREAD         0x00000000  ///< 多线程,功耗较多,卡顿较少
 #define ST_MOBILE_TRACKING_SINGLE_THREAD        0x00010000  ///< 单线程,功耗较少,对于性能弱的手机,会偶尔有卡顿现象
 /// 检测模式
-#define ST_MOBILE_DETECT_MODE_VIDEO             0x00020000  ///< 视频检测
-#define ST_MOBILE_DETECT_MODE_IMAGE             0x00040000  ///< 图片检测 与视频检测互斥，只能同时使用一个
-#define ST_MOBILE_ENABLE_INPUT_CUSTOM           0x00080000  ///< 使用用户自定义的结果作为输入，必须和视频/图片模式混用，目前使用人脸结果有效
+#define ST_MOBILE_DETECT_MODE_VIDEO             0x00020000  ///< 旧版本视频检测,效果同预览检测,后续会更新为预览检测
+#define ST_MOBILE_DETECT_MODE_PREVIEW           0x00020000  ///< 预览检测
+#define ST_MOBILE_DETECT_MODE_IMAGE             0x00040000  ///< 图片检测 与预览检测互斥,只能同时使用一个
+#define ST_MOBILE_DETECT_MODE_VIDEO_POST_PROCESS 0x00100000 ///< 视频后处理检测,与预览、图片检测互斥,只能同时使用一个
+#define ST_MOBILE_ENABLE_INPUT_CUSTOM           0x00080000  ///< 使用用户自定义的结果作为输入,必须和视频/图片模式混用,目前使用人脸结果有效
 
 //#define ST_MOBILE_TRACKING_ENABLE_DEBOUNCE      0x00000010  ///< 打开人脸106点和三维旋转角度去抖动
 //#define ST_MOBILE_TRACKING_ENABLE_FACE_ACTION   0x00000020  ///< 检测脸部动作：张嘴、眨眼、抬眉、点头、摇头
 
-
 /// @brief 人脸检测结果
 typedef struct st_mobile_face_t {
-    st_mobile_106_t face106;               ///< 人脸信息，包含矩形框、106点、head pose信息等
+    st_mobile_106_t face106;               ///< 人脸信息,包含矩形框、106点、head pose信息等
     st_pointf_t *p_extra_face_points;      ///< 眼睛、眉毛、嘴唇关键点. 没有检测到时为NULL
     int extra_face_points_count;           ///< 眼睛、眉毛、嘴唇关键点个数. 检测到时为ST_MOBILE_EXTRA_FACE_POINTS_COUNT, 没有检测到时为0
     st_pointf_t * p_tongue_points;         ///< 舌头关键点数组
     float * p_tongue_points_score;         ///< 舌头关键点对应的置信度
     int tongue_points_count;               ///< 舌头关键点的数目
-    st_mobile_face_mesh_t * p_face_mesh;   ///< 3d mesh信息，包括3d mesh关键点及个数
+    st_mobile_face_mesh_t * p_face_mesh;   ///< 3d mesh信息,包括3d mesh关键点及个数
     st_pointf_t *p_eyeball_center;         ///< 眼球中心关键点. 没有检测到时为NULL
     int eyeball_center_points_count;       ///< 眼球中心关键点个数. 检测到时为ST_MOBILE_EYEBALL_CENTER_POINTS_COUNT, 没有检测到时为0
     st_pointf_t *p_eyeball_contour;        ///< 眼球轮廓关键点. 没有检测到时为NULL
     int eyeball_contour_points_count;      ///< 眼球轮廓关键点个数. 检测到时为ST_MOBILE_EYEBALL_CONTOUR_POINTS_COUNT, 没有检测到时为0
-    float left_eyeball_score;              ///< 左眼球检测结果（中心点和轮廓点）置信度: [0.0, 1.0]，282左眼阈值为0.8
-    float right_eyeball_score;             ///< 右眼球检测结果（中心点和轮廓点）置信度: [0.0, 1.0]，282右眼阈值为0.8
-    st_mobile_ear_t* p_face_ear;           ///< 耳朵信息，包括耳朵关键点及个数，左右耳置信度
-    st_point3f_t *p_gaze_direction;        ///< 左眼和右眼视线方向，没有检测到是为NULL
+    float left_eyeball_score;              ///< 左眼球检测结果（中心点和轮廓点）置信度: [0.0, 1.0],282左眼阈值为0.8
+    float right_eyeball_score;             ///< 右眼球检测结果（中心点和轮廓点）置信度: [0.0, 1.0],282右眼阈值为0.8
+    st_mobile_ear_t* p_face_ear;           ///< 耳朵信息,包括耳朵关键点及个数,左右耳置信度
+    st_point3f_t *p_gaze_direction;        ///< 左眼和右眼视线方向,没有检测到是为NULL
     float *p_gaze_score;                   ///< 视线置信度: [0.0, 1.0], 建议阈值为0.5
     unsigned long long face_action;        ///< 脸部动作
-    unsigned char *p_avatar_help_info;     ///< avatar辅助信息,仅限内部使用，严禁修改
-    int avatar_help_info_length;           ///< avatar辅助信息字节长度
-    int s_type;                         ///
+    float *p_face_blend_shapes;            ///< 面部表情动画系数
+    int blend_shapes_count;                ///< 面部表情动画数目
+    int s_type;                            ///
     float *p_face_action_score;            ///< 脸部动作置信度, eye, mouth, pitch, yaw, brow
     int face_action_score_count;           ///< 脸部动作数目
-    st_mobile_forehead_t* p_face_forehead; ///< 额头点信息，包括额头点坐标和个数
-    st_color_t hair_color;                 ///< avatar发色, rgb取值范围[0.0, 1.0]; 其中a(alpha)值不必要，设置默认值为1.0
+    st_mobile_forehead_t* p_face_forehead; ///< 额头点信息,包括额头点坐标和个数
+    st_color_t hair_color;                 ///< avatar发色, rgb取值范围[0.0, 1.0]; 其中a(alpha)值不必要,设置默认值为1.0
     st_mobile_face_extra_info face_extra_info;///< 人脸检测模型内部参数
+    st_3dpose_t *p_face_pose;                 ///< 人脸新pose3d信息
 } st_mobile_face_t, *p_st_mobile_face_t;
-
-/// @brief GPU纹理类型
-typedef struct
-{
-    int id;                     ///< 纹理的OpenGL id
-    int width;                  ///< 纹理的宽度（像素值）
-    int height;                 ///< 纹理的高度（像素值）
-    st_pixel_format format;     ///< 纹理的格式，目前仅支持RGBA格式
-} st_mobile_texture_t;
 
 /// @brief 设置眨眼动作的阈值,置信度为[0,1], 默认阈值为0.5
 ST_SDK_API void
@@ -315,7 +364,7 @@ st_mobile_set_headpose_threshold(
     float threshold
 );
 
-/// @brief 设置只使用SSE指令集，仅windows上有效，建议在不支持fma或sse2指令集的windows系统上（如xp系统)使用
+/// @brief 设置只使用SSE指令集,仅windows上有效,建议在不支持fma或sse2指令集的windows系统上（如xp系统)使用
 ST_SDK_API void
 st_mobile_set_sse_only(
 bool sse_only
@@ -372,7 +421,7 @@ typedef enum {
 /// @param[in] image_src 用于待转换的图像数据
 /// @param[out] image_dst 转换后的图像数据
 /// @param[in] image_width 用于转换的图像的宽度(以像素为单位)
-/// @param[in] image_height 用于转换的图像的高度(以像素为单位)，用户分配内存
+/// @param[in] image_height 用于转换的图像的高度(以像素为单位),用户分配内存
 /// @param[in] type 需要转换的颜色格式
 /// @return 正常返回ST_OK,否则返回错误类型
 ST_SDK_API st_result_t
@@ -386,10 +435,10 @@ st_mobile_color_convert(
 
 /// @brief 旋转图像
 /// @param[in] image_src 待旋转的图像数据
-/// @param[out] image_dst 旋转后的图像数据, 由客户分配内存.旋转后，图像会变成紧凑的（没有padding）
-/// @param[in] image_width 待旋转的图像的宽度, 旋转后图像的宽度可能会发生变化，由用户处理
-/// @param[in] image_height 待旋转的图像的高度, 旋转后图像的高度可能会发生变化，由用户处理
-/// @param[in] image_stride 待旋转的图像的跨度, 旋转后图像的跨度可能会发生变化，由用户处理
+/// @param[out] image_dst 旋转后的图像数据, 由客户分配内存.旋转后,图像会变成紧凑的（没有padding）
+/// @param[in] image_width 待旋转的图像的宽度, 旋转后图像的宽度可能会发生变化,由用户处理
+/// @param[in] image_height 待旋转的图像的高度, 旋转后图像的高度可能会发生变化,由用户处理
+/// @param[in] image_stride 待旋转的图像的跨度, 旋转后图像的跨度可能会发生变化,由用户处理
 /// @param[in] pixel_format 待旋转的图像的格式
 /// @param[in] rotate_type 顺时针旋转角度
 ST_SDK_API st_result_t
@@ -434,17 +483,17 @@ typedef struct st_mobile_transform_t {
     float scale[3];
 } st_mobile_transform_t;
 
-/// @brief 将Translation，Rotation，Scale分量合成为一个4X4矩阵（列优先），右手坐标系。
+/// @brief 将Translation,Rotation,Scale分量合成为一个4X4矩阵（列优先）,右手坐标系。
 /// @param[in] p_trs st_mobile_transform_t结构体表示的TRS分量
 /// @param[out] mat4x4 转换之后的列优先存储的4X4齐次变换矩阵
-/// @return 正常返回ST_OK，否则返回错误类型
+/// @return 正常返回ST_OK,否则返回错误类型
 ST_SDK_API st_result_t
 st_mobile_convert_trs_to_matrix(const st_mobile_transform_t *p_trs, float mat4x4[16]);
 
-/// @brief 将4X4矩阵（列优先）分解为Translation，Rotation，Scale分量，右手坐标系。
+/// @brief 将4X4矩阵（列优先）分解为Translation,Rotation,Scale分量,右手坐标系。
 /// @param[in] mat4x4 列优先存储的4X4齐次变换矩阵
 /// @param[out] p_trs st_mobile_transform_t结构体表示的分解之后的TRS分量
-/// @return 正常返回ST_OK，否则返回错误类型
+/// @return 正常返回ST_OK,否则返回错误类型
 ST_SDK_API st_result_t
 st_mobile_convert_matrix_to_trs(const float mat4x4[16], st_mobile_transform_t *p_trs);
 
@@ -456,34 +505,81 @@ typedef enum {
     ST_PREFER_NOTHING,
 } st_performance_hint_t;
 
+/// @brief 纹理信息
+typedef struct {
+    int id;                 ///< 纹理id
+    int width;              ///< 纹理的宽
+    int height;             ///< 纹理的高
+    st_pixel_format format; ///< 纹理像素格式, 目前仅支持RGBA
+} st_mobile_texture_t;
+
+// 文件缓存存储的数据地址和文件字节长度
+typedef struct
+{
+	char* p_data;
+	int len;
+} st_mobile_buffer_t;
+
+//文件名字和文件缓冲
+typedef struct
+{
+	char* file_path;
+	st_mobile_buffer_t buffer;
+} st_mobile_file_buffer_t;
+
+/// @brief 获取zip中的文件数据
+/// @param[in] p_zip_path zip文件路径（相对或绝对）
+/// @param[out] p_file_buffers 接收解压后文件数据的数组指针,传出底层分配的空间
+/// @param[out] p_file_num zip文件中压缩的文件总数
+/// @param[out] p_zip_id 解压后zip资源的id,用于后续通知底层销毁对应资源
+/// @return 成功返回ST_OK,失败返回其他错误码,错误码定义在st_mobile_common.h中,如ST_E_FAIL等
+ST_SDK_API st_result_t
+st_mobile_unzip(const char* p_zip_path, st_mobile_file_buffer_t** p_file_buffers, int* p_file_num, int* p_zip_id);
+
+/// @brief 获取zip中的文件数据
+/// @param[in] p_zip_path zip文件路径（相对或绝对）
+/// @param[out] p_file_buffers 接收解压后文件数据的数组指针,传出底层分配的空间
+/// @param[out] p_file_num zip文件中压缩的文件总数
+/// @param[out] p_zip_id 解压后zip资源的id,用于后续通知底层销毁对应资源
+/// @return 成功返回ST_OK,失败返回其他错误码,错误码定义在st_mobile_common.h中,如ST_E_FAIL等
+ST_SDK_API st_result_t
+st_mobile_unzip_from_buffer(const st_mobile_buffer_t* p_zip_buffer, st_mobile_file_buffer_t** p_file_buffers, int* p_file_num, int* p_zip_id);
+
+/// @brief 获取zip中的文件数据
+/// @param[in] zip_id st_mobile_unzip API返回的资源id,在调用该接口后,内部资源销毁
+/// @return 成功返回ST_OK,失败返回其他错误码,错误码定义在st_mobile_common.h中,如ST_E_FAIL等
+ST_SDK_API st_result_t
+st_mobile_clear_unzipped_resource(int zip_id);
+
 /// @brief log层级定义
 typedef enum {
     ST_LOG_DEBUG,
     ST_LOG_TRACE,
+    ST_LOG_INFO,
     ST_LOG_WARNING,
     ST_LOG_ERROR,
     ST_LOG_DISABLE,
 } st_log_level_t;
 
 // this is the singleton API (thread safe), and would affect whole st_mobile APIs.
-/// @brief 设置st_mobile当前的log层级，层级关系为自底向上的包含关系，如ST_LOG_ERROR包含所有其他可log的level。
+/// @brief 设置st_mobile当前的log层级,层级关系为自底向上的包含关系,如ST_LOG_ERROR包含所有其他可log的level。
 ///        将当前的log层级设置为ST_LOG_DISABLE将禁用所有log。
 ///        该接口保证线程安全。
 /// @param[in] level 将设置的log层级
-/// @return 正常返回ST_OK，否则返回错误类型
+/// @return 正常返回ST_OK,否则返回错误类型
 ST_SDK_API st_result_t
 st_mobile_set_log_level(st_log_level_t level);
 
 /// @brief 获取当前的log层级
-/// @param[out] p_level 应该非空，用于获取当前的log层级
-/// @return 正常返回ST_OK，否则返回错误类型
+/// @param[out] p_level 应该非空,用于获取当前的log层级
+/// @return 正常返回ST_OK,否则返回错误类型
 ST_SDK_API st_result_t
 st_mobile_get_log_level(st_log_level_t* p_level);
 
-/// @brief 将log重定向到文件中，如果传入的文件路径为空，则重置为输出到标准设备流
+/// @brief 将log重定向到文件中,如果传入的文件路径为空,则重置为输出到标准设备流
 /// @param[in] p_file_path 重定向log文件的全路径
-/// @param[in] b_tranc_file 是否清除文件内容，true - 清除文件内容，false - 不清除文件内容
-/// @return 正常返回ST_OK，否则返回错误类型
+/// @param[in] b_tranc_file 是否清除文件内容,true - 清除文件内容,false - 不清除文件内容
+/// @return 正常返回ST_OK,否则返回错误类型
 ST_SDK_API st_result_t
 st_mobile_redirect_log_to_file(const char* p_file_path, bool b_tranc_file);
 
@@ -507,8 +603,8 @@ typedef enum {
     ST_AVATAR_JAW_LEFT,                                 // 16下颚左移(嘴闭合)
     ST_AVATAR_JAW_OPEN,                                 // 17下颚向下张开(嘴自然张开)
     ST_AVATAR_MOUTH_CLOSE,                              // 18嘴形自然闭合(下颚向下张开)
-    ST_AVATAR_MOUTH_ROUND,                              // 19嘟嘴，嘴唇往前突
-    ST_AVATAR_MOUTH_PUCKER,                             // 20撅嘴，嘴唇往外翘
+    ST_AVATAR_MOUTH_ROUND,                              // 19嘟嘴,嘴唇往前突
+    ST_AVATAR_MOUTH_PUCKER,                             // 20撅嘴,嘴唇往外翘
     ST_AVATAR_MOUTH_BOTH_LIP_RIGHT,                     // 21上下嘴唇右移
     ST_AVATAR_MOUTH_BOTH_LIP_LEFT,                      // 22上下嘴唇左移
     ST_AVATAR_MOUTH_RIGHT_CORNER_UP,                    // 23右嘴角向上扬
@@ -540,10 +636,12 @@ typedef enum {
     ST_AVATAR_CHEEK_LEFT_UP,                            // 49左面颊上提
     ST_AVATAR_NOSE_RIGHT_UP,                            // 50右鼻子上提
     ST_AVATAR_NOSE_LEFT_UP,                             // 51左鼻子上提
-    ST_AVATAR_NOSE_BOTH_WIDE,                           // 52双鼻张开
-    ST_AVATAR_TONGUE_OUTWARD,                           // 53舌头伸出
+    ST_AVATAR_TONGUE_OUTWARD,                           // 52舌头伸出
     ST_AVATAR_EXPRESSION_NUM,
 } ST_AVATAR_EXPRESSION_INDEX;
+
+
+
 /// @brief 设置snpe相关库在手机上的绝对路径
 ST_SDK_API bool
 st_mobile_set_snpe_library_path(const char* path);
@@ -558,7 +656,7 @@ const char* st_mobile_get_version();
 /// @param [in] path 待验证的模型文件的绝对路径
 /// @param [out] start_date 时间限制的起始点
 /// @param [out] end_date 时间限制的结束点
-/// @return 正常返回ST_OK，否则返回错误类型
+/// @return 正常返回ST_OK,否则返回错误类型
 ST_SDK_API
 st_result_t
 st_mobile_get_model_time_limit(const char* path, unsigned int* start_date, unsigned int* end_date);
@@ -568,10 +666,37 @@ st_mobile_get_model_time_limit(const char* path, unsigned int* start_date, unsig
 /// @param [in] buffer_size 缓存大小
 /// @param [out] start_date 时间限制的起始点
 /// @param [out] end_date 时间限制的结束点
-/// @return 正常返回ST_OK，否则返回错误类型
+/// @return 正常返回ST_OK,否则返回错误类型
 ST_SDK_API
 st_result_t
 st_mobile_get_model_time_limit_from_buffer(const unsigned char* buffer, unsigned int buffer_size, unsigned int* start_date, unsigned int* end_date);
 
+/// @brief 获取标准人脸图
+/// @param[in] img_in 输入人脸图像 只支持3通道和4通道,不支持带padding的图像
+/// @param[in] p_face 输入人脸关键点
+/// @param[in] standard_len 要求的标准人脸长度, 目前只支持512
+/// @param[out] crop_img 抠出的标准人脸, 内存由上层分配, 按照格式分配512*512*3 或者512*512*4
+ST_SDK_API st_result_t
+st_mobile_crop_standard_face(
+    const st_image_t* img_in,
+    const st_mobile_face_t* p_face,
+    int standard_len,
+    st_image_t *crop_img
+    );
+
+/// @brief 获取人脸图(不是标准的,仅做裁剪和缩放)
+/// @param[in] img_in 输入人脸图像 只支持3通道和4通道,不支持带padding的图像
+/// @param[in] p_face 输入人脸关键点
+/// @param[out] crop_img 抠出的标准人脸, data内存由底层分配, 宽高不固定, 最大宽高为1024;一定注意释放内存
+ST_SDK_API st_result_t
+st_mobile_crop_face(
+    const st_image_t* img_in,
+    const st_mobile_face_t* p_face,
+    st_image_t *crop_img
+    );
+
+/// @brief 释放底层分配的图像数据
+ST_SDK_API void
+st_mobile_release_image(st_image_t * img);
 
 #endif // INCLUDE_STMOBILE_ST_MOBILE_COMMON_H_

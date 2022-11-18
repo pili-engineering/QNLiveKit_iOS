@@ -37,14 +37,16 @@
 #include "st_mobile_common.h"
 #include "st_mobile_human_action.h"
 #include "st_mobile_animal.h"
+
 #include <stdint.h>
 
 #define EFFECT_MAX_NAME_LEN 256
 
 /// @brief Effect handle配置模式
 typedef enum {
-    EFFECT_CONFIG_NONE              = 0x0,  ///< 默认配置
-    EFFECT_CONFIG_IMAGE_MODE        = 0x2,  ///< 图片模式, 添加素材后立即生效
+    EFFECT_CONFIG_NONE              = 0x0,      ///< 默认配置
+    EFFECT_CONFIG_IMAGE_MODE        = 0x2,      ///< 图片模式, 添加素材后立即生效
+    EFFECT_CONFIG_INNER_RENDER_CONTEXT  = 0x4,  ///< 内置渲染context
 } st_effect_handle_config_t;
 
 /// @brief 内存buffer数据块定义
@@ -77,6 +79,14 @@ typedef enum {
     EFFECT_PARAM_USE_INPUT_TIMESTAMP,       ///< 设置贴纸是否使用外部时间戳更新
 
     EFFECT_PARAM_PREFER_MEMORY_CACHE,       ///< 倾向于空间换时间，传0的话，则尽可能清理内部缓存，保持内存最小。目前主要影响3D共享资源
+
+    EFFECT_PARAM_DISABLE_BEAUTY_OVERLAP,    ///< 传入大于0的值，禁用美颜Overlap逻辑（贴纸中的美颜会覆盖前面通过API或者贴纸生效的美颜效果，贴纸成组覆盖，API单个覆盖），默认启用Overlap
+
+    EFFECT_PARAM_DISABLE_MODULE_REORDER,    ///< 传入大于0的值，禁用对于v3.1之前的素材包重新排序module的渲染顺序，该选项只会影响设置之后添加的素材。重新排序是为了在与美妆、风格素材包叠加时达到最佳效果，默认启用ReOrder
+
+    EFFECT_PARAM_3D_POSE_SOLUTION,          ///< 3DPose计算方案，传入0使用106旧模型方案，传1使用基于282模型优化的Pose方案，默认值为1
+
+    EFFECT_PARAM_RENDER_DELAY_FRAME,        ///< 设置未来帧帧数，默认值是0, 需要是大于等于0的值，0表示不开未来帧
 } st_effect_param_t;
 
 /// @brief 设置特效的参数
@@ -94,14 +104,6 @@ st_mobile_effect_set_param(st_handle_t handle, st_effect_param_t param, float va
 /// @return 成功返回ST_OK, 失败返回其他错误码, 错误码定义在st_mobile_common.h中, 如ST_E_FAIL等
 ST_SDK_API st_result_t
 st_mobile_effect_get_param(st_handle_t handle, st_effect_param_t param, float* val);
-
-/// @brief 纹理信息
-typedef struct {
-    int id;                 ///< OpenGL纹理id
-    int width;              ///< 纹理的宽
-    int height;             ///< 纹理的高
-    st_pixel_format format; ///< 像素格式, 目前仅支持RGBA
-} st_effect_texture_t;
 
 /// @brief 自定义参数
 typedef struct {
@@ -124,6 +126,24 @@ typedef enum {
 /// @return 成功返回ST_OK, 失败返回其他错误码, 错误码定义在st_mobile_common.h中, 如ST_E_FAIL等
 ST_SDK_API st_result_t
 st_mobile_effect_get_detect_config(st_handle_t handle, uint64_t* p_detect_config);
+
+#define EFFECT_CUSTOM_INPUT_EVENT_SCREEN_TAP            0x10000
+#define EFFECT_CUSTOM_INPUT_EVENT_SCREEN_DOUBLE_TAP     0x20000
+
+/// @brief 获取需要的自定义事件选项
+/// @param[in] handle 已初始化的特效句柄
+/// @param[out] p_custom_event_config 返回自定义事件选项
+/// @return 成功返回ST_OK, 失败返回其他错误码, 错误码定义在st_mobile_common.h中, 如ST_E_FAIL等
+ST_SDK_API st_result_t
+st_mobile_effect_get_custom_event_config(st_handle_t handle, uint64_t* p_custom_event_config);
+
+/// @brief 获取前摄/后摄对应的默认手机姿态四元数，在处理图片、视频或者没有相应的手机姿态的情况下，需要传入默认的camera_quat
+/// @param[in] handle 已初始化的特效句柄
+/// @param[in] b_front_camera 指定当前获取的默认手机姿态四元数对应前摄像头还是后摄像头
+/// @param[out] p_default_quat 返回的默认四元数
+/// @return 成功返回ST_OK, 失败返回其他错误码, 错误码定义在st_mobile_common.h中, 如ST_E_FAIL等
+ST_SDK_API st_result_t
+st_mobile_effect_get_default_camera_quaternion(st_handle_t handle, bool b_front_camera, st_quaternion_t *p_default_quat);
 
 /// @brief 获取目前需要的动物检测类型
 /// @param[in] handle 已初始化的特效句柄
@@ -149,20 +169,22 @@ typedef struct {
 /// @brief 渲染的输入参数
 typedef struct {
     st_mobile_human_action_t* p_human;          ///< 人脸检测结果
-    st_mobile_animal_face_t* p_animal_face;     ///< 猫脸检测结果
-    int animal_face_count;                      ///< 猫脸的数量
+
+    st_mobile_animal_face_t* p_animal_face;     ///< 动物脸检测结果
+    int animal_face_count;                      ///< 动物脸的数量
+
     st_rotate_type rotate;                      ///< 人脸朝向
     st_rotate_type front_rotate;                ///< 前景渲染朝向
     bool need_mirror;                           ///< 是否需要镜像
     st_effect_custom_param_t* p_custom_param;   ///< 自定义参数配置
-    st_effect_texture_t* p_tex;                 ///< 输入的纹理信息
+    st_mobile_texture_t* p_tex;                 ///< 输入的纹理信息
     st_effect_in_image_t* p_image;              ///< 输入的图片信息
     double time_stamp;                          ///< 输入的时间戳
 } st_effect_render_in_param_t;
 
 /// @brief 渲染的输出参数
 typedef struct {
-    st_effect_texture_t* p_tex;                 ///< 输出的纹理信息
+    st_mobile_texture_t* p_tex;                 ///< 输出的纹理信息
     st_image_t* p_image;                        ///< 输出的图片信息
     st_mobile_human_action_t* p_human;          ///< 经过内部美颜、贴纸影响（反算）后的humanAction结果信息
 } st_effect_render_out_param_t;
@@ -222,6 +244,7 @@ typedef enum {
     EFFECT_BEAUTY_TONE_SATURATION                   = 602,  ///< 饱和度, [0,1.0], 默认值0.10, 0.0不做饱和度处理
     EFFECT_BEAUTY_TONE_SHARPEN                      = 603,  ///< 锐化, [0, 1.0], 默认值0.0, 0.0不做锐化
     EFFECT_BEAUTY_TONE_CLEAR                        = 604,  ///< 清晰度, 清晰强度, [0,1.0], 默认值0.0, 0.0不做清晰
+    EFFECT_BEAUTY_TONE_BOKEH                        = 605,  ///< 背景虚化强度, [0,1.0], 默认值0.0, 0.0不做背景虚化
 
     // 美妆 makeup
     EFFECT_BEAUTY_MAKEUP_HAIR_DYE                   = 401,  ///< 染发
@@ -234,13 +257,27 @@ typedef enum {
     EFFECT_BEAUTY_MAKEUP_EYE_LASH                   = 408,  ///< 眼睫毛
     EFFECT_BEAUTY_MAKEUP_EYE_BALL                   = 409,  ///< 美瞳
     EFFECT_BEAUTY_MAKEUP_PACKED                     = 410,  ///< 打包的美妆素材，可能包含一到多个单独的美妆模块，与其他单独美妆可以同时存在
+    EFFECT_BEAUTY_MAKEUP_EYE_PAINTING                 = 411,  ///< 眼妆
 
     EFFECT_BEAUTY_FILTER                            = 501,  ///< 滤镜
 
-    // 试妆 tryon
-    EFFECT_BEAUTY_TRYON_HAIR_COLOR                  = 701,  ///< 染发，可设置的参数（试妆信息结构体）包括：颜色，强度，明暗度，高光
-    EFFECT_BEAUTY_TRYON_LIPSTICK                    = 702,  ///< 口红，可设置的参数（试妆信息结构体）包括：颜色，强度，高光(水润、闪烁、金属)，质地类型
+    // 试妆 tryon                                            ///< 参数通过 st_effect_tryon_info_t 结构体中对应的参数来设置
+    EFFECT_BEAUTY_TRYON_HAIR_COLOR                  = 701,  ///< 染发，可设置的参数包括：颜色，强度，明暗度，高光
+    EFFECT_BEAUTY_TRYON_LIPSTICK                    = 702,  ///< 口红，可设置的参数包括：颜色，强度，高光(特定材质：水润、闪烁、金属)，质地类型
+    EFFECT_BEAUTY_TRYON_LIPLINE                     = 703,  ///< 唇线，可设置的参数包括：颜色，强度，唇线线宽
+    EFFECT_BEAUTY_TRYON_BLUSH                       = 704,  ///< 腮红，可设置的参数包括：颜色，强度
+    EFFECT_BEAUTY_TRYON_BROW                        = 705,  ///< 眉毛，可设置的参数包括：颜色，强度
+    EFFECT_BEAUTY_TRYON_FOUNDATION                  = 706,  ///< 粉底，可设置的参数包括：颜色，强度
+    EFFECT_BEAUTY_TRYON_CONTOUR                     = 707,  ///< 修容，可设置的参数包括：强度（整体），区域信息（区域id，颜色，强度）
+    EFFECT_BEAUTY_TRYON_EYESHADOW                   = 708,  ///< 眼影，可设置的参数包括：强度（整体），区域信息（区域id，颜色，强度）
+    EFFECT_BEAUTY_TRYON_EYELINER                    = 709,  ///< 眼线，可设置的参数包括：强度（整体），区域信息（区域id，颜色，强度）
+    EFFECT_BEAUTY_TRYON_EYELASH                     = 710,  ///< 眼睫毛，可设置的参数包括：颜色，强度
+    EFFECT_BEAUTY_TRYON_STAMPLINER                  = 711,  ///< 眼印，可设置的参数包括：颜色，强度
+
+    // 3D 微整形
+    EFFECT_BEAUTY_3D_MICRO_PLASTIC                  =801,
 } st_effect_beauty_type_t;
+
 
 /// @brief 美颜分组信息
 typedef enum {
@@ -260,6 +297,15 @@ typedef struct {
     int mode;                           ///< 美颜的模式
 } st_effect_beauty_info_t;
 
+/// @brief 3D美颜信息
+typedef struct {
+    char name[EFFECT_MAX_NAME_LEN];
+    int part_id;
+    float strength;
+    float strength_min;
+    float strength_max;
+} st_effect_3D_beauty_part_info_t;
+
 /// @brief 口红质地类型
 typedef enum {
     EFFECT_LIPSTICK_CREAMY,             ///< 自然
@@ -269,14 +315,27 @@ typedef enum {
     EFFECT_LIPSTICK_METAL,              ///< 金属
 } st_effect_lipstick_finish_t;
 
+/// @brief 试妆区域信息
+typedef struct {
+    int region_id;                      ///< 区域id
+    float strength;                     ///< 颜色强度，[0, 1.0]
+    st_color_t color;                   ///< 颜色, 每个通道的取值范围是[0, 255], 目前用到了 r, g, b 三个通道
+} st_effect_tryon_region_info_t;
+
+#define REGION_COUNT 6
 /// @brief 试妆信息
 typedef struct {
-    st_color_t color;                               ///< 颜色, 每个通道的取值范围是[0, 255], 目前用到了 r, g, b 三个通道
-    float strength;                                 ///< 颜色强度, [0, 1.0]
-    float midtone;                                  ///< 明暗度, [0, 1.0], 0.5表示不改变颜色的明暗度
-    float highlight;                                ///< 高光, [0, 1.0], 0.0表示不加高光
-    st_effect_lipstick_finish_t lip_finish_type;    ///< 口红质地类型
+    st_color_t color;                                           ///< 颜色, 每个通道的取值范围是[0, 255], 目前用到了 r, g, b 三个通道
+    float strength;                                             ///< 颜色强度, [0, 1.0]
+    float line_width_ratio;                                     ///< 唇线线宽比例， [0, 1.0]
+    float midtone;                                              ///< 明暗度, [0, 1.0], 0.5表示不改变颜色的明暗度
+    float highlight;                                            ///< 高光, [0, 1.0], 0.0表示不加高光
+    st_effect_lipstick_finish_t lip_finish_type;                ///< 口红质地类型
+
+    int region_count;                                           ///< 当前效果的区域数量，目前只有修容、眼影、眼线支持多区域，其他试妆效果该变量均为0
+    st_effect_tryon_region_info_t region_info[REGION_COUNT];    ///< 区域信息，最多支持REGION_COUNT个区域
 } st_effect_tryon_info_t;
+
 
 /// @brief 获取覆盖生效的美颜的数量, 需要在st_mobile_effect_render接口后调用，因为overlap信息是在render之后更新的
 /// @param[in] handle 已初始化的特效句柄
@@ -309,7 +368,7 @@ st_mobile_effect_set_beauty_strength(st_handle_t handle, st_effect_beauty_type_t
 ST_SDK_API st_result_t
 st_mobile_effect_get_beauty_strength(st_handle_t handle, st_effect_beauty_type_t param, float* val);
 
-/// @brief 设置美颜的模式, 目前仅对磨皮和美白有效，支持的有效模式为[0, 1, 2]三个值
+/// @brief 设置美颜的模式, 目前仅对磨皮、美白、背景虚化有效，支持的有效模式为[0, 1, 2]三个值（背景虚化支持[0, 1]两个值）
 /// @param[in] handle 已初始化的特效句柄
 /// @param[in] param 美颜类型
 /// @param[in] mode 模式，支持的有效模式为[0, 1, 2]三个值
@@ -433,9 +492,9 @@ st_mobile_effect_replay_package(st_handle_t handle, int package_id);
 
 /// @brief 素材包的播放状态类型
 typedef enum {
-    EFFECT_PACKAGE_BEGIN,           ///< 开始
-    EFFECT_PACKAGE_END,             ///< 结束
-    EFFECT_PACKAGE_TERMINATED,      ///< 被终止
+    EFFECT_PACKAGE_BEGIN,           ///< 素材包开始(素材包中的任一素材开始播放认为素材包开始)
+    EFFECT_PACKAGE_END,             ///< 素材包结束(素材包中开始播放后被切换或取消,或者已经开始的素材都完成播放循环认为是素材包结束播放)
+    EFFECT_PACKAGE_TERMINATED,      ///< 素材包被终止(素材包中已经开始播放的素材都因为对应检测结果消失导致停止播放认为是素材包被终止)
 } st_effect_package_state_t;
 
 /// @brief 素材包中Module（子特效）的播放状态类型
@@ -473,17 +532,58 @@ typedef enum {
     EFFECT_MODULE_PARTICLE = 8,         ///< 粒子模块
     EFFECT_MODULE_AVATAR = 9,           ///< Avatar模块
     EFFECT_MODULE_FACE_EXCHANGE = 10,   ///< 多人换脸模块
-    EFFECT_MODULE_FACE_MATTING = 11,    ///< 扣脸
+    EFFECT_MODULE_FACE_MATTING = 11,    ///< 扣脸模块
     EFFECT_MODULE_SKYBOX = 12,          ///< 天空盒模块
     EFFECT_MODULE_FACE_STRETCH = 14,    ///< 人脸拖拽模块
     EFFECT_MODULE_DOUBLEGANGER = 15,    ///< 影分身
-    EFFECT_MODULE_MASK_FILL = 16,       ///< 头发分割
+    EFFECT_MODULE_MASK_FILL = 16,       ///< 染发模块
     EFFECT_MODULE_HEAD_ANIMATION = 17,  ///< 大头模块
     EFFECT_MODULE_3D_FACE_MATTE = 18,   ///< 3D人脸抠图
-    EFFECT_MODULE_GAN = 19,             ///< Gan模块
-    EFFECT_MODULE_SEGMENT = 20,         ///< Segment模块
+    EFFECT_MODULE_TRYON = 19,           ///< tryon试妆模块
+    EFFECT_MODULE_GAN = 20,             ///< Gan模块
+    EFFECT_MODULE_SEGMENT = 21,         ///< Segment模块
+    EFFECT_MODULE_3D_MICRO_PLASTIC =22,     ///< 3D微整形模块
+    EFFECT_MODULE_FACEMESH_EFFECTS = 23,    ///< 3Dfacemesh特效模块
+    EFFECT_MODULE_3D_CAT_STICKER = 24,      ///< 3D猫脸贴纸
+    EFFECT_MODULE_3D_DOG_STICKER = 25,      ///< 3D狗脸贴纸
+    EFFECT_MODULE_3D_SHOES_STICKER = 26,    ///< 3D鞋子贴纸
+    EFFECT_MODULE_3D_WRIST = 27,            ///< 3D手饰贴纸
+    EFFECT_MODULE_SPARKLE_FILTER = 28,      ///< 闪烁滤镜
+    EFFECT_MODULE_GAN_IMAGE = 29,       ///< Gan Image模块
+    EFFECT_MODULE_3D_NAIL = 30,         ///< 3D美甲贴纸
 } st_effect_module_type_t;
 
+typedef struct st_file_buffer_t {
+    char file_name[EFFECT_MAX_NAME_LEN];    ///< 文件名称
+    unsigned char* file_buffer;             ///< 文件内容
+    unsigned int file_len;                  ///< 文件内容长度
+} st_file_buffer_t;
+
+typedef struct st_gan_request_t {
+    char name[EFFECT_MAX_NAME_LEN];    ///< GAN类型名称。 上层自己维护一套GAN类型名称对应的服务器请求算法。比如风格化，上层自己维护map<gan名称，服务器bundleid>
+    st_file_buffer_t* pzips;           ///< 多个zip文件（变性别会有2个zip包，变小孩会传出1个zip包）
+    int zip_count;                     ///<  zip 文件个数
+    st_image_t* in_image;              ///< 输入图像， sdk内部分配、管理内存
+    st_mobile_human_action_t* p_human; ///< 所使用图像的检测结果
+} st_gan_request_t;
+
+typedef struct st_gan_return_t {
+    st_image_t* out_image;       ///< 输出图像，上层分配内存
+} st_gan_return_t;
+
+/// @brief Module Info中的保留数据类型，根据特定case，保留数据的类型会不同
+typedef enum
+{
+    EFFECT_RESERVED_UNKNOWN = 0,            ///< 未知（无意义）保留数据
+    EFFECT_RESERVED_SOUND_DATA = 1,         ///< 声音数据的buffer，类型是st_effect_buffer_t
+    EFFECT_RESERVED_LOOP_NUM = 2,           ///< module的loop次数，类型是int
+    EFFECT_RESERVED_IMAGE = 3,              ///< 图像数据的buffer，类型是st_image_t
+    EFFECT_RESERVED_GAN_SERVER = 4,         ///< ganserver request请求所需数据，类型是st_gan_in
+    EFFECT_RESERVED_SEGMENT_BASECOLOR = 5,  ///< 返回绿幕分割基色, 类型是uint32_t
+} st_effect_reserved_t;
+
+/// @brief Module Info结构体，可以通过st_mobile_effect_get_modules_in_package，st_mobile_effect_set_module_state_change_callback等API获取
+///        通过st_mobile_effect_set_module_info API设置module数据
 typedef struct {
     st_effect_module_type_t type;       ///< 贴纸的类型
     int module_id;                      ///< 贴纸的ID
@@ -494,7 +594,8 @@ typedef struct {
     st_effect_module_state_t state;     ///< 贴纸的播放状态
     int current_frame;                  ///< 当前播放的帧数
     uint64_t position_type;             ///< 贴纸对应的position种类, 见st_mobile_human_action_t中的动作类型
-    void* reserved;                     ///< 额外的数据，如声音数据
+    st_effect_reserved_t rsv_type;      ///< 额外数据（reserved）的类型，在特定case下需要强转为特定类型，参考st_effect_reserved_type定义
+    void* reserved;                     ///< 额外的数据，在声音EFFECT_MODULE_LOADED回调中指向st_effect_buffer_t类型的声音文件buffer地址(该地址只在回调函数调用期间有效)，在声音的EFFECT_MODULE_PLAYING回调中对应的是声音循环次数（强转为int）
 } st_effect_module_info_t;
 
 /// @brief 获取素材信息
@@ -575,5 +676,33 @@ st_mobile_effect_release_cached_resource(st_handle_t handle);
 /// @return 成功返回ST_OK, 失败返回其他错误码, 错误码定义在st_mobile_common.h中, 如ST_E_FAIL等
 ST_SDK_API st_result_t
 st_mobile_effect_reset_output_buffer_cache(st_handle_t handle);
+
+
+/// @brief 在调用st_mobile_effect_set_beauty函数加载了3D微整形素材包之后调用。获取到素材包中所有的blendshape的数量
+/// @param[in] handle 已初始化的特效句柄
+/// @param[out] parts_count 输出的数组长度
+ST_SDK_API st_result_t
+st_moobile_effect_get_3d_beauty_parts_count(st_handle_t handle, int* parts_count);
+
+/// @brief 在调用st_mobile_effect_set_beauty函数加载了3D微整形素材包之后调用。获取到素材包中所有的blendshape名称、index和当前强度[0, 1]
+/// @param[in] handle 已初始化的特效句柄
+/// @param[out] parts 输出的blend shape信息数组。由外部分配内存。
+/// @param[in] parts_count 输入的数组长度,应小于等于获取的数量
+ST_SDK_API st_result_t
+st_mobile_effect_get_3d_beauty_parts(st_handle_t handle, st_effect_3D_beauty_part_info_t* parts, int parts_count);
+
+/// @brief 用于输入human action的face mesh list信息。
+/// @param[in] handle 已初始化的特效句柄
+/// @param[in] parts 从human action中获取的face_mesh_list信息指针
+ST_SDK_API st_result_t
+st_mobile_effect_set_face_mesh_list(st_handle_t handle, st_mobile_face_mesh_list_t* face_mesh_list);
+
+/// @brief 在调用st_mobile_effect_set_beauty函数加载了3D微整形素材包之后调用。在获取blendshape数组之后，可以依据起信息修改权重[0, 1]，设置给渲染引擎产生效果。
+/// @param[in] handle 已初始化的特效句柄
+/// @param[in] parts 输入的blend shape信息数组。
+/// @param[in] partSize 输入的数组长度
+ST_SDK_API st_result_t
+st_mobile_effect_set_3d_beauty_parts_strength(st_handle_t handle, st_effect_3D_beauty_part_info_t* parts, int partSize);
+
 
 #endif // _ST_MOBILE_EFFECT_H_

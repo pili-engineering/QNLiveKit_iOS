@@ -25,7 +25,7 @@
 #define INCLUDE_STMOBILE_ST_MOBILE_HUMAN_ACTION_H_
 
 #include "st_mobile_common.h"
-
+#include <stdint.h>
 /// 用于detect_config配置选项, 每一位均表示开启/关闭一个检测选项，部分也可用来判断检测结果中的human_action动作类型
 #define ST_MOBILE_FACE_DETECT               0x00000001  ///< 人脸检测
 #define ST_MOBILE_EYE_BLINK                 0x00000002  ///< 眨眼
@@ -65,7 +65,6 @@
 #define ST_MOBILE_SEG_HEAD                  0x0100000000    /// 检测头部分割
 #define ST_MOBILE_SEG_SKIN                  0x0200000000    /// 检测皮肤分割
 #define ST_MOBILE_SEG_FACE_OCCLUSION        0x0400000000    /// 检测面部遮挡分割
-#define ST_MOBILE_BODY_ACTION4              0x0800000000    /// 蜘蛛侠 暂时不支持
 #define ST_MOBILE_DETECT_FOOT				0x0800000000	/// 脚部关键点检测
 #define ST_MOBILE_BODY_ACTION5              0x1000000000    /// 动感超人 暂时不支持
 #define ST_MOBILE_SEG_TROUSER_LEG           0x1000000000    /// 检测裤腿分割
@@ -75,7 +74,7 @@
 #define ST_MOBILE_DETECT_GAZE                       0x100000000000 ///< 检测视线方向
 #define ST_MOBILE_DETECT_DYNAMIC_GESTURE            0x200000000000 ///< 检测动态手势
 #define ST_MOBILE_DETECT_AVATAR_HELPINFO            0x800000000000 ///< 检测avatar辅助信息
-#define ST_MOBILE_DETECT_FACE_S_COLOR            0x1000000000000 ///< 依赖106关键点检测
+#define ST_MOBILE_DETECT_FACE_S_COLOR               0x1000000000000 ///< 依赖106关键点检测
 #define ST_MOBILE_DETECT_HAIR_COLOR                 0x100000000000000  ///< avatar发色检测，依赖106关键点和头发分割，目前只支持单人发色
 #define ST_MOBILE_BODY_KEYPOINTS_3D        0x2000000000000  ///< 检测肢体3d关键点
 #define ST_MOBILE_DETECT_EAR               0x4000000000000  ///< 检测耳朵关键点
@@ -87,14 +86,23 @@
 #define ST_MOBILE_DETECT_UPBODY_AVATAR     0x800000000000000 ///< 检测半身avatar
 #define ST_MOBILE_SEG_SKY                  0x1000000000000000 ///< 检测天空分割
 #define ST_MOBILE_DEPTH_ESTIMATION         0X2000000000000000 ///< 检测深度估计
+#define ST_MOBILE_NAIL_DETECT              0x4000000000000000  ///<指甲关键点检测
+#define ST_MOBILE_SEG_CLOTH                0x000080000        ///< 衣物检测
+#define ST_MOBILE_SEG_GREEN         0x80000000         /// < 绿幕分割
+#define ST_MOBILE_WRIST_DETECT 0x8000000000000000 ///<手腕关键点检测
 
-#define ST_MOBILE_NAIL_DETECT 0x4000000000000000  //指甲关键点检测
 /// 以下是常见的检测detect_config
 #define ST_MOBILE_FACE_DETECT_FULL        0x000000FF      ///< 检测所有脸部动作
 #define ST_MOBILE_HAND_DETECT_FULL        0x30410000F6FF00  ///< 检测所有手势, 如果手势分类和手部骨骼点(2d/3d)的config同时打开时, 对于恭贺（抱拳)/双手合十/手势ILoveYou等组合手势只能检测出一个组合手势．
 #define ST_MOBILE_BODY_DETECT_FULL        0x018000000     ///< 检测肢体关键点和肢体轮廓点
+///@brief human 3d pose 信息
+typedef struct {
+	uint64_t position;                              ///<检测的config,ST_MOBILE_WRIST_DETECT或ST_MOBILE_DETECT_FOOT，可用于区分获取的3dPose
+	int id;                                         ///<检测id
+	st_mobile_transform_t pose;                    ///<输出的pose信息
+	bool isvalid;                                                                   ///< 输出pose信息是否有效
 
-
+}st_human_pose_t;
 /// @brief 动态手势类型
 typedef enum st_hand_dynamic_gesture_type_t {
     ST_DYNAMIC_GESTURE_TYPE_INVALID = -1,                      ///< 无效的动态手势
@@ -107,14 +115,12 @@ typedef enum st_hand_dynamic_gesture_type_t {
     ST_DYNAMIC_GESTURE_TYPE_PALM_MOVING_UP_AND_DOWN,           ///< 手掌上下平移
     ST_DYNAMIC_GESTURE_TYPE_MAX_NUM                            ///< 目前支持的动态手势个数
 } st_hand_dynamic_gesture_type_t;
-
 /// @brief 动态手势结果
 typedef struct st_hand_dynamic_gesture_t {
     int has_dynamic_gesture;                        ///< 是否有动态手势：0表示没有，1表示有
     st_hand_dynamic_gesture_type_t dynamic_gesture; ///< 动态手势类别
     float score;                                    ///< 动态手势得分
 } st_hand_dynamic_gesture_t;
-
 /// @brief 手势检测结果
 typedef struct st_mobile_hand_t {
     int id;                                         ///< 手的id
@@ -141,7 +147,19 @@ typedef struct st_mobile_nail_t{
 	st_rect_t rect;									///< 包络矩形框
 	st_pointf_t *p_key_points;						///< 关键点数组
 	int points_count; 								///< 关键点数目,一般是16
+	st_3dpose_t* p_pose3d;						///<pose指甲3d位置信息,方向与人正立方向一致，暂不支持resize mirror rotate后处理
 }st_mobile_nail_t,*p_st_mobile_nail_t;
+
+typedef struct st_mobile_wrist_t{
+	int id;											///< 手腕id
+	float score;									///< 置信度
+	st_rect_t rect;									///< 包络矩形框
+	st_pointf_t *p_key_points;						///< 关键点数组
+	int points_count; 								///< 关键点数目,一般是20
+	st_left_or_right_t label;						///< 左右手分类
+	st_3dpose_t* p_pose3d;						///<pose手腕3d位置信息,方向与人正立方向一致，暂不支持resize mirror rotate后处理
+}st_mobile_wrist_t, *p_st_mobile_wrist_t;
+
 
 /// @brief 肢体检测结果
 typedef struct st_mobile_body_t {
@@ -168,8 +186,10 @@ typedef struct st_mobile_segment_t {
     float max_threshold;	    ///< 前后背景最大阈值，同上
     st_pointf_t offset;         ///< 分割结果位于原图的左上角坐标，一般是（0,0），只有嘴唇分割结果不同
     st_pointf_t scale;          ///< 分割结果的缩放比例。p_segment->width(height)*scale为和原图对应的分割结果像素大小。
-    st_rotate_type rotate;      ///< 分割结果朝向, 现有的结果默认都是朝上的
+    st_rotate_type rotate;      ///< 分割结果朝向, 除深度估计和腿部分割结果除外, 其他分割结果默认朝上
     int face_id;                ///< 如果-1表示是整幅图的结果; 如果>=0, 与st_mobile_face_t 中的id对应. 目前嘴部分割和头部特殊模型分割支持id
+    unsigned char* p_extra_info_buffer;  ///< 额外输出的中间信息， 仅供sdk中的渲染接口使用， 目前仅天空和绿幕分割会输出
+    int extra_info_length;      ///< 额外输出中间信息buffer长度
 } st_mobile_segment_t, *p_st_mobile_segment_t;
 
 /// @brief 人头检测结果信息
@@ -194,6 +214,7 @@ typedef struct st_mobile_foot_t {
 	st_pointf_t *p_key_points;  ///< 脚部关键点
 	int key_points_count;		///< 脚部关键点个数
 	st_left_or_right_t label;	///< 脚部类型(左脚还是右脚)
+	st_3dpose_t* p_pose3d;					///<pose foot 3d位置信息,方向与人正立方向一致，暂不支持resize mirror rotate后处理
 } st_mobile_foot_t, *p_st_mobile_foot_t;
 
 /// @brief 所有human_action 的分割结果
@@ -204,6 +225,7 @@ typedef struct st_mobile_human_action_segments_t {
     st_mobile_segment_t *p_sky;				 ///< 检测到天空分割信息
     st_mobile_segment_t *p_skin;             ///< 检测到皮肤分割信息
     st_mobile_segment_t *p_depth;			 ///< 检测到深度估计信息
+    st_mobile_segment_t *p_green;             ///< 检测到绿幕分割信息
     st_mobile_segment_t *p_mouth_parse;      ///< 检测到的嘴唇遮挡分割信息
     int mouth_parse_count;                   ///< 检测到的嘴唇数目 与p_faces的id对应
     st_mobile_segment_t *p_head;             ///< 检测到头部分割信息
@@ -212,6 +234,8 @@ typedef struct st_mobile_human_action_segments_t {
     int face_occlusion_count;                ///< 目前只支持1个
 	st_mobile_segment_t *p_trouser_leg;	     ///< 检测到裤腿分割信息
     int trouser_leg_count;                   ///< 目前只支持1个
+    st_mobile_segment_t* p_cloth;            ///< 检测到的衣物分割信息
+    int cloth_count;                         ///< 目前只支持1个
 } st_mobile_human_action_segments_t;
 
 /// @brief human_action检测结果
@@ -230,17 +254,24 @@ typedef struct st_mobile_human_action_t {
 	int nail_count;							 ///< 检测到的指甲个数
 	st_mobile_foot_t *p_feet;				 ///< 检测到的脚的信息
 	int foot_count;							 ///< 检测到的脚的个数
+	st_mobile_wrist_t *p_wrist;				///< 检测到的手腕的信息
+	int wrist_count;						 ///< 检测到的手腕的个数
+    unsigned char* p_extra_buffer;           ///< 额外检测信息
+    int extra_buffer_length;
 } st_mobile_human_action_t, *p_st_mobile_human_action_t;
 /// 创建人体行为检测句柄的默认配置: 设置检测模式和检测类型
-/// 视频检测, 检测人脸、手势和前后背景
-#define ST_MOBILE_HUMAN_ACTION_DEFAULT_CONFIG_VIDEO     ST_MOBILE_DETECT_MODE_VIDEO
+/// 旧版本视频检测, 检测人脸、手势和前后背景，效果同预览检测，后续会更新为预览检测
+#define ST_MOBILE_HUMAN_ACTION_DEFAULT_CONFIG_VIDEO                 ST_MOBILE_DETECT_MODE_VIDEO
+/// 预览检测, 检测人脸、手势和前后背景
+#define ST_MOBILE_HUMAN_ACTION_DEFAULT_CONFIG_PREVIEW               ST_MOBILE_DETECT_MODE_PREVIEW
 /// 图片检测, 检测人脸、手势和前后背景
-#define ST_MOBILE_HUMAN_ACTION_DEFAULT_CONFIG_IMAGE     ST_MOBILE_DETECT_MODE_IMAGE
-
+#define ST_MOBILE_HUMAN_ACTION_DEFAULT_CONFIG_IMAGE                 ST_MOBILE_DETECT_MODE_IMAGE
+/// 视频后处理检测, 检测人脸、手势和前后背景
+#define ST_MOBILE_HUMAN_ACTION_DEFAULT_CONFIG_VIDEO_POST_PROCESS    ST_MOBILE_DETECT_MODE_VIDEO_POST_PROCESS
 
 /// @brief 创建人体行为检测句柄. Android建议使用st_mobile_human_action_create_from_buffer
 /// @param[in] model_path 模型文件的路径,例如models/action.model. 为NULL时需要调用st_mobile_human_action_add_sub_model添加需要的模型
-/// @param[in] config 配置选项 预览使用ST_MOBILE_DETECT_MODE_VIDEO, 离线视频处理使用ST_MOBILE_TRACKING_SINGLE_THREAD， 图片使用ST_MOBILE_DETECT_MODE_IMAGE
+/// @param[in] config 配置选项 预览使用ST_MOBILE_DETECT_MODE_PREVIEW, 离线视频处理使用ST_MOBILE_HUMAN_ACTION_DEFAULT_CONFIG_VIDEO_POST_PROCESS， 图片使用ST_MOBILE_DETECT_MODE_IMAGE
 /// @param[out] handle 人体行为检测句柄,失败返回NULL
 /// @return 成功返回ST_OK,失败返回其他错误码,错误码定义在st_mobile_common.h中,如ST_E_FAIL等
 ST_SDK_API st_result_t
@@ -253,7 +284,7 @@ st_mobile_human_action_create(
 /// @brief 创建人体行为检测句柄
 /// @param[in] buffer 模型缓存起始地址,为NULL时需要调用st_mobile_human_action_add_sub_model添加需要的模型
 /// @param[in] buffer_size 模型缓存大小
-/// @param[in] config 配置选项 预览使用ST_MOBILE_DETECT_MODE_VIDEO, 离线视频处理使用ST_MOBILE_TRACKING_SINGLE_THREAD， 图片使用ST_MOBILE_DETECT_MODE_IMAGE
+/// @param[in] config 配置选项 预览使用ST_MOBILE_DETECT_MODE_PREVIEW, 离线视频处理使用ST_MOBILE_HUMAN_ACTION_DEFAULT_CONFIG_VIDEO_POST_PROCESS， 图片使用ST_MOBILE_DETECT_MODE_IMAGE
 /// @param[out] handle 人体行为检测句柄,失败返回NULL
 /// @return 成功返回ST_OK,失败返回其他错误码,错误码定义在st_mobile_common.h中,如ST_E_FAIL等
 ST_SDK_API st_result_t
@@ -267,7 +298,7 @@ st_mobile_human_action_create_from_buffer(
 /// @brief 通过子模型创建人体行为检测句柄, st_mobile_human_action_create和st_mobile_human_action_create_with_sub_models只能调一个
 /// @param[in] model_path_arr 模型文件路径指针数组. 根据加载的子模型确定支持检测的类型. 如果包含相同的子模型, 后面的会覆盖前面的.
 /// @param[in] model_count 模型文件数目
-/// @param[in] config 配置选项 预览使用ST_MOBILE_DETECT_MODE_VIDEO, 离线视频处理使用ST_MOBILE_TRACKING_SINGLE_THREAD， 图片使用ST_MOBILE_DETECT_MODE_IMAGE
+/// @param[in] config 配置选项 预览使用ST_MOBILE_DETECT_MODE_PREVIEW, 离线视频处理使用ST_MOBILE_HUMAN_ACTION_DEFAULT_CONFIG_VIDEO_POST_PROCESS， 图片使用ST_MOBILE_DETECT_MODE_IMAGE
 /// @param[out] handle 人体行为检测句柄,失败返回NULL
 /// @return 成功返回ST_OK,失败返回其他错误码,错误码定义在st_mobile_common.h中,如ST_E_FAIL等
 ST_SDK_API st_result_t
@@ -329,6 +360,7 @@ typedef enum {
 	ST_MOBILE_MODEL_TYPE_FACE_EAR = 6,                      ///< 耳朵关键点开关
 	ST_MOBILE_MODEL_TYPE_FACE_MESH = 7,                     ///< 3dmesh关键点开关
 	ST_MOBILE_MODEL_TYPE_AVARAE_HELPER = 8,                 ///< avatar help 模型
+	ST_MOBILE_MODEL_TYPE_FACE_POSE3D = 9,                   ///< face pose 3d pose 模型
 
 	ST_MOBILE_MODEL_TYPE_HAND_DETECT =100,                  ///< 手势
 	ST_MOBILE_MODEL_TYPE_HAND_SKELETON_KEYPOINTS_2D3D = 101,///< 手势关节点
@@ -353,10 +385,13 @@ typedef enum {
 
 	ST_MOBILE_MODEL_TYPE_DEPTH_ESTIMATION = 408,		    ///< 深度估计信息
     ST_MOBILE_MODEL_TYPE_SEGMENT_TROUSER_LEG = 409,         ///< 裤腿分割
+    ST_MOBILE_MODEL_TYPE_SEGMENT_CLOTH = 500,               ///< 衣服分割
 
 	ST_MOBILE_MODEL_TYPE_NAIL = 501,                        ///< 指甲检测
 
 	ST_MOBILE_MODEL_TYPE_FOOT = 600,					    ///< 脚部关键点检测
+
+	ST_MOBILE_MODEL_TYPE_WRIST = 609,					    ///< 手腕关键点检测
 } st_mobile_model_type;
 
 
@@ -436,9 +471,34 @@ st_mobile_human_action_get_segment_foreground (
     st_image_t* figure_matting_foreground
 );
 
+/// @brief 使用GPU对分割结果做后处理，并将处理后的结果输出到纹理上，需要在OpenGL context中调用
+/// @param[in] handle　已初始化的human_action句柄
+/// @param[in] p_segment CPU中的分割输出结果（st_mobile_human_action_t）结构体中
+/// @param[in] p_src_tex 用于检测的预览/图片纹理
+/// @param[in] segment_type 分割数据的类型，通过detect config区分，目前只支持天空分割（ST_MOBILE_SEG_SKY 和 ST_MOBILE_SEG_GREEN）
+/// @param[out] p_dst_tex GPU处理后的分割结果，需要在上层预先创建texture，纹理比例需要与原图一致，分辨率可不同
+/// @return 成功返回ST_OK, 失败返回其他错误码
+ST_SDK_API st_result_t
+st_mobile_human_action_gpu_segment_refine(
+    st_handle_t handle,
+    const st_mobile_segment_t *p_segment,
+    const st_mobile_texture_t *p_src_tex,
+    unsigned long long segment_type,
+    st_mobile_texture_t *p_dst_tex
+);
+
+/// @brief 释放humanAction handle内部的GL资源，需要在OpenGL context中调用。调用该接口之后，如果没有再调用GL相关的接口，handle的销毁不需要在GL线程中调用。否则，
+///        如果handle销毁没有在GL线程中调用，GL相关资源可能会泄露。
+/// @param[in] handle　已初始化的human_action句柄
+/// @return 成功返回ST_OK, 失败返回其他错误码
+ST_SDK_API st_result_t
+st_mobile_human_action_release_gl_resource (
+    st_handle_t handle
+);
+
 /// @brief human_action参数类型
 typedef enum {
-	// 人脸参数
+    // 人脸参数
     /// 设置检测到的最大人脸数目N(默认值32, 最大值32),持续track已检测到的N个人脸直到人脸数小于N再继续做detect.值越大,检测到的人脸数目越多,但相应耗时越长. 如果当前人脸数目达到上限，检测线程将休息
     ST_HUMAN_ACTION_PARAM_FACELIMIT = 0,
     /// 设置tracker每多少帧进行一次detect(默认值有人脸时24,无人脸时24/3=8). 值越大,cpu占用率越低, 但检测出新人脸的时间越长.
@@ -451,24 +511,31 @@ typedef enum {
     ST_HUMAN_ACTION_PARAM_FACE_PROCESS_INTERVAL = 5,
     ///设置人脸106点检测的阈值[0.0,1.0]
     ST_HUMAN_ACTION_PARAM_FACE_THRESHOLD = 6,
+    /// 设置mesh渲染模式, mesh分为人脸，眼睛，嘴巴，后脑勺，耳朵，脖子，眉毛七个部位，2106模型只包含人脸，眼睛，嘴巴三个部位，3060/2396模型只包含人脸，眼睛，嘴巴，后脑勺，耳朵，脖子六个部位
+    /// 参数值类型为st_mobile_mesh_part，默认只渲染人脸st_mobile_mesh_part::ST_MOBILE_MESH_PART_FACE，
+    /// 可以设置多个部位，例如：渲染人脸和嘴巴，st_mobile_mesh_part::ST_MOBILE_MESH_PART_FACE + st_mobile_mesh_part::ST_MOBILE_MESH_PART_MOUTH
+    ST_HUMAN_ACTION_PARAM_MESH_MODE = 20,
+    /// 设置mesh额头点扩展scale范围起始值（小于终止值，默认是2）
+    ST_HUMAN_ACTION_PARAM_MESH_START_SCALE = 21,
+    /// 设置mesh额头点扩展scale范围终止值（大于起始值，默认是3）
+    ST_HUMAN_ACTION_PARAM_MESH_END_SCALE = 22,
+    /// 设置mesh结果输出坐标系,(0: 屏幕坐标系， 1：世界坐标系）
+    // ST_HUMAN_ACTION_PARAM_MESH_OUTPUT_FORMAT = 23,
 
-    /// 设置face mesh渲染模式, face mesh分为人脸，眼睛，嘴巴，后脑勺，耳朵，脖子六个部位，2106模型只包含人脸，眼睛，嘴巴三个部位
-    /// 用一个六位的十六进制数字表示渲染模式0xFFFFFF，将要渲染部位的对应数字位设为1，不渲染的部位设为0，例如：渲染人脸和嘴巴，0x101000，默认只渲染人脸0x100000
-    ST_HUMAN_ACTION_PARAM_FACE_MESH_MODE = 20,
-    /// 设置face mesh额头点扩展scale范围起始值（小于终止值，默认是2）
-    ST_HUMAN_ACTION_PARAM_FACE_MESH_START_SCALE = 21,
-    /// 设置face mesh额头点扩展scale范围终止值（大于起始值，默认是3）
-    ST_HUMAN_ACTION_PARAM_FACE_MESH_END_SCALE = 22,
-    /// 设置face mesh结果输出坐标系,(0: 屏幕坐标系， 1：三维坐标系，默认是屏幕坐标系）
-    ST_HUMAN_ACTION_PARAM_FACE_MESH_OUTPUT_FORMAT = 23,
-    /// 获取face mesh模型支持的关键点的数量（2106/3060/2396）
-    ST_HUMAN_ACTION_PARAM_FACE_MESH_MODEL_VERTEX_NUM = 24,
+    /// 获取mesh模型支持的关键点的数量（2106/3060/2396）
+    ST_HUMAN_ACTION_PARAM_MESH_MODEL_VERTEX_NUM = 24,
     /// 设置face mesh是否需要内缩282关键点坐标(只对face mesh有效，360度mesh不需要，0：不需要内缩，1：需要内缩)
     ST_HUMAN_ACTION_PARAM_FACE_MESH_NARROW_LANDMARK = 25,
-    /// 设置face mesh是否需要计算边界点(0：不需要计算边界点，1：需要计算边界点）
-    ST_HUMAN_ACTION_PARAM_FACE_MESH_CONTOUR = 26,
+    ///// 设置face mesh是否需要计算边界点(0：不需要计算边界点，1：需要计算边界点）
+    //ST_HUMAN_ACTION_PARAM_FACE_MESH_CONTOUR = 26,
+    // /// 设置mesh是否打开透视 1：打开透视， 0：打开正交 (默认打开正交)
+    // ST_HUMAN_ACTION_PARAM_FACE_MESH_PERSPECTIVE = 26,
+    /// 设置face mesh结果输出坐标系,值使用st_3d_coordinate_type
+    ST_HUMAN_ACTION_PARAM_FACE_MESH_OUTPUT_FORMAT = 26,
+    /// 设置face mesh结果输出坐标系,值使用st_3d_coordinate_type
+    ST_HUMAN_ACTION_PARAM_HEAD_MESH_OUTPUT_FORMAT = 27,
 
-	// 手部参数
+    // 手部参数
     /// 设置检测到的最大手数目N(默认值2, 最大值32),持续track已检测到的N个hand直到人脸数小于N再继续做detect.值越大,检测到的hand数目越多,但相应耗时越长. 如果当前手数目达到上限，检测线程将休息
     ST_HUMAN_ACTION_PARAM_HAND_LIMIT = 101,
     /// 设置手势检测每多少帧进行一次 detect (默认有手时30帧detect一次, 无手时10(30/3)帧detect一次). 值越大,cpu占用率越低, 但检测出新人脸的时间越长.
@@ -476,12 +543,12 @@ typedef enum {
     /// 设置手势隔帧检测（对上一帧结果做拷贝），目的是减少耗时。默认每帧检测一次. 最多每10帧检测一次. 开启隔帧检测后, 只能对拷贝出来的检测结果做后处理.
     ST_HUMAN_ACTION_PARAM_HAND_PROCESS_INTERVAL = 103,
     /// 设置手检测的阈值[0.0,1.0]
-	ST_HUMAN_ACTION_PARAM_HAND_THRESHOLD = 104,
+    ST_HUMAN_ACTION_PARAM_HAND_THRESHOLD = 104,
 
-	/// 设置手骨架检测的阈值[0.0,1.0]
-	ST_HUMAN_ACTION_PARAM_HAND_SKELETON_THRESHOLD = 110,
+    /// 设置手骨架检测的阈值[0.0,1.0]
+    ST_HUMAN_ACTION_PARAM_HAND_SKELETON_THRESHOLD = 110,
 
-	//  肢体参数
+    //  肢体参数
     /// 设置检测到的最大肢体数目N(默认值1),持续track已检测到的N个肢体直到肢体数小于N再继续做detect.值越大,检测到的body数目越多,但相应耗时越长. 如果当前肢体数目达到上限，检测线程将休息
     ST_HUMAN_ACTION_PARAM_BODY_LIMIT = 200,
     /// 设置肢体关键点检测每多少帧进行一次 detect (默认有肢体时30帧detect一次, 无body时10(30/3)帧detect一次). 值越大,cpu占用率越低, 但检测出新body的时间越长.
@@ -489,23 +556,29 @@ typedef enum {
     /// 设置肢体隔帧检测（对上一帧结果做拷贝），目的是减少耗时。默认每帧检测一次. 最多每10帧检测一次. 开启隔帧检测后, 只能对拷贝出来的检测结果做后处理.
     ST_HUMAN_ACTION_PARAM_BODY_PROCESS_INTERVAL = 202,
     /// 设置身体检测的阈值[0.0，1.0]
-	ST_HUMAN_ACTION_PARAM_BODY_THRESHOLD = 203,
+    ST_HUMAN_ACTION_PARAM_BODY_THRESHOLD = 203,
     /// 已废弃 设置是否根据肢体信息检测摄像头运动状态 (0: 不检测; 1: 检测. 默认检测肢体轮廓点时检测摄像头运动状态)
     //ST_HUMAN_ACTION_PARAM_DETECT_CAMERA_MOTION_WITH_BODY = 203,
     /// 输入真实身高，单位为米，3D骨架乘以身高（整体缩放），得到真实的物理尺度，仅用于儿童肢体检测
-	ST_HUMAN_ACTION_PARAM_BODY_STATURE = 210,
+    ST_HUMAN_ACTION_PARAM_BODY_STATURE = 210,
 
-	// 人头分割参数
-	/// 设置头部分割检测结果灰度图的方向是否需要旋转（0: 不旋转, 保持竖直; 1: 旋转, 方向和输入图片一致. 默认不旋转)
-	ST_HUMAN_ACTION_PARAM_HEAD_SEGMENT_RESULT_ROTATE = 300,
-	/// 设置人头分割边界区域上限阈值.
-	ST_HUMAN_ACTION_PARAM_HEAD_SEGMENT_MAX_THRESHOLD = 301,
-	/// 设置人头分割边界区域下限阈值
-	ST_HUMAN_ACTION_PARAM_HEAD_SEGMENT_MIN_THRESHOLD = 302,
-	/// 头部分割后处理长边的长度[10,长边长度](默认长边240,短边=长边/原始图像长边*原始图像短边).值越大,头部分割后处理耗时越长,边缘部分效果越好.
-	ST_HUMAN_ACTION_PARAM_HEAD_SEGMENT_MAX_SIZE = 303,
+    // 人头分割参数
+    /// 设置头部分割检测结果灰度图的方向是否需要旋转（0: 不旋转, 保持竖直; 1: 旋转, 方向和输入图片一致. 默认不旋转)
+    ST_HUMAN_ACTION_PARAM_HEAD_SEGMENT_RESULT_ROTATE = 300,
+    /// 设置人头分割边界区域上限阈值.开启温度系数时设置无效
+    ST_HUMAN_ACTION_PARAM_HEAD_SEGMENT_MAX_THRESHOLD = 301,
+    /// 设置人头分割边界区域下限阈值 开启温度系数时设置无效
+    ST_HUMAN_ACTION_PARAM_HEAD_SEGMENT_MIN_THRESHOLD = 302,
+    /// 头部分割后处理长边的长度[10,长边长度](默认长边240,短边=长边/原始图像长边*原始图像短边).值越大,头部分割后处理耗时越长,边缘部分效果越好.
+    ST_HUMAN_ACTION_PARAM_HEAD_SEGMENT_MAX_SIZE = 303,
     /// 设置最大人头分割个数，默认支持一个人头分割，face_id为人脸id; 若支持多个人头分割，则face id为-1.
     ST_HUMAN_ACTION_PARAM_HEAD_SEGMENT_MAX_COUNT = 304,
+    /// 设置头部分割检测结果边缘模糊程度 取值范围0-1 视频版默认0.5, 图片版默认是1
+    ST_HUMAN_ACTION_PARAM_HEAD_SEGMENT_RESULT_BLUR = 305,
+    /// 设置头部分割检测结果边缘模糊程度需保证开启温度系数，大于0.5为开启，小于0.5为关闭，关闭状态下使用卡阈值模式得到边界，默认状态为开启
+    ST_HUMAN_ACTION_PARAM_HEAD_SEGMENT_USE_TEMPERATURE = 306,
+    ////边缘移动参数，取值范围再[-2,2],默认值是1
+    ST_HUMAN_ACTION_PARAM_HEAD_SEGMENT_EDGESHIFT = 307,
 
 	// 背景分割/人像分割参数
     /// 输出的background结果中长边的长度[10,长边长度](默认长边为模型内部处理的长边，若设置会做resize处理输出).值越大,背景分割的耗时越长,边缘部分效果越好.值为0还原为默认值.
@@ -515,13 +588,17 @@ typedef enum {
     ST_HUMAN_ACTION_PARAM_BACKGROUND_BLUR_STRENGTH = 401,//
     /// 设置前后背景检测结果灰度图的方向是否需要旋转（0: 不旋转, 保持竖直; 1: 旋转, 方向和输入图片一致. 默认不旋转)
     ST_HUMAN_ACTION_PARAM_BACKGROUND_RESULT_ROTATE = 402,
-    /// 设置背景分割边界区域上限阈值.
+    /// 设置背景分割边界区域上限阈值. 开启温度系数时设置无效
     ST_HUMAN_ACTION_PARAM_SEGMENT_MAX_THRESHOLD = 403,
-    /// 设置背景分割边界区域下限阈值
+    /// 设置背景分割边界区域下限阈值 开启温度系数时设置无效
     ST_HUMAN_ACTION_PARAM_SEGMENT_MIN_THRESHOLD = 404,
-	/// 设置背景分割检测间隔
-	ST_HUMAN_ACTION_PARAM_BACKGROUND_PROCESS_INTERVAL = 405,
 //	ST_HUMAN_ACTION_PARAM_SEGMENT_KERNAL_TYPE = 406, 已废弃
+    /// 设置背景分割检测结果边缘模糊程度 取值范围0-1, 视频版默认是0.5 图片版默认是1
+    ST_HUMAN_ACTION_PARAM_BACKGROUND_SEGMENT_RESULT_BLUR = 407,
+	/// 设置背景分割检测结果边缘模糊程度需保证开启温度系数，大于0.5为开启，小于0.5为关闭，关闭状态下使用卡阈值模式得到边界，默认状态为开启
+	ST_HUMAN_ACTION_PARAM_BACKGROUND_SEGMENT_USE_TEMPERATURE = 408,
+    ////边缘移动参数，取值范围再[-2,2],默认值是1
+    ST_HUMAN_ACTION_PARAM_BACKGROUND_SEGMENT_EDGESHIFT=399,
 
 // 头发分割参数
     /// 头发结果中长边的长度[10,长边长度](默认长边240,短边=长边/原始图像长边*原始图像短边).值越大,头发分割的耗时越长,边缘部分效果越好.
@@ -530,12 +607,16 @@ typedef enum {
     ST_HUMAN_ACTION_PARAM_HAIR_BLUR_STRENGTH = 411,  // 无效,可删除
     /// 设置头发灰度图的方向是否需要旋转（0: 不旋转, 保持竖直; 1: 旋转, 方向和输入图片一致. 默认0不旋转)
     ST_HUMAN_ACTION_PARAM_HAIR_RESULT_ROTATE = 412,
-    /// 设置头发分割隔帧检测（对上一帧结果做拷贝），目的是减少耗时。默认每帧检测一次. 最多每10帧检测一次. 开启隔帧检测后, 只能对拷贝出来的检测结果做后处理.
-    ST_HUMAN_ACTION_PARAM_HAIR_PROCESS_INTERVAL = 413,  // 建议删除
-    /// 设置头发分割边界区域上限阈值.
+    /// 设置头发分割边界区域上限阈值.开启温度系数时设置无效
     ST_HUMAN_ACTION_PARAM_HAIR_SEGMENT_MAX_THRESHOLD = 414,
-    /// 设置头发分割边界区域下限阈值
+    /// 设置头发分割边界区域下限阈值 开启温度系数时设置无效
     ST_HUMAN_ACTION_PARAM_HAIR_SEGMENT_MIN_THRESHOLD = 415,
+	/// 设置头发分割检测结果边缘模糊程度 取值范围0-1 视频版默认是0.5，图片版默认是1
+	ST_HUMAN_ACTION_PARAM_HAIR_SEGMENT_RESULT_BLUR = 416,
+	/// 设置头发分割检测结果边缘模糊程度需保证开启温度系数，大于0.5为开启，小于0.5为关闭，关闭状态下使用卡阈值模式得到边界，默认状态为开启
+	ST_HUMAN_ACTION_PARAM_HAIR_SEGMENT_USE_TEMPERATURE = 417,
+        ////边缘移动参数，取值范围再[-2,2],默认值是1
+        ST_HUMAN_ACTION_PARAM_HAIR_SEGMENT_EDGESHIFT=418,
 
 // 多类分割参数
     /// 输出的multisegment结果中长边的长度.
@@ -544,49 +625,78 @@ typedef enum {
     ST_HUMAN_ACTION_PARAM_MULTI_SEGMENT_RESULT_ROTATE = 421,
 
 
+
 // 皮肤分割参数
     /// 输出的皮肤分割结果中长边的长度.
     ST_HUMAN_ACTION_PARAM_SKIN_SEGMENT_MAX_SIZE = 430,
-    /// 设置皮肤分割边界区域上限阈值.
+    /// 设置皮肤分割边界区域上限阈值.开启温度系数时设置无效
     ST_HUMAN_ACTION_PARAM_SKIN_SEGMENT_MAX_THRESHOLD = 431,
-    /// 设置皮肤分割边界区域下限阈值
+    /// 设置皮肤分割边界区域下限阈值，开启温度系数时设置无效
     ST_HUMAN_ACTION_PARAM_SKIN_SEGMENT_MIN_THRESHOLD = 432,
     /// 设置皮肤分割检测结果灰度图的方向是否需要旋转（0: 不旋转, 保持竖直; 1: 旋转, 方向和输入图片一致. 默认不旋转)
     ST_HUMAN_ACTION_PARAM_SKIN_SEGMENT_RESULT_ROTATE = 433,
-
+	/// 设置皮肤分割检测结果边缘模糊程度 取值范围0-1 默认0.5
+	ST_HUMAN_ACTION_PARAM_SKIN_SEGMENT_RESULT_BLUR = 434,
+	/// 设置皮肤分割检测结果边缘模糊程度需保证开启温度系数，大于0.5为开启，小于0.5为关闭，关闭状态下使用卡阈值模式得到边界，默认状态为开启
+	ST_HUMAN_ACTION_PARAM_SKIN_SEGMENT_USE_TEMPERATURE = 435,
+        ////边缘移动参数，取值范围再[-2,2],默认值是1
+        ST_HUMAN_ACTION_PARAM_SKIN_SEGMENT_EDGESHIFT=436,
 
 // 嘴唇分割
     /// 设置嘴唇分割检测结果灰度图的方向是否需要旋转（0: 不旋转, 保持竖直; 1: 旋转, 方向和输入图片一致. 默认不旋转)
     ST_HUMAN_ACTION_PARAM_MOUTH_PARSE_RESULT_ROTATE = 450,
 	// 不支持设置输出图像长边长度, 不支持调节阈值(默认是0和1)
 
+
 // 面部遮挡分割参数
 	/// 设置面部遮挡检测结果灰度图的方向是否需要旋转（0: 不旋转, 保持竖直; 1: 旋转, 方向和输入图片一致. 默认不旋转)
 	ST_HUMAN_ACTION_PARAM_FACE_OCCLUSION_SEGMENT_RESULT_ROTATE = 460,
-	/// 设置面部遮挡分割边界区域上限阈值.
+	/// 设置面部遮挡分割边界区域上限阈值，开启温度系数时设置无效
 	ST_HUMAN_ACTION_PARAM_FACE_OCCLUSION_SEGMENT_MAX_THRESHOLD = 461,
-	/// 设置面部遮挡分割边界区域下限阈值
+	/// 设置面部遮挡分割边界区域下限阈值，开启温度系数时设置无效
 	ST_HUMAN_ACTION_PARAM_FACE_OCCLUSION_SEGMENT_MIN_THRESHOLD = 462,
 	/// 面部遮挡分割后处理长边的长度[10,长边长度](默认长边240,短边=长边/原始图像长边*原始图像短边).值越大,面部遮挡分割后处理耗时越长,边缘部分效果越好.
 	ST_HUMAN_ACTION_PARAM_FACE_OCCLUSION_SEGMENT_MAX_SIZE = 463,
 	// 不支持设置输出图像长边长度
+    ////边缘移动参数，取值范围再[-2,2],默认值是1
+    ST_HUMAN_ACTION_PARAM_FACE_OCCLUSION_SEGMENT_EDGESHIFT = 468,
+
+
+	/// 设置面部遮挡分割检测结果边缘模糊程度 默认参数0.5
+	ST_HUMAN_ACTION_PARAM_FACE_OCCLUSION_SEGMENT_RESULT_BLUR = 464,
+	/// 设置面部遮挡分割检测结果边缘模糊程度需保证开启温度系数，大于0.5为开启，小于0.5为关闭，关闭状态下使用卡阈值模式得到边界，默认状态为开启
+	ST_HUMAN_ACTION_PARAM_FACE_OCCLUSION_SEGMENT_USE_TEMPERATURE = 467,
 
 	// 通用参数
 	/// 设置预处理图像大小
 	ST_HUMAN_ACTION_PARAM_PREPROCESS_MAX_SIZE = 500, //
 	/// 摄像头x方向上的视场角，单位为度，3d点会需要
     ST_HUMAN_ACTION_PARAM_CAM_FOVX = 211,
-
+    /// pose3d结果是否需要保持人头朝上(1: detect输出的结果永远保持人头朝上;  0: detect输出的pos方向和输入图片一致) 默认人头朝上
+	ST_HUMAN_ACTION_PARAM_POS3D_UP = 502,
+    /// 设置检测结果延迟帧数[0,2],检测接口输出结果为(当前-N)帧的结果, 默认0不延迟.  注意：在该参数修改过程中,当前检测结果会清空重新开始检测
+    ST_HUMAN_ACTION_PARAM_DELAY_FRAME = 503,
+    /// 使用GPU做后处理
+    ST_HUMAN_ACTION_PARAM_SEGMENT_POST_PROCESS_USE_GPU=504,
     //  天空分割参数
+	//设置目标特征图像 目前已废弃
+	ST_HUMAN_ACTION_PARAM_SKY_TARGET_IMAGE= 509,
 	/// 输出的sky结果中长边的长度
 	ST_HUMAN_ACTION_PARAM_SKY_MAX_SIZE = 510,
 	/// 天空分割检测结果灰度图的方向是否需要旋转
 	ST_HUMAN_ACTION_PARAM_SKY_RESULT_ROTATE = 511,
-	/// 设置天空分割边界区域上限阈值
+	/// 设置天空分割边界区域上限阈值，开启温度系数时设置无效
 	ST_HUMAN_ACTION_PARAM_SKY_SEGMENT_MAX_THRESHOLD = 512,
-	/// 设置天空分割边界区域下限阈值
+	/// 设置天空分割边界区域下限阈值，开启温度系数时设置无效
 	ST_HUMAN_ACTION_PARAM_SKY_SEGMENT_MIN_THRESHOLD = 513,
-
+	/// 设置天空分割检测结果边缘模糊程度 取值范围0-1，视频版默认参数0.5，图片版默认参数1
+	ST_HUMAN_ACTION_PARAM_SKY_SEGMENT_RESULT_BLUR = 508,
+	/// 设置天空分割检测结果边缘模糊程度需保证开启温度系数，大于0.5为开启，小于0.5为关闭，关闭状态下使用卡阈值模式得到边界，默认状态为开启
+	ST_HUMAN_ACTION_PARAM_SKY_SEGMENT_USE_TEMPERATURE = 507,
+	/// 使用CPU进行refine操作,默认是使用（＞0.5），当输入参数小于等于0.5时不使用
+	ST_HUMAN_ACTION_PARAM_SKY_SEGMENT_REFINE_CPU_PROCESS = 514,
+    ////边缘移动参数，取值范围再[-2,2],默认值是1
+    ST_HUMAN_ACTION_PARAM_SKY_SEGMENT_EDGESHIFT = 516,
     //  深度估计参数
 	/// 输出的深度估计结果中长边的长度
 	ST_HUMAN_ACTION_PARAM_DEPTH_ESTIMATION_MAX_SIZE = 515,
@@ -598,7 +708,7 @@ typedef enum {
 	ST_HUMAN_ACTION_PARAM_NAIL_DETECT_INTERVAL = 603,
 	/// 设置指甲检测的阈值[0.0,1.0]， 默认是
 	ST_HUMAN_ACTION_PARAM_NAIL_THRESHOLD = 604,
-	/// 指甲平滑参数，取值范围[0,-) 默认参数是0.1
+	/// 指甲平滑参数，取值范围[0,-) 默认参数是0.1 目前以废弃
 	ST_HUMAN_ACTION_PARAM_NAIL_SMOOTH = 605,
 
     //	脚部参数
@@ -608,6 +718,50 @@ typedef enum {
 	ST_HUMAN_ACTION_PARAM_FOOT_DETECT_INTERVAL = 701,
 	/// 设置检测阈值[0.0,1.0]
 	ST_HUMAN_ACTION_PARAM_FOOT_THRESHOLD = 702,
+	/// 设置裤腿分割检测结果边缘模糊程度，取值范围0-1，默认参数0.5
+	ST_HUMAN_ACTION_PARAM_TROUSER_LEG_SEGMENT_BLUR = 750,
+	/// 设置分割检测结果边缘模糊程度需保证开启温度系数，大于0.5为开启，小于0.5为关闭，关闭状态下使用卡阈值模式得到边界，默认状态为开启
+	ST_HUMAN_ACTION_PARAM_TROUSER_LEG_SEGMENT_USE_TEMPERATURE = 751,
+    ////边缘移动参数，取值范围再[-2,2],默认值是1
+    ST_HUMAN_ACTION_PARAM_TROUSER_LEG_SEGMENT_EDGESHIFT = 451,
+
+    // 衣物分割
+    // 设置衣物分割检测结果灰度图的方向是否需要旋转（0: 不旋转, 保持竖直; 1: 旋转, 方向和输入图片一致. 默认不旋转)
+    ST_HUMAN_ACTION_PARAM_CLOTH_SEGMENT_RESULT_ROTATE = 800,
+    // 设置衣物分割长边的长度
+    ST_HUMAN_ACTION_PARAM_CLOTH_SEGMENT_MAX_SIZE = 801,
+    // 设置衣物分割检测结果边缘模糊程度 取值范围0-1，视频版默认参数0.5，图片版默认参数1
+    ST_HUMAN_ACTION_PARAM_CLOTH_SEGMENT_RESULT_BLUR = 802,
+    // 设置衣物分割检测结果边缘模糊程度需保证开启温度系数，大于0.5为开启，小于0.5为关闭，关闭状态下使用卡阈值模式得到边界，默认状态为开启
+    ST_HUMAN_ACTION_PARAM_CLOTH_SEGMENT_USE_TEMPERATURE = 803,
+    // 设置衣物分割边界区域上限阈值，开启温度系数时设置无效
+    ST_HUMAN_ACTION_PARAM_CLOTH_SEGMENT_MAX_THRESHOLD = 804,
+    // 设置衣物分割边界区域下限阈值，开启温度系数时设置无效
+    ST_HUMAN_ACTION_PARAM_CLOTH_SEGMENT_MIN_THRESHOLD = 805,
+        ////边缘移动参数，取值范围再[-2,2],默认值是1
+        ST_HUMAN_ACTION_PARAM_CLOTH_SEGMENT_EDGESHIFT = 806,
+
+	// 手腕检测
+	/// 设置检测到的最大目标数目N,有效范围为[1, 32], 返回的值可能比输入的值要小. 默认值为10.
+	ST_HUMAN_ACTION_PARAM_WRIST_LIMIT = 900,
+	/// 设置手腕检测每多少帧进行一次 detect (默认30帧detect一次, 无手腕10(30/3)帧detect一次). 值越大,cpu占用率越低, 但检测出新对象的时间越长.
+	ST_HUMAN_ACTION_PARAM_WRIST_DETECT_INTERVAL = 901,
+	///设置手腕检测的roi参数，默认全0，设置检测roi区域，需enable roi需调用st_mobile_human_action_set_roi，默认全0，不开启
+	ST_HUMAN_ACTION_PARAM_WRIST_ROI=906,
+	///开启手腕检测roi设置，默认不打开
+	ST_HUMAN_ACTION_PARAM_WRIST_ENABLE_ROI=907,
+	/////打开roi设置之后，resize的ratio比例，(0,1]
+	///ST_HUMAN_ACTION_PARAM_WRIST_ROI_RATIO=909,
+	///手表佩戴位置相比手腕宽度的比例 ,默认值是1.0
+	ST_HUMAN_ACTION_PARAM_WRIST_WRIST_RATIO=911,
+	//手表渲染窗口的roi位置,单位是像素,调用st_mobile_human_action_set_roi进行设置，默认是原始图像，无需提前设置enable roi
+	ST_HUMAN_ACTION_PARAM_WRIST_RENDER_ROI = 914,
+	//手表渲染窗口的尺度变化,(0，-]
+	ST_HUMAN_ACTION_PARAM_WRIST_RENDER_ROI_SCALE = 915,
+
+	/// 设置绿幕分割颜色RGB值,默认为绿色,将颜色值（16进制数0xFFFFFF,按R、G、B排列）按float类型传入
+    ST_HUMAN_ACTION_PARAM_GREEN_SEGMENT_COLOR = 1000
+
 } st_human_action_param_type;
 
 /// @brief 设置human_action参数
@@ -647,8 +801,6 @@ st_result_t st_mobile_human_action_can_detect(
 	unsigned long long *actual_detect_config
 );
 
-
-
 /// @brief 镜像human_action检测结果. 隔帧检测时, 需要将检测结果拷贝出来再镜像
 /// @param[in] image_width 检测human_action的图像的宽度(以像素为单位)
 /// @param[in,out] p_human_action 需要镜像的human_action检测结果
@@ -657,6 +809,8 @@ st_mobile_human_action_mirror(
     int image_width,
     st_mobile_human_action_t *p_human_action
 );
+
+
 /// @brief 旋转human_action检测结果.
 /// @param[in] image_width 检测human_action的图像的宽度(以像素为单位)
 /// @param[in] image_height 检测human_action的图像的宽度(以像素为单位)
@@ -696,7 +850,6 @@ ST_SDK_API
 void st_mobile_human_action_delete(
     st_mobile_human_action_t * p_human_action
 );
-
 /// @brief 表情动作类型定义
 typedef enum{
 	// 脸部动作
@@ -762,6 +915,18 @@ st_mobile_get_expression(
 st_mobile_human_action_t* human_action,
 st_rotate_type orientation, bool b_mirror,
 bool expressions_result[ST_MOBILE_EXPRESSION_COUNT]
+);
+
+
+/// @brief 设置检测的roi参数，检测时只在roi范围内检测
+/// @param[in] handle 输入human_action_detect检测的handle
+/// @param[in] detect_config计算检测的3DPose，目前仅支持ST_HUMAN_ACTION_PARAM_WRIST_ROI和ST_HUMAN_ACTION_PARAM_WRIST_RENDER_ROI
+/// @param[in] roi信息，设置检测的范围
+ST_SDK_API st_result_t
+st_mobile_human_action_set_roi(
+st_handle_t handle,
+st_human_action_param_type type,
+st_rect_t roi
 );
 
 /// @brief 设置expression动作阈值
@@ -830,6 +995,7 @@ typedef enum {
 	ST_MOBILE_HEAD_MESH = 2   ///< 360度mesh 类型
 } st_mobile_mesh_type;
 
+
 /// @brief 三角面片的顶点索引
 typedef struct st_face_mesh_index_t {
 	int v1;
@@ -842,19 +1008,26 @@ typedef struct st_mobile_face_mesh_list_t {
 	st_face_mesh_index_t* p_face_mesh_index;
 	int face_mesh_list_count;
 }st_mobile_face_mesh_list_t, *p_st_mobile_face_mesh_list_t;
-
-/// @brief 获取mesh三角拓扑面片索引信息，在加载模型后调用一次来获取索引信息，或者在每次设置mesh模式后调用一次来更新索引信息
+// 标准obj mesh 信息
+typedef struct st_mobile_mesh_info_t {
+	st_mobile_face_mesh_list_t* p_mesh;  // mesh面片索引结果
+	st_mobile_face_mesh_list_t* p_mouth_eye_mesh; // mesh嘴巴和眼睛面片索引结果
+	st_mobile_mesh_part_uv_t * p_part_uv_standard;  // 五官默认纹理坐标， 目前仅支持facemesh的眉毛
+	int part_uv_standard_cnt; // p_part_uv_standard长度
+	st_mobile_mesh_part_uv_t * p_part_uv_safe_line_standard;  // 五官默认区域， 目前仅支持facemesh的眉毛
+	int part_uv_safe_line_standard_count;   // 带uv的五官部位个数p_part_uv_safe_line_standard 的长度
+}st_mobile_mesh_info_t;
+/// @brief 获取mesh三角拓扑面片索引信息，在加载obj模型后调用一次来获取索引信息，或者在每次设置mesh模式后调用一次来更新索引信息
 /// @param[in] handle 已初始化的human_action句柄
 /// @param[in] mesh_type mesh类型： face mesh 或者 head mesh
-/// @param[out] p_mesh mesh面片索引结果，底层分配内存
+/// @param[out] p_mesh_info mesh标准型信息，底层分配内存
 /// @param[out] p_mouth_eye_mesh mesh嘴巴和眼睛面片索引结果，底层分配内存
 /// @return  成功返回ST_OK, 失败返回其他错误码
 ST_SDK_API st_result_t
-st_mobile_human_action_get_mesh_list(
+st_mobile_human_action_get_mesh_info(
 	st_handle_t handle,
 	st_mobile_mesh_type mesh_type,
-	st_mobile_face_mesh_list_t* p_mesh,
-	st_mobile_face_mesh_list_t* p_mouth_eye_mesh
+	st_mobile_mesh_info_t * p_mesh_info
 );
 
 /// @brief 加载mesh的标准人脸obj模型，用于内部的算法处理与mesh输出
@@ -883,40 +1056,21 @@ st_mobile_human_action_load_standard_mesh_obj_from_buffer(
 	st_mobile_mesh_type mesh_type
 );
 
-/// @brief 获取mesh关键点中的人脸关键点下标，加载模型后调用，或者在重新加载模型后调用
-/// @param[in] handle 已初始化的human_action句柄
-/// @param[in] mesh_type mesh类型： face mesh 或者 head mesh
-/// @param[in] point_count 人脸关键点下标的数量：106或240
-/// @param[out] index 人脸关键点的下标，上层分配内存
-/// @return  成功返回ST_OK, 失败返回其他错误码
-ST_SDK_API st_result_t
-st_mobile_human_action_get_face_index_from_mesh(
-st_handle_t handle,
-st_mobile_mesh_type mesh_type,
-int point_count,
-int* index
-);
 
-/// @brief 计算mesh轮廓点
-/// @param[in] p_face_mesh mesh关键点信息，轮廓点计算结果保存在结构体中
-/// @param[in] model_type 模型类型，2106/2396/3060，目前只有2396支持轮廓点
-/// @param[in] affine_mat 仿射变换矩阵，人脸检测模型内部参数
-/// @param[in] contour_mode 轮廓点模式，0: no contour, 1: face contour, 2: head contour
-/// @return  成功返回ST_OK, 失败返回其他错误码
-ST_SDK_API st_result_t
-st_mobile_human_action_calc_facemesh_contour(
-st_mobile_face_mesh_t* p_face_mesh,
-int model_type,
-float affine_mat[3][3],
-int contour_mode
-);
 
-// 四元数
-typedef struct st_quaternion_t {
-	float w;
-	float x;
-	float y;
-	float z;
-} st_quaternion_t;
+/// @brief body四元数结果
+typedef struct st_mobile_body_avatar_t {
+	st_quaternion_t *p_body_quat_array;     ///< 人体四元数数组
+	int body_quat_count;                    /// < 人体四元数组个数(0 或 79)
+    bool is_idle;                           /// 是否是idle状态
+} st_mobile_body_avatar_t, *p_st_mobile_body_avatar_t;
+/// @brief  肢体姿态信息
+typedef struct st_mobile_body_pose_t {
+    float gait_length;           // 步长 单位m
+    float gait_width;          // 步宽 单位m
+    float head_amplitude;       // 头顶振幅 单位m
+    float head_amplitude_range;   //头顶振幅范围 单位m
+    st_point3f_t gravity;     // 重心在相机坐标系中的坐标 单位m
+}st_mobile_body_pose_t;
 
 #endif  // INCLUDE_STMOBILE_ST_MOBILE_HUMAN_ACTION_H_

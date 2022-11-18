@@ -47,7 +47,7 @@ typedef struct st_mobile_animal_face_t {
 
 /// @brief 创建实时动物脸关键点跟踪句柄
 /// @param[in] model_path 模型文件的绝对路径或相对路径,例如models/cat.model 可以是null, 为NULL时需要调用st_mobile_animal_face_add_sub_model添加模型
-/// @param[in] config 配置选项 预览使用ST_MOBILE_DETECT_MODE_VIDEO, 离线视频处理使用ST_MOBILE_TRACKING_SINGLE_THREAD， 图片使用ST_MOBILE_DETECT_MODE_IMAGE
+/// @param[in] config 配置选项 预览时使用ST_MOBILE_DETECT_MODE_PREVIEW, 离线视频处理使用ST_MOBILE_DETECT_MODE_VIDEO_POST_PROCESS， 图片使用ST_MOBILE_DETECT_MODE_IMAGE
 /// @param[out] handle 动物脸跟踪句柄,失败返回NULL
 /// @return 成功返回ST_OK, 失败返回其他错误码,错误码定义在st_mobile_common.h中,如ST_E_FAIL等
 ST_SDK_API st_result_t
@@ -60,7 +60,7 @@ st_mobile_tracker_animal_face_create(
 /// @brief 创建实时动物脸关键点跟踪句柄
 /// @param[in] buffer 模型缓存起始地址,为NULL时需要调用st_mobile_animal_face_add_sub_model添加需要的模型
 /// @param[in] buffer_size 模型缓存大小
-/// @param[in] config 配置选项 预览使用ST_MOBILE_DETECT_MODE_VIDEO, 离线视频处理使用ST_MOBILE_TRACKING_SINGLE_THREAD， 图片使用ST_MOBILE_DETECT_MODE_IMAGE
+/// @param[in] config 配置选项 预览时使用ST_MOBILE_DETECT_MODE_PREVIEW, 离线视频处理使用ST_MOBILE_DETECT_MODE_VIDEO_POST_PROCESS， 图片使用ST_MOBILE_DETECT_MODE_IMAGE
 /// @param[out] handle 动物脸跟踪句柄,失败返回NULL
 /// @return 成功返回ST_OK, 失败返回其他错误码,错误码定义在st_mobile_common.h中,如ST_E_FAIL等
 ST_SDK_API st_result_t

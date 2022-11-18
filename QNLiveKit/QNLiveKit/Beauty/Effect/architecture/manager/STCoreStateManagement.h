@@ -8,6 +8,7 @@
 
 #import <Foundation/Foundation.h>
 #import "STCoreStateManagementValueChangeDelegate.h"
+#import "EFSenseArMaterialDataModels.h"
 
 // from previous
 #import "STCollectionView.h" // TODO: model应从view层分离出来

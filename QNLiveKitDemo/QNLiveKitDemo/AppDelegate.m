@@ -36,7 +36,6 @@
 }
 
 - (void)initQLive {
-    
     __weak typeof(self)weakSelf = self;
     [QLive initWithToken:DEMO_Live_Token serverURL:DEMOLiveAPI errorBack:^(NSError * _Nonnull error) {
         
@@ -47,9 +46,7 @@
         }];
         
     }];
-    
-//    [QLive setBeauty:YES];
-
+    [QLive setBeauty:YES];
 }
 
 //获取liveToken

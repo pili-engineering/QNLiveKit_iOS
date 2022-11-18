@@ -290,7 +290,7 @@
 }
 
 - (__kindof UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
-    
+    //cell进这个
     STNewBeautyCollectionViewCell *cell = [self dequeueReusableCellWithReuseIdentifier:@"STNewBeautyCollectionViewCell" forIndexPath:indexPath];
     
     STNewBeautyCollectionViewModel *model = self.models[indexPath.row];
