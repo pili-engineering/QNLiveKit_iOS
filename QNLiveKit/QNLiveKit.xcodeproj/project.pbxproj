@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		48B937CA29271C520014D671 /* CoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 48B937C929271C520014D671 /* CoreServices.framework */; };
+		48B937D029271CC20014D671 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 48B937CF29271CC20014D671 /* MapKit.framework */; };
 		48E87A2C2926445800F33059 /* STLock.m in Sources */ = {isa = PBXBuildFile; fileRef = 48E878F52926445800F33059 /* STLock.m */; };
 		48E87A2D2926445800F33059 /* STEffectsTimer.m in Sources */ = {isa = PBXBuildFile; fileRef = 48E878F62926445800F33059 /* STEffectsTimer.m */; };
 		48E87A2E2926445800F33059 /* STMobileLog.h in Headers */ = {isa = PBXBuildFile; fileRef = 48E878F72926445800F33059 /* STMobileLog.h */; };
@@ -538,6 +540,8 @@
 
 /* Begin PBXFileReference section */
 		081F7CF449622E077318EFB5 /* Pods-QNLiveKitTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-QNLiveKitTests.release.xcconfig"; path = "Target Support Files/Pods-QNLiveKitTests/Pods-QNLiveKitTests.release.xcconfig"; sourceTree = "<group>"; };
+		48B937C929271C520014D671 /* CoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreServices.framework; path = Platforms/MacOSX.platform/Developer/SDKs/MacOSX12.3.sdk/System/Library/Frameworks/CoreServices.framework; sourceTree = DEVELOPER_DIR; };
+		48B937CF29271CC20014D671 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = Platforms/MacOSX.platform/Developer/SDKs/MacOSX12.3.sdk/System/iOSSupport/System/Library/Frameworks/MapKit.framework; sourceTree = DEVELOPER_DIR; };
 		48E878F52926445800F33059 /* STLock.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = STLock.m; sourceTree = "<group>"; };
 		48E878F62926445800F33059 /* STEffectsTimer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = STEffectsTimer.m; sourceTree = "<group>"; };
 		48E878F72926445800F33059 /* STMobileLog.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = STMobileLog.h; sourceTree = "<group>"; };
@@ -1045,9 +1049,11 @@
 			files = (
 				77A8D26E28782DF0001A3C2C /* AssetsLibrary.framework in Frameworks */,
 				48E87A622926445800F33059 /* libSenseArSourceService.a in Frameworks */,
+				48B937D029271CC20014D671 /* MapKit.framework in Frameworks */,
 				48E87B3D2926449B00F33059 /* PLSTArEffects.framework in Frameworks */,
 				48E87B3A2926445900F33059 /* libst_mobile.a in Frameworks */,
 				77A11CB4288691C500020149 /* Pods_QNLiveKit.framework in Frameworks */,
+				48B937CA29271C520014D671 /* CoreServices.framework in Frameworks */,
 				773D512F288F9D2E004B2D5F /* QNIMSDK.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -2193,6 +2199,8 @@
 		F3411CD1B7D2078452FF96F4 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				48B937CF29271CC20014D671 /* MapKit.framework */,
+				48B937C929271C520014D671 /* CoreServices.framework */,
 				777366992873E2F300245EDB /* AssetsLibrary.framework */,
 				77A8D26D28782DF0001A3C2C /* AssetsLibrary.framework */,
 				93FD8D2BCC60F127C6FB7DA1 /* Pods_QNLiveKit.framework */,
@@ -3016,6 +3024,7 @@
 					"\"$(SRCROOT)/QNLiveKit/Beauty/Effect\"",
 					"\"$(SRCROOT)/QNLiveKit/PLSTArEffects.framework/Headers\"",
 					"\"$(SRCROOT)/QNLiveKit/PLSTArEffects.framework/Headers/core/include\"",
+					"\"$(SRCROOT)/QNLiveKit/Beauty/Effect/EFDataSoure\"",
 				);
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
@@ -3083,6 +3092,7 @@
 					"\"$(SRCROOT)/QNLiveKit/Beauty/Effect\"",
 					"\"$(SRCROOT)/QNLiveKit/PLSTArEffects.framework/Headers\"",
 					"\"$(SRCROOT)/QNLiveKit/PLSTArEffects.framework/Headers/core/include\"",
+					"\"$(SRCROOT)/QNLiveKit/Beauty/Effect/EFDataSoure\"",
 				);
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";

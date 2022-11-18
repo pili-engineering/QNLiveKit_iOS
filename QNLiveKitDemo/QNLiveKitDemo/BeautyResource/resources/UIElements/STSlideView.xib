@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="STSlideView"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB" customClass="STSlideView">
+            <rect key="frame" x="0.0" y="0.0" width="405" height="99"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="美妆" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZSI-Wh-jdM" userLabel="Makeup Label">
+                    <rect key="frame" x="20" y="10" width="29" height="17"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                    <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="滤镜" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="x5t-OS-CSk" userLabel="Filter Label">
+                    <rect key="frame" x="20" y="67" width="29" height="17"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                    <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="85" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qjR-Yv-bul">
+                    <rect key="frame" x="339" y="10" width="17.5" height="17"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                    <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="85" minValue="0.0" maxValue="100" translatesAutoresizingMaskIntoConstraints="NO" id="SFE-5k-jo0">
+                    <rect key="frame" x="67" y="63" width="254" height="26"/>
+                    <color key="tintColor" systemColor="systemPurpleColor"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="250" id="KMJ-Q8-pUz"/>
+                        <constraint firstAttribute="height" constant="25" id="YKO-aD-90Y"/>
+                    </constraints>
+                </slider>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="85" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="agl-kG-jiN">
+                    <rect key="frame" x="339" y="67" width="17.5" height="17"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                    <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="85" minValue="0.0" maxValue="100" translatesAutoresizingMaskIntoConstraints="NO" id="2TL-Nz-lHi">
+                    <rect key="frame" x="67" y="6" width="254" height="26"/>
+                    <color key="tintColor" systemColor="systemPurpleColor"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="250" id="0vM-PR-9Z3"/>
+                        <constraint firstAttribute="height" constant="25" id="oxL-FG-m6g"/>
+                    </constraints>
+                </slider>
+            </subviews>
+            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+            <constraints>
+                <constraint firstItem="SFE-5k-jo0" firstAttribute="centerY" secondItem="x5t-OS-CSk" secondAttribute="centerY" id="2Vz-6k-hic"/>
+                <constraint firstItem="qjR-Yv-bul" firstAttribute="leading" secondItem="2TL-Nz-lHi" secondAttribute="trailing" constant="20" id="C3e-mv-RBd"/>
+                <constraint firstItem="2TL-Nz-lHi" firstAttribute="leading" secondItem="ZSI-Wh-jdM" secondAttribute="trailing" constant="20" id="CTR-jx-ZFq"/>
+                <constraint firstItem="agl-kG-jiN" firstAttribute="centerY" secondItem="SFE-5k-jo0" secondAttribute="centerY" id="CxJ-Ja-pEt"/>
+                <constraint firstItem="SFE-5k-jo0" firstAttribute="leading" secondItem="x5t-OS-CSk" secondAttribute="trailing" constant="20" id="Et6-uU-5fn"/>
+                <constraint firstItem="2TL-Nz-lHi" firstAttribute="centerY" secondItem="ZSI-Wh-jdM" secondAttribute="centerY" id="GHx-tl-8Q7"/>
+                <constraint firstItem="x5t-OS-CSk" firstAttribute="top" secondItem="ZSI-Wh-jdM" secondAttribute="bottom" constant="40" id="IKb-yd-2MA"/>
+                <constraint firstItem="x5t-OS-CSk" firstAttribute="leading" secondItem="ZSI-Wh-jdM" secondAttribute="leading" id="L0N-qQ-5xB"/>
+                <constraint firstItem="ZSI-Wh-jdM" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="20" id="T8c-45-pIK"/>
+                <constraint firstItem="ZSI-Wh-jdM" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="10" id="a04-7U-EyB"/>
+                <constraint firstItem="qjR-Yv-bul" firstAttribute="centerY" secondItem="2TL-Nz-lHi" secondAttribute="centerY" id="gzS-Dj-npQ"/>
+                <constraint firstItem="agl-kG-jiN" firstAttribute="leading" secondItem="SFE-5k-jo0" secondAttribute="trailing" constant="20" id="uKy-ec-jWi"/>
+            </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <connections>
+                <outlet property="filterLabel" destination="ZSI-Wh-jdM" id="DSA-mR-CuM"/>
+                <outlet property="filterSlide" destination="SFE-5k-jo0" id="Eyy-RX-sbe"/>
+                <outlet property="filterValue" destination="agl-kG-jiN" id="oFa-OE-ixl"/>
+                <outlet property="makeupLabel" destination="x5t-OS-CSk" id="w8f-Nl-GkP"/>
+                <outlet property="makeupSlide" destination="2TL-Nz-lHi" id="5WC-Lh-dd7"/>
+                <outlet property="makeupValue" destination="qjR-Yv-bul" id="C46-Ze-jQJ"/>
+            </connections>
+            <point key="canvasLocation" x="348.55072463768118" y="361.27232142857139"/>
+        </view>
+    </objects>
+    <resources>
+        <systemColor name="systemPurpleColor">
+            <color red="0.68627450980392157" green="0.32156862745098042" blue="0.87058823529411766" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+    </resources>
+</document>

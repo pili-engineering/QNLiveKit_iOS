@@ -9,6 +9,18 @@
 /* Begin PBXBuildFile section */
 		1F45E2BA83BC92BA3FD1524C /* Pods_QNLiveKitDemo_QNLiveKitDemoUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 382946EB5F00B1F6B3437C07 /* Pods_QNLiveKitDemo_QNLiveKitDemoUITests.framework */; };
 		33444C07CC64DB14DB74F57A /* Pods_QNLiveKitDemoTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5A2899F26391AE2088C5854B /* Pods_QNLiveKitDemoTests.framework */; };
+		4873565A29270F46008E7191 /* SENSEME.lic in Resources */ = {isa = PBXBuildFile; fileRef = 4873565929270F46008E7191 /* SENSEME.lic */; };
+		48B937CE29271C670014D671 /* CoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 48B937CB29271C670014D671 /* CoreServices.framework */; };
+		48B937D229271CE60014D671 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 48B937D129271CE60014D671 /* MapKit.framework */; };
+		48B937D729271DC40014D671 /* all_categories.json in Resources */ = {isa = PBXBuildFile; fileRef = 48B937D429271DC40014D671 /* all_categories.json */; };
+		48B937D829271DC40014D671 /* beauties.json in Resources */ = {isa = PBXBuildFile; fileRef = 48B937D529271DC40014D671 /* beauties.json */; };
+		48B937D929271DC40014D671 /* all_categories_without_multi.json in Resources */ = {isa = PBXBuildFile; fileRef = 48B937D629271DC40014D671 /* all_categories_without_multi.json */; };
+		48B937DB29271DD00014D671 /* effects_service_group_list.json in Resources */ = {isa = PBXBuildFile; fileRef = 48B937DA29271DD00014D671 /* effects_service_group_list.json */; };
+		48B937DD29271DDA0014D671 /* material_group_map_rulues.json in Resources */ = {isa = PBXBuildFile; fileRef = 48B937DC29271DDA0014D671 /* material_group_map_rulues.json */; };
+		48B937E029271E230014D671 /* STViewButton.xib in Resources */ = {isa = PBXBuildFile; fileRef = 48B937DF29271E230014D671 /* STViewButton.xib */; };
+		48B937E229271E440014D671 /* EffectsCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 48B937E129271E440014D671 /* EffectsCollectionViewCell.xib */; };
+		48B937E429271E4F0014D671 /* STSlideView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 48B937E329271E4F0014D671 /* STSlideView.xib */; };
+		48B937E82927215C0014D671 /* PLSTArEffects.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 48B937E72927215C0014D671 /* PLSTArEffects.framework */; };
 		776B1BDF28378CCD00D85C73 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 776B1BDE28378CCD00D85C73 /* AppDelegate.m */; };
 		776B1BE828378CCD00D85C73 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 776B1BE628378CCD00D85C73 /* Main.storyboard */; };
 		776B1BEA28378CCF00D85C73 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 776B1BE928378CCF00D85C73 /* Assets.xcassets */; };
@@ -45,8 +57,6 @@
 		77781CDA2840C768009DC71C /* QNQuitLoginCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 77781CCE2840C768009DC71C /* QNQuitLoginCell.m */; };
 		77781CDB2840C768009DC71C /* QNPersonalViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 77781CD12840C768009DC71C /* QNPersonalViewModel.m */; };
 		77781CDC2840C768009DC71C /* QNPersonInfoTopView.m in Sources */ = {isa = PBXBuildFile; fileRef = 77781CD22840C768009DC71C /* QNPersonInfoTopView.m */; };
-		77A11CBA2886922F00020149 /* PLSTArEffects.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 77A11CB72886922F00020149 /* PLSTArEffects.framework */; };
-		77A8D1C028757128001A3C2C /* SENSEME.lic in Resources */ = {isa = PBXBuildFile; fileRef = 77A8D1BF28757128001A3C2C /* SENSEME.lic */; };
 		77A8D1D82876CAD6001A3C2C /* M_SenseME_Segment_Head_1.0.3.model in Resources */ = {isa = PBXBuildFile; fileRef = 77A8D1C42876CAD5001A3C2C /* M_SenseME_Segment_Head_1.0.3.model */; };
 		77A8D1D92876CAD6001A3C2C /* M_SenseME_DogFace_2.0.0.model in Resources */ = {isa = PBXBuildFile; fileRef = 77A8D1C52876CAD5001A3C2C /* M_SenseME_DogFace_2.0.0.model */; };
 		77A8D1DA2876CAD6001A3C2C /* M_SenseAR_Segment_MouthOcclusion_FastV1_1.1.2.model in Resources */ = {isa = PBXBuildFile; fileRef = 77A8D1C62876CAD5001A3C2C /* M_SenseAR_Segment_MouthOcclusion_FastV1_1.1.2.model */; };
@@ -130,6 +140,18 @@
 		078EC26835A6796B234936C4 /* Pods-QNLiveKitDemo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-QNLiveKitDemo.debug.xcconfig"; path = "Target Support Files/Pods-QNLiveKitDemo/Pods-QNLiveKitDemo.debug.xcconfig"; sourceTree = "<group>"; };
 		1B4CD739008C7D0755EFCAC9 /* Pods-QNLiveKitDemo-QNLiveKitDemoUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-QNLiveKitDemo-QNLiveKitDemoUITests.debug.xcconfig"; path = "Target Support Files/Pods-QNLiveKitDemo-QNLiveKitDemoUITests/Pods-QNLiveKitDemo-QNLiveKitDemoUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		382946EB5F00B1F6B3437C07 /* Pods_QNLiveKitDemo_QNLiveKitDemoUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_QNLiveKitDemo_QNLiveKitDemoUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		4873565929270F46008E7191 /* SENSEME.lic */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = SENSEME.lic; path = ../../../../../Documents/qiniu/iOS/beauty/SENSEME.lic; sourceTree = "<group>"; };
+		48B937CB29271C670014D671 /* CoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreServices.framework; path = System/Library/Frameworks/CoreServices.framework; sourceTree = SDKROOT; };
+		48B937D129271CE60014D671 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
+		48B937D429271DC40014D671 /* all_categories.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = all_categories.json; sourceTree = "<group>"; };
+		48B937D529271DC40014D671 /* beauties.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = beauties.json; sourceTree = "<group>"; };
+		48B937D629271DC40014D671 /* all_categories_without_multi.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = all_categories_without_multi.json; sourceTree = "<group>"; };
+		48B937DA29271DD00014D671 /* effects_service_group_list.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = effects_service_group_list.json; sourceTree = "<group>"; };
+		48B937DC29271DDA0014D671 /* material_group_map_rulues.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = material_group_map_rulues.json; sourceTree = "<group>"; };
+		48B937DF29271E230014D671 /* STViewButton.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = STViewButton.xib; sourceTree = "<group>"; };
+		48B937E129271E440014D671 /* EffectsCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = EffectsCollectionViewCell.xib; sourceTree = "<group>"; };
+		48B937E329271E4F0014D671 /* STSlideView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = STSlideView.xib; sourceTree = "<group>"; };
+		48B937E72927215C0014D671 /* PLSTArEffects.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = PLSTArEffects.framework; sourceTree = "<group>"; };
 		56C877B9E14F409F1ED0326F /* Pods-QNLiveKitDemoTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-QNLiveKitDemoTests.debug.xcconfig"; path = "Target Support Files/Pods-QNLiveKitDemoTests/Pods-QNLiveKitDemoTests.debug.xcconfig"; sourceTree = "<group>"; };
 		5A2899F26391AE2088C5854B /* Pods_QNLiveKitDemoTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_QNLiveKitDemoTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		776B1BDA28378CCD00D85C73 /* QNLiveKitDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = QNLiveKitDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -197,8 +219,6 @@
 		77781CD32840C768009DC71C /* QNAppRulesCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QNAppRulesCell.h; sourceTree = "<group>"; };
 		77781CD42840C768009DC71C /* QNAppReleaseInfoCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QNAppReleaseInfoCell.h; sourceTree = "<group>"; };
 		77781CD52840C768009DC71C /* QNQuitLoginCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QNQuitLoginCell.h; sourceTree = "<group>"; };
-		77A11CB72886922F00020149 /* PLSTArEffects.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = PLSTArEffects.framework; sourceTree = "<group>"; };
-		77A8D1BF28757128001A3C2C /* SENSEME.lic */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = SENSEME.lic; sourceTree = "<group>"; };
 		77A8D1C42876CAD5001A3C2C /* M_SenseME_Segment_Head_1.0.3.model */ = {isa = PBXFileReference; lastKnownFileType = file; path = M_SenseME_Segment_Head_1.0.3.model; sourceTree = "<group>"; };
 		77A8D1C52876CAD5001A3C2C /* M_SenseME_DogFace_2.0.0.model */ = {isa = PBXFileReference; lastKnownFileType = file; path = M_SenseME_DogFace_2.0.0.model; sourceTree = "<group>"; };
 		77A8D1C62876CAD5001A3C2C /* M_SenseAR_Segment_MouthOcclusion_FastV1_1.1.2.model */ = {isa = PBXFileReference; lastKnownFileType = file; path = M_SenseAR_Segment_MouthOcclusion_FastV1_1.1.2.model; sourceTree = "<group>"; };
@@ -241,9 +261,11 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				77A11CBA2886922F00020149 /* PLSTArEffects.framework in Frameworks */,
+				48B937CE29271C670014D671 /* CoreServices.framework in Frameworks */,
 				7773669C2873E32100245EDB /* AssetsLibrary.framework in Frameworks */,
+				48B937E82927215C0014D671 /* PLSTArEffects.framework in Frameworks */,
 				77781C7F283E1EBC009DC71C /* QNIMSDK.framework in Frameworks */,
+				48B937D229271CE60014D671 /* MapKit.framework in Frameworks */,
 				777366952873074700245EDB /* QNLiveKit.framework in Frameworks */,
 				C5993B91A021CD7EDC4A0F36 /* Pods_QNLiveKitDemo.framework in Frameworks */,
 			);
@@ -281,9 +303,33 @@
 			path = Pods;
 			sourceTree = "<group>";
 		};
+		48B937D329271DA00014D671 /* helpers */ = {
+			isa = PBXGroup;
+			children = (
+				48B937DC29271DDA0014D671 /* material_group_map_rulues.json */,
+				48B937DA29271DD00014D671 /* effects_service_group_list.json */,
+				48B937D629271DC40014D671 /* all_categories_without_multi.json */,
+				48B937D429271DC40014D671 /* all_categories.json */,
+				48B937D529271DC40014D671 /* beauties.json */,
+			);
+			path = helpers;
+			sourceTree = "<group>";
+		};
+		48B937DE29271DFE0014D671 /* UIElements */ = {
+			isa = PBXGroup;
+			children = (
+				48B937E329271E4F0014D671 /* STSlideView.xib */,
+				48B937E129271E440014D671 /* EffectsCollectionViewCell.xib */,
+				48B937DF29271E230014D671 /* STViewButton.xib */,
+			);
+			path = UIElements;
+			sourceTree = "<group>";
+		};
 		709BCB3C3EEF0783D89437CF /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				48B937D129271CE60014D671 /* MapKit.framework */,
+				48B937CB29271C670014D671 /* CoreServices.framework */,
 				7773669B2873E32100245EDB /* AssetsLibrary.framework */,
 				F467E60A07D600FCAAE77FD1 /* Pods_QNLiveKitDemo.framework */,
 				382946EB5F00B1F6B3437C07 /* Pods_QNLiveKitDemo_QNLiveKitDemoUITests.framework */,
@@ -464,9 +510,9 @@
 		77A11C5B288540EC00020149 /* BeautyResource */ = {
 			isa = PBXGroup;
 			children = (
+				48B937E72927215C0014D671 /* PLSTArEffects.framework */,
+				4873565929270F46008E7191 /* SENSEME.lic */,
 				77781C7D283E1EB2009DC71C /* QNIMSDK.framework */,
-				77A11CB72886922F00020149 /* PLSTArEffects.framework */,
-				77A8D1BF28757128001A3C2C /* SENSEME.lic */,
 				77A8D1C32876CAD5001A3C2C /* models */,
 				77A8D1EA2876CB77001A3C2C /* resources */,
 			);
@@ -501,6 +547,8 @@
 		77A8D1EA2876CB77001A3C2C /* resources */ = {
 			isa = PBXGroup;
 			children = (
+				48B937DE29271DFE0014D671 /* UIElements */,
+				48B937D329271DA00014D671 /* helpers */,
 				77A8D1EB2876CB77001A3C2C /* Filters */,
 				77A8D1F02876CB77001A3C2C /* Color */,
 				77A8D1F22876CB77001A3C2C /* Makeup */,
@@ -685,6 +733,7 @@
 				77A8D2042876CB77001A3C2C /* wholemakeup.bundle in Resources */,
 				77A8D2082876CB77001A3C2C /* my_sticker.bundle in Resources */,
 				77A8D1E42876CAD6001A3C2C /* M_SenseME_Segment_Hair_1.3.4.model in Resources */,
+				48B937D829271DC40014D671 /* beauties.json in Resources */,
 				77A8D2052876CB77001A3C2C /* face.bundle in Resources */,
 				77A8D1E32876CAD6001A3C2C /* M_SenseME_Segment_4.12.11.model in Resources */,
 				77A8D1E72876CAD6001A3C2C /* M_SenseME_Attribute_1.0.1.model in Resources */,
@@ -697,24 +746,31 @@
 				77A8D1D82876CAD6001A3C2C /* M_SenseME_Segment_Head_1.0.3.model in Resources */,
 				77A8D1DD2876CAD6001A3C2C /* M_SenseME_Segment_Skin_1.1.1.model in Resources */,
 				77A8D1E62876CAD6001A3C2C /* M_SenseME_Segment_Sky_1.0.3.model in Resources */,
+				48B937D929271DC40014D671 /* all_categories_without_multi.json in Resources */,
 				77A8D1E22876CAD6001A3C2C /* M_SenseME_Face_Video_7.0.0.model in Resources */,
-				77A8D1C028757128001A3C2C /* SENSEME.lic in Resources */,
 				77A8D1DF2876CAD6001A3C2C /* M_SenseME_Segment_4.12.8.model in Resources */,
 				77A8D1E12876CAD6001A3C2C /* M_SenseME_Hand_5.4.0.model in Resources */,
 				77A8D2032876CB77001A3C2C /* brow.bundle in Resources */,
 				77A8D2002876CB77001A3C2C /* whiten_gif.zip in Resources */,
 				77A8D1DC2876CAD6001A3C2C /* SenseAR_v6.11.0(Effects)_Model_Usage_Instructions.pdf in Resources */,
+				48B937D729271DC40014D671 /* all_categories.json in Resources */,
 				77A8D2012876CB77001A3C2C /* eyelash.bundle in Resources */,
 				77A8D1FD2876CB77001A3C2C /* SceneryFilters.bundle in Resources */,
+				48B937E029271E230014D671 /* STViewButton.xib in Resources */,
 				77A8D1E92876CAD6001A3C2C /* M_SenseME_Avatar_Help_2.2.0.model in Resources */,
+				48B937E429271E4F0014D671 /* STSlideView.xib in Resources */,
 				776B1BEA28378CCF00D85C73 /* Assets.xcassets in Resources */,
+				48B937E229271E440014D671 /* EffectsCollectionViewCell.xib in Resources */,
 				77A8D1FC2876CB77001A3C2C /* PortraitFilters.bundle in Resources */,
 				776B1BE828378CCD00D85C73 /* Main.storyboard in Resources */,
+				4873565A29270F46008E7191 /* SENSEME.lic in Resources */,
 				77A8D1D92876CAD6001A3C2C /* M_SenseME_DogFace_2.0.0.model in Resources */,
 				77A8D2022876CB77001A3C2C /* lips.bundle in Resources */,
+				48B937DB29271DD00014D671 /* effects_service_group_list.json in Resources */,
 				77A8D1DB2876CAD6001A3C2C /* M_SenseME_Segment_MouthOcclusion_FastV1_1.1.3.model in Resources */,
 				77A8D1FE2876CB77001A3C2C /* StillLifeFilters.bundle in Resources */,
 				77A8D1DE2876CAD6001A3C2C /* M_SenseME_CatFace_3.2.0.model in Resources */,
+				48B937DD29271DDA0014D671 /* material_group_map_rulues.json in Resources */,
 				77A8D2062876CB77001A3C2C /* eyeshadow.bundle in Resources */,
 				77A8D1E82876CAD6001A3C2C /* SenseAR_v8.5.0(Effects)_Model_Usage_Instructions的.pdf in Resources */,
 			);
@@ -1051,6 +1107,7 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)/QNLiveKitDemo",
 					"\"$(SRCROOT)/QNLiveKitDemo/BeautyResource\"",
+					"$(PROJECT_DIR)/QNLiveKitDemo/BeautyResource",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "$(PROJECT_DIR)/QNLiveKitDemo/LiveDemoPrefixHeader.pch";
@@ -1116,6 +1173,7 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)/QNLiveKitDemo",
 					"\"$(SRCROOT)/QNLiveKitDemo/BeautyResource\"",
+					"$(PROJECT_DIR)/QNLiveKitDemo/BeautyResource",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "$(PROJECT_DIR)/QNLiveKitDemo/LiveDemoPrefixHeader.pch";
