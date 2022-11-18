@@ -8,27 +8,24 @@
 
 #import "EffectsCollectionViewCell.h"
 #import "STParamUtil.h"
-
+#import "../EFDataSoure/YYModel/YYWebImage/YYWebImage.h"
 @implementation EffectsCollectionViewCellModel
 
 @end
 
 @implementation EffectsCollectionViewCell
 
-- (instancetype)initWithFrame:(CGRect)frame {
+- (void)awakeFromNib {
+    [super awakeFromNib];
     
-    if (self = [super initWithFrame:frame]) {
-        
-        self.layer.cornerRadius = 5.0f;
-        self.layer.borderWidth = 2.0f;
-        self.layer.borderColor = [UIColor clearColor].CGColor;
-        
-        self.thumbView.image = nil;
-        self.thumbView.hidden = YES;
-        self.loadingView.hidden = YES;
-        self.downloadSign.hidden = NO;
-    }
-    return self;
+    self.layer.cornerRadius = 5.0f;
+    self.layer.borderWidth = 2.0f;
+    self.layer.borderColor = [UIColor clearColor].CGColor;
+    
+    self.thumbView.image = nil;
+    self.thumbView.hidden = YES;
+    self.loadingView.hidden = YES;
+    self.downloadSign.hidden = NO;
 }
 
 - (void)setModel:(EffectsCollectionViewCellModel *)model
@@ -55,14 +52,10 @@
         self.downloadSign.hidden = NO;
         self.loadingView.hidden = NO;
     }
-    
-    if (model.imageThumb) {
-     
-        self.thumbView.image = model.imageThumb;
-    }else{
-        
-        self.thumbView.hidden = YES;
+    if (model.imageThumbUrl) {
+        [self.thumbView yy_setImageWithURL:[NSURL URLWithString:model.imageThumbUrl] placeholder:[UIImage imageNamed:@"logo"]];
     }
+    
     
     BOOL isDirectory = YES;
     BOOL isExist = [[NSFileManager defaultManager]
@@ -71,7 +64,7 @@
     
     if (Downloaded == model.state && (isDirectory || !isExist)) {
         
-        model.state = NotDownloaded;
+        model.state =  NotDownloaded;
     }
     
     if (model.state != IsSelected && !isDirectory && isExist) {
@@ -80,7 +73,7 @@
     }
     
     self.layer.borderColor =  model.state == IsSelected ? UIColorFromRGB(0xb036f5).CGColor : [UIColor clearColor].CGColor;
-    self.thumbView.alpha = (model.state == NotDownloaded || model.state == IsDownloading || !isExist || isDirectory) ? 0.5 : 1.0;
+    self.thumbView.alpha = (model.state == NotDownloaded || model.state == IsDownloading || isDirectory) ? 0.5 : 1.0;
     
     self.downloadSign.hidden = model.state != NotDownloaded;
     
@@ -112,39 +105,4 @@
     [self.loadingView.layer removeAnimationForKey:@"rotation"];
 }
 
-- (UIImageView *)thumbView {
-    if (!_thumbView) {
-        _thumbView = [[UIImageView alloc]init];
-        [self.contentView addSubview:_thumbView];
-        
-        [_thumbView mas_makeConstraints:^(MASConstraintMaker *make) {
-            make.left.top.right.bottom.equalTo(self.contentView);
-        }];
-    }
-    return _thumbView;
-}
-
-- (UIImageView *)loadingView {
-    if (!_loadingView) {
-        _loadingView = [[UIImageView alloc]initWithImage:[UIImage imageNamed:@"loader"]];
-        [self.thumbView addSubview:_loadingView];
-        
-        [_loadingView mas_makeConstraints:^(MASConstraintMaker *make) {
-            make.center.equalTo(self.contentView);
-        }];
-    }
-    return _loadingView;
-}
-
-- (UIImageView *)downloadSign {
-    if (!_downloadSign) {
-        _downloadSign = [[UIImageView alloc]initWithImage:[UIImage imageNamed:@"download"]];
-        [self.thumbView addSubview:_downloadSign];
-        
-        [_downloadSign mas_makeConstraints:^(MASConstraintMaker *make) {
-            make.right.bottom.equalTo(self.contentView);
-        }];
-    }
-    return _downloadSign;
-}
 @end

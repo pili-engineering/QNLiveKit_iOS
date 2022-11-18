@@ -16,8 +16,6 @@ FOUNDATION_EXPORT const unsigned char PLSTArEffectsVersionString[];
 
 // In this header, you should import all the public headers of your framework using statements like #import <PLSTArEffects/PublicHeader.h>
 
-
-#import <PLSTArEffects/PLSTArEffectManager.h>
 #import <PLSTArEffects/PLSTEffectManager.h>
 #import <PLSTArEffects/PLSTAuthorization.h>
 #import <PLSTArEffects/PLSTDetector.h>

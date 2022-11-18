@@ -24,6 +24,7 @@
     model.m_iconDefault = self.m_iconDefault;
     model.m_iconHighlight = self.m_iconHighlight;
     model.m_name = self.m_name;
+    model.NewMaterial = self.NewMaterial;
     model.m_zipPath = self.m_zipPath;
     model.m_selected = self.m_selected;
     model.m_bmpType = self.m_bmpType;
@@ -37,6 +38,7 @@
     STMakeupDataModel *model = [[STMakeupDataModel allocWithZone:zone] init];
     model.m_material = self.m_material;
     model.m_thumbImage = self.m_thumbImage;
+    model.NewMaterial = self.NewMaterial;
     model.m_iconDefault = self.m_iconDefault;
     model.m_iconHighlight = self.m_iconHighlight;
     model.m_name = self.m_name;

@@ -45,6 +45,9 @@ typedef struct QNDetectConfig{
 
 - (instancetype)initWithConfig:(unsigned int)config;
 
+/// 添加model
+/// @param modelPath 模型路径
+- (st_result_t)setModelPath:(NSString *)modelPath;
 
 /*!
  @method 

@@ -82,6 +82,15 @@
 #import <SDWebImage/SDWebImage.h>
 #import "UIImage+QNImage.h"
 #import "UIColor+QNColor.h"
+#import "EFDataSourceGenerator.h"
+#import "EFStatusManager.h"
 
+
+#ifdef DLOG_ENABLE
+#define DLog(s,...) NSLog(@"%@", [NSString stringWithFormat:(s),##__VA_ARGS__])
+#else
+#define DLog(s,...)
+#endif
+#define ENABLE_MULTI_STICKER_TAB 0
 
 #endif /* QNLivePrefixHeader_pch */

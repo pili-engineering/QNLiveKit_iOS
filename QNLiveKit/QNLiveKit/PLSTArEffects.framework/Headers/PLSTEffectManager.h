@@ -74,7 +74,7 @@ NS_ASSUME_NONNULL_BEGIN
  
  @since v1.3.0
  */
-- (nullable instancetype)initWithContext:(EAGLContext*)context;
+- (instancetype)initWithContext:(EAGLContext*)context handleConfig:(uint32_t)handleConfig;
 
 
 /*!
