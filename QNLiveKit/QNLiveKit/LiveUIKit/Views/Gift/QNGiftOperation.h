@@ -12,7 +12,7 @@
 
 typedef void(^completeOpBlock)(BOOL finished,NSString *giftKey);
 
-@interface GiftOperation : NSOperation
+@interface QNGiftOperation : NSOperation
 
 /**
  增加一个操作

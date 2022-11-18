@@ -19,7 +19,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 @end
 
-@interface GiftMsgModel : NSObject
+@interface QNGiftMsgModel : NSObject
 
 @property(nonatomic, copy) NSString *senderName;
 

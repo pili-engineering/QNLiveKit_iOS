@@ -7,6 +7,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface HorizontalLayout : UICollectionViewFlowLayout
+@interface QNHorizontalLayout : UICollectionViewFlowLayout
 
 @end

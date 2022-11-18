@@ -5,12 +5,12 @@
 //  Created by 郭茜 on 2022/1/5.
 //
 
-#import "GiftOperation.h"
+#import "QNGiftOperation.h"
 #import "QNGiftShowView.h"
 #import "SendGiftModel.h"
 
 
-@implementation GiftOperation
+@implementation QNGiftOperation
 
 @synthesize finished = _finished;
 @synthesize executing = _executing;
@@ -28,7 +28,7 @@
 
 + (instancetype)addOperationWithView:(QNGiftShowView *)giftShowView OnView:(UIView *)backView Info:(SendGiftModel *)model completeBlock:(completeOpBlock)completeBlock {
     
-    GiftOperation *op = [[GiftOperation alloc] init];
+    QNGiftOperation *op = [[QNGiftOperation alloc] init];
     op.giftShowView = giftShowView;
     op.model = model;
     op.backView = backView;

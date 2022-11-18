@@ -5,8 +5,8 @@
 //  Created by 郭茜 on 2022/1/5.
 //
 
-#import "GiftView.h"
-#import "GiftCollectionViewCell.h"
+#import "QNGiftView.h"
+#import "QNGiftCollectionViewCell.h"
 #import "SendGiftModel.h"
 #import "HorizontalLayout.h"
 #import "QLiveNetworkUtil.h"
@@ -31,7 +31,7 @@
 
 static NSString *cellID = @"GiftCollectionViewCell";
 
-@interface GiftView()<UICollectionViewDelegate,UICollectionViewDataSource>
+@interface QNGiftView()<UICollectionViewDelegate,UICollectionViewDataSource>
 /** 底部功能栏 */
 @property(nonatomic,strong) UIView *bottomView;
 /** 礼物显示 */
@@ -47,7 +47,7 @@ static NSString *cellID = @"GiftCollectionViewCell";
 
 @end
 
-@implementation GiftView
+@implementation QNGiftView
 
 
 - (instancetype)init
@@ -125,7 +125,7 @@ static NSString *cellID = @"GiftCollectionViewCell";
     collectionView.delegate = self;
     collectionView.dataSource = self;
     collectionView.bounces = NO;
-    [collectionView registerClass:[GiftCollectionViewCell class] forCellWithReuseIdentifier:cellID];
+    [collectionView registerClass:[QNGiftCollectionViewCell class] forCellWithReuseIdentifier:cellID];
     collectionView.pagingEnabled = YES;
     [self addSubview:collectionView];
     self.collectionView = collectionView;
@@ -149,7 +149,7 @@ static NSString *cellID = @"GiftCollectionViewCell";
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
     
-    GiftCollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:cellID forIndexPath:indexPath];
+    QNGiftCollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:cellID forIndexPath:indexPath];
     
     if (indexPath.item < self.dataArray.count) {
         SendGiftModel *model = self.dataArray[indexPath.item];

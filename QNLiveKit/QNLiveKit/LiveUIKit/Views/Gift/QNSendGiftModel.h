@@ -7,7 +7,7 @@
 
 #import <Foundation/Foundation.h>
 
-@interface SendGiftModel : NSObject
+@interface QNSendGiftModel : NSObject
 
 /** usericon */
 @property(nonatomic,copy)NSString *userIcon;

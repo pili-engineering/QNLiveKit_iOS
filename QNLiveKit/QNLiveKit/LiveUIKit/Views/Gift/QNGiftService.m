@@ -5,8 +5,8 @@
 //  Created by 郭茜 on 2022/11/1.
 //
 
-#import "QGiftService.h"
+#import "QNGiftService.h"
 
-@implementation QGiftService
+@implementation QNGiftService
 
 @end

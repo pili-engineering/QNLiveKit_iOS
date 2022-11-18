@@ -5,11 +5,11 @@
 //  Created by 郭茜 on 2022/1/5.
 //
 
-#import "GiftCollectionViewCell.h"
+#import "QNGiftCollectionViewCell.h"
 #import "UIImageView+WebCache.h"
 #import "SendGiftModel.h"
 
-@interface GiftCollectionViewCell()
+@interface QNGiftCollectionViewCell()
 /** bg */
 @property(nonatomic,strong) UIView *bgView;
 /** image */
@@ -23,7 +23,7 @@
 
 @end
 
-@implementation GiftCollectionViewCell
+@implementation QNGiftCollectionViewCell
 
 - (instancetype)initWithFrame:(CGRect)frame
 {

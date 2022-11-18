@@ -5,19 +5,19 @@
 //  Created by 郭茜 on 2022/1/5.
 //
 
-#import "HorizontalLayout.h"
+#import "QNHorizontalLayout.h"
 
 //获取屏幕 宽度、高度
 #define SCREEN_WIDTH ([UIScreen mainScreen].bounds.size.width)
 #define SCREEN_HEIGHT ([UIScreen mainScreen].bounds.size.height)
 
-@interface HorizontalLayout()
+@interface QNHorizontalLayout()
 /** 存放cell全部布局属性 */
 @property(nonatomic,strong) NSMutableArray *cellAttributesArray;
 
 @end
 
-@implementation HorizontalLayout
+@implementation QNHorizontalLayout
 
 - (NSMutableArray *)cellAttributesArray{
     

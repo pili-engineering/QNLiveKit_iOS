@@ -5,9 +5,9 @@
 //  Created by 郭茜 on 2022/1/5.
 //
 
-#import "SendGiftModel.h"
+#import "QNSendGiftModel.h"
 
-@implementation SendGiftModel
+@implementation QNSendGiftModel
 
 - (NSString *)giftKey {
     return [NSString stringWithFormat:@"%@%@",self.name,self.gift_id];

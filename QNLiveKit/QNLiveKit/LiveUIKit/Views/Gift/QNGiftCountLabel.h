@@ -7,6 +7,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface GiftCountLabel : UILabel
+@interface QNGiftCountLabel : UILabel
 
 @end

@@ -5,9 +5,9 @@
 //  Created by 郭茜 on 2022/3/25.
 //
 
-#import "GiftMsgModel.h"
+#import "QNGiftMsgModel.h"
 
-@implementation GiftMsgModel
+@implementation QNGiftMsgModel
 
 @end
 

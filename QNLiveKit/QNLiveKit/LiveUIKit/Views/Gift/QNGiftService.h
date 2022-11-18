@@ -9,7 +9,7 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface QGiftService : NSObject
+@interface QNGiftService : NSObject
 
 - (void)sendGift:(id)giftModel callBack:(nullable void (^)(void))callBack;
 
