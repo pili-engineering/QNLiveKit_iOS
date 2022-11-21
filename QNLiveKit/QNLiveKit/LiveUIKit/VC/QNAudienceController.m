@@ -353,7 +353,14 @@
         [weakSelf popGoodListView];
     };
     [slotList addObject:shopping];
-    
+ 
+    ImageButtonView *likeView = [[ImageButtonView alloc] initWithFrame:CGRectZero];
+    [likeView bundleNormalImage:@"like" selectImage:@"like"];
+    likeView.clickBlock = ^(BOOL selected) {
+        [weakSelf like];
+    };
+    [slotList addObject:likeView];
+ 
     //更多
     ImageButtonView *more = [[ImageButtonView alloc]initWithFrame:CGRectZero];
     [more bundleNormalImage:@"icon_more" selectImage:@"icon_more"];
@@ -382,6 +389,10 @@
     };
 
     [self.view addSubview:moreView];
+}
+
+- (void)like {
+    NSLog(@"Like clicked");
 }
 
 #pragma mark  --------GiftViewDelegate---------

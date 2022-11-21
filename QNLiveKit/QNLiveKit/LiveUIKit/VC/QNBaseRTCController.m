@@ -36,6 +36,7 @@
     [super viewDidLoad];
     [self setupBG];
     
+    [self.view addSubview:self.chatRoomView];
     [self.view addSubview:self.roomHostView];
     [self.view addSubview:self.onlineUserView];
     [self.view addSubview:self.pubchatView];
@@ -100,7 +101,6 @@
     if (!_chatRoomView) {
         _chatRoomView = [[LiveChatRoom alloc] initWithFrame:CGRectMake(0, SCREEN_H - 245, 260, 280)];
         _chatRoomView.groupId = self.roomInfo.chat_id;
-        [self.view addSubview:_chatRoomView];
     }
     return _chatRoomView;
 }
