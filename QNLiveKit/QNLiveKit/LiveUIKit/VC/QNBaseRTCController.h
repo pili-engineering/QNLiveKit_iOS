@@ -20,13 +20,12 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, strong) OnlineUserView *onlineUserView;
 @property (nonatomic, strong) BottomMenuView *bottomMenuView;
 @property (nonatomic, strong) ImageButtonView *pubchatView;
-//@property (nonatomic, strong) ImageButtonView *closeView;
 @property (nonatomic, strong) UIButton *closeButton;
 
 @property (nonatomic, strong) QRenderView *preview;//自己画面的预览视图
 @property (nonatomic, strong) QRenderView *remoteView;//远端画面
 @property (nonatomic, strong) UIView *renderBackgroundView;//上面只能添加视频流画面
-@property (nonatomic,strong) QNLiveRoomInfo *roomInfo;
+@property (nonatomic, strong) QNLiveRoomInfo *roomInfo;
 @property (nonatomic, strong) QNChatRoomService * chatService;
 @property (nonatomic, strong) LiveChatRoom *chatRoomView;
 @property (nonatomic, strong) FDanmakuView *danmakuView;

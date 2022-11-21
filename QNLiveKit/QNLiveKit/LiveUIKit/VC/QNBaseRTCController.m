@@ -181,23 +181,6 @@
     return _onlineUserView;
 }
 
-//- (ImageButtonView *)closeView {
-//    if (!_closeView) {
-//        _closeView = [[ImageButtonView alloc]initWithFrame:CGRectMake(self.view.frame.size.width - 50, 60, 40, 40)];
-//        [_closeView bundleNormalImage:@"live_close" selectImage:@"live_close"];
-//
-//        __weak typeof(self)weakSelf = self;
-//        _closeView.clickBlock = ^(BOOL selected){
-//            __strong typeof(self)strongSelf = weakSelf;
-//
-//            [strongSelf closeViewController];
-//        };
-//
-//    }
-//    return _closeView;
-//}
-
-
 - (UIButton *)closeButton {
     if (!_closeButton) {
         _closeButton = [[UIButton alloc]initWithFrame:CGRectMake(SCREEN_W - 40, 70, 20, 20)];

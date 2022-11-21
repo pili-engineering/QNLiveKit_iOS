@@ -296,9 +296,6 @@
     [self.pkService stopPK:nil];
 }
 
-
-
-
 - (void)setupBottomMenuView {
     
     NSMutableArray *slotList = [NSMutableArray array];
