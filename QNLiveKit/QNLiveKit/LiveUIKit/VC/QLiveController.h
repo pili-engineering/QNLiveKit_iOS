@@ -14,10 +14,10 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface QLiveController : QNBaseRTCController
 
-@property (nonatomic, strong) RoomHostView *roomHostView;//房主槽位
-@property (nonatomic, strong) OnlineUserView *onlineUserView;//右上角在线人数槽位
-@property (nonatomic, strong) ImageButtonView *pubchatView;//左下角聊天框槽位
-@property (nonatomic, strong) BottomMenuView *bottomMenuView;//右下角操作槽位
+//@property (nonatomic, strong) RoomHostView *roomHostView;//房主槽位
+//@property (nonatomic, strong) OnlineUserView *onlineUserView;//右上角在线人数槽位
+//@property (nonatomic, strong) ImageButtonView *pubchatView;//左下角聊天框槽位
+//@property (nonatomic, strong) BottomMenuView *bottomMenuView;//右下角操作槽位
 @property (nonatomic, strong) QNLiveUser *pk_other_user;//pk对象
 //关闭直播间的回调
 @property (nonatomic, copy) void (^closeClickedBlock)(QNLiveRoomInfo *roomInfo);

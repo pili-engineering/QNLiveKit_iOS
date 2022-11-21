@@ -46,7 +46,7 @@
         }];
         
     }];
-    [QLive setBeauty:YES];
+//    [QLive setBeauty:YES];
 }
 
 //获取liveToken

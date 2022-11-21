@@ -48,28 +48,28 @@
 }
 
 - (void)viewDidLoad {
-    
     [super viewDidLoad];
+    
+    [self setupBottomMenuView];
+    
     __weak typeof(self)weakSelf = self;
     [self.chatService addChatServiceListener:self];
     self.pkService.delegate = self;
     self.linkService.micLinkerListener = self;
     self.chatRoomView.delegate = self;
     self.danmakuView.delegate = self;
+    
+    
     [[QLive createPlayerClient] joinRoom:self.roomInfo.live_id callBack:^(QNLiveRoomInfo * _Nonnull roomInfo) {
         weakSelf.roomInfo = roomInfo;
         [self playWithUrl:roomInfo.rtmp_url];
         [weakSelf updateRoomInfo];
     }];
     
-    [self roomHostView];
-    [self onlineUserView];
-    [self pubchatView];
-    [self bottomMenuView];
-    
     [self.chatService sendWelComeMsg:^(QNIMMessageObject * _Nonnull msg) {
         [weakSelf.chatRoomView showMessage:msg];
     }];
+    
     
 }
 
@@ -332,104 +332,39 @@
     return _masterLeaveLabel;
 }
 
-- (RoomHostView *)roomHostView {
-    if (!_roomHostView) {
-        _roomHostView = [[RoomHostView alloc]initWithFrame:CGRectMake(20, 60, 135, 40)];
-        [self.view addSubview:_roomHostView];
-        [_roomHostView updateWith:self.roomInfo];;
-        _roomHostView.clickBlock = ^(BOOL selected){
-            NSLog(@"点击了房主头像");
-        };
-    }
-    return _roomHostView;
-}
+- (void)setupBottomMenuView {
+    
+    NSMutableArray *slotList = [NSMutableArray array];
+    __weak typeof(self)weakSelf = self;
+    
+    //弹幕
+    ImageButtonView *message = [[ImageButtonView alloc]initWithFrame:CGRectZero];
+    [message bundleNormalImage:@"icon_danmu" selectImage:@"icon_danmu"];
+    message.clickBlock = ^(BOOL selected){
+        [weakSelf.chatRoomView commentBtnPressedWithPubchat:NO];
+    };
+    [slotList addObject:message];
+    
+    //购物车
+    ImageButtonView *shopping = [[ImageButtonView alloc]initWithFrame:CGRectZero];
+    [shopping bundleNormalImage:@"shopping" selectImage:@"shopping"];
+    shopping.clickBlock = ^(BOOL selected){
+        
+        [weakSelf popGoodListView];
+    };
+    [slotList addObject:shopping];
+    
+    //更多
+    ImageButtonView *more = [[ImageButtonView alloc]initWithFrame:CGRectZero];
+    [more bundleNormalImage:@"icon_more" selectImage:@"icon_more"];
+    more.clickBlock = ^(BOOL selected) {
+        [weakSelf popMoreView];
+    };
+    [slotList addObject:more];
+    
 
-- (OnlineUserView *)onlineUserView {
-    if (!_onlineUserView) {
-        _onlineUserView = [[OnlineUserView alloc]initWithFrame:CGRectMake(self.view.frame.size.width - 150, 60, 150, 60)];
-        [self.view addSubview:_onlineUserView];
-        [_onlineUserView updateWith:self.roomInfo];
-        _onlineUserView.clickBlock = ^(BOOL selected){
-            NSLog(@"点击了在线人数");
-        };
-    }
-    return _onlineUserView;
-}
-
-- (ImageButtonView *)pubchatView {
-    if (!_pubchatView) {
-        _pubchatView = [[ImageButtonView alloc]initWithFrame:CGRectMake(15, SCREEN_H - 52.5, 170, 30)];
-        _pubchatView.backgroundColor = [[UIColor blackColor] colorWithAlphaComponent:0.3];
-        _pubchatView.layer.cornerRadius = 15;
-        _pubchatView.clipsToBounds = YES;
-        [self.view addSubview:_pubchatView];
         
-        UIImageView *imageView = [[UIImageView alloc]initWithImage:[UIImage imageNamed:@"pub_chat"]];
-        imageView.frame = CGRectMake(10, 7, 16, 16);
-        [_pubchatView addSubview:imageView];
-        
-        __weak typeof(self)weakSelf = self;
-        _pubchatView.clickBlock = ^(BOOL selected){
-            [weakSelf.chatRoomView commentBtnPressedWithPubchat:YES];
-        };
-        
-    }
-    return _pubchatView;
-}
-
-- (BottomMenuView *)bottomMenuView {
-    if (!_bottomMenuView) {
-        NSMutableArray *slotList = [NSMutableArray array];
-        __weak typeof(self)weakSelf = self;
-        
-        //弹幕
-        ImageButtonView *message = [[ImageButtonView alloc]initWithFrame:CGRectZero];
-        [message bundleNormalImage:@"icon_danmu" selectImage:@"icon_danmu"];
-        message.clickBlock = ^(BOOL selected){
-            [weakSelf.chatRoomView commentBtnPressedWithPubchat:NO];
-        };
-        [slotList addObject:message];
-        
-        //购物车
-        ImageButtonView *shopping = [[ImageButtonView alloc]initWithFrame:CGRectZero];
-        [shopping bundleNormalImage:@"shopping" selectImage:@"shopping"];
-        shopping.clickBlock = ^(BOOL selected){
-            
-            [weakSelf popGoodListView];
-        };
-        [slotList addObject:shopping];
-        
-        //更多
-        ImageButtonView *more = [[ImageButtonView alloc]initWithFrame:CGRectZero];
-        [more bundleNormalImage:@"icon_more" selectImage:@"icon_more"];
-        more.clickBlock = ^(BOOL selected) {
-            [weakSelf popMoreView];
-                 };
-        [slotList addObject:more];
-        
-        //关闭
-        ImageButtonView *close = [[ImageButtonView alloc]initWithFrame:CGRectZero];
-        [close bundleNormalImage:@"live_close" selectImage:@"live_close"];
-        close.clickBlock = ^(BOOL selected){
-            
-            if ([QLive createPusherClient].rtcClient.connectionState == QNConnectionStateConnected) {
-                [[QLive createPusherClient].rtcClient leave];
-                [[QLive createPlayerClient] leaveRoom:weakSelf.roomInfo.live_id];
-                [weakSelf.linkService downMic];
-            }
-            
-            [weakSelf.chatService sendLeaveMsg];
-            
-            [weakSelf dismissViewControllerAnimated:YES completion:nil];
-        };
-        [slotList addObject:close];
-        
-        _bottomMenuView = [[BottomMenuView alloc]initWithFrame:CGRectMake(200, SCREEN_H - 60, SCREEN_W - 200, 45)];
-        [_bottomMenuView updateWithSlotList:slotList.copy];
-        [self.view addSubview:_bottomMenuView];
-
-    }
-    return _bottomMenuView;
+    [self.bottomMenuView updateWithSlotList:slotList.copy];
 }
 
 - (void)popMoreView {
@@ -603,4 +538,7 @@
 }
 
 
+- (void)closeViewController {
+    [super closeViewController];
+}
 @end

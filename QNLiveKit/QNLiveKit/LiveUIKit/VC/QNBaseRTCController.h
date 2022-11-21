@@ -12,7 +12,16 @@ NS_ASSUME_NONNULL_BEGIN
 
 @class QNLiveRoomInfo,QNLivePushClient,QNLiveRoomClient,QNChatRoomService,LiveChatRoom,QNMergeOption,QPKService,QRenderView,FDanmakuView,QLinkMicService,QStatisticalService;
 
+@class RoomHostView, OnlineUserView, BottomMenuView, ImageButtonView;
+
 @interface QNBaseRTCController : UIViewController
+
+@property (nonatomic, strong) RoomHostView *roomHostView;
+@property (nonatomic, strong) OnlineUserView *onlineUserView;
+@property (nonatomic, strong) BottomMenuView *bottomMenuView;
+@property (nonatomic, strong) ImageButtonView *pubchatView;
+//@property (nonatomic, strong) ImageButtonView *closeView;
+@property (nonatomic, strong) UIButton *closeButton;
 
 @property (nonatomic, strong) QRenderView *preview;//自己画面的预览视图
 @property (nonatomic, strong) QRenderView *remoteView;//远端画面
@@ -32,6 +41,7 @@ NS_ASSUME_NONNULL_BEGIN
 //移除所有远端view
 - (void)removeRemoteUserView;
 
+- (void)closeViewController;
 @end
 
 NS_ASSUME_NONNULL_END

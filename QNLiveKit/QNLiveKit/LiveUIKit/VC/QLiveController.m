@@ -68,10 +68,7 @@
         [self updateRoomInfo];
     }];
     
-    [self roomHostView];
-    [self onlineUserView];
-    [self pubchatView];
-    [self bottomMenuView];
+    [self setupBottomMenuView];
     
     [self.chatService sendWelComeMsg:^(QNIMMessageObject * _Nonnull msg) {
         [weakSelf.chatRoomView showMessage:msg];
@@ -299,135 +296,56 @@
     [self.pkService stopPK:nil];
 }
 
-- (RoomHostView *)roomHostView {
-    if (!_roomHostView) {
-        _roomHostView = [[RoomHostView alloc]initWithFrame:CGRectMake(20, 60, 135, 40)];
-        [self.view addSubview:_roomHostView];
-        [_roomHostView updateWith:self.roomInfo];;
-        _roomHostView.clickBlock = ^(BOOL selected) {
-        };
-    }
-    return _roomHostView;
-}
 
-- (OnlineUserView *)onlineUserView {
-    if (!_onlineUserView) {
-        _onlineUserView = [[OnlineUserView alloc]initWithFrame:CGRectMake(self.view.frame.size.width - 150, 60, 150, 60)];
-        [self.view addSubview:_onlineUserView];
-        [_onlineUserView updateWith:self.roomInfo];
-        _onlineUserView.clickBlock = ^(BOOL selected){
-        };
-    }
-    return _onlineUserView;
-}
 
-- (ImageButtonView *)pubchatView {
-    if (!_pubchatView) {
-        _pubchatView = [[ImageButtonView alloc]initWithFrame:CGRectMake(15, SCREEN_H - 52.5, 100, 30)];
-        _pubchatView.backgroundColor = [[UIColor blackColor] colorWithAlphaComponent:0.3];
-        _pubchatView.layer.cornerRadius = 15;
-        _pubchatView.clipsToBounds = YES;
-        [self.view addSubview:_pubchatView];
-        
-        UIImageView *imageView = [[UIImageView alloc]initWithImage:[UIImage imageNamed:@"pub_chat"]];
-        imageView.frame = CGRectMake(10, 7, 16, 16);
-        [_pubchatView addSubview:imageView];
-        
-        __weak typeof(self)weakSelf = self;
-        _pubchatView.clickBlock = ^(BOOL selected){
-            [weakSelf.chatRoomView commentBtnPressedWithPubchat:YES];
-        };
-    }
-    return _pubchatView;
-}
 
-- (BottomMenuView *)bottomMenuView {
-    if (!_bottomMenuView) {
-        NSMutableArray *slotList = [NSMutableArray array];
-        __weak typeof(self)weakSelf = self;
-        
-        //弹幕
-        ImageButtonView *message = [[ImageButtonView alloc]initWithFrame:CGRectZero];
-        [message bundleNormalImage:@"icon_danmu" selectImage:@"icon_danmu"];
-        message.clickBlock = ^(BOOL selected){
-            [weakSelf.chatRoomView commentBtnPressedWithPubchat:NO];
-        };
-        [slotList addObject:message];
-
-        
-        //pk
-        ImageButtonView *pk = [[ImageButtonView alloc]initWithFrame:CGRectZero];
-        [pk bundleNormalImage:@"pk" selectImage:@"end_pk"];
-        pk.clickBlock = ^(BOOL selected){
-            if (selected) {
-                [[QLive getRooms] listRoom:1 pageSize:20 callBack:^(NSArray<QNLiveRoomInfo *> * _Nonnull list) {
-                    [weakSelf popInvitationPKView:list];
-                }];
-            } else {
-                [weakSelf stopPK];
-            }
-        };
-        [slotList addObject:pk];
-        self.pkSlot = pk;
-        
-        //购物车
-        ImageButtonView *shopping = [[ImageButtonView alloc]initWithFrame:CGRectZero];
-        [shopping bundleNormalImage:@"shopping" selectImage:@"shopping"];
-        shopping.clickBlock = ^(BOOL selected){
-            [weakSelf popGoodListView];            
-        };
-        [slotList addObject:shopping];
-        
-        //更多
-        ImageButtonView *more = [[ImageButtonView alloc]initWithFrame:CGRectZero];
-        [more bundleNormalImage:@"icon_more" selectImage:@"icon_more"];
-        more.clickBlock = ^(BOOL selected) {
-            [weakSelf popMoreView];
-                 };
-        [slotList addObject:more];
-
-        //关闭
-        ImageButtonView *close = [[ImageButtonView alloc]initWithFrame:CGRectZero];
-        [close bundleNormalImage:@"live_close" selectImage:@"live_close"];
-        
-        close.clickBlock = ^(BOOL selected){
-            
-            [QAlertView showThreeActionAlertWithTitle:@"确定关闭直播间吗？" content:@"关闭后无法再进入该直播间" firstAction:@"结束直播" firstHandler:^(UIAlertAction * _Nonnull action) {
-                
-                if (weakSelf.pk_other_user) {
-                    [weakSelf stopPK];
-                }
-                [weakSelf.chatService sendLeaveMsg];
-                [[QLive createPusherClient] closeRoom];
-                
-                
-                [weakSelf dismissViewControllerWithCount:2 animated:YES];
-                
-                
-                
-            } secondAction:@"仅暂停直播" secondHandler:^(UIAlertAction * _Nonnull action) {
-                        
-                if (weakSelf.pk_other_user) {
-                    [weakSelf stopPK];
-                }
-                
-                [[QLive createPusherClient] leaveRoom];
-                
-                
-                [weakSelf dismissViewControllerWithCount:2 animated:YES];
-                
-                
-                    } threeHandler:^(UIAlertAction * _Nonnull action) {
-                        
-                    }];
-        };
-        [slotList addObject:close];
-        
-        _bottomMenuView = [[BottomMenuView alloc]initWithFrame:CGRectMake(130, SCREEN_H - 60, SCREEN_W - 130, 45)];
-        [_bottomMenuView updateWithSlotList:slotList.copy];
-        [self.view addSubview:_bottomMenuView];
-    }
-    return _bottomMenuView;
+- (void)setupBottomMenuView {
+    
+    NSMutableArray *slotList = [NSMutableArray array];
+    __weak typeof(self)weakSelf = self;
+    
+    //弹幕
+    ImageButtonView *message = [[ImageButtonView alloc]initWithFrame:CGRectZero];
+    [message bundleNormalImage:@"icon_danmu" selectImage:@"icon_danmu"];
+    message.clickBlock = ^(BOOL selected){
+        [weakSelf.chatRoomView commentBtnPressedWithPubchat:NO];
+    };
+    [slotList addObject:message];
+    
+    
+    //pk
+    ImageButtonView *pk = [[ImageButtonView alloc]initWithFrame:CGRectZero];
+    [pk bundleNormalImage:@"pk" selectImage:@"end_pk"];
+    pk.clickBlock = ^(BOOL selected){
+        if (selected) {
+            [[QLive getRooms] listRoom:1 pageSize:20 callBack:^(NSArray<QNLiveRoomInfo *> * _Nonnull list) {
+                [weakSelf popInvitationPKView:list];
+            }];
+        } else {
+            [weakSelf stopPK];
+        }
+    };
+    [slotList addObject:pk];
+    self.pkSlot = pk;
+    
+    //购物车
+    ImageButtonView *shopping = [[ImageButtonView alloc]initWithFrame:CGRectZero];
+    [shopping bundleNormalImage:@"shopping" selectImage:@"shopping"];
+    shopping.clickBlock = ^(BOOL selected){
+        [weakSelf popGoodListView];
+    };
+    [slotList addObject:shopping];
+    
+    //更多
+    ImageButtonView *more = [[ImageButtonView alloc]initWithFrame:CGRectZero];
+    [more bundleNormalImage:@"icon_more" selectImage:@"icon_more"];
+    more.clickBlock = ^(BOOL selected) {
+        [weakSelf popMoreView];
+    };
+    [slotList addObject:more];
+    
+    [self.bottomMenuView updateWithSlotList:slotList.copy];
+    
 }
 
 
@@ -487,6 +405,28 @@
         }
     }
     return resultList;
+}
+
+- (void)closeViewController {
+    [QAlertView showThreeActionAlertWithTitle:@"确定关闭直播间吗？" content:@"关闭后无法再进入该直播间" firstAction:@"结束直播" firstHandler:^(UIAlertAction * _Nonnull action) {
+
+        if (self.pk_other_user) {
+            [self stopPK];
+        }
+        [self.chatService sendLeaveMsg];
+        [[QLive createPusherClient] closeRoom];
+        [self dismissViewControllerWithCount:2 animated:YES];
+    } secondAction:@"仅暂停直播" secondHandler:^(UIAlertAction * _Nonnull action) {
+        
+        if (self.pk_other_user) {
+            [self stopPK];
+        }
+        
+        [[QLive createPusherClient] leaveRoom];
+        [self dismissViewControllerWithCount:2 animated:YES];
+    } threeHandler:^(UIAlertAction * _Nonnull action) {
+        
+    }];
 }
 
 @end
