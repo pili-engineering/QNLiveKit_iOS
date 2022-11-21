@@ -7,22 +7,27 @@
 
 #import "QNHorizontalLayout.h"
 
-//获取屏幕 宽度、高度
-#define SCREEN_WIDTH ([UIScreen mainScreen].bounds.size.width)
-#define SCREEN_HEIGHT ([UIScreen mainScreen].bounds.size.height)
-
 @interface QNHorizontalLayout()
 /** 存放cell全部布局属性 */
 @property(nonatomic,strong) NSMutableArray *cellAttributesArray;
+
+@property (nonatomic, assign) CGFloat itemHeight ;
+@property (nonatomic, assign) CGFloat itemWidth;
 
 @end
 
 @implementation QNHorizontalLayout
 
+- (instancetype)init {
+    if (self = [super init]) {
+        self.itemWidth = 80;
+        self.itemHeight = 100;
+    }
+    return self;
+}
+
 - (NSMutableArray *)cellAttributesArray{
-    
     if (!_cellAttributesArray) {
-        
         _cellAttributesArray = [NSMutableArray array];
     }
     return _cellAttributesArray;
@@ -30,45 +35,39 @@
 
 
 - (void)prepareLayout {
-    
     [super prepareLayout];
     
+    self.scrollDirection = UICollectionViewScrollDirectionVertical;
+    [self setSectionInset:UIEdgeInsetsMake(0, 8, 0, 8)];
     
-    CGFloat itemW = SCREEN_WIDTH/4.0;
-    CGFloat itemH = itemW*105/93.8;
-    self.itemSize = CGSizeMake(itemW, itemH);
+    self.itemSize = CGSizeMake(self.itemWidth, self.itemHeight);
     self.minimumLineSpacing = 0;
-    self.minimumInteritemSpacing = 0;
-    self.scrollDirection = UICollectionViewScrollDirectionHorizontal;
+    self.minimumInteritemSpacing = 13;
+    
+    self.itemSize = CGSizeMake(self.itemWidth, self.itemHeight);
     
     //刷新后清除所有已布局的属性 重新获取
     [self.cellAttributesArray removeAllObjects];
     
     NSInteger cellCount = [self.collectionView numberOfItemsInSection:0];
     for (NSInteger i = 0; i < cellCount; i++) {
-        
         NSIndexPath *indexPath = [NSIndexPath indexPathForRow:i inSection:0];
         UICollectionViewLayoutAttributes *attibute = [self layoutAttributesForItemAtIndexPath:indexPath];
-        NSInteger page = i / 8;//第几页
-        NSInteger row = i % 4 + page*4;//第几列
-        NSInteger col = i / 4 - page*2;//第几行
-        attibute.frame = CGRectMake(row*itemW, col*itemH, itemW, itemH);
+        
         [self.cellAttributesArray addObject:attibute];
     }
 }
 
 - (NSArray<UICollectionViewLayoutAttributes *> *)layoutAttributesForElementsInRect:(CGRect)rect{
-    
     return self.cellAttributesArray;
 }
 
-- (CGSize)collectionViewContentSize{
-    
+- (CGSize)collectionViewContentSize {
     NSInteger cellCount = [self.collectionView numberOfItemsInSection:0];
-    NSInteger page = (cellCount-1) / 8 + 1;
-    return CGSizeMake(SCREEN_WIDTH*page, 0);
+    NSInteger lineCount = (cellCount > 0) ? (cellCount - 1) / 4 + 1 : 0;
+    
+    return CGSizeMake(SCREEN_W, self.itemHeight * lineCount);
 }
-
 
 
 @end

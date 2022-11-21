@@ -10,58 +10,68 @@
 #import "QNSendGiftModel.h"
 #import "QNHorizontalLayout.h"
 #import "QLiveNetworkUtil.h"
-//获取屏幕 宽度、高度
-#define SCREEN_WIDTH ([UIScreen mainScreen].bounds.size.width)
-#define SCREEN_HEIGHT ([UIScreen mainScreen].bounds.size.height)
-
-// 判断是否是iPhone X
-#define iPhoneX ([UIScreen instancesRespondToSelector:@selector(currentMode)] ? CGSizeEqualToSize(CGSizeMake(1125, 2436), [[UIScreen mainScreen] currentMode].size) : NO)
-// 状态栏高度
-#define STATUS_BAR_HEIGHT (iPhoneX ? 44.f : 20.f)
-// 导航栏高度
-#define Nav_Bar_HEIGHT (iPhoneX ? 88.f : 64.f)
-// 导航+状态
-#define Nav_Status_Height (STATUS_BAR_HEIGHT+Nav_Bar_HEIGHT)
-// tabBar高度
-#define TAB_BAR_HEIGHT (iPhoneX ? (49.f+34.f) : 49.f)
-// home indicator
-#define HOME_INDICATOR_HEIGHT (iPhoneX ? 34.f : 0.f)
-//距离底部的间距
-#define Bottom_Margin(margin) ((margin)+HOME_INDICATOR_HEIGHT)
+#import <Masonry/Masonry.h>
 
 static NSString *cellID = @"GiftCollectionViewCell";
 
 @interface QNGiftView()<UICollectionViewDelegate,UICollectionViewDataSource>
-/** 底部功能栏 */
-@property(nonatomic,strong) UIView *bottomView;
+/** 顶部标题栏 */
+@property (nonatomic, strong) UIView *topView;
+@property (nonatomic, strong) UILabel *topTitleLabel;
+@property (nonatomic, strong) UIButton *topCloseButton;
+
 /** 礼物显示 */
 @property(nonatomic,strong) UICollectionView *collectionView;
-/** ccb余额 */
-@property(nonatomic,strong) UILabel *ccbLabel;
+
 /** 上一次点击的model */
 @property(nonatomic,strong) QNSendGiftModel *preModel;
-/** pagecontro */
-@property(nonatomic,strong) UIPageControl *pageControl;
-/** money */
-@property(nonatomic,strong) UILabel *moneyLabel;
 
 @end
 
 @implementation QNGiftView
 
-
-- (instancetype)init
-{
+- (instancetype)init {
     self = [super init];
     if (self) {
-        
-        self.backgroundColor = [UIColor clearColor];
-        self.frame = CGRectMake(0, SCREEN_HEIGHT, SCREEN_WIDTH, SCREEN_HEIGHT);
+        self.backgroundColor = [UIColor colorWithHexString:@"#0B1C29"];
+        self.frame = CGRectMake(0, SCREEN_H, SCREEN_W, 315);
         
         [self setUI];
         [self setData];
     }
     return self;
+}
+
+- (void)layoutSubviews {
+    [self makeupConstraints];
+}
+
+- (void)makeupConstraints {
+    [self.topView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.height.mas_equalTo(48);
+        make.left.right.top.equalTo(self);
+    }];
+    
+    [self.collectionView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.height.mas_equalTo(200);
+        make.left.right.equalTo(self);
+        make.top.equalTo(self.topView.mas_bottom).offset(12);
+    }];
+    
+    [self makeupTopConstraints];
+}
+
+- (void)makeupTopConstraints {
+    [self.topTitleLabel mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.height.mas_equalTo(24);
+        make.center.equalTo(self.topView);
+    }];
+    
+    [self.topCloseButton mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.width.height.mas_equalTo(24);
+        make.centerY.equalTo(self.topView);
+        make.right.equalTo(self.topView).offset(-16);
+    }];
 }
 
 - (void)setData {
@@ -92,58 +102,70 @@ static NSString *cellID = @"GiftCollectionViewCell";
 
 #pragma mark -设置UI
 - (void)setUI {
+    [self addSubview:self.topView];
+    [self addSubview:self.collectionView];
     
-    UIView *bottomView = [[UIView alloc] initWithFrame: CGRectMake(0, self.frame.size.height-Bottom_Margin(44), self.frame.size.width, Bottom_Margin(44))];
-    bottomView.backgroundColor = [UIColor blackColor];
-    [self addSubview:bottomView];
-    self.bottomView = bottomView;
     
-    UIView *line = [[UIView alloc]initWithFrame:CGRectMake(0, SCREEN_HEIGHT - Bottom_Margin(44), SCREEN_WIDTH - 80, 1)];
-    line.backgroundColor = [UIColor darkGrayColor];
-    [self addSubview:line];
-    
-    self.pageControl = [[UIPageControl alloc]initWithFrame: CGRectMake(CGRectGetWidth(bottomView.frame)*0.5-15, 0, 30, CGRectGetHeight(bottomView.frame))];
-    self.pageControl.currentPageIndicatorTintColor = [UIColor whiteColor];
-    self.pageControl.pageIndicatorTintColor = [UIColor grayColor];
-    self.pageControl.hidden = YES;
-    [bottomView addSubview:self.pageControl];
-    
-    UIButton *sendBtn = [[UIButton alloc] initWithFrame:CGRectMake(self.bottomView.frame.size.width-80, 0, 80, 44)];
-    [sendBtn setBackgroundColor:[UIColor orangeColor]];
-    [sendBtn setTitle:@"赠送" forState:UIControlStateNormal];
-    [sendBtn setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
-    [sendBtn addTarget:self action:@selector(p_ClickSendBtn) forControlEvents:UIControlEventTouchUpInside];
-    [bottomView addSubview:sendBtn];
-    
-    //110*125
-    CGFloat itemW = SCREEN_WIDTH/4.0;
-    CGFloat itemH = itemW*125/110.0;
-    QNHorizontalLayout *layout = [[QNHorizontalLayout alloc] init];
-    
-    UICollectionView *collectionView = [[UICollectionView alloc] initWithFrame:CGRectMake(0, CGRectGetMinY(bottomView.frame)-2*itemH, SCREEN_WIDTH, 2*itemH) collectionViewLayout:layout];
-    collectionView.backgroundColor = [UIColor blackColor];
-    collectionView.delegate = self;
-    collectionView.dataSource = self;
-    collectionView.bounces = NO;
-    [collectionView registerClass:[QNGiftCollectionViewCell class] forCellWithReuseIdentifier:cellID];
-    collectionView.pagingEnabled = YES;
-    [self addSubview:collectionView];
-    self.collectionView = collectionView;
+//    UIButton *sendBtn = [[UIButton alloc] initWithFrame:CGRectMake(self.bottomView.frame.size.width-80, 0, 80, 44)];
+//    [sendBtn setBackgroundColor:[UIColor orangeColor]];
+//    [sendBtn setTitle:@"赠送" forState:UIControlStateNormal];
+//    [sendBtn setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
+//    [sendBtn addTarget:self action:@selector(p_ClickSendBtn) forControlEvents:UIControlEventTouchUpInside];
+//    [bottomView addSubview:sendBtn];
+}
+
+
+- (UIView *)topView {
+    if (!_topView) {
+        _topView = [[UIView alloc] initWithFrame:CGRectZero];
+        _topView.backgroundColor = [UIColor colorWithHexString:@"#0B1C29"];
+        
+        [_topView addSubview:self.topTitleLabel];
+        [_topView addSubview:self.topCloseButton];
+    }
+    return _topView;
+}
+
+- (UILabel *)topTitleLabel {
+    if (!_topTitleLabel) {
+        _topTitleLabel = [[UILabel alloc]initWithFrame:CGRectZero];
+        _topTitleLabel.text = @"礼物打赏";
+        _topTitleLabel.textAlignment = NSTextAlignmentCenter;
+        _topTitleLabel.textColor = [UIColor whiteColor];
+        _topTitleLabel.font = [UIFont boldSystemFontOfSize:16];
+    }
+    return _topTitleLabel;
+}
+
+- (UIButton *)topCloseButton {
+    if (!_topCloseButton) {
+        _topCloseButton = [[UIButton alloc]initWithFrame:CGRectZero];
+        [_topCloseButton setImage:[UIImage imageNamed:@"white_close"] forState:UIControlStateNormal];
+        [_topCloseButton addTarget:self action:@selector(hiddenGiftView) forControlEvents:UIControlEventTouchUpInside];
+    }
+    return _topCloseButton;
+}
+
+- (UICollectionView *)collectionView {
+    if (!_collectionView) {
+        QNHorizontalLayout *layout = [[QNHorizontalLayout alloc] init];
+        
+        _collectionView = [[UICollectionView alloc] initWithFrame:CGRectZero collectionViewLayout:layout];
+        _collectionView.backgroundColor = [UIColor colorWithHexString:@"#0B1C29"];
+        _collectionView.delegate = self;
+        _collectionView.dataSource = self;
+        _collectionView.bounces = NO;
+        [_collectionView registerClass:[QNGiftCollectionViewCell class] forCellWithReuseIdentifier:cellID];
+    }
+    return _collectionView;
 }
 
 - (void)setDataArray:(NSArray *)dataArray {
-    
     _dataArray = dataArray;
-
-    self.pageControl.numberOfPages = (dataArray.count-1)/8+1;
-    self.pageControl.currentPage = 0;
-    self.pageControl.hidden =  !((dataArray.count-1)/8);
-    
     [self.collectionView reloadData];
 }
 
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
-    
     return self.dataArray.count;
 }
 
@@ -180,8 +202,6 @@ static NSString *cellID = @"GiftCollectionViewCell";
 
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView {
     
-    CGFloat x = scrollView.contentOffset.x;
-    self.pageControl.currentPage = x/SCREEN_WIDTH+0.5;
 }
 
 #pragma mark -发送
@@ -201,7 +221,6 @@ static NSString *cellID = @"GiftCollectionViewCell";
         //提示选择礼物
         NSLog(@"没有选择礼物");
     }
-
 }
 
 - (void)showGiftView {
@@ -210,15 +229,14 @@ static NSString *cellID = @"GiftCollectionViewCell";
     [window addSubview:self];
     
     [UIView animateWithDuration:0.3 animations:^{
-        self.frame = CGRectMake(0, 0, SCREEN_WIDTH, SCREEN_HEIGHT);
+        self.frame = CGRectMake(0, SCREEN_H - 315, SCREEN_W, 315);
     }];
-
 }
 
 - (void)hiddenGiftView {
     
     [UIView animateWithDuration:0.3 animations:^{
-        self.frame = CGRectMake(0, SCREEN_HEIGHT, SCREEN_WIDTH, SCREEN_HEIGHT);
+        self.frame = CGRectMake(0, SCREEN_H, SCREEN_W, 315);
     } completion:^(BOOL finished) {
         [self removeFromSuperview];
     }];
