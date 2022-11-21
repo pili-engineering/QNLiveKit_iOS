@@ -6,7 +6,7 @@
 //
 
 #import "QGradient.h"
-
+    
 @implementation QGradient
 
 

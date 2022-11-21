@@ -10,25 +10,25 @@
 #import "QNSendGiftModel.h"
 
 @interface QNGiftCollectionViewCell()
-/** bg */
-@property(nonatomic,strong) UIView *bgView;
-/** image */
-@property(nonatomic,strong) UIImageView *giftImageView;
-/** name */
-@property(nonatomic,strong) UILabel *giftNameLabel;
-/** money */
-@property(nonatomic,strong) UILabel *moneyLabel;
-/** moneyicon */
-@property(nonatomic,strong) UIImageView *moneyImage;
 
+@property(nonatomic,strong) UIView *bgView;
+
+@property(nonatomic,strong) UIImageView *iconImageView;
+
+@property(nonatomic,strong) UILabel *nameLabel;
+
+@property(nonatomic,strong) UILabel *amountLabel;
+
+@property (nonatomic, strong) UIButton *payButton;
 @end
 
 @implementation QNGiftCollectionViewCell
 
-- (instancetype)initWithFrame:(CGRect)frame
-{
+- (instancetype)initWithFrame:(CGRect)frame {
     self = [super initWithFrame:frame];
     if (self) {
+        self.contentView.layer.cornerRadius = 4.0;
+        self.contentView.layer.masksToBounds = YES;
         
         [self p_SetUI];
     }
@@ -37,51 +37,157 @@
 
 #pragma mark -设置UI
 - (void)p_SetUI {
-    
-    self.bgView = [[UIView alloc] initWithFrame:self.bounds];
-    self.bgView.backgroundColor = [UIColor blackColor];
     [self.contentView addSubview:self.bgView];
-    
-    self.giftImageView = [[UIImageView alloc] initWithFrame:CGRectMake((self.bounds.size.width-70)*0.5, 11, 70, 55)];
-    [self.contentView addSubview:self.giftImageView];
-    
-    self.giftNameLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, CGRectGetMaxY(self.giftImageView.frame), self.bounds.size.width, 16)];
-    self.giftNameLabel.text = @"礼物名";
-    self.giftNameLabel.textColor = [UIColor whiteColor];
-    self.giftNameLabel.textAlignment = NSTextAlignmentCenter;
-    self.giftNameLabel.font = [UIFont systemFontOfSize:12];
-    [self.contentView addSubview:self.giftNameLabel];
-    
-    UILabel *moneyLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, CGRectGetMaxY(self.giftNameLabel.frame), 30, 16)];
-    moneyLabel.textColor = [UIColor whiteColor];
-    moneyLabel.font = [UIFont systemFontOfSize:12];
-    moneyLabel.textAlignment = NSTextAlignmentCenter;
-    self.moneyLabel = moneyLabel;
-    [self.contentView  addSubview:moneyLabel];
-    
-    UIImageView *moneyImage = [[UIImageView alloc] initWithFrame:CGRectMake(CGRectGetMinX(moneyLabel.frame)-4, moneyLabel.frame.origin.y+4, 10, 10)];
-    self.moneyImage = moneyImage;
-    [self.contentView  addSubview:moneyImage];
+    [self.contentView addSubview:self.iconImageView];
+    [self.contentView addSubview:self.nameLabel];
+    [self.contentView addSubview:self.amountLabel];
+    [self.contentView addSubview:self.payButton];
 }
 
+- (void)layoutSubviews {
+    if (self.model.isSelected) {
+        [self makeupSelectedContraints];
+    } else {
+        [self makeupNormalConstraints];
+    }
+}
+
+- (void)makeupNormalConstraints {
+    [self.bgView mas_remakeConstraints:^(MASConstraintMaker *make) {
+        make.left.top.right.bottom.equalTo(self.contentView);
+    }];
+    
+    [self.iconImageView mas_remakeConstraints:^(MASConstraintMaker *make) {
+        make.size.mas_equalTo(CGSizeMake(42, 42));
+        make.centerX.equalTo(self.contentView);
+        make.top.equalTo(self.contentView).offset(14);
+    }];
+    
+    [self.nameLabel mas_remakeConstraints:^(MASConstraintMaker *make) {
+        make.height.mas_equalTo(16);
+        make.left.width.equalTo(self.contentView);
+        make.top.equalTo(self.iconImageView.mas_bottom).offset(14);
+    }];
+    
+    [self.amountLabel mas_remakeConstraints:^(MASConstraintMaker *make) {
+        make.height.mas_equalTo(14);
+        make.left.width.equalTo(self.contentView);
+        make.top.equalTo(self.nameLabel.mas_bottom).offset(-2);
+    }];
+}
+
+
+- (void)makeupSelectedContraints {
+    [self.bgView mas_remakeConstraints:^(MASConstraintMaker *make) {
+        make.left.top.right.bottom.equalTo(self.contentView);
+    }];
+    
+    [self.iconImageView mas_remakeConstraints:^(MASConstraintMaker *make) {
+        make.size.mas_equalTo(CGSizeMake(42, 42));
+        make.centerX.equalTo(self.contentView);
+        make.top.equalTo(self.contentView).offset(8);
+    }];
+    
+    
+    [self.amountLabel mas_remakeConstraints:^(MASConstraintMaker *make) {
+        make.height.mas_equalTo(16);
+        make.left.width.equalTo(self.contentView);
+        make.top.equalTo(self.iconImageView.mas_bottom).offset(8);
+    }];
+    
+    [self.payButton mas_remakeConstraints:^(MASConstraintMaker *make) {
+        make.height.mas_equalTo(24);
+        make.left.right.bottom.equalTo(self.contentView);
+    }];
+}
+
+
 - (void)setModel:(QNSendGiftModel *)model {
-    
     _model = model;
-//    self.giftImageView.image = [UIImage imageNamed:model.img];
-    [self.giftImageView sd_setImageWithURL:[NSURL URLWithString:model.img] placeholderImage:[UIImage imageNamed:@""]];
-    self.giftNameLabel.text = model.name;
-    self.bgView.backgroundColor = model.isSelected ? [UIColor orangeColor] : [UIColor blackColor];
-    UIImage *img = [UIImage imageNamed:@"Live_Red_ccb"];
-    self.moneyImage.image = img;
     
-    self.moneyLabel.text = model.amount;
+    [self.iconImageView sd_setImageWithURL:[NSURL URLWithString:model.img] placeholderImage:[UIImage imageNamed:@""]];
+    self.nameLabel.text = model.name;
+    self.amountLabel.text = model.amount;
     
-    CGSize size = [model.amount sizeWithAttributes:@{NSFontAttributeName:self.moneyLabel.font}];
-    CGFloat w = size.width+1;
-    CGFloat labelX = (self.contentView.bounds.size.width-w+4+10)*0.5;
-    self.moneyLabel.frame = CGRectMake(labelX, CGRectGetMaxY(self.giftNameLabel.frame), w, 16);
-    CGFloat imageX = CGRectGetMinX(self.moneyLabel.frame)-4-10;
-    self.moneyImage.frame = CGRectMake(imageX, self.moneyLabel.frame.origin.y+4, 10, 10);
+    if (model.isSelected) {
+        [self.bgView setHidden:NO];
+        
+        self.amountLabel.textColor = [UIColor colorWithHexString:@"#FFFFFF"];
+        self.amountLabel.font = [UIFont systemFontOfSize:10];
+        
+        [self.nameLabel setHidden:YES];
+        [self.payButton setHidden:NO];
+    } else {
+        [self.bgView setHidden:YES];
+        
+        self.amountLabel.textColor = [UIColor colorWithHexString:@"#999999"];
+        self.amountLabel.font = [UIFont systemFontOfSize:9];
+        
+        [self.nameLabel setHidden:NO];
+        [self.payButton setHidden:YES];
+    }
+    [self layoutIfNeeded];
+}
+
+
+#pragma mark - SubViews
+- (UIView *)bgView {
+    if (!_bgView) {
+        _bgView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 80, 100)];
+        UIColor *color1 = [UIColor colorWithRed:1.0 green:1.0 blue:1.0 alpha:0.15];
+        UIColor *color2 = [UIColor colorWithRed:1.0 green:1.0 blue:1.0 alpha:0.05];
+        
+        CAGradientLayer *gradientLayer = [CAGradientLayer layer];
+        gradientLayer.bounds = _bgView.bounds;
+        gradientLayer.frame = _bgView.bounds;
+        gradientLayer.colors = [NSArray arrayWithObjects:(id)[color1 CGColor],(id)[color2 CGColor],nil];
+        gradientLayer.startPoint = CGPointMake(0.5, 0);
+        gradientLayer.endPoint = CGPointMake(0.5, 1);
+        [_bgView.layer addSublayer:gradientLayer];
+        
+        gradientLayer.borderWidth = 0;
+    }
+    return _bgView;
+}
+
+- (UIImageView *)iconImageView {
+    if (!_iconImageView) {
+        _iconImageView = [[UIImageView alloc] initWithFrame:CGRectZero];
+    }
+    return _iconImageView;
+}
+
+- (UILabel *)nameLabel {
+    if (!_nameLabel) {
+        _nameLabel = [[UILabel alloc] initWithFrame:CGRectZero];
+        _nameLabel.textColor = [UIColor whiteColor];
+        _nameLabel.textAlignment = NSTextAlignmentCenter;
+        _nameLabel.font = [UIFont systemFontOfSize:10];
+        _nameLabel.text = @"礼物名";
+    }
+    return _nameLabel;
+}
+
+- (UILabel *)amountLabel {
+    if (!_amountLabel) {
+        _amountLabel = [[UILabel alloc] initWithFrame:CGRectZero];
+        _amountLabel.textColor = [UIColor colorWithHexString:@"#999999"];
+        _amountLabel.font = [UIFont systemFontOfSize:9];
+        _amountLabel.textAlignment = NSTextAlignmentCenter;
+    }
+    return _amountLabel;
+}
+
+- (UIButton *)payButton {
+    if (!_payButton) {
+        _payButton = [[UIButton alloc] initWithFrame:CGRectZero];
+        _payButton.backgroundColor = [UIColor colorWithHexString:@"#EF4149"];
+        
+        [_payButton setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
+        _payButton.titleLabel.font = [UIFont systemFontOfSize:10];
+        [_payButton setTitle:@"支付" forState:UIControlStateNormal];
+    }
+    return _payButton;
 }
 
 @end
