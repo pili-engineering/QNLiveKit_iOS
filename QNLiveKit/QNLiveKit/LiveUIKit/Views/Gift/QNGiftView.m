@@ -15,6 +15,12 @@
 static NSString *cellID = @"GiftCollectionViewCell";
 
 @interface QNGiftView()<UICollectionViewDelegate,UICollectionViewDataSource>
+
+// 覆盖区域，用于处理点击事件，隐藏自己
+@property (nonatomic, strong) UIView *coverView;
+
+
+@property (nonatomic, strong) UIView *pannelView;
 /** 顶部标题栏 */
 @property (nonatomic, strong) UIView *topView;
 @property (nonatomic, strong) UILabel *topTitleLabel;
@@ -33,8 +39,8 @@ static NSString *cellID = @"GiftCollectionViewCell";
 - (instancetype)init {
     self = [super init];
     if (self) {
-        self.backgroundColor = [UIColor colorWithHexString:@"#0B1C29"];
-        self.frame = CGRectMake(0, SCREEN_H, SCREEN_W, 315);
+        self.backgroundColor = [UIColor clearColor];
+        self.frame = CGRectMake(0, SCREEN_H, SCREEN_W, SCREEN_H);
         
         [self setUI];
         [self setData];
@@ -47,14 +53,25 @@ static NSString *cellID = @"GiftCollectionViewCell";
 }
 
 - (void)makeupConstraints {
+    [self.pannelView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.height.mas_equalTo(315);
+        make.left.right.bottom.equalTo(self);
+    }];
+    
+    [self.coverView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.right.top.equalTo(self);
+        make.bottom.equalTo(self.pannelView.mas_top);
+    }];
+    
+    
     [self.topView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.height.mas_equalTo(48);
-        make.left.right.top.equalTo(self);
+        make.left.right.top.equalTo(self.pannelView);
     }];
     
     [self.collectionView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.height.mas_equalTo(200);
-        make.left.right.equalTo(self);
+        make.left.right.equalTo(self.pannelView);
         make.top.equalTo(self.topView.mas_bottom).offset(12);
     }];
     
@@ -102,8 +119,10 @@ static NSString *cellID = @"GiftCollectionViewCell";
 
 #pragma mark -设置UI
 - (void)setUI {
-    [self addSubview:self.topView];
-    [self addSubview:self.collectionView];
+    [self addSubview:self.coverView];
+    [self addSubview:self.pannelView];
+    
+    
     
     
 //    UIButton *sendBtn = [[UIButton alloc] initWithFrame:CGRectMake(self.bottomView.frame.size.width-80, 0, 80, 44)];
@@ -114,6 +133,31 @@ static NSString *cellID = @"GiftCollectionViewCell";
 //    [bottomView addSubview:sendBtn];
 }
 
+- (UIView *)coverView {
+    if (!_coverView) {
+        _coverView = [[UIView alloc] initWithFrame:CGRectZero];
+        _coverView.backgroundColor = [UIColor clearColor];
+        
+        _coverView.userInteractionEnabled = YES;
+        
+        UITapGestureRecognizer * tapGesture = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tapEvent:)];
+        [tapGesture setNumberOfTapsRequired:1];
+     
+        [_coverView addGestureRecognizer:tapGesture];
+    }
+    return _coverView;
+}
+
+- (UIView *)pannelView {
+    if (!_pannelView) {
+        _pannelView = [[UIView alloc] initWithFrame:CGRectZero];
+        _pannelView.backgroundColor = [UIColor colorWithHexString:@"#0B1C29"];
+        
+        [_pannelView addSubview:self.topView];
+        [_pannelView addSubview:self.collectionView];
+    }
+    return _pannelView;
+}
 
 - (UIView *)topView {
     if (!_topView) {
@@ -229,21 +273,20 @@ static NSString *cellID = @"GiftCollectionViewCell";
     [window addSubview:self];
     
     [UIView animateWithDuration:0.3 animations:^{
-        self.frame = CGRectMake(0, SCREEN_H - 315, SCREEN_W, 315);
+        self.frame = CGRectMake(0, 0, SCREEN_W, SCREEN_H);
     }];
 }
 
 - (void)hiddenGiftView {
-    
     [UIView animateWithDuration:0.3 animations:^{
-        self.frame = CGRectMake(0, SCREEN_H, SCREEN_W, 315);
+        self.frame = CGRectMake(0, SCREEN_H, SCREEN_W, SCREEN_H);
     } completion:^(BOOL finished) {
         [self removeFromSuperview];
     }];
 }
 
-- (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event {
-    
+
+- (void)tapEvent:(UITapGestureRecognizer *)gesture {
     [self hiddenGiftView];
 }
 
