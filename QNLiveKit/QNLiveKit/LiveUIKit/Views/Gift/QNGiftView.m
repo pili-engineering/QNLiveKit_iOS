@@ -107,14 +107,6 @@ static NSString *cellID = @"GiftCollectionViewCell";
 - (void)setUI {
     [self addSubview:self.coverView];
     [self addSubview:self.pannelView];
-    
-    
-//    UIButton *sendBtn = [[UIButton alloc] initWithFrame:CGRectMake(self.bottomView.frame.size.width-80, 0, 80, 44)];
-//    [sendBtn setBackgroundColor:[UIColor orangeColor]];
-//    [sendBtn setTitle:@"赠送" forState:UIControlStateNormal];
-//    [sendBtn setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
-//    [sendBtn addTarget:self action:@selector(p_ClickSendBtn) forControlEvents:UIControlEventTouchUpInside];
-//    [bottomView addSubview:sendBtn];
 }
 
 - (UIView *)coverView {
@@ -262,7 +254,6 @@ static NSString *cellID = @"GiftCollectionViewCell";
         [self removeFromSuperview];
     }];
 }
-
 
 - (void)tapEvent:(UITapGestureRecognizer *)gesture {
     [self hiddenGiftView];

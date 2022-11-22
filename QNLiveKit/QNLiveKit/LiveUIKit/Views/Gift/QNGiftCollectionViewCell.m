@@ -107,7 +107,12 @@
     
     [self.iconImageView sd_setImageWithURL:[NSURL URLWithString:model.img] placeholderImage:[UIImage imageNamed:@""]];
     self.nameLabel.text = model.name;
-    self.amountLabel.text = model.amount;
+    if (model.amount > 0) {
+        self.amountLabel.text = [NSString stringWithFormat:@"%ld", model.amount];
+    } else {
+        self.amountLabel.text = @"";
+    }
+    
     
     if (model.isSelected) {
         [self.bgView setHidden:NO];

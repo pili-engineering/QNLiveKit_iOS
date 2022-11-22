@@ -32,7 +32,6 @@
 #import "WatchBottomMoreView.h"
 #import "QNGiftView.h"
 #import "QNSendGiftModel.h"
-#import "QNGiftShowManager.h"
 #import "QNGiftMsgModel.h"
 
 @interface QNAudienceController ()<QNChatRoomServiceListener,QNPushClientListener,LiveChatRoomViewDelegate,FDanmakuViewProtocol,PLPlayerDelegate,MicLinkerListener,PKServiceListener,GiftViewDelegate>
@@ -398,41 +397,59 @@
 #pragma mark  --------GiftViewDelegate---------
 //点击赠送礼物的回调
 - (void)giftViewSendGiftInView:(QNGiftView *)giftView data:(QNSendGiftModel *)model {
-        
-    model.userIcon = LIVE_User_avatar;
-    model.userName = LIVE_User_nickname;
-    model.defaultCount = 0;
-    model.sendCount = 1;
-
-    [[QNGiftShowManager sharedManager] showGiftViewWithBackView:self.view info:model completeBlock:^(BOOL finished) {
-        NSLog(@"赠送了礼物");
-        
-    }];
-    [self requestSendGift:model];
-    [self sendGiftMessage:model];
+    if (model.amount == 0) {
+        [self showPayAmountView:model];
+    } else {
+        [self requestSendGift:model amount:0];
+    }
 }
 
-- (void)requestSendGift:(QNSendGiftModel *)model {
+- (void)showPayAmountView:(QNSendGiftModel *)model {
+    UIAlertController *alertController = [UIAlertController alertControllerWithTitle:model.name message:@"" preferredStyle:UIAlertControllerStyleAlert];
+    
+    [alertController addTextFieldWithConfigurationHandler:^(UITextField * _Nonnull textField) {
+        textField.placeholder = @"请输入红包金额";
+        textField.keyboardType = UIKeyboardTypeDecimalPad;
+    }];
+    UIAlertAction *cancelBtn = [UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleCancel handler:^(UIAlertAction * _Nonnull action) {
+    }];
+    [alertController addAction:cancelBtn];
+    
+    UIAlertAction *changeBtn = [UIAlertAction actionWithTitle:@"支付" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+        [[alertController.textFields firstObject] endEditing:YES];
+    }];
+    [alertController addAction:changeBtn];
+    
+    __weak typeof(self) weakSelf = self;
+    [self presentViewController:alertController animated:YES completion:^{
+        __strong typeof(self) strongSelf = weakSelf;
+        
+        NSString *text = [alertController.textFields firstObject].text;
+        if (text.length == 0) {
+            return;
+        }
+        
+        NSInteger amount = [text intValue];
+        [strongSelf requestSendGift:model amount:amount];
+    }];
+}
+
+- (void)requestSendGift:(QNSendGiftModel *)model amount:(NSInteger)amount{
     NSMutableDictionary *dic = [NSMutableDictionary dictionary];
     dic[@"live_id"] = self.roomInfo.live_id;
-    dic[@"gift_id"] = model.gift_id;
-    dic[@"amount"] = model.amount;
+    dic[@"gift_id"] = @(model.gift_id);
+    if (model.amount > 0) {
+        dic[@"amount"] = @(model.amount);
+    } else {
+        dic[@"amount"] = @(amount);
+    }
 
-    [QLiveNetworkUtil postRequestWithAction:@"client/gift/send" params:dic success:^(NSDictionary * _Nonnull responseData) {
-
-    } failure:^(NSError * _Nonnull error) {
+    [QLiveNetworkUtil postRequestWithAction:@"client/gift/send" params:dic  success:^(NSDictionary * _Nonnull responseData) {
+        NSLog(@"success %@", responseData);
         
+    } failure:^(NSError * _Nonnull error) {
+        NSLog(@"error %@", error);
     }];
-}
-
-//发送礼物信令和消息
--(void)sendGiftMessage:(QNSendGiftModel *)model {
-    QNGiftModel *gift = [QNGiftModel new];
-    gift.giftName = model.name;
-    gift.giftId = model.gift_id;
-    
-#pragma warning -------发送礼物消息
-    
 }
 
 //收到礼物信令的操作
@@ -456,33 +473,31 @@
 
 
 - (void)popGoodListView {
+    ShopBuyListController *vc = [[ShopBuyListController alloc] initWithLiveInfo:self.roomInfo];
+    __weak typeof(self)weakSelf = self;
+    vc.buyClickedBlock = ^(GoodsModel * _Nonnull itemModel) {
+        if (weakSelf.goodClickedBlock) {
+            weakSelf.goodClickedBlock(itemModel);
+        }
+        weakSelf.player.mute = YES;
+    };
+    vc.watchRecordBlock = ^(GoodsModel * _Nonnull itemModel) {
+        weakSelf.player.mute = YES;
         
-        ShopBuyListController *vc = [[ShopBuyListController alloc] initWithLiveInfo:self.roomInfo];
-        __weak typeof(self)weakSelf = self;
-        vc.buyClickedBlock = ^(GoodsModel * _Nonnull itemModel) {
-            if (weakSelf.goodClickedBlock) {
-                weakSelf.goodClickedBlock(itemModel);
-            }
-            weakSelf.player.mute = YES;
-        };
-        vc.watchRecordBlock = ^(GoodsModel * _Nonnull itemModel) {
-            weakSelf.player.mute = YES;
-            
-            WacthRecordController *vc = [[WacthRecordController alloc] initWithModel:itemModel roomInfo:weakSelf.roomInfo];
-            vc.modalPresentationStyle = UIModalPresentationFullScreen;
-            vc.buyClickedBlock = ^(GoodsModel * _Nonnull itemModel) {
-                if (self.goodClickedBlock) {
-                    self.goodClickedBlock(itemModel);
-                }
-            };
-            [weakSelf presentViewController:vc animated:YES completion:nil];
-            
-        };
-        vc.view.frame = CGRectMake(0, 0, SCREEN_W, SCREEN_H);
+        WacthRecordController *vc = [[WacthRecordController alloc] initWithModel:itemModel roomInfo:weakSelf.roomInfo];
         vc.modalPresentationStyle = UIModalPresentationFullScreen;
-        [self addChildViewController:vc];
-        [self.view addSubview:vc.view];
+        vc.buyClickedBlock = ^(GoodsModel * _Nonnull itemModel) {
+            if (self.goodClickedBlock) {
+                self.goodClickedBlock(itemModel);
+            }
+        };
+        [weakSelf presentViewController:vc animated:YES completion:nil];
         
+    };
+    vc.view.frame = CGRectMake(0, 0, SCREEN_W, SCREEN_H);
+    vc.modalPresentationStyle = UIModalPresentationFullScreen;
+    [self addChildViewController:vc];
+    [self.view addSubview:vc.view];
 }
 
 - (void)popLinkSLot {
