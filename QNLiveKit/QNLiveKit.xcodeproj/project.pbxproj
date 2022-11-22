@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		48B937CA29271C520014D671 /* CoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 48B937C929271C520014D671 /* CoreServices.framework */; };
 		48B937D029271CC20014D671 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 48B937CF29271CC20014D671 /* MapKit.framework */; };
+		48B9386A292CCAB00014D671 /* QNPayGiftViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = 48B93868292CCAB00014D671 /* QNPayGiftViewController.h */; };
+		48B9386B292CCAB00014D671 /* QNPayGiftViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 48B93869292CCAB00014D671 /* QNPayGiftViewController.m */; };
 		48E87A2C2926445800F33059 /* STLock.m in Sources */ = {isa = PBXBuildFile; fileRef = 48E878F52926445800F33059 /* STLock.m */; };
 		48E87A2D2926445800F33059 /* STEffectsTimer.m in Sources */ = {isa = PBXBuildFile; fileRef = 48E878F62926445800F33059 /* STEffectsTimer.m */; };
 		48E87A2E2926445800F33059 /* STMobileLog.h in Headers */ = {isa = PBXBuildFile; fileRef = 48E878F72926445800F33059 /* STMobileLog.h */; };
@@ -530,6 +532,8 @@
 		081F7CF449622E077318EFB5 /* Pods-QNLiveKitTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-QNLiveKitTests.release.xcconfig"; path = "Target Support Files/Pods-QNLiveKitTests/Pods-QNLiveKitTests.release.xcconfig"; sourceTree = "<group>"; };
 		48B937C929271C520014D671 /* CoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreServices.framework; path = Platforms/MacOSX.platform/Developer/SDKs/MacOSX12.3.sdk/System/Library/Frameworks/CoreServices.framework; sourceTree = DEVELOPER_DIR; };
 		48B937CF29271CC20014D671 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = Platforms/MacOSX.platform/Developer/SDKs/MacOSX12.3.sdk/System/iOSSupport/System/Library/Frameworks/MapKit.framework; sourceTree = DEVELOPER_DIR; };
+		48B93868292CCAB00014D671 /* QNPayGiftViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = QNPayGiftViewController.h; sourceTree = "<group>"; };
+		48B93869292CCAB00014D671 /* QNPayGiftViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = QNPayGiftViewController.m; sourceTree = "<group>"; };
 		48E878F52926445800F33059 /* STLock.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = STLock.m; sourceTree = "<group>"; };
 		48E878F62926445800F33059 /* STEffectsTimer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = STEffectsTimer.m; sourceTree = "<group>"; };
 		48E878F72926445800F33059 /* STMobileLog.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = STMobileLog.h; sourceTree = "<group>"; };
@@ -1938,6 +1942,8 @@
 				77781D9E28488932009DC71C /* QLiveController.m */,
 				77204D61285F755B0053B1AD /* QLiveListController.h */,
 				77204D64285F755C0053B1AD /* QLiveListController.m */,
+				48B93868292CCAB00014D671 /* QNPayGiftViewController.h */,
+				48B93869292CCAB00014D671 /* QNPayGiftViewController.m */,
 			);
 			path = VC;
 			sourceTree = "<group>";
@@ -2256,6 +2262,7 @@
 				48E87AA62926445800F33059 /* UIRefreshControl+AFNetworking.h in Headers */,
 				77781D9F28488932009DC71C /* QNBaseRTCController.h in Headers */,
 				48E87A602926445800F33059 /* SenseArMaterialGroup.h in Headers */,
+				48B9386A292CCAB00014D671 /* QNPayGiftViewController.h in Headers */,
 				77781D6828486D35009DC71C /* QEmojiCollectionCell.h in Headers */,
 				48E87AD92926445800F33059 /* EFMachineVersion.h in Headers */,
 				48E87AAF2926445800F33059 /* AFURLRequestSerialization.h in Headers */,
@@ -2766,6 +2773,7 @@
 				48E87B0C2926445900F33059 /* STBeautySlider.m in Sources */,
 				48E87A9C2926445800F33059 /* UIRefreshControl+AFNetworking.m in Sources */,
 				48E87B182926445900F33059 /* STCollectionView.m in Sources */,
+				48B9386B292CCAB00014D671 /* QNPayGiftViewController.m in Sources */,
 				48E87AA82926445800F33059 /* UIActivityIndicatorView+AFNetworking.m in Sources */,
 				77781D6428486D35009DC71C /* QEmojiCollectionCell.m in Sources */,
 				48E87A672926445800F33059 /* NSDictionary+sortedJson.m in Sources */,

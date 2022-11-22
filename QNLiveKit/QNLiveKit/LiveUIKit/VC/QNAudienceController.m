@@ -33,6 +33,7 @@
 #import "QNGiftView.h"
 #import "QNSendGiftModel.h"
 #import "QNGiftMsgModel.h"
+#import "QNPayGiftViewController.h"
 
 @interface QNAudienceController ()<QNChatRoomServiceListener,QNPushClientListener,LiveChatRoomViewDelegate,FDanmakuViewProtocol,PLPlayerDelegate,MicLinkerListener,PKServiceListener,GiftViewDelegate>
 @property (nonatomic,strong)UILabel *masterLeaveLabel;
@@ -404,33 +405,46 @@
     }
 }
 
+//- (void)showPayAmountView:(QNSendGiftModel *)model {
+//    UIAlertController *alertController = [UIAlertController alertControllerWithTitle:model.name message:@"" preferredStyle:UIAlertControllerStyleAlert];
+//
+//    [alertController addTextFieldWithConfigurationHandler:^(UITextField * _Nonnull textField) {
+//        textField.placeholder = @"请输入红包金额";
+//    }];
+//    UIAlertAction *cancelBtn = [UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleCancel handler:^(UIAlertAction * _Nonnull action) {
+//    }];
+//    [alertController addAction:cancelBtn];
+//
+//    UIAlertAction *changeBtn = [UIAlertAction actionWithTitle:@"支付" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+//        [[alertController.textFields firstObject] endEditing:YES];
+//    }];
+//    [alertController addAction:changeBtn];
+//
+//    __weak typeof(self) weakSelf = self;
+//    [self presentViewController:alertController animated:YES completion:^{
+//        __strong typeof(self) strongSelf = weakSelf;
+//
+//        NSString *text = [alertController.textFields firstObject].text;
+//        if (text.length == 0) {
+//            return;
+//        }
+//
+//        NSInteger amount = [text intValue];
+//        [strongSelf requestSendGift:model amount:amount];
+//    }];
+//}
+
 - (void)showPayAmountView:(QNSendGiftModel *)model {
-    UIAlertController *alertController = [UIAlertController alertControllerWithTitle:model.name message:@"" preferredStyle:UIAlertControllerStyleAlert];
-    
-    [alertController addTextFieldWithConfigurationHandler:^(UITextField * _Nonnull textField) {
-        textField.placeholder = @"请输入红包金额";
-        textField.keyboardType = UIKeyboardTypeDecimalPad;
-    }];
-    UIAlertAction *cancelBtn = [UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleCancel handler:^(UIAlertAction * _Nonnull action) {
-    }];
-    [alertController addAction:cancelBtn];
-    
-    UIAlertAction *changeBtn = [UIAlertAction actionWithTitle:@"支付" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
-        [[alertController.textFields firstObject] endEditing:YES];
-    }];
-    [alertController addAction:changeBtn];
-    
     __weak typeof(self) weakSelf = self;
-    [self presentViewController:alertController animated:YES completion:^{
-        __strong typeof(self) strongSelf = weakSelf;
-        
-        NSString *text = [alertController.textFields firstObject].text;
-        if (text.length == 0) {
+    QNPayGiftViewController *payVC = [[QNPayGiftViewController alloc] initWithComplete:^(NSInteger amount){
+        if (amount == 0) {
             return;
         }
         
-        NSInteger amount = [text intValue];
+        __strong typeof(self) strongSelf = weakSelf;
         [strongSelf requestSendGift:model amount:amount];
+    }];
+    [self presentViewController:payVC animated:YES completion:^{
     }];
 }
 

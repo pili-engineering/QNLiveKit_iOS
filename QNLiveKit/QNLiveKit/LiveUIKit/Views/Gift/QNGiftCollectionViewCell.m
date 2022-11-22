@@ -54,24 +54,24 @@
 
 - (void)makeupNormalConstraints {
     [self.bgView mas_remakeConstraints:^(MASConstraintMaker *make) {
-        make.left.top.right.bottom.equalTo(self.contentView);
+        make.left.top.right.bottom.equalTo(self);
     }];
     
     [self.iconImageView mas_remakeConstraints:^(MASConstraintMaker *make) {
         make.size.mas_equalTo(CGSizeMake(42, 42));
-        make.centerX.equalTo(self.contentView);
-        make.top.equalTo(self.contentView).offset(14);
+        make.centerX.equalTo(self);
+        make.top.equalTo(self).offset(14);
     }];
     
     [self.nameLabel mas_remakeConstraints:^(MASConstraintMaker *make) {
         make.height.mas_equalTo(16);
-        make.left.width.equalTo(self.contentView);
+        make.left.width.equalTo(self);
         make.top.equalTo(self.iconImageView.mas_bottom).offset(14);
     }];
     
     [self.amountLabel mas_remakeConstraints:^(MASConstraintMaker *make) {
         make.height.mas_equalTo(14);
-        make.left.width.equalTo(self.contentView);
+        make.left.width.equalTo(self);
         make.top.equalTo(self.nameLabel.mas_bottom).offset(-2);
     }];
 }
@@ -79,25 +79,25 @@
 
 - (void)makeupSelectedContraints {
     [self.bgView mas_remakeConstraints:^(MASConstraintMaker *make) {
-        make.left.top.right.bottom.equalTo(self.contentView);
+        make.left.top.right.bottom.equalTo(self);
     }];
     
     [self.iconImageView mas_remakeConstraints:^(MASConstraintMaker *make) {
         make.size.mas_equalTo(CGSizeMake(42, 42));
-        make.centerX.equalTo(self.contentView);
-        make.top.equalTo(self.contentView).offset(8);
+        make.centerX.equalTo(self);
+        make.top.equalTo(self).offset(8);
     }];
     
     
     [self.amountLabel mas_remakeConstraints:^(MASConstraintMaker *make) {
         make.height.mas_equalTo(16);
-        make.left.width.equalTo(self.contentView);
+        make.left.width.equalTo(self);
         make.top.equalTo(self.iconImageView.mas_bottom).offset(8);
     }];
     
     [self.payButton mas_remakeConstraints:^(MASConstraintMaker *make) {
         make.height.mas_equalTo(24);
-        make.left.right.bottom.equalTo(self.contentView);
+        make.left.right.bottom.equalTo(self);
     }];
 }
 

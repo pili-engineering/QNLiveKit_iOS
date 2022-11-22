@@ -238,7 +238,6 @@ static NSString *cellID = @"GiftCollectionViewCell";
 }
 
 - (void)showGiftView {
-    
     UIWindow *window = [UIApplication sharedApplication].keyWindow;
     [window addSubview:self];
     
