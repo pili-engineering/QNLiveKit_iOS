@@ -186,8 +186,17 @@
         [_payButton setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
         _payButton.titleLabel.font = [UIFont systemFontOfSize:10];
         [_payButton setTitle:@"支付" forState:UIControlStateNormal];
+        
+        [_payButton addTarget:self action:@selector(payGift) forControlEvents:UIControlEventTouchUpInside];
     }
     return _payButton;
 }
+
+- (void)payGift {
+    if (self.payGiftBlock) {
+        self.payGiftBlock(self.model);
+    }
+}
+
 
 @end

@@ -92,9 +92,7 @@ static NSString *cellID = @"GiftCollectionViewCell";
 }
 
 - (void)setData {
-    
     NSString *action = [NSString stringWithFormat:@"client/gift/config/%@",@"1"];
-    
     [QLiveNetworkUtil getRequestWithAction:action params:@{} success:^(NSDictionary * _Nonnull responseData) {
         
         NSArray <QNSendGiftModel *> *list = [QNSendGiftModel mj_objectArrayWithKeyValuesArray:responseData];
@@ -103,26 +101,12 @@ static NSString *cellID = @"GiftCollectionViewCell";
         } failure:^(NSError * _Nonnull error) {
             (nil);
         }];
-   
-//    NSMutableArray *dataArr = [NSMutableArray array];
-//
-//    SendGiftModel *model = [SendGiftModel new];
-//    model.gift_id = @"0";
-//    model.img = @"gift_cake";
-//    model.name = @"蛋糕";
-//    model.amount = @"20";
-//    model.animation_img = @"cat";
-//    [dataArr addObject:model];
-//
-//    self.dataArray = [dataArr copy];
 }
 
 #pragma mark -设置UI
 - (void)setUI {
     [self addSubview:self.coverView];
     [self addSubview:self.pannelView];
-    
-    
     
     
 //    UIButton *sendBtn = [[UIButton alloc] initWithFrame:CGRectMake(self.bottomView.frame.size.width-80, 0, 80, 44)];
@@ -142,7 +126,7 @@ static NSString *cellID = @"GiftCollectionViewCell";
         
         UITapGestureRecognizer * tapGesture = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tapEvent:)];
         [tapGesture setNumberOfTapsRequired:1];
-     
+
         [_coverView addGestureRecognizer:tapGesture];
     }
     return _coverView;
@@ -214,13 +198,18 @@ static NSString *cellID = @"GiftCollectionViewCell";
 }
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
-    
     QNGiftCollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:cellID forIndexPath:indexPath];
-    
     if (indexPath.item < self.dataArray.count) {
         QNSendGiftModel *model = self.dataArray[indexPath.item];
         cell.model = model;
     }
+    
+    __weak typeof(self) weakSelf = self;
+    cell.payGiftBlock = ^(QNSendGiftModel *giftModel) {
+        __strong typeof(self) strongSelf = weakSelf;
+        
+        [strongSelf payGift:giftModel];
+    };
     
     return cell;
 }
@@ -249,21 +238,10 @@ static NSString *cellID = @"GiftCollectionViewCell";
 }
 
 #pragma mark -发送
-- (void)p_ClickSendBtn {
-    
-    //找到已选中的礼物
-    BOOL isBack = NO;
-    for (QNSendGiftModel *model in self.dataArray) {
-        if (model.isSelected) {
-            isBack = YES;
-            if ([self.delegate respondsToSelector:@selector(giftViewSendGiftInView:data:)]) {
-                [self.delegate giftViewSendGiftInView:self data:model];
-            }
-        }
-    }
-    if (!isBack) {
-        //提示选择礼物
-        NSLog(@"没有选择礼物");
+- (void)payGift:(QNSendGiftModel *)model {
+
+    if ([self.delegate respondsToSelector:@selector(giftViewSendGiftInView:data:)]) {
+        [self.delegate giftViewSendGiftInView:self data:model];
     }
 }
 

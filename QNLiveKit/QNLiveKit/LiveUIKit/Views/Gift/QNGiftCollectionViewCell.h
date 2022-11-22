@@ -8,9 +8,14 @@
 #import <UIKit/UIKit.h>
 
 @class QNSendGiftModel;
+
+typedef void (^QNPayGiftBlock)(QNSendGiftModel *giftModel);
+
 @interface QNGiftCollectionViewCell : UICollectionViewCell
 
 /** model */
-@property(nonatomic,strong) QNSendGiftModel *model;
+@property (nonatomic,strong) QNSendGiftModel *model;
+
+@property (nonatomic, copy) QNPayGiftBlock payGiftBlock;
 
 @end
