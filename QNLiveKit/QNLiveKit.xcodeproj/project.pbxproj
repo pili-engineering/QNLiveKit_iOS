@@ -17,6 +17,8 @@
 		48B9387C292DEE590014D671 /* QNGiftMessagePannel.m in Sources */ = {isa = PBXBuildFile; fileRef = 48B9387A292DEE590014D671 /* QNGiftMessagePannel.m */; };
 		48B9387F292DF91E0014D671 /* QNGiftOperation.h in Headers */ = {isa = PBXBuildFile; fileRef = 48B9387D292DF91E0014D671 /* QNGiftOperation.h */; };
 		48B93880292DF91E0014D671 /* QNGiftOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 48B9387E292DF91E0014D671 /* QNGiftOperation.m */; };
+		48B93884292E12DA0014D671 /* QNGiftService.h in Headers */ = {isa = PBXBuildFile; fileRef = 48B93882292E12DA0014D671 /* QNGiftService.h */; };
+		48B93885292E12DA0014D671 /* QNGiftService.m in Sources */ = {isa = PBXBuildFile; fileRef = 48B93883292E12DA0014D671 /* QNGiftService.m */; };
 		48E87A2C2926445800F33059 /* STLock.m in Sources */ = {isa = PBXBuildFile; fileRef = 48E878F52926445800F33059 /* STLock.m */; };
 		48E87A2D2926445800F33059 /* STEffectsTimer.m in Sources */ = {isa = PBXBuildFile; fileRef = 48E878F62926445800F33059 /* STEffectsTimer.m */; };
 		48E87A2E2926445800F33059 /* STMobileLog.h in Headers */ = {isa = PBXBuildFile; fileRef = 48E878F72926445800F33059 /* STMobileLog.h */; };
@@ -365,10 +367,6 @@
 		776B1CEF283D0D8100D85C73 /* QNMergeOption.m in Sources */ = {isa = PBXBuildFile; fileRef = 776B1CED283D0D8100D85C73 /* QNMergeOption.m */; };
 		776B1CF2283D0F2000D85C73 /* LinkInvitation.h in Headers */ = {isa = PBXBuildFile; fileRef = 776B1CF0283D0F2000D85C73 /* LinkInvitation.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		776B1CF3283D0F2000D85C73 /* LinkInvitation.m in Sources */ = {isa = PBXBuildFile; fileRef = 776B1CF1283D0F2000D85C73 /* LinkInvitation.m */; };
-		776E371D2910BA0A003B7348 /* QNGiftService.h in Headers */ = {isa = PBXBuildFile; fileRef = 776E371B2910BA0A003B7348 /* QNGiftService.h */; };
-		776E371E2910BA0A003B7348 /* QNGiftService.m in Sources */ = {isa = PBXBuildFile; fileRef = 776E371C2910BA0A003B7348 /* QNGiftService.m */; };
-		776E37212910BAC5003B7348 /* QNGiftMsgModel.h in Headers */ = {isa = PBXBuildFile; fileRef = 776E371F2910BAC4003B7348 /* QNGiftMsgModel.h */; };
-		776E37222910BAC5003B7348 /* QNGiftMsgModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 776E37202910BAC5003B7348 /* QNGiftMsgModel.m */; };
 		777186972861B8A800C5CABC /* CALayer+Aimate.m in Sources */ = {isa = PBXBuildFile; fileRef = 777186902861B8A800C5CABC /* CALayer+Aimate.m */; };
 		777186982861B8A800C5CABC /* FDanmakuModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 777186912861B8A800C5CABC /* FDanmakuModel.m */; };
 		777186992861B8A800C5CABC /* FDanmakuModelProtocol.h in Headers */ = {isa = PBXBuildFile; fileRef = 777186922861B8A800C5CABC /* FDanmakuModelProtocol.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -487,11 +485,11 @@
 		77BE24D828FFD403007557E9 /* WatchBottomMoreView.h in Headers */ = {isa = PBXBuildFile; fileRef = 77BE24D628FFD403007557E9 /* WatchBottomMoreView.h */; };
 		77BE24D928FFD403007557E9 /* WatchBottomMoreView.m in Sources */ = {isa = PBXBuildFile; fileRef = 77BE24D728FFD403007557E9 /* WatchBottomMoreView.m */; };
 		77BE24F128FFED50007557E9 /* QNGiftView.h in Headers */ = {isa = PBXBuildFile; fileRef = 77BE24DC28FFED50007557E9 /* QNGiftView.h */; };
-		77BE24F528FFED50007557E9 /* QNSendGiftModel.h in Headers */ = {isa = PBXBuildFile; fileRef = 77BE24E028FFED50007557E9 /* QNSendGiftModel.h */; };
+		77BE24F528FFED50007557E9 /* QNGiftModel.h in Headers */ = {isa = PBXBuildFile; fileRef = 77BE24E028FFED50007557E9 /* QNGiftModel.h */; };
 		77BE24F628FFED50007557E9 /* QNHorizontalLayout.h in Headers */ = {isa = PBXBuildFile; fileRef = 77BE24E128FFED50007557E9 /* QNHorizontalLayout.h */; };
 		77BE24FB28FFED50007557E9 /* QNGiftView.m in Sources */ = {isa = PBXBuildFile; fileRef = 77BE24E628FFED50007557E9 /* QNGiftView.m */; };
 		77BE24FC28FFED50007557E9 /* QNGiftCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 77BE24E728FFED50007557E9 /* QNGiftCollectionViewCell.m */; };
-		77BE24FE28FFED50007557E9 /* QNSendGiftModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 77BE24E928FFED50007557E9 /* QNSendGiftModel.m */; };
+		77BE24FE28FFED50007557E9 /* QNGiftModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 77BE24E928FFED50007557E9 /* QNGiftModel.m */; };
 		77BE24FF28FFED50007557E9 /* QNGiftCollectionViewCell.h in Headers */ = {isa = PBXBuildFile; fileRef = 77BE24EA28FFED50007557E9 /* QNGiftCollectionViewCell.h */; };
 		77BE250328FFED50007557E9 /* QNHorizontalLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 77BE24EE28FFED50007557E9 /* QNHorizontalLayout.m */; };
 		77E02E31284E245A00EE8A28 /* QNAudienceController.h in Headers */ = {isa = PBXBuildFile; fileRef = 77E02E2F284E245A00EE8A28 /* QNAudienceController.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -546,6 +544,8 @@
 		48B9387A292DEE590014D671 /* QNGiftMessagePannel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = QNGiftMessagePannel.m; sourceTree = "<group>"; };
 		48B9387D292DF91E0014D671 /* QNGiftOperation.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = QNGiftOperation.h; sourceTree = "<group>"; };
 		48B9387E292DF91E0014D671 /* QNGiftOperation.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = QNGiftOperation.m; sourceTree = "<group>"; };
+		48B93882292E12DA0014D671 /* QNGiftService.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = QNGiftService.h; sourceTree = "<group>"; };
+		48B93883292E12DA0014D671 /* QNGiftService.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = QNGiftService.m; sourceTree = "<group>"; };
 		48E878F52926445800F33059 /* STLock.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = STLock.m; sourceTree = "<group>"; };
 		48E878F62926445800F33059 /* STEffectsTimer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = STEffectsTimer.m; sourceTree = "<group>"; };
 		48E878F72926445800F33059 /* STMobileLog.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = STMobileLog.h; sourceTree = "<group>"; };
@@ -894,10 +894,6 @@
 		776B1CED283D0D8100D85C73 /* QNMergeOption.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = QNMergeOption.m; sourceTree = "<group>"; };
 		776B1CF0283D0F2000D85C73 /* LinkInvitation.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LinkInvitation.h; sourceTree = "<group>"; };
 		776B1CF1283D0F2000D85C73 /* LinkInvitation.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LinkInvitation.m; sourceTree = "<group>"; };
-		776E371B2910BA0A003B7348 /* QNGiftService.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = QNGiftService.h; sourceTree = "<group>"; };
-		776E371C2910BA0A003B7348 /* QNGiftService.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = QNGiftService.m; sourceTree = "<group>"; };
-		776E371F2910BAC4003B7348 /* QNGiftMsgModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QNGiftMsgModel.h; sourceTree = "<group>"; };
-		776E37202910BAC5003B7348 /* QNGiftMsgModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QNGiftMsgModel.m; sourceTree = "<group>"; };
 		777186902861B8A800C5CABC /* CALayer+Aimate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "CALayer+Aimate.m"; sourceTree = "<group>"; };
 		777186912861B8A800C5CABC /* FDanmakuModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FDanmakuModel.m; sourceTree = "<group>"; };
 		777186922861B8A800C5CABC /* FDanmakuModelProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FDanmakuModelProtocol.h; sourceTree = "<group>"; };
@@ -1016,11 +1012,11 @@
 		77BE24D628FFD403007557E9 /* WatchBottomMoreView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WatchBottomMoreView.h; sourceTree = "<group>"; };
 		77BE24D728FFD403007557E9 /* WatchBottomMoreView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WatchBottomMoreView.m; sourceTree = "<group>"; };
 		77BE24DC28FFED50007557E9 /* QNGiftView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QNGiftView.h; sourceTree = "<group>"; };
-		77BE24E028FFED50007557E9 /* QNSendGiftModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QNSendGiftModel.h; sourceTree = "<group>"; };
+		77BE24E028FFED50007557E9 /* QNGiftModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QNGiftModel.h; sourceTree = "<group>"; };
 		77BE24E128FFED50007557E9 /* QNHorizontalLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QNHorizontalLayout.h; sourceTree = "<group>"; };
 		77BE24E628FFED50007557E9 /* QNGiftView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QNGiftView.m; sourceTree = "<group>"; };
 		77BE24E728FFED50007557E9 /* QNGiftCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QNGiftCollectionViewCell.m; sourceTree = "<group>"; };
-		77BE24E928FFED50007557E9 /* QNSendGiftModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QNSendGiftModel.m; sourceTree = "<group>"; };
+		77BE24E928FFED50007557E9 /* QNGiftModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QNGiftModel.m; sourceTree = "<group>"; };
 		77BE24EA28FFED50007557E9 /* QNGiftCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QNGiftCollectionViewCell.h; sourceTree = "<group>"; };
 		77BE24EE28FFED50007557E9 /* QNHorizontalLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QNHorizontalLayout.m; sourceTree = "<group>"; };
 		77E02E2F284E245A00EE8A28 /* QNAudienceController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = QNAudienceController.h; sourceTree = "<group>"; };
@@ -1062,6 +1058,17 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		48B93881292E12BC0014D671 /* Gift */ = {
+			isa = PBXGroup;
+			children = (
+				77BE24E028FFED50007557E9 /* QNGiftModel.h */,
+				77BE24E928FFED50007557E9 /* QNGiftModel.m */,
+				48B93882292E12DA0014D671 /* QNGiftService.h */,
+				48B93883292E12DA0014D671 /* QNGiftService.m */,
+			);
+			path = Gift;
+			sourceTree = "<group>";
+		};
 		48E878F32926445800F33059 /* Effect */ = {
 			isa = PBXGroup;
 			children = (
@@ -1706,6 +1713,7 @@
 		776B1C4B283C78D800D85C73 /* QNLiveKit */ = {
 			isa = PBXGroup;
 			children = (
+				48B93881292E12BC0014D671 /* Gift */,
 				48E87B3C2926449B00F33059 /* PLSTArEffects.framework */,
 				77781D9728486DAD009DC71C /* QNIMSDK.framework */,
 				77EDC498286DA86B002B4226 /* Beauty */,
@@ -2098,12 +2106,6 @@
 				77BE24E628FFED50007557E9 /* QNGiftView.m */,
 				77BE24E128FFED50007557E9 /* QNHorizontalLayout.h */,
 				77BE24EE28FFED50007557E9 /* QNHorizontalLayout.m */,
-				77BE24E028FFED50007557E9 /* QNSendGiftModel.h */,
-				77BE24E928FFED50007557E9 /* QNSendGiftModel.m */,
-				776E371F2910BAC4003B7348 /* QNGiftMsgModel.h */,
-				776E37202910BAC5003B7348 /* QNGiftMsgModel.m */,
-				776E371B2910BA0A003B7348 /* QNGiftService.h */,
-				776E371C2910BA0A003B7348 /* QNGiftService.m */,
 				48B93875292DEE490014D671 /* QNGiftMessageView.h */,
 				48B93876292DEE490014D671 /* QNGiftMessageView.m */,
 				48B93879292DEE590014D671 /* QNGiftMessagePannel.h */,
@@ -2259,7 +2261,6 @@
 				48E87B1A2926445900F33059 /* STTitleViewItem.h in Headers */,
 				776B1CC8283CFEE800D85C73 /* QNLivePullClient.h in Headers */,
 				48E87ACA2926445800F33059 /* EFRemoteDataSourceHelper+groupInfos.h in Headers */,
-				776E37212910BAC5003B7348 /* QNGiftMsgModel.h in Headers */,
 				48E87A792926445800F33059 /* YYWebImageOperation.h in Headers */,
 				48E87B042926445900F33059 /* STCollectionView.h in Headers */,
 				77BE24FF28FFED50007557E9 /* QNGiftCollectionViewCell.h in Headers */,
@@ -2288,7 +2289,7 @@
 				77BE237A28D8CAEC007557E9 /* QSlider.h in Headers */,
 				48E87A752926445800F33059 /* YYCache.h in Headers */,
 				77781D6728486D35009DC71C /* QEmojiBoardView.h in Headers */,
-				77BE24F528FFED50007557E9 /* QNSendGiftModel.h in Headers */,
+				77BE24F528FFED50007557E9 /* QNGiftModel.h in Headers */,
 				48E87B2F2926445900F33059 /* st_mobile_effect.h in Headers */,
 				48E87A2E2926445800F33059 /* STMobileLog.h in Headers */,
 				48E87A312926445800F33059 /* STLock.h in Headers */,
@@ -2298,7 +2299,6 @@
 				48E87B162926445900F33059 /* STBmpStrengthView.h in Headers */,
 				776B1CD5283D024E00D85C73 /* QLinkMicService.h in Headers */,
 				776B1CD1283D010D00D85C73 /* QNMicLinker.h in Headers */,
-				776E371D2910BA0A003B7348 /* QNGiftService.h in Headers */,
 				77781D332845E56A009DC71C /* OnlineUserView.h in Headers */,
 				77BE237628D8CAEC007557E9 /* UIViewController+QPlayerRotation.h in Headers */,
 				48E87A3A2926445800F33059 /* STCamera.h in Headers */,
@@ -2380,6 +2380,7 @@
 				48E87B252926445900F33059 /* STBeautySlider.h in Headers */,
 				77062FCA288062D600E9FD7D /* GoodsOperationCell.h in Headers */,
 				48E87A522926445800F33059 /* STColorConversion.h in Headers */,
+				48B93884292E12DA0014D671 /* QNGiftService.h in Headers */,
 				48E87AF32926445800F33059 /* STBMPDetailColVCell.h in Headers */,
 				48E87B062926445900F33059 /* EffectsCollectionView.h in Headers */,
 				7771869C2861B8A800C5CABC /* FDanmakuModel.h in Headers */,
@@ -2654,7 +2655,6 @@
 				77781D372845E56B009DC71C /* OnlineUserView.m in Sources */,
 				777B7A74284F375A005032B7 /* LinkStateView.m in Sources */,
 				777B7A80284F4B0D005032B7 /* QRenderView.m in Sources */,
-				776E37222910BAC5003B7348 /* QNGiftMsgModel.m in Sources */,
 				77781D6228486D35009DC71C /* QInputBarControl.m in Sources */,
 				48E87B002926445900F33059 /* STMakeupDataModel.m in Sources */,
 				776B1C74283C79BB00D85C73 /* QNCreateRoomParam.m in Sources */,
@@ -2664,6 +2664,7 @@
 				48E87AFD2926445900F33059 /* STCommonObjectContainerView.m in Sources */,
 				48E87B152926445900F33059 /* STBMPDetailColV.m in Sources */,
 				48E87B052926445900F33059 /* STCustomMemoryCache.m in Sources */,
+				48B93885292E12DA0014D671 /* QNGiftService.m in Sources */,
 				48E87A912926445800F33059 /* CALayer+YYWebImage.m in Sources */,
 				777186A42862C5D100C5CABC /* QToastView.m in Sources */,
 				48B93878292DEE490014D671 /* QNGiftMessageView.m in Sources */,
@@ -2676,7 +2677,7 @@
 				48E87ACD2926445800F33059 /* EFStatusManager.m in Sources */,
 				48E87A812926445800F33059 /* YYFrameImage.m in Sources */,
 				77BE250328FFED50007557E9 /* QNHorizontalLayout.m in Sources */,
-				77BE24FE28FFED50007557E9 /* QNSendGiftModel.m in Sources */,
+				77BE24FE28FFED50007557E9 /* QNGiftModel.m in Sources */,
 				77062FCF288080D300E9FD7D /* GoodsOperationView.m in Sources */,
 				776B1C83283CB2AA00D85C73 /* QNLiveUser.m in Sources */,
 				77BE237D28D8CAEC007557E9 /* UIViewController+QPlayerRotation.m in Sources */,
@@ -2752,7 +2753,6 @@
 				48E87B1C2926445900F33059 /* STCollectionViewCell.m in Sources */,
 				48E87A352926445800F33059 /* STDefaultSettingDataSourseGenerator.m in Sources */,
 				77BE237E28D8CAEC007557E9 /* QRotateAnimationView.m in Sources */,
-				776E371E2910BA0A003B7348 /* QNGiftService.m in Sources */,
 				48B9387C292DEE590014D671 /* QNGiftMessagePannel.m in Sources */,
 				48E87A2F2926445800F33059 /* NSBundle+language.m in Sources */,
 				77204D69285F755C0053B1AD /* QNLiveListCell.m in Sources */,

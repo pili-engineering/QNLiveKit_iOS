@@ -7,9 +7,10 @@
 
 #import "QNGiftView.h"
 #import "QNGiftCollectionViewCell.h"
-#import "QNSendGiftModel.h"
+#import "QNGiftModel.h"
 #import "QNHorizontalLayout.h"
 #import "QLiveNetworkUtil.h"
+#import "QNGiftService.h"
 #import <Masonry/Masonry.h>
 
 static NSString *cellID = @"GiftCollectionViewCell";
@@ -30,7 +31,7 @@ static NSString *cellID = @"GiftCollectionViewCell";
 @property(nonatomic,strong) UICollectionView *collectionView;
 
 /** 上一次点击的model */
-@property(nonatomic,strong) QNSendGiftModel *preModel;
+@property(nonatomic,strong) QNGiftModel *preModel;
 
 @end
 
@@ -92,15 +93,9 @@ static NSString *cellID = @"GiftCollectionViewCell";
 }
 
 - (void)setData {
-    NSString *action = [NSString stringWithFormat:@"client/gift/config/%@",@"1"];
-    [QLiveNetworkUtil getRequestWithAction:action params:@{} success:^(NSDictionary * _Nonnull responseData) {
-        
-        NSArray <QNSendGiftModel *> *list = [QNSendGiftModel mj_objectArrayWithKeyValuesArray:responseData];
-        self.dataArray = list;
-        
-        } failure:^(NSError * _Nonnull error) {
-            (nil);
-        }];
+    [[QNGiftService sharedInstance] getGiftModelsByType:1 complete:^(NSArray<QNGiftModel *> * _Nonnull giftModels) {
+        self.dataArray = giftModels;
+    }];
 }
 
 #pragma mark -设置UI
@@ -192,12 +187,12 @@ static NSString *cellID = @"GiftCollectionViewCell";
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
     QNGiftCollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:cellID forIndexPath:indexPath];
     if (indexPath.item < self.dataArray.count) {
-        QNSendGiftModel *model = self.dataArray[indexPath.item];
+        QNGiftModel *model = self.dataArray[indexPath.item];
         cell.model = model;
     }
     
     __weak typeof(self) weakSelf = self;
-    cell.payGiftBlock = ^(QNSendGiftModel *giftModel) {
+    cell.payGiftBlock = ^(QNGiftModel *giftModel) {
         __strong typeof(self) strongSelf = weakSelf;
         
         [strongSelf payGift:giftModel];
@@ -209,7 +204,7 @@ static NSString *cellID = @"GiftCollectionViewCell";
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
     
     if (indexPath.item < self.dataArray.count) {
-        QNSendGiftModel *model = self.dataArray[indexPath.item];
+        QNGiftModel *model = self.dataArray[indexPath.item];
         model.isSelected = !model.isSelected;
         if ([self.preModel isEqual:model]) {
             [collectionView reloadData];
@@ -230,7 +225,7 @@ static NSString *cellID = @"GiftCollectionViewCell";
 }
 
 #pragma mark -发送
-- (void)payGift:(QNSendGiftModel *)model {
+- (void)payGift:(QNGiftModel *)model {
 
     if ([self.delegate respondsToSelector:@selector(giftViewSendGiftInView:data:)]) {
         [self.delegate giftViewSendGiftInView:self data:model];
@@ -238,9 +233,14 @@ static NSString *cellID = @"GiftCollectionViewCell";
 }
 
 - (void)showGiftView {
+    if (self.preModel) {
+        self.preModel.isSelected = NO;
+        self.preModel = nil;
+    }
     UIWindow *window = [UIApplication sharedApplication].keyWindow;
     [window addSubview:self];
     
+    [self.collectionView reloadSections:[NSIndexSet indexSetWithIndex:0]];
     [UIView animateWithDuration:0.3 animations:^{
         self.frame = CGRectMake(0, 0, SCREEN_W, SCREEN_H);
     }];

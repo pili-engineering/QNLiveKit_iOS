@@ -7,7 +7,7 @@
 
 #import "QNGiftCollectionViewCell.h"
 #import "UIImageView+WebCache.h"
-#import "QNSendGiftModel.h"
+#import "QNGiftModel.h"
 
 @interface QNGiftCollectionViewCell()
 
@@ -102,7 +102,7 @@
 }
 
 
-- (void)setModel:(QNSendGiftModel *)model {
+- (void)setModel:(QNGiftModel *)model {
     _model = model;
     
     [self.iconImageView sd_setImageWithURL:[NSURL URLWithString:model.img] placeholderImage:[UIImage imageNamed:@""]];

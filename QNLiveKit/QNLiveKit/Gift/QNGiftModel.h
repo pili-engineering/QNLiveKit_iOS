@@ -7,7 +7,7 @@
 
 #import <Foundation/Foundation.h>
 
-@interface QNSendGiftModel : NSObject
+@interface QNGiftModel : NSObject
 
 /** 礼物ID */
 @property(nonatomic, assign) NSInteger gift_id;

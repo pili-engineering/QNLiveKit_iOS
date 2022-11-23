@@ -31,8 +31,7 @@
 #import "WacthRecordController.h"
 #import "WatchBottomMoreView.h"
 #import "QNGiftView.h"
-#import "QNSendGiftModel.h"
-#import "QNGiftMsgModel.h"
+#import "QNGiftModel.h"
 #import "QNPayGiftViewController.h"
 
 @interface QNAudienceController ()<QNChatRoomServiceListener,QNPushClientListener,LiveChatRoomViewDelegate,FDanmakuViewProtocol,PLPlayerDelegate,MicLinkerListener,PKServiceListener,GiftViewDelegate>
@@ -407,7 +406,7 @@
 
 #pragma mark  --------GiftViewDelegate---------
 //点击赠送礼物的回调
-- (void)giftViewSendGiftInView:(QNGiftView *)giftView data:(QNSendGiftModel *)model {
+- (void)giftViewSendGiftInView:(QNGiftView *)giftView data:(QNGiftModel *)model {
     if (model.amount == 0) {
         [self showPayAmountView:model];
     } else {
@@ -444,7 +443,7 @@
 //    }];
 //}
 
-- (void)showPayAmountView:(QNSendGiftModel *)model {
+- (void)showPayAmountView:(QNGiftModel *)model {
     __weak typeof(self) weakSelf = self;
     QNPayGiftViewController *payVC = [[QNPayGiftViewController alloc] initWithComplete:^(NSInteger amount){
         if (amount == 0) {
@@ -458,7 +457,7 @@
     }];
 }
 
-- (void)requestSendGift:(QNSendGiftModel *)model amount:(NSInteger)amount{
+- (void)requestSendGift:(QNGiftModel *)model amount:(NSInteger)amount{
     NSMutableDictionary *dic = [NSMutableDictionary dictionary];
     dic[@"live_id"] = self.roomInfo.live_id;
     dic[@"gift_id"] = @(model.gift_id);
