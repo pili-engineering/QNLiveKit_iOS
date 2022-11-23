@@ -324,13 +324,13 @@ static int clickPraiseBtnTimes  = 0 ;
                   cellForItemAtIndexPath:(NSIndexPath *)indexPath {
     QNIMMessageObject *messageContent =
     [self.conversationDataRepository objectAtIndex:indexPath.row];
-    QMessageBaseCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:ConversationMessageCollectionViewCell forIndexPath:indexPath];;
-        QTextMessageCell *__cell = nil;
-        NSString *indentifier = textCellIndentifier;
-        
-        __cell = [collectionView dequeueReusableCellWithReuseIdentifier:indentifier forIndexPath:indexPath];
-        [__cell setDataModel:messageContent];
-        cell = __cell;
+    QMessageBaseCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:ConversationMessageCollectionViewCell forIndexPath:indexPath];
+    QTextMessageCell *__cell = nil;
+    NSString *indentifier = textCellIndentifier;
+    
+    __cell = [collectionView dequeueReusableCellWithReuseIdentifier:indentifier forIndexPath:indexPath];
+    [__cell setDataModel:messageContent];
+    cell = __cell;
     
     return cell;
 }

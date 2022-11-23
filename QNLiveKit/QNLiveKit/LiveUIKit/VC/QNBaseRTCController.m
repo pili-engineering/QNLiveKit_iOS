@@ -101,7 +101,7 @@
 
 - (LiveChatRoom *)chatRoomView {
     if (!_chatRoomView) {
-        _chatRoomView = [[LiveChatRoom alloc] initWithFrame:CGRectMake(0, SCREEN_H - 245, 260, 280)];
+        _chatRoomView = [[LiveChatRoom alloc] initWithFrame:CGRectMake(0, SCREEN_H - 315, 260, 280)];
         _chatRoomView.groupId = self.roomInfo.chat_id;
     }
     return _chatRoomView;
@@ -222,7 +222,7 @@
 
 - (QNGiftMessagePannel *)giftMessagePannel {
     if (!_giftMessagePannel) {
-        _giftMessagePannel = [[QNGiftMessagePannel alloc] initWithFrame:CGRectMake(8, 250, 170, 150)];
+        _giftMessagePannel = [[QNGiftMessagePannel alloc] initWithFrame:CGRectMake(8, SCREEN_H - 315 - 150, 170, 150)];
     }
     return _giftMessagePannel;
 }

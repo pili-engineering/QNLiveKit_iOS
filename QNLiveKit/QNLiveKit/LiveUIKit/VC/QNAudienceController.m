@@ -289,7 +289,7 @@
 
 // 收到礼物消息
 - (void)onreceivedGiftMsg:(QNIMMessageObject *)msg {
-//    [self.chatRoomView showMessage:msg];
+    [self.chatRoomView showMessage:msg];
     [self.giftMessagePannel showGiftMessage:msg];
 }
 
