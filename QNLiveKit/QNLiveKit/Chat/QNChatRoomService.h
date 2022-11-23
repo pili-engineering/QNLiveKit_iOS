@@ -21,10 +21,12 @@ NS_ASSUME_NONNULL_BEGIN
 - (void)onUserLeave:(QNLiveUser *)user message:(QNIMMessageObject *)message;
 //收到公聊消息
 - (void)onReceivedPuChatMsg:(PubChatModel *)msg message:(QNIMMessageObject *)message;
-//收到点赞消息
-- (void)onReceivedLikeMsgFrom:(QNLiveUser *)sendUser;
 //收到弹幕消息
 - (void)onReceivedDamaku:(PubChatModel *)msg;
+//收到点赞消息
+- (void)onReceivedLikeMsg:(QNIMMessageObject *)msg;
+//收到礼物消息
+- (void)onreceivedGiftMsg:(QNIMMessageObject *)msg;
 
 @end
 

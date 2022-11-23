@@ -131,7 +131,6 @@ static int clickPraiseBtnTimes  = 0 ;
  *  将消息加入本地数组
  */
 - (void)appendAndDisplayMessage:(QNIMMessageObject *)rcMessage {
-    
     if ([self appendMessageModel:rcMessage]) {
         NSIndexPath *indexPath =
         [NSIndexPath indexPathForItem:self.conversationDataRepository.count - 1

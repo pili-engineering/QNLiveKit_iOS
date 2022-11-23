@@ -43,10 +43,11 @@
 
 #define liveroom_welcome  @"liveroom-welcome"
 #define liveroom_bye_bye  @"liveroom-bye-bye"//离开房间信令
-#define liveroom_like  @"liveroom-like"//点赞消息
 #define liveroom_pubchat  @"liveroom-pubchat"//公聊消息
 #define liveroom_pubchat_custom  @"liveroom-pubchat-custom"//自定义消息
-#define living_danmu  @"living_danmu"//弹幕信令
+#define living_danmu  @"living_danmu" //弹幕信令
+#define liveroom_like  @"like_notify" //点赞消息
+#define liveroom_gift  @"gift_notify" //礼物消息
 
 #define liveroom_miclinker_join  @"liveroom_miclinker_join"//上麦
 #define liveroom_miclinker_left  @"liveroom_miclinker_left"//下麦

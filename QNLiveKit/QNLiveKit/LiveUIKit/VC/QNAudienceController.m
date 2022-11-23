@@ -283,6 +283,16 @@
     [self.danmakuView.modelsArr addObject:model];
 }
 
+// 收到喜欢消息
+- (void)onReceivedLikeMsg:(QNIMMessageObject *)msg {
+    
+}
+
+// 收到礼物消息
+- (void)onreceivedGiftMsg:(QNIMMessageObject *)msg {
+    [self.chatRoomView showMessage:msg];
+}
+
 -(NSTimeInterval)currentTime {
     static double time = 0;
     time += 0.1 ;

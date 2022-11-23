@@ -11,6 +11,12 @@
 		48B937D029271CC20014D671 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 48B937CF29271CC20014D671 /* MapKit.framework */; };
 		48B9386A292CCAB00014D671 /* QNPayGiftViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = 48B93868292CCAB00014D671 /* QNPayGiftViewController.h */; };
 		48B9386B292CCAB00014D671 /* QNPayGiftViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 48B93869292CCAB00014D671 /* QNPayGiftViewController.m */; };
+		48B93877292DEE490014D671 /* QNGiftMessageView.h in Headers */ = {isa = PBXBuildFile; fileRef = 48B93875292DEE490014D671 /* QNGiftMessageView.h */; };
+		48B93878292DEE490014D671 /* QNGiftMessageView.m in Sources */ = {isa = PBXBuildFile; fileRef = 48B93876292DEE490014D671 /* QNGiftMessageView.m */; };
+		48B9387B292DEE590014D671 /* QNGiftMessagePannel.h in Headers */ = {isa = PBXBuildFile; fileRef = 48B93879292DEE590014D671 /* QNGiftMessagePannel.h */; };
+		48B9387C292DEE590014D671 /* QNGiftMessagePannel.m in Sources */ = {isa = PBXBuildFile; fileRef = 48B9387A292DEE590014D671 /* QNGiftMessagePannel.m */; };
+		48B9387F292DF91E0014D671 /* QNGiftOperation.h in Headers */ = {isa = PBXBuildFile; fileRef = 48B9387D292DF91E0014D671 /* QNGiftOperation.h */; };
+		48B93880292DF91E0014D671 /* QNGiftOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 48B9387E292DF91E0014D671 /* QNGiftOperation.m */; };
 		48E87A2C2926445800F33059 /* STLock.m in Sources */ = {isa = PBXBuildFile; fileRef = 48E878F52926445800F33059 /* STLock.m */; };
 		48E87A2D2926445800F33059 /* STEffectsTimer.m in Sources */ = {isa = PBXBuildFile; fileRef = 48E878F62926445800F33059 /* STEffectsTimer.m */; };
 		48E87A2E2926445800F33059 /* STMobileLog.h in Headers */ = {isa = PBXBuildFile; fileRef = 48E878F72926445800F33059 /* STMobileLog.h */; };
@@ -534,6 +540,12 @@
 		48B937CF29271CC20014D671 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = Platforms/MacOSX.platform/Developer/SDKs/MacOSX12.3.sdk/System/iOSSupport/System/Library/Frameworks/MapKit.framework; sourceTree = DEVELOPER_DIR; };
 		48B93868292CCAB00014D671 /* QNPayGiftViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = QNPayGiftViewController.h; sourceTree = "<group>"; };
 		48B93869292CCAB00014D671 /* QNPayGiftViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = QNPayGiftViewController.m; sourceTree = "<group>"; };
+		48B93875292DEE490014D671 /* QNGiftMessageView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = QNGiftMessageView.h; sourceTree = "<group>"; };
+		48B93876292DEE490014D671 /* QNGiftMessageView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = QNGiftMessageView.m; sourceTree = "<group>"; };
+		48B93879292DEE590014D671 /* QNGiftMessagePannel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = QNGiftMessagePannel.h; sourceTree = "<group>"; };
+		48B9387A292DEE590014D671 /* QNGiftMessagePannel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = QNGiftMessagePannel.m; sourceTree = "<group>"; };
+		48B9387D292DF91E0014D671 /* QNGiftOperation.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = QNGiftOperation.h; sourceTree = "<group>"; };
+		48B9387E292DF91E0014D671 /* QNGiftOperation.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = QNGiftOperation.m; sourceTree = "<group>"; };
 		48E878F52926445800F33059 /* STLock.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = STLock.m; sourceTree = "<group>"; };
 		48E878F62926445800F33059 /* STEffectsTimer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = STEffectsTimer.m; sourceTree = "<group>"; };
 		48E878F72926445800F33059 /* STMobileLog.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = STMobileLog.h; sourceTree = "<group>"; };
@@ -2092,6 +2104,12 @@
 				776E37202910BAC5003B7348 /* QNGiftMsgModel.m */,
 				776E371B2910BA0A003B7348 /* QNGiftService.h */,
 				776E371C2910BA0A003B7348 /* QNGiftService.m */,
+				48B93875292DEE490014D671 /* QNGiftMessageView.h */,
+				48B93876292DEE490014D671 /* QNGiftMessageView.m */,
+				48B93879292DEE590014D671 /* QNGiftMessagePannel.h */,
+				48B9387A292DEE590014D671 /* QNGiftMessagePannel.m */,
+				48B9387D292DF91E0014D671 /* QNGiftOperation.h */,
+				48B9387E292DF91E0014D671 /* QNGiftOperation.m */,
 			);
 			path = Gift;
 			sourceTree = "<group>";
@@ -2320,6 +2338,7 @@
 				48E87A382926445800F33059 /* STDefaultSetting.h in Headers */,
 				77781D482845FC68009DC71C /* BottomMenuView.h in Headers */,
 				77204D68285F755C0053B1AD /* QCreateLiveController.h in Headers */,
+				48B93877292DEE490014D671 /* QNGiftMessageView.h in Headers */,
 				48E87B2B2926445900F33059 /* st_mobile_human_action.h in Headers */,
 				48E87AAE2926445800F33059 /* AFURLSessionManager.h in Headers */,
 				777B7A73284F375A005032B7 /* LinkStateView.h in Headers */,
@@ -2374,6 +2393,7 @@
 				77204D8B285F97A20053B1AD /* QIMModel.h in Headers */,
 				77BE24D828FFD403007557E9 /* WatchBottomMoreView.h in Headers */,
 				48E87ADD2926445800F33059 /* NSData+meterialAes.h in Headers */,
+				48B9387F292DF91E0014D671 /* QNGiftOperation.h in Headers */,
 				77062FD22880920000E9FD7D /* GoodStatusView.h in Headers */,
 				48E87A5F2926445800F33059 /* SenseArMaterialService.h in Headers */,
 				77062FCE288080D300E9FD7D /* GoodsOperationView.h in Headers */,
@@ -2405,6 +2425,7 @@
 				77E02E31284E245A00EE8A28 /* QNAudienceController.h in Headers */,
 				77758CFA28AA529C005CBB59 /* UIViewController+QViewController.h in Headers */,
 				48E87B212926445900F33059 /* STParamUtil.h in Headers */,
+				48B9387B292DEE590014D671 /* QNGiftMessagePannel.h in Headers */,
 				48E87B222926445900F33059 /* STCustomMemoryCache.h in Headers */,
 				48E87B0B2926445900F33059 /* STBMPCollectionViewCell.h in Headers */,
 				77758CF728AA4516005CBB59 /* UILabel+QAttributed.h in Headers */,
@@ -2628,6 +2649,7 @@
 				48E87A682926445800F33059 /* EFResource.m in Sources */,
 				48E87AE92926445800F33059 /* STAudioManager.m in Sources */,
 				48E87AA72926445800F33059 /* UIButton+AFNetworking.m in Sources */,
+				48B93880292DF91E0014D671 /* QNGiftOperation.m in Sources */,
 				48E87A5B2926445800F33059 /* STVFShader.m in Sources */,
 				77781D372845E56B009DC71C /* OnlineUserView.m in Sources */,
 				777B7A74284F375A005032B7 /* LinkStateView.m in Sources */,
@@ -2644,6 +2666,7 @@
 				48E87B052926445900F33059 /* STCustomMemoryCache.m in Sources */,
 				48E87A912926445800F33059 /* CALayer+YYWebImage.m in Sources */,
 				777186A42862C5D100C5CABC /* QToastView.m in Sources */,
+				48B93878292DEE490014D671 /* QNGiftMessageView.m in Sources */,
 				77BE24CD28FE91D1007557E9 /* MXSCycleScrollView.m in Sources */,
 				48E87A8E2926445800F33059 /* UIImageView+YYWebImage.m in Sources */,
 				77BE238828D94428007557E9 /* NSDate+QDate.m in Sources */,
@@ -2730,6 +2753,7 @@
 				48E87A352926445800F33059 /* STDefaultSettingDataSourseGenerator.m in Sources */,
 				77BE237E28D8CAEC007557E9 /* QRotateAnimationView.m in Sources */,
 				776E371E2910BA0A003B7348 /* QNGiftService.m in Sources */,
+				48B9387C292DEE590014D671 /* QNGiftMessagePannel.m in Sources */,
 				48E87A2F2926445800F33059 /* NSBundle+language.m in Sources */,
 				77204D69285F755C0053B1AD /* QNLiveListCell.m in Sources */,
 				48E87A8D2926445800F33059 /* UIButton+YYWebImage.m in Sources */,
