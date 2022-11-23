@@ -23,6 +23,8 @@
 		48B9388A292E26590014D671 /* QNUserService.m in Sources */ = {isa = PBXBuildFile; fileRef = 48B93888292E26590014D671 /* QNUserService.m */; };
 		48B9388D292E399E0014D671 /* QNGiftMsgModel.h in Headers */ = {isa = PBXBuildFile; fileRef = 48B9388B292E399E0014D671 /* QNGiftMsgModel.h */; };
 		48B9388E292E399E0014D671 /* QNGiftMsgModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 48B9388C292E399E0014D671 /* QNGiftMsgModel.m */; };
+		48B93896292E56C10014D671 /* QNGiftMessageCell.h in Headers */ = {isa = PBXBuildFile; fileRef = 48B93894292E56C10014D671 /* QNGiftMessageCell.h */; };
+		48B93897292E56C10014D671 /* QNGiftMessageCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 48B93895292E56C10014D671 /* QNGiftMessageCell.m */; };
 		48E87A2C2926445800F33059 /* STLock.m in Sources */ = {isa = PBXBuildFile; fileRef = 48E878F52926445800F33059 /* STLock.m */; };
 		48E87A2D2926445800F33059 /* STEffectsTimer.m in Sources */ = {isa = PBXBuildFile; fileRef = 48E878F62926445800F33059 /* STEffectsTimer.m */; };
 		48E87A2E2926445800F33059 /* STMobileLog.h in Headers */ = {isa = PBXBuildFile; fileRef = 48E878F72926445800F33059 /* STMobileLog.h */; };
@@ -552,6 +554,8 @@
 		48B93888292E26590014D671 /* QNUserService.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = QNUserService.m; sourceTree = "<group>"; };
 		48B9388B292E399E0014D671 /* QNGiftMsgModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = QNGiftMsgModel.h; sourceTree = "<group>"; };
 		48B9388C292E399E0014D671 /* QNGiftMsgModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = QNGiftMsgModel.m; sourceTree = "<group>"; };
+		48B93894292E56C10014D671 /* QNGiftMessageCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = QNGiftMessageCell.h; sourceTree = "<group>"; };
+		48B93895292E56C10014D671 /* QNGiftMessageCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = QNGiftMessageCell.m; sourceTree = "<group>"; };
 		48E878F52926445800F33059 /* STLock.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = STLock.m; sourceTree = "<group>"; };
 		48E878F62926445800F33059 /* STEffectsTimer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = STEffectsTimer.m; sourceTree = "<group>"; };
 		48E878F72926445800F33059 /* STMobileLog.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = STMobileLog.h; sourceTree = "<group>"; };
@@ -1959,6 +1963,8 @@
 				77781D6A28486D3D009DC71C /* QMessageBaseCell.m */,
 				77781D6D28486D3D009DC71C /* QTextMessageCell.h */,
 				77781D6B28486D3D009DC71C /* QTextMessageCell.m */,
+				48B93894292E56C10014D671 /* QNGiftMessageCell.h */,
+				48B93895292E56C10014D671 /* QNGiftMessageCell.m */,
 			);
 			path = MessageCell;
 			sourceTree = "<group>";
@@ -2318,6 +2324,7 @@
 				48E87A3A2926445800F33059 /* STCamera.h in Headers */,
 				48E87A942926445800F33059 /* NSObject+YYModel.h in Headers */,
 				48E87ADF2926445800F33059 /* STCoreStateManagement.h in Headers */,
+				48B93896292E56C10014D671 /* QNGiftMessageCell.h in Headers */,
 				48E87A6B2926445800F33059 /* YYClassInfo.h in Headers */,
 				48E87A8B2926445800F33059 /* MKAnnotationView+YYWebImage.h in Headers */,
 				48E87A592926445800F33059 /* STGLShader.h in Headers */,
@@ -2768,6 +2775,7 @@
 				48E87AB12926445800F33059 /* AFHTTPSessionManager.m in Sources */,
 				48E87B1C2926445900F33059 /* STCollectionViewCell.m in Sources */,
 				48E87A352926445800F33059 /* STDefaultSettingDataSourseGenerator.m in Sources */,
+				48B93897292E56C10014D671 /* QNGiftMessageCell.m in Sources */,
 				77BE237E28D8CAEC007557E9 /* QRotateAnimationView.m in Sources */,
 				48B9387C292DEE590014D671 /* QNGiftMessagePannel.m in Sources */,
 				48E87A2F2926445800F33059 /* NSBundle+language.m in Sources */,

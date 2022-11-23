@@ -17,8 +17,7 @@
  */
 @property(nonatomic, strong) UILabel *textLabel;
 @property(nonatomic, strong) UILabel *nameLabel;
-@property(nonatomic, strong) UIImageView *avatarImageView;
-@property (nonatomic, strong) UIView *bgView;
+
 
 + (CGSize)getMessageCellSize:(NSString *)content withWidth:(CGFloat)width;
 

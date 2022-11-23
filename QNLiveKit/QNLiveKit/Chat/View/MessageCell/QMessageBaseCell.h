@@ -13,6 +13,10 @@
 
 @interface QMessageBaseCell : UICollectionViewCell
 
+@property (nonatomic, strong) UIImageView *avatarImageView;
+
+@property (nonatomic, strong) UIView *bgView;
+
 /**
  消息Cell的数据模型
  */
@@ -24,5 +28,10 @@
  @param model 消息Cell的数据模型
  */
 - (void)setDataModel:(QNIMMessageObject *)model;
+
+/**
+ 更新layout
+ */
+- (void)makeConstraints;
 
 @end

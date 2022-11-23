@@ -13,11 +13,6 @@
 #import <QNIMSDK/QNIMSDK.h>
 #import <SDWebImage/SDWebImage.h>
 
-#define RCCRText_HEXCOLOR(rgbValue)                                                                                             \
-[UIColor colorWithRed:((float)((rgbValue & 0xFF0000) >> 16)) / 255.0                                               \
-green:((float)((rgbValue & 0xFF00) >> 8)) / 255.0                                                  \
-blue:((float)(rgbValue & 0xFF)) / 255.0                                                           \
-alpha:1.0]
 
 @interface QTextMessageCell ()
 
@@ -25,20 +20,43 @@ alpha:1.0]
 
 @implementation QTextMessageCell
 
-- (instancetype)initWithFrame:(CGRect)frame
-{
+- (instancetype)initWithFrame:(CGRect)frame {
     if (self = [super initWithFrame:frame]) {
-        [self initializedSubViews];
+        [self.contentView addSubview:self.nameLabel];
+        [self.contentView addSubview:self.textLabel];
     }
     return self;
 }
 
-- (void)initializedSubViews {
-    [self avatarImageView];
-    [self bgView];
-    [self nameLabel];
-    [self textLabel];
-
+- (void)makeConstraints {
+    [super makeConstraints];
+    
+    [self.nameLabel mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.height.mas_equalTo(18);
+        make.left.equalTo(self.bgView).offset(6);
+        make.top.equalTo(self.bgView).offset(4);
+    }];
+    
+//    [_textLabel mas_makeConstraints:^(MASConstraintMaker *make) {
+//        make.left.equalTo(self.nameLabel);
+//        make.right.equalTo(self.bgView.mas_right).offset(-5);
+//        make.top.equalTo(self.nameLabel.mas_bottom).offset(3);
+//        make.bottom.equalTo(self.bgView).offset(-5);
+//    }];
+    
+    [self.textLabel mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.equalTo(self.bgView).offset(6);
+        make.top.equalTo(self.nameLabel.mas_bottom);
+        make.right.equalTo(self.bgView).offset(-6);
+        make.bottom.equalTo(self.bgView).offset(-4);
+    }];
+    
+//    [_nameLabel mas_makeConstraints:^(MASConstraintMaker *make) {
+//        make.left.equalTo(self.bgView.mas_left).offset(8);
+//        make.top.equalTo(self.avatarImageView);
+//        make.right.equalTo(self.bgView.mas_right).offset(-5);
+//        make.height.mas_equalTo(20);
+//    }];
 }
 
 - (void)setDataModel:(QNIMMessageObject *)model {
@@ -58,96 +76,49 @@ alpha:1.0]
 }
 
 + (CGSize)getMessageCellSize:(NSString *)content withWidth:(CGFloat)width{
-    CGSize textSize = CGSizeZero;
-    textSize.height = textSize.height + 17 + 20;
-    return textSize;
+    return CGSizeMake(width, 44);
 }
 
 - (UILabel *)textLabel {
     if (!_textLabel) {
-        _textLabel = [[UILabel alloc] init];
-        [_textLabel setTextAlignment: NSTextAlignmentLeft];
-        [_textLabel setTextColor:[UIColor whiteColor]];
-        _textLabel.numberOfLines = 0;
-        [_textLabel setFont:[UIFont systemFontOfSize:13]];
-        [self.bgView addSubview:_textLabel];
+        _textLabel = [[UILabel alloc] initWithFrame:CGRectZero];
         
-        [_textLabel mas_makeConstraints:^(MASConstraintMaker *make) {
-            make.left.equalTo(self.nameLabel);
-            make.right.equalTo(self.bgView.mas_right).offset(-5);
-            make.top.equalTo(self.nameLabel.mas_bottom).offset(3);
-            make.bottom.equalTo(self.bgView).offset(-5);
-        }];
+        [_textLabel setFont:[UIFont systemFontOfSize:13]];
+        [_textLabel setTextColor:[UIColor colorWithHexString:@"#CCDFFC"]];
+        
+        [_textLabel setTextAlignment: NSTextAlignmentLeft];
+        _textLabel.numberOfLines = 0;
+        
     }
     return _textLabel;
 }
 
-- (UIView *)bgView {
-    if (!_bgView) {
-        _bgView = [[UIView alloc]init];
-        _bgView.backgroundColor = [UIColor blackColor];
-        _bgView.alpha = 0.5;
-        _bgView.layer.cornerRadius = 5;
-        [self addSubview:_bgView];
-        
-        [_bgView mas_makeConstraints:^(MASConstraintMaker *make) {
-            make.left.equalTo(self).offset(50);
-            make.top.equalTo(self);
-            make.width.mas_equalTo(SCREEN_W * 0.5);
-            make.height.mas_equalTo(40);
-            make.bottom.equalTo(self).offset(-5);
-        }];
-    }
-    return _bgView;
-}
-
 - (UILabel *)nameLabel {
     if (!_nameLabel) {
-        _nameLabel = [[UILabel alloc]init];
-        [_nameLabel setTextAlignment: NSTextAlignmentLeft];
-        [_nameLabel setTextColor:[UIColor colorWithRed:0.8 green:0.875 blue:0.988 alpha:1]];
+        _nameLabel = [[UILabel alloc]initWithFrame:CGRectZero];
+        
         [_nameLabel setFont:[UIFont systemFontOfSize:13]];
-        [self.bgView addSubview:_nameLabel];
-        [_nameLabel mas_makeConstraints:^(MASConstraintMaker *make) {
-            make.left.equalTo(self.bgView.mas_left).offset(8);
-            make.top.equalTo(self.avatarImageView);
-            make.right.equalTo(self.bgView.mas_right).offset(-5);
-            make.height.mas_equalTo(20);
-        }];
+        [_nameLabel setTextColor:[UIColor colorWithHexString:@"#CCDFFC"]];
+        
+        [_nameLabel setTextAlignment: NSTextAlignmentLeft];
+        [_nameLabel setNumberOfLines:1];
     }
     return _nameLabel;
 }
 
-- (UIImageView *)avatarImageView {
-    if (!_avatarImageView) {
-        _avatarImageView = [[UIImageView alloc]init];
-        [self addSubview:_avatarImageView];
-        _avatarImageView.backgroundColor = [UIColor yellowColor];
-        _avatarImageView.layer.cornerRadius = 15;
-        _avatarImageView.contentMode = UIViewContentModeScaleAspectFit;
-        _avatarImageView.clipsToBounds = YES;
-        [_avatarImageView mas_makeConstraints:^(MASConstraintMaker *make) {
-            make.left.equalTo(self).offset(10);
-            make.top.equalTo(self);
-            make.width.height.mas_equalTo(30);
-        }];
-    }
-    return _avatarImageView;
-}
-
-- (NSString *)timeWithTimeInterval:(long)timeInterval
-{
-    // 格式化时间
-    NSDateFormatter* formatter = [[NSDateFormatter alloc] init];
-    formatter.timeZone = [NSTimeZone timeZoneWithName:@"shanghai"];
-    [formatter setDateStyle:NSDateFormatterMediumStyle];
-    [formatter setTimeStyle:NSDateFormatterShortStyle];
-    [formatter setDateFormat:@"yyyy年MM月dd日 HH:mm"];
-    
-    // 毫秒值转化为秒
-    NSDate* date = [NSDate dateWithTimeIntervalSince1970:timeInterval/ 1000.0];
-    NSString* dateString = [formatter stringFromDate:date];
-    return dateString;
-}
+//- (NSString *)timeWithTimeInterval:(long)timeInterval
+//{
+//    // 格式化时间
+//    NSDateFormatter* formatter = [[NSDateFormatter alloc] init];
+//    formatter.timeZone = [NSTimeZone timeZoneWithName:@"shanghai"];
+//    [formatter setDateStyle:NSDateFormatterMediumStyle];
+//    [formatter setTimeStyle:NSDateFormatterShortStyle];
+//    [formatter setDateFormat:@"yyyy年MM月dd日 HH:mm"];
+//
+//    // 毫秒值转化为秒
+//    NSDate* date = [NSDate dateWithTimeIntervalSince1970:timeInterval/ 1000.0];
+//    NSString* dateString = [formatter stringFromDate:date];
+//    return dateString;
+//}
 
 @end

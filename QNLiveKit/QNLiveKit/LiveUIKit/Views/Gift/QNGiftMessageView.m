@@ -136,7 +136,6 @@
     
     [self updateContentView];
     
-    [self.avatarImageView sd_setImageWithURL:[NSURL URLWithString:LIVE_User_avatar] placeholderImage:[UIImage imageNamed:@"titleImage"]];
     [[QNUserService sharedInstance] getUserByID:model.user_id complete:^(QNLiveUser * _Nonnull user) {
         if (user) {
             [self.avatarImageView sd_setImageWithURL:[NSURL URLWithString:user.avatar] placeholderImage:[UIImage imageNamed:@"titleImage"]];
