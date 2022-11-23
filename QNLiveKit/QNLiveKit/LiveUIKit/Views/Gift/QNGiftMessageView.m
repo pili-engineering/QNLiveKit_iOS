@@ -25,7 +25,7 @@
 @property (nonatomic, strong) UIImageView *giftImageView;
 
 @property (nonatomic, assign) NSInteger mode;   //1,2,3
-
+@property (nonatomic, copy) void (^completeBlock)(void) ;
 @end
 
 @implementation QNGiftMessageView
@@ -97,8 +97,30 @@
 
 - (void)showGiftWithMessage:(QNIMMessageObject *)message complete:(void (^)(void))complete {
     [self setupWithMessage:message];
+    [self layoutSubviews];
     
-    [self layoutIfNeeded];
+    self.completeBlock = complete;
+    
+    self.hidden = NO;
+    [UIView animateWithDuration:0.3 animations:^{
+        self.frame =CGRectMake(0, self.frame.origin.y, self.frame.size.width, self.frame.size.height);
+    } completion:^(BOOL finished) {
+        [self performSelector:@selector(hiddenGiftShowView) withObject:nil afterDelay:2];
+    }];
+}
+
+- (void)hiddenGiftShowView {
+    [UIView animateWithDuration:0.3 animations:^{
+        self.frame =CGRectMake(self.frame.origin.x, self.frame.origin.y-20, self.frame.size.width, self.frame.size.height);
+        self.alpha = 0;
+    } completion:^(BOOL finished) {
+        if (self.completeBlock) {
+            self.completeBlock();
+        }
+        self.frame =CGRectMake(-self.frame.size.width, self.frame.origin.y+20, self.frame.size.width, self.frame.size.height);
+        self.alpha = 1.0;
+        self.hidden = YES;
+    }];
 }
 
 - (void)setupWithMessage:(QNIMMessageObject *)message {

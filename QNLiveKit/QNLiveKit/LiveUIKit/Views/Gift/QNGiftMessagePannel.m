@@ -54,19 +54,19 @@
 }
 
 - (void)showGiftMessage:(QNIMMessageObject *)message {
-    [[self.msgViews firstObject] showGiftMessage:message];
-//    NSOperationQueue *queue = [self.msgQueues objectAtIndex:0];
-//    QNGiftMessageView *showView = [self.msgViews objectAtIndex:0];
-//    for (int i = 1; i < QUEUE_COUNT; i++) {
-//        NSOperationQueue *curQueue = [self.msgQueues objectAtIndex:i];
-//        if (curQueue.operationCount < queue.operationCount) {
-//            queue = curQueue;
-//            showView = [self.msgViews objectAtIndex:i];
-//        }
-//    }
-//
-//    QNGiftOperation *operation = [[QNGiftOperation alloc] initWithMessage:message view:showView];
-//    [queue addOperation:operation];
+//    [[self.msgViews firstObject] showGiftMessage:message];
+    NSOperationQueue *queue = [self.msgQueues objectAtIndex:0];
+    QNGiftMessageView *showView = [self.msgViews objectAtIndex:0];
+    for (int i = 1; i < QUEUE_COUNT; i++) {
+        NSOperationQueue *curQueue = [self.msgQueues objectAtIndex:i];
+        if (curQueue.operationCount < queue.operationCount) {
+            queue = curQueue;
+            showView = [self.msgViews objectAtIndex:i];
+        }
+    }
+
+    QNGiftOperation *operation = [[QNGiftOperation alloc] initWithMessage:message view:showView];
+    [queue addOperation:operation];
 }
 
 @end

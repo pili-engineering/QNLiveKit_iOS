@@ -222,7 +222,7 @@
 
 - (QNGiftMessagePannel *)giftMessagePannel {
     if (!_giftMessagePannel) {
-        _giftMessagePannel = [[QNGiftMessagePannel alloc] initWithFrame:CGRectMake(20, 250, 170, 150)];
+        _giftMessagePannel = [[QNGiftMessagePannel alloc] initWithFrame:CGRectMake(8, 250, 170, 150)];
     }
     return _giftMessagePannel;
 }
