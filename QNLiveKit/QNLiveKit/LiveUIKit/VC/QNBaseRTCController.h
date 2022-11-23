@@ -12,7 +12,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 @class QNLiveRoomInfo,QNLivePushClient,QNLiveRoomClient,QNChatRoomService,LiveChatRoom,QNMergeOption,QPKService,QRenderView,FDanmakuView,QLinkMicService,QStatisticalService;
 
-@class RoomHostView, OnlineUserView, BottomMenuView, ImageButtonView;
+@class RoomHostView, OnlineUserView, BottomMenuView, ImageButtonView, QNGiftMessagePannel;
 
 @interface QNBaseRTCController : UIViewController
 
@@ -21,6 +21,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, strong) BottomMenuView *bottomMenuView;
 @property (nonatomic, strong) ImageButtonView *pubchatView;
 @property (nonatomic, strong) UIButton *closeButton;
+@property (nonatomic, strong) QNGiftMessagePannel *giftMessagePannel;
 
 @property (nonatomic, strong) QRenderView *preview;//自己画面的预览视图
 @property (nonatomic, strong) QRenderView *remoteView;//远端画面

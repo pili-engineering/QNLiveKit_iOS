@@ -20,6 +20,7 @@
 #import "QRenderView.h"
 #import "FDanmakuView.h"
 #import "QStatisticalService.h"
+#import "QNGiftMessagePannel.h"
 
 @interface QNBaseRTCController ()
 
@@ -42,6 +43,7 @@
     [self.view addSubview:self.pubchatView];
     [self.view addSubview:self.bottomMenuView];
     [self.view addSubview:self.closeButton];
+    [self.view addSubview:self.giftMessagePannel];
 }
 
 - (void)setupBG {
@@ -218,4 +220,10 @@
     return _bottomMenuView;
 }
 
+- (QNGiftMessagePannel *)giftMessagePannel {
+    if (!_giftMessagePannel) {
+        _giftMessagePannel = [[QNGiftMessagePannel alloc] initWithFrame:CGRectMake(20, 250, 170, 150)];
+    }
+    return _giftMessagePannel;
+}
 @end

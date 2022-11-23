@@ -7,12 +7,18 @@
 
 #import "QNGiftMessageView.h"
 #import "QNIMSDK/QNIMSDK.h"
+#import "QIMModel.h"
+#import "QNGiftMsgModel.h"
+#import "QNUserService.h"
+#import "QNGiftService.h"
 
 @interface QNGiftMessageView ()
 
 @property (nonatomic, strong) QNIMMessageObject *message;
 
 @property (nonatomic, strong) UIView *contentView;
+@property (nonatomic, strong) CAGradientLayer *contentLayer;
+
 @property (nonatomic, strong) UIImageView *avatarImageView;
 @property (nonatomic, strong) UILabel *nickLabel;
 @property (nonatomic, strong) UILabel *messageLabel;
@@ -80,14 +86,73 @@
             make.top.equalTo(self.contentView).offset(-10);
         }];
     }
+    
+}
+
+- (void)showGiftMessage:(QNIMMessageObject *)message {
+    [self setupWithMessage:message];
+    
+    [self layoutSubviews];
 }
 
 - (void)showGiftWithMessage:(QNIMMessageObject *)message complete:(void (^)(void))complete {
     [self setupWithMessage:message];
+    
+    [self layoutIfNeeded];
 }
 
 - (void)setupWithMessage:(QNIMMessageObject *)message {
+    QIMModel *imModel = [QIMModel mj_objectWithKeyValues:message.content.mj_keyValues];
+    QNGiftMsgModel *model = [QNGiftMsgModel mj_objectWithKeyValues:imModel.data];
+    if (model.amount < 5000) {
+        self.mode = 1;
+    } else if (model.amount < 8000) {
+        self.mode = 2;
+    } else {
+        self.mode = 3;
+    }
     
+    [self updateContentView];
+    
+    [self.avatarImageView sd_setImageWithURL:[NSURL URLWithString:LIVE_User_avatar] placeholderImage:[UIImage imageNamed:@"titleImage"]];
+    [[QNUserService sharedInstance] getUserByID:model.user_id complete:^(QNLiveUser * _Nonnull user) {
+        if (user) {
+            [self.avatarImageView sd_setImageWithURL:[NSURL URLWithString:user.avatar] placeholderImage:[UIImage imageNamed:@"titleImage"]];
+            self.nickLabel.text = user.nick ? user.nick : user.user_id;
+        }
+    }];
+    
+    [[QNGiftService sharedInstance] getGiftModelById:model.gift_id complete:^(QNGiftModel * _Nonnull giftModel) {
+        if (giftModel) {
+            self.messageLabel.text = [NSString stringWithFormat:@"送出%@", giftModel.name];
+            [self.giftImageView sd_setImageWithURL:[NSURL URLWithString:giftModel.img]];
+        }
+    }];
+    
+    self.contentLayer.bounds = self.contentView.bounds;
+    self.contentLayer.frame = self.contentView.bounds;
+}
+
+- (void)updateContentView {
+    UIColor *color1 = [UIColor colorWithRed:0.0 green:0.0 blue:0.0 alpha:0.4];
+    UIColor *color2 = [UIColor colorWithRed:0.0 green:0.0 blue:0.0 alpha:0.05];
+    
+    switch (self.mode) {
+        case 3:
+            color1 = [UIColor colorWithRed:239.0 / 255 green:65.0 / 255 blue:73.0 / 255 alpha:0.75];
+            color2 = [UIColor colorWithRed:239.0 / 255 green:65.0 / 255 blue:73.0 / 255 alpha:0.75];
+            break;
+            
+        case 2:
+            color1 = [UIColor colorWithRed:0.0 green:170.0 / 255 blue:231.0 / 255 alpha:0.75];
+            color2 = [UIColor colorWithRed:0.0 green:170.0 / 255 blue:231.0 / 255 alpha:0.20];
+            break;
+            
+        default:
+            break;
+    }
+    
+    self.contentLayer.colors = [NSArray arrayWithObjects:(id)[color1 CGColor],(id)[color2 CGColor],nil];
 }
 
 #pragma mark - SubViews
@@ -96,8 +161,25 @@
         _contentView = [[UIView alloc] initWithFrame:CGRectZero];
         [_contentView.layer setCornerRadius:20.0];
         [_contentView.layer setMasksToBounds:YES];
+        
+        [_contentView.layer addSublayer:self.contentLayer];
     }
     return _contentView;
+}
+
+- (CAGradientLayer *)contentLayer {
+    if (!_contentLayer) {
+        UIColor *color1 = [UIColor colorWithRed:0.0 green:0.0 blue:0.0 alpha:0.4];
+        UIColor *color2 = [UIColor colorWithRed:0.0 green:0.0 blue:0.0 alpha:0.05];
+        
+        _contentLayer = [CAGradientLayer layer];
+        _contentLayer.colors = [NSArray arrayWithObjects:(id)[color1 CGColor],(id)[color2 CGColor],nil];
+        _contentLayer.startPoint = CGPointMake(0.0, 0.5);
+        _contentLayer.endPoint = CGPointMake(1.0, 0.5);
+        _contentLayer.borderWidth = 0;
+    }
+    
+    return _contentLayer;
 }
 
 - (UIImageView *)avatarImageView {

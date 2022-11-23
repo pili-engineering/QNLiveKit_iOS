@@ -15,6 +15,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 - (void)showGiftWithMessage:(QNIMMessageObject *)message complete:(void (^)(void))complete;
 
+- (void)showGiftMessage:(QNIMMessageObject *)message;
 @end
 
 NS_ASSUME_NONNULL_END

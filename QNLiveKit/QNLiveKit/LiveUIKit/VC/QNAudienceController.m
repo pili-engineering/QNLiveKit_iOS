@@ -33,10 +33,12 @@
 #import "QNGiftView.h"
 #import "QNGiftModel.h"
 #import "QNPayGiftViewController.h"
+#import "QNGiftMessagePannel.h"
 
 @interface QNAudienceController ()<QNChatRoomServiceListener,QNPushClientListener,LiveChatRoomViewDelegate,FDanmakuViewProtocol,PLPlayerDelegate,MicLinkerListener,PKServiceListener,GiftViewDelegate>
 @property (nonatomic,strong)UILabel *masterLeaveLabel;
-@property(nonatomic,strong) QNGiftView *giftView;
+@property (nonatomic, strong) QNGiftView *giftView;
+
 @end
 
 @implementation QNAudienceController
@@ -68,8 +70,6 @@
     [self.chatService sendWelComeMsg:^(QNIMMessageObject * _Nonnull msg) {
         [weakSelf.chatRoomView showMessage:msg];
     }];
-    
-    
 }
 
 //正在讲解的商品
@@ -289,7 +289,8 @@
 
 // 收到礼物消息
 - (void)onreceivedGiftMsg:(QNIMMessageObject *)msg {
-    [self.chatRoomView showMessage:msg];
+//    [self.chatRoomView showMessage:msg];
+    [self.giftMessagePannel showGiftMessage:msg];
 }
 
 -(NSTimeInterval)currentTime {
