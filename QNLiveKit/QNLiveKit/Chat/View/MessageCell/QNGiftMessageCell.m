@@ -100,7 +100,6 @@
 - (void) updateContent {
     if (self.user && self.giftModel) {
         NSString *nick = self.user.nick ? self.user.nick : self.user.user_id;
-        nick = @"一个很长很长很长很长的昵称，你真的愿意吗？";
         NSString *gift = self.giftModel.amount > 0 ? self.giftModel.name : [NSString stringWithFormat:@"%@ %ld", self.giftModel.name, self.giftMsgModel.amount];
         NSString *text = [NSString stringWithFormat:@"%@ 打赏 %@", nick, gift];
         self.textLabel.text = text;
