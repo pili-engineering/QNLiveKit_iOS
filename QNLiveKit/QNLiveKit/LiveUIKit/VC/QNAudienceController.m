@@ -35,6 +35,7 @@
 #import "QNPayGiftViewController.h"
 #import "QNGiftMessagePannel.h"
 #import "QNGiftPaySuccessView.h"
+#import "QNLikeMenuView.h"
 
 @interface QNAudienceController ()<QNChatRoomServiceListener,QNPushClientListener,LiveChatRoomViewDelegate,FDanmakuViewProtocol,PLPlayerDelegate,MicLinkerListener,PKServiceListener,GiftViewDelegate>
 @property (nonatomic,strong)UILabel *masterLeaveLabel;
@@ -365,11 +366,9 @@
     };
     [slotList addObject:shopping];
  
-    ImageButtonView *likeView = [[ImageButtonView alloc] initWithFrame:CGRectZero];
-    [likeView bundleNormalImage:@"like" selectImage:@"like"];
-    likeView.clickBlock = ^(BOOL selected) {
-        [weakSelf like];
-    };
+    QNLikeMenuView *likeView = [[QNLikeMenuView alloc] initWithFrame:CGRectZero];
+    [likeView bundleNormalImage:@"like_click" selectImage:@"like_click"];
+    likeView.roomInfo = self.roomInfo;
     [slotList addObject:likeView];
  
     //更多
@@ -400,10 +399,6 @@
     };
 
     [self.view addSubview:moreView];
-}
-
-- (void)like {
-    NSLog(@"Like clicked");
 }
 
 #pragma mark  --------GiftViewDelegate---------

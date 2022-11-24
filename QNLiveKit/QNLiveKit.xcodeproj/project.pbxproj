@@ -27,6 +27,16 @@
 		48B93897292E56C10014D671 /* QNGiftMessageCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 48B93895292E56C10014D671 /* QNGiftMessageCell.m */; };
 		48B9389B292F1F5F0014D671 /* QNGiftPaySuccessView.h in Headers */ = {isa = PBXBuildFile; fileRef = 48B93899292F1F5F0014D671 /* QNGiftPaySuccessView.h */; };
 		48B9389C292F1F5F0014D671 /* QNGiftPaySuccessView.m in Sources */ = {isa = PBXBuildFile; fileRef = 48B9389A292F1F5F0014D671 /* QNGiftPaySuccessView.m */; };
+		48B938A0292F55640014D671 /* QNLikeService.h in Headers */ = {isa = PBXBuildFile; fileRef = 48B9389E292F55640014D671 /* QNLikeService.h */; };
+		48B938A1292F55640014D671 /* QNLikeService.m in Sources */ = {isa = PBXBuildFile; fileRef = 48B9389F292F55640014D671 /* QNLikeService.m */; };
+		48B938A4292F5C0E0014D671 /* QNLikeResult.h in Headers */ = {isa = PBXBuildFile; fileRef = 48B938A2292F5C0E0014D671 /* QNLikeResult.h */; };
+		48B938A5292F5C0E0014D671 /* QNLikeResult.m in Sources */ = {isa = PBXBuildFile; fileRef = 48B938A3292F5C0E0014D671 /* QNLikeResult.m */; };
+		48B938A9292F5FCB0014D671 /* QNLikeMenuView.h in Headers */ = {isa = PBXBuildFile; fileRef = 48B938A7292F5FCB0014D671 /* QNLikeMenuView.h */; };
+		48B938AA292F5FCB0014D671 /* QNLikeMenuView.m in Sources */ = {isa = PBXBuildFile; fileRef = 48B938A8292F5FCB0014D671 /* QNLikeMenuView.m */; };
+		48B938AD292F5FDB0014D671 /* QNLikeBubbleView.h in Headers */ = {isa = PBXBuildFile; fileRef = 48B938AB292F5FDB0014D671 /* QNLikeBubbleView.h */; };
+		48B938AE292F5FDB0014D671 /* QNLikeBubbleView.m in Sources */ = {isa = PBXBuildFile; fileRef = 48B938AC292F5FDB0014D671 /* QNLikeBubbleView.m */; };
+		48B938B1292F8EF10014D671 /* QNLikeNotify.h in Headers */ = {isa = PBXBuildFile; fileRef = 48B938AF292F8EF10014D671 /* QNLikeNotify.h */; };
+		48B938B2292F8EF10014D671 /* QNLikeNotify.m in Sources */ = {isa = PBXBuildFile; fileRef = 48B938B0292F8EF10014D671 /* QNLikeNotify.m */; };
 		48E87A2C2926445800F33059 /* STLock.m in Sources */ = {isa = PBXBuildFile; fileRef = 48E878F52926445800F33059 /* STLock.m */; };
 		48E87A2D2926445800F33059 /* STEffectsTimer.m in Sources */ = {isa = PBXBuildFile; fileRef = 48E878F62926445800F33059 /* STEffectsTimer.m */; };
 		48E87A2E2926445800F33059 /* STMobileLog.h in Headers */ = {isa = PBXBuildFile; fileRef = 48E878F72926445800F33059 /* STMobileLog.h */; };
@@ -560,6 +570,16 @@
 		48B93895292E56C10014D671 /* QNGiftMessageCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = QNGiftMessageCell.m; sourceTree = "<group>"; };
 		48B93899292F1F5F0014D671 /* QNGiftPaySuccessView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = QNGiftPaySuccessView.h; sourceTree = "<group>"; };
 		48B9389A292F1F5F0014D671 /* QNGiftPaySuccessView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = QNGiftPaySuccessView.m; sourceTree = "<group>"; };
+		48B9389E292F55640014D671 /* QNLikeService.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = QNLikeService.h; sourceTree = "<group>"; };
+		48B9389F292F55640014D671 /* QNLikeService.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = QNLikeService.m; sourceTree = "<group>"; };
+		48B938A2292F5C0E0014D671 /* QNLikeResult.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = QNLikeResult.h; sourceTree = "<group>"; };
+		48B938A3292F5C0E0014D671 /* QNLikeResult.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = QNLikeResult.m; sourceTree = "<group>"; };
+		48B938A7292F5FCB0014D671 /* QNLikeMenuView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = QNLikeMenuView.h; sourceTree = "<group>"; };
+		48B938A8292F5FCB0014D671 /* QNLikeMenuView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = QNLikeMenuView.m; sourceTree = "<group>"; };
+		48B938AB292F5FDB0014D671 /* QNLikeBubbleView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = QNLikeBubbleView.h; sourceTree = "<group>"; };
+		48B938AC292F5FDB0014D671 /* QNLikeBubbleView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = QNLikeBubbleView.m; sourceTree = "<group>"; };
+		48B938AF292F8EF10014D671 /* QNLikeNotify.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = QNLikeNotify.h; sourceTree = "<group>"; };
+		48B938B0292F8EF10014D671 /* QNLikeNotify.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = QNLikeNotify.m; sourceTree = "<group>"; };
 		48E878F52926445800F33059 /* STLock.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = STLock.m; sourceTree = "<group>"; };
 		48E878F62926445800F33059 /* STEffectsTimer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = STEffectsTimer.m; sourceTree = "<group>"; };
 		48E878F72926445800F33059 /* STMobileLog.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = STMobileLog.h; sourceTree = "<group>"; };
@@ -1088,6 +1108,30 @@
 				48B93888292E26590014D671 /* QNUserService.m */,
 			);
 			path = User;
+			sourceTree = "<group>";
+		};
+		48B9389D292F55510014D671 /* Like */ = {
+			isa = PBXGroup;
+			children = (
+				48B9389E292F55640014D671 /* QNLikeService.h */,
+				48B9389F292F55640014D671 /* QNLikeService.m */,
+				48B938A2292F5C0E0014D671 /* QNLikeResult.h */,
+				48B938A3292F5C0E0014D671 /* QNLikeResult.m */,
+				48B938AF292F8EF10014D671 /* QNLikeNotify.h */,
+				48B938B0292F8EF10014D671 /* QNLikeNotify.m */,
+			);
+			path = Like;
+			sourceTree = "<group>";
+		};
+		48B938A6292F5D740014D671 /* Like */ = {
+			isa = PBXGroup;
+			children = (
+				48B938A7292F5FCB0014D671 /* QNLikeMenuView.h */,
+				48B938A8292F5FCB0014D671 /* QNLikeMenuView.m */,
+				48B938AB292F5FDB0014D671 /* QNLikeBubbleView.h */,
+				48B938AC292F5FDB0014D671 /* QNLikeBubbleView.m */,
+			);
+			path = Like;
 			sourceTree = "<group>";
 		};
 		48E878F32926445800F33059 /* Effect */ = {
@@ -1734,6 +1778,7 @@
 		776B1C4B283C78D800D85C73 /* QNLiveKit */ = {
 			isa = PBXGroup;
 			children = (
+				48B9389D292F55510014D671 /* Like */,
 				48B93886292E263F0014D671 /* User */,
 				48B93881292E12BC0014D671 /* Gift */,
 				48E87B3C2926449B00F33059 /* PLSTArEffects.framework */,
@@ -1869,6 +1914,7 @@
 		777186A52862D46100C5CABC /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				48B938A6292F5D740014D671 /* Like */,
 				77BE250728FFEDA5007557E9 /* ToolView */,
 				77BE250628FFED83007557E9 /* LiveView */,
 				77BE250528FFED5E007557E9 /* BottomView */,
@@ -2357,6 +2403,7 @@
 				777B7A83284F5A6F005032B7 /* QNPKInvitationListCell.h in Headers */,
 				48E87AB92926445800F33059 /* AFHTTPSessionManager.h in Headers */,
 				48E87A532926445800F33059 /* STGLPreview3.h in Headers */,
+				48B938A4292F5C0E0014D671 /* QNLikeResult.h in Headers */,
 				77BE24F128FFED50007557E9 /* QNGiftView.h in Headers */,
 				48E87A832926445800F33059 /* YYSpriteSheetImage.h in Headers */,
 				48E87B1D2926445900F33059 /* STMakeupDataModel.h in Headers */,
@@ -2396,11 +2443,13 @@
 				48E87A742926445800F33059 /* YYDiskCache.h in Headers */,
 				48E87A9D2926445800F33059 /* UIImageView+AFNetworking.h in Headers */,
 				777B7A87284F5BC5005032B7 /* QNPKInvitationListController.h in Headers */,
+				48B938B1292F8EF10014D671 /* QNLikeNotify.h in Headers */,
 				48E87A322926445800F33059 /* STEffectsTimer.h in Headers */,
 				77204D97285F9AF50053B1AD /* LinkOptionModel.h in Headers */,
 				48E87A372926445800F33059 /* DefaultBeautyParameters.h in Headers */,
 				48E87AC52926445800F33059 /* EFStatusManagerDelegate.h in Headers */,
 				48E87A852926445800F33059 /* YYWebImageManager.h in Headers */,
+				48B938A9292F5FCB0014D671 /* QNLikeMenuView.h in Headers */,
 				48E87AE02926445800F33059 /* STCoreStateManagementModel.h in Headers */,
 				77A11C6028854A7A00020149 /* BeautyBaseController.h in Headers */,
 				77A11C64288556AA00020149 /* CreateBeautyLiveController.h in Headers */,
@@ -2450,12 +2499,14 @@
 				77204D4E285873BF0053B1AD /* QRooms.h in Headers */,
 				48E87AED2926445800F33059 /* STAudioManager.h in Headers */,
 				77BE237528D8CAEC007557E9 /* QRotateAnimationView.h in Headers */,
+				48B938A0292F55640014D671 /* QNLikeService.h in Headers */,
 				77758CF128AA3B06005CBB59 /* QTagButton.h in Headers */,
 				77E02E31284E245A00EE8A28 /* QNAudienceController.h in Headers */,
 				77758CFA28AA529C005CBB59 /* UIViewController+QViewController.h in Headers */,
 				48E87B212926445900F33059 /* STParamUtil.h in Headers */,
 				48B9387B292DEE590014D671 /* QNGiftMessagePannel.h in Headers */,
 				48E87B222926445900F33059 /* STCustomMemoryCache.h in Headers */,
+				48B938AD292F5FDB0014D671 /* QNLikeBubbleView.h in Headers */,
 				48E87B0B2926445900F33059 /* STBMPCollectionViewCell.h in Headers */,
 				77758CF728AA4516005CBB59 /* UILabel+QAttributed.h in Headers */,
 				77BE1F0928C7342A007557E9 /* QRoomDataModel.h in Headers */,
@@ -2667,6 +2718,7 @@
 				77758CF628AA4516005CBB59 /* UILabel+QAttributed.m in Sources */,
 				77BE237828D8CAEC007557E9 /* QPlayerMaskView.m in Sources */,
 				48E87A6A2926445800F33059 /* NSData+meterialAes.m in Sources */,
+				48B938AE292F5FDB0014D671 /* QNLikeBubbleView.m in Sources */,
 				77781D6E28486D3D009DC71C /* QMessageBaseCell.m in Sources */,
 				48E87B102926445900F33059 /* STViewButton.m in Sources */,
 				77781D302845E56A009DC71C /* QLiveView.m in Sources */,
@@ -2697,6 +2749,7 @@
 				48B93885292E12DA0014D671 /* QNGiftService.m in Sources */,
 				48E87A912926445800F33059 /* CALayer+YYWebImage.m in Sources */,
 				777186A42862C5D100C5CABC /* QToastView.m in Sources */,
+				48B938A5292F5C0E0014D671 /* QNLikeResult.m in Sources */,
 				48B93878292DEE490014D671 /* QNGiftMessageView.m in Sources */,
 				77BE24CD28FE91D1007557E9 /* MXSCycleScrollView.m in Sources */,
 				48E87A8E2926445800F33059 /* UIImageView+YYWebImage.m in Sources */,
@@ -2736,6 +2789,7 @@
 				77E02E32284E245A00EE8A28 /* QNAudienceController.m in Sources */,
 				48E87A572926445800F33059 /* STColorConversion.m in Sources */,
 				77EDC4A0286DAD99002B4226 /* BeautyLiveViewController.m in Sources */,
+				48B938B2292F8EF10014D671 /* QNLikeNotify.m in Sources */,
 				48E87B112926445900F33059 /* STSlideView.m in Sources */,
 				48E87AE52926445800F33059 /* STCoreStateManagement.m in Sources */,
 				48E87ADC2926445800F33059 /* EFRemoteDataSourceHelper+groupInfos.m in Sources */,
@@ -2771,6 +2825,7 @@
 				77BE24D928FFD403007557E9 /* WatchBottomMoreView.m in Sources */,
 				77204D8C285F97A20053B1AD /* QInvitationModel.m in Sources */,
 				48E87A9A2926445800F33059 /* UIProgressView+AFNetworking.m in Sources */,
+				48B938A1292F55640014D671 /* QNLikeService.m in Sources */,
 				77A11CD7288A724E00020149 /* UIColor+QNColor.m in Sources */,
 				48E87AB42926445800F33059 /* AFURLRequestSerialization.m in Sources */,
 				48E87AC62926445800F33059 /* EFStorageHelper.m in Sources */,
@@ -2808,6 +2863,7 @@
 				77781DA128488932009DC71C /* QNBaseRTCController.m in Sources */,
 				48E87A692926445800F33059 /* NSString+materialAes.m in Sources */,
 				48E87B032926445900F33059 /* STTitleViewItem.m in Sources */,
+				48B938AA292F5FCB0014D671 /* QNLikeMenuView.m in Sources */,
 				48E87AF82926445900F33059 /* STButton.m in Sources */,
 				48E87ACC2926445800F33059 /* EFGlobalSingleton.m in Sources */,
 				776B1CEF283D0D8100D85C73 /* QNMergeOption.m in Sources */,
