@@ -34,11 +34,12 @@
 #import "QNGiftModel.h"
 #import "QNPayGiftViewController.h"
 #import "QNGiftMessagePannel.h"
+#import "QNGiftPaySuccessView.h"
 
 @interface QNAudienceController ()<QNChatRoomServiceListener,QNPushClientListener,LiveChatRoomViewDelegate,FDanmakuViewProtocol,PLPlayerDelegate,MicLinkerListener,PKServiceListener,GiftViewDelegate>
 @property (nonatomic,strong)UILabel *masterLeaveLabel;
 @property (nonatomic, strong) QNGiftView *giftView;
-
+@property (nonatomic, strong) QNGiftPaySuccessView *paySuccessView;
 @end
 
 @implementation QNAudienceController
@@ -415,35 +416,6 @@
     }
 }
 
-//- (void)showPayAmountView:(QNSendGiftModel *)model {
-//    UIAlertController *alertController = [UIAlertController alertControllerWithTitle:model.name message:@"" preferredStyle:UIAlertControllerStyleAlert];
-//
-//    [alertController addTextFieldWithConfigurationHandler:^(UITextField * _Nonnull textField) {
-//        textField.placeholder = @"请输入红包金额";
-//    }];
-//    UIAlertAction *cancelBtn = [UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleCancel handler:^(UIAlertAction * _Nonnull action) {
-//    }];
-//    [alertController addAction:cancelBtn];
-//
-//    UIAlertAction *changeBtn = [UIAlertAction actionWithTitle:@"支付" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
-//        [[alertController.textFields firstObject] endEditing:YES];
-//    }];
-//    [alertController addAction:changeBtn];
-//
-//    __weak typeof(self) weakSelf = self;
-//    [self presentViewController:alertController animated:YES completion:^{
-//        __strong typeof(self) strongSelf = weakSelf;
-//
-//        NSString *text = [alertController.textFields firstObject].text;
-//        if (text.length == 0) {
-//            return;
-//        }
-//
-//        NSInteger amount = [text intValue];
-//        [strongSelf requestSendGift:model amount:amount];
-//    }];
-//}
-
 - (void)showPayAmountView:(QNGiftModel *)model {
     __weak typeof(self) weakSelf = self;
     QNPayGiftViewController *payVC = [[QNPayGiftViewController alloc] initWithComplete:^(NSInteger amount){
@@ -470,31 +442,24 @@
 
     [QLiveNetworkUtil postRequestWithAction:@"client/gift/send" params:dic  success:^(NSDictionary * _Nonnull responseData) {
         NSLog(@"success %@", responseData);
-        
+        [self showPaySuccessView];
     } failure:^(NSError * _Nonnull error) {
-        NSLog(@"error %@", error);
+        NSLog(@"gift send error %@", error);
+        [QToastView showToast:@"支付失败"];
     }];
 }
 
-//收到礼物信令的操作
-//- (void)receivedGift:(GiftMsgModel *)model {
-//    SendGiftModel *sendModel = [SendGiftModel new];
-//    sendModel.userIcon = model.senderAvatar;
-//    sendModel.userName = model.senderName;
-//    sendModel.defaultCount = 0;
-//    sendModel.sendCount = model.number;
-//    sendModel.name = model.sendGift.name;
-//    //通过礼物名字找到本地的礼物图
-//    for (SendGiftModel *gift in self.giftView.dataArray) {
-//        if ([model.sendGift.name isEqualToString:gift.name]) {
-//            sendModel.img = gift.img;
-//            sendModel.animation_img = gift.animation_img;
-//        }
-//    }
-//    [[GiftShowManager sharedManager] showGiftViewWithBackView:self.view info:sendModel completeBlock:^(BOOL finished) {
-//    }];
-//}
+- (void)showPaySuccessView {
+    [self.view addSubview:self.paySuccessView];
+    [self.paySuccessView setHidden:NO];
+    
+    [self performSelector:@selector(hidePaySuccessView) withObject:nil afterDelay:0.5];
+}
 
+- (void)hidePaySuccessView {
+    [self.paySuccessView setHidden:YES];
+    [self.paySuccessView removeFromSuperview];
+}
 
 - (void)popGoodListView {
     ShopBuyListController *vc = [[ShopBuyListController alloc] initWithLiveInfo:self.roomInfo];
@@ -590,5 +555,13 @@
 
 - (void)closeViewController {
     [super closeViewController];
+}
+
+- (QNGiftPaySuccessView *) paySuccessView {
+    if (!_paySuccessView) {
+        CGFloat x = (SCREEN_W - 136) / 2.0;
+        _paySuccessView = [[QNGiftPaySuccessView alloc] initWithFrame:CGRectMake(x, 240, 136, 130)];
+    }
+    return _paySuccessView;
 }
 @end

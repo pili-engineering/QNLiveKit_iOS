@@ -21,8 +21,6 @@
 
 @implementation QNPayGiftViewController
 
-
-
 - (instancetype)initWithComplete:(void (^)(NSInteger amount))complete {
     if (self = [super init]) {
         [self.view setFrame:CGRectMake(0, 0, SCREEN_W, SCREEN_H)];
