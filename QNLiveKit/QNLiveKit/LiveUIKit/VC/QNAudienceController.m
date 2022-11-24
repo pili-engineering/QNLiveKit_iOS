@@ -36,11 +36,13 @@
 #import "QNGiftMessagePannel.h"
 #import "QNGiftPaySuccessView.h"
 #import "QNLikeMenuView.h"
+#import "QNLikeBubbleView.h"
 
 @interface QNAudienceController ()<QNChatRoomServiceListener,QNPushClientListener,LiveChatRoomViewDelegate,FDanmakuViewProtocol,PLPlayerDelegate,MicLinkerListener,PKServiceListener,GiftViewDelegate>
 @property (nonatomic,strong)UILabel *masterLeaveLabel;
 @property (nonatomic, strong) QNGiftView *giftView;
 @property (nonatomic, strong) QNGiftPaySuccessView *paySuccessView;
+@property (nonatomic, strong) QNLikeMenuView *likeMenuView;
 @end
 
 @implementation QNAudienceController
@@ -369,7 +371,11 @@
     QNLikeMenuView *likeView = [[QNLikeMenuView alloc] initWithFrame:CGRectZero];
     [likeView bundleNormalImage:@"like_click" selectImage:@"like_click"];
     likeView.roomInfo = self.roomInfo;
+    likeView.clickBlock = ^(BOOL selected) {
+        [weakSelf showLikeBubble];
+    };
     [slotList addObject:likeView];
+    self.likeMenuView = likeView;
  
     //更多
     ImageButtonView *more = [[ImageButtonView alloc]initWithFrame:CGRectZero];
@@ -379,9 +385,16 @@
     };
     [slotList addObject:more];
     
-
-        
     [self.bottomMenuView updateWithSlotList:slotList.copy];
+}
+
+- (void)showLikeBubble {
+    CGRect rect = [self.likeMenuView convertRect:self.likeMenuView.bounds toView:self.view];
+    for (int i = 0; i < 3; i++) {
+        QNLikeBubbleView *bubbleView = [[QNLikeBubbleView alloc] initWithFrame:CGRectMake(rect.origin.x, rect.origin.y - 20, 35, 35)];
+        [self.view addSubview:bubbleView];
+        [bubbleView bubbleWithMode:i];
+    }
 }
 
 - (void)popMoreView {

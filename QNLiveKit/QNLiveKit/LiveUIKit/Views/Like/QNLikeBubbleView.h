@@ -11,6 +11,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface QNLikeBubbleView : UIView
 
+- (void)bubbleWithMode:(NSInteger)mode;
+
 @end
 
 NS_ASSUME_NONNULL_END
