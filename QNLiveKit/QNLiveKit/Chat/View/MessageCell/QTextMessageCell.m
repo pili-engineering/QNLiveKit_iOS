@@ -37,26 +37,12 @@
         make.top.equalTo(self.bgView).offset(4);
     }];
     
-//    [_textLabel mas_makeConstraints:^(MASConstraintMaker *make) {
-//        make.left.equalTo(self.nameLabel);
-//        make.right.equalTo(self.bgView.mas_right).offset(-5);
-//        make.top.equalTo(self.nameLabel.mas_bottom).offset(3);
-//        make.bottom.equalTo(self.bgView).offset(-5);
-//    }];
-    
     [self.textLabel mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.equalTo(self.bgView).offset(6);
         make.top.equalTo(self.nameLabel.mas_bottom);
         make.right.equalTo(self.bgView).offset(-6);
         make.bottom.equalTo(self.bgView).offset(-4);
     }];
-    
-//    [_nameLabel mas_makeConstraints:^(MASConstraintMaker *make) {
-//        make.left.equalTo(self.bgView.mas_left).offset(8);
-//        make.top.equalTo(self.avatarImageView);
-//        make.right.equalTo(self.bgView.mas_right).offset(-5);
-//        make.height.mas_equalTo(20);
-//    }];
 }
 
 - (void)setDataModel:(QNIMMessageObject *)model {

@@ -74,11 +74,6 @@
             [self updateContent];
         }
     }];
-    
-//    self.nameLabel.text = msgmodel.sendUser.nick;
-//    self.textLabel.text = msgmodel.content;
-//    [self.avatarImageView sd_setImageWithURL:[NSURL URLWithString:msgmodel.sendUser.avatar] placeholderImage:[UIImage imageNamed:@"titleImage"]];
-        
 }
 
 - (void) updateContent {
@@ -87,6 +82,22 @@
         NSString *gift = self.giftModel.amount > 0 ? self.giftModel.name : [NSString stringWithFormat:@"%@ %ld", self.giftModel.name, self.giftMsgModel.amount];
         NSString *text = [NSString stringWithFormat:@"%@ 打赏 %@", nick, gift];
         self.textLabel.text = text;
+        
+        NSRange giftRange;
+        giftRange.length = gift.length;
+        giftRange.location = text.length - giftRange.length;
+        
+        NSRange actionRange;
+        actionRange.length = 2;
+        actionRange.location = giftRange.location - 3;
+        
+        NSMutableAttributedString *attrText = [[NSMutableAttributedString alloc] initWithString:text];
+        [attrText addAttribute:NSForegroundColorAttributeName value:[UIColor colorWithHexString:@"#F3CF22"] range:giftRange];
+        [attrText addAttribute:NSForegroundColorAttributeName value:[UIColor whiteColor] range:actionRange];
+        
+        self.textLabel.attributedText = attrText;
+    } else {
+        self.textLabel.text = @"";
     }
 }
 
