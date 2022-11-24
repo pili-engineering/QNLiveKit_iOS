@@ -24,6 +24,8 @@
     if (self = [super initWithFrame:frame]) {
         [self.contentView addSubview:self.nameLabel];
         [self.contentView addSubview:self.textLabel];
+        
+        [self makeConstraints];
     }
     return self;
 }
@@ -38,6 +40,7 @@
     }];
     
     [self.textLabel mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.width.mas_equalTo(198);
         make.left.equalTo(self.bgView).offset(6);
         make.top.equalTo(self.nameLabel.mas_bottom);
         make.right.equalTo(self.bgView).offset(-6);
@@ -55,14 +58,42 @@
     QIMModel *imModel = [QIMModel mj_objectWithKeyValues:model.content.mj_keyValues];
     PubChatModel *msgmodel = [PubChatModel mj_objectWithKeyValues:imModel.data];
             
-    self.nameLabel.text = msgmodel.sendUser.nick;
-    self.textLabel.text = msgmodel.content;
     [self.avatarImageView sd_setImageWithURL:[NSURL URLWithString:msgmodel.sendUser.avatar] placeholderImage:[UIImage imageNamed:@"titleImage"]];
-        
+    
+    self.nameLabel.text = msgmodel.sendUser.nick;
+    
+    NSString *text = msgmodel.content;
+    NSMutableParagraphStyle *paragraphStyle = [[NSMutableParagraphStyle alloc] init];
+    [paragraphStyle setLineSpacing:4];//设置距离
+    
+    NSMutableAttributedString *attrText = [[NSMutableAttributedString alloc] initWithString:text];
+    [attrText addAttribute:NSFontAttributeName value:[UIFont systemFontOfSize:13] range:NSMakeRange(0, text.length)];
+    [attrText addAttribute:NSParagraphStyleAttributeName value:paragraphStyle range:NSMakeRange(0, text.length)];
+    [self.textLabel setAttributedText:attrText];
 }
 
-+ (CGSize)getMessageCellSize:(NSString *)content withWidth:(CGFloat)width{
-    return CGSizeMake(width, 44);
+- (UICollectionViewLayoutAttributes *)preferredLayoutAttributesFittingAttributes:(UICollectionViewLayoutAttributes *)layoutAttributes {
+    [self setNeedsLayout];
+    [self layoutIfNeeded];
+    
+    CGRect cellFrame = layoutAttributes.frame;
+    if ([self.textLabel.text isEqualToString:@""]) {
+        cellFrame.size.height = 44;
+    } else {
+        NSAttributedString *text = self.textLabel.attributedText;
+        
+        CGFloat textWidth = cellFrame.size.width - 40;
+        CGSize size = CGSizeMake(textWidth, CGFLOAT_MAX);
+        
+        NSStringDrawingOptions options =  NSStringDrawingUsesLineFragmentOrigin | NSStringDrawingUsesFontLeading;
+        CGRect rect = [text boundingRectWithSize:size options:options context:nil];
+        
+        CGFloat textHeight = ceilf(rect.size.height) + 4;
+        cellFrame.size.height = textHeight + 26;
+    }
+    
+    layoutAttributes.frame = cellFrame;
+    return layoutAttributes;
 }
 
 - (UILabel *)textLabel {

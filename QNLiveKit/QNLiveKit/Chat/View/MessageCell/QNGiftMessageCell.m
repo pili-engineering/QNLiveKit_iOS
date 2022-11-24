@@ -26,6 +26,8 @@
 - (instancetype)initWithFrame:(CGRect)frame {
     if (self = [super initWithFrame:frame]) {
         [self.contentView addSubview:self.textLabel];
+        
+        [self makeConstraints];
     }
     
     return self;
@@ -43,8 +45,28 @@
     }];
 }
 
-+ (CGSize)getMessageCellSize:(NSString *)content withWidth:(CGFloat)width {
-    return CGSizeMake(width, 40);
+- (UICollectionViewLayoutAttributes *)preferredLayoutAttributesFittingAttributes:(UICollectionViewLayoutAttributes *)layoutAttributes {
+    [self setNeedsLayout];
+    [self layoutIfNeeded];
+
+    CGRect cellFrame = layoutAttributes.frame;
+    if ([self.textLabel.text isEqualToString:@""]) {
+        cellFrame.size.height = 28;
+    } else {
+        NSAttributedString *text = self.textLabel.attributedText;
+        
+        CGFloat textWidth = cellFrame.size.width - 40;
+        CGSize size = CGSizeMake(textWidth, CGFLOAT_MAX);
+        
+        NSStringDrawingOptions options =  NSStringDrawingUsesLineFragmentOrigin | NSStringDrawingUsesFontLeading;
+        CGRect rect = [text boundingRectWithSize:size options:options context:nil];
+        
+        CGFloat textHeight = ceilf(rect.size.height) + 4;
+        cellFrame.size.height = textHeight + 8;
+    }
+    
+    layoutAttributes.frame = cellFrame;
+    return layoutAttributes;
 }
 
 - (void)setDataModel:(QNIMMessageObject *)model {
@@ -53,7 +75,6 @@
 }
 
 - (void)updateUI:(QNIMMessageObject *)model {
-    
     QIMModel *imModel = [QIMModel mj_objectWithKeyValues:model.content.mj_keyValues];
     QNGiftMsgModel *giftMsgModel = [QNGiftMsgModel mj_objectWithKeyValues:imModel.data];
     self.giftMsgModel = giftMsgModel;
@@ -79,6 +100,7 @@
 - (void) updateContent {
     if (self.user && self.giftModel) {
         NSString *nick = self.user.nick ? self.user.nick : self.user.user_id;
+        nick = @"一个很长很长很长很长的昵称，你真的愿意吗？";
         NSString *gift = self.giftModel.amount > 0 ? self.giftModel.name : [NSString stringWithFormat:@"%@ %ld", self.giftModel.name, self.giftMsgModel.amount];
         NSString *text = [NSString stringWithFormat:@"%@ 打赏 %@", nick, gift];
         self.textLabel.text = text;
@@ -91,9 +113,14 @@
         actionRange.length = 2;
         actionRange.location = giftRange.location - 3;
         
+        NSMutableParagraphStyle *paragraphStyle = [[NSMutableParagraphStyle alloc] init];
+        [paragraphStyle setLineSpacing:4];//设置距离
+        
         NSMutableAttributedString *attrText = [[NSMutableAttributedString alloc] initWithString:text];
         [attrText addAttribute:NSForegroundColorAttributeName value:[UIColor colorWithHexString:@"#F3CF22"] range:giftRange];
         [attrText addAttribute:NSForegroundColorAttributeName value:[UIColor whiteColor] range:actionRange];
+        [attrText addAttribute:NSFontAttributeName value:[UIFont systemFontOfSize:13] range:NSMakeRange(0, text.length)];
+        [attrText addAttribute:NSParagraphStyleAttributeName value:paragraphStyle range:NSMakeRange(0, text.length)];
         
         self.textLabel.attributedText = attrText;
     } else {

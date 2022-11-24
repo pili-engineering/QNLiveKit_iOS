@@ -60,16 +60,10 @@ static NSString * const banNotifyContent = @"您已被管理员禁言";
         [self.messageContentView setFrame:CGRectMake(0, 0, size.width, size.height - 50)];
         [self addSubview:self.messageContentView];
         
-        [self.messageContentView  addSubview:self.conversationMessageCollectionView];
-        
+        [self.messageContentView addSubview:self.conversationMessageCollectionView];
         
         [self.conversationMessageCollectionView setFrame:CGRectMake(0, 0, size.width, self.messageContentView.frame.size.height)];
-        UICollectionViewFlowLayout *customFlowLayout = [[UICollectionViewFlowLayout alloc] init];
-        customFlowLayout.minimumLineSpacing = 2;
-        customFlowLayout.sectionInset = UIEdgeInsetsMake(10.0f, 0.0f,5.0f, 0.0f);
-        customFlowLayout.estimatedItemSize = CGSizeMake([[UIScreen mainScreen] bounds].size.width, 44);
-        customFlowLayout.scrollDirection = UICollectionViewScrollDirectionVertical;
-        [self.conversationMessageCollectionView setCollectionViewLayout:customFlowLayout animated:NO completion:nil];
+        
         
         [self.messageContentView  addSubview:self.inputBar];
         [self.inputBar setBackgroundColor: [UIColor whiteColor]];
@@ -84,9 +78,7 @@ static NSString * const banNotifyContent = @"您已被管理员禁言";
         
         [self.commentBtn setFrame:CGRectMake(10, 10, 35, 35)];
         
-        [self registerClass:[QTextMessageCell class]forCellWithReuseIdentifier:textCellIndentifier];
-        [self registerClass:[QTextMessageCell class]forCellWithReuseIdentifier:startAndEndCellIndentifier];
-        [self registerClass:[QNGiftMessageCell class]forCellWithReuseIdentifier:giftCellIndentifier];
+       
         
         self.isAllowToSend = YES;
 //        [[QNIMChatService sharedOption] addDelegate:self delegateQueue:dispatch_get_main_queue()];
@@ -96,21 +88,7 @@ static NSString * const banNotifyContent = @"您已被管理员禁言";
     
 }
 
-
-
 #pragma mark - views init
-/**
- *  注册cell
- *
- *  @param cellClass  cell类型
- *  @param identifier cell标示
- */
-- (void)registerClass:(Class)cellClass forCellWithReuseIdentifier:(NSString *)identifier {
-    [self.conversationMessageCollectionView registerClass:cellClass
-                               forCellWithReuseIdentifier:identifier];
-}
-
-
 /**
  发言按钮事件
  */
@@ -411,12 +389,20 @@ static NSString * const banNotifyContent = @"您已被管理员禁言";
 
 - (UICollectionView *)conversationMessageCollectionView {
     if (!_conversationMessageCollectionView) {
-        UICollectionViewFlowLayout *layout = [[UICollectionViewFlowLayout alloc] init];
-        _conversationMessageCollectionView = [[UICollectionView alloc] initWithFrame:CGRectZero collectionViewLayout:layout];
+        UICollectionViewFlowLayout *customFlowLayout = [[UICollectionViewFlowLayout alloc] init];
+        customFlowLayout.minimumLineSpacing = 2;
+        customFlowLayout.sectionInset = UIEdgeInsetsMake(10.0f, 0.0f,5.0f, 0.0f);
+        customFlowLayout.estimatedItemSize = CGSizeMake([[UIScreen mainScreen] bounds].size.width, 44);
+        customFlowLayout.scrollDirection = UICollectionViewScrollDirectionVertical;
+        
+        _conversationMessageCollectionView = [[UICollectionView alloc] initWithFrame:CGRectZero collectionViewLayout:customFlowLayout];
         [_conversationMessageCollectionView setDelegate:self];
         [_conversationMessageCollectionView setDataSource:self];
         [_conversationMessageCollectionView setBackgroundColor: [UIColor clearColor]];
-//        [_conversationMessageCollectionView registerClass:[UICollectionViewCell class] forCellWithReuseIdentifier:ConversationMessageCollectionViewCell];
+        
+        [_conversationMessageCollectionView registerClass:[QTextMessageCell class]forCellWithReuseIdentifier:textCellIndentifier];
+        [_conversationMessageCollectionView registerClass:[QTextMessageCell class]forCellWithReuseIdentifier:startAndEndCellIndentifier];
+        [_conversationMessageCollectionView registerClass:[QNGiftMessageCell class]forCellWithReuseIdentifier:giftCellIndentifier];
     }
     return _conversationMessageCollectionView;
 }

@@ -19,6 +19,4 @@
 @property(nonatomic, strong) UILabel *nameLabel;
 
 
-+ (CGSize)getMessageCellSize:(NSString *)content withWidth:(CGFloat)width;
-
 @end

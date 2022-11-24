@@ -18,10 +18,6 @@
     return self;
 }
 
-- (void)layoutSubviews {
-    [self makeConstraints];
-}
-
 - (void)makeConstraints {
     [self.avatarImageView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.width.height.mas_equalTo(24);

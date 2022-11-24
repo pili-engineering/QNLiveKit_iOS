@@ -12,7 +12,6 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface QNGiftMessageCell : QMessageBaseCell
 
-+ (CGSize)getMessageCellSize:(NSString *)content withWidth:(CGFloat)width;
 
 @end
 
