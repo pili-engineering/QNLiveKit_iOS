@@ -39,6 +39,7 @@
 #import "UIViewController+QViewController.h"
 #import "LiveBottomMoreView.h"
 #import "QNGiftMessagePannel.h"
+#import "QNLiveStatisticView.h"
 
 @interface QLiveController ()<QNPushClientListener,QNRoomLifeCycleListener,QNPushClientListener,QNChatRoomServiceListener,FDanmakuViewProtocol,LiveChatRoomViewDelegate,MicLinkerListener,PKServiceListener>
 
@@ -46,7 +47,7 @@
 @property (nonatomic, strong) QNPKSession *pkSession;//正在进行的pk
 @property (nonatomic, strong) ImageButtonView *pkSlot;
 @property (nonatomic, strong) LiveBottomMoreView *moreView;
-
+@property (nonatomic, strong) QNLiveStatisticView *statisticView;
 
 @end
 
@@ -70,6 +71,7 @@
     }];
     
     [self setupBottomMenuView];
+    [self.view addSubview:self.statisticView];
     
     [self.chatService sendWelComeMsg:^(QNIMMessageObject * _Nonnull msg) {
         [weakSelf.chatRoomView showMessage:msg];
@@ -82,6 +84,7 @@
         self.roomInfo = roomInfo;
         [self.roomHostView updateWith:roomInfo];
         [self.onlineUserView updateWith:roomInfo];
+        [self.statisticView updateWith:roomInfo];
     }];
     __weak typeof(self)weakSelf = self;
     dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(3 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
@@ -404,6 +407,14 @@
         make.top.equalTo(self.view).offset(240);
         make.bottom.equalTo(self.view);
     }];
+}
+
+- (QNLiveStatisticView *)statisticView {
+    if (!_statisticView) {
+        _statisticView = [[QNLiveStatisticView alloc] initWithFrame:CGRectMake(8, 108, 130, 16)];
+        _statisticView.roomInfo = self.roomInfo;
+    }
+    return _statisticView;
 }
 
  //筛除掉自己的直播间

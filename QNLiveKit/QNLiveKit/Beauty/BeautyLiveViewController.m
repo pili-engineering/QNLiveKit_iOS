@@ -40,6 +40,7 @@
 #import "QStatisticalService.h"
 #import "LiveBottomMoreView.h"
 #import "QNGiftMessagePannel.h"
+#import "QNLiveStatisticView.h"
 
 @interface BeautyLiveViewController ()<QNPushClientListener,QNRoomLifeCycleListener,QNPushClientListener,QNChatRoomServiceListener,FDanmakuViewProtocol,LiveChatRoomViewDelegate,MicLinkerListener,PKServiceListener,QNLocalVideoTrackDelegate>
 
@@ -48,6 +49,7 @@
 @property (nonatomic, strong) QNLiveUser *pk_other_user;//pk对象
 @property (nonatomic, strong) ImageButtonView *pkSlot;
 @property (nonatomic, strong) LiveBottomMoreView *moreView;
+@property (nonatomic, strong) QNLiveStatisticView *statisticView;
 
 
 @end
@@ -83,6 +85,7 @@
     [self.view addSubview:self.bottomMenuView];
     [self.view addSubview:self.closeButton];
     [self.view addSubview:self.giftMessagePannel];
+    [self.view addSubview:self.statisticView];
     [self setupSenseAR];
     [self setupBottomMenuView];
     
@@ -99,6 +102,7 @@
         self.roomInfo = roomInfo;
         [self.roomHostView updateWith:roomInfo];
         [self.onlineUserView updateWith:roomInfo];
+        [self.statisticView updateWith:roomInfo];
     }];
     __weak typeof(self)weakSelf = self;
     dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(3 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
@@ -349,7 +353,7 @@
 #pragma mark - SubViews
 - (RoomHostView *)roomHostView {
     if (!_roomHostView) {
-        _roomHostView = [[RoomHostView alloc]initWithFrame:CGRectMake(20, 60, 135, 40)];
+        _roomHostView = [[RoomHostView alloc]initWithFrame:CGRectMake(8, 60, 135, 40)];
         [_roomHostView updateWith:self.roomInfo];;
         _roomHostView.clickBlock = ^(BOOL selected){
             NSLog(@"点击了房主头像");
@@ -456,7 +460,8 @@
 
 - (void)popMoreView {
     __weak typeof(self)weakSelf = self;
-    self.moreView = [[LiveBottomMoreView alloc]initWithFrame:CGRectMake(0, SCREEN_H - 200, SCREEN_W, 200)];
+    self.moreView = [[LiveBottomMoreView alloc]initWithFrame:CGRectMake(0, SCREEN_H - 200, SCREEN_W, 200) beauty:YES];
+    
     self.moreView.cameraChangeBlock = ^{
         [[QNLivePushClient createPushClient] switchCamera];
     };
@@ -553,6 +558,14 @@
         _giftMessagePannel = [[QNGiftMessagePannel alloc] initWithFrame:CGRectMake(8, SCREEN_H - 315 - 150, 170, 150)];
     }
     return _giftMessagePannel;
+}
+
+- (QNLiveStatisticView *)statisticView {
+    if (!_statisticView) {
+        _statisticView = [[QNLiveStatisticView alloc] initWithFrame:CGRectMake(8, 108, 130, 16)];
+        _statisticView.roomInfo = self.roomInfo;
+    }
+    return _statisticView;
 }
 
 @end

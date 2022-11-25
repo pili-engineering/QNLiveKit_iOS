@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4808878429305EDF004A7878 /* QNLiveStatisticView.h in Headers */ = {isa = PBXBuildFile; fileRef = 4808878229305EDF004A7878 /* QNLiveStatisticView.h */; };
+		4808878529305EDF004A7878 /* QNLiveStatisticView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4808878329305EDF004A7878 /* QNLiveStatisticView.m */; };
 		48B937CA29271C520014D671 /* CoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 48B937C929271C520014D671 /* CoreServices.framework */; };
 		48B937D029271CC20014D671 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 48B937CF29271CC20014D671 /* MapKit.framework */; };
 		48B9386A292CCAB00014D671 /* QNPayGiftViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = 48B93868292CCAB00014D671 /* QNPayGiftViewController.h */; };
@@ -550,6 +552,8 @@
 
 /* Begin PBXFileReference section */
 		081F7CF449622E077318EFB5 /* Pods-QNLiveKitTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-QNLiveKitTests.release.xcconfig"; path = "Target Support Files/Pods-QNLiveKitTests/Pods-QNLiveKitTests.release.xcconfig"; sourceTree = "<group>"; };
+		4808878229305EDF004A7878 /* QNLiveStatisticView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = QNLiveStatisticView.h; sourceTree = "<group>"; };
+		4808878329305EDF004A7878 /* QNLiveStatisticView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = QNLiveStatisticView.m; sourceTree = "<group>"; };
 		48B937C929271C520014D671 /* CoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreServices.framework; path = Platforms/MacOSX.platform/Developer/SDKs/MacOSX12.3.sdk/System/Library/Frameworks/CoreServices.framework; sourceTree = DEVELOPER_DIR; };
 		48B937CF29271CC20014D671 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = Platforms/MacOSX.platform/Developer/SDKs/MacOSX12.3.sdk/System/iOSSupport/System/Library/Frameworks/MapKit.framework; sourceTree = DEVELOPER_DIR; };
 		48B93868292CCAB00014D671 /* QNPayGiftViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = QNPayGiftViewController.h; sourceTree = "<group>"; };
@@ -2214,6 +2218,8 @@
 				77781D262845E56A009DC71C /* QLiveView.m */,
 				77781D282845E56A009DC71C /* RoomHostView.h */,
 				77781D2E2845E56A009DC71C /* RoomHostView.m */,
+				4808878229305EDF004A7878 /* QNLiveStatisticView.h */,
+				4808878329305EDF004A7878 /* QNLiveStatisticView.m */,
 			);
 			path = LiveView;
 			sourceTree = "<group>";
@@ -2399,6 +2405,7 @@
 				48E87A992926445800F33059 /* WKWebView+AFNetworking.h in Headers */,
 				48E87AF52926445900F33059 /* STBMPDetailColV.h in Headers */,
 				777B7A7F284F4B0D005032B7 /* QRenderView.h in Headers */,
+				4808878429305EDF004A7878 /* QNLiveStatisticView.h in Headers */,
 				48E87B092926445900F33059 /* STCommonObjectView.h in Headers */,
 				777B7A83284F5A6F005032B7 /* QNPKInvitationListCell.h in Headers */,
 				48E87AB92926445800F33059 /* AFHTTPSessionManager.h in Headers */,
@@ -2863,6 +2870,7 @@
 				77781DA128488932009DC71C /* QNBaseRTCController.m in Sources */,
 				48E87A692926445800F33059 /* NSString+materialAes.m in Sources */,
 				48E87B032926445900F33059 /* STTitleViewItem.m in Sources */,
+				4808878529305EDF004A7878 /* QNLiveStatisticView.m in Sources */,
 				48B938AA292F5FCB0014D671 /* QNLikeMenuView.m in Sources */,
 				48E87AF82926445900F33059 /* STButton.m in Sources */,
 				48E87ACC2926445800F33059 /* EFGlobalSingleton.m in Sources */,

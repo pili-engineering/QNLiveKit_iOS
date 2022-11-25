@@ -41,7 +41,7 @@
 
 - (void)layoutSubviews {
     [self.totalLabel mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.width.mas_equalTo(26);
+        make.width.mas_equalTo(32);
         make.height.mas_equalTo(11);
         make.top.equalTo(self).offset(5);
         make.centerX.equalTo(self);

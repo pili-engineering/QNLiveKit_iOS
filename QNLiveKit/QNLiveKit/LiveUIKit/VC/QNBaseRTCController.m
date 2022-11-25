@@ -163,7 +163,7 @@
 #pragma mark - SubViews
 - (RoomHostView *)roomHostView {
     if (!_roomHostView) {
-        _roomHostView = [[RoomHostView alloc]initWithFrame:CGRectMake(20, 60, 135, 40)];
+        _roomHostView = [[RoomHostView alloc]initWithFrame:CGRectMake(8, 60, 135, 40)];
         [_roomHostView updateWith:self.roomInfo];;
         _roomHostView.clickBlock = ^(BOOL selected){
             NSLog(@"点击了房主头像");

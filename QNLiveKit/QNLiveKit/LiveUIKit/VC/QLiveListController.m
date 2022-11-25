@@ -62,27 +62,20 @@
 }
 
 - (void)addLiveRoom {
-    
-    
     if (self.createRoomClickedBlock) {
         self.createRoomClickedBlock();
         return;
     }
     
     if ([QLive createPusherClient].needBeauty) {
-        
         CreateBeautyLiveController *vc = [CreateBeautyLiveController new];
         vc.modalPresentationStyle = UIModalPresentationFullScreen;
         [self presentViewController:vc animated:YES completion:nil];
-        
     } else {
-        
         QCreateLiveController *vc = [QCreateLiveController new];
         vc.modalPresentationStyle = UIModalPresentationFullScreen;
         [self presentViewController:vc animated:YES completion:nil];
     }
-    
-        
 }
 
 - (NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView {

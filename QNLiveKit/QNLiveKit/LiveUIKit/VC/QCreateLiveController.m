@@ -198,7 +198,10 @@
 //    params.extension = @"";
     
     [[QLive getRooms] createRoom:params callBack:^(QNLiveRoomInfo * _Nonnull roomInfo) {
-
+        if (!roomInfo) {
+            return;
+        }
+        
         QLiveController *vc = [QLiveController new];
         vc.roomInfo = roomInfo;
         vc.modalPresentationStyle = UIModalPresentationFullScreen;

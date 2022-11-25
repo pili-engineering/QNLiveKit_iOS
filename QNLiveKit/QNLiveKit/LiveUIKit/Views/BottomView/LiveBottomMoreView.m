@@ -10,6 +10,8 @@
 #import "ImageButtonView.h"
 @interface LiveBottomMoreView ()
 
+@property (nonatomic, assign) BOOL beauty;
+
 @end
 
 @implementation LiveBottomMoreView
@@ -22,8 +24,22 @@
     return self;
 }
 
+- (instancetype)initWithFrame:(CGRect)frame beauty:(BOOL)beauty {
+    if (self = [super initWithFrame:frame]) {
+        self.beauty = beauty;
+        self.backgroundColor = [[UIColor blackColor] colorWithAlphaComponent:0.8];
+        [self createUI];
+    }
+    return self;
+}
+
 - (void)createUI {
-    BottomMenuView *bottomMenuView = [[BottomMenuView alloc]initWithFrame:CGRectMake(0, 0, self.frame.size.width, self.frame.size.height)];
+    BottomMenuView *bottomMenuView;
+    if (self.beauty) {
+        bottomMenuView = [[BottomMenuView alloc]initWithFrame:CGRectMake(0, 0, self.frame.size.width, self.frame.size.height)];
+    } else {
+        bottomMenuView = [[BottomMenuView alloc]initWithFrame:CGRectMake(0, 0, self.frame.size.width * 3 / 5, self.frame.size.height)];
+    }
     [self addSubview:bottomMenuView];
     
     UILabel *label = [[UILabel alloc]initWithFrame:CGRectMake(0, 25, SCREEN_W, 20)];
@@ -72,27 +88,29 @@
     };
     [slotList addObject:mirror];
     
+    if (self.beauty) {
     //美颜
-    ImageButtonView *beauty = [[ImageButtonView alloc]initWithFrame:CGRectZero];
-    [beauty bundleNormalImage:@"icon_beauty" selectImage:@"icon_beauty"];
-    beauty.clickBlock = ^(BOOL selected) {
-        if (weakSelf.beautyBlock) {
-            weakSelf.beautyBlock();
-        }
-        [weakSelf removeFromSuperview];
-    };
-    [slotList addObject:beauty];
-    
-    //特效
-    ImageButtonView *specialEffects = [[ImageButtonView alloc]initWithFrame:CGRectZero];
-    [specialEffects bundleNormalImage:@"icon_effects" selectImage:@"icon_effects"];
-    specialEffects.clickBlock = ^(BOOL selected) {
-        if (weakSelf.effectsBlock) {
-            weakSelf.effectsBlock();
-        }
-        [weakSelf removeFromSuperview];
-    };
-    [slotList addObject:specialEffects];
+        ImageButtonView *beauty = [[ImageButtonView alloc]initWithFrame:CGRectZero];
+        [beauty bundleNormalImage:@"icon_beauty" selectImage:@"icon_beauty"];
+        beauty.clickBlock = ^(BOOL selected) {
+            if (weakSelf.beautyBlock) {
+                weakSelf.beautyBlock();
+            }
+            [weakSelf removeFromSuperview];
+        };
+        [slotList addObject:beauty];
+        
+        //特效
+        ImageButtonView *specialEffects = [[ImageButtonView alloc]initWithFrame:CGRectZero];
+        [specialEffects bundleNormalImage:@"icon_effects" selectImage:@"icon_effects"];
+        specialEffects.clickBlock = ^(BOOL selected) {
+            if (weakSelf.effectsBlock) {
+                weakSelf.effectsBlock();
+            }
+            [weakSelf removeFromSuperview];
+        };
+        [slotList addObject:specialEffects];
+    }
         
     [bottomMenuView updateWithSlotList:slotList.copy];
     
