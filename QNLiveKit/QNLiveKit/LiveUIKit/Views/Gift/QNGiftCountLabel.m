@@ -5,9 +5,9 @@
 //  Created by 郭茜 on 2022/1/5.
 //
 
-#import "GiftCountLabel.h"
+#import "QNGiftCountLabel.h"
 
-@implementation GiftCountLabel
+@implementation QNGiftCountLabel
 
 - (void)drawTextInRect:(CGRect)rect {
     

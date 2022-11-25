@@ -40,8 +40,6 @@ NSInteger const Interval = 8;
         [manager.requestSerializer setValue:token forHTTPHeaderField:@"Authorization"];
     }
     [manager.requestSerializer setValue:@"application/json" forHTTPHeaderField:@"Content-Type"];
-
-//    [manager.requestSerializer setValue:@"application/x-www-form-urlencoded" forHTTPHeaderField:@"Content-Type"];
     
     return manager;
 }

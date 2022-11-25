@@ -14,10 +14,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface QNAudienceController : QNBaseRTCController
 
-@property (nonatomic, strong) RoomHostView *roomHostView;
-@property (nonatomic, strong) OnlineUserView *onlineUserView;
-@property (nonatomic, strong) ImageButtonView *pubchatView;
-@property (nonatomic, strong) BottomMenuView *bottomMenuView;
+
 @property (nonatomic, strong) LinkStateView *linkSView;
 @property (nonatomic, strong) ExplainingGoodView *goodView;
 @property (nonatomic, strong) PLPlayer *player;

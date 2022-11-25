@@ -13,23 +13,16 @@
 #import "QIMModel.h"
 #import <QNIMSDK/QNIMSDK.h>
 #import "QGradient.h"
+#import "QNGiftMessageCell.h"
 
-#define SCREENSIZE [UIScreen mainScreen].bounds.size
-
-#define kRandomColor [UIColor colorWithRed:arc4random_uniform(256) / 255.0 green:arc4random_uniform(256) / 255.0 blue:arc4random_uniform(256) / 255.0 alpha:1]
-
-static NSString * const ConversationMessageCollectionViewCell = @"ConversationMessageCollectionViewCell";
 /**
  *  文本cell标示
  */
 static NSString *const textCellIndentifier = @"textCellIndentifier";
-
 static NSString *const startAndEndCellIndentifier = @"startAndEndCellIndentifier";
+static NSString *const giftCellIndentifier = @"giftCellIndentifier";
 
 static NSString * const banNotifyContent = @"您已被管理员禁言";
-
-//  用于记录点赞消息连续点击的次数
-static int clickPraiseBtnTimes  = 0 ;
 
 @interface LiveChatRoom ()<QInputBarControlDelegate, UICollectionViewDelegate, UICollectionViewDataSource, UIGestureRecognizerDelegate,QNIMChatServiceProtocol>
 /*!
@@ -67,16 +60,10 @@ static int clickPraiseBtnTimes  = 0 ;
         [self.messageContentView setFrame:CGRectMake(0, 0, size.width, size.height - 50)];
         [self addSubview:self.messageContentView];
         
-        [self.messageContentView  addSubview:self.conversationMessageCollectionView];
-        
+        [self.messageContentView addSubview:self.conversationMessageCollectionView];
         
         [self.conversationMessageCollectionView setFrame:CGRectMake(0, 0, size.width, self.messageContentView.frame.size.height)];
-        UICollectionViewFlowLayout *customFlowLayout = [[UICollectionViewFlowLayout alloc] init];
-        customFlowLayout.minimumLineSpacing = 2;
-        customFlowLayout.sectionInset = UIEdgeInsetsMake(10.0f, 0.0f,5.0f, 0.0f);
-        customFlowLayout.estimatedItemSize = CGSizeMake([[UIScreen mainScreen] bounds].size.width, 40);
-        customFlowLayout.scrollDirection = UICollectionViewScrollDirectionVertical;
-        [self.conversationMessageCollectionView setCollectionViewLayout:customFlowLayout animated:NO completion:nil];
+        
         
         [self.messageContentView  addSubview:self.inputBar];
         [self.inputBar setBackgroundColor: [UIColor whiteColor]];
@@ -91,8 +78,7 @@ static int clickPraiseBtnTimes  = 0 ;
         
         [self.commentBtn setFrame:CGRectMake(10, 10, 35, 35)];
         
-        [self registerClass:[QTextMessageCell class]forCellWithReuseIdentifier:textCellIndentifier];
-        [self registerClass:[QTextMessageCell class]forCellWithReuseIdentifier:startAndEndCellIndentifier];
+       
         
         self.isAllowToSend = YES;
 //        [[QNIMChatService sharedOption] addDelegate:self delegateQueue:dispatch_get_main_queue()];
@@ -102,21 +88,7 @@ static int clickPraiseBtnTimes  = 0 ;
     
 }
 
-
-
 #pragma mark - views init
-/**
- *  注册cell
- *
- *  @param cellClass  cell类型
- *  @param identifier cell标示
- */
-- (void)registerClass:(Class)cellClass forCellWithReuseIdentifier:(NSString *)identifier {
-    [self.conversationMessageCollectionView registerClass:cellClass
-                               forCellWithReuseIdentifier:identifier];
-}
-
-
 /**
  发言按钮事件
  */
@@ -131,7 +103,6 @@ static int clickPraiseBtnTimes  = 0 ;
  *  将消息加入本地数组
  */
 - (void)appendAndDisplayMessage:(QNIMMessageObject *)rcMessage {
-    
     if ([self appendMessageModel:rcMessage]) {
         NSIndexPath *indexPath =
         [NSIndexPath indexPathForItem:self.conversationDataRepository.count - 1
@@ -325,26 +296,38 @@ static int clickPraiseBtnTimes  = 0 ;
                   cellForItemAtIndexPath:(NSIndexPath *)indexPath {
     QNIMMessageObject *messageContent =
     [self.conversationDataRepository objectAtIndex:indexPath.row];
-    QMessageBaseCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:ConversationMessageCollectionViewCell forIndexPath:indexPath];;
-        QTextMessageCell *__cell = nil;
-        NSString *indentifier = textCellIndentifier;
-        
-        __cell = [collectionView dequeueReusableCellWithReuseIdentifier:indentifier forIndexPath:indexPath];
-        [__cell setDataModel:messageContent];
-        cell = __cell;
+    NSString *indentifier = [self indentifierOfMessage:messageContent];
+    
+    QMessageBaseCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:indentifier forIndexPath:indexPath];
+    [cell setDataModel:messageContent];
     
     return cell;
 }
 
-//- (CGSize)collectionView:(UICollectionView *)collectionView
-//                  layout:(UICollectionViewLayout *)collectionViewLayout
-//  sizeForItemAtIndexPath:(NSIndexPath *)indexPath {
-//    RCCRMessageModel *model = self.conversationDataRepository[indexPath.row];
-//    if ([model.content isKindOfClass:[RCChatroomStart class]] || [model.content isKindOfClass:[RCChatroomEnd class]]) {
-//        return CGSizeMake(self.bounds.size.width,70);
-//    }
-//    return CGSizeMake(self.bounds.size.width,40);
-//}
+- (NSString *)indentifierOfMessage:(QNIMMessageObject *)message {
+    QIMModel *imModel = [QIMModel mj_objectWithKeyValues:message.content.mj_keyValues];
+    if ([imModel.action isEqualToString:liveroom_pubchat]) {
+        return textCellIndentifier;
+    } else if ([imModel.action isEqualToString:liveroom_welcome]) {
+        return startAndEndCellIndentifier;
+    } else if ([imModel.action isEqualToString:liveroom_bye_bye]) {
+        return startAndEndCellIndentifier;
+    } else if ([imModel.action isEqualToString:liveroom_gift]) {
+        return giftCellIndentifier;
+    } else {
+        return @"";
+    }
+}
+
+- (CGSize)collectionView:(UICollectionView *)collectionView
+                  layout:(UICollectionViewLayout *)collectionViewLayout
+  sizeForItemAtIndexPath:(NSIndexPath *)indexPath {
+    
+    QNIMMessageObject *messageContent =
+    [self.conversationDataRepository objectAtIndex:indexPath.row];
+    
+    return CGSizeMake(self.frame.size.width, 44);
+}
 
 - (CGFloat)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout minimumLineSpacingForSectionAtIndex:(NSInteger)section {
     return 2.f;
@@ -406,12 +389,20 @@ static int clickPraiseBtnTimes  = 0 ;
 
 - (UICollectionView *)conversationMessageCollectionView {
     if (!_conversationMessageCollectionView) {
-        UICollectionViewFlowLayout *layout = [[UICollectionViewFlowLayout alloc] init];
-        _conversationMessageCollectionView = [[UICollectionView alloc] initWithFrame:CGRectZero collectionViewLayout:layout];
+        UICollectionViewFlowLayout *customFlowLayout = [[UICollectionViewFlowLayout alloc] init];
+        customFlowLayout.minimumLineSpacing = 2;
+        customFlowLayout.sectionInset = UIEdgeInsetsMake(10.0f, 0.0f,5.0f, 0.0f);
+        customFlowLayout.estimatedItemSize = CGSizeMake([[UIScreen mainScreen] bounds].size.width, 44);
+        customFlowLayout.scrollDirection = UICollectionViewScrollDirectionVertical;
+        
+        _conversationMessageCollectionView = [[UICollectionView alloc] initWithFrame:CGRectZero collectionViewLayout:customFlowLayout];
         [_conversationMessageCollectionView setDelegate:self];
         [_conversationMessageCollectionView setDataSource:self];
         [_conversationMessageCollectionView setBackgroundColor: [UIColor clearColor]];
-        [_conversationMessageCollectionView registerClass:[UICollectionViewCell class] forCellWithReuseIdentifier:ConversationMessageCollectionViewCell];
+        
+        [_conversationMessageCollectionView registerClass:[QTextMessageCell class]forCellWithReuseIdentifier:textCellIndentifier];
+        [_conversationMessageCollectionView registerClass:[QTextMessageCell class]forCellWithReuseIdentifier:startAndEndCellIndentifier];
+        [_conversationMessageCollectionView registerClass:[QNGiftMessageCell class]forCellWithReuseIdentifier:giftCellIndentifier];
     }
     return _conversationMessageCollectionView;
 }

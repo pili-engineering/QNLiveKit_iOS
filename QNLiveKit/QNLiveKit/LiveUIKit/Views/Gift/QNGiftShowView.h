@@ -6,12 +6,12 @@
 //  礼物的展示view
 
 #import <UIKit/UIKit.h>
-#import "GiftCountLabel.h"
+#import "QNGiftCountLabel.h"
 
-@class SendGiftModel;
+@class QNSendGiftModel;
 typedef void(^completeShowViewBlock)(BOOL finished,NSString *giftKey);
 
-typedef void(^completeShowViewKeyBlock)(SendGiftModel *giftModel);
+typedef void(^completeShowViewKeyBlock)(QNSendGiftModel *giftModel);
 
 static const CGFloat showGiftView_UserIcon_WH = 44; //头像宽高
 static const CGFloat showGiftView_UserName_W = 60;//名字宽 -
@@ -33,7 +33,7 @@ static const CGFloat showGiftView_XNum_L = 5;//礼物数左
  @param giftModel 礼物的数据
  @param completeBlock 展示完毕回调
  */
-- (void)showGiftShowViewWithModel:(SendGiftModel *)giftModel
+- (void)showGiftShowViewWithModel:(QNSendGiftModel *)giftModel
                     completeBlock:(completeShowViewBlock)completeBlock;
 
 /**
@@ -52,7 +52,7 @@ static const CGFloat showGiftView_XNum_L = 5;//礼物数左
 /** giftImage */
 @property(nonatomic,strong) UIImageView *giftImageView;
 /** count */
-@property(nonatomic,strong) GiftCountLabel *countLabel;
+@property(nonatomic,strong) QNGiftCountLabel *countLabel;
 /** 礼物数 */
 @property(nonatomic,assign) NSInteger giftCount;
 /** 当前礼物总数 */
@@ -62,6 +62,6 @@ static const CGFloat showGiftView_XNum_L = 5;//礼物数左
 /** 返回当前礼物的唯一key */
 @property(nonatomic,copy)completeShowViewKeyBlock showViewKeyBlock;
 /** model */
-@property(nonatomic,strong) SendGiftModel *finishModel;
+@property(nonatomic,strong) QNSendGiftModel *finishModel;
 
 @end

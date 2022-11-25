@@ -16,6 +16,8 @@ typedef NS_ENUM(NSUInteger, QRoomDataType) {
     QRoomDataTypeComment = 3,//评论
     QRoomDataTypePK = 4,//  pk
     QRoomDataTypeLink = 5,//观众连麦
+    QRoomDataTypeLike = 6, //点赞
+    QRoomDataTypeGift = 7, //礼物
 };
 
 @interface QRoomDataModel : NSObject

@@ -23,10 +23,9 @@
 
 /**  退出 presentViewController  count：次数*/
 - (void)dismissViewControllerWithCount:(NSInteger)count animated:(BOOL)animated{
-
-    count--;
     // 不是自己，并且自己弹出过VC， 递归交给自己弹出的VC处理
     if (count>0 && self.presentingViewController) {
+        count--;
         [self.presentingViewController dismissViewControllerWithCount:count animated:animated];
     }
     else{

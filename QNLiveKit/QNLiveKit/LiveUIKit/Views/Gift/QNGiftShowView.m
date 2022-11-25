@@ -6,7 +6,7 @@
 //
 
 #import "QNGiftShowView.h"
-#import "SendGiftModel.h"
+#import "QNSendGiftModel.h"
 #import "UIImageView+WebCache.h"
 
 static const NSInteger animationTime = 5;
@@ -64,7 +64,7 @@ static const NSInteger animationTime = 5;
     self.giftImageView = [[UIImageView alloc] initWithFrame:CGRectMake(CGRectGetMaxX(self.userNameLabel.frame), 0, showGiftView_GiftIcon_W, showGiftView_GiftIcon_H)];
     [self addSubview:self.giftImageView];
     
-    self.countLabel = [[GiftCountLabel alloc] initWithFrame:CGRectMake(CGRectGetMaxX(self.giftImageView.frame)+showGiftView_XNum_L, (showGiftView_GiftIcon_H-showGiftView_XNum_H)*0.5, showGiftView_XNum_W, showGiftView_XNum_H)];
+    self.countLabel = [[QNGiftCountLabel alloc] initWithFrame:CGRectMake(CGRectGetMaxX(self.giftImageView.frame)+showGiftView_XNum_L, (showGiftView_GiftIcon_H-showGiftView_XNum_H)*0.5, showGiftView_XNum_W, showGiftView_XNum_H)];
     self.countLabel.textColor = [UIColor whiteColor];
     self.countLabel.font = [UIFont systemFontOfSize:20];
     self.countLabel.textAlignment = NSTextAlignmentCenter;
@@ -73,7 +73,7 @@ static const NSInteger animationTime = 5;
 
 }
 
-- (void)showGiftShowViewWithModel:(SendGiftModel *)giftModel completeBlock:(completeShowViewBlock)completeBlock{
+- (void)showGiftShowViewWithModel:(QNSendGiftModel *)giftModel completeBlock:(completeShowViewBlock)completeBlock{
     
     self.finishModel = giftModel;
     [self.userIconView sd_setImageWithURL:[NSURL URLWithString:giftModel.userIcon] placeholderImage:[UIImage imageNamed:@""]];
