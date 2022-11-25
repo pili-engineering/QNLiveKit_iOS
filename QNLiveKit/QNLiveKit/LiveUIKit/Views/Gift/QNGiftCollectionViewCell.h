@@ -7,10 +7,15 @@
 
 #import <UIKit/UIKit.h>
 
-@class QNSendGiftModel;
-@interface GiftCollectionViewCell : UICollectionViewCell
+@class QNGiftModel;
+
+typedef void (^QNPayGiftBlock)(QNGiftModel *giftModel);
+
+@interface QNGiftCollectionViewCell : UICollectionViewCell
 
 /** model */
-@property(nonatomic,strong) QNSendGiftModel *model;
+@property (nonatomic,strong) QNGiftModel *model;
+
+@property (nonatomic, copy) QNPayGiftBlock payGiftBlock;
 
 @end

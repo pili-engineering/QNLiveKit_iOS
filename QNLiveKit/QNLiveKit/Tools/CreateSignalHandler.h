@@ -28,9 +28,6 @@ NS_ASSUME_NONNULL_BEGIN
 //生成自定义消息
 - (QNIMMessageObject *)createCustomMessage:(NSString *)content;
 
-//礼物消息
-- (QNIMMessageObject *)createGiftMessage:(QGiftModel *)giftModel number:(NSInteger)number extMsg:(NSString *)extMsg;
-
 //点赞消息
 - (QNIMMessageObject *)createLikeMessage:(NSString *)content;
 

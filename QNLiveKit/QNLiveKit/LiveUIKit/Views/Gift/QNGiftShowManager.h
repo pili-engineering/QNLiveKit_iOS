@@ -9,10 +9,10 @@
 #import <Foundation/Foundation.h>
 #import <UIKit/UIKit.h>
 
-@class SendGiftModel;
+@class QNSendGiftModel;
 typedef void(^completeBlock)(BOOL finished);
 
-@interface GiftShowManager : NSObject
+@interface QNGiftShowManager : NSObject
 
 + (instancetype)sharedManager;
 
@@ -25,7 +25,7 @@ typedef void(^completeBlock)(BOOL finished);
  */
 
 - (void)showGiftViewWithBackView:(UIView *)backView
-                            info:(SendGiftModel *)giftModel
+                            info:(QNSendGiftModel *)giftModel
                    completeBlock:(completeBlock)completeBlock;
 
 @end

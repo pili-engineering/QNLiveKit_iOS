@@ -30,14 +30,19 @@
 #import "GoodsModel.h"
 #import "WacthRecordController.h"
 #import "WatchBottomMoreView.h"
-#import "GiftView.h"
-#import "SendGiftModel.h"
-#import "GiftShowManager.h"
-#import "GiftMsgModel.h"
+#import "QNGiftView.h"
+#import "QNGiftModel.h"
+#import "QNPayGiftViewController.h"
+#import "QNGiftMessagePannel.h"
+#import "QNGiftPaySuccessView.h"
+#import "QNLikeMenuView.h"
+#import "QNLikeBubbleView.h"
 
 @interface QNAudienceController ()<QNChatRoomServiceListener,QNPushClientListener,LiveChatRoomViewDelegate,FDanmakuViewProtocol,PLPlayerDelegate,MicLinkerListener,PKServiceListener,GiftViewDelegate>
 @property (nonatomic,strong)UILabel *masterLeaveLabel;
-@property(nonatomic,strong) GiftView *giftView;
+@property (nonatomic, strong) QNGiftView *giftView;
+@property (nonatomic, strong) QNGiftPaySuccessView *paySuccessView;
+@property (nonatomic, strong) QNLikeMenuView *likeMenuView;
 @end
 
 @implementation QNAudienceController
@@ -48,29 +53,27 @@
 }
 
 - (void)viewDidLoad {
-    
     [super viewDidLoad];
+    
+    [self setupBottomMenuView];
+    
     __weak typeof(self)weakSelf = self;
     [self.chatService addChatServiceListener:self];
     self.pkService.delegate = self;
     self.linkService.micLinkerListener = self;
     self.chatRoomView.delegate = self;
     self.danmakuView.delegate = self;
+    
+    
     [[QLive createPlayerClient] joinRoom:self.roomInfo.live_id callBack:^(QNLiveRoomInfo * _Nonnull roomInfo) {
         weakSelf.roomInfo = roomInfo;
         [self playWithUrl:roomInfo.rtmp_url];
         [weakSelf updateRoomInfo];
     }];
     
-    [self roomHostView];
-    [self onlineUserView];
-    [self pubchatView];
-    [self bottomMenuView];
-    
     [self.chatService sendWelComeMsg:^(QNIMMessageObject * _Nonnull msg) {
         [weakSelf.chatRoomView showMessage:msg];
     }];
-    
 }
 
 //正在讲解的商品
@@ -283,6 +286,17 @@
     [self.danmakuView.modelsArr addObject:model];
 }
 
+// 收到喜欢消息
+- (void)onReceivedLikeMsg:(QNIMMessageObject *)msg {
+    
+}
+
+// 收到礼物消息
+- (void)onreceivedGiftMsg:(QNIMMessageObject *)msg {
+    [self.chatRoomView showMessage:msg];
+    [self.giftMessagePannel showGiftMessage:msg];
+}
+
 -(NSTimeInterval)currentTime {
     static double time = 0;
     time += 0.1 ;
@@ -332,104 +346,55 @@
     return _masterLeaveLabel;
 }
 
-- (RoomHostView *)roomHostView {
-    if (!_roomHostView) {
-        _roomHostView = [[RoomHostView alloc]initWithFrame:CGRectMake(20, 60, 135, 40)];
-        [self.view addSubview:_roomHostView];
-        [_roomHostView updateWith:self.roomInfo];;
-        _roomHostView.clickBlock = ^(BOOL selected){
-            NSLog(@"点击了房主头像");
-        };
-    }
-    return _roomHostView;
+- (void)setupBottomMenuView {
+    
+    NSMutableArray *slotList = [NSMutableArray array];
+    __weak typeof(self)weakSelf = self;
+    
+    //弹幕
+    ImageButtonView *message = [[ImageButtonView alloc]initWithFrame:CGRectZero];
+    [message bundleNormalImage:@"icon_danmu" selectImage:@"icon_danmu"];
+    message.clickBlock = ^(BOOL selected){
+        [weakSelf.chatRoomView commentBtnPressedWithPubchat:NO];
+    };
+    [slotList addObject:message];
+    
+    //购物车
+    ImageButtonView *shopping = [[ImageButtonView alloc]initWithFrame:CGRectZero];
+    [shopping bundleNormalImage:@"shopping" selectImage:@"shopping"];
+    shopping.clickBlock = ^(BOOL selected){
+        
+        [weakSelf popGoodListView];
+    };
+    [slotList addObject:shopping];
+ 
+    QNLikeMenuView *likeView = [[QNLikeMenuView alloc] initWithFrame:CGRectZero];
+    [likeView bundleNormalImage:@"like_click" selectImage:@"like_click"];
+    likeView.roomInfo = self.roomInfo;
+    likeView.clickBlock = ^(BOOL selected) {
+        [weakSelf showLikeBubble];
+    };
+    [slotList addObject:likeView];
+    self.likeMenuView = likeView;
+ 
+    //更多
+    ImageButtonView *more = [[ImageButtonView alloc]initWithFrame:CGRectZero];
+    [more bundleNormalImage:@"icon_more" selectImage:@"icon_more"];
+    more.clickBlock = ^(BOOL selected) {
+        [weakSelf popMoreView];
+    };
+    [slotList addObject:more];
+    
+    [self.bottomMenuView updateWithSlotList:slotList.copy];
 }
 
-- (OnlineUserView *)onlineUserView {
-    if (!_onlineUserView) {
-        _onlineUserView = [[OnlineUserView alloc]initWithFrame:CGRectMake(self.view.frame.size.width - 150, 60, 150, 60)];
-        [self.view addSubview:_onlineUserView];
-        [_onlineUserView updateWith:self.roomInfo];
-        _onlineUserView.clickBlock = ^(BOOL selected){
-            NSLog(@"点击了在线人数");
-        };
+- (void)showLikeBubble {
+    CGRect rect = [self.likeMenuView convertRect:self.likeMenuView.bounds toView:self.view];
+    for (int i = 0; i < 3; i++) {
+        QNLikeBubbleView *bubbleView = [[QNLikeBubbleView alloc] initWithFrame:CGRectMake(rect.origin.x, rect.origin.y - 20, 35, 35)];
+        [self.view addSubview:bubbleView];
+        [bubbleView bubbleWithMode:i];
     }
-    return _onlineUserView;
-}
-
-- (ImageButtonView *)pubchatView {
-    if (!_pubchatView) {
-        _pubchatView = [[ImageButtonView alloc]initWithFrame:CGRectMake(15, SCREEN_H - 52.5, 170, 30)];
-        _pubchatView.backgroundColor = [[UIColor blackColor] colorWithAlphaComponent:0.3];
-        _pubchatView.layer.cornerRadius = 15;
-        _pubchatView.clipsToBounds = YES;
-        [self.view addSubview:_pubchatView];
-        
-        UIImageView *imageView = [[UIImageView alloc]initWithImage:[UIImage imageNamed:@"pub_chat"]];
-        imageView.frame = CGRectMake(10, 7, 16, 16);
-        [_pubchatView addSubview:imageView];
-        
-        __weak typeof(self)weakSelf = self;
-        _pubchatView.clickBlock = ^(BOOL selected){
-            [weakSelf.chatRoomView commentBtnPressedWithPubchat:YES];
-        };
-        
-    }
-    return _pubchatView;
-}
-
-- (BottomMenuView *)bottomMenuView {
-    if (!_bottomMenuView) {
-        NSMutableArray *slotList = [NSMutableArray array];
-        __weak typeof(self)weakSelf = self;
-        
-        //弹幕
-        ImageButtonView *message = [[ImageButtonView alloc]initWithFrame:CGRectZero];
-        [message bundleNormalImage:@"icon_danmu" selectImage:@"icon_danmu"];
-        message.clickBlock = ^(BOOL selected){
-            [weakSelf.chatRoomView commentBtnPressedWithPubchat:NO];
-        };
-        [slotList addObject:message];
-        
-        //购物车
-        ImageButtonView *shopping = [[ImageButtonView alloc]initWithFrame:CGRectZero];
-        [shopping bundleNormalImage:@"shopping" selectImage:@"shopping"];
-        shopping.clickBlock = ^(BOOL selected){
-            
-            [weakSelf popGoodListView];
-        };
-        [slotList addObject:shopping];
-        
-        //更多
-        ImageButtonView *more = [[ImageButtonView alloc]initWithFrame:CGRectZero];
-        [more bundleNormalImage:@"icon_more" selectImage:@"icon_more"];
-        more.clickBlock = ^(BOOL selected) {
-            [weakSelf popMoreView];
-                 };
-        [slotList addObject:more];
-        
-        //关闭
-        ImageButtonView *close = [[ImageButtonView alloc]initWithFrame:CGRectZero];
-        [close bundleNormalImage:@"live_close" selectImage:@"live_close"];
-        close.clickBlock = ^(BOOL selected){
-            
-            if ([QLive createPusherClient].rtcClient.connectionState == QNConnectionStateConnected) {
-                [[QLive createPusherClient].rtcClient leave];
-                [[QLive createPlayerClient] leaveRoom:weakSelf.roomInfo.live_id];
-                [weakSelf.linkService downMic];
-            }
-            
-            [weakSelf.chatService sendLeaveMsg];
-            
-            [weakSelf dismissViewControllerAnimated:YES completion:nil];
-        };
-        [slotList addObject:close];
-        
-        _bottomMenuView = [[BottomMenuView alloc]initWithFrame:CGRectMake(200, SCREEN_H - 60, SCREEN_W - 200, 45)];
-        [_bottomMenuView updateWithSlotList:slotList.copy];
-        [self.view addSubview:_bottomMenuView];
-
-    }
-    return _bottomMenuView;
 }
 
 - (void)popMoreView {
@@ -451,92 +416,85 @@
 
 #pragma mark  --------GiftViewDelegate---------
 //点击赠送礼物的回调
-- (void)giftViewSendGiftInView:(GiftView *)giftView data:(SendGiftModel *)model {
-        
-    model.userIcon = LIVE_User_avatar;
-    model.userName = LIVE_User_nickname;
-    model.defaultCount = 0;
-    model.sendCount = 1;
-
-    [[GiftShowManager sharedManager] showGiftViewWithBackView:self.view info:model completeBlock:^(BOOL finished) {
-        NSLog(@"赠送了礼物");
-        
-    }];
-    [self requestSendGift:model];
-    [self sendGiftMessage:model];
+- (void)giftViewSendGiftInView:(QNGiftView *)giftView data:(QNGiftModel *)model {
+    if (model.amount == 0) {
+        [self showPayAmountView:model];
+    } else {
+        [self requestSendGift:model amount:0];
+    }
 }
 
-- (void)requestSendGift:(SendGiftModel *)model {
+- (void)showPayAmountView:(QNGiftModel *)model {
+    __weak typeof(self) weakSelf = self;
+    QNPayGiftViewController *payVC = [[QNPayGiftViewController alloc] initWithComplete:^(NSInteger amount){
+        if (amount == 0) {
+            return;
+        }
+        
+        __strong typeof(self) strongSelf = weakSelf;
+        [strongSelf requestSendGift:model amount:amount];
+    }];
+    [self presentViewController:payVC animated:YES completion:^{
+    }];
+}
+
+- (void)requestSendGift:(QNGiftModel *)model amount:(NSInteger)amount{
     NSMutableDictionary *dic = [NSMutableDictionary dictionary];
     dic[@"live_id"] = self.roomInfo.live_id;
-    dic[@"gift_id"] = model.gift_id;
-    dic[@"amount"] = model.amount;
+    dic[@"gift_id"] = @(model.gift_id);
+    if (model.amount > 0) {
+        dic[@"amount"] = @(model.amount);
+    } else {
+        dic[@"amount"] = @(amount);
+    }
 
-    [QLiveNetworkUtil postRequestWithAction:@"client/gift/send" params:dic success:^(NSDictionary * _Nonnull responseData) {
-
+    [QLiveNetworkUtil postRequestWithAction:@"client/gift/send" params:dic  success:^(NSDictionary * _Nonnull responseData) {
+        NSLog(@"success %@", responseData);
+        [self showPaySuccessView];
     } failure:^(NSError * _Nonnull error) {
-        
+        NSLog(@"gift send error %@", error);
+        [QToastView showToast:@"支付失败"];
     }];
 }
 
-//发送礼物信令和消息
--(void)sendGiftMessage:(SendGiftModel *)model {
-    QNGiftModel *gift = [QNGiftModel new];
-    gift.giftName = model.name;
-    gift.giftId = model.gift_id;
+- (void)showPaySuccessView {
+    [self.view addSubview:self.paySuccessView];
+    [self.paySuccessView setHidden:NO];
     
-#pragma warning -------发送礼物消息
-    
+    [self performSelector:@selector(hidePaySuccessView) withObject:nil afterDelay:0.5];
 }
 
-//收到礼物信令的操作
-//- (void)receivedGift:(GiftMsgModel *)model {
-//    SendGiftModel *sendModel = [SendGiftModel new];
-//    sendModel.userIcon = model.senderAvatar;
-//    sendModel.userName = model.senderName;
-//    sendModel.defaultCount = 0;
-//    sendModel.sendCount = model.number;
-//    sendModel.name = model.sendGift.name;
-//    //通过礼物名字找到本地的礼物图
-//    for (SendGiftModel *gift in self.giftView.dataArray) {
-//        if ([model.sendGift.name isEqualToString:gift.name]) {
-//            sendModel.img = gift.img;
-//            sendModel.animation_img = gift.animation_img;
-//        }
-//    }
-//    [[GiftShowManager sharedManager] showGiftViewWithBackView:self.view info:sendModel completeBlock:^(BOOL finished) {
-//    }];
-//}
-
+- (void)hidePaySuccessView {
+    [self.paySuccessView setHidden:YES];
+    [self.paySuccessView removeFromSuperview];
+}
 
 - (void)popGoodListView {
+    ShopBuyListController *vc = [[ShopBuyListController alloc] initWithLiveInfo:self.roomInfo];
+    __weak typeof(self)weakSelf = self;
+    vc.buyClickedBlock = ^(GoodsModel * _Nonnull itemModel) {
+        if (weakSelf.goodClickedBlock) {
+            weakSelf.goodClickedBlock(itemModel);
+        }
+        weakSelf.player.mute = YES;
+    };
+    vc.watchRecordBlock = ^(GoodsModel * _Nonnull itemModel) {
+        weakSelf.player.mute = YES;
         
-        ShopBuyListController *vc = [[ShopBuyListController alloc] initWithLiveInfo:self.roomInfo];
-        __weak typeof(self)weakSelf = self;
-        vc.buyClickedBlock = ^(GoodsModel * _Nonnull itemModel) {
-            if (weakSelf.goodClickedBlock) {
-                weakSelf.goodClickedBlock(itemModel);
-            }
-            weakSelf.player.mute = YES;
-        };
-        vc.watchRecordBlock = ^(GoodsModel * _Nonnull itemModel) {
-            weakSelf.player.mute = YES;
-            
-            WacthRecordController *vc = [[WacthRecordController alloc] initWithModel:itemModel roomInfo:weakSelf.roomInfo];
-            vc.modalPresentationStyle = UIModalPresentationFullScreen;
-            vc.buyClickedBlock = ^(GoodsModel * _Nonnull itemModel) {
-                if (self.goodClickedBlock) {
-                    self.goodClickedBlock(itemModel);
-                }
-            };
-            [weakSelf presentViewController:vc animated:YES completion:nil];
-            
-        };
-        vc.view.frame = CGRectMake(0, 0, SCREEN_W, SCREEN_H);
+        WacthRecordController *vc = [[WacthRecordController alloc] initWithModel:itemModel roomInfo:weakSelf.roomInfo];
         vc.modalPresentationStyle = UIModalPresentationFullScreen;
-        [self addChildViewController:vc];
-        [self.view addSubview:vc.view];
+        vc.buyClickedBlock = ^(GoodsModel * _Nonnull itemModel) {
+            if (self.goodClickedBlock) {
+                self.goodClickedBlock(itemModel);
+            }
+        };
+        [weakSelf presentViewController:vc animated:YES completion:nil];
         
+    };
+    vc.view.frame = CGRectMake(0, 0, SCREEN_W, SCREEN_H);
+    vc.modalPresentationStyle = UIModalPresentationFullScreen;
+    [self addChildViewController:vc];
+    [self.view addSubview:vc.view];
 }
 
 - (void)popLinkSLot {
@@ -583,9 +541,9 @@
     return _goodView;
 }
 
-- (GiftView *)giftView{
+- (QNGiftView *)giftView{
     if (!_giftView) {
-        _giftView = [[GiftView alloc] init];
+        _giftView = [[QNGiftView alloc] init];
         _giftView.delegate = self;
     }
     return _giftView;
@@ -603,4 +561,15 @@
 }
 
 
+- (void)closeViewController {
+    [super closeViewController];
+}
+
+- (QNGiftPaySuccessView *) paySuccessView {
+    if (!_paySuccessView) {
+        CGFloat x = (SCREEN_W - 136) / 2.0;
+        _paySuccessView = [[QNGiftPaySuccessView alloc] initWithFrame:CGRectMake(x, 240, 136, 130)];
+    }
+    return _paySuccessView;
+}
 @end

@@ -17,6 +17,8 @@ NS_ASSUME_NONNULL_BEGIN
 - (void)bundleNormalImage:(NSString *)normalImage selectImage:(NSString *)selectImage;
 //从自己项目中读取
 - (void)normalImage:(NSString *)normalImage selectImage:(NSString *)selectImage;
+
+- (void)click:(UIButton *)button;
 @end
 
 NS_ASSUME_NONNULL_END

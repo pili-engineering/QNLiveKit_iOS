@@ -126,9 +126,17 @@
     
 //收到远端发来的消息
 - (void)receivedMessages:(NSArray<QNIMMessageObject *> *)messages {
-    
     QNIMMessageObject *msg = messages.firstObject;
-    
+    [self receiveImMessage:msg];
+}
+
+- (void)receivedCommandMessages:(NSArray<QNIMMessageObject *> *)messages {
+    QNIMMessageObject *msg = messages.firstObject;
+    [self receiveImMessage:msg];
+}
+
+// 统一聊天消息，与Command 消息的处理
+- (void)receiveImMessage:(QNIMMessageObject *)msg {
     [[NSNotificationCenter defaultCenter] postNotificationName:ReceiveIMMessageNotification object:nil userInfo:msg.content.mj_keyValues];
     
     QIMModel *imModel = [QIMModel mj_objectWithKeyValues:msg.content.mj_keyValues];
@@ -168,9 +176,18 @@
         if ([self.chatRoomListener respondsToSelector:@selector(onReceivedDamaku:)]) {
             [self.chatRoomListener onReceivedDamaku:model];
         }
-    } 
-    
-
+    } else if ([imModel.action isEqualToString:liveroom_like]) {
+//        PubChatModel *model = [PubChatModel mj_objectWithKeyValues:imModel.data];
+        
+        if ([self.chatRoomListener respondsToSelector:@selector(onReceivedLikeMsg:)]) {
+            [self.chatRoomListener onReceivedLikeMsg:msg];
+        }
+    } else if ([imModel.action isEqualToString:liveroom_gift]) {
+//        PubChatModel *model = [PubChatModel mj_objectWithKeyValues:imModel.data];
+        if ([self.chatRoomListener respondsToSelector:@selector(onreceivedGiftMsg:)]) {
+            [self.chatRoomListener onreceivedGiftMsg:msg];
+        }
+    }
 }
 
 - (CreateSignalHandler *)creater {

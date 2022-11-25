@@ -22,7 +22,7 @@ typedef NS_ENUM(NSUInteger, STVCType){
 
 @interface STDefaultSetting : NSObject
 
-@property (nonatomic, assign) PLSTEffectManager *effectManager;
+@property (nonatomic, weak) PLSTEffectManager *effectManager;
 
 //@property (nonatomic, strong) EAGLContext *glContext;
 

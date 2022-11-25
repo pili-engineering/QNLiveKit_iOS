@@ -7,7 +7,6 @@
 
 #import "CreateSignalHandler.h"
 #import "QInvitationModel.h"
-#import "QGiftMsgModel.h"
 #import "QIMModel.h"
 #import <QNIMSDK/QNIMSDK.h>
 #import "PubChatModel.h"
@@ -120,27 +119,6 @@
     QNIMMessageObject *message = [[QNIMMessageObject alloc]initWithQNIMMessageText:messageModel.mj_JSONString fromId:LIVE_IM_userId.longLongValue toId:self.toId.longLongValue type:QNIMMessageTypeGroup conversationId:self.toId.longLongValue];
     message.senderName = LIVE_User_nickname;
     
-    return message;
-}
-
-//生成礼物消息
-- (QNIMMessageObject *)createGiftMessage:(QGiftModel *)giftModel number:(NSInteger)number extMsg:(NSString *)extMsg {
-    
-    QGiftMsgModel *giftMsgModel = [QGiftMsgModel new];
-    giftMsgModel.senderUid = LIVE_User_id;
-    giftMsgModel.senderName = LIVE_User_nickname;
-    giftMsgModel.senderAvatar = LIVE_User_avatar;
-    giftMsgModel.senderRoomId = self.toId;
-    giftMsgModel.sendGift = giftModel;
-    giftMsgModel.number = number;
-    giftMsgModel.extMsg = extMsg;
-    
-    QIMModel *model = [QIMModel new];
-    model.action = @"living_gift";
-    model.data = giftMsgModel.mj_keyValues;
-    
-    QNIMMessageObject *message = [[QNIMMessageObject alloc]initWithQNIMMessageText:model.mj_JSONString fromId:LIVE_IM_userId.longLongValue toId:self.toId.longLongValue type:QNIMMessageTypeGroup conversationId:self.toId.longLongValue];
-    message.senderName = LIVE_User_nickname;
     return message;
 }
 

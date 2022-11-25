@@ -17,6 +17,8 @@ typedef void (^EffectsBlock)(void);
 
 @interface LiveBottomMoreView : UIView
 
+- (instancetype)initWithFrame:(CGRect)frame beauty:(BOOL)beauty;
+
 @property (nonatomic, copy)CameraChangeBlock cameraChangeBlock;
 
 @property (nonatomic, copy)MicrophoneBlock microphoneBlock;
