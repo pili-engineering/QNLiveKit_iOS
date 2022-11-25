@@ -1472,7 +1472,7 @@
 
 - (LiveChatRoom *)chatRoomView {
     if (!_chatRoomView) {
-        _chatRoomView = [[LiveChatRoom alloc] initWithFrame:CGRectMake(0, SCREEN_H - 245, 260, 280)];
+        _chatRoomView = [[LiveChatRoom alloc] initWithFrame:CGRectMake(8, SCREEN_H - 315, 238, 280)];
         _chatRoomView.groupId = self.roomInfo.chat_id;
         [self.view addSubview:_chatRoomView];
     }

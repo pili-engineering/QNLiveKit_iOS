@@ -38,6 +38,7 @@
 #import "QAlertView.h"
 #import "UIViewController+QViewController.h"
 #import "LiveBottomMoreView.h"
+#import "QNGiftMessagePannel.h"
 
 @interface QLiveController ()<QNPushClientListener,QNRoomLifeCycleListener,QNPushClientListener,QNChatRoomServiceListener,FDanmakuViewProtocol,LiveChatRoomViewDelegate,MicLinkerListener,PKServiceListener>
 
@@ -187,6 +188,18 @@
     
     [self.danmakuView.modelsArr addObject:model];
 }
+
+// 收到喜欢消息
+- (void)onReceivedLikeMsg:(QNIMMessageObject *)msg {
+    
+}
+
+// 收到礼物消息
+- (void)onreceivedGiftMsg:(QNIMMessageObject *)msg {
+    [self.chatRoomView showMessage:msg];
+    [self.giftMessagePannel showGiftMessage:msg];
+}
+
 
 -(NSTimeInterval)currentTime {
     static double time = 0;

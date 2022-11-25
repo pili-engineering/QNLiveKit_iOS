@@ -10,7 +10,7 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-@class QNLiveRoomInfo,QNLivePushClient,QNLiveRoomClient,QNChatRoomService,LiveChatRoom,QNMergeOption,QPKService,QRenderView,FDanmakuView,QLinkMicService,RoomHostView,OnlineUserView,ImageButtonView,BottomMenuView,STBaseViewController,QStatisticalService;
+@class QNLiveRoomInfo,QNLivePushClient,QNLiveRoomClient,QNChatRoomService,LiveChatRoom,QNMergeOption,QPKService,QRenderView,FDanmakuView,QLinkMicService,RoomHostView,OnlineUserView,ImageButtonView,BottomMenuView,STBaseViewController,QStatisticalService,QNGiftMessagePannel;
 
 @interface BeautyLiveViewController : BeautyBaseController
 
@@ -19,6 +19,8 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, strong) ImageButtonView *pubchatView;//左下角聊天框槽位
 @property (nonatomic, strong) BottomMenuView *bottomMenuView;//右下角操作槽位
 @property (nonatomic, strong) UIButton *closeButton; //关闭按钮
+
+@property (nonatomic, strong) QNGiftMessagePannel *giftMessagePannel;
 
 //@property (nonatomic, strong) QRenderView *preview;//自己画面的预览视图
 //@property (nonatomic, strong) UIView *renderBackgroundView;//上面只能添加视频流画面
