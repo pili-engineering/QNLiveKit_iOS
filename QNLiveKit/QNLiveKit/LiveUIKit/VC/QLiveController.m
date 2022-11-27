@@ -265,7 +265,7 @@
 
 //接受到连麦邀请
 - (void)onReceiveLinkInvitation:(QInvitationModel *)model {
-    NSString *title = [model.invitation.msg.initiator.nick stringByAppendingString:@"申请加入连麦，是否同意？"];
+    NSString *title = [model.invitation.linkInvitation.initiator.nick stringByAppendingString:@"申请加入连麦，是否同意？"];
     [QAlertView showBaseAlertWithTitle:title content:@"" cancelHandler:^(UIAlertAction * _Nonnull action) {
         
     } confirmHandler:^(UIAlertAction * _Nonnull action) {
@@ -275,12 +275,12 @@
 
 //接收到pk邀请
 - (void)onReceivePKInvitation:(QInvitationModel *)model {
-    NSString *title = [model.invitation.msg.initiator.nick stringByAppendingString:@"邀请您PK，是否同意？"];
+    NSString *title = [model.invitation.linkInvitation.initiator.nick stringByAppendingString:@"邀请您PK，是否同意？"];
     [QAlertView showBaseAlertWithTitle:title content:@"" cancelHandler:^(UIAlertAction * _Nonnull action) {
         
     } confirmHandler:^(UIAlertAction * _Nonnull action) {
         [self.pkService AcceptPK:model];
-        self.pk_other_user = model.invitation.msg.initiator;
+        self.pk_other_user = model.invitation.linkInvitation.initiator;
     }];
 }
 
