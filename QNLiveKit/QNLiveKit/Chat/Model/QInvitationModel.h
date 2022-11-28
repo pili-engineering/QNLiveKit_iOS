@@ -19,12 +19,14 @@ NS_ASSUME_NONNULL_BEGIN
 
 @property(nonatomic, copy) NSString *initiatorUid;
 
-@property(nonatomic, strong) LinkInvitation *msg;
+//@property(nonatomic, strong) LinkInvitation *msg;
+@property (nonatomic, copy) NSString *msg;
 
-@property(nonatomic, copy) NSString *receiver;
+@property (nonatomic, copy) NSString *receiver;
 
-@property(nonatomic, copy) NSString *timeStamp;
+@property (nonatomic, copy) NSString *timeStamp;
 
+@property (nonatomic, strong) LinkInvitation *linkInvitation;
 @end
 
 @interface QInvitationModel : NSObject

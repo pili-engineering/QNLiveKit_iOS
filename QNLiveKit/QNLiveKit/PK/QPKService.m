@@ -39,7 +39,7 @@
     if ([imModel.action isEqualToString:invite_send]) {
        //收到pk邀请消息
        QInvitationModel *model = [QInvitationModel mj_objectWithKeyValues:imModel.data];
-       if ([model.invitation.msg.receiver.user_id isEqualToString:LIVE_User_id]) {
+       if ([model.invitation.linkInvitation.receiver.user_id isEqualToString:LIVE_User_id]) {
            if ([model.invitationName isEqualToString:liveroom_pk_invitation]) {
                if ([self.delegate respondsToSelector:@selector(onReceivePKInvitation:)]) {
                    [self.delegate onReceivePKInvitation:model];

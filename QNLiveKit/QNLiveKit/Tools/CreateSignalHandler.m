@@ -285,7 +285,7 @@
     model.action = action;
     model.data = invitationModel.mj_keyValues;
 
-    QNIMMessageObject *message = [[QNIMMessageObject alloc]initWithQNIMMessageText:model.mj_JSONString fromId:LIVE_IM_userId.longLongValue toId:invitationModel.invitation.msg.initiator.im_userid.longLongValue type:QNIMMessageTypeSingle conversationId:invitationModel.invitation.msg.initiator.im_userid.longLongValue];
+    QNIMMessageObject *message = [[QNIMMessageObject alloc]initWithQNIMMessageText:model.mj_JSONString fromId:LIVE_IM_userId.longLongValue toId:invitationModel.invitation.linkInvitation.initiator.im_userid.longLongValue type:QNIMMessageTypeSingle conversationId:invitationModel.invitation.linkInvitation.initiator.im_userid.longLongValue];
     message.senderName = LIVE_User_nickname;
     return message;
 }
@@ -302,7 +302,7 @@
     QInvitationInfo *info = [QInvitationInfo new];
 //    info.channelId = self.toId;
     info.initiatorUid = LIVE_User_id;
-    info.msg = link;
+    info.linkInvitation = link;
 //    info.receiver =  receiverId;
     info.timeStamp = [self getNowTimeTimestamp3];
     
