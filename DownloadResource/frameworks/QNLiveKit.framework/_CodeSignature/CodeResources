@@ -4,21 +4,13 @@
 <dict>
 	<key>files</key>
 	<dict>
+		<key>.DS_Store</key>
+		<data>
+		hcv1mu6kUnNPjV8ZYpEfwFJLGk4=
+		</data>
 		<key>EmojiList.plist</key>
 		<data>
 		0bUWMN/CO1P90uVnT4hEFUXcy2A=
-		</data>
-		<key>Frameworks/QNIMSDK.framework/Info.plist</key>
-		<data>
-		xCwi8JRDbFqu7eca3u2onKj+qr4=
-		</data>
-		<key>Frameworks/QNIMSDK.framework/QNIMSDK</key>
-		<data>
-		ax3LeN7vp3jUiucmdSeVyVYnt5E=
-		</data>
-		<key>Frameworks/QNIMSDK.framework/_CodeSignature/CodeResources</key>
-		<data>
-		+PNeNdFAknFT5Gh4irtFfAq/6t0=
 		</data>
 		<key>Headers/BeautyBaseController.h</key>
 		<data>
@@ -368,39 +360,6 @@
 			<key>hash2</key>
 			<data>
 			llWVJZsL119zvfCNeeCNaTMXucYOIsPDGgANpNLJi90=
-			</data>
-		</dict>
-		<key>Frameworks/QNIMSDK.framework/Info.plist</key>
-		<dict>
-			<key>hash</key>
-			<data>
-			xCwi8JRDbFqu7eca3u2onKj+qr4=
-			</data>
-			<key>hash2</key>
-			<data>
-			m5t7AWEk200OirGXevtUA740gEuGa5X1FIRhK+T6fGk=
-			</data>
-		</dict>
-		<key>Frameworks/QNIMSDK.framework/QNIMSDK</key>
-		<dict>
-			<key>hash</key>
-			<data>
-			ax3LeN7vp3jUiucmdSeVyVYnt5E=
-			</data>
-			<key>hash2</key>
-			<data>
-			+lnqQCpUS/s2mrJHKANbneg1mT1LXmUhxflhUFGt7vU=
-			</data>
-		</dict>
-		<key>Frameworks/QNIMSDK.framework/_CodeSignature/CodeResources</key>
-		<dict>
-			<key>hash</key>
-			<data>
-			+PNeNdFAknFT5Gh4irtFfAq/6t0=
-			</data>
-			<key>hash2</key>
-			<data>
-			1braKO1KjWvlvw6OWdMbvFfmpFOae4Vn5hZyEnunXsQ=
 			</data>
 		</dict>
 		<key>Headers/BeautyBaseController.h</key>

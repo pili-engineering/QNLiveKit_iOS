@@ -308,7 +308,6 @@
 		77204D97285F9AF50053B1AD /* LinkOptionModel.h in Headers */ = {isa = PBXBuildFile; fileRef = 77204D95285F9AF50053B1AD /* LinkOptionModel.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		77204D98285F9AF50053B1AD /* LinkOptionModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 77204D96285F9AF50053B1AD /* LinkOptionModel.m */; };
 		773D512F288F9D2E004B2D5F /* QNIMSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 77781D9728486DAD009DC71C /* QNIMSDK.framework */; platformFilter = ios; };
-		773D5130288F9D2E004B2D5F /* QNIMSDK.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 77781D9728486DAD009DC71C /* QNIMSDK.framework */; platformFilter = ios; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		774E641C2848DB6800C9FB7F /* CreateSignalHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = 774E641A2848DB6700C9FB7F /* CreateSignalHandler.m */; };
 		774E641D2848DB6800C9FB7F /* CreateSignalHandler.h in Headers */ = {isa = PBXBuildFile; fileRef = 774E641B2848DB6700C9FB7F /* CreateSignalHandler.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		774E6421284DF8E800C9FB7F /* QMixStreamManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 774E641F284DF8E800C9FB7F /* QMixStreamManager.m */; };
@@ -497,7 +496,6 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				773D5130288F9D2E004B2D5F /* QNIMSDK.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
