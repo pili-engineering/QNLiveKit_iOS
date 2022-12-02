@@ -55,28 +55,6 @@
 		48E87A392926445800F33059 /* STDefaultSetting.m in Sources */ = {isa = PBXBuildFile; fileRef = 48E879042926445800F33059 /* STDefaultSetting.m */; };
 		48E87A3A2926445800F33059 /* STCamera.h in Headers */ = {isa = PBXBuildFile; fileRef = 48E879062926445800F33059 /* STCamera.h */; };
 		48E87A3B2926445800F33059 /* STCamera.m in Sources */ = {isa = PBXBuildFile; fileRef = 48E879072926445800F33059 /* STCamera.m */; };
-		48E87A3C2926445800F33059 /* PortraitFilters.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 48E8790A2926445800F33059 /* PortraitFilters.bundle */; };
-		48E87A3D2926445800F33059 /* SceneryFilters.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 48E8790B2926445800F33059 /* SceneryFilters.bundle */; };
-		48E87A3E2926445800F33059 /* StillLifeFilters.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 48E8790C2926445800F33059 /* StillLifeFilters.bundle */; };
-		48E87A3F2926445800F33059 /* DeliciousFoodFilters.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 48E8790D2926445800F33059 /* DeliciousFoodFilters.bundle */; };
-		48E87A402926445800F33059 /* whiten_gif.zip in Resources */ = {isa = PBXBuildFile; fileRef = 48E8790F2926445800F33059 /* whiten_gif.zip */; };
-		48E87A412926445800F33059 /* SenseMEEffects集成文档.md in Resources */ = {isa = PBXBuildFile; fileRef = 48E879112926445800F33059 /* SenseMEEffects集成文档.md */; };
-		48E87A422926445800F33059 /* SampleReadMe.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 48E879122926445800F33059 /* SampleReadMe.pdf */; };
-		48E87A432926445800F33059 /* SDK常见问题FAQ.md in Resources */ = {isa = PBXBuildFile; fileRef = 48E879132926445800F33059 /* SDK常见问题FAQ.md */; };
-		48E87A442926445800F33059 /* dezip.png in Resources */ = {isa = PBXBuildFile; fileRef = 48E879142926445800F33059 /* dezip.png */; };
-		48E87A452926445800F33059 /* how_to_use_license.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 48E879152926445800F33059 /* how_to_use_license.pdf */; };
-		48E87A462926445800F33059 /* SDK常见问题FAQ.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 48E879162926445800F33059 /* SDK常见问题FAQ.pdf */; };
-		48E87A472926445800F33059 /* SenseMEEffects集成文档.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 48E879172926445800F33059 /* SenseMEEffects集成文档.pdf */; };
-		48E87A482926445800F33059 /* SenseAR_v6.17.0(Effects)产品文档.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 48E879182926445800F33059 /* SenseAR_v6.17.0(Effects)产品文档.pdf */; };
-		48E87A492926445800F33059 /* SampleReadMe.md in Resources */ = {isa = PBXBuildFile; fileRef = 48E879192926445800F33059 /* SampleReadMe.md */; };
-		48E87A4A2926445800F33059 /* eyelash.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 48E8791B2926445800F33059 /* eyelash.bundle */; };
-		48E87A4B2926445800F33059 /* lips.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 48E8791C2926445800F33059 /* lips.bundle */; };
-		48E87A4C2926445800F33059 /* brow.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 48E8791D2926445800F33059 /* brow.bundle */; };
-		48E87A4D2926445800F33059 /* wholemakeup.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 48E8791E2926445800F33059 /* wholemakeup.bundle */; };
-		48E87A4E2926445800F33059 /* face.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 48E8791F2926445800F33059 /* face.bundle */; };
-		48E87A4F2926445800F33059 /* eyeshadow.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 48E879202926445800F33059 /* eyeshadow.bundle */; };
-		48E87A502926445800F33059 /* blush.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 48E879212926445800F33059 /* blush.bundle */; };
-		48E87A512926445800F33059 /* hairColor.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 48E879222926445800F33059 /* hairColor.bundle */; };
 		48E87A522926445800F33059 /* STColorConversion.h in Headers */ = {isa = PBXBuildFile; fileRef = 48E879242926445800F33059 /* STColorConversion.h */; };
 		48E87A532926445800F33059 /* STGLPreview3.h in Headers */ = {isa = PBXBuildFile; fileRef = 48E879252926445800F33059 /* STGLPreview3.h */; };
 		48E87A542926445800F33059 /* STGLShader.m in Sources */ = {isa = PBXBuildFile; fileRef = 48E879262926445800F33059 /* STGLShader.m */; };
@@ -183,12 +161,10 @@
 		48E87ABA2926445800F33059 /* NSString+sha1.h in Headers */ = {isa = PBXBuildFile; fileRef = 48E879992926445800F33059 /* NSString+sha1.h */; };
 		48E87ABB2926445800F33059 /* MBProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = 48E8799B2926445800F33059 /* MBProgressHUD.m */; };
 		48E87ABC2926445800F33059 /* MBProgressHUD.h in Headers */ = {isa = PBXBuildFile; fileRef = 48E8799C2926445800F33059 /* MBProgressHUD.h */; };
-		48E87ABD2926445800F33059 /* README.mdown in Resources */ = {isa = PBXBuildFile; fileRef = 48E8799D2926445800F33059 /* README.mdown */; };
 		48E87ABE2926445800F33059 /* NSString+materialAes.h in Headers */ = {isa = PBXBuildFile; fileRef = 48E8799E2926445800F33059 /* NSString+materialAes.h */; };
 		48E87ABF2926445800F33059 /* EFDataSourcing.h in Headers */ = {isa = PBXBuildFile; fileRef = 48E8799F2926445800F33059 /* EFDataSourcing.h */; };
 		48E87AC02926445800F33059 /* EFResource.h in Headers */ = {isa = PBXBuildFile; fileRef = 48E879A02926445800F33059 /* EFResource.h */; };
 		48E87AC12926445800F33059 /* EFMaterialDownloadStatusManager.h in Headers */ = {isa = PBXBuildFile; fileRef = 48E879A22926445800F33059 /* EFMaterialDownloadStatusManager.h */; };
-		48E87AC22926445800F33059 /* beauties.json in Resources */ = {isa = PBXBuildFile; fileRef = 48E879A32926445800F33059 /* beauties.json */; };
 		48E87AC32926445800F33059 /* NSDictionary+jsonFile.m in Sources */ = {isa = PBXBuildFile; fileRef = 48E879A42926445800F33059 /* NSDictionary+jsonFile.m */; };
 		48E87AC42926445800F33059 /* EFRemoteDataSourceHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 48E879A52926445800F33059 /* EFRemoteDataSourceHelper.m */; };
 		48E87AC52926445800F33059 /* EFStatusManagerDelegate.h in Headers */ = {isa = PBXBuildFile; fileRef = 48E879A62926445800F33059 /* EFStatusManagerDelegate.h */; };
@@ -201,18 +177,14 @@
 		48E87ACC2926445800F33059 /* EFGlobalSingleton.m in Sources */ = {isa = PBXBuildFile; fileRef = 48E879AD2926445800F33059 /* EFGlobalSingleton.m */; };
 		48E87ACD2926445800F33059 /* EFStatusManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 48E879AE2926445800F33059 /* EFStatusManager.m */; };
 		48E87ACE2926445800F33059 /* EFMaterialDownloadStatusManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 48E879AF2926445800F33059 /* EFMaterialDownloadStatusManager.m */; };
-		48E87ACF2926445800F33059 /* all_categories.json in Resources */ = {isa = PBXBuildFile; fileRef = 48E879B02926445800F33059 /* all_categories.json */; };
 		48E87AD02926445800F33059 /* EFRemoteDataSourceHelper.h in Headers */ = {isa = PBXBuildFile; fileRef = 48E879B12926445800F33059 /* EFRemoteDataSourceHelper.h */; };
 		48E87AD12926445800F33059 /* NSDictionary+jsonFile.h in Headers */ = {isa = PBXBuildFile; fileRef = 48E879B22926445800F33059 /* NSDictionary+jsonFile.h */; };
 		48E87AD22926445800F33059 /* NSObject+dictionary.m in Sources */ = {isa = PBXBuildFile; fileRef = 48E879B32926445800F33059 /* NSObject+dictionary.m */; };
 		48E87AD32926445800F33059 /* EFStatusModels.m in Sources */ = {isa = PBXBuildFile; fileRef = 48E879B42926445800F33059 /* EFStatusModels.m */; };
 		48E87AD42926445800F33059 /* EFStorageHelper.h in Headers */ = {isa = PBXBuildFile; fileRef = 48E879B52926445800F33059 /* EFStorageHelper.h */; };
-		48E87AD52926445800F33059 /* material_group_map_rulues.json in Resources */ = {isa = PBXBuildFile; fileRef = 48E879B62926445800F33059 /* material_group_map_rulues.json */; };
 		48E87AD62926445800F33059 /* EFStatusManager.h in Headers */ = {isa = PBXBuildFile; fileRef = 48E879B72926445800F33059 /* EFStatusManager.h */; };
 		48E87AD72926445800F33059 /* EFGlobalSingleton.h in Headers */ = {isa = PBXBuildFile; fileRef = 48E879B82926445800F33059 /* EFGlobalSingleton.h */; };
-		48E87AD82926445800F33059 /* effects_service_group_list.json in Resources */ = {isa = PBXBuildFile; fileRef = 48E879B92926445800F33059 /* effects_service_group_list.json */; };
 		48E87AD92926445800F33059 /* EFMachineVersion.h in Headers */ = {isa = PBXBuildFile; fileRef = 48E879BA2926445800F33059 /* EFMachineVersion.h */; };
-		48E87ADA2926445800F33059 /* all_categories_without_multi.json in Resources */ = {isa = PBXBuildFile; fileRef = 48E879BB2926445800F33059 /* all_categories_without_multi.json */; };
 		48E87ADB2926445800F33059 /* EFAuthorizeAdapter.m in Sources */ = {isa = PBXBuildFile; fileRef = 48E879BC2926445800F33059 /* EFAuthorizeAdapter.m */; };
 		48E87ADC2926445800F33059 /* EFRemoteDataSourceHelper+groupInfos.m in Sources */ = {isa = PBXBuildFile; fileRef = 48E879BD2926445800F33059 /* EFRemoteDataSourceHelper+groupInfos.m */; };
 		48E87ADD2926445800F33059 /* NSData+meterialAes.h in Headers */ = {isa = PBXBuildFile; fileRef = 48E879BE2926445800F33059 /* NSData+meterialAes.h */; };
@@ -241,7 +213,6 @@
 		48E87AF42926445900F33059 /* STBmpStrengthView.m in Sources */ = {isa = PBXBuildFile; fileRef = 48E879DD2926445800F33059 /* STBmpStrengthView.m */; };
 		48E87AF52926445900F33059 /* STBMPDetailColV.h in Headers */ = {isa = PBXBuildFile; fileRef = 48E879DE2926445800F33059 /* STBMPDetailColV.h */; };
 		48E87AF62926445900F33059 /* STPlayerControlBar.h in Headers */ = {isa = PBXBuildFile; fileRef = 48E879DF2926445800F33059 /* STPlayerControlBar.h */; };
-		48E87AF72926445900F33059 /* STViewButton.xib in Resources */ = {isa = PBXBuildFile; fileRef = 48E879E02926445800F33059 /* STViewButton.xib */; };
 		48E87AF82926445900F33059 /* STButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 48E879E12926445800F33059 /* STButton.m */; };
 		48E87AF92926445900F33059 /* STSlideView.h in Headers */ = {isa = PBXBuildFile; fileRef = 48E879E22926445800F33059 /* STSlideView.h */; };
 		48E87AFA2926445900F33059 /* STScrollTitleView.h in Headers */ = {isa = PBXBuildFile; fileRef = 48E879E32926445800F33059 /* STScrollTitleView.h */; };
@@ -275,7 +246,6 @@
 		48E87B162926445900F33059 /* STBmpStrengthView.h in Headers */ = {isa = PBXBuildFile; fileRef = 48E879FF2926445800F33059 /* STBmpStrengthView.h */; };
 		48E87B172926445900F33059 /* STBMPDetailColVCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 48E87A002926445800F33059 /* STBMPDetailColVCell.m */; };
 		48E87B182926445900F33059 /* STCollectionView.m in Sources */ = {isa = PBXBuildFile; fileRef = 48E87A012926445800F33059 /* STCollectionView.m */; };
-		48E87B192926445900F33059 /* EffectsCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 48E87A022926445800F33059 /* EffectsCollectionViewCell.xib */; };
 		48E87B1A2926445900F33059 /* STTitleViewItem.h in Headers */ = {isa = PBXBuildFile; fileRef = 48E87A032926445800F33059 /* STTitleViewItem.h */; };
 		48E87B1B2926445900F33059 /* EffectsCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 48E87A042926445800F33059 /* EffectsCollectionViewCell.m */; };
 		48E87B1C2926445900F33059 /* STCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 48E87A052926445800F33059 /* STCollectionViewCell.m */; };
@@ -286,7 +256,6 @@
 		48E87B212926445900F33059 /* STParamUtil.h in Headers */ = {isa = PBXBuildFile; fileRef = 48E87A0A2926445800F33059 /* STParamUtil.h */; };
 		48E87B222926445900F33059 /* STCustomMemoryCache.h in Headers */ = {isa = PBXBuildFile; fileRef = 48E87A0B2926445800F33059 /* STCustomMemoryCache.h */; };
 		48E87B232926445900F33059 /* EffectsCollectionView.m in Sources */ = {isa = PBXBuildFile; fileRef = 48E87A0C2926445800F33059 /* EffectsCollectionView.m */; };
-		48E87B242926445900F33059 /* STSlideView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 48E87A0D2926445800F33059 /* STSlideView.xib */; };
 		48E87B252926445900F33059 /* STBeautySlider.h in Headers */ = {isa = PBXBuildFile; fileRef = 48E87A0E2926445800F33059 /* STBeautySlider.h */; };
 		48E87B262926445900F33059 /* STBMPCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 48E87A0F2926445800F33059 /* STBMPCollectionViewCell.m */; };
 		48E87B272926445900F33059 /* UIView+Toast.m in Sources */ = {isa = PBXBuildFile; fileRef = 48E87A102926445800F33059 /* UIView+Toast.m */; };
@@ -299,12 +268,6 @@
 		48E87B2F2926445900F33059 /* st_mobile_effect.h in Headers */ = {isa = PBXBuildFile; fileRef = 48E87A1B2926445800F33059 /* st_mobile_effect.h */; };
 		48E87B302926445900F33059 /* st_mobile_verify.h in Headers */ = {isa = PBXBuildFile; fileRef = 48E87A1C2926445800F33059 /* st_mobile_verify.h */; };
 		48E87B312926445900F33059 /* st_mobile_color_convert.h in Headers */ = {isa = PBXBuildFile; fileRef = 48E87A1D2926445800F33059 /* st_mobile_color_convert.h */; };
-		48E87B332926445900F33059 /* M_SenseME_Verify_p_3.118.0.1.model in Resources */ = {isa = PBXBuildFile; fileRef = 48E87A202926445800F33059 /* M_SenseME_Verify_p_3.118.0.1.model */; };
-		48E87B342926445900F33059 /* M_SenseME_DogFace_p_2.0.0.1.model in Resources */ = {isa = PBXBuildFile; fileRef = 48E87A212926445800F33059 /* M_SenseME_DogFace_p_2.0.0.1.model */; };
-		48E87B352926445900F33059 /* SenseAR_v9.1.0(Effects)_Model_Usage_Instructions的.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 48E87A222926445800F33059 /* SenseAR_v9.1.0(Effects)_Model_Usage_Instructions的.pdf */; };
-		48E87B362926445900F33059 /* model.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 48E87A232926445800F33059 /* model.bundle */; };
-		48E87B372926445900F33059 /* M_SenseME_Attribute_p_1.2.8.1.model in Resources */ = {isa = PBXBuildFile; fileRef = 48E87A242926445800F33059 /* M_SenseME_Attribute_p_1.2.8.1.model */; };
-		48E87B382926445900F33059 /* M_SenseME_CatFace_p_3.2.0.1.model in Resources */ = {isa = PBXBuildFile; fileRef = 48E87A252926445800F33059 /* M_SenseME_CatFace_p_3.2.0.1.model */; };
 		48E87B392926445900F33059 /* VERSION in Resources */ = {isa = PBXBuildFile; fileRef = 48E87A262926445800F33059 /* VERSION */; };
 		48E87B3A2926445900F33059 /* libst_mobile.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 48E87A292926445800F33059 /* libst_mobile.a */; };
 		48E87B3D2926449B00F33059 /* PLSTArEffects.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 48E87B3C2926449B00F33059 /* PLSTArEffects.framework */; };
@@ -600,28 +563,6 @@
 		48E879042926445800F33059 /* STDefaultSetting.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = STDefaultSetting.m; sourceTree = "<group>"; };
 		48E879062926445800F33059 /* STCamera.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = STCamera.h; sourceTree = "<group>"; };
 		48E879072926445800F33059 /* STCamera.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = STCamera.m; sourceTree = "<group>"; };
-		48E8790A2926445800F33059 /* PortraitFilters.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = PortraitFilters.bundle; sourceTree = "<group>"; };
-		48E8790B2926445800F33059 /* SceneryFilters.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = SceneryFilters.bundle; sourceTree = "<group>"; };
-		48E8790C2926445800F33059 /* StillLifeFilters.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = StillLifeFilters.bundle; sourceTree = "<group>"; };
-		48E8790D2926445800F33059 /* DeliciousFoodFilters.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = DeliciousFoodFilters.bundle; sourceTree = "<group>"; };
-		48E8790F2926445800F33059 /* whiten_gif.zip */ = {isa = PBXFileReference; lastKnownFileType = archive.zip; path = whiten_gif.zip; sourceTree = "<group>"; };
-		48E879112926445800F33059 /* SenseMEEffects集成文档.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = "SenseMEEffects集成文档.md"; sourceTree = "<group>"; };
-		48E879122926445800F33059 /* SampleReadMe.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = SampleReadMe.pdf; sourceTree = "<group>"; };
-		48E879132926445800F33059 /* SDK常见问题FAQ.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = "SDK常见问题FAQ.md"; sourceTree = "<group>"; };
-		48E879142926445800F33059 /* dezip.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = dezip.png; sourceTree = "<group>"; };
-		48E879152926445800F33059 /* how_to_use_license.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = how_to_use_license.pdf; sourceTree = "<group>"; };
-		48E879162926445800F33059 /* SDK常见问题FAQ.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = "SDK常见问题FAQ.pdf"; sourceTree = "<group>"; };
-		48E879172926445800F33059 /* SenseMEEffects集成文档.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = "SenseMEEffects集成文档.pdf"; sourceTree = "<group>"; };
-		48E879182926445800F33059 /* SenseAR_v6.17.0(Effects)产品文档.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = "SenseAR_v6.17.0(Effects)产品文档.pdf"; sourceTree = "<group>"; };
-		48E879192926445800F33059 /* SampleReadMe.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = SampleReadMe.md; sourceTree = "<group>"; };
-		48E8791B2926445800F33059 /* eyelash.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = eyelash.bundle; sourceTree = "<group>"; };
-		48E8791C2926445800F33059 /* lips.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = lips.bundle; sourceTree = "<group>"; };
-		48E8791D2926445800F33059 /* brow.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = brow.bundle; sourceTree = "<group>"; };
-		48E8791E2926445800F33059 /* wholemakeup.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = wholemakeup.bundle; sourceTree = "<group>"; };
-		48E8791F2926445800F33059 /* face.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = face.bundle; sourceTree = "<group>"; };
-		48E879202926445800F33059 /* eyeshadow.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = eyeshadow.bundle; sourceTree = "<group>"; };
-		48E879212926445800F33059 /* blush.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = blush.bundle; sourceTree = "<group>"; };
-		48E879222926445800F33059 /* hairColor.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = hairColor.bundle; sourceTree = "<group>"; };
 		48E879242926445800F33059 /* STColorConversion.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = STColorConversion.h; sourceTree = "<group>"; };
 		48E879252926445800F33059 /* STGLPreview3.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = STGLPreview3.h; sourceTree = "<group>"; };
 		48E879262926445800F33059 /* STGLShader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = STGLShader.m; sourceTree = "<group>"; };
@@ -844,12 +785,6 @@
 		48E87A1B2926445800F33059 /* st_mobile_effect.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = st_mobile_effect.h; sourceTree = "<group>"; };
 		48E87A1C2926445800F33059 /* st_mobile_verify.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = st_mobile_verify.h; sourceTree = "<group>"; };
 		48E87A1D2926445800F33059 /* st_mobile_color_convert.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = st_mobile_color_convert.h; sourceTree = "<group>"; };
-		48E87A202926445800F33059 /* M_SenseME_Verify_p_3.118.0.1.model */ = {isa = PBXFileReference; lastKnownFileType = file; path = M_SenseME_Verify_p_3.118.0.1.model; sourceTree = "<group>"; };
-		48E87A212926445800F33059 /* M_SenseME_DogFace_p_2.0.0.1.model */ = {isa = PBXFileReference; lastKnownFileType = file; path = M_SenseME_DogFace_p_2.0.0.1.model; sourceTree = "<group>"; };
-		48E87A222926445800F33059 /* SenseAR_v9.1.0(Effects)_Model_Usage_Instructions的.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = "SenseAR_v9.1.0(Effects)_Model_Usage_Instructions的.pdf"; sourceTree = "<group>"; };
-		48E87A232926445800F33059 /* model.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = model.bundle; sourceTree = "<group>"; };
-		48E87A242926445800F33059 /* M_SenseME_Attribute_p_1.2.8.1.model */ = {isa = PBXFileReference; lastKnownFileType = file; path = M_SenseME_Attribute_p_1.2.8.1.model; sourceTree = "<group>"; };
-		48E87A252926445800F33059 /* M_SenseME_CatFace_p_3.2.0.1.model */ = {isa = PBXFileReference; lastKnownFileType = file; path = M_SenseME_CatFace_p_3.2.0.1.model; sourceTree = "<group>"; };
 		48E87A262926445800F33059 /* VERSION */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = VERSION; sourceTree = "<group>"; };
 		48E87A292926445800F33059 /* libst_mobile.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libst_mobile.a; sourceTree = "<group>"; };
 		48E87B3C2926449B00F33059 /* PLSTArEffects.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = PLSTArEffects.framework; sourceTree = "<group>"; };
@@ -1144,7 +1079,6 @@
 				48E878F42926445800F33059 /* Util */,
 				48E878FE2926445800F33059 /* SampleDefaultSetting */,
 				48E879052926445800F33059 /* Camera */,
-				48E879082926445800F33059 /* resources */,
 				48E879232926445800F33059 /* Render */,
 				48E8792E2926445800F33059 /* SenseArSourceService */,
 				48E879392926445800F33059 /* EFDataSoure */,
@@ -1203,67 +1137,6 @@
 				48E879072926445800F33059 /* STCamera.m */,
 			);
 			path = Camera;
-			sourceTree = "<group>";
-		};
-		48E879082926445800F33059 /* resources */ = {
-			isa = PBXGroup;
-			children = (
-				48E879092926445800F33059 /* Filters */,
-				48E8790E2926445800F33059 /* Color */,
-				48E879102926445800F33059 /* docs */,
-				48E8791A2926445800F33059 /* Makeup */,
-			);
-			path = resources;
-			sourceTree = "<group>";
-		};
-		48E879092926445800F33059 /* Filters */ = {
-			isa = PBXGroup;
-			children = (
-				48E8790A2926445800F33059 /* PortraitFilters.bundle */,
-				48E8790B2926445800F33059 /* SceneryFilters.bundle */,
-				48E8790C2926445800F33059 /* StillLifeFilters.bundle */,
-				48E8790D2926445800F33059 /* DeliciousFoodFilters.bundle */,
-			);
-			path = Filters;
-			sourceTree = "<group>";
-		};
-		48E8790E2926445800F33059 /* Color */ = {
-			isa = PBXGroup;
-			children = (
-				48E8790F2926445800F33059 /* whiten_gif.zip */,
-			);
-			path = Color;
-			sourceTree = "<group>";
-		};
-		48E879102926445800F33059 /* docs */ = {
-			isa = PBXGroup;
-			children = (
-				48E879112926445800F33059 /* SenseMEEffects集成文档.md */,
-				48E879122926445800F33059 /* SampleReadMe.pdf */,
-				48E879132926445800F33059 /* SDK常见问题FAQ.md */,
-				48E879142926445800F33059 /* dezip.png */,
-				48E879152926445800F33059 /* how_to_use_license.pdf */,
-				48E879162926445800F33059 /* SDK常见问题FAQ.pdf */,
-				48E879172926445800F33059 /* SenseMEEffects集成文档.pdf */,
-				48E879182926445800F33059 /* SenseAR_v6.17.0(Effects)产品文档.pdf */,
-				48E879192926445800F33059 /* SampleReadMe.md */,
-			);
-			path = docs;
-			sourceTree = "<group>";
-		};
-		48E8791A2926445800F33059 /* Makeup */ = {
-			isa = PBXGroup;
-			children = (
-				48E8791B2926445800F33059 /* eyelash.bundle */,
-				48E8791C2926445800F33059 /* lips.bundle */,
-				48E8791D2926445800F33059 /* brow.bundle */,
-				48E8791E2926445800F33059 /* wholemakeup.bundle */,
-				48E8791F2926445800F33059 /* face.bundle */,
-				48E879202926445800F33059 /* eyeshadow.bundle */,
-				48E879212926445800F33059 /* blush.bundle */,
-				48E879222926445800F33059 /* hairColor.bundle */,
-			);
-			path = Makeup;
 			sourceTree = "<group>";
 		};
 		48E879232926445800F33059 /* Render */ = {
@@ -1666,7 +1539,6 @@
 			children = (
 				48E87A122926445800F33059 /* license */,
 				48E87A142926445800F33059 /* include */,
-				48E87A1F2926445800F33059 /* models */,
 				48E87A262926445800F33059 /* VERSION */,
 				48E87A272926445800F33059 /* lib */,
 			);
@@ -1694,19 +1566,6 @@
 				48E87A1D2926445800F33059 /* st_mobile_color_convert.h */,
 			);
 			path = include;
-			sourceTree = "<group>";
-		};
-		48E87A1F2926445800F33059 /* models */ = {
-			isa = PBXGroup;
-			children = (
-				48E87A202926445800F33059 /* M_SenseME_Verify_p_3.118.0.1.model */,
-				48E87A212926445800F33059 /* M_SenseME_DogFace_p_2.0.0.1.model */,
-				48E87A222926445800F33059 /* SenseAR_v9.1.0(Effects)_Model_Usage_Instructions的.pdf */,
-				48E87A232926445800F33059 /* model.bundle */,
-				48E87A242926445800F33059 /* M_SenseME_Attribute_p_1.2.8.1.model */,
-				48E87A252926445800F33059 /* M_SenseME_CatFace_p_3.2.0.1.model */,
-			);
-			path = models;
 			sourceTree = "<group>";
 		};
 		48E87A272926445800F33059 /* lib */ = {
@@ -2613,45 +2472,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				48E87A422926445800F33059 /* SampleReadMe.pdf in Resources */,
-				48E87A4A2926445800F33059 /* eyelash.bundle in Resources */,
-				48E87B382926445900F33059 /* M_SenseME_CatFace_p_3.2.0.1.model in Resources */,
-				48E87A3E2926445800F33059 /* StillLifeFilters.bundle in Resources */,
-				48E87B332926445900F33059 /* M_SenseME_Verify_p_3.118.0.1.model in Resources */,
-				48E87A4D2926445800F33059 /* wholemakeup.bundle in Resources */,
-				48E87ADA2926445800F33059 /* all_categories_without_multi.json in Resources */,
-				48E87A502926445800F33059 /* blush.bundle in Resources */,
-				48E87A3D2926445800F33059 /* SceneryFilters.bundle in Resources */,
-				48E87A3C2926445800F33059 /* PortraitFilters.bundle in Resources */,
-				48E87A482926445800F33059 /* SenseAR_v6.17.0(Effects)产品文档.pdf in Resources */,
-				48E87B352926445900F33059 /* SenseAR_v9.1.0(Effects)_Model_Usage_Instructions的.pdf in Resources */,
-				48E87A402926445800F33059 /* whiten_gif.zip in Resources */,
-				48E87B342926445900F33059 /* M_SenseME_DogFace_p_2.0.0.1.model in Resources */,
-				48E87B372926445900F33059 /* M_SenseME_Attribute_p_1.2.8.1.model in Resources */,
 				48E87B392926445900F33059 /* VERSION in Resources */,
-				48E87A4B2926445800F33059 /* lips.bundle in Resources */,
-				48E87AF72926445900F33059 /* STViewButton.xib in Resources */,
 				77781D6328486D35009DC71C /* EmojiList.plist in Resources */,
-				48E87A4C2926445800F33059 /* brow.bundle in Resources */,
-				48E87A472926445800F33059 /* SenseMEEffects集成文档.pdf in Resources */,
-				48E87A492926445800F33059 /* SampleReadMe.md in Resources */,
-				48E87A3F2926445800F33059 /* DeliciousFoodFilters.bundle in Resources */,
-				48E87B242926445900F33059 /* STSlideView.xib in Resources */,
-				48E87A4E2926445800F33059 /* face.bundle in Resources */,
-				48E87A412926445800F33059 /* SenseMEEffects集成文档.md in Resources */,
-				48E87AD52926445800F33059 /* material_group_map_rulues.json in Resources */,
-				48E87B362926445900F33059 /* model.bundle in Resources */,
-				48E87A442926445800F33059 /* dezip.png in Resources */,
-				48E87B192926445900F33059 /* EffectsCollectionViewCell.xib in Resources */,
-				48E87A432926445800F33059 /* SDK常见问题FAQ.md in Resources */,
-				48E87ABD2926445800F33059 /* README.mdown in Resources */,
-				48E87A452926445800F33059 /* how_to_use_license.pdf in Resources */,
-				48E87ACF2926445800F33059 /* all_categories.json in Resources */,
-				48E87A512926445800F33059 /* hairColor.bundle in Resources */,
-				48E87AC22926445800F33059 /* beauties.json in Resources */,
-				48E87A4F2926445800F33059 /* eyeshadow.bundle in Resources */,
-				48E87A462926445800F33059 /* SDK常见问题FAQ.pdf in Resources */,
-				48E87AD82926445800F33059 /* effects_service_group_list.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
