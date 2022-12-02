@@ -1,0 +1,6 @@
+framework module QNLiveKit {
+  umbrella header "QNLiveKit.h"
+
+  export *
+  module * { export * }
+}
