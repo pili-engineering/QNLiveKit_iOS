@@ -1,12 +1,12 @@
 source 'https://mirrors.tuna.tsinghua.edu.cn/git/CocoaPods/Specs.git'
 
-platform :ios, '9.0'
+platform :ios, '10.0'
 
 target 'QNLiveKitDemo' do
   
   use_frameworks!
   #真机
-  pod 'QNRTCKit-iOS','5.0.0'
+  pod 'QNRTCKit-iOS','5.1.1'
   pod 'Bugly','2.5.91'
   pod 'PLPlayerKit', '3.4.7'
   pod 'Masonry', '1.1.0'

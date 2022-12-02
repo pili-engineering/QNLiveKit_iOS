@@ -47,6 +47,7 @@
         }];
         
     }];
+    [QLive setBeauty:YES];
 }
 
 //获取liveToken
