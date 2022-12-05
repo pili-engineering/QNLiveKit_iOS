@@ -9,9 +9,6 @@
 /* Begin PBXBuildFile section */
 		4808878429305EDF004A7878 /* QNLiveStatisticView.h in Headers */ = {isa = PBXBuildFile; fileRef = 4808878229305EDF004A7878 /* QNLiveStatisticView.h */; };
 		4808878529305EDF004A7878 /* QNLiveStatisticView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4808878329305EDF004A7878 /* QNLiveStatisticView.m */; };
-		489F5ADF293D767A000043C1 /* QNIMSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 489F5ADD293D767A000043C1 /* QNIMSDK.framework */; platformFilter = ios; };
-		489F5AE0293D767A000043C1 /* PLSTArEffects.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 489F5ADE293D767A000043C1 /* PLSTArEffects.framework */; };
-		489F5AE7293D7752000043C1 /* QNIMSDK.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 489F5ADD293D767A000043C1 /* QNIMSDK.framework */; platformFilter = ios; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		48B937CA29271C520014D671 /* CoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 48B937C929271C520014D671 /* CoreServices.framework */; };
 		48B937D029271CC20014D671 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 48B937CF29271CC20014D671 /* MapKit.framework */; };
 		48B9386A292CCAB00014D671 /* QNPayGiftViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = 48B93868292CCAB00014D671 /* QNPayGiftViewController.h */; };
@@ -273,6 +270,7 @@
 		48E87B312926445900F33059 /* st_mobile_color_convert.h in Headers */ = {isa = PBXBuildFile; fileRef = 48E87A1D2926445800F33059 /* st_mobile_color_convert.h */; };
 		48E87B392926445900F33059 /* VERSION in Resources */ = {isa = PBXBuildFile; fileRef = 48E87A262926445800F33059 /* VERSION */; };
 		48E87B3A2926445900F33059 /* libst_mobile.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 48E87A292926445800F33059 /* libst_mobile.a */; };
+		48E87B3D2926449B00F33059 /* PLSTArEffects.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 48E87B3C2926449B00F33059 /* PLSTArEffects.framework */; };
 		77062FAD287E795F00E9FD7D /* ShopSellListController.h in Headers */ = {isa = PBXBuildFile; fileRef = 77062FAB287E795F00E9FD7D /* ShopSellListController.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		77062FAE287E795F00E9FD7D /* ShopSellListController.m in Sources */ = {isa = PBXBuildFile; fileRef = 77062FAC287E795F00E9FD7D /* ShopSellListController.m */; };
 		77062FB2287EA0A300E9FD7D /* GoodsModel.h in Headers */ = {isa = PBXBuildFile; fileRef = 77062FB0287EA0A300E9FD7D /* GoodsModel.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -309,6 +307,7 @@
 		77204D8C285F97A20053B1AD /* QInvitationModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 77204D82285F97A20053B1AD /* QInvitationModel.m */; };
 		77204D97285F9AF50053B1AD /* LinkOptionModel.h in Headers */ = {isa = PBXBuildFile; fileRef = 77204D95285F9AF50053B1AD /* LinkOptionModel.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		77204D98285F9AF50053B1AD /* LinkOptionModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 77204D96285F9AF50053B1AD /* LinkOptionModel.m */; };
+		773D512F288F9D2E004B2D5F /* QNIMSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 77781D9728486DAD009DC71C /* QNIMSDK.framework */; platformFilter = ios; };
 		774E641C2848DB6800C9FB7F /* CreateSignalHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = 774E641A2848DB6700C9FB7F /* CreateSignalHandler.m */; };
 		774E641D2848DB6800C9FB7F /* CreateSignalHandler.h in Headers */ = {isa = PBXBuildFile; fileRef = 774E641B2848DB6700C9FB7F /* CreateSignalHandler.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		774E6421284DF8E800C9FB7F /* QMixStreamManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 774E641F284DF8E800C9FB7F /* QMixStreamManager.m */; };
@@ -497,7 +496,6 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				489F5AE7293D7752000043C1 /* QNIMSDK.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -517,8 +515,6 @@
 		081F7CF449622E077318EFB5 /* Pods-QNLiveKitTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-QNLiveKitTests.release.xcconfig"; path = "Target Support Files/Pods-QNLiveKitTests/Pods-QNLiveKitTests.release.xcconfig"; sourceTree = "<group>"; };
 		4808878229305EDF004A7878 /* QNLiveStatisticView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = QNLiveStatisticView.h; sourceTree = "<group>"; };
 		4808878329305EDF004A7878 /* QNLiveStatisticView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = QNLiveStatisticView.m; sourceTree = "<group>"; };
-		489F5ADD293D767A000043C1 /* QNIMSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = QNIMSDK.framework; sourceTree = "<group>"; };
-		489F5ADE293D767A000043C1 /* PLSTArEffects.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = PLSTArEffects.framework; sourceTree = "<group>"; };
 		48B937C929271C520014D671 /* CoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreServices.framework; path = Platforms/MacOSX.platform/Developer/SDKs/MacOSX12.3.sdk/System/Library/Frameworks/CoreServices.framework; sourceTree = DEVELOPER_DIR; };
 		48B937CF29271CC20014D671 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = Platforms/MacOSX.platform/Developer/SDKs/MacOSX12.3.sdk/System/iOSSupport/System/Library/Frameworks/MapKit.framework; sourceTree = DEVELOPER_DIR; };
 		48B93868292CCAB00014D671 /* QNPayGiftViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = QNPayGiftViewController.h; sourceTree = "<group>"; };
@@ -789,6 +785,7 @@
 		48E87A1D2926445800F33059 /* st_mobile_color_convert.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = st_mobile_color_convert.h; sourceTree = "<group>"; };
 		48E87A262926445800F33059 /* VERSION */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = VERSION; sourceTree = "<group>"; };
 		48E87A292926445800F33059 /* libst_mobile.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libst_mobile.a; sourceTree = "<group>"; };
+		48E87B3C2926449B00F33059 /* PLSTArEffects.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = PLSTArEffects.framework; sourceTree = "<group>"; };
 		77062FAB287E795F00E9FD7D /* ShopSellListController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ShopSellListController.h; sourceTree = "<group>"; };
 		77062FAC287E795F00E9FD7D /* ShopSellListController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ShopSellListController.m; sourceTree = "<group>"; };
 		77062FB0287EA0A300E9FD7D /* GoodsModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GoodsModel.h; sourceTree = "<group>"; };
@@ -919,6 +916,7 @@
 		77781D6B28486D3D009DC71C /* QTextMessageCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QTextMessageCell.m; sourceTree = "<group>"; };
 		77781D6C28486D3D009DC71C /* QMessageBaseCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QMessageBaseCell.h; sourceTree = "<group>"; };
 		77781D6D28486D3D009DC71C /* QTextMessageCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QTextMessageCell.h; sourceTree = "<group>"; };
+		77781D9728486DAD009DC71C /* QNIMSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = QNIMSDK.framework; sourceTree = "<group>"; };
 		77781D9B28488931009DC71C /* QNBaseRTCController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QNBaseRTCController.h; sourceTree = "<group>"; };
 		77781D9C28488931009DC71C /* QLiveController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QLiveController.h; sourceTree = "<group>"; };
 		77781D9D28488932009DC71C /* QNBaseRTCController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QNBaseRTCController.m; sourceTree = "<group>"; };
@@ -1006,14 +1004,14 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				489F5ADF293D767A000043C1 /* QNIMSDK.framework in Frameworks */,
-				489F5AE0293D767A000043C1 /* PLSTArEffects.framework in Frameworks */,
 				77A8D26E28782DF0001A3C2C /* AssetsLibrary.framework in Frameworks */,
 				48E87A622926445800F33059 /* libSenseArSourceService.a in Frameworks */,
 				48B937D029271CC20014D671 /* MapKit.framework in Frameworks */,
+				48E87B3D2926449B00F33059 /* PLSTArEffects.framework in Frameworks */,
 				48E87B3A2926445900F33059 /* libst_mobile.a in Frameworks */,
 				77A11CB4288691C500020149 /* Pods_QNLiveKit.framework in Frameworks */,
 				48B937CA29271C520014D671 /* CoreServices.framework in Frameworks */,
+				773D512F288F9D2E004B2D5F /* QNIMSDK.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1029,16 +1027,6 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		489F5ADC293D767A000043C1 /* frameworks */ = {
-			isa = PBXGroup;
-			children = (
-				489F5ADD293D767A000043C1 /* QNIMSDK.framework */,
-				489F5ADE293D767A000043C1 /* PLSTArEffects.framework */,
-			);
-			name = frameworks;
-			path = ../frameworks;
-			sourceTree = "<group>";
-		};
 		48B93881292E12BC0014D671 /* Gift */ = {
 			isa = PBXGroup;
 			children = (
@@ -1631,7 +1619,6 @@
 		776B1C3F283C78D800D85C73 = {
 			isa = PBXGroup;
 			children = (
-				489F5ADC293D767A000043C1 /* frameworks */,
 				776B1C4B283C78D800D85C73 /* QNLiveKit */,
 				776B1C57283C78D800D85C73 /* QNLiveKitTests */,
 				776B1C4A283C78D800D85C73 /* Products */,
@@ -1655,6 +1642,8 @@
 				48B9389D292F55510014D671 /* Like */,
 				48B93886292E263F0014D671 /* User */,
 				48B93881292E12BC0014D671 /* Gift */,
+				48E87B3C2926449B00F33059 /* PLSTArEffects.framework */,
+				77781D9728486DAD009DC71C /* QNIMSDK.framework */,
 				77EDC498286DA86B002B4226 /* Beauty */,
 				77781D242845E56A009DC71C /* LiveUIKit */,
 				776B1CCC283D008500D85C73 /* LiveRoom */,

@@ -10,9 +10,6 @@
 		1F45E2BA83BC92BA3FD1524C /* Pods_QNLiveKitDemo_QNLiveKitDemoUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 382946EB5F00B1F6B3437C07 /* Pods_QNLiveKitDemo_QNLiveKitDemoUITests.framework */; };
 		33444C07CC64DB14DB74F57A /* Pods_QNLiveKitDemoTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5A2899F26391AE2088C5854B /* Pods_QNLiveKitDemoTests.framework */; };
 		4873565A29270F46008E7191 /* SENSEME.lic in Resources */ = {isa = PBXBuildFile; fileRef = 4873565929270F46008E7191 /* SENSEME.lic */; };
-		489F5AE4293D76C0000043C1 /* QNIMSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 489F5AE2293D76C0000043C1 /* QNIMSDK.framework */; };
-		489F5AE5293D76C0000043C1 /* PLSTArEffects.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 489F5AE3293D76C0000043C1 /* PLSTArEffects.framework */; };
-		489F5AE6293D7720000043C1 /* QNIMSDK.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 489F5AE2293D76C0000043C1 /* QNIMSDK.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		48B937CE29271C670014D671 /* CoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 48B937CB29271C670014D671 /* CoreServices.framework */; };
 		48B937D229271CE60014D671 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 48B937D129271CE60014D671 /* MapKit.framework */; };
 		48B937D729271DC40014D671 /* all_categories.json in Resources */ = {isa = PBXBuildFile; fileRef = 48B937D429271DC40014D671 /* all_categories.json */; };
@@ -23,6 +20,7 @@
 		48B937E029271E230014D671 /* STViewButton.xib in Resources */ = {isa = PBXBuildFile; fileRef = 48B937DF29271E230014D671 /* STViewButton.xib */; };
 		48B937E229271E440014D671 /* EffectsCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 48B937E129271E440014D671 /* EffectsCollectionViewCell.xib */; };
 		48B937E429271E4F0014D671 /* STSlideView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 48B937E329271E4F0014D671 /* STSlideView.xib */; };
+		48B937E82927215C0014D671 /* PLSTArEffects.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 48B937E72927215C0014D671 /* PLSTArEffects.framework */; };
 		48B937F029272F4A0014D671 /* M_SenseME_Verify_p_3.118.0.1.model in Resources */ = {isa = PBXBuildFile; fileRef = 48B937EA29272F4A0014D671 /* M_SenseME_Verify_p_3.118.0.1.model */; };
 		48B937F129272F4A0014D671 /* M_SenseME_DogFace_p_2.0.0.1.model in Resources */ = {isa = PBXBuildFile; fileRef = 48B937EB29272F4A0014D671 /* M_SenseME_DogFace_p_2.0.0.1.model */; };
 		48B937F329272F4A0014D671 /* model.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 48B937ED29272F4A0014D671 /* model.bundle */; };
@@ -61,6 +59,8 @@
 		77781C77283E1E7E009DC71C /* QNLoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 77781C69283E1E7E009DC71C /* QNLoginViewController.m */; };
 		77781C79283E1E7E009DC71C /* QNTabBarViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 77781C6D283E1E7E009DC71C /* QNTabBarViewController.m */; };
 		77781C7C283E1E96009DC71C /* QNAppConficModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 77781C7B283E1E96009DC71C /* QNAppConficModel.m */; };
+		77781C7F283E1EBC009DC71C /* QNIMSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 77781C7D283E1EB2009DC71C /* QNIMSDK.framework */; platformFilter = ios; };
+		77781C80283E1EBC009DC71C /* QNIMSDK.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 77781C7D283E1EB2009DC71C /* QNIMSDK.framework */; platformFilter = ios; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		77781C93283E1EE7009DC71C /* NSArray+Sudoku.m in Sources */ = {isa = PBXBuildFile; fileRef = 77781C85283E1EE7009DC71C /* NSArray+Sudoku.m */; };
 		77781C94283E1EE7009DC71C /* QNDateStringTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 77781C87283E1EE7009DC71C /* QNDateStringTool.m */; };
 		77781C95283E1EE7009DC71C /* UIApplication+LaunchScreen.m in Sources */ = {isa = PBXBuildFile; fileRef = 77781C8A283E1EE7009DC71C /* UIApplication+LaunchScreen.m */; };
@@ -117,7 +117,7 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				489F5AE6293D7720000043C1 /* QNIMSDK.framework in Embed Frameworks */,
+				77781C80283E1EBC009DC71C /* QNIMSDK.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -129,8 +129,6 @@
 		1B4CD739008C7D0755EFCAC9 /* Pods-QNLiveKitDemo-QNLiveKitDemoUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-QNLiveKitDemo-QNLiveKitDemoUITests.debug.xcconfig"; path = "Target Support Files/Pods-QNLiveKitDemo-QNLiveKitDemoUITests/Pods-QNLiveKitDemo-QNLiveKitDemoUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		382946EB5F00B1F6B3437C07 /* Pods_QNLiveKitDemo_QNLiveKitDemoUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_QNLiveKitDemo_QNLiveKitDemoUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		4873565929270F46008E7191 /* SENSEME.lic */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = SENSEME.lic; path = ../../../../../Documents/qiniu/iOS/beauty/SENSEME.lic; sourceTree = "<group>"; };
-		489F5AE2293D76C0000043C1 /* QNIMSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = QNIMSDK.framework; sourceTree = "<group>"; };
-		489F5AE3293D76C0000043C1 /* PLSTArEffects.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = PLSTArEffects.framework; sourceTree = "<group>"; };
 		48B937CB29271C670014D671 /* CoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreServices.framework; path = System/Library/Frameworks/CoreServices.framework; sourceTree = SDKROOT; };
 		48B937D129271CE60014D671 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		48B937D429271DC40014D671 /* all_categories.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = all_categories.json; sourceTree = "<group>"; };
@@ -241,10 +239,10 @@
 			files = (
 				48B937CE29271C670014D671 /* CoreServices.framework in Frameworks */,
 				7773669C2873E32100245EDB /* AssetsLibrary.framework in Frameworks */,
-				489F5AE5293D76C0000043C1 /* PLSTArEffects.framework in Frameworks */,
+				48B937E82927215C0014D671 /* PLSTArEffects.framework in Frameworks */,
+				77781C7F283E1EBC009DC71C /* QNIMSDK.framework in Frameworks */,
 				48B937D229271CE60014D671 /* MapKit.framework in Frameworks */,
 				777366952873074700245EDB /* QNLiveKit.framework in Frameworks */,
-				489F5AE4293D76C0000043C1 /* QNIMSDK.framework in Frameworks */,
 				C5993B91A021CD7EDC4A0F36 /* Pods_QNLiveKitDemo.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -279,16 +277,6 @@
 				86543AFAB4A8EADB1F77D392 /* Pods-QNLiveKitDemoTests.release.xcconfig */,
 			);
 			path = Pods;
-			sourceTree = "<group>";
-		};
-		489F5AE1293D76C0000043C1 /* frameworks */ = {
-			isa = PBXGroup;
-			children = (
-				489F5AE2293D76C0000043C1 /* QNIMSDK.framework */,
-				489F5AE3293D76C0000043C1 /* PLSTArEffects.framework */,
-			);
-			name = frameworks;
-			path = ../../frameworks;
 			sourceTree = "<group>";
 		};
 		48B937D329271DA00014D671 /* helpers */ = {
@@ -398,7 +386,6 @@
 		776B1BDC28378CCD00D85C73 /* QNLiveKitDemo */ = {
 			isa = PBXGroup;
 			children = (
-				489F5AE1293D76C0000043C1 /* frameworks */,
 				77A11C5B288540EC00020149 /* BeautyResource */,
 				776B1BDD28378CCD00D85C73 /* AppDelegate.h */,
 				776B1BDE28378CCD00D85C73 /* AppDelegate.m */,
