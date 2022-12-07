@@ -39,6 +39,8 @@
 		48B938AE292F5FDB0014D671 /* QNLikeBubbleView.m in Sources */ = {isa = PBXBuildFile; fileRef = 48B938AC292F5FDB0014D671 /* QNLikeBubbleView.m */; };
 		48B938B1292F8EF10014D671 /* QNLikeNotify.h in Headers */ = {isa = PBXBuildFile; fileRef = 48B938AF292F8EF10014D671 /* QNLikeNotify.h */; };
 		48B938B2292F8EF10014D671 /* QNLikeNotify.m in Sources */ = {isa = PBXBuildFile; fileRef = 48B938B0292F8EF10014D671 /* QNLikeNotify.m */; };
+		48C83DD82940C1E40002C11B /* PLSTArEffects.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 48C83DD62940C1E40002C11B /* PLSTArEffects.framework */; };
+		48C83DD92940C1E40002C11B /* QNIMSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 48C83DD72940C1E40002C11B /* QNIMSDK.framework */; platformFilter = ios; };
 		48E87A2C2926445800F33059 /* STLock.m in Sources */ = {isa = PBXBuildFile; fileRef = 48E878F52926445800F33059 /* STLock.m */; };
 		48E87A2D2926445800F33059 /* STEffectsTimer.m in Sources */ = {isa = PBXBuildFile; fileRef = 48E878F62926445800F33059 /* STEffectsTimer.m */; };
 		48E87A2E2926445800F33059 /* STMobileLog.h in Headers */ = {isa = PBXBuildFile; fileRef = 48E878F72926445800F33059 /* STMobileLog.h */; };
@@ -270,7 +272,6 @@
 		48E87B312926445900F33059 /* st_mobile_color_convert.h in Headers */ = {isa = PBXBuildFile; fileRef = 48E87A1D2926445800F33059 /* st_mobile_color_convert.h */; };
 		48E87B392926445900F33059 /* VERSION in Resources */ = {isa = PBXBuildFile; fileRef = 48E87A262926445800F33059 /* VERSION */; };
 		48E87B3A2926445900F33059 /* libst_mobile.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 48E87A292926445800F33059 /* libst_mobile.a */; };
-		48E87B3D2926449B00F33059 /* PLSTArEffects.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 48E87B3C2926449B00F33059 /* PLSTArEffects.framework */; };
 		77062FAD287E795F00E9FD7D /* ShopSellListController.h in Headers */ = {isa = PBXBuildFile; fileRef = 77062FAB287E795F00E9FD7D /* ShopSellListController.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		77062FAE287E795F00E9FD7D /* ShopSellListController.m in Sources */ = {isa = PBXBuildFile; fileRef = 77062FAC287E795F00E9FD7D /* ShopSellListController.m */; };
 		77062FB2287EA0A300E9FD7D /* GoodsModel.h in Headers */ = {isa = PBXBuildFile; fileRef = 77062FB0287EA0A300E9FD7D /* GoodsModel.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -307,7 +308,6 @@
 		77204D8C285F97A20053B1AD /* QInvitationModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 77204D82285F97A20053B1AD /* QInvitationModel.m */; };
 		77204D97285F9AF50053B1AD /* LinkOptionModel.h in Headers */ = {isa = PBXBuildFile; fileRef = 77204D95285F9AF50053B1AD /* LinkOptionModel.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		77204D98285F9AF50053B1AD /* LinkOptionModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 77204D96285F9AF50053B1AD /* LinkOptionModel.m */; };
-		773D512F288F9D2E004B2D5F /* QNIMSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 77781D9728486DAD009DC71C /* QNIMSDK.framework */; platformFilter = ios; };
 		774E641C2848DB6800C9FB7F /* CreateSignalHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = 774E641A2848DB6700C9FB7F /* CreateSignalHandler.m */; };
 		774E641D2848DB6800C9FB7F /* CreateSignalHandler.h in Headers */ = {isa = PBXBuildFile; fileRef = 774E641B2848DB6700C9FB7F /* CreateSignalHandler.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		774E6421284DF8E800C9FB7F /* QMixStreamManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 774E641F284DF8E800C9FB7F /* QMixStreamManager.m */; };
@@ -545,6 +545,8 @@
 		48B938AC292F5FDB0014D671 /* QNLikeBubbleView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = QNLikeBubbleView.m; sourceTree = "<group>"; };
 		48B938AF292F8EF10014D671 /* QNLikeNotify.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = QNLikeNotify.h; sourceTree = "<group>"; };
 		48B938B0292F8EF10014D671 /* QNLikeNotify.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = QNLikeNotify.m; sourceTree = "<group>"; };
+		48C83DD62940C1E40002C11B /* PLSTArEffects.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = PLSTArEffects.framework; path = ../../frameworks/PLSTArEffects.framework; sourceTree = "<group>"; };
+		48C83DD72940C1E40002C11B /* QNIMSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QNIMSDK.framework; path = ../../frameworks/QNIMSDK.framework; sourceTree = "<group>"; };
 		48E878F52926445800F33059 /* STLock.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = STLock.m; sourceTree = "<group>"; };
 		48E878F62926445800F33059 /* STEffectsTimer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = STEffectsTimer.m; sourceTree = "<group>"; };
 		48E878F72926445800F33059 /* STMobileLog.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = STMobileLog.h; sourceTree = "<group>"; };
@@ -785,7 +787,6 @@
 		48E87A1D2926445800F33059 /* st_mobile_color_convert.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = st_mobile_color_convert.h; sourceTree = "<group>"; };
 		48E87A262926445800F33059 /* VERSION */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = VERSION; sourceTree = "<group>"; };
 		48E87A292926445800F33059 /* libst_mobile.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libst_mobile.a; sourceTree = "<group>"; };
-		48E87B3C2926449B00F33059 /* PLSTArEffects.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = PLSTArEffects.framework; sourceTree = "<group>"; };
 		77062FAB287E795F00E9FD7D /* ShopSellListController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ShopSellListController.h; sourceTree = "<group>"; };
 		77062FAC287E795F00E9FD7D /* ShopSellListController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ShopSellListController.m; sourceTree = "<group>"; };
 		77062FB0287EA0A300E9FD7D /* GoodsModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GoodsModel.h; sourceTree = "<group>"; };
@@ -916,7 +917,6 @@
 		77781D6B28486D3D009DC71C /* QTextMessageCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QTextMessageCell.m; sourceTree = "<group>"; };
 		77781D6C28486D3D009DC71C /* QMessageBaseCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QMessageBaseCell.h; sourceTree = "<group>"; };
 		77781D6D28486D3D009DC71C /* QTextMessageCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QTextMessageCell.h; sourceTree = "<group>"; };
-		77781D9728486DAD009DC71C /* QNIMSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = QNIMSDK.framework; sourceTree = "<group>"; };
 		77781D9B28488931009DC71C /* QNBaseRTCController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QNBaseRTCController.h; sourceTree = "<group>"; };
 		77781D9C28488931009DC71C /* QLiveController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QLiveController.h; sourceTree = "<group>"; };
 		77781D9D28488932009DC71C /* QNBaseRTCController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QNBaseRTCController.m; sourceTree = "<group>"; };
@@ -1006,12 +1006,12 @@
 			files = (
 				77A8D26E28782DF0001A3C2C /* AssetsLibrary.framework in Frameworks */,
 				48E87A622926445800F33059 /* libSenseArSourceService.a in Frameworks */,
+				48C83DD82940C1E40002C11B /* PLSTArEffects.framework in Frameworks */,
 				48B937D029271CC20014D671 /* MapKit.framework in Frameworks */,
-				48E87B3D2926449B00F33059 /* PLSTArEffects.framework in Frameworks */,
+				48C83DD92940C1E40002C11B /* QNIMSDK.framework in Frameworks */,
 				48E87B3A2926445900F33059 /* libst_mobile.a in Frameworks */,
 				77A11CB4288691C500020149 /* Pods_QNLiveKit.framework in Frameworks */,
 				48B937CA29271C520014D671 /* CoreServices.framework in Frameworks */,
-				773D512F288F9D2E004B2D5F /* QNIMSDK.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1639,11 +1639,11 @@
 		776B1C4B283C78D800D85C73 /* QNLiveKit */ = {
 			isa = PBXGroup;
 			children = (
+				48C83DD62940C1E40002C11B /* PLSTArEffects.framework */,
+				48C83DD72940C1E40002C11B /* QNIMSDK.framework */,
 				48B9389D292F55510014D671 /* Like */,
 				48B93886292E263F0014D671 /* User */,
 				48B93881292E12BC0014D671 /* Gift */,
-				48E87B3C2926449B00F33059 /* PLSTArEffects.framework */,
-				77781D9728486DAD009DC71C /* QNIMSDK.framework */,
 				77EDC498286DA86B002B4226 /* Beauty */,
 				77781D242845E56A009DC71C /* LiveUIKit */,
 				776B1CCC283D008500D85C73 /* LiveRoom */,
@@ -2910,8 +2910,8 @@
 					"$(PROJECT_DIR)Demo/Pods/QNRTCKit-iOS/pod/iphoneos",
 					"$(PROJECT_DIR)/QNLiveKit",
 					"\"$(SRCROOT)/QNLiveKit/Beauty/Effect\"",
-					"\"$(SRCROOT)/QNLiveKit/PLSTArEffects.framework\"",
 					"\"$(SRCROOT)/QNLiveKit/LiveUIKit/Views/Gift\"",
+					"$(SRCROOT)/../frameworks",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "$(PROJECT_DIR)/QNLiveKit/QNLivePrefixHeader.pch";
@@ -2978,8 +2978,8 @@
 					"$(PROJECT_DIR)Demo/Pods/QNRTCKit-iOS/pod/iphoneos",
 					"$(PROJECT_DIR)/QNLiveKit",
 					"\"$(SRCROOT)/QNLiveKit/Beauty/Effect\"",
-					"\"$(SRCROOT)/QNLiveKit/PLSTArEffects.framework\"",
 					"\"$(SRCROOT)/QNLiveKit/LiveUIKit/Views/Gift\"",
+					"$(SRCROOT)/../frameworks",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "$(PROJECT_DIR)/QNLiveKit/QNLivePrefixHeader.pch";

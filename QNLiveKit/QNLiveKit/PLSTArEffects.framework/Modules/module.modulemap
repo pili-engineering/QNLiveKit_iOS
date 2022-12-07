@@ -1,6 +1,0 @@
-framework module PLSTArEffects {
-  umbrella header "PLSTArEffects.h"
-
-  export *
-  module * { export * }
-}
