@@ -46,13 +46,6 @@ SDK 依赖一下资源库，具体可以参考 QNLiveKitDemo/Podfile
       pod 'MJRefresh', '3.5.0'
       pod 'SocketRocket','0.6.0'
     
-    图片资源：将livekitResource文件拖入项目的Assets中。
-    系统库：在Targets->Build Phases->Link Library With Libraries中添加AssetsLibrary.frameWork系统库。
-    依赖配置：1、将ResourceFile拖入项目中，
-            2、在Targets->Build Settings->Framework Search Paths中添加ResourceFile路径
-            3、Targets->Build Settings->Header Search Paths中添加ResourceFile/PLSTArEffects.framework/Headers路径
-            4、在General中选择QNIMSDK设置Embed & sign
-            5、请求美颜证书SENSEME.lic并放入项目（不使用美颜功能可不放）
 
 
 
