@@ -11,7 +11,6 @@
 #import <QNIMSDK/QNIMSDK.h>
 #import "QNLiveRoomInfo.h"
 #import "QIMModel.h"
-#import "CreateSignalHandler.h"
 
 @interface QShopService ()<QNChatRoomServiceListener>
 

@@ -81,11 +81,6 @@
 #import <Masonry/Masonry.h>
 #import "QNLiveTypeDefines.h"
 #import <SDWebImage/SDWebImage.h>
-#import "UIImage+QNImage.h"
-#import "UIColor+QNColor.h"
-#import "EFDataSourceGenerator.h"
-#import "EFStatusManager.h"
-
 
 #ifdef DLOG_ENABLE
 #define DLog(s,...) NSLog(@"%@", [NSString stringWithFormat:(s),##__VA_ARGS__])

@@ -9,7 +9,6 @@
 #import "QMixStreamManager.h"
 #import "QNLiveRoomInfo.h"
 #import "QNMergeOption.h"
-#import "QRenderView.h"
 #import "QLiveNetworkUtil.h"
 #import "QNLiveUser.h"
 #import "QNLiveRoomInfo.h"

@@ -7,222 +7,29 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		4808878429305EDF004A7878 /* QNLiveStatisticView.h in Headers */ = {isa = PBXBuildFile; fileRef = 4808878229305EDF004A7878 /* QNLiveStatisticView.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		4808878529305EDF004A7878 /* QNLiveStatisticView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4808878329305EDF004A7878 /* QNLiveStatisticView.m */; };
+		1C8BF6600F88D523C0391268 /* Pods_QNLiveKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 93FD8D2BCC60F127C6FB7DA1 /* Pods_QNLiveKit.framework */; };
+		485F27222940E37E00484CB6 /* CreateSignalHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = 485F27212940E37E00484CB6 /* CreateSignalHandler.m */; };
 		48B937CA29271C520014D671 /* CoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 48B937C929271C520014D671 /* CoreServices.framework */; };
 		48B937D029271CC20014D671 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 48B937CF29271CC20014D671 /* MapKit.framework */; };
-		48B9386A292CCAB00014D671 /* QNPayGiftViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = 48B93868292CCAB00014D671 /* QNPayGiftViewController.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		48B9386B292CCAB00014D671 /* QNPayGiftViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 48B93869292CCAB00014D671 /* QNPayGiftViewController.m */; };
-		48B93877292DEE490014D671 /* QNGiftMessageView.h in Headers */ = {isa = PBXBuildFile; fileRef = 48B93875292DEE490014D671 /* QNGiftMessageView.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		48B93878292DEE490014D671 /* QNGiftMessageView.m in Sources */ = {isa = PBXBuildFile; fileRef = 48B93876292DEE490014D671 /* QNGiftMessageView.m */; };
-		48B9387B292DEE590014D671 /* QNGiftMessagePannel.h in Headers */ = {isa = PBXBuildFile; fileRef = 48B93879292DEE590014D671 /* QNGiftMessagePannel.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		48B9387C292DEE590014D671 /* QNGiftMessagePannel.m in Sources */ = {isa = PBXBuildFile; fileRef = 48B9387A292DEE590014D671 /* QNGiftMessagePannel.m */; };
-		48B9387F292DF91E0014D671 /* QNGiftOperation.h in Headers */ = {isa = PBXBuildFile; fileRef = 48B9387D292DF91E0014D671 /* QNGiftOperation.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		48B93880292DF91E0014D671 /* QNGiftOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 48B9387E292DF91E0014D671 /* QNGiftOperation.m */; };
 		48B93884292E12DA0014D671 /* QNGiftService.h in Headers */ = {isa = PBXBuildFile; fileRef = 48B93882292E12DA0014D671 /* QNGiftService.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		48B93885292E12DA0014D671 /* QNGiftService.m in Sources */ = {isa = PBXBuildFile; fileRef = 48B93883292E12DA0014D671 /* QNGiftService.m */; };
 		48B93889292E26590014D671 /* QNUserService.h in Headers */ = {isa = PBXBuildFile; fileRef = 48B93887292E26590014D671 /* QNUserService.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		48B9388A292E26590014D671 /* QNUserService.m in Sources */ = {isa = PBXBuildFile; fileRef = 48B93888292E26590014D671 /* QNUserService.m */; };
 		48B9388D292E399E0014D671 /* QNGiftMsgModel.h in Headers */ = {isa = PBXBuildFile; fileRef = 48B9388B292E399E0014D671 /* QNGiftMsgModel.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		48B9388E292E399E0014D671 /* QNGiftMsgModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 48B9388C292E399E0014D671 /* QNGiftMsgModel.m */; };
-		48B93896292E56C10014D671 /* QNGiftMessageCell.h in Headers */ = {isa = PBXBuildFile; fileRef = 48B93894292E56C10014D671 /* QNGiftMessageCell.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		48B93897292E56C10014D671 /* QNGiftMessageCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 48B93895292E56C10014D671 /* QNGiftMessageCell.m */; };
-		48B9389B292F1F5F0014D671 /* QNGiftPaySuccessView.h in Headers */ = {isa = PBXBuildFile; fileRef = 48B93899292F1F5F0014D671 /* QNGiftPaySuccessView.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		48B9389C292F1F5F0014D671 /* QNGiftPaySuccessView.m in Sources */ = {isa = PBXBuildFile; fileRef = 48B9389A292F1F5F0014D671 /* QNGiftPaySuccessView.m */; };
 		48B938A0292F55640014D671 /* QNLikeService.h in Headers */ = {isa = PBXBuildFile; fileRef = 48B9389E292F55640014D671 /* QNLikeService.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		48B938A1292F55640014D671 /* QNLikeService.m in Sources */ = {isa = PBXBuildFile; fileRef = 48B9389F292F55640014D671 /* QNLikeService.m */; };
 		48B938A4292F5C0E0014D671 /* QNLikeResult.h in Headers */ = {isa = PBXBuildFile; fileRef = 48B938A2292F5C0E0014D671 /* QNLikeResult.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		48B938A5292F5C0E0014D671 /* QNLikeResult.m in Sources */ = {isa = PBXBuildFile; fileRef = 48B938A3292F5C0E0014D671 /* QNLikeResult.m */; };
-		48B938A9292F5FCB0014D671 /* QNLikeMenuView.h in Headers */ = {isa = PBXBuildFile; fileRef = 48B938A7292F5FCB0014D671 /* QNLikeMenuView.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		48B938AA292F5FCB0014D671 /* QNLikeMenuView.m in Sources */ = {isa = PBXBuildFile; fileRef = 48B938A8292F5FCB0014D671 /* QNLikeMenuView.m */; };
-		48B938AD292F5FDB0014D671 /* QNLikeBubbleView.h in Headers */ = {isa = PBXBuildFile; fileRef = 48B938AB292F5FDB0014D671 /* QNLikeBubbleView.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		48B938AE292F5FDB0014D671 /* QNLikeBubbleView.m in Sources */ = {isa = PBXBuildFile; fileRef = 48B938AC292F5FDB0014D671 /* QNLikeBubbleView.m */; };
 		48B938B1292F8EF10014D671 /* QNLikeNotify.h in Headers */ = {isa = PBXBuildFile; fileRef = 48B938AF292F8EF10014D671 /* QNLikeNotify.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		48B938B2292F8EF10014D671 /* QNLikeNotify.m in Sources */ = {isa = PBXBuildFile; fileRef = 48B938B0292F8EF10014D671 /* QNLikeNotify.m */; };
 		48C83DD82940C1E40002C11B /* PLSTArEffects.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 48C83DD62940C1E40002C11B /* PLSTArEffects.framework */; };
 		48C83DD92940C1E40002C11B /* QNIMSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 48C83DD72940C1E40002C11B /* QNIMSDK.framework */; platformFilter = ios; };
-		48E87A2C2926445800F33059 /* STLock.m in Sources */ = {isa = PBXBuildFile; fileRef = 48E878F52926445800F33059 /* STLock.m */; };
-		48E87A2D2926445800F33059 /* STEffectsTimer.m in Sources */ = {isa = PBXBuildFile; fileRef = 48E878F62926445800F33059 /* STEffectsTimer.m */; };
-		48E87A2E2926445800F33059 /* STMobileLog.h in Headers */ = {isa = PBXBuildFile; fileRef = 48E878F72926445800F33059 /* STMobileLog.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		48E87A2F2926445800F33059 /* NSBundle+language.m in Sources */ = {isa = PBXBuildFile; fileRef = 48E878F82926445800F33059 /* NSBundle+language.m */; };
-		48E87A302926445800F33059 /* STConvert.m in Sources */ = {isa = PBXBuildFile; fileRef = 48E878F92926445800F33059 /* STConvert.m */; };
-		48E87A312926445800F33059 /* STLock.h in Headers */ = {isa = PBXBuildFile; fileRef = 48E878FA2926445800F33059 /* STLock.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		48E87A322926445800F33059 /* STEffectsTimer.h in Headers */ = {isa = PBXBuildFile; fileRef = 48E878FB2926445800F33059 /* STEffectsTimer.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		48E87A332926445800F33059 /* STConvert.h in Headers */ = {isa = PBXBuildFile; fileRef = 48E878FC2926445800F33059 /* STConvert.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		48E87A342926445800F33059 /* NSBundle+language.h in Headers */ = {isa = PBXBuildFile; fileRef = 48E878FD2926445800F33059 /* NSBundle+language.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		48E87A352926445800F33059 /* STDefaultSettingDataSourseGenerator.m in Sources */ = {isa = PBXBuildFile; fileRef = 48E879002926445800F33059 /* STDefaultSettingDataSourseGenerator.m */; };
-		48E87A362926445800F33059 /* STDefaultSettingDataSourseGenerator.h in Headers */ = {isa = PBXBuildFile; fileRef = 48E879012926445800F33059 /* STDefaultSettingDataSourseGenerator.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		48E87A372926445800F33059 /* DefaultBeautyParameters.h in Headers */ = {isa = PBXBuildFile; fileRef = 48E879022926445800F33059 /* DefaultBeautyParameters.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		48E87A382926445800F33059 /* STDefaultSetting.h in Headers */ = {isa = PBXBuildFile; fileRef = 48E879032926445800F33059 /* STDefaultSetting.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		48E87A392926445800F33059 /* STDefaultSetting.m in Sources */ = {isa = PBXBuildFile; fileRef = 48E879042926445800F33059 /* STDefaultSetting.m */; };
-		48E87A3A2926445800F33059 /* STCamera.h in Headers */ = {isa = PBXBuildFile; fileRef = 48E879062926445800F33059 /* STCamera.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		48E87A3B2926445800F33059 /* STCamera.m in Sources */ = {isa = PBXBuildFile; fileRef = 48E879072926445800F33059 /* STCamera.m */; };
-		48E87A522926445800F33059 /* STColorConversion.h in Headers */ = {isa = PBXBuildFile; fileRef = 48E879242926445800F33059 /* STColorConversion.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		48E87A532926445800F33059 /* STGLPreview3.h in Headers */ = {isa = PBXBuildFile; fileRef = 48E879252926445800F33059 /* STGLPreview3.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		48E87A542926445800F33059 /* STGLShader.m in Sources */ = {isa = PBXBuildFile; fileRef = 48E879262926445800F33059 /* STGLShader.m */; };
-		48E87A552926445800F33059 /* STVFShader.h in Headers */ = {isa = PBXBuildFile; fileRef = 48E879272926445800F33059 /* STVFShader.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		48E87A562926445800F33059 /* STGLPreview2.m in Sources */ = {isa = PBXBuildFile; fileRef = 48E879282926445800F33059 /* STGLPreview2.m */; };
-		48E87A572926445800F33059 /* STColorConversion.m in Sources */ = {isa = PBXBuildFile; fileRef = 48E879292926445800F33059 /* STColorConversion.m */; };
-		48E87A582926445800F33059 /* STGLPreview3.m in Sources */ = {isa = PBXBuildFile; fileRef = 48E8792A2926445800F33059 /* STGLPreview3.m */; };
-		48E87A592926445800F33059 /* STGLShader.h in Headers */ = {isa = PBXBuildFile; fileRef = 48E8792B2926445800F33059 /* STGLShader.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		48E87A5A2926445800F33059 /* STGLPreview2.h in Headers */ = {isa = PBXBuildFile; fileRef = 48E8792C2926445800F33059 /* STGLPreview2.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		48E87A5B2926445800F33059 /* STVFShader.m in Sources */ = {isa = PBXBuildFile; fileRef = 48E8792D2926445800F33059 /* STVFShader.m */; };
-		48E87A5C2926445800F33059 /* SenseArMaterialAction.h in Headers */ = {isa = PBXBuildFile; fileRef = 48E879302926445800F33059 /* SenseArMaterialAction.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		48E87A5D2926445800F33059 /* SenseArMaterial.h in Headers */ = {isa = PBXBuildFile; fileRef = 48E879312926445800F33059 /* SenseArMaterial.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		48E87A5E2926445800F33059 /* SenseArSourceService.h in Headers */ = {isa = PBXBuildFile; fileRef = 48E879322926445800F33059 /* SenseArSourceService.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		48E87A5F2926445800F33059 /* SenseArMaterialService.h in Headers */ = {isa = PBXBuildFile; fileRef = 48E879332926445800F33059 /* SenseArMaterialService.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		48E87A602926445800F33059 /* SenseArMaterialGroup.h in Headers */ = {isa = PBXBuildFile; fileRef = 48E879342926445800F33059 /* SenseArMaterialGroup.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		48E87A622926445800F33059 /* libSenseArSourceService.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 48E879382926445800F33059 /* libSenseArSourceService.a */; };
-		48E87A632926445800F33059 /* EFMaterialDownloadManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 48E8793A2926445800F33059 /* EFMaterialDownloadManager.m */; };
-		48E87A642926445800F33059 /* EFDataSourceGenerator.m in Sources */ = {isa = PBXBuildFile; fileRef = 48E8793B2926445800F33059 /* EFDataSourceGenerator.m */; };
-		48E87A652926445800F33059 /* EFSenseArMaterialDataModels.h in Headers */ = {isa = PBXBuildFile; fileRef = 48E8793C2926445800F33059 /* EFSenseArMaterialDataModels.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		48E87A662926445800F33059 /* NSString+sha1.m in Sources */ = {isa = PBXBuildFile; fileRef = 48E8793D2926445800F33059 /* NSString+sha1.m */; };
-		48E87A672926445800F33059 /* NSDictionary+sortedJson.m in Sources */ = {isa = PBXBuildFile; fileRef = 48E8793E2926445800F33059 /* NSDictionary+sortedJson.m */; };
-		48E87A682926445800F33059 /* EFResource.m in Sources */ = {isa = PBXBuildFile; fileRef = 48E8793F2926445800F33059 /* EFResource.m */; };
-		48E87A692926445800F33059 /* NSString+materialAes.m in Sources */ = {isa = PBXBuildFile; fileRef = 48E879402926445800F33059 /* NSString+materialAes.m */; };
-		48E87A6A2926445800F33059 /* NSData+meterialAes.m in Sources */ = {isa = PBXBuildFile; fileRef = 48E879412926445800F33059 /* NSData+meterialAes.m */; };
-		48E87A952926445800F33059 /* EFSenseArMaterialDataModels.m in Sources */ = {isa = PBXBuildFile; fileRef = 48E879712926445800F33059 /* EFSenseArMaterialDataModels.m */; };
-		48E87A962926445800F33059 /* EFDataSourceGenerator.h in Headers */ = {isa = PBXBuildFile; fileRef = 48E879722926445800F33059 /* EFDataSourceGenerator.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		48E87A972926445800F33059 /* EFMaterialDownloadManager.h in Headers */ = {isa = PBXBuildFile; fileRef = 48E879732926445800F33059 /* EFMaterialDownloadManager.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		48E87A982926445800F33059 /* NSDictionary+sortedJson.h in Headers */ = {isa = PBXBuildFile; fileRef = 48E879742926445800F33059 /* NSDictionary+sortedJson.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		48E87ABA2926445800F33059 /* NSString+sha1.h in Headers */ = {isa = PBXBuildFile; fileRef = 48E879992926445800F33059 /* NSString+sha1.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		48E87ABE2926445800F33059 /* NSString+materialAes.h in Headers */ = {isa = PBXBuildFile; fileRef = 48E8799E2926445800F33059 /* NSString+materialAes.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		48E87ABF2926445800F33059 /* EFDataSourcing.h in Headers */ = {isa = PBXBuildFile; fileRef = 48E8799F2926445800F33059 /* EFDataSourcing.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		48E87AC02926445800F33059 /* EFResource.h in Headers */ = {isa = PBXBuildFile; fileRef = 48E879A02926445800F33059 /* EFResource.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		48E87AC12926445800F33059 /* EFMaterialDownloadStatusManager.h in Headers */ = {isa = PBXBuildFile; fileRef = 48E879A22926445800F33059 /* EFMaterialDownloadStatusManager.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		48E87AC32926445800F33059 /* NSDictionary+jsonFile.m in Sources */ = {isa = PBXBuildFile; fileRef = 48E879A42926445800F33059 /* NSDictionary+jsonFile.m */; };
-		48E87AC42926445800F33059 /* EFRemoteDataSourceHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 48E879A52926445800F33059 /* EFRemoteDataSourceHelper.m */; };
-		48E87AC52926445800F33059 /* EFStatusManagerDelegate.h in Headers */ = {isa = PBXBuildFile; fileRef = 48E879A62926445800F33059 /* EFStatusManagerDelegate.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		48E87AC62926445800F33059 /* EFStorageHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 48E879A72926445800F33059 /* EFStorageHelper.m */; };
-		48E87AC72926445800F33059 /* NSObject+dictionary.h in Headers */ = {isa = PBXBuildFile; fileRef = 48E879A82926445800F33059 /* NSObject+dictionary.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		48E87AC82926445800F33059 /* EFStatusModels.h in Headers */ = {isa = PBXBuildFile; fileRef = 48E879A92926445800F33059 /* EFStatusModels.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		48E87AC92926445800F33059 /* EFAuthorizeAdapter.h in Headers */ = {isa = PBXBuildFile; fileRef = 48E879AA2926445800F33059 /* EFAuthorizeAdapter.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		48E87ACA2926445800F33059 /* EFRemoteDataSourceHelper+groupInfos.h in Headers */ = {isa = PBXBuildFile; fileRef = 48E879AB2926445800F33059 /* EFRemoteDataSourceHelper+groupInfos.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		48E87ACB2926445800F33059 /* EFMachineVersion.m in Sources */ = {isa = PBXBuildFile; fileRef = 48E879AC2926445800F33059 /* EFMachineVersion.m */; };
-		48E87ACC2926445800F33059 /* EFGlobalSingleton.m in Sources */ = {isa = PBXBuildFile; fileRef = 48E879AD2926445800F33059 /* EFGlobalSingleton.m */; };
-		48E87ACD2926445800F33059 /* EFStatusManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 48E879AE2926445800F33059 /* EFStatusManager.m */; };
-		48E87ACE2926445800F33059 /* EFMaterialDownloadStatusManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 48E879AF2926445800F33059 /* EFMaterialDownloadStatusManager.m */; };
-		48E87AD02926445800F33059 /* EFRemoteDataSourceHelper.h in Headers */ = {isa = PBXBuildFile; fileRef = 48E879B12926445800F33059 /* EFRemoteDataSourceHelper.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		48E87AD12926445800F33059 /* NSDictionary+jsonFile.h in Headers */ = {isa = PBXBuildFile; fileRef = 48E879B22926445800F33059 /* NSDictionary+jsonFile.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		48E87AD22926445800F33059 /* NSObject+dictionary.m in Sources */ = {isa = PBXBuildFile; fileRef = 48E879B32926445800F33059 /* NSObject+dictionary.m */; };
-		48E87AD32926445800F33059 /* EFStatusModels.m in Sources */ = {isa = PBXBuildFile; fileRef = 48E879B42926445800F33059 /* EFStatusModels.m */; };
-		48E87AD42926445800F33059 /* EFStorageHelper.h in Headers */ = {isa = PBXBuildFile; fileRef = 48E879B52926445800F33059 /* EFStorageHelper.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		48E87AD62926445800F33059 /* EFStatusManager.h in Headers */ = {isa = PBXBuildFile; fileRef = 48E879B72926445800F33059 /* EFStatusManager.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		48E87AD72926445800F33059 /* EFGlobalSingleton.h in Headers */ = {isa = PBXBuildFile; fileRef = 48E879B82926445800F33059 /* EFGlobalSingleton.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		48E87AD92926445800F33059 /* EFMachineVersion.h in Headers */ = {isa = PBXBuildFile; fileRef = 48E879BA2926445800F33059 /* EFMachineVersion.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		48E87ADB2926445800F33059 /* EFAuthorizeAdapter.m in Sources */ = {isa = PBXBuildFile; fileRef = 48E879BC2926445800F33059 /* EFAuthorizeAdapter.m */; };
-		48E87ADC2926445800F33059 /* EFRemoteDataSourceHelper+groupInfos.m in Sources */ = {isa = PBXBuildFile; fileRef = 48E879BD2926445800F33059 /* EFRemoteDataSourceHelper+groupInfos.m */; };
-		48E87ADD2926445800F33059 /* NSData+meterialAes.h in Headers */ = {isa = PBXBuildFile; fileRef = 48E879BE2926445800F33059 /* NSData+meterialAes.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		48E87ADE2926445800F33059 /* STBaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 48E879BF2926445800F33059 /* STBaseViewController.m */; };
-		48E87ADF2926445800F33059 /* STCoreStateManagement.h in Headers */ = {isa = PBXBuildFile; fileRef = 48E879C22926445800F33059 /* STCoreStateManagement.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		48E87AE02926445800F33059 /* STCoreStateManagementModel.h in Headers */ = {isa = PBXBuildFile; fileRef = 48E879C42926445800F33059 /* STCoreStateManagementModel.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		48E87AE12926445800F33059 /* STCoreStateManagementModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 48E879C52926445800F33059 /* STCoreStateManagementModel.m */; };
-		48E87AE22926445800F33059 /* STCoreStateManagementFilterModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 48E879C72926445800F33059 /* STCoreStateManagementFilterModel.m */; };
-		48E87AE32926445800F33059 /* STCoreStateManagementFilterModel.h in Headers */ = {isa = PBXBuildFile; fileRef = 48E879C82926445800F33059 /* STCoreStateManagementFilterModel.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		48E87AE42926445800F33059 /* STCoreStateManagementValueChangeDelegate.h in Headers */ = {isa = PBXBuildFile; fileRef = 48E879C92926445800F33059 /* STCoreStateManagementValueChangeDelegate.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		48E87AE52926445800F33059 /* STCoreStateManagement.m in Sources */ = {isa = PBXBuildFile; fileRef = 48E879CA2926445800F33059 /* STCoreStateManagement.m */; };
-		48E87AE62926445800F33059 /* STEffectsAudioPlayer.h in Headers */ = {isa = PBXBuildFile; fileRef = 48E879CC2926445800F33059 /* STEffectsAudioPlayer.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		48E87AE72926445800F33059 /* SystemSound.m in Sources */ = {isa = PBXBuildFile; fileRef = 48E879CD2926445800F33059 /* SystemSound.m */; };
-		48E87AE82926445800F33059 /* SoundInfomation.h in Headers */ = {isa = PBXBuildFile; fileRef = 48E879CE2926445800F33059 /* SoundInfomation.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		48E87AE92926445800F33059 /* STAudioManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 48E879CF2926445800F33059 /* STAudioManager.m */; };
-		48E87AEA2926445800F33059 /* STEffectsAudioPlayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 48E879D02926445800F33059 /* STEffectsAudioPlayer.m */; };
-		48E87AEB2926445800F33059 /* SoundInfomation.m in Sources */ = {isa = PBXBuildFile; fileRef = 48E879D12926445800F33059 /* SoundInfomation.m */; };
-		48E87AEC2926445800F33059 /* SystemSound.h in Headers */ = {isa = PBXBuildFile; fileRef = 48E879D22926445800F33059 /* SystemSound.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		48E87AED2926445800F33059 /* STAudioManager.h in Headers */ = {isa = PBXBuildFile; fileRef = 48E879D32926445800F33059 /* STAudioManager.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		48E87AEE2926445800F33059 /* STMovieRecorder.h in Headers */ = {isa = PBXBuildFile; fileRef = 48E879D52926445800F33059 /* STMovieRecorder.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		48E87AEF2926445800F33059 /* STMovieRecorder.m in Sources */ = {isa = PBXBuildFile; fileRef = 48E879D62926445800F33059 /* STMovieRecorder.m */; };
-		48E87AF02926445800F33059 /* STBaseViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = 48E879D72926445800F33059 /* STBaseViewController.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		48E87AF12926445800F33059 /* LicenseUtil.h in Headers */ = {isa = PBXBuildFile; fileRef = 48E879D92926445800F33059 /* LicenseUtil.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		48E87AF22926445800F33059 /* LicenseUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = 48E879DA2926445800F33059 /* LicenseUtil.m */; };
-		48E87AF32926445800F33059 /* STBMPDetailColVCell.h in Headers */ = {isa = PBXBuildFile; fileRef = 48E879DC2926445800F33059 /* STBMPDetailColVCell.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		48E87AF42926445900F33059 /* STBmpStrengthView.m in Sources */ = {isa = PBXBuildFile; fileRef = 48E879DD2926445800F33059 /* STBmpStrengthView.m */; };
-		48E87AF52926445900F33059 /* STBMPDetailColV.h in Headers */ = {isa = PBXBuildFile; fileRef = 48E879DE2926445800F33059 /* STBMPDetailColV.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		48E87AF62926445900F33059 /* STPlayerControlBar.h in Headers */ = {isa = PBXBuildFile; fileRef = 48E879DF2926445800F33059 /* STPlayerControlBar.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		48E87AF82926445900F33059 /* STButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 48E879E12926445800F33059 /* STButton.m */; };
-		48E87AF92926445900F33059 /* STSlideView.h in Headers */ = {isa = PBXBuildFile; fileRef = 48E879E22926445800F33059 /* STSlideView.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		48E87AFA2926445900F33059 /* STScrollTitleView.h in Headers */ = {isa = PBXBuildFile; fileRef = 48E879E32926445800F33059 /* STScrollTitleView.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		48E87AFB2926445900F33059 /* STViewButton.h in Headers */ = {isa = PBXBuildFile; fileRef = 48E879E42926445800F33059 /* STViewButton.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		48E87AFC2926445900F33059 /* STFilterView.h in Headers */ = {isa = PBXBuildFile; fileRef = 48E879E52926445800F33059 /* STFilterView.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		48E87AFD2926445900F33059 /* STCommonObjectContainerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 48E879E62926445800F33059 /* STCommonObjectContainerView.m */; };
-		48E87AFE2926445900F33059 /* STTriggerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 48E879E72926445800F33059 /* STTriggerView.m */; };
-		48E87AFF2926445900F33059 /* STBMPCollectionView.h in Headers */ = {isa = PBXBuildFile; fileRef = 48E879E82926445800F33059 /* STBMPCollectionView.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		48E87B002926445900F33059 /* STMakeupDataModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 48E879E92926445800F33059 /* STMakeupDataModel.m */; };
-		48E87B012926445900F33059 /* STCollectionViewCell.h in Headers */ = {isa = PBXBuildFile; fileRef = 48E879EA2926445800F33059 /* STCollectionViewCell.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		48E87B022926445900F33059 /* EffectsCollectionViewCell.h in Headers */ = {isa = PBXBuildFile; fileRef = 48E879EB2926445800F33059 /* EffectsCollectionViewCell.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		48E87B032926445900F33059 /* STTitleViewItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 48E879EC2926445800F33059 /* STTitleViewItem.m */; };
-		48E87B042926445900F33059 /* STCollectionView.h in Headers */ = {isa = PBXBuildFile; fileRef = 48E879ED2926445800F33059 /* STCollectionView.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		48E87B052926445900F33059 /* STCustomMemoryCache.m in Sources */ = {isa = PBXBuildFile; fileRef = 48E879EE2926445800F33059 /* STCustomMemoryCache.m */; };
-		48E87B062926445900F33059 /* EffectsCollectionView.h in Headers */ = {isa = PBXBuildFile; fileRef = 48E879EF2926445800F33059 /* EffectsCollectionView.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		48E87B072926445900F33059 /* STParamUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = 48E879F02926445800F33059 /* STParamUtil.m */; };
-		48E87B082926445900F33059 /* STCustomCollectionView.m in Sources */ = {isa = PBXBuildFile; fileRef = 48E879F12926445800F33059 /* STCustomCollectionView.m */; };
-		48E87B092926445900F33059 /* STCommonObjectView.h in Headers */ = {isa = PBXBuildFile; fileRef = 48E879F22926445800F33059 /* STCommonObjectView.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		48E87B0A2926445900F33059 /* UIView+Toast.h in Headers */ = {isa = PBXBuildFile; fileRef = 48E879F32926445800F33059 /* UIView+Toast.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		48E87B0B2926445900F33059 /* STBMPCollectionViewCell.h in Headers */ = {isa = PBXBuildFile; fileRef = 48E879F42926445800F33059 /* STBMPCollectionViewCell.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		48E87B0C2926445900F33059 /* STBeautySlider.m in Sources */ = {isa = PBXBuildFile; fileRef = 48E879F52926445800F33059 /* STBeautySlider.m */; };
-		48E87B0D2926445900F33059 /* STCommonObjectContainerView.h in Headers */ = {isa = PBXBuildFile; fileRef = 48E879F62926445800F33059 /* STCommonObjectContainerView.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		48E87B0E2926445900F33059 /* STTriggerView.h in Headers */ = {isa = PBXBuildFile; fileRef = 48E879F72926445800F33059 /* STTriggerView.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		48E87B0F2926445900F33059 /* STFilterView.m in Sources */ = {isa = PBXBuildFile; fileRef = 48E879F82926445800F33059 /* STFilterView.m */; };
-		48E87B102926445900F33059 /* STViewButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 48E879F92926445800F33059 /* STViewButton.m */; };
-		48E87B112926445900F33059 /* STSlideView.m in Sources */ = {isa = PBXBuildFile; fileRef = 48E879FA2926445800F33059 /* STSlideView.m */; };
-		48E87B122926445900F33059 /* STScrollTitleView.m in Sources */ = {isa = PBXBuildFile; fileRef = 48E879FB2926445800F33059 /* STScrollTitleView.m */; };
-		48E87B132926445900F33059 /* STButton.h in Headers */ = {isa = PBXBuildFile; fileRef = 48E879FC2926445800F33059 /* STButton.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		48E87B142926445900F33059 /* STPlayerControlBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 48E879FD2926445800F33059 /* STPlayerControlBar.m */; };
-		48E87B152926445900F33059 /* STBMPDetailColV.m in Sources */ = {isa = PBXBuildFile; fileRef = 48E879FE2926445800F33059 /* STBMPDetailColV.m */; };
-		48E87B162926445900F33059 /* STBmpStrengthView.h in Headers */ = {isa = PBXBuildFile; fileRef = 48E879FF2926445800F33059 /* STBmpStrengthView.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		48E87B172926445900F33059 /* STBMPDetailColVCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 48E87A002926445800F33059 /* STBMPDetailColVCell.m */; };
-		48E87B182926445900F33059 /* STCollectionView.m in Sources */ = {isa = PBXBuildFile; fileRef = 48E87A012926445800F33059 /* STCollectionView.m */; };
-		48E87B1A2926445900F33059 /* STTitleViewItem.h in Headers */ = {isa = PBXBuildFile; fileRef = 48E87A032926445800F33059 /* STTitleViewItem.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		48E87B1B2926445900F33059 /* EffectsCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 48E87A042926445800F33059 /* EffectsCollectionViewCell.m */; };
-		48E87B1C2926445900F33059 /* STCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 48E87A052926445800F33059 /* STCollectionViewCell.m */; };
-		48E87B1D2926445900F33059 /* STMakeupDataModel.h in Headers */ = {isa = PBXBuildFile; fileRef = 48E87A062926445800F33059 /* STMakeupDataModel.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		48E87B1E2926445900F33059 /* STBMPCollectionView.m in Sources */ = {isa = PBXBuildFile; fileRef = 48E87A072926445800F33059 /* STBMPCollectionView.m */; };
-		48E87B1F2926445900F33059 /* STCommonObjectView.m in Sources */ = {isa = PBXBuildFile; fileRef = 48E87A082926445800F33059 /* STCommonObjectView.m */; };
-		48E87B202926445900F33059 /* STCustomCollectionView.h in Headers */ = {isa = PBXBuildFile; fileRef = 48E87A092926445800F33059 /* STCustomCollectionView.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		48E87B212926445900F33059 /* STParamUtil.h in Headers */ = {isa = PBXBuildFile; fileRef = 48E87A0A2926445800F33059 /* STParamUtil.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		48E87B222926445900F33059 /* STCustomMemoryCache.h in Headers */ = {isa = PBXBuildFile; fileRef = 48E87A0B2926445800F33059 /* STCustomMemoryCache.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		48E87B232926445900F33059 /* EffectsCollectionView.m in Sources */ = {isa = PBXBuildFile; fileRef = 48E87A0C2926445800F33059 /* EffectsCollectionView.m */; };
-		48E87B252926445900F33059 /* STBeautySlider.h in Headers */ = {isa = PBXBuildFile; fileRef = 48E87A0E2926445800F33059 /* STBeautySlider.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		48E87B262926445900F33059 /* STBMPCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 48E87A0F2926445800F33059 /* STBMPCollectionViewCell.m */; };
-		48E87B272926445900F33059 /* UIView+Toast.m in Sources */ = {isa = PBXBuildFile; fileRef = 48E87A102926445800F33059 /* UIView+Toast.m */; };
-		48E87B292926445900F33059 /* st_mobile_common.h in Headers */ = {isa = PBXBuildFile; fileRef = 48E87A152926445800F33059 /* st_mobile_common.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		48E87B2A2926445900F33059 /* st_mobile_animal.h in Headers */ = {isa = PBXBuildFile; fileRef = 48E87A162926445800F33059 /* st_mobile_animal.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		48E87B2B2926445900F33059 /* st_mobile_human_action.h in Headers */ = {isa = PBXBuildFile; fileRef = 48E87A172926445800F33059 /* st_mobile_human_action.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		48E87B2C2926445900F33059 /* st_mobile_object.h in Headers */ = {isa = PBXBuildFile; fileRef = 48E87A182926445800F33059 /* st_mobile_object.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		48E87B2D2926445900F33059 /* st_mobile_face_attribute.h in Headers */ = {isa = PBXBuildFile; fileRef = 48E87A192926445800F33059 /* st_mobile_face_attribute.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		48E87B2E2926445900F33059 /* st_mobile_license.h in Headers */ = {isa = PBXBuildFile; fileRef = 48E87A1A2926445800F33059 /* st_mobile_license.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		48E87B2F2926445900F33059 /* st_mobile_effect.h in Headers */ = {isa = PBXBuildFile; fileRef = 48E87A1B2926445800F33059 /* st_mobile_effect.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		48E87B302926445900F33059 /* st_mobile_verify.h in Headers */ = {isa = PBXBuildFile; fileRef = 48E87A1C2926445800F33059 /* st_mobile_verify.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		48E87B312926445900F33059 /* st_mobile_color_convert.h in Headers */ = {isa = PBXBuildFile; fileRef = 48E87A1D2926445800F33059 /* st_mobile_color_convert.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		48E87B392926445900F33059 /* VERSION in Resources */ = {isa = PBXBuildFile; fileRef = 48E87A262926445800F33059 /* VERSION */; };
-		48E87B3A2926445900F33059 /* libst_mobile.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 48E87A292926445800F33059 /* libst_mobile.a */; };
-		77062FAD287E795F00E9FD7D /* ShopSellListController.h in Headers */ = {isa = PBXBuildFile; fileRef = 77062FAB287E795F00E9FD7D /* ShopSellListController.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		77062FAE287E795F00E9FD7D /* ShopSellListController.m in Sources */ = {isa = PBXBuildFile; fileRef = 77062FAC287E795F00E9FD7D /* ShopSellListController.m */; };
+		48D31E0A2940E754005303A2 /* CreateSignalHandler.h in Headers */ = {isa = PBXBuildFile; fileRef = 485F27202940E37E00484CB6 /* CreateSignalHandler.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		77062FB2287EA0A300E9FD7D /* GoodsModel.h in Headers */ = {isa = PBXBuildFile; fileRef = 77062FB0287EA0A300E9FD7D /* GoodsModel.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		77062FB3287EA0A300E9FD7D /* GoodsModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 77062FB1287EA0A300E9FD7D /* GoodsModel.m */; };
-		77062FB6287EAA8D00E9FD7D /* GoodSellItemCell.h in Headers */ = {isa = PBXBuildFile; fileRef = 77062FB4287EAA8C00E9FD7D /* GoodSellItemCell.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		77062FB7287EAA8D00E9FD7D /* GoodSellItemCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 77062FB5287EAA8D00E9FD7D /* GoodSellItemCell.m */; };
-		77062FBA288004AA00E9FD7D /* ShopBuyListController.h in Headers */ = {isa = PBXBuildFile; fileRef = 77062FB8288004AA00E9FD7D /* ShopBuyListController.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		77062FBB288004AA00E9FD7D /* ShopBuyListController.m in Sources */ = {isa = PBXBuildFile; fileRef = 77062FB9288004AA00E9FD7D /* ShopBuyListController.m */; };
-		77062FBE288005CE00E9FD7D /* GoodBuyItemCell.h in Headers */ = {isa = PBXBuildFile; fileRef = 77062FBC288005CE00E9FD7D /* GoodBuyItemCell.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		77062FBF288005CE00E9FD7D /* GoodBuyItemCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 77062FBD288005CE00E9FD7D /* GoodBuyItemCell.m */; };
-		77062FC62880294900E9FD7D /* ExplainingGoodView.h in Headers */ = {isa = PBXBuildFile; fileRef = 77062FC42880294900E9FD7D /* ExplainingGoodView.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		77062FC72880294900E9FD7D /* ExplainingGoodView.m in Sources */ = {isa = PBXBuildFile; fileRef = 77062FC52880294900E9FD7D /* ExplainingGoodView.m */; };
-		77062FCA288062D600E9FD7D /* GoodsOperationCell.h in Headers */ = {isa = PBXBuildFile; fileRef = 77062FC8288062D600E9FD7D /* GoodsOperationCell.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		77062FCB288062D600E9FD7D /* GoodsOperationCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 77062FC9288062D600E9FD7D /* GoodsOperationCell.m */; };
-		77062FCE288080D300E9FD7D /* GoodsOperationView.h in Headers */ = {isa = PBXBuildFile; fileRef = 77062FCC288080D300E9FD7D /* GoodsOperationView.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		77062FCF288080D300E9FD7D /* GoodsOperationView.m in Sources */ = {isa = PBXBuildFile; fileRef = 77062FCD288080D300E9FD7D /* GoodsOperationView.m */; };
-		77062FD22880920000E9FD7D /* GoodStatusView.h in Headers */ = {isa = PBXBuildFile; fileRef = 77062FD0288091FF00E9FD7D /* GoodStatusView.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		77062FD32880920000E9FD7D /* GoodStatusView.m in Sources */ = {isa = PBXBuildFile; fileRef = 77062FD12880920000E9FD7D /* GoodStatusView.m */; };
 		77204D4E285873BF0053B1AD /* QRooms.h in Headers */ = {isa = PBXBuildFile; fileRef = 77204D4C285873BF0053B1AD /* QRooms.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		77204D4F285873BF0053B1AD /* QRooms.m in Sources */ = {isa = PBXBuildFile; fileRef = 77204D4D285873BF0053B1AD /* QRooms.m */; };
-		77204D58285981B00053B1AD /* CYProtocolManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 77204D56285981B00053B1AD /* CYProtocolManager.m */; };
-		77204D59285981B00053B1AD /* CYProtocolManager.h in Headers */ = {isa = PBXBuildFile; fileRef = 77204D57285981B00053B1AD /* CYProtocolManager.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		77204D65285F755C0053B1AD /* QNLiveListCell.h in Headers */ = {isa = PBXBuildFile; fileRef = 77204D5F285F755B0053B1AD /* QNLiveListCell.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		77204D66285F755C0053B1AD /* QCreateLiveController.m in Sources */ = {isa = PBXBuildFile; fileRef = 77204D60285F755B0053B1AD /* QCreateLiveController.m */; };
-		77204D67285F755C0053B1AD /* QLiveListController.h in Headers */ = {isa = PBXBuildFile; fileRef = 77204D61285F755B0053B1AD /* QLiveListController.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		77204D68285F755C0053B1AD /* QCreateLiveController.h in Headers */ = {isa = PBXBuildFile; fileRef = 77204D62285F755B0053B1AD /* QCreateLiveController.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		77204D69285F755C0053B1AD /* QNLiveListCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 77204D63285F755C0053B1AD /* QNLiveListCell.m */; };
-		77204D6A285F755C0053B1AD /* QLiveListController.m in Sources */ = {isa = PBXBuildFile; fileRef = 77204D64285F755C0053B1AD /* QLiveListController.m */; };
 		77204D83285F97A20053B1AD /* PubChatModel.h in Headers */ = {isa = PBXBuildFile; fileRef = 77204D79285F97A20053B1AD /* PubChatModel.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		77204D86285F97A20053B1AD /* QInvitationModel.h in Headers */ = {isa = PBXBuildFile; fileRef = 77204D7C285F97A20053B1AD /* QInvitationModel.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		77204D87285F97A20053B1AD /* QIMModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 77204D7D285F97A20053B1AD /* QIMModel.m */; };
@@ -231,8 +38,6 @@
 		77204D8C285F97A20053B1AD /* QInvitationModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 77204D82285F97A20053B1AD /* QInvitationModel.m */; };
 		77204D97285F9AF50053B1AD /* LinkOptionModel.h in Headers */ = {isa = PBXBuildFile; fileRef = 77204D95285F9AF50053B1AD /* LinkOptionModel.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		77204D98285F9AF50053B1AD /* LinkOptionModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 77204D96285F9AF50053B1AD /* LinkOptionModel.m */; };
-		774E641C2848DB6800C9FB7F /* CreateSignalHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = 774E641A2848DB6700C9FB7F /* CreateSignalHandler.m */; };
-		774E641D2848DB6800C9FB7F /* CreateSignalHandler.h in Headers */ = {isa = PBXBuildFile; fileRef = 774E641B2848DB6700C9FB7F /* CreateSignalHandler.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		774E6421284DF8E800C9FB7F /* QMixStreamManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 774E641F284DF8E800C9FB7F /* QMixStreamManager.m */; };
 		774E6422284DF8E800C9FB7F /* QMixStreamManager.h in Headers */ = {isa = PBXBuildFile; fileRef = 774E6420284DF8E800C9FB7F /* QMixStreamManager.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		776B1C4E283C78D800D85C73 /* QNLiveKit.docc in Sources */ = {isa = PBXBuildFile; fileRef = 776B1C4D283C78D800D85C73 /* QNLiveKit.docc */; };
@@ -270,25 +75,6 @@
 		776B1CEF283D0D8100D85C73 /* QNMergeOption.m in Sources */ = {isa = PBXBuildFile; fileRef = 776B1CED283D0D8100D85C73 /* QNMergeOption.m */; };
 		776B1CF2283D0F2000D85C73 /* LinkInvitation.h in Headers */ = {isa = PBXBuildFile; fileRef = 776B1CF0283D0F2000D85C73 /* LinkInvitation.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		776B1CF3283D0F2000D85C73 /* LinkInvitation.m in Sources */ = {isa = PBXBuildFile; fileRef = 776B1CF1283D0F2000D85C73 /* LinkInvitation.m */; };
-		777186972861B8A800C5CABC /* CALayer+Aimate.m in Sources */ = {isa = PBXBuildFile; fileRef = 777186902861B8A800C5CABC /* CALayer+Aimate.m */; };
-		777186982861B8A800C5CABC /* FDanmakuModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 777186912861B8A800C5CABC /* FDanmakuModel.m */; };
-		777186992861B8A800C5CABC /* FDanmakuModelProtocol.h in Headers */ = {isa = PBXBuildFile; fileRef = 777186922861B8A800C5CABC /* FDanmakuModelProtocol.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		7771869A2861B8A800C5CABC /* FDanmakuView.h in Headers */ = {isa = PBXBuildFile; fileRef = 777186932861B8A800C5CABC /* FDanmakuView.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		7771869B2861B8A800C5CABC /* CALayer+Aimate.h in Headers */ = {isa = PBXBuildFile; fileRef = 777186942861B8A800C5CABC /* CALayer+Aimate.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		7771869C2861B8A800C5CABC /* FDanmakuModel.h in Headers */ = {isa = PBXBuildFile; fileRef = 777186952861B8A800C5CABC /* FDanmakuModel.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		7771869D2861B8A800C5CABC /* FDanmakuView.m in Sources */ = {isa = PBXBuildFile; fileRef = 777186962861B8A800C5CABC /* FDanmakuView.m */; };
-		777186A32862C5D100C5CABC /* QToastView.h in Headers */ = {isa = PBXBuildFile; fileRef = 777186A12862C5D100C5CABC /* QToastView.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		777186A42862C5D100C5CABC /* QToastView.m in Sources */ = {isa = PBXBuildFile; fileRef = 777186A22862C5D100C5CABC /* QToastView.m */; };
-		77758CDE28A4EE34005CBB59 /* QGradient.h in Headers */ = {isa = PBXBuildFile; fileRef = 77758CDC28A4EE34005CBB59 /* QGradient.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		77758CDF28A4EE34005CBB59 /* QGradient.m in Sources */ = {isa = PBXBuildFile; fileRef = 77758CDD28A4EE34005CBB59 /* QGradient.m */; };
-		77758CEF28AA3B06005CBB59 /* QTagButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 77758CEB28AA3B06005CBB59 /* QTagButton.m */; };
-		77758CF028AA3B06005CBB59 /* QTagList.h in Headers */ = {isa = PBXBuildFile; fileRef = 77758CEC28AA3B06005CBB59 /* QTagList.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		77758CF128AA3B06005CBB59 /* QTagButton.h in Headers */ = {isa = PBXBuildFile; fileRef = 77758CED28AA3B06005CBB59 /* QTagButton.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		77758CF228AA3B06005CBB59 /* QTagList.m in Sources */ = {isa = PBXBuildFile; fileRef = 77758CEE28AA3B06005CBB59 /* QTagList.m */; };
-		77758CF628AA4516005CBB59 /* UILabel+QAttributed.m in Sources */ = {isa = PBXBuildFile; fileRef = 77758CF428AA4516005CBB59 /* UILabel+QAttributed.m */; };
-		77758CF728AA4516005CBB59 /* UILabel+QAttributed.h in Headers */ = {isa = PBXBuildFile; fileRef = 77758CF528AA4516005CBB59 /* UILabel+QAttributed.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		77758CFA28AA529C005CBB59 /* UIViewController+QViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = 77758CF828AA529C005CBB59 /* UIViewController+QViewController.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		77758CFB28AA529C005CBB59 /* UIViewController+QViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 77758CF928AA529C005CBB59 /* UIViewController+QViewController.m */; };
 		77781C0A283D1337009DC71C /* QNPKSession.h in Headers */ = {isa = PBXBuildFile; fileRef = 77781C08283D1337009DC71C /* QNPKSession.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		77781C0B283D1337009DC71C /* QNPKSession.m in Sources */ = {isa = PBXBuildFile; fileRef = 77781C09283D1337009DC71C /* QNPKSession.m */; };
 		77781C0E283DD181009DC71C /* QPKService.h in Headers */ = {isa = PBXBuildFile; fileRef = 77781C0C283DD181009DC71C /* QPKService.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -298,107 +84,15 @@
 		77781C41283DE000009DC71C /* Extension.h in Headers */ = {isa = PBXBuildFile; fileRef = 77781C3F283DE000009DC71C /* Extension.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		77781C42283DE000009DC71C /* Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = 77781C40283DE000009DC71C /* Extension.m */; };
 		77781CE728449A60009DC71C /* QNLiveTypeDefines.h in Headers */ = {isa = PBXBuildFile; fileRef = 776B1CC5283CFCF200D85C73 /* QNLiveTypeDefines.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		77781D302845E56A009DC71C /* QLiveView.m in Sources */ = {isa = PBXBuildFile; fileRef = 77781D262845E56A009DC71C /* QLiveView.m */; };
-		77781D322845E56A009DC71C /* RoomHostView.h in Headers */ = {isa = PBXBuildFile; fileRef = 77781D282845E56A009DC71C /* RoomHostView.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		77781D332845E56A009DC71C /* OnlineUserView.h in Headers */ = {isa = PBXBuildFile; fileRef = 77781D292845E56A009DC71C /* OnlineUserView.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		77781D342845E56B009DC71C /* QLiveView.h in Headers */ = {isa = PBXBuildFile; fileRef = 77781D2A2845E56A009DC71C /* QLiveView.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		77781D372845E56B009DC71C /* OnlineUserView.m in Sources */ = {isa = PBXBuildFile; fileRef = 77781D2D2845E56A009DC71C /* OnlineUserView.m */; };
-		77781D382845E56B009DC71C /* RoomHostView.m in Sources */ = {isa = PBXBuildFile; fileRef = 77781D2E2845E56A009DC71C /* RoomHostView.m */; };
-		77781D482845FC68009DC71C /* BottomMenuView.h in Headers */ = {isa = PBXBuildFile; fileRef = 77781D462845FC68009DC71C /* BottomMenuView.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		77781D492845FC68009DC71C /* BottomMenuView.m in Sources */ = {isa = PBXBuildFile; fileRef = 77781D472845FC68009DC71C /* BottomMenuView.m */; };
-		77781D5028460813009DC71C /* ImageButtonView.h in Headers */ = {isa = PBXBuildFile; fileRef = 77781D4E28460813009DC71C /* ImageButtonView.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		77781D5128460813009DC71C /* ImageButtonView.m in Sources */ = {isa = PBXBuildFile; fileRef = 77781D4F28460813009DC71C /* ImageButtonView.m */; };
-		77781D5428486D13009DC71C /* LiveChatRoom.h in Headers */ = {isa = PBXBuildFile; fileRef = 77781D5228486D12009DC71C /* LiveChatRoom.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		77781D5528486D13009DC71C /* LiveChatRoom.m in Sources */ = {isa = PBXBuildFile; fileRef = 77781D5328486D12009DC71C /* LiveChatRoom.m */; };
-		77781D6028486D35009DC71C /* QInputView.m in Sources */ = {isa = PBXBuildFile; fileRef = 77781D5728486D35009DC71C /* QInputView.m */; };
-		77781D6128486D35009DC71C /* QEmojiBoardView.m in Sources */ = {isa = PBXBuildFile; fileRef = 77781D5828486D35009DC71C /* QEmojiBoardView.m */; };
-		77781D6228486D35009DC71C /* QInputBarControl.m in Sources */ = {isa = PBXBuildFile; fileRef = 77781D5928486D35009DC71C /* QInputBarControl.m */; };
-		77781D6328486D35009DC71C /* EmojiList.plist in Resources */ = {isa = PBXBuildFile; fileRef = 77781D5A28486D35009DC71C /* EmojiList.plist */; };
-		77781D6428486D35009DC71C /* QEmojiCollectionCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 77781D5B28486D35009DC71C /* QEmojiCollectionCell.m */; };
-		77781D6528486D35009DC71C /* QInputView.h in Headers */ = {isa = PBXBuildFile; fileRef = 77781D5C28486D35009DC71C /* QInputView.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		77781D6628486D35009DC71C /* QInputBarControl.h in Headers */ = {isa = PBXBuildFile; fileRef = 77781D5D28486D35009DC71C /* QInputBarControl.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		77781D6728486D35009DC71C /* QEmojiBoardView.h in Headers */ = {isa = PBXBuildFile; fileRef = 77781D5E28486D35009DC71C /* QEmojiBoardView.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		77781D6828486D35009DC71C /* QEmojiCollectionCell.h in Headers */ = {isa = PBXBuildFile; fileRef = 77781D5F28486D35009DC71C /* QEmojiCollectionCell.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		77781D6E28486D3D009DC71C /* QMessageBaseCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 77781D6A28486D3D009DC71C /* QMessageBaseCell.m */; };
-		77781D6F28486D3D009DC71C /* QTextMessageCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 77781D6B28486D3D009DC71C /* QTextMessageCell.m */; };
-		77781D7028486D3D009DC71C /* QMessageBaseCell.h in Headers */ = {isa = PBXBuildFile; fileRef = 77781D6C28486D3D009DC71C /* QMessageBaseCell.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		77781D7128486D3D009DC71C /* QTextMessageCell.h in Headers */ = {isa = PBXBuildFile; fileRef = 77781D6D28486D3D009DC71C /* QTextMessageCell.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		77781D9F28488932009DC71C /* QNBaseRTCController.h in Headers */ = {isa = PBXBuildFile; fileRef = 77781D9B28488931009DC71C /* QNBaseRTCController.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		77781DA028488932009DC71C /* QLiveController.h in Headers */ = {isa = PBXBuildFile; fileRef = 77781D9C28488931009DC71C /* QLiveController.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		77781DA128488932009DC71C /* QNBaseRTCController.m in Sources */ = {isa = PBXBuildFile; fileRef = 77781D9D28488932009DC71C /* QNBaseRTCController.m */; };
-		77781DA228488932009DC71C /* QLiveController.m in Sources */ = {isa = PBXBuildFile; fileRef = 77781D9E28488932009DC71C /* QLiveController.m */; };
-		777B7A6F284F1F78005032B7 /* QAlertView.h in Headers */ = {isa = PBXBuildFile; fileRef = 777B7A6D284F1F78005032B7 /* QAlertView.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		777B7A70284F1F78005032B7 /* QAlertView.m in Sources */ = {isa = PBXBuildFile; fileRef = 777B7A6E284F1F78005032B7 /* QAlertView.m */; };
-		777B7A73284F375A005032B7 /* LinkStateView.h in Headers */ = {isa = PBXBuildFile; fileRef = 777B7A71284F3759005032B7 /* LinkStateView.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		777B7A74284F375A005032B7 /* LinkStateView.m in Sources */ = {isa = PBXBuildFile; fileRef = 777B7A72284F375A005032B7 /* LinkStateView.m */; };
-		777B7A7F284F4B0D005032B7 /* QRenderView.h in Headers */ = {isa = PBXBuildFile; fileRef = 777B7A7D284F4B0D005032B7 /* QRenderView.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		777B7A80284F4B0D005032B7 /* QRenderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 777B7A7E284F4B0D005032B7 /* QRenderView.m */; };
-		777B7A83284F5A6F005032B7 /* QNPKInvitationListCell.h in Headers */ = {isa = PBXBuildFile; fileRef = 777B7A81284F5A6F005032B7 /* QNPKInvitationListCell.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		777B7A84284F5A6F005032B7 /* QNPKInvitationListCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 777B7A82284F5A6F005032B7 /* QNPKInvitationListCell.m */; };
-		777B7A87284F5BC5005032B7 /* QNPKInvitationListController.h in Headers */ = {isa = PBXBuildFile; fileRef = 777B7A85284F5BC4005032B7 /* QNPKInvitationListController.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		777B7A88284F5BC5005032B7 /* QNPKInvitationListController.m in Sources */ = {isa = PBXBuildFile; fileRef = 777B7A86284F5BC4005032B7 /* QNPKInvitationListController.m */; };
-		7798A79928814872009DEB27 /* UITableView+MoveCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 7798A79728814872009DEB27 /* UITableView+MoveCell.m */; };
-		7798A79A28814872009DEB27 /* UITableView+MoveCell.h in Headers */ = {isa = PBXBuildFile; fileRef = 7798A79828814872009DEB27 /* UITableView+MoveCell.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		77A11C6028854A7A00020149 /* BeautyBaseController.h in Headers */ = {isa = PBXBuildFile; fileRef = 77A11C5E28854A7A00020149 /* BeautyBaseController.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		77A11C6128854A7A00020149 /* BeautyBaseController.m in Sources */ = {isa = PBXBuildFile; fileRef = 77A11C5F28854A7A00020149 /* BeautyBaseController.m */; };
-		77A11C64288556AA00020149 /* CreateBeautyLiveController.h in Headers */ = {isa = PBXBuildFile; fileRef = 77A11C62288556AA00020149 /* CreateBeautyLiveController.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		77A11C65288556AA00020149 /* CreateBeautyLiveController.m in Sources */ = {isa = PBXBuildFile; fileRef = 77A11C63288556AA00020149 /* CreateBeautyLiveController.m */; };
-		77A11CB4288691C500020149 /* Pods_QNLiveKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 93FD8D2BCC60F127C6FB7DA1 /* Pods_QNLiveKit.framework */; };
 		77A11CC92889385800020149 /* QShopService.h in Headers */ = {isa = PBXBuildFile; fileRef = 77A11CC72889385800020149 /* QShopService.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		77A11CCA2889385800020149 /* QShopService.m in Sources */ = {isa = PBXBuildFile; fileRef = 77A11CC82889385800020149 /* QShopService.m */; };
-		77A11CD7288A724E00020149 /* UIColor+QNColor.m in Sources */ = {isa = PBXBuildFile; fileRef = 77A11CD3288A724E00020149 /* UIColor+QNColor.m */; };
-		77A11CD8288A724E00020149 /* UIColor+QNColor.h in Headers */ = {isa = PBXBuildFile; fileRef = 77A11CD4288A724E00020149 /* UIColor+QNColor.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		77A11CD9288A724E00020149 /* UIImage+QNImage.m in Sources */ = {isa = PBXBuildFile; fileRef = 77A11CD5288A724E00020149 /* UIImage+QNImage.m */; };
-		77A11CDA288A724E00020149 /* UIImage+QNImage.h in Headers */ = {isa = PBXBuildFile; fileRef = 77A11CD6288A724E00020149 /* UIImage+QNImage.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		77A8D26E28782DF0001A3C2C /* AssetsLibrary.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 77A8D26D28782DF0001A3C2C /* AssetsLibrary.framework */; };
 		77BE1F0928C7342A007557E9 /* QRoomDataModel.h in Headers */ = {isa = PBXBuildFile; fileRef = 77BE1F0728C7342A007557E9 /* QRoomDataModel.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		77BE1F0A28C7342A007557E9 /* QRoomDataModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 77BE1F0828C7342A007557E9 /* QRoomDataModel.m */; };
 		77BE232528CB4424007557E9 /* QStatisticalService.h in Headers */ = {isa = PBXBuildFile; fileRef = 77BE232328CB4424007557E9 /* QStatisticalService.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		77BE232628CB4424007557E9 /* QStatisticalService.m in Sources */ = {isa = PBXBuildFile; fileRef = 77BE232428CB4424007557E9 /* QStatisticalService.m */; };
-		77BE233128D87177007557E9 /* WacthRecordController.h in Headers */ = {isa = PBXBuildFile; fileRef = 77BE232F28D87177007557E9 /* WacthRecordController.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		77BE233228D87177007557E9 /* WacthRecordController.m in Sources */ = {isa = PBXBuildFile; fileRef = 77BE233028D87177007557E9 /* WacthRecordController.m */; };
-		77BE237028D8CAEC007557E9 /* QGCDTimerManager.h in Headers */ = {isa = PBXBuildFile; fileRef = 77BE235C28D8CAEB007557E9 /* QGCDTimerManager.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		77BE237128D8CAEC007557E9 /* QSlider.m in Sources */ = {isa = PBXBuildFile; fileRef = 77BE235D28D8CAEB007557E9 /* QSlider.m */; };
-		77BE237228D8CAEC007557E9 /* QPlayerView.h in Headers */ = {isa = PBXBuildFile; fileRef = 77BE235E28D8CAEB007557E9 /* QPlayerView.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		77BE237328D8CAEC007557E9 /* UINavigationController+QPlayerRotation.h in Headers */ = {isa = PBXBuildFile; fileRef = 77BE235F28D8CAEB007557E9 /* UINavigationController+QPlayerRotation.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		77BE237528D8CAEC007557E9 /* QRotateAnimationView.h in Headers */ = {isa = PBXBuildFile; fileRef = 77BE236128D8CAEB007557E9 /* QRotateAnimationView.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		77BE237628D8CAEC007557E9 /* UIViewController+QPlayerRotation.h in Headers */ = {isa = PBXBuildFile; fileRef = 77BE236228D8CAEB007557E9 /* UIViewController+QPlayerRotation.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		77BE237728D8CAEC007557E9 /* UITabBarController+QPlayerRotation.m in Sources */ = {isa = PBXBuildFile; fileRef = 77BE236328D8CAEB007557E9 /* UITabBarController+QPlayerRotation.m */; };
-		77BE237828D8CAEC007557E9 /* QPlayerMaskView.m in Sources */ = {isa = PBXBuildFile; fileRef = 77BE236428D8CAEB007557E9 /* QPlayerMaskView.m */; };
-		77BE237928D8CAEC007557E9 /* UINavigationController+QPlayerRotation.m in Sources */ = {isa = PBXBuildFile; fileRef = 77BE236528D8CAEB007557E9 /* UINavigationController+QPlayerRotation.m */; };
-		77BE237A28D8CAEC007557E9 /* QSlider.h in Headers */ = {isa = PBXBuildFile; fileRef = 77BE236628D8CAEB007557E9 /* QSlider.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		77BE237B28D8CAEC007557E9 /* QPlayerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 77BE236728D8CAEB007557E9 /* QPlayerView.m */; };
-		77BE237C28D8CAEC007557E9 /* QGCDTimerManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 77BE236828D8CAEB007557E9 /* QGCDTimerManager.m */; };
-		77BE237D28D8CAEC007557E9 /* UIViewController+QPlayerRotation.m in Sources */ = {isa = PBXBuildFile; fileRef = 77BE236928D8CAEC007557E9 /* UIViewController+QPlayerRotation.m */; };
-		77BE237E28D8CAEC007557E9 /* QRotateAnimationView.m in Sources */ = {isa = PBXBuildFile; fileRef = 77BE236A28D8CAEC007557E9 /* QRotateAnimationView.m */; };
-		77BE238028D8CAEC007557E9 /* QPlayerMaskView.h in Headers */ = {isa = PBXBuildFile; fileRef = 77BE236C28D8CAEC007557E9 /* QPlayerMaskView.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		77BE238128D8CAEC007557E9 /* UITabBarController+QPlayerRotation.h in Headers */ = {isa = PBXBuildFile; fileRef = 77BE236D28D8CAEC007557E9 /* UITabBarController+QPlayerRotation.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		77BE238728D94428007557E9 /* NSDate+QDate.h in Headers */ = {isa = PBXBuildFile; fileRef = 77BE238528D94428007557E9 /* NSDate+QDate.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		77BE238828D94428007557E9 /* NSDate+QDate.m in Sources */ = {isa = PBXBuildFile; fileRef = 77BE238628D94428007557E9 /* NSDate+QDate.m */; };
-		77BE239928D96EF1007557E9 /* PSPopListView.m in Sources */ = {isa = PBXBuildFile; fileRef = 77BE238A28D96EF0007557E9 /* PSPopListView.m */; };
-		77BE23A528D96EF1007557E9 /* PSPopListView.h in Headers */ = {isa = PBXBuildFile; fileRef = 77BE239628D96EF0007557E9 /* PSPopListView.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		77BE24CC28FE91D1007557E9 /* DateTimePickerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 77BE24C628FE91D1007557E9 /* DateTimePickerView.m */; };
-		77BE24CD28FE91D1007557E9 /* MXSCycleScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = 77BE24C728FE91D1007557E9 /* MXSCycleScrollView.m */; };
-		77BE24CE28FE91D1007557E9 /* UIColor+HcdCustom.m in Sources */ = {isa = PBXBuildFile; fileRef = 77BE24C828FE91D1007557E9 /* UIColor+HcdCustom.m */; };
-		77BE24CF28FE91D1007557E9 /* DateTimePickerView.h in Headers */ = {isa = PBXBuildFile; fileRef = 77BE24C928FE91D1007557E9 /* DateTimePickerView.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		77BE24D028FE91D1007557E9 /* UIColor+HcdCustom.h in Headers */ = {isa = PBXBuildFile; fileRef = 77BE24CA28FE91D1007557E9 /* UIColor+HcdCustom.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		77BE24D128FE91D2007557E9 /* MXSCycleScrollView.h in Headers */ = {isa = PBXBuildFile; fileRef = 77BE24CB28FE91D1007557E9 /* MXSCycleScrollView.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		77BE24D428FFA0A7007557E9 /* LiveBottomMoreView.h in Headers */ = {isa = PBXBuildFile; fileRef = 77BE24D228FFA0A7007557E9 /* LiveBottomMoreView.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		77BE24D528FFA0A7007557E9 /* LiveBottomMoreView.m in Sources */ = {isa = PBXBuildFile; fileRef = 77BE24D328FFA0A7007557E9 /* LiveBottomMoreView.m */; };
-		77BE24D828FFD403007557E9 /* WatchBottomMoreView.h in Headers */ = {isa = PBXBuildFile; fileRef = 77BE24D628FFD403007557E9 /* WatchBottomMoreView.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		77BE24D928FFD403007557E9 /* WatchBottomMoreView.m in Sources */ = {isa = PBXBuildFile; fileRef = 77BE24D728FFD403007557E9 /* WatchBottomMoreView.m */; };
-		77BE24F128FFED50007557E9 /* QNGiftView.h in Headers */ = {isa = PBXBuildFile; fileRef = 77BE24DC28FFED50007557E9 /* QNGiftView.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		77BE24F528FFED50007557E9 /* QNGiftModel.h in Headers */ = {isa = PBXBuildFile; fileRef = 77BE24E028FFED50007557E9 /* QNGiftModel.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		77BE24F628FFED50007557E9 /* QNHorizontalLayout.h in Headers */ = {isa = PBXBuildFile; fileRef = 77BE24E128FFED50007557E9 /* QNHorizontalLayout.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		77BE24FB28FFED50007557E9 /* QNGiftView.m in Sources */ = {isa = PBXBuildFile; fileRef = 77BE24E628FFED50007557E9 /* QNGiftView.m */; };
-		77BE24FC28FFED50007557E9 /* QNGiftCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 77BE24E728FFED50007557E9 /* QNGiftCollectionViewCell.m */; };
 		77BE24FE28FFED50007557E9 /* QNGiftModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 77BE24E928FFED50007557E9 /* QNGiftModel.m */; };
-		77BE24FF28FFED50007557E9 /* QNGiftCollectionViewCell.h in Headers */ = {isa = PBXBuildFile; fileRef = 77BE24EA28FFED50007557E9 /* QNGiftCollectionViewCell.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		77BE250328FFED50007557E9 /* QNHorizontalLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 77BE24EE28FFED50007557E9 /* QNHorizontalLayout.m */; };
-		77E02E31284E245A00EE8A28 /* QNAudienceController.h in Headers */ = {isa = PBXBuildFile; fileRef = 77E02E2F284E245A00EE8A28 /* QNAudienceController.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		77E02E32284E245A00EE8A28 /* QNAudienceController.m in Sources */ = {isa = PBXBuildFile; fileRef = 77E02E30284E245A00EE8A28 /* QNAudienceController.m */; };
-		77EDC49F286DAD99002B4226 /* BeautyLiveViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = 77EDC49D286DAD99002B4226 /* BeautyLiveViewController.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		77EDC4A0286DAD99002B4226 /* BeautyLiveViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 77EDC49E286DAD99002B4226 /* BeautyLiveViewController.m */; };
 		F18E863D1EEF8227B50115B4 /* Pods_QNLiveKitTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 948C15C1847BC94017A63290 /* Pods_QNLiveKitTests.framework */; };
 /* End PBXBuildFile section */
 
@@ -436,225 +130,28 @@
 
 /* Begin PBXFileReference section */
 		081F7CF449622E077318EFB5 /* Pods-QNLiveKitTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-QNLiveKitTests.release.xcconfig"; path = "Target Support Files/Pods-QNLiveKitTests/Pods-QNLiveKitTests.release.xcconfig"; sourceTree = "<group>"; };
-		4808878229305EDF004A7878 /* QNLiveStatisticView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = QNLiveStatisticView.h; sourceTree = "<group>"; };
-		4808878329305EDF004A7878 /* QNLiveStatisticView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = QNLiveStatisticView.m; sourceTree = "<group>"; };
+		485F27202940E37E00484CB6 /* CreateSignalHandler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CreateSignalHandler.h; sourceTree = "<group>"; };
+		485F27212940E37E00484CB6 /* CreateSignalHandler.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CreateSignalHandler.m; sourceTree = "<group>"; };
 		48B937C929271C520014D671 /* CoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreServices.framework; path = Platforms/MacOSX.platform/Developer/SDKs/MacOSX12.3.sdk/System/Library/Frameworks/CoreServices.framework; sourceTree = DEVELOPER_DIR; };
 		48B937CF29271CC20014D671 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = Platforms/MacOSX.platform/Developer/SDKs/MacOSX12.3.sdk/System/iOSSupport/System/Library/Frameworks/MapKit.framework; sourceTree = DEVELOPER_DIR; };
-		48B93868292CCAB00014D671 /* QNPayGiftViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = QNPayGiftViewController.h; sourceTree = "<group>"; };
-		48B93869292CCAB00014D671 /* QNPayGiftViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = QNPayGiftViewController.m; sourceTree = "<group>"; };
-		48B93875292DEE490014D671 /* QNGiftMessageView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = QNGiftMessageView.h; sourceTree = "<group>"; };
-		48B93876292DEE490014D671 /* QNGiftMessageView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = QNGiftMessageView.m; sourceTree = "<group>"; };
-		48B93879292DEE590014D671 /* QNGiftMessagePannel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = QNGiftMessagePannel.h; sourceTree = "<group>"; };
-		48B9387A292DEE590014D671 /* QNGiftMessagePannel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = QNGiftMessagePannel.m; sourceTree = "<group>"; };
-		48B9387D292DF91E0014D671 /* QNGiftOperation.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = QNGiftOperation.h; sourceTree = "<group>"; };
-		48B9387E292DF91E0014D671 /* QNGiftOperation.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = QNGiftOperation.m; sourceTree = "<group>"; };
 		48B93882292E12DA0014D671 /* QNGiftService.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = QNGiftService.h; sourceTree = "<group>"; };
 		48B93883292E12DA0014D671 /* QNGiftService.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = QNGiftService.m; sourceTree = "<group>"; };
 		48B93887292E26590014D671 /* QNUserService.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = QNUserService.h; sourceTree = "<group>"; };
 		48B93888292E26590014D671 /* QNUserService.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = QNUserService.m; sourceTree = "<group>"; };
 		48B9388B292E399E0014D671 /* QNGiftMsgModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = QNGiftMsgModel.h; sourceTree = "<group>"; };
 		48B9388C292E399E0014D671 /* QNGiftMsgModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = QNGiftMsgModel.m; sourceTree = "<group>"; };
-		48B93894292E56C10014D671 /* QNGiftMessageCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = QNGiftMessageCell.h; sourceTree = "<group>"; };
-		48B93895292E56C10014D671 /* QNGiftMessageCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = QNGiftMessageCell.m; sourceTree = "<group>"; };
-		48B93899292F1F5F0014D671 /* QNGiftPaySuccessView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = QNGiftPaySuccessView.h; sourceTree = "<group>"; };
-		48B9389A292F1F5F0014D671 /* QNGiftPaySuccessView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = QNGiftPaySuccessView.m; sourceTree = "<group>"; };
 		48B9389E292F55640014D671 /* QNLikeService.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = QNLikeService.h; sourceTree = "<group>"; };
 		48B9389F292F55640014D671 /* QNLikeService.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = QNLikeService.m; sourceTree = "<group>"; };
 		48B938A2292F5C0E0014D671 /* QNLikeResult.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = QNLikeResult.h; sourceTree = "<group>"; };
 		48B938A3292F5C0E0014D671 /* QNLikeResult.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = QNLikeResult.m; sourceTree = "<group>"; };
-		48B938A7292F5FCB0014D671 /* QNLikeMenuView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = QNLikeMenuView.h; sourceTree = "<group>"; };
-		48B938A8292F5FCB0014D671 /* QNLikeMenuView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = QNLikeMenuView.m; sourceTree = "<group>"; };
-		48B938AB292F5FDB0014D671 /* QNLikeBubbleView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = QNLikeBubbleView.h; sourceTree = "<group>"; };
-		48B938AC292F5FDB0014D671 /* QNLikeBubbleView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = QNLikeBubbleView.m; sourceTree = "<group>"; };
 		48B938AF292F8EF10014D671 /* QNLikeNotify.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = QNLikeNotify.h; sourceTree = "<group>"; };
 		48B938B0292F8EF10014D671 /* QNLikeNotify.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = QNLikeNotify.m; sourceTree = "<group>"; };
 		48C83DD62940C1E40002C11B /* PLSTArEffects.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = PLSTArEffects.framework; path = ../../frameworks/PLSTArEffects.framework; sourceTree = "<group>"; };
 		48C83DD72940C1E40002C11B /* QNIMSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QNIMSDK.framework; path = ../../frameworks/QNIMSDK.framework; sourceTree = "<group>"; };
-		48E878F52926445800F33059 /* STLock.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = STLock.m; sourceTree = "<group>"; };
-		48E878F62926445800F33059 /* STEffectsTimer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = STEffectsTimer.m; sourceTree = "<group>"; };
-		48E878F72926445800F33059 /* STMobileLog.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = STMobileLog.h; sourceTree = "<group>"; };
-		48E878F82926445800F33059 /* NSBundle+language.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSBundle+language.m"; sourceTree = "<group>"; };
-		48E878F92926445800F33059 /* STConvert.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = STConvert.m; sourceTree = "<group>"; };
-		48E878FA2926445800F33059 /* STLock.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = STLock.h; sourceTree = "<group>"; };
-		48E878FB2926445800F33059 /* STEffectsTimer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = STEffectsTimer.h; sourceTree = "<group>"; };
-		48E878FC2926445800F33059 /* STConvert.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = STConvert.h; sourceTree = "<group>"; };
-		48E878FD2926445800F33059 /* NSBundle+language.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSBundle+language.h"; sourceTree = "<group>"; };
-		48E879002926445800F33059 /* STDefaultSettingDataSourseGenerator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = STDefaultSettingDataSourseGenerator.m; sourceTree = "<group>"; };
-		48E879012926445800F33059 /* STDefaultSettingDataSourseGenerator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = STDefaultSettingDataSourseGenerator.h; sourceTree = "<group>"; };
-		48E879022926445800F33059 /* DefaultBeautyParameters.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DefaultBeautyParameters.h; sourceTree = "<group>"; };
-		48E879032926445800F33059 /* STDefaultSetting.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = STDefaultSetting.h; sourceTree = "<group>"; };
-		48E879042926445800F33059 /* STDefaultSetting.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = STDefaultSetting.m; sourceTree = "<group>"; };
-		48E879062926445800F33059 /* STCamera.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = STCamera.h; sourceTree = "<group>"; };
-		48E879072926445800F33059 /* STCamera.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = STCamera.m; sourceTree = "<group>"; };
-		48E879242926445800F33059 /* STColorConversion.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = STColorConversion.h; sourceTree = "<group>"; };
-		48E879252926445800F33059 /* STGLPreview3.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = STGLPreview3.h; sourceTree = "<group>"; };
-		48E879262926445800F33059 /* STGLShader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = STGLShader.m; sourceTree = "<group>"; };
-		48E879272926445800F33059 /* STVFShader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = STVFShader.h; sourceTree = "<group>"; };
-		48E879282926445800F33059 /* STGLPreview2.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = STGLPreview2.m; sourceTree = "<group>"; };
-		48E879292926445800F33059 /* STColorConversion.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = STColorConversion.m; sourceTree = "<group>"; };
-		48E8792A2926445800F33059 /* STGLPreview3.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = STGLPreview3.m; sourceTree = "<group>"; };
-		48E8792B2926445800F33059 /* STGLShader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = STGLShader.h; sourceTree = "<group>"; };
-		48E8792C2926445800F33059 /* STGLPreview2.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = STGLPreview2.h; sourceTree = "<group>"; };
-		48E8792D2926445800F33059 /* STVFShader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = STVFShader.m; sourceTree = "<group>"; };
-		48E879302926445800F33059 /* SenseArMaterialAction.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SenseArMaterialAction.h; sourceTree = "<group>"; };
-		48E879312926445800F33059 /* SenseArMaterial.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SenseArMaterial.h; sourceTree = "<group>"; };
-		48E879322926445800F33059 /* SenseArSourceService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SenseArSourceService.h; sourceTree = "<group>"; };
-		48E879332926445800F33059 /* SenseArMaterialService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SenseArMaterialService.h; sourceTree = "<group>"; };
-		48E879342926445800F33059 /* SenseArMaterialGroup.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SenseArMaterialGroup.h; sourceTree = "<group>"; };
-		48E879382926445800F33059 /* libSenseArSourceService.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libSenseArSourceService.a; sourceTree = "<group>"; };
-		48E8793A2926445800F33059 /* EFMaterialDownloadManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EFMaterialDownloadManager.m; sourceTree = "<group>"; };
-		48E8793B2926445800F33059 /* EFDataSourceGenerator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EFDataSourceGenerator.m; sourceTree = "<group>"; };
-		48E8793C2926445800F33059 /* EFSenseArMaterialDataModels.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EFSenseArMaterialDataModels.h; sourceTree = "<group>"; };
-		48E8793D2926445800F33059 /* NSString+sha1.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+sha1.m"; sourceTree = "<group>"; };
-		48E8793E2926445800F33059 /* NSDictionary+sortedJson.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDictionary+sortedJson.m"; sourceTree = "<group>"; };
-		48E8793F2926445800F33059 /* EFResource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EFResource.m; sourceTree = "<group>"; };
-		48E879402926445800F33059 /* NSString+materialAes.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+materialAes.m"; sourceTree = "<group>"; };
-		48E879412926445800F33059 /* NSData+meterialAes.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSData+meterialAes.m"; sourceTree = "<group>"; };
-		48E879712926445800F33059 /* EFSenseArMaterialDataModels.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EFSenseArMaterialDataModels.m; sourceTree = "<group>"; };
-		48E879722926445800F33059 /* EFDataSourceGenerator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EFDataSourceGenerator.h; sourceTree = "<group>"; };
-		48E879732926445800F33059 /* EFMaterialDownloadManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EFMaterialDownloadManager.h; sourceTree = "<group>"; };
-		48E879742926445800F33059 /* NSDictionary+sortedJson.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDictionary+sortedJson.h"; sourceTree = "<group>"; };
-		48E879992926445800F33059 /* NSString+sha1.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+sha1.h"; sourceTree = "<group>"; };
-		48E8799E2926445800F33059 /* NSString+materialAes.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+materialAes.h"; sourceTree = "<group>"; };
-		48E8799F2926445800F33059 /* EFDataSourcing.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EFDataSourcing.h; sourceTree = "<group>"; };
-		48E879A02926445800F33059 /* EFResource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EFResource.h; sourceTree = "<group>"; };
-		48E879A22926445800F33059 /* EFMaterialDownloadStatusManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EFMaterialDownloadStatusManager.h; sourceTree = "<group>"; };
-		48E879A42926445800F33059 /* NSDictionary+jsonFile.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDictionary+jsonFile.m"; sourceTree = "<group>"; };
-		48E879A52926445800F33059 /* EFRemoteDataSourceHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EFRemoteDataSourceHelper.m; sourceTree = "<group>"; };
-		48E879A62926445800F33059 /* EFStatusManagerDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EFStatusManagerDelegate.h; sourceTree = "<group>"; };
-		48E879A72926445800F33059 /* EFStorageHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EFStorageHelper.m; sourceTree = "<group>"; };
-		48E879A82926445800F33059 /* NSObject+dictionary.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+dictionary.h"; sourceTree = "<group>"; };
-		48E879A92926445800F33059 /* EFStatusModels.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EFStatusModels.h; sourceTree = "<group>"; };
-		48E879AA2926445800F33059 /* EFAuthorizeAdapter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EFAuthorizeAdapter.h; sourceTree = "<group>"; };
-		48E879AB2926445800F33059 /* EFRemoteDataSourceHelper+groupInfos.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "EFRemoteDataSourceHelper+groupInfos.h"; sourceTree = "<group>"; };
-		48E879AC2926445800F33059 /* EFMachineVersion.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EFMachineVersion.m; sourceTree = "<group>"; };
-		48E879AD2926445800F33059 /* EFGlobalSingleton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EFGlobalSingleton.m; sourceTree = "<group>"; };
-		48E879AE2926445800F33059 /* EFStatusManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EFStatusManager.m; sourceTree = "<group>"; };
-		48E879AF2926445800F33059 /* EFMaterialDownloadStatusManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EFMaterialDownloadStatusManager.m; sourceTree = "<group>"; };
-		48E879B12926445800F33059 /* EFRemoteDataSourceHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EFRemoteDataSourceHelper.h; sourceTree = "<group>"; };
-		48E879B22926445800F33059 /* NSDictionary+jsonFile.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDictionary+jsonFile.h"; sourceTree = "<group>"; };
-		48E879B32926445800F33059 /* NSObject+dictionary.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+dictionary.m"; sourceTree = "<group>"; };
-		48E879B42926445800F33059 /* EFStatusModels.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EFStatusModels.m; sourceTree = "<group>"; };
-		48E879B52926445800F33059 /* EFStorageHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EFStorageHelper.h; sourceTree = "<group>"; };
-		48E879B72926445800F33059 /* EFStatusManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EFStatusManager.h; sourceTree = "<group>"; };
-		48E879B82926445800F33059 /* EFGlobalSingleton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EFGlobalSingleton.h; sourceTree = "<group>"; };
-		48E879BA2926445800F33059 /* EFMachineVersion.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EFMachineVersion.h; sourceTree = "<group>"; };
-		48E879BC2926445800F33059 /* EFAuthorizeAdapter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EFAuthorizeAdapter.m; sourceTree = "<group>"; };
-		48E879BD2926445800F33059 /* EFRemoteDataSourceHelper+groupInfos.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "EFRemoteDataSourceHelper+groupInfos.m"; sourceTree = "<group>"; };
-		48E879BE2926445800F33059 /* NSData+meterialAes.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSData+meterialAes.h"; sourceTree = "<group>"; };
-		48E879BF2926445800F33059 /* STBaseViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = STBaseViewController.m; sourceTree = "<group>"; };
-		48E879C22926445800F33059 /* STCoreStateManagement.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = STCoreStateManagement.h; sourceTree = "<group>"; };
-		48E879C42926445800F33059 /* STCoreStateManagementModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = STCoreStateManagementModel.h; sourceTree = "<group>"; };
-		48E879C52926445800F33059 /* STCoreStateManagementModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = STCoreStateManagementModel.m; sourceTree = "<group>"; };
-		48E879C72926445800F33059 /* STCoreStateManagementFilterModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = STCoreStateManagementFilterModel.m; sourceTree = "<group>"; };
-		48E879C82926445800F33059 /* STCoreStateManagementFilterModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = STCoreStateManagementFilterModel.h; sourceTree = "<group>"; };
-		48E879C92926445800F33059 /* STCoreStateManagementValueChangeDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = STCoreStateManagementValueChangeDelegate.h; sourceTree = "<group>"; };
-		48E879CA2926445800F33059 /* STCoreStateManagement.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = STCoreStateManagement.m; sourceTree = "<group>"; };
-		48E879CC2926445800F33059 /* STEffectsAudioPlayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = STEffectsAudioPlayer.h; sourceTree = "<group>"; };
-		48E879CD2926445800F33059 /* SystemSound.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SystemSound.m; sourceTree = "<group>"; };
-		48E879CE2926445800F33059 /* SoundInfomation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SoundInfomation.h; sourceTree = "<group>"; };
-		48E879CF2926445800F33059 /* STAudioManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = STAudioManager.m; sourceTree = "<group>"; };
-		48E879D02926445800F33059 /* STEffectsAudioPlayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = STEffectsAudioPlayer.m; sourceTree = "<group>"; };
-		48E879D12926445800F33059 /* SoundInfomation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SoundInfomation.m; sourceTree = "<group>"; };
-		48E879D22926445800F33059 /* SystemSound.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SystemSound.h; sourceTree = "<group>"; };
-		48E879D32926445800F33059 /* STAudioManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = STAudioManager.h; sourceTree = "<group>"; };
-		48E879D52926445800F33059 /* STMovieRecorder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = STMovieRecorder.h; sourceTree = "<group>"; };
-		48E879D62926445800F33059 /* STMovieRecorder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = STMovieRecorder.m; sourceTree = "<group>"; };
-		48E879D72926445800F33059 /* STBaseViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = STBaseViewController.h; sourceTree = "<group>"; };
-		48E879D92926445800F33059 /* LicenseUtil.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LicenseUtil.h; sourceTree = "<group>"; };
-		48E879DA2926445800F33059 /* LicenseUtil.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LicenseUtil.m; sourceTree = "<group>"; };
-		48E879DC2926445800F33059 /* STBMPDetailColVCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = STBMPDetailColVCell.h; sourceTree = "<group>"; };
-		48E879DD2926445800F33059 /* STBmpStrengthView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = STBmpStrengthView.m; sourceTree = "<group>"; };
-		48E879DE2926445800F33059 /* STBMPDetailColV.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = STBMPDetailColV.h; sourceTree = "<group>"; };
-		48E879DF2926445800F33059 /* STPlayerControlBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = STPlayerControlBar.h; sourceTree = "<group>"; };
-		48E879E02926445800F33059 /* STViewButton.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = STViewButton.xib; sourceTree = "<group>"; };
-		48E879E12926445800F33059 /* STButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = STButton.m; sourceTree = "<group>"; };
-		48E879E22926445800F33059 /* STSlideView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = STSlideView.h; sourceTree = "<group>"; };
-		48E879E32926445800F33059 /* STScrollTitleView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = STScrollTitleView.h; sourceTree = "<group>"; };
-		48E879E42926445800F33059 /* STViewButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = STViewButton.h; sourceTree = "<group>"; };
-		48E879E52926445800F33059 /* STFilterView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = STFilterView.h; sourceTree = "<group>"; };
-		48E879E62926445800F33059 /* STCommonObjectContainerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = STCommonObjectContainerView.m; sourceTree = "<group>"; };
-		48E879E72926445800F33059 /* STTriggerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = STTriggerView.m; sourceTree = "<group>"; };
-		48E879E82926445800F33059 /* STBMPCollectionView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = STBMPCollectionView.h; sourceTree = "<group>"; };
-		48E879E92926445800F33059 /* STMakeupDataModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = STMakeupDataModel.m; sourceTree = "<group>"; };
-		48E879EA2926445800F33059 /* STCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = STCollectionViewCell.h; sourceTree = "<group>"; };
-		48E879EB2926445800F33059 /* EffectsCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EffectsCollectionViewCell.h; sourceTree = "<group>"; };
-		48E879EC2926445800F33059 /* STTitleViewItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = STTitleViewItem.m; sourceTree = "<group>"; };
-		48E879ED2926445800F33059 /* STCollectionView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = STCollectionView.h; sourceTree = "<group>"; };
-		48E879EE2926445800F33059 /* STCustomMemoryCache.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = STCustomMemoryCache.m; sourceTree = "<group>"; };
-		48E879EF2926445800F33059 /* EffectsCollectionView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EffectsCollectionView.h; sourceTree = "<group>"; };
-		48E879F02926445800F33059 /* STParamUtil.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = STParamUtil.m; sourceTree = "<group>"; };
-		48E879F12926445800F33059 /* STCustomCollectionView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = STCustomCollectionView.m; sourceTree = "<group>"; };
-		48E879F22926445800F33059 /* STCommonObjectView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = STCommonObjectView.h; sourceTree = "<group>"; };
-		48E879F32926445800F33059 /* UIView+Toast.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+Toast.h"; sourceTree = "<group>"; };
-		48E879F42926445800F33059 /* STBMPCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = STBMPCollectionViewCell.h; sourceTree = "<group>"; };
-		48E879F52926445800F33059 /* STBeautySlider.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = STBeautySlider.m; sourceTree = "<group>"; };
-		48E879F62926445800F33059 /* STCommonObjectContainerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = STCommonObjectContainerView.h; sourceTree = "<group>"; };
-		48E879F72926445800F33059 /* STTriggerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = STTriggerView.h; sourceTree = "<group>"; };
-		48E879F82926445800F33059 /* STFilterView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = STFilterView.m; sourceTree = "<group>"; };
-		48E879F92926445800F33059 /* STViewButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = STViewButton.m; sourceTree = "<group>"; };
-		48E879FA2926445800F33059 /* STSlideView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = STSlideView.m; sourceTree = "<group>"; };
-		48E879FB2926445800F33059 /* STScrollTitleView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = STScrollTitleView.m; sourceTree = "<group>"; };
-		48E879FC2926445800F33059 /* STButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = STButton.h; sourceTree = "<group>"; };
-		48E879FD2926445800F33059 /* STPlayerControlBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = STPlayerControlBar.m; sourceTree = "<group>"; };
-		48E879FE2926445800F33059 /* STBMPDetailColV.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = STBMPDetailColV.m; sourceTree = "<group>"; };
-		48E879FF2926445800F33059 /* STBmpStrengthView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = STBmpStrengthView.h; sourceTree = "<group>"; };
-		48E87A002926445800F33059 /* STBMPDetailColVCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = STBMPDetailColVCell.m; sourceTree = "<group>"; };
-		48E87A012926445800F33059 /* STCollectionView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = STCollectionView.m; sourceTree = "<group>"; };
-		48E87A022926445800F33059 /* EffectsCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = EffectsCollectionViewCell.xib; sourceTree = "<group>"; };
-		48E87A032926445800F33059 /* STTitleViewItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = STTitleViewItem.h; sourceTree = "<group>"; };
-		48E87A042926445800F33059 /* EffectsCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EffectsCollectionViewCell.m; sourceTree = "<group>"; };
-		48E87A052926445800F33059 /* STCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = STCollectionViewCell.m; sourceTree = "<group>"; };
-		48E87A062926445800F33059 /* STMakeupDataModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = STMakeupDataModel.h; sourceTree = "<group>"; };
-		48E87A072926445800F33059 /* STBMPCollectionView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = STBMPCollectionView.m; sourceTree = "<group>"; };
-		48E87A082926445800F33059 /* STCommonObjectView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = STCommonObjectView.m; sourceTree = "<group>"; };
-		48E87A092926445800F33059 /* STCustomCollectionView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = STCustomCollectionView.h; sourceTree = "<group>"; };
-		48E87A0A2926445800F33059 /* STParamUtil.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = STParamUtil.h; sourceTree = "<group>"; };
-		48E87A0B2926445800F33059 /* STCustomMemoryCache.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = STCustomMemoryCache.h; sourceTree = "<group>"; };
-		48E87A0C2926445800F33059 /* EffectsCollectionView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EffectsCollectionView.m; sourceTree = "<group>"; };
-		48E87A0D2926445800F33059 /* STSlideView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = STSlideView.xib; sourceTree = "<group>"; };
-		48E87A0E2926445800F33059 /* STBeautySlider.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = STBeautySlider.h; sourceTree = "<group>"; };
-		48E87A0F2926445800F33059 /* STBMPCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = STBMPCollectionViewCell.m; sourceTree = "<group>"; };
-		48E87A102926445800F33059 /* UIView+Toast.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+Toast.m"; sourceTree = "<group>"; };
-		48E87A152926445800F33059 /* st_mobile_common.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = st_mobile_common.h; sourceTree = "<group>"; };
-		48E87A162926445800F33059 /* st_mobile_animal.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = st_mobile_animal.h; sourceTree = "<group>"; };
-		48E87A172926445800F33059 /* st_mobile_human_action.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = st_mobile_human_action.h; sourceTree = "<group>"; };
-		48E87A182926445800F33059 /* st_mobile_object.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = st_mobile_object.h; sourceTree = "<group>"; };
-		48E87A192926445800F33059 /* st_mobile_face_attribute.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = st_mobile_face_attribute.h; sourceTree = "<group>"; };
-		48E87A1A2926445800F33059 /* st_mobile_license.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = st_mobile_license.h; sourceTree = "<group>"; };
-		48E87A1B2926445800F33059 /* st_mobile_effect.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = st_mobile_effect.h; sourceTree = "<group>"; };
-		48E87A1C2926445800F33059 /* st_mobile_verify.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = st_mobile_verify.h; sourceTree = "<group>"; };
-		48E87A1D2926445800F33059 /* st_mobile_color_convert.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = st_mobile_color_convert.h; sourceTree = "<group>"; };
-		48E87A262926445800F33059 /* VERSION */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = VERSION; sourceTree = "<group>"; };
-		48E87A292926445800F33059 /* libst_mobile.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libst_mobile.a; sourceTree = "<group>"; };
-		77062FAB287E795F00E9FD7D /* ShopSellListController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ShopSellListController.h; sourceTree = "<group>"; };
-		77062FAC287E795F00E9FD7D /* ShopSellListController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ShopSellListController.m; sourceTree = "<group>"; };
 		77062FB0287EA0A300E9FD7D /* GoodsModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GoodsModel.h; sourceTree = "<group>"; };
 		77062FB1287EA0A300E9FD7D /* GoodsModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GoodsModel.m; sourceTree = "<group>"; };
-		77062FB4287EAA8C00E9FD7D /* GoodSellItemCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GoodSellItemCell.h; sourceTree = "<group>"; };
-		77062FB5287EAA8D00E9FD7D /* GoodSellItemCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GoodSellItemCell.m; sourceTree = "<group>"; };
-		77062FB8288004AA00E9FD7D /* ShopBuyListController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ShopBuyListController.h; sourceTree = "<group>"; };
-		77062FB9288004AA00E9FD7D /* ShopBuyListController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ShopBuyListController.m; sourceTree = "<group>"; };
-		77062FBC288005CE00E9FD7D /* GoodBuyItemCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GoodBuyItemCell.h; sourceTree = "<group>"; };
-		77062FBD288005CE00E9FD7D /* GoodBuyItemCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GoodBuyItemCell.m; sourceTree = "<group>"; };
-		77062FC42880294900E9FD7D /* ExplainingGoodView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ExplainingGoodView.h; sourceTree = "<group>"; };
-		77062FC52880294900E9FD7D /* ExplainingGoodView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ExplainingGoodView.m; sourceTree = "<group>"; };
-		77062FC8288062D600E9FD7D /* GoodsOperationCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GoodsOperationCell.h; sourceTree = "<group>"; };
-		77062FC9288062D600E9FD7D /* GoodsOperationCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GoodsOperationCell.m; sourceTree = "<group>"; };
-		77062FCC288080D300E9FD7D /* GoodsOperationView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GoodsOperationView.h; sourceTree = "<group>"; };
-		77062FCD288080D300E9FD7D /* GoodsOperationView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GoodsOperationView.m; sourceTree = "<group>"; };
-		77062FD0288091FF00E9FD7D /* GoodStatusView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GoodStatusView.h; sourceTree = "<group>"; };
-		77062FD12880920000E9FD7D /* GoodStatusView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GoodStatusView.m; sourceTree = "<group>"; };
 		77204D4C285873BF0053B1AD /* QRooms.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = QRooms.h; sourceTree = "<group>"; };
 		77204D4D285873BF0053B1AD /* QRooms.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = QRooms.m; sourceTree = "<group>"; };
-		77204D56285981B00053B1AD /* CYProtocolManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CYProtocolManager.m; sourceTree = "<group>"; };
-		77204D57285981B00053B1AD /* CYProtocolManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CYProtocolManager.h; sourceTree = "<group>"; };
-		77204D5F285F755B0053B1AD /* QNLiveListCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QNLiveListCell.h; sourceTree = "<group>"; };
-		77204D60285F755B0053B1AD /* QCreateLiveController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QCreateLiveController.m; sourceTree = "<group>"; };
-		77204D61285F755B0053B1AD /* QLiveListController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QLiveListController.h; sourceTree = "<group>"; };
-		77204D62285F755B0053B1AD /* QCreateLiveController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QCreateLiveController.h; sourceTree = "<group>"; };
-		77204D63285F755C0053B1AD /* QNLiveListCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QNLiveListCell.m; sourceTree = "<group>"; };
-		77204D64285F755C0053B1AD /* QLiveListController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QLiveListController.m; sourceTree = "<group>"; };
 		77204D79285F97A20053B1AD /* PubChatModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PubChatModel.h; sourceTree = "<group>"; };
 		77204D7C285F97A20053B1AD /* QInvitationModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QInvitationModel.h; sourceTree = "<group>"; };
 		77204D7D285F97A20053B1AD /* QIMModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QIMModel.m; sourceTree = "<group>"; };
@@ -663,8 +160,6 @@
 		77204D82285F97A20053B1AD /* QInvitationModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QInvitationModel.m; sourceTree = "<group>"; };
 		77204D95285F9AF50053B1AD /* LinkOptionModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LinkOptionModel.h; sourceTree = "<group>"; };
 		77204D96285F9AF50053B1AD /* LinkOptionModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LinkOptionModel.m; sourceTree = "<group>"; };
-		774E641A2848DB6700C9FB7F /* CreateSignalHandler.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CreateSignalHandler.m; sourceTree = "<group>"; };
-		774E641B2848DB6700C9FB7F /* CreateSignalHandler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CreateSignalHandler.h; sourceTree = "<group>"; };
 		774E641F284DF8E800C9FB7F /* QMixStreamManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QMixStreamManager.m; sourceTree = "<group>"; };
 		774E6420284DF8E800C9FB7F /* QMixStreamManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QMixStreamManager.h; sourceTree = "<group>"; };
 		776B1C49283C78D800D85C73 /* QNLiveKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = QNLiveKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -704,26 +199,7 @@
 		776B1CED283D0D8100D85C73 /* QNMergeOption.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = QNMergeOption.m; sourceTree = "<group>"; };
 		776B1CF0283D0F2000D85C73 /* LinkInvitation.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LinkInvitation.h; sourceTree = "<group>"; };
 		776B1CF1283D0F2000D85C73 /* LinkInvitation.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LinkInvitation.m; sourceTree = "<group>"; };
-		777186902861B8A800C5CABC /* CALayer+Aimate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "CALayer+Aimate.m"; sourceTree = "<group>"; };
-		777186912861B8A800C5CABC /* FDanmakuModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FDanmakuModel.m; sourceTree = "<group>"; };
-		777186922861B8A800C5CABC /* FDanmakuModelProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FDanmakuModelProtocol.h; sourceTree = "<group>"; };
-		777186932861B8A800C5CABC /* FDanmakuView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FDanmakuView.h; sourceTree = "<group>"; };
-		777186942861B8A800C5CABC /* CALayer+Aimate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "CALayer+Aimate.h"; sourceTree = "<group>"; };
-		777186952861B8A800C5CABC /* FDanmakuModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FDanmakuModel.h; sourceTree = "<group>"; };
-		777186962861B8A800C5CABC /* FDanmakuView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FDanmakuView.m; sourceTree = "<group>"; };
-		777186A12862C5D100C5CABC /* QToastView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = QToastView.h; sourceTree = "<group>"; };
-		777186A22862C5D100C5CABC /* QToastView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = QToastView.m; sourceTree = "<group>"; };
 		777366992873E2F300245EDB /* AssetsLibrary.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AssetsLibrary.framework; path = Platforms/MacOSX.platform/Developer/SDKs/MacOSX12.1.sdk/System/iOSSupport/System/Library/Frameworks/AssetsLibrary.framework; sourceTree = DEVELOPER_DIR; };
-		77758CDC28A4EE34005CBB59 /* QGradient.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = QGradient.h; sourceTree = "<group>"; };
-		77758CDD28A4EE34005CBB59 /* QGradient.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = QGradient.m; sourceTree = "<group>"; };
-		77758CEB28AA3B06005CBB59 /* QTagButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QTagButton.m; sourceTree = "<group>"; };
-		77758CEC28AA3B06005CBB59 /* QTagList.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QTagList.h; sourceTree = "<group>"; };
-		77758CED28AA3B06005CBB59 /* QTagButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QTagButton.h; sourceTree = "<group>"; };
-		77758CEE28AA3B06005CBB59 /* QTagList.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QTagList.m; sourceTree = "<group>"; };
-		77758CF428AA4516005CBB59 /* UILabel+QAttributed.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UILabel+QAttributed.m"; sourceTree = "<group>"; };
-		77758CF528AA4516005CBB59 /* UILabel+QAttributed.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UILabel+QAttributed.h"; sourceTree = "<group>"; };
-		77758CF828AA529C005CBB59 /* UIViewController+QViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIViewController+QViewController.h"; sourceTree = "<group>"; };
-		77758CF928AA529C005CBB59 /* UIViewController+QViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+QViewController.m"; sourceTree = "<group>"; };
 		77781C08283D1337009DC71C /* QNPKSession.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = QNPKSession.h; sourceTree = "<group>"; };
 		77781C09283D1337009DC71C /* QNPKSession.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = QNPKSession.m; sourceTree = "<group>"; };
 		77781C0C283DD181009DC71C /* QPKService.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = QPKService.h; sourceTree = "<group>"; };
@@ -732,106 +208,15 @@
 		77781C1F283DD63C009DC71C /* QNChatRoomService.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = QNChatRoomService.m; sourceTree = "<group>"; };
 		77781C3F283DE000009DC71C /* Extension.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Extension.h; sourceTree = "<group>"; };
 		77781C40283DE000009DC71C /* Extension.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Extension.m; sourceTree = "<group>"; };
-		77781D262845E56A009DC71C /* QLiveView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QLiveView.m; sourceTree = "<group>"; };
-		77781D282845E56A009DC71C /* RoomHostView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RoomHostView.h; sourceTree = "<group>"; };
-		77781D292845E56A009DC71C /* OnlineUserView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OnlineUserView.h; sourceTree = "<group>"; };
-		77781D2A2845E56A009DC71C /* QLiveView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QLiveView.h; sourceTree = "<group>"; };
-		77781D2D2845E56A009DC71C /* OnlineUserView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OnlineUserView.m; sourceTree = "<group>"; };
-		77781D2E2845E56A009DC71C /* RoomHostView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RoomHostView.m; sourceTree = "<group>"; };
-		77781D462845FC68009DC71C /* BottomMenuView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BottomMenuView.h; sourceTree = "<group>"; };
-		77781D472845FC68009DC71C /* BottomMenuView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BottomMenuView.m; sourceTree = "<group>"; };
-		77781D4E28460813009DC71C /* ImageButtonView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ImageButtonView.h; sourceTree = "<group>"; };
-		77781D4F28460813009DC71C /* ImageButtonView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ImageButtonView.m; sourceTree = "<group>"; };
-		77781D5228486D12009DC71C /* LiveChatRoom.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LiveChatRoom.h; sourceTree = "<group>"; };
-		77781D5328486D12009DC71C /* LiveChatRoom.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LiveChatRoom.m; sourceTree = "<group>"; };
-		77781D5728486D35009DC71C /* QInputView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QInputView.m; sourceTree = "<group>"; };
-		77781D5828486D35009DC71C /* QEmojiBoardView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QEmojiBoardView.m; sourceTree = "<group>"; };
-		77781D5928486D35009DC71C /* QInputBarControl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QInputBarControl.m; sourceTree = "<group>"; };
-		77781D5A28486D35009DC71C /* EmojiList.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = EmojiList.plist; sourceTree = "<group>"; };
-		77781D5B28486D35009DC71C /* QEmojiCollectionCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QEmojiCollectionCell.m; sourceTree = "<group>"; };
-		77781D5C28486D35009DC71C /* QInputView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QInputView.h; sourceTree = "<group>"; };
-		77781D5D28486D35009DC71C /* QInputBarControl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QInputBarControl.h; sourceTree = "<group>"; };
-		77781D5E28486D35009DC71C /* QEmojiBoardView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QEmojiBoardView.h; sourceTree = "<group>"; };
-		77781D5F28486D35009DC71C /* QEmojiCollectionCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QEmojiCollectionCell.h; sourceTree = "<group>"; };
-		77781D6A28486D3D009DC71C /* QMessageBaseCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QMessageBaseCell.m; sourceTree = "<group>"; };
-		77781D6B28486D3D009DC71C /* QTextMessageCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QTextMessageCell.m; sourceTree = "<group>"; };
-		77781D6C28486D3D009DC71C /* QMessageBaseCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QMessageBaseCell.h; sourceTree = "<group>"; };
-		77781D6D28486D3D009DC71C /* QTextMessageCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QTextMessageCell.h; sourceTree = "<group>"; };
-		77781D9B28488931009DC71C /* QNBaseRTCController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QNBaseRTCController.h; sourceTree = "<group>"; };
-		77781D9C28488931009DC71C /* QLiveController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QLiveController.h; sourceTree = "<group>"; };
-		77781D9D28488932009DC71C /* QNBaseRTCController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QNBaseRTCController.m; sourceTree = "<group>"; };
-		77781D9E28488932009DC71C /* QLiveController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QLiveController.m; sourceTree = "<group>"; };
-		777B7A6D284F1F78005032B7 /* QAlertView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QAlertView.h; sourceTree = "<group>"; };
-		777B7A6E284F1F78005032B7 /* QAlertView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QAlertView.m; sourceTree = "<group>"; };
-		777B7A71284F3759005032B7 /* LinkStateView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LinkStateView.h; sourceTree = "<group>"; };
-		777B7A72284F375A005032B7 /* LinkStateView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LinkStateView.m; sourceTree = "<group>"; };
-		777B7A7D284F4B0D005032B7 /* QRenderView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = QRenderView.h; sourceTree = "<group>"; };
-		777B7A7E284F4B0D005032B7 /* QRenderView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = QRenderView.m; sourceTree = "<group>"; };
-		777B7A81284F5A6F005032B7 /* QNPKInvitationListCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QNPKInvitationListCell.h; sourceTree = "<group>"; };
-		777B7A82284F5A6F005032B7 /* QNPKInvitationListCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QNPKInvitationListCell.m; sourceTree = "<group>"; };
-		777B7A85284F5BC4005032B7 /* QNPKInvitationListController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QNPKInvitationListController.h; sourceTree = "<group>"; };
-		777B7A86284F5BC4005032B7 /* QNPKInvitationListController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QNPKInvitationListController.m; sourceTree = "<group>"; };
-		7798A79728814872009DEB27 /* UITableView+MoveCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UITableView+MoveCell.m"; sourceTree = "<group>"; };
-		7798A79828814872009DEB27 /* UITableView+MoveCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UITableView+MoveCell.h"; sourceTree = "<group>"; };
-		77A11C5E28854A7A00020149 /* BeautyBaseController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BeautyBaseController.h; sourceTree = "<group>"; };
-		77A11C5F28854A7A00020149 /* BeautyBaseController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BeautyBaseController.m; sourceTree = "<group>"; };
-		77A11C62288556AA00020149 /* CreateBeautyLiveController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CreateBeautyLiveController.h; sourceTree = "<group>"; };
-		77A11C63288556AA00020149 /* CreateBeautyLiveController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CreateBeautyLiveController.m; sourceTree = "<group>"; };
 		77A11CC72889385800020149 /* QShopService.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = QShopService.h; sourceTree = "<group>"; };
 		77A11CC82889385800020149 /* QShopService.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = QShopService.m; sourceTree = "<group>"; };
-		77A11CD3288A724E00020149 /* UIColor+QNColor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+QNColor.m"; sourceTree = "<group>"; };
-		77A11CD4288A724E00020149 /* UIColor+QNColor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+QNColor.h"; sourceTree = "<group>"; };
-		77A11CD5288A724E00020149 /* UIImage+QNImage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+QNImage.m"; sourceTree = "<group>"; };
-		77A11CD6288A724E00020149 /* UIImage+QNImage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+QNImage.h"; sourceTree = "<group>"; };
 		77A8D26D28782DF0001A3C2C /* AssetsLibrary.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AssetsLibrary.framework; path = Platforms/MacOSX.platform/Developer/SDKs/MacOSX12.3.sdk/System/iOSSupport/System/Library/Frameworks/AssetsLibrary.framework; sourceTree = DEVELOPER_DIR; };
 		77BE1F0728C7342A007557E9 /* QRoomDataModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = QRoomDataModel.h; sourceTree = "<group>"; };
 		77BE1F0828C7342A007557E9 /* QRoomDataModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = QRoomDataModel.m; sourceTree = "<group>"; };
 		77BE232328CB4424007557E9 /* QStatisticalService.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = QStatisticalService.h; sourceTree = "<group>"; };
 		77BE232428CB4424007557E9 /* QStatisticalService.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = QStatisticalService.m; sourceTree = "<group>"; };
-		77BE232F28D87177007557E9 /* WacthRecordController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WacthRecordController.h; sourceTree = "<group>"; };
-		77BE233028D87177007557E9 /* WacthRecordController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WacthRecordController.m; sourceTree = "<group>"; };
-		77BE235C28D8CAEB007557E9 /* QGCDTimerManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QGCDTimerManager.h; sourceTree = "<group>"; };
-		77BE235D28D8CAEB007557E9 /* QSlider.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QSlider.m; sourceTree = "<group>"; };
-		77BE235E28D8CAEB007557E9 /* QPlayerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QPlayerView.h; sourceTree = "<group>"; };
-		77BE235F28D8CAEB007557E9 /* UINavigationController+QPlayerRotation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UINavigationController+QPlayerRotation.h"; sourceTree = "<group>"; };
-		77BE236128D8CAEB007557E9 /* QRotateAnimationView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QRotateAnimationView.h; sourceTree = "<group>"; };
-		77BE236228D8CAEB007557E9 /* UIViewController+QPlayerRotation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+QPlayerRotation.h"; sourceTree = "<group>"; };
-		77BE236328D8CAEB007557E9 /* UITabBarController+QPlayerRotation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UITabBarController+QPlayerRotation.m"; sourceTree = "<group>"; };
-		77BE236428D8CAEB007557E9 /* QPlayerMaskView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QPlayerMaskView.m; sourceTree = "<group>"; };
-		77BE236528D8CAEB007557E9 /* UINavigationController+QPlayerRotation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UINavigationController+QPlayerRotation.m"; sourceTree = "<group>"; };
-		77BE236628D8CAEB007557E9 /* QSlider.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QSlider.h; sourceTree = "<group>"; };
-		77BE236728D8CAEB007557E9 /* QPlayerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QPlayerView.m; sourceTree = "<group>"; };
-		77BE236828D8CAEB007557E9 /* QGCDTimerManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QGCDTimerManager.m; sourceTree = "<group>"; };
-		77BE236928D8CAEC007557E9 /* UIViewController+QPlayerRotation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+QPlayerRotation.m"; sourceTree = "<group>"; };
-		77BE236A28D8CAEC007557E9 /* QRotateAnimationView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QRotateAnimationView.m; sourceTree = "<group>"; };
-		77BE236C28D8CAEC007557E9 /* QPlayerMaskView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QPlayerMaskView.h; sourceTree = "<group>"; };
-		77BE236D28D8CAEC007557E9 /* UITabBarController+QPlayerRotation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UITabBarController+QPlayerRotation.h"; sourceTree = "<group>"; };
-		77BE238528D94428007557E9 /* NSDate+QDate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSDate+QDate.h"; sourceTree = "<group>"; };
-		77BE238628D94428007557E9 /* NSDate+QDate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSDate+QDate.m"; sourceTree = "<group>"; };
-		77BE238A28D96EF0007557E9 /* PSPopListView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PSPopListView.m; sourceTree = "<group>"; };
-		77BE239628D96EF0007557E9 /* PSPopListView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PSPopListView.h; sourceTree = "<group>"; };
-		77BE24C628FE91D1007557E9 /* DateTimePickerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DateTimePickerView.m; sourceTree = "<group>"; };
-		77BE24C728FE91D1007557E9 /* MXSCycleScrollView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MXSCycleScrollView.m; sourceTree = "<group>"; };
-		77BE24C828FE91D1007557E9 /* UIColor+HcdCustom.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+HcdCustom.m"; sourceTree = "<group>"; };
-		77BE24C928FE91D1007557E9 /* DateTimePickerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DateTimePickerView.h; sourceTree = "<group>"; };
-		77BE24CA28FE91D1007557E9 /* UIColor+HcdCustom.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+HcdCustom.h"; sourceTree = "<group>"; };
-		77BE24CB28FE91D1007557E9 /* MXSCycleScrollView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MXSCycleScrollView.h; sourceTree = "<group>"; };
-		77BE24D228FFA0A7007557E9 /* LiveBottomMoreView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LiveBottomMoreView.h; sourceTree = "<group>"; };
-		77BE24D328FFA0A7007557E9 /* LiveBottomMoreView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LiveBottomMoreView.m; sourceTree = "<group>"; };
-		77BE24D628FFD403007557E9 /* WatchBottomMoreView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WatchBottomMoreView.h; sourceTree = "<group>"; };
-		77BE24D728FFD403007557E9 /* WatchBottomMoreView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WatchBottomMoreView.m; sourceTree = "<group>"; };
-		77BE24DC28FFED50007557E9 /* QNGiftView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QNGiftView.h; sourceTree = "<group>"; };
 		77BE24E028FFED50007557E9 /* QNGiftModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QNGiftModel.h; sourceTree = "<group>"; };
-		77BE24E128FFED50007557E9 /* QNHorizontalLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QNHorizontalLayout.h; sourceTree = "<group>"; };
-		77BE24E628FFED50007557E9 /* QNGiftView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QNGiftView.m; sourceTree = "<group>"; };
-		77BE24E728FFED50007557E9 /* QNGiftCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QNGiftCollectionViewCell.m; sourceTree = "<group>"; };
 		77BE24E928FFED50007557E9 /* QNGiftModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QNGiftModel.m; sourceTree = "<group>"; };
-		77BE24EA28FFED50007557E9 /* QNGiftCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QNGiftCollectionViewCell.h; sourceTree = "<group>"; };
-		77BE24EE28FFED50007557E9 /* QNHorizontalLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QNHorizontalLayout.m; sourceTree = "<group>"; };
-		77E02E2F284E245A00EE8A28 /* QNAudienceController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = QNAudienceController.h; sourceTree = "<group>"; };
-		77E02E30284E245A00EE8A28 /* QNAudienceController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = QNAudienceController.m; sourceTree = "<group>"; };
-		77EDC49D286DAD99002B4226 /* BeautyLiveViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BeautyLiveViewController.h; sourceTree = "<group>"; };
-		77EDC49E286DAD99002B4226 /* BeautyLiveViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BeautyLiveViewController.m; sourceTree = "<group>"; };
 		93FD8D2BCC60F127C6FB7DA1 /* Pods_QNLiveKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_QNLiveKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		948C15C1847BC94017A63290 /* Pods_QNLiveKitTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_QNLiveKitTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A065A22036BD2AFE4FD60568 /* Pods-QNLiveKit.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-QNLiveKit.release.xcconfig"; path = "Target Support Files/Pods-QNLiveKit/Pods-QNLiveKit.release.xcconfig"; sourceTree = "<group>"; };
@@ -845,13 +230,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				77A8D26E28782DF0001A3C2C /* AssetsLibrary.framework in Frameworks */,
-				48E87A622926445800F33059 /* libSenseArSourceService.a in Frameworks */,
 				48C83DD82940C1E40002C11B /* PLSTArEffects.framework in Frameworks */,
 				48B937D029271CC20014D671 /* MapKit.framework in Frameworks */,
 				48C83DD92940C1E40002C11B /* QNIMSDK.framework in Frameworks */,
-				48E87B3A2926445900F33059 /* libst_mobile.a in Frameworks */,
-				77A11CB4288691C500020149 /* Pods_QNLiveKit.framework in Frameworks */,
 				48B937CA29271C520014D671 /* CoreServices.framework in Frameworks */,
+				1C8BF6600F88D523C0391268 /* Pods_QNLiveKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -898,381 +281,6 @@
 				48B938B0292F8EF10014D671 /* QNLikeNotify.m */,
 			);
 			path = Like;
-			sourceTree = "<group>";
-		};
-		48B938A6292F5D740014D671 /* Like */ = {
-			isa = PBXGroup;
-			children = (
-				48B938A7292F5FCB0014D671 /* QNLikeMenuView.h */,
-				48B938A8292F5FCB0014D671 /* QNLikeMenuView.m */,
-				48B938AB292F5FDB0014D671 /* QNLikeBubbleView.h */,
-				48B938AC292F5FDB0014D671 /* QNLikeBubbleView.m */,
-			);
-			path = Like;
-			sourceTree = "<group>";
-		};
-		48E878F32926445800F33059 /* Effect */ = {
-			isa = PBXGroup;
-			children = (
-				48E878F42926445800F33059 /* Util */,
-				48E878FE2926445800F33059 /* SampleDefaultSetting */,
-				48E879052926445800F33059 /* Camera */,
-				48E879232926445800F33059 /* Render */,
-				48E8792E2926445800F33059 /* SenseArSourceService */,
-				48E879392926445800F33059 /* EFDataSoure */,
-				48E879BF2926445800F33059 /* STBaseViewController.m */,
-				48E879C02926445800F33059 /* architecture */,
-				48E879CB2926445800F33059 /* Audio */,
-				48E879D42926445800F33059 /* VideoRecord */,
-				48E879D72926445800F33059 /* STBaseViewController.h */,
-				48E879D82926445800F33059 /* LicenseUtil */,
-				48E879DB2926445800F33059 /* UIElements */,
-				48E87A112926445800F33059 /* st_mobile_sdk */,
-			);
-			path = Effect;
-			sourceTree = "<group>";
-		};
-		48E878F42926445800F33059 /* Util */ = {
-			isa = PBXGroup;
-			children = (
-				48E878F52926445800F33059 /* STLock.m */,
-				48E878F62926445800F33059 /* STEffectsTimer.m */,
-				48E878F72926445800F33059 /* STMobileLog.h */,
-				48E878F82926445800F33059 /* NSBundle+language.m */,
-				48E878F92926445800F33059 /* STConvert.m */,
-				48E878FA2926445800F33059 /* STLock.h */,
-				48E878FB2926445800F33059 /* STEffectsTimer.h */,
-				48E878FC2926445800F33059 /* STConvert.h */,
-				48E878FD2926445800F33059 /* NSBundle+language.h */,
-			);
-			path = Util;
-			sourceTree = "<group>";
-		};
-		48E878FE2926445800F33059 /* SampleDefaultSetting */ = {
-			isa = PBXGroup;
-			children = (
-				48E878FF2926445800F33059 /* datasources */,
-				48E879022926445800F33059 /* DefaultBeautyParameters.h */,
-				48E879032926445800F33059 /* STDefaultSetting.h */,
-				48E879042926445800F33059 /* STDefaultSetting.m */,
-			);
-			path = SampleDefaultSetting;
-			sourceTree = "<group>";
-		};
-		48E878FF2926445800F33059 /* datasources */ = {
-			isa = PBXGroup;
-			children = (
-				48E879002926445800F33059 /* STDefaultSettingDataSourseGenerator.m */,
-				48E879012926445800F33059 /* STDefaultSettingDataSourseGenerator.h */,
-			);
-			path = datasources;
-			sourceTree = "<group>";
-		};
-		48E879052926445800F33059 /* Camera */ = {
-			isa = PBXGroup;
-			children = (
-				48E879062926445800F33059 /* STCamera.h */,
-				48E879072926445800F33059 /* STCamera.m */,
-			);
-			path = Camera;
-			sourceTree = "<group>";
-		};
-		48E879232926445800F33059 /* Render */ = {
-			isa = PBXGroup;
-			children = (
-				48E879242926445800F33059 /* STColorConversion.h */,
-				48E879252926445800F33059 /* STGLPreview3.h */,
-				48E879262926445800F33059 /* STGLShader.m */,
-				48E879272926445800F33059 /* STVFShader.h */,
-				48E879282926445800F33059 /* STGLPreview2.m */,
-				48E879292926445800F33059 /* STColorConversion.m */,
-				48E8792A2926445800F33059 /* STGLPreview3.m */,
-				48E8792B2926445800F33059 /* STGLShader.h */,
-				48E8792C2926445800F33059 /* STGLPreview2.h */,
-				48E8792D2926445800F33059 /* STVFShader.m */,
-			);
-			path = Render;
-			sourceTree = "<group>";
-		};
-		48E8792E2926445800F33059 /* SenseArSourceService */ = {
-			isa = PBXGroup;
-			children = (
-				48E8792F2926445800F33059 /* include */,
-				48E879362926445800F33059 /* lib */,
-			);
-			path = SenseArSourceService;
-			sourceTree = "<group>";
-		};
-		48E8792F2926445800F33059 /* include */ = {
-			isa = PBXGroup;
-			children = (
-				48E879302926445800F33059 /* SenseArMaterialAction.h */,
-				48E879312926445800F33059 /* SenseArMaterial.h */,
-				48E879322926445800F33059 /* SenseArSourceService.h */,
-				48E879332926445800F33059 /* SenseArMaterialService.h */,
-				48E879342926445800F33059 /* SenseArMaterialGroup.h */,
-			);
-			path = include;
-			sourceTree = "<group>";
-		};
-		48E879362926445800F33059 /* lib */ = {
-			isa = PBXGroup;
-			children = (
-				48E879372926445800F33059 /* ios_universal */,
-			);
-			path = lib;
-			sourceTree = "<group>";
-		};
-		48E879372926445800F33059 /* ios_universal */ = {
-			isa = PBXGroup;
-			children = (
-				48E879382926445800F33059 /* libSenseArSourceService.a */,
-			);
-			path = ios_universal;
-			sourceTree = "<group>";
-		};
-		48E879392926445800F33059 /* EFDataSoure */ = {
-			isa = PBXGroup;
-			children = (
-				48E8793A2926445800F33059 /* EFMaterialDownloadManager.m */,
-				48E8793B2926445800F33059 /* EFDataSourceGenerator.m */,
-				48E8793C2926445800F33059 /* EFSenseArMaterialDataModels.h */,
-				48E8793D2926445800F33059 /* NSString+sha1.m */,
-				48E8793E2926445800F33059 /* NSDictionary+sortedJson.m */,
-				48E8793F2926445800F33059 /* EFResource.m */,
-				48E879402926445800F33059 /* NSString+materialAes.m */,
-				48E879412926445800F33059 /* NSData+meterialAes.m */,
-				48E879712926445800F33059 /* EFSenseArMaterialDataModels.m */,
-				48E879722926445800F33059 /* EFDataSourceGenerator.h */,
-				48E879732926445800F33059 /* EFMaterialDownloadManager.h */,
-				48E879742926445800F33059 /* NSDictionary+sortedJson.h */,
-				48E879992926445800F33059 /* NSString+sha1.h */,
-				48E8799E2926445800F33059 /* NSString+materialAes.h */,
-				48E8799F2926445800F33059 /* EFDataSourcing.h */,
-				48E879A02926445800F33059 /* EFResource.h */,
-				48E879A12926445800F33059 /* helpers */,
-				48E879BE2926445800F33059 /* NSData+meterialAes.h */,
-			);
-			path = EFDataSoure;
-			sourceTree = "<group>";
-		};
-		48E879A12926445800F33059 /* helpers */ = {
-			isa = PBXGroup;
-			children = (
-				48E879A22926445800F33059 /* EFMaterialDownloadStatusManager.h */,
-				48E879A42926445800F33059 /* NSDictionary+jsonFile.m */,
-				48E879A52926445800F33059 /* EFRemoteDataSourceHelper.m */,
-				48E879A62926445800F33059 /* EFStatusManagerDelegate.h */,
-				48E879A72926445800F33059 /* EFStorageHelper.m */,
-				48E879A82926445800F33059 /* NSObject+dictionary.h */,
-				48E879A92926445800F33059 /* EFStatusModels.h */,
-				48E879AA2926445800F33059 /* EFAuthorizeAdapter.h */,
-				48E879AB2926445800F33059 /* EFRemoteDataSourceHelper+groupInfos.h */,
-				48E879AC2926445800F33059 /* EFMachineVersion.m */,
-				48E879AD2926445800F33059 /* EFGlobalSingleton.m */,
-				48E879AE2926445800F33059 /* EFStatusManager.m */,
-				48E879AF2926445800F33059 /* EFMaterialDownloadStatusManager.m */,
-				48E879B12926445800F33059 /* EFRemoteDataSourceHelper.h */,
-				48E879B22926445800F33059 /* NSDictionary+jsonFile.h */,
-				48E879B32926445800F33059 /* NSObject+dictionary.m */,
-				48E879B42926445800F33059 /* EFStatusModels.m */,
-				48E879B52926445800F33059 /* EFStorageHelper.h */,
-				48E879B72926445800F33059 /* EFStatusManager.h */,
-				48E879B82926445800F33059 /* EFGlobalSingleton.h */,
-				48E879BA2926445800F33059 /* EFMachineVersion.h */,
-				48E879BC2926445800F33059 /* EFAuthorizeAdapter.m */,
-				48E879BD2926445800F33059 /* EFRemoteDataSourceHelper+groupInfos.m */,
-			);
-			path = helpers;
-			sourceTree = "<group>";
-		};
-		48E879C02926445800F33059 /* architecture */ = {
-			isa = PBXGroup;
-			children = (
-				48E879C12926445800F33059 /* manager */,
-			);
-			path = architecture;
-			sourceTree = "<group>";
-		};
-		48E879C12926445800F33059 /* manager */ = {
-			isa = PBXGroup;
-			children = (
-				48E879C22926445800F33059 /* STCoreStateManagement.h */,
-				48E879C32926445800F33059 /* models */,
-				48E879C92926445800F33059 /* STCoreStateManagementValueChangeDelegate.h */,
-				48E879CA2926445800F33059 /* STCoreStateManagement.m */,
-			);
-			path = manager;
-			sourceTree = "<group>";
-		};
-		48E879C32926445800F33059 /* models */ = {
-			isa = PBXGroup;
-			children = (
-				48E879C42926445800F33059 /* STCoreStateManagementModel.h */,
-				48E879C52926445800F33059 /* STCoreStateManagementModel.m */,
-				48E879C62926445800F33059 /* filter */,
-			);
-			path = models;
-			sourceTree = "<group>";
-		};
-		48E879C62926445800F33059 /* filter */ = {
-			isa = PBXGroup;
-			children = (
-				48E879C72926445800F33059 /* STCoreStateManagementFilterModel.m */,
-				48E879C82926445800F33059 /* STCoreStateManagementFilterModel.h */,
-			);
-			path = filter;
-			sourceTree = "<group>";
-		};
-		48E879CB2926445800F33059 /* Audio */ = {
-			isa = PBXGroup;
-			children = (
-				48E879CC2926445800F33059 /* STEffectsAudioPlayer.h */,
-				48E879CD2926445800F33059 /* SystemSound.m */,
-				48E879CE2926445800F33059 /* SoundInfomation.h */,
-				48E879CF2926445800F33059 /* STAudioManager.m */,
-				48E879D02926445800F33059 /* STEffectsAudioPlayer.m */,
-				48E879D12926445800F33059 /* SoundInfomation.m */,
-				48E879D22926445800F33059 /* SystemSound.h */,
-				48E879D32926445800F33059 /* STAudioManager.h */,
-			);
-			path = Audio;
-			sourceTree = "<group>";
-		};
-		48E879D42926445800F33059 /* VideoRecord */ = {
-			isa = PBXGroup;
-			children = (
-				48E879D52926445800F33059 /* STMovieRecorder.h */,
-				48E879D62926445800F33059 /* STMovieRecorder.m */,
-			);
-			path = VideoRecord;
-			sourceTree = "<group>";
-		};
-		48E879D82926445800F33059 /* LicenseUtil */ = {
-			isa = PBXGroup;
-			children = (
-				48E879D92926445800F33059 /* LicenseUtil.h */,
-				48E879DA2926445800F33059 /* LicenseUtil.m */,
-			);
-			path = LicenseUtil;
-			sourceTree = "<group>";
-		};
-		48E879DB2926445800F33059 /* UIElements */ = {
-			isa = PBXGroup;
-			children = (
-				48E879DC2926445800F33059 /* STBMPDetailColVCell.h */,
-				48E879DD2926445800F33059 /* STBmpStrengthView.m */,
-				48E879DE2926445800F33059 /* STBMPDetailColV.h */,
-				48E879DF2926445800F33059 /* STPlayerControlBar.h */,
-				48E879E02926445800F33059 /* STViewButton.xib */,
-				48E879E12926445800F33059 /* STButton.m */,
-				48E879E22926445800F33059 /* STSlideView.h */,
-				48E879E32926445800F33059 /* STScrollTitleView.h */,
-				48E879E42926445800F33059 /* STViewButton.h */,
-				48E879E52926445800F33059 /* STFilterView.h */,
-				48E879E62926445800F33059 /* STCommonObjectContainerView.m */,
-				48E879E72926445800F33059 /* STTriggerView.m */,
-				48E879E82926445800F33059 /* STBMPCollectionView.h */,
-				48E879E92926445800F33059 /* STMakeupDataModel.m */,
-				48E879EA2926445800F33059 /* STCollectionViewCell.h */,
-				48E879EB2926445800F33059 /* EffectsCollectionViewCell.h */,
-				48E879EC2926445800F33059 /* STTitleViewItem.m */,
-				48E879ED2926445800F33059 /* STCollectionView.h */,
-				48E879EE2926445800F33059 /* STCustomMemoryCache.m */,
-				48E879EF2926445800F33059 /* EffectsCollectionView.h */,
-				48E879F02926445800F33059 /* STParamUtil.m */,
-				48E879F12926445800F33059 /* STCustomCollectionView.m */,
-				48E879F22926445800F33059 /* STCommonObjectView.h */,
-				48E879F32926445800F33059 /* UIView+Toast.h */,
-				48E879F42926445800F33059 /* STBMPCollectionViewCell.h */,
-				48E879F52926445800F33059 /* STBeautySlider.m */,
-				48E879F62926445800F33059 /* STCommonObjectContainerView.h */,
-				48E879F72926445800F33059 /* STTriggerView.h */,
-				48E879F82926445800F33059 /* STFilterView.m */,
-				48E879F92926445800F33059 /* STViewButton.m */,
-				48E879FA2926445800F33059 /* STSlideView.m */,
-				48E879FB2926445800F33059 /* STScrollTitleView.m */,
-				48E879FC2926445800F33059 /* STButton.h */,
-				48E879FD2926445800F33059 /* STPlayerControlBar.m */,
-				48E879FE2926445800F33059 /* STBMPDetailColV.m */,
-				48E879FF2926445800F33059 /* STBmpStrengthView.h */,
-				48E87A002926445800F33059 /* STBMPDetailColVCell.m */,
-				48E87A012926445800F33059 /* STCollectionView.m */,
-				48E87A022926445800F33059 /* EffectsCollectionViewCell.xib */,
-				48E87A032926445800F33059 /* STTitleViewItem.h */,
-				48E87A042926445800F33059 /* EffectsCollectionViewCell.m */,
-				48E87A052926445800F33059 /* STCollectionViewCell.m */,
-				48E87A062926445800F33059 /* STMakeupDataModel.h */,
-				48E87A072926445800F33059 /* STBMPCollectionView.m */,
-				48E87A082926445800F33059 /* STCommonObjectView.m */,
-				48E87A092926445800F33059 /* STCustomCollectionView.h */,
-				48E87A0A2926445800F33059 /* STParamUtil.h */,
-				48E87A0B2926445800F33059 /* STCustomMemoryCache.h */,
-				48E87A0C2926445800F33059 /* EffectsCollectionView.m */,
-				48E87A0D2926445800F33059 /* STSlideView.xib */,
-				48E87A0E2926445800F33059 /* STBeautySlider.h */,
-				48E87A0F2926445800F33059 /* STBMPCollectionViewCell.m */,
-				48E87A102926445800F33059 /* UIView+Toast.m */,
-			);
-			path = UIElements;
-			sourceTree = "<group>";
-		};
-		48E87A112926445800F33059 /* st_mobile_sdk */ = {
-			isa = PBXGroup;
-			children = (
-				48E87A122926445800F33059 /* license */,
-				48E87A142926445800F33059 /* include */,
-				48E87A262926445800F33059 /* VERSION */,
-				48E87A272926445800F33059 /* lib */,
-			);
-			path = st_mobile_sdk;
-			sourceTree = "<group>";
-		};
-		48E87A122926445800F33059 /* license */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = license;
-			sourceTree = "<group>";
-		};
-		48E87A142926445800F33059 /* include */ = {
-			isa = PBXGroup;
-			children = (
-				48E87A152926445800F33059 /* st_mobile_common.h */,
-				48E87A162926445800F33059 /* st_mobile_animal.h */,
-				48E87A172926445800F33059 /* st_mobile_human_action.h */,
-				48E87A182926445800F33059 /* st_mobile_object.h */,
-				48E87A192926445800F33059 /* st_mobile_face_attribute.h */,
-				48E87A1A2926445800F33059 /* st_mobile_license.h */,
-				48E87A1B2926445800F33059 /* st_mobile_effect.h */,
-				48E87A1C2926445800F33059 /* st_mobile_verify.h */,
-				48E87A1D2926445800F33059 /* st_mobile_color_convert.h */,
-			);
-			path = include;
-			sourceTree = "<group>";
-		};
-		48E87A272926445800F33059 /* lib */ = {
-			isa = PBXGroup;
-			children = (
-				48E87A282926445800F33059 /* ios_os */,
-				48E87A2A2926445800F33059 /* ios_sim */,
-			);
-			path = lib;
-			sourceTree = "<group>";
-		};
-		48E87A282926445800F33059 /* ios_os */ = {
-			isa = PBXGroup;
-			children = (
-				48E87A292926445800F33059 /* libst_mobile.a */,
-			);
-			path = ios_os;
-			sourceTree = "<group>";
-		};
-		48E87A2A2926445800F33059 /* ios_sim */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = ios_sim;
 			sourceTree = "<group>";
 		};
 		77062FAF287EA08400E9FD7D /* Model */ = {
@@ -1329,8 +337,6 @@
 				48B9389D292F55510014D671 /* Like */,
 				48B93886292E263F0014D671 /* User */,
 				48B93881292E12BC0014D671 /* Gift */,
-				77EDC498286DA86B002B4226 /* Beauty */,
-				77781D242845E56A009DC71C /* LiveUIKit */,
 				776B1CCC283D008500D85C73 /* LiveRoom */,
 				776B1CCD283D00DB00D85C73 /* LinkMic */,
 				77A11CCC288950B700020149 /* Shop */,
@@ -1379,21 +385,9 @@
 		776B1CA5283CC68000D85C73 /* Tools */ = {
 			isa = PBXGroup;
 			children = (
-				77A11CD4288A724E00020149 /* UIColor+QNColor.h */,
-				77A11CD3288A724E00020149 /* UIColor+QNColor.m */,
-				77758CF828AA529C005CBB59 /* UIViewController+QViewController.h */,
-				77758CF928AA529C005CBB59 /* UIViewController+QViewController.m */,
-				77A11CD6288A724E00020149 /* UIImage+QNImage.h */,
-				77A11CD5288A724E00020149 /* UIImage+QNImage.m */,
-				77BE238528D94428007557E9 /* NSDate+QDate.h */,
-				77BE238628D94428007557E9 /* NSDate+QDate.m */,
-				774E641B2848DB6700C9FB7F /* CreateSignalHandler.h */,
-				774E641A2848DB6700C9FB7F /* CreateSignalHandler.m */,
+				485F27202940E37E00484CB6 /* CreateSignalHandler.h */,
+				485F27212940E37E00484CB6 /* CreateSignalHandler.m */,
 				776B1CC5283CFCF200D85C73 /* QNLiveTypeDefines.h */,
-				77204D57285981B00053B1AD /* CYProtocolManager.h */,
-				77204D56285981B00053B1AD /* CYProtocolManager.m */,
-				7798A79828814872009DEB27 /* UITableView+MoveCell.h */,
-				7798A79728814872009DEB27 /* UITableView+MoveCell.m */,
 				776B1CAA283CC6EC00D85C73 /* QLiveNetworkUtil.h */,
 				776B1CAB283CC6EC00D85C73 /* QLiveNetworkUtil.m */,
 			);
@@ -1443,63 +437,9 @@
 			path = Model;
 			sourceTree = "<group>";
 		};
-		7771868F2861B8A800C5CABC /* DanmakuView */ = {
-			isa = PBXGroup;
-			children = (
-				777186942861B8A800C5CABC /* CALayer+Aimate.h */,
-				777186902861B8A800C5CABC /* CALayer+Aimate.m */,
-				777186952861B8A800C5CABC /* FDanmakuModel.h */,
-				777186912861B8A800C5CABC /* FDanmakuModel.m */,
-				777186922861B8A800C5CABC /* FDanmakuModelProtocol.h */,
-				777186932861B8A800C5CABC /* FDanmakuView.h */,
-				777186962861B8A800C5CABC /* FDanmakuView.m */,
-			);
-			path = DanmakuView;
-			sourceTree = "<group>";
-		};
-		777186A52862D46100C5CABC /* Views */ = {
-			isa = PBXGroup;
-			children = (
-				48B938A6292F5D740014D671 /* Like */,
-				77BE250728FFEDA5007557E9 /* ToolView */,
-				77BE250628FFED83007557E9 /* LiveView */,
-				77BE250528FFED5E007557E9 /* BottomView */,
-				77BE24DA28FFED50007557E9 /* Gift */,
-				77BE24C528FE91D1007557E9 /* DateTimePicker */,
-				77204D5F285F755B0053B1AD /* QNLiveListCell.h */,
-				77204D63285F755C0053B1AD /* QNLiveListCell.m */,
-			);
-			path = Views;
-			sourceTree = "<group>";
-		};
-		777186A62862D50500C5CABC /* View */ = {
-			isa = PBXGroup;
-			children = (
-				77781D5228486D12009DC71C /* LiveChatRoom.h */,
-				77781D5328486D12009DC71C /* LiveChatRoom.m */,
-				7771868F2861B8A800C5CABC /* DanmakuView */,
-				77781D6928486D3D009DC71C /* MessageCell */,
-				77781D5628486D34009DC71C /* InputBar */,
-			);
-			path = View;
-			sourceTree = "<group>";
-		};
-		77758CEA28AA3AEC005CBB59 /* tagList */ = {
-			isa = PBXGroup;
-			children = (
-				77758CED28AA3B06005CBB59 /* QTagButton.h */,
-				77758CEB28AA3B06005CBB59 /* QTagButton.m */,
-				77758CEC28AA3B06005CBB59 /* QTagList.h */,
-				77758CEE28AA3B06005CBB59 /* QTagList.m */,
-			);
-			path = tagList;
-			sourceTree = "<group>";
-		};
 		77781C06283D1313009DC71C /* PK */ = {
 			isa = PBXGroup;
 			children = (
-				77A11CCF288951CB00020149 /* View */,
-				77A11CCE2889510F00020149 /* VC */,
 				77781C07283D1322009DC71C /* Model */,
 				77781C0C283DD181009DC71C /* QPKService.h */,
 				77781C0D283DD181009DC71C /* QPKService.m */,
@@ -1519,7 +459,6 @@
 		77781C1C283DD5FF009DC71C /* Chat */ = {
 			isa = PBXGroup;
 			children = (
-				777186A62862D50500C5CABC /* View */,
 				77781C1E283DD63C009DC71C /* QNChatRoomService.h */,
 				77781C1F283DD63C009DC71C /* QNChatRoomService.m */,
 				77204D78285F97A20053B1AD /* Model */,
@@ -1527,129 +466,14 @@
 			path = Chat;
 			sourceTree = "<group>";
 		};
-		77781D242845E56A009DC71C /* LiveUIKit */ = {
-			isa = PBXGroup;
-			children = (
-				777186A52862D46100C5CABC /* Views */,
-				77781DA32848893B009DC71C /* VC */,
-			);
-			path = LiveUIKit;
-			sourceTree = "<group>";
-		};
-		77781D5628486D34009DC71C /* InputBar */ = {
-			isa = PBXGroup;
-			children = (
-				77781D5A28486D35009DC71C /* EmojiList.plist */,
-				77781D5E28486D35009DC71C /* QEmojiBoardView.h */,
-				77781D5828486D35009DC71C /* QEmojiBoardView.m */,
-				77781D5F28486D35009DC71C /* QEmojiCollectionCell.h */,
-				77781D5B28486D35009DC71C /* QEmojiCollectionCell.m */,
-				77781D5D28486D35009DC71C /* QInputBarControl.h */,
-				77781D5928486D35009DC71C /* QInputBarControl.m */,
-				77781D5C28486D35009DC71C /* QInputView.h */,
-				77781D5728486D35009DC71C /* QInputView.m */,
-			);
-			path = InputBar;
-			sourceTree = "<group>";
-		};
-		77781D6928486D3D009DC71C /* MessageCell */ = {
-			isa = PBXGroup;
-			children = (
-				77781D6C28486D3D009DC71C /* QMessageBaseCell.h */,
-				77781D6A28486D3D009DC71C /* QMessageBaseCell.m */,
-				77781D6D28486D3D009DC71C /* QTextMessageCell.h */,
-				77781D6B28486D3D009DC71C /* QTextMessageCell.m */,
-				48B93894292E56C10014D671 /* QNGiftMessageCell.h */,
-				48B93895292E56C10014D671 /* QNGiftMessageCell.m */,
-			);
-			path = MessageCell;
-			sourceTree = "<group>";
-		};
-		77781DA32848893B009DC71C /* VC */ = {
-			isa = PBXGroup;
-			children = (
-				77E02E2F284E245A00EE8A28 /* QNAudienceController.h */,
-				77E02E30284E245A00EE8A28 /* QNAudienceController.m */,
-				77781D9B28488931009DC71C /* QNBaseRTCController.h */,
-				77781D9D28488932009DC71C /* QNBaseRTCController.m */,
-				77204D62285F755B0053B1AD /* QCreateLiveController.h */,
-				77204D60285F755B0053B1AD /* QCreateLiveController.m */,
-				77781D9C28488931009DC71C /* QLiveController.h */,
-				77781D9E28488932009DC71C /* QLiveController.m */,
-				77204D61285F755B0053B1AD /* QLiveListController.h */,
-				77204D64285F755C0053B1AD /* QLiveListController.m */,
-				48B93868292CCAB00014D671 /* QNPayGiftViewController.h */,
-				48B93869292CCAB00014D671 /* QNPayGiftViewController.m */,
-			);
-			path = VC;
-			sourceTree = "<group>";
-		};
 		77A11CCC288950B700020149 /* Shop */ = {
 			isa = PBXGroup;
 			children = (
-				77A11CD0288951EC00020149 /* View */,
-				77A11CCD288950DB00020149 /* VC */,
 				77062FAF287EA08400E9FD7D /* Model */,
 				77A11CC72889385800020149 /* QShopService.h */,
 				77A11CC82889385800020149 /* QShopService.m */,
 			);
 			path = Shop;
-			sourceTree = "<group>";
-		};
-		77A11CCD288950DB00020149 /* VC */ = {
-			isa = PBXGroup;
-			children = (
-				77062FAB287E795F00E9FD7D /* ShopSellListController.h */,
-				77062FAC287E795F00E9FD7D /* ShopSellListController.m */,
-				77062FB8288004AA00E9FD7D /* ShopBuyListController.h */,
-				77062FB9288004AA00E9FD7D /* ShopBuyListController.m */,
-				77BE232F28D87177007557E9 /* WacthRecordController.h */,
-				77BE233028D87177007557E9 /* WacthRecordController.m */,
-			);
-			path = VC;
-			sourceTree = "<group>";
-		};
-		77A11CCE2889510F00020149 /* VC */ = {
-			isa = PBXGroup;
-			children = (
-				777B7A85284F5BC4005032B7 /* QNPKInvitationListController.h */,
-				777B7A86284F5BC4005032B7 /* QNPKInvitationListController.m */,
-			);
-			path = VC;
-			sourceTree = "<group>";
-		};
-		77A11CCF288951CB00020149 /* View */ = {
-			isa = PBXGroup;
-			children = (
-				777B7A81284F5A6F005032B7 /* QNPKInvitationListCell.h */,
-				777B7A82284F5A6F005032B7 /* QNPKInvitationListCell.m */,
-			);
-			path = View;
-			sourceTree = "<group>";
-		};
-		77A11CD0288951EC00020149 /* View */ = {
-			isa = PBXGroup;
-			children = (
-				77BE235B28D8CAEB007557E9 /* QPlayer */,
-				77758CEA28AA3AEC005CBB59 /* tagList */,
-				77BE239628D96EF0007557E9 /* PSPopListView.h */,
-				77BE238A28D96EF0007557E9 /* PSPopListView.m */,
-				77062FB4287EAA8C00E9FD7D /* GoodSellItemCell.h */,
-				77062FB5287EAA8D00E9FD7D /* GoodSellItemCell.m */,
-				77062FBC288005CE00E9FD7D /* GoodBuyItemCell.h */,
-				77062FBD288005CE00E9FD7D /* GoodBuyItemCell.m */,
-				77758CF528AA4516005CBB59 /* UILabel+QAttributed.h */,
-				77758CF428AA4516005CBB59 /* UILabel+QAttributed.m */,
-				77062FC8288062D600E9FD7D /* GoodsOperationCell.h */,
-				77062FC9288062D600E9FD7D /* GoodsOperationCell.m */,
-				77062FC42880294900E9FD7D /* ExplainingGoodView.h */,
-				77062FC52880294900E9FD7D /* ExplainingGoodView.m */,
-				77062FCC288080D300E9FD7D /* GoodsOperationView.h */,
-				77062FCD288080D300E9FD7D /* GoodsOperationView.m */,
-				77062FD0288091FF00E9FD7D /* GoodStatusView.h */,
-				77062FD12880920000E9FD7D /* GoodStatusView.m */,
-			);
-			path = View;
 			sourceTree = "<group>";
 		};
 		77BE232228CB43E2007557E9 /* Statistical */ = {
@@ -1659,140 +483,6 @@
 				77BE232428CB4424007557E9 /* QStatisticalService.m */,
 			);
 			path = Statistical;
-			sourceTree = "<group>";
-		};
-		77BE235B28D8CAEB007557E9 /* QPlayer */ = {
-			isa = PBXGroup;
-			children = (
-				77BE235C28D8CAEB007557E9 /* QGCDTimerManager.h */,
-				77BE236828D8CAEB007557E9 /* QGCDTimerManager.m */,
-				77BE238428D8CB31007557E9 /* View */,
-				77BE238328D8CB11007557E9 /* Category */,
-			);
-			path = QPlayer;
-			sourceTree = "<group>";
-		};
-		77BE238328D8CB11007557E9 /* Category */ = {
-			isa = PBXGroup;
-			children = (
-				77BE235F28D8CAEB007557E9 /* UINavigationController+QPlayerRotation.h */,
-				77BE236528D8CAEB007557E9 /* UINavigationController+QPlayerRotation.m */,
-				77BE236D28D8CAEC007557E9 /* UITabBarController+QPlayerRotation.h */,
-				77BE236328D8CAEB007557E9 /* UITabBarController+QPlayerRotation.m */,
-				77BE236228D8CAEB007557E9 /* UIViewController+QPlayerRotation.h */,
-				77BE236928D8CAEC007557E9 /* UIViewController+QPlayerRotation.m */,
-			);
-			path = Category;
-			sourceTree = "<group>";
-		};
-		77BE238428D8CB31007557E9 /* View */ = {
-			isa = PBXGroup;
-			children = (
-				77BE236C28D8CAEC007557E9 /* QPlayerMaskView.h */,
-				77BE236428D8CAEB007557E9 /* QPlayerMaskView.m */,
-				77BE235E28D8CAEB007557E9 /* QPlayerView.h */,
-				77BE236728D8CAEB007557E9 /* QPlayerView.m */,
-				77BE236128D8CAEB007557E9 /* QRotateAnimationView.h */,
-				77BE236A28D8CAEC007557E9 /* QRotateAnimationView.m */,
-				77BE236628D8CAEB007557E9 /* QSlider.h */,
-				77BE235D28D8CAEB007557E9 /* QSlider.m */,
-			);
-			path = View;
-			sourceTree = "<group>";
-		};
-		77BE24C528FE91D1007557E9 /* DateTimePicker */ = {
-			isa = PBXGroup;
-			children = (
-				77BE24C928FE91D1007557E9 /* DateTimePickerView.h */,
-				77BE24C628FE91D1007557E9 /* DateTimePickerView.m */,
-				77BE24CB28FE91D1007557E9 /* MXSCycleScrollView.h */,
-				77BE24C728FE91D1007557E9 /* MXSCycleScrollView.m */,
-				77BE24CA28FE91D1007557E9 /* UIColor+HcdCustom.h */,
-				77BE24C828FE91D1007557E9 /* UIColor+HcdCustom.m */,
-			);
-			path = DateTimePicker;
-			sourceTree = "<group>";
-		};
-		77BE24DA28FFED50007557E9 /* Gift */ = {
-			isa = PBXGroup;
-			children = (
-				77BE24EA28FFED50007557E9 /* QNGiftCollectionViewCell.h */,
-				77BE24E728FFED50007557E9 /* QNGiftCollectionViewCell.m */,
-				77BE24DC28FFED50007557E9 /* QNGiftView.h */,
-				77BE24E628FFED50007557E9 /* QNGiftView.m */,
-				77BE24E128FFED50007557E9 /* QNHorizontalLayout.h */,
-				77BE24EE28FFED50007557E9 /* QNHorizontalLayout.m */,
-				48B93875292DEE490014D671 /* QNGiftMessageView.h */,
-				48B93876292DEE490014D671 /* QNGiftMessageView.m */,
-				48B93879292DEE590014D671 /* QNGiftMessagePannel.h */,
-				48B9387A292DEE590014D671 /* QNGiftMessagePannel.m */,
-				48B9387D292DF91E0014D671 /* QNGiftOperation.h */,
-				48B9387E292DF91E0014D671 /* QNGiftOperation.m */,
-				48B93899292F1F5F0014D671 /* QNGiftPaySuccessView.h */,
-				48B9389A292F1F5F0014D671 /* QNGiftPaySuccessView.m */,
-			);
-			path = Gift;
-			sourceTree = "<group>";
-		};
-		77BE250528FFED5E007557E9 /* BottomView */ = {
-			isa = PBXGroup;
-			children = (
-				77781D462845FC68009DC71C /* BottomMenuView.h */,
-				77781D472845FC68009DC71C /* BottomMenuView.m */,
-				77BE24D228FFA0A7007557E9 /* LiveBottomMoreView.h */,
-				77BE24D328FFA0A7007557E9 /* LiveBottomMoreView.m */,
-				77BE24D628FFD403007557E9 /* WatchBottomMoreView.h */,
-				77BE24D728FFD403007557E9 /* WatchBottomMoreView.m */,
-			);
-			path = BottomView;
-			sourceTree = "<group>";
-		};
-		77BE250628FFED83007557E9 /* LiveView */ = {
-			isa = PBXGroup;
-			children = (
-				77781D4E28460813009DC71C /* ImageButtonView.h */,
-				77781D4F28460813009DC71C /* ImageButtonView.m */,
-				777B7A71284F3759005032B7 /* LinkStateView.h */,
-				777B7A72284F375A005032B7 /* LinkStateView.m */,
-				77781D292845E56A009DC71C /* OnlineUserView.h */,
-				77781D2D2845E56A009DC71C /* OnlineUserView.m */,
-				77781D2A2845E56A009DC71C /* QLiveView.h */,
-				77781D262845E56A009DC71C /* QLiveView.m */,
-				77781D282845E56A009DC71C /* RoomHostView.h */,
-				77781D2E2845E56A009DC71C /* RoomHostView.m */,
-				4808878229305EDF004A7878 /* QNLiveStatisticView.h */,
-				4808878329305EDF004A7878 /* QNLiveStatisticView.m */,
-			);
-			path = LiveView;
-			sourceTree = "<group>";
-		};
-		77BE250728FFEDA5007557E9 /* ToolView */ = {
-			isa = PBXGroup;
-			children = (
-				777B7A6D284F1F78005032B7 /* QAlertView.h */,
-				777B7A6E284F1F78005032B7 /* QAlertView.m */,
-				777B7A7D284F4B0D005032B7 /* QRenderView.h */,
-				777B7A7E284F4B0D005032B7 /* QRenderView.m */,
-				777186A12862C5D100C5CABC /* QToastView.h */,
-				777186A22862C5D100C5CABC /* QToastView.m */,
-				77758CDC28A4EE34005CBB59 /* QGradient.h */,
-				77758CDD28A4EE34005CBB59 /* QGradient.m */,
-			);
-			path = ToolView;
-			sourceTree = "<group>";
-		};
-		77EDC498286DA86B002B4226 /* Beauty */ = {
-			isa = PBXGroup;
-			children = (
-				48E878F32926445800F33059 /* Effect */,
-				77EDC49D286DAD99002B4226 /* BeautyLiveViewController.h */,
-				77EDC49E286DAD99002B4226 /* BeautyLiveViewController.m */,
-				77A11C62288556AA00020149 /* CreateBeautyLiveController.h */,
-				77A11C63288556AA00020149 /* CreateBeautyLiveController.m */,
-				77A11C5E28854A7A00020149 /* BeautyBaseController.h */,
-				77A11C5F28854A7A00020149 /* BeautyBaseController.m */,
-			);
-			path = Beauty;
 			sourceTree = "<group>";
 		};
 		E81476773C4F47A02AE7BF5E /* Pods */ = {
@@ -1826,129 +516,11 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				77BE23A528D96EF1007557E9 /* PSPopListView.h in Headers */,
-				48E87ABE2926445800F33059 /* NSString+materialAes.h in Headers */,
-				48E87AFB2926445900F33059 /* STViewButton.h in Headers */,
-				48E87AD72926445800F33059 /* EFGlobalSingleton.h in Headers */,
-				48E87B2D2926445900F33059 /* st_mobile_face_attribute.h in Headers */,
-				48E87A652926445800F33059 /* EFSenseArMaterialDataModels.h in Headers */,
-				48E87A342926445800F33059 /* NSBundle+language.h in Headers */,
-				48E87A982926445800F33059 /* NSDictionary+sortedJson.h in Headers */,
-				48E87A332926445800F33059 /* STConvert.h in Headers */,
-				48E87AC72926445800F33059 /* NSObject+dictionary.h in Headers */,
-				77BE238728D94428007557E9 /* NSDate+QDate.h in Headers */,
-				48E87B202926445900F33059 /* STCustomCollectionView.h in Headers */,
-				48E87A962926445800F33059 /* EFDataSourceGenerator.h in Headers */,
-				48E87AF02926445800F33059 /* STBaseViewController.h in Headers */,
-				48E87AD62926445800F33059 /* EFStatusManager.h in Headers */,
-				48E87AFA2926445900F33059 /* STScrollTitleView.h in Headers */,
-				48E87AFF2926445900F33059 /* STBMPCollectionView.h in Headers */,
-				48E87AE82926445800F33059 /* SoundInfomation.h in Headers */,
-				48E87A552926445800F33059 /* STVFShader.h in Headers */,
-				77BE24CF28FE91D1007557E9 /* DateTimePickerView.h in Headers */,
-				48E87B2E2926445900F33059 /* st_mobile_license.h in Headers */,
-				48E87B2C2926445900F33059 /* st_mobile_object.h in Headers */,
-				48E87AF12926445800F33059 /* LicenseUtil.h in Headers */,
-				48E87AF62926445900F33059 /* STPlayerControlBar.h in Headers */,
-				48E87B012926445900F33059 /* STCollectionViewCell.h in Headers */,
-				48E87B1A2926445900F33059 /* STTitleViewItem.h in Headers */,
-				48E87ACA2926445800F33059 /* EFRemoteDataSourceHelper+groupInfos.h in Headers */,
-				48E87B042926445900F33059 /* STCollectionView.h in Headers */,
-				77BE24FF28FFED50007557E9 /* QNGiftCollectionViewCell.h in Headers */,
-				48E87B2A2926445900F33059 /* st_mobile_animal.h in Headers */,
-				48E87AC12926445800F33059 /* EFMaterialDownloadStatusManager.h in Headers */,
-				48E87A5E2926445800F33059 /* SenseArSourceService.h in Headers */,
-				48E87B0A2926445900F33059 /* UIView+Toast.h in Headers */,
-				48E87AD12926445800F33059 /* NSDictionary+jsonFile.h in Headers */,
-				48E87A5A2926445800F33059 /* STGLPreview2.h in Headers */,
-				48E87AD42926445800F33059 /* EFStorageHelper.h in Headers */,
-				48E87A602926445800F33059 /* SenseArMaterialGroup.h in Headers */,
-				48B9386A292CCAB00014D671 /* QNPayGiftViewController.h in Headers */,
-				48E87AD92926445800F33059 /* EFMachineVersion.h in Headers */,
-				77BE237A28D8CAEC007557E9 /* QSlider.h in Headers */,
-				77BE24F528FFED50007557E9 /* QNGiftModel.h in Headers */,
-				48E87B2F2926445900F33059 /* st_mobile_effect.h in Headers */,
-				48E87A2E2926445800F33059 /* STMobileLog.h in Headers */,
-				48E87A312926445800F33059 /* STLock.h in Headers */,
-				48E87B312926445900F33059 /* st_mobile_color_convert.h in Headers */,
-				48E87B162926445900F33059 /* STBmpStrengthView.h in Headers */,
-				77BE237628D8CAEC007557E9 /* UIViewController+QPlayerRotation.h in Headers */,
-				48E87A3A2926445800F33059 /* STCamera.h in Headers */,
-				48E87ADF2926445800F33059 /* STCoreStateManagement.h in Headers */,
-				48B93896292E56C10014D671 /* QNGiftMessageCell.h in Headers */,
-				48E87A592926445800F33059 /* STGLShader.h in Headers */,
-				48E87AFC2926445900F33059 /* STFilterView.h in Headers */,
-				48E87AE42926445800F33059 /* STCoreStateManagementValueChangeDelegate.h in Headers */,
-				48E87B0D2926445900F33059 /* STCommonObjectContainerView.h in Headers */,
-				48E87A5C2926445800F33059 /* SenseArMaterialAction.h in Headers */,
-				77BE237228D8CAEC007557E9 /* QPlayerView.h in Headers */,
-				77BE24F628FFED50007557E9 /* QNHorizontalLayout.h in Headers */,
-				77BE237328D8CAEC007557E9 /* UINavigationController+QPlayerRotation.h in Headers */,
-				48E87ABA2926445800F33059 /* NSString+sha1.h in Headers */,
-				48E87AC82926445800F33059 /* EFStatusModels.h in Headers */,
-				48E87AF52926445900F33059 /* STBMPDetailColV.h in Headers */,
-				4808878429305EDF004A7878 /* QNLiveStatisticView.h in Headers */,
-				48E87B092926445900F33059 /* STCommonObjectView.h in Headers */,
-				48E87A532926445800F33059 /* STGLPreview3.h in Headers */,
-				48B938A4292F5C0E0014D671 /* QNLikeResult.h in Headers */,
-				77BE24F128FFED50007557E9 /* QNGiftView.h in Headers */,
-				48E87B1D2926445900F33059 /* STMakeupDataModel.h in Headers */,
-				48E87A5D2926445800F33059 /* SenseArMaterial.h in Headers */,
-				48E87A382926445800F33059 /* STDefaultSetting.h in Headers */,
-				48B93877292DEE490014D671 /* QNGiftMessageView.h in Headers */,
-				48E87B2B2926445900F33059 /* st_mobile_human_action.h in Headers */,
-				48E87ABF2926445800F33059 /* EFDataSourcing.h in Headers */,
-				77BE237028D8CAEC007557E9 /* QGCDTimerManager.h in Headers */,
-				48E87AE32926445800F33059 /* STCoreStateManagementFilterModel.h in Headers */,
-				77BE24D028FE91D1007557E9 /* UIColor+HcdCustom.h in Headers */,
-				77BE238028D8CAEC007557E9 /* QPlayerMaskView.h in Headers */,
-				48E87AE62926445800F33059 /* STEffectsAudioPlayer.h in Headers */,
-				48E87AD02926445800F33059 /* EFRemoteDataSourceHelper.h in Headers */,
-				48E87B022926445900F33059 /* EffectsCollectionViewCell.h in Headers */,
-				77BE24D128FE91D2007557E9 /* MXSCycleScrollView.h in Headers */,
-				48B938B1292F8EF10014D671 /* QNLikeNotify.h in Headers */,
-				48E87A322926445800F33059 /* STEffectsTimer.h in Headers */,
-				48E87A372926445800F33059 /* DefaultBeautyParameters.h in Headers */,
-				48E87AC52926445800F33059 /* EFStatusManagerDelegate.h in Headers */,
-				48B938A9292F5FCB0014D671 /* QNLikeMenuView.h in Headers */,
-				48E87AE02926445800F33059 /* STCoreStateManagementModel.h in Headers */,
-				48E87B252926445900F33059 /* STBeautySlider.h in Headers */,
-				48E87A522926445800F33059 /* STColorConversion.h in Headers */,
-				48B93884292E12DA0014D671 /* QNGiftService.h in Headers */,
-				48E87AF32926445800F33059 /* STBMPDetailColVCell.h in Headers */,
-				48E87B062926445900F33059 /* EffectsCollectionView.h in Headers */,
-				48E87B0E2926445900F33059 /* STTriggerView.h in Headers */,
-				48E87A362926445800F33059 /* STDefaultSettingDataSourseGenerator.h in Headers */,
-				48E87AF92926445900F33059 /* STSlideView.h in Headers */,
-				77BE24D428FFA0A7007557E9 /* LiveBottomMoreView.h in Headers */,
-				77BE24D828FFD403007557E9 /* WatchBottomMoreView.h in Headers */,
-				48E87ADD2926445800F33059 /* NSData+meterialAes.h in Headers */,
-				48B9387F292DF91E0014D671 /* QNGiftOperation.h in Headers */,
-				48E87A5F2926445800F33059 /* SenseArMaterialService.h in Headers */,
-				77BE233128D87177007557E9 /* WacthRecordController.h in Headers */,
-				48E87AC92926445800F33059 /* EFAuthorizeAdapter.h in Headers */,
-				48B9389B292F1F5F0014D671 /* QNGiftPaySuccessView.h in Headers */,
-				48E87AC02926445800F33059 /* EFResource.h in Headers */,
-				48E87B132926445900F33059 /* STButton.h in Headers */,
-				48B9388D292E399E0014D671 /* QNGiftMsgModel.h in Headers */,
-				48E87B292926445900F33059 /* st_mobile_common.h in Headers */,
-				48E87A972926445800F33059 /* EFMaterialDownloadManager.h in Headers */,
-				48E87AEC2926445800F33059 /* SystemSound.h in Headers */,
-				48E87AEE2926445800F33059 /* STMovieRecorder.h in Headers */,
-				48E87AED2926445800F33059 /* STAudioManager.h in Headers */,
-				77BE237528D8CAEC007557E9 /* QRotateAnimationView.h in Headers */,
-				48B938A0292F55640014D671 /* QNLikeService.h in Headers */,
-				48E87B212926445900F33059 /* STParamUtil.h in Headers */,
-				48B9387B292DEE590014D671 /* QNGiftMessagePannel.h in Headers */,
-				48E87B222926445900F33059 /* STCustomMemoryCache.h in Headers */,
-				48B938AD292F5FDB0014D671 /* QNLikeBubbleView.h in Headers */,
-				48E87B0B2926445900F33059 /* STBMPCollectionViewCell.h in Headers */,
-				48B93889292E26590014D671 /* QNUserService.h in Headers */,
-				77BE238128D8CAEC007557E9 /* UITabBarController+QPlayerRotation.h in Headers */,
-				48E87B302926445900F33059 /* st_mobile_verify.h in Headers */,
 				776B1C73283C79BB00D85C73 /* QNCreateRoomParam.h in Headers */,
+				48D31E0A2940E754005303A2 /* CreateSignalHandler.h in Headers */,
 				776B1C6E283C792B00D85C73 /* QLive.h in Headers */,
 				776B1C77283C79DB00D85C73 /* QNLiveRoomInfo.h in Headers */,
+				77204D8B285F97A20053B1AD /* QIMModel.h in Headers */,
 				776B1C82283CB2AA00D85C73 /* QNLiveUser.h in Headers */,
 				776B1C5A283C78D800D85C73 /* QNLiveKit.h in Headers */,
 				776B1C86283CB60D00D85C73 /* QNLiveRoomClient.h in Headers */,
@@ -1964,68 +536,25 @@
 				776B1C8A283CB6B300D85C73 /* QNLiveService.h in Headers */,
 				776B1CC8283CFEE800D85C73 /* QNLivePullClient.h in Headers */,
 				776B1CAF283CC87000D85C73 /* QNLivePrefixHeader.pch in Headers */,
-				77781D7128486D3D009DC71C /* QTextMessageCell.h in Headers */,
-				77781D7028486D3D009DC71C /* QMessageBaseCell.h in Headers */,
-				77781D6628486D35009DC71C /* QInputBarControl.h in Headers */,
-				77781D5428486D13009DC71C /* LiveChatRoom.h in Headers */,
-				77781D6528486D35009DC71C /* QInputView.h in Headers */,
-				77781D9F28488932009DC71C /* QNBaseRTCController.h in Headers */,
-				77781D6828486D35009DC71C /* QEmojiCollectionCell.h in Headers */,
-				77EDC49F286DAD99002B4226 /* BeautyLiveViewController.h in Headers */,
-				77781D6728486D35009DC71C /* QEmojiBoardView.h in Headers */,
-				77781DA028488932009DC71C /* QLiveController.h in Headers */,
 				776B1CAC283CC6EC00D85C73 /* QLiveNetworkUtil.h in Headers */,
 				776B1CD5283D024E00D85C73 /* QLinkMicService.h in Headers */,
 				776B1CD1283D010D00D85C73 /* QNMicLinker.h in Headers */,
-				77781D332845E56A009DC71C /* OnlineUserView.h in Headers */,
-				77781D322845E56A009DC71C /* RoomHostView.h in Headers */,
-				774E641D2848DB6800C9FB7F /* CreateSignalHandler.h in Headers */,
 				774E6422284DF8E800C9FB7F /* QMixStreamManager.h in Headers */,
-				77781D342845E56B009DC71C /* QLiveView.h in Headers */,
-				777B7A7F284F4B0D005032B7 /* QRenderView.h in Headers */,
-				777B7A83284F5A6F005032B7 /* QNPKInvitationListCell.h in Headers */,
-				777B7A6F284F1F78005032B7 /* QAlertView.h in Headers */,
-				77781D482845FC68009DC71C /* BottomMenuView.h in Headers */,
-				77204D68285F755C0053B1AD /* QCreateLiveController.h in Headers */,
-				777B7A73284F375A005032B7 /* LinkStateView.h in Headers */,
 				77204D83285F97A20053B1AD /* PubChatModel.h in Headers */,
-				77204D67285F755C0053B1AD /* QLiveListController.h in Headers */,
-				77062FBE288005CE00E9FD7D /* GoodBuyItemCell.h in Headers */,
 				77204D86285F97A20053B1AD /* QInvitationModel.h in Headers */,
 				77062FB2287EA0A300E9FD7D /* GoodsModel.h in Headers */,
-				77204D65285F755C0053B1AD /* QNLiveListCell.h in Headers */,
-				77062FBA288004AA00E9FD7D /* ShopBuyListController.h in Headers */,
-				77062FAD287E795F00E9FD7D /* ShopSellListController.h in Headers */,
-				77062FB6287EAA8D00E9FD7D /* GoodSellItemCell.h in Headers */,
-				77204D59285981B00053B1AD /* CYProtocolManager.h in Headers */,
-				777B7A87284F5BC5005032B7 /* QNPKInvitationListController.h in Headers */,
 				77204D97285F9AF50053B1AD /* LinkOptionModel.h in Headers */,
-				77A11C6028854A7A00020149 /* BeautyBaseController.h in Headers */,
-				77A11C64288556AA00020149 /* CreateBeautyLiveController.h in Headers */,
-				77062FCA288062D600E9FD7D /* GoodsOperationCell.h in Headers */,
-				7771869C2861B8A800C5CABC /* FDanmakuModel.h in Headers */,
-				7771869A2861B8A800C5CABC /* FDanmakuView.h in Headers */,
-				77204D8B285F97A20053B1AD /* QIMModel.h in Headers */,
-				77062FD22880920000E9FD7D /* GoodStatusView.h in Headers */,
-				77062FCE288080D300E9FD7D /* GoodsOperationView.h in Headers */,
-				777186992861B8A800C5CABC /* FDanmakuModelProtocol.h in Headers */,
-				77062FC62880294900E9FD7D /* ExplainingGoodView.h in Headers */,
+				77BE24F528FFED50007557E9 /* QNGiftModel.h in Headers */,
 				77A11CC92889385800020149 /* QShopService.h in Headers */,
-				7771869B2861B8A800C5CABC /* CALayer+Aimate.h in Headers */,
-				777186A32862C5D100C5CABC /* QToastView.h in Headers */,
-				77A11CDA288A724E00020149 /* UIImage+QNImage.h in Headers */,
-				77A11CD8288A724E00020149 /* UIColor+QNColor.h in Headers */,
-				7798A79A28814872009DEB27 /* UITableView+MoveCell.h in Headers */,
-				77758CDE28A4EE34005CBB59 /* QGradient.h in Headers */,
+				48B938A4292F5C0E0014D671 /* QNLikeResult.h in Headers */,
+				48B9388D292E399E0014D671 /* QNGiftMsgModel.h in Headers */,
+				48B93889292E26590014D671 /* QNUserService.h in Headers */,
 				77204D4E285873BF0053B1AD /* QRooms.h in Headers */,
-				77758CF128AA3B06005CBB59 /* QTagButton.h in Headers */,
-				77E02E31284E245A00EE8A28 /* QNAudienceController.h in Headers */,
-				77758CFA28AA529C005CBB59 /* UIViewController+QViewController.h in Headers */,
-				77758CF728AA4516005CBB59 /* UILabel+QAttributed.h in Headers */,
+				48B938B1292F8EF10014D671 /* QNLikeNotify.h in Headers */,
+				48B93884292E12DA0014D671 /* QNGiftService.h in Headers */,
+				48B938A0292F55640014D671 /* QNLikeService.h in Headers */,
 				77BE1F0928C7342A007557E9 /* QRoomDataModel.h in Headers */,
-				77758CF028AA3B06005CBB59 /* QTagList.h in Headers */,
 				77BE232528CB4424007557E9 /* QStatisticalService.h in Headers */,
-				77781D5028460813009DC71C /* ImageButtonView.h in Headers */,
 				77781C41283DE000009DC71C /* Extension.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -2114,8 +643,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				48E87B392926445900F33059 /* VERSION in Resources */,
-				77781D6328486D35009DC71C /* EmojiList.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -2180,185 +707,44 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				77204D6A285F755C0053B1AD /* QLiveListController.m in Sources */,
-				48E87AD22926445800F33059 /* NSObject+dictionary.m in Sources */,
 				774E6421284DF8E800C9FB7F /* QMixStreamManager.m in Sources */,
-				77758CF628AA4516005CBB59 /* UILabel+QAttributed.m in Sources */,
-				77BE237828D8CAEC007557E9 /* QPlayerMaskView.m in Sources */,
-				48E87A6A2926445800F33059 /* NSData+meterialAes.m in Sources */,
-				48B938AE292F5FDB0014D671 /* QNLikeBubbleView.m in Sources */,
-				77781D6E28486D3D009DC71C /* QMessageBaseCell.m in Sources */,
-				48E87B102926445900F33059 /* STViewButton.m in Sources */,
-				77781D302845E56A009DC71C /* QLiveView.m in Sources */,
-				48E87B1E2926445900F33059 /* STBMPCollectionView.m in Sources */,
-				77781D6028486D35009DC71C /* QInputView.m in Sources */,
 				77204D87285F97A20053B1AD /* QIMModel.m in Sources */,
-				48E87B272926445900F33059 /* UIView+Toast.m in Sources */,
-				48E87A682926445800F33059 /* EFResource.m in Sources */,
-				48E87AE92926445800F33059 /* STAudioManager.m in Sources */,
-				48B93880292DF91E0014D671 /* QNGiftOperation.m in Sources */,
-				48E87A5B2926445800F33059 /* STVFShader.m in Sources */,
-				77781D372845E56B009DC71C /* OnlineUserView.m in Sources */,
-				777B7A74284F375A005032B7 /* LinkStateView.m in Sources */,
-				777B7A80284F4B0D005032B7 /* QRenderView.m in Sources */,
-				77781D6228486D35009DC71C /* QInputBarControl.m in Sources */,
-				48E87B002926445900F33059 /* STMakeupDataModel.m in Sources */,
 				776B1C74283C79BB00D85C73 /* QNCreateRoomParam.m in Sources */,
-				77BE237128D8CAEC007557E9 /* QSlider.m in Sources */,
 				48B9388A292E26590014D671 /* QNUserService.m in Sources */,
-				48E87A642926445800F33059 /* EFDataSourceGenerator.m in Sources */,
-				48E87AFD2926445900F33059 /* STCommonObjectContainerView.m in Sources */,
-				48E87B152926445900F33059 /* STBMPDetailColV.m in Sources */,
-				48E87B052926445900F33059 /* STCustomMemoryCache.m in Sources */,
+				485F27222940E37E00484CB6 /* CreateSignalHandler.m in Sources */,
 				48B93885292E12DA0014D671 /* QNGiftService.m in Sources */,
-				777186A42862C5D100C5CABC /* QToastView.m in Sources */,
 				48B938A5292F5C0E0014D671 /* QNLikeResult.m in Sources */,
-				48B93878292DEE490014D671 /* QNGiftMessageView.m in Sources */,
-				77BE24CD28FE91D1007557E9 /* MXSCycleScrollView.m in Sources */,
-				77BE238828D94428007557E9 /* NSDate+QDate.m in Sources */,
 				776B1C93283CBBA100D85C73 /* QNCameraParams.m in Sources */,
-				48E87B232926445900F33059 /* EffectsCollectionView.m in Sources */,
-				48E87A662926445800F33059 /* NSString+sha1.m in Sources */,
-				48E87ACD2926445800F33059 /* EFStatusManager.m in Sources */,
-				77BE250328FFED50007557E9 /* QNHorizontalLayout.m in Sources */,
 				77BE24FE28FFED50007557E9 /* QNGiftModel.m in Sources */,
-				77062FCF288080D300E9FD7D /* GoodsOperationView.m in Sources */,
 				776B1C83283CB2AA00D85C73 /* QNLiveUser.m in Sources */,
-				77BE237D28D8CAEC007557E9 /* UIViewController+QPlayerRotation.m in Sources */,
 				77204D88285F97A20053B1AD /* PubChatModel.m in Sources */,
-				77BE237C28D8CAEC007557E9 /* QGCDTimerManager.m in Sources */,
-				77758CF228AA3B06005CBB59 /* QTagList.m in Sources */,
-				48E87AE22926445800F33059 /* STCoreStateManagementFilterModel.m in Sources */,
 				776B1CAD283CC6EC00D85C73 /* QLiveNetworkUtil.m in Sources */,
 				776B1CF3283D0F2000D85C73 /* LinkInvitation.m in Sources */,
-				48E87A302926445800F33059 /* STConvert.m in Sources */,
 				776B1C8B283CB6B300D85C73 /* QNLiveService.m in Sources */,
 				77BE1F0A28C7342A007557E9 /* QRoomDataModel.m in Sources */,
 				77A11CCA2889385800020149 /* QShopService.m in Sources */,
-				77A11C65288556AA00020149 /* CreateBeautyLiveController.m in Sources */,
-				77204D66285F755C0053B1AD /* QCreateLiveController.m in Sources */,
-				48E87B072926445900F33059 /* STParamUtil.m in Sources */,
-				48E87A542926445800F33059 /* STGLShader.m in Sources */,
-				48E87A582926445800F33059 /* STGLPreview3.m in Sources */,
-				777B7A84284F5A6F005032B7 /* QNPKInvitationListCell.m in Sources */,
-				48E87B1B2926445900F33059 /* EffectsCollectionViewCell.m in Sources */,
-				48E87B262926445900F33059 /* STBMPCollectionViewCell.m in Sources */,
-				77E02E32284E245A00EE8A28 /* QNAudienceController.m in Sources */,
-				48E87A572926445800F33059 /* STColorConversion.m in Sources */,
-				77EDC4A0286DAD99002B4226 /* BeautyLiveViewController.m in Sources */,
 				48B938B2292F8EF10014D671 /* QNLikeNotify.m in Sources */,
-				48E87B112926445900F33059 /* STSlideView.m in Sources */,
-				48E87AE52926445800F33059 /* STCoreStateManagement.m in Sources */,
-				48E87ADC2926445800F33059 /* EFRemoteDataSourceHelper+groupInfos.m in Sources */,
-				48E87A2D2926445800F33059 /* STEffectsTimer.m in Sources */,
-				48E87ADB2926445800F33059 /* EFAuthorizeAdapter.m in Sources */,
-				777186982861B8A800C5CABC /* FDanmakuModel.m in Sources */,
-				777186972861B8A800C5CABC /* CALayer+Aimate.m in Sources */,
-				48E87B0F2926445900F33059 /* STFilterView.m in Sources */,
-				48E87AFE2926445900F33059 /* STTriggerView.m in Sources */,
-				77758CDF28A4EE34005CBB59 /* QGradient.m in Sources */,
-				48E87ACE2926445800F33059 /* EFMaterialDownloadStatusManager.m in Sources */,
-				77062FC72880294900E9FD7D /* ExplainingGoodView.m in Sources */,
 				776B1CC9283CFEE800D85C73 /* QNLivePullClient.m in Sources */,
-				77BE239928D96EF1007557E9 /* PSPopListView.m in Sources */,
-				77BE24FC28FFED50007557E9 /* QNGiftCollectionViewCell.m in Sources */,
-				48E87B122926445900F33059 /* STScrollTitleView.m in Sources */,
-				777B7A88284F5BC5005032B7 /* QNPKInvitationListController.m in Sources */,
 				776B1C4E283C78D800D85C73 /* QNLiveKit.docc in Sources */,
-				77BE24FB28FFED50007557E9 /* QNGiftView.m in Sources */,
 				77781C0F283DD181009DC71C /* QPKService.m in Sources */,
 				776B1C6F283C792B00D85C73 /* QLive.m in Sources */,
-				48E87AEA2926445800F33059 /* STEffectsAudioPlayer.m in Sources */,
-				77062FAE287E795F00E9FD7D /* ShopSellListController.m in Sources */,
-				77BE24CE28FE91D1007557E9 /* UIColor+HcdCustom.m in Sources */,
-				77062FBB288004AA00E9FD7D /* ShopBuyListController.m in Sources */,
-				77A11C6128854A7A00020149 /* BeautyBaseController.m in Sources */,
-				48E87A632926445800F33059 /* EFMaterialDownloadManager.m in Sources */,
-				77781D6F28486D3D009DC71C /* QTextMessageCell.m in Sources */,
 				776B1CD6283D024E00D85C73 /* QLinkMicService.m in Sources */,
-				77BE24D928FFD403007557E9 /* WatchBottomMoreView.m in Sources */,
 				77204D8C285F97A20053B1AD /* QInvitationModel.m in Sources */,
 				48B938A1292F55640014D671 /* QNLikeService.m in Sources */,
-				77A11CD7288A724E00020149 /* UIColor+QNColor.m in Sources */,
-				48E87AC62926445800F33059 /* EFStorageHelper.m in Sources */,
-				48E87ADE2926445800F33059 /* STBaseViewController.m in Sources */,
-				48E87A3B2926445800F33059 /* STCamera.m in Sources */,
-				7771869D2861B8A800C5CABC /* FDanmakuView.m in Sources */,
-				48E87B1C2926445900F33059 /* STCollectionViewCell.m in Sources */,
-				48E87A352926445800F33059 /* STDefaultSettingDataSourseGenerator.m in Sources */,
-				48B93897292E56C10014D671 /* QNGiftMessageCell.m in Sources */,
-				77BE237E28D8CAEC007557E9 /* QRotateAnimationView.m in Sources */,
-				48B9387C292DEE590014D671 /* QNGiftMessagePannel.m in Sources */,
-				48E87A2F2926445800F33059 /* NSBundle+language.m in Sources */,
-				77204D69285F755C0053B1AD /* QNLiveListCell.m in Sources */,
-				77BE237728D8CAEC007557E9 /* UITabBarController+QPlayerRotation.m in Sources */,
-				77BE24CC28FE91D1007557E9 /* DateTimePickerView.m in Sources */,
-				48E87B172926445900F33059 /* STBMPDetailColVCell.m in Sources */,
-				48E87B1F2926445900F33059 /* STCommonObjectView.m in Sources */,
 				776B1C78283C79DB00D85C73 /* QNLiveRoomInfo.m in Sources */,
-				48E87AE72926445800F33059 /* SystemSound.m in Sources */,
 				776B1C87283CB60D00D85C73 /* QNLiveRoomClient.m in Sources */,
-				774E641C2848DB6800C9FB7F /* CreateSignalHandler.m in Sources */,
-				77BE24D528FFA0A7007557E9 /* LiveBottomMoreView.m in Sources */,
 				77204D98285F9AF50053B1AD /* LinkOptionModel.m in Sources */,
 				77781C21283DD63C009DC71C /* QNChatRoomService.m in Sources */,
-				77BE237928D8CAEC007557E9 /* UINavigationController+QPlayerRotation.m in Sources */,
-				77781D382845E56B009DC71C /* RoomHostView.m in Sources */,
-				48E87A392926445800F33059 /* STDefaultSetting.m in Sources */,
-				77781DA128488932009DC71C /* QNBaseRTCController.m in Sources */,
-				48E87A692926445800F33059 /* NSString+materialAes.m in Sources */,
-				48E87B032926445900F33059 /* STTitleViewItem.m in Sources */,
-				4808878529305EDF004A7878 /* QNLiveStatisticView.m in Sources */,
-				48B938AA292F5FCB0014D671 /* QNLikeMenuView.m in Sources */,
-				48E87AF82926445900F33059 /* STButton.m in Sources */,
-				48E87ACC2926445800F33059 /* EFGlobalSingleton.m in Sources */,
 				776B1CEF283D0D8100D85C73 /* QNMergeOption.m in Sources */,
-				48E87ACB2926445800F33059 /* EFMachineVersion.m in Sources */,
-				777B7A70284F1F78005032B7 /* QAlertView.m in Sources */,
 				77BE232628CB4424007557E9 /* QStatisticalService.m in Sources */,
-				48E87AF22926445800F33059 /* LicenseUtil.m in Sources */,
-				77758CEF28AA3B06005CBB59 /* QTagButton.m in Sources */,
-				77BE237B28D8CAEC007557E9 /* QPlayerView.m in Sources */,
-				48E87A952926445800F33059 /* EFSenseArMaterialDataModels.m in Sources */,
-				48E87AC42926445800F33059 /* EFRemoteDataSourceHelper.m in Sources */,
 				77204D4F285873BF0053B1AD /* QRooms.m in Sources */,
-				48E87AC32926445800F33059 /* NSDictionary+jsonFile.m in Sources */,
-				77204D58285981B00053B1AD /* CYProtocolManager.m in Sources */,
-				48E87B0C2926445900F33059 /* STBeautySlider.m in Sources */,
-				48E87B182926445900F33059 /* STCollectionView.m in Sources */,
-				48B9386B292CCAB00014D671 /* QNPayGiftViewController.m in Sources */,
-				77781D6428486D35009DC71C /* QEmojiCollectionCell.m in Sources */,
-				48E87A672926445800F33059 /* NSDictionary+sortedJson.m in Sources */,
 				776B1C8F283CBB2100D85C73 /* QNLivePushClient.m in Sources */,
-				77781D6128486D35009DC71C /* QEmojiBoardView.m in Sources */,
-				77781D5528486D13009DC71C /* LiveChatRoom.m in Sources */,
-				48E87A562926445800F33059 /* STGLPreview2.m in Sources */,
-				7798A79928814872009DEB27 /* UITableView+MoveCell.m in Sources */,
 				776B1CD2283D010D00D85C73 /* QNMicLinker.m in Sources */,
-				77781D5128460813009DC71C /* ImageButtonView.m in Sources */,
 				77781C0B283D1337009DC71C /* QNPKSession.m in Sources */,
-				77758CFB28AA529C005CBB59 /* UIViewController+QViewController.m in Sources */,
-				77A11CD9288A724E00020149 /* UIImage+QNImage.m in Sources */,
-				48E87AD32926445800F33059 /* EFStatusModels.m in Sources */,
-				48E87B142926445900F33059 /* STPlayerControlBar.m in Sources */,
-				77062FCB288062D600E9FD7D /* GoodsOperationCell.m in Sources */,
-				48E87AEB2926445800F33059 /* SoundInfomation.m in Sources */,
-				48E87AE12926445800F33059 /* STCoreStateManagementModel.m in Sources */,
-				77062FD32880920000E9FD7D /* GoodStatusView.m in Sources */,
-				48E87AEF2926445800F33059 /* STMovieRecorder.m in Sources */,
 				77781C42283DE000009DC71C /* Extension.m in Sources */,
-				77062FBF288005CE00E9FD7D /* GoodBuyItemCell.m in Sources */,
 				77062FB3287EA0A300E9FD7D /* GoodsModel.m in Sources */,
-				77BE233228D87177007557E9 /* WacthRecordController.m in Sources */,
-				48E87B082926445900F33059 /* STCustomCollectionView.m in Sources */,
-				48B9389C292F1F5F0014D671 /* QNGiftPaySuccessView.m in Sources */,
-				77781D492845FC68009DC71C /* BottomMenuView.m in Sources */,
 				776B1C97283CBBB800D85C73 /* QNMicrophoneParams.m in Sources */,
-				77781DA228488932009DC71C /* QLiveController.m in Sources */,
-				77062FB7287EAA8D00E9FD7D /* GoodSellItemCell.m in Sources */,
-				48E87AF42926445900F33059 /* STBmpStrengthView.m in Sources */,
 				48B9388E292E399E0014D671 /* QNGiftMsgModel.m in Sources */,
-				48E87A2C2926445800F33059 /* STLock.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

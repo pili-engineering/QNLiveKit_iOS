@@ -7,7 +7,6 @@
 
 #import "QNLivePullClient.h"
 #import "QNLiveRoomInfo.h"
-#import "QRenderView.h"
 #import "QLiveNetworkUtil.h"
 #import "QNLiveUser.h"
 #import "QNLiveRoomInfo.h"
