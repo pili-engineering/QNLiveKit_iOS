@@ -7,269 +7,269 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		4808878429305EDF004A7878 /* QNLiveStatisticView.h in Headers */ = {isa = PBXBuildFile; fileRef = 4808878229305EDF004A7878 /* QNLiveStatisticView.h */; };
+		4808878429305EDF004A7878 /* QNLiveStatisticView.h in Headers */ = {isa = PBXBuildFile; fileRef = 4808878229305EDF004A7878 /* QNLiveStatisticView.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		4808878529305EDF004A7878 /* QNLiveStatisticView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4808878329305EDF004A7878 /* QNLiveStatisticView.m */; };
 		48B937CA29271C520014D671 /* CoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 48B937C929271C520014D671 /* CoreServices.framework */; };
 		48B937D029271CC20014D671 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 48B937CF29271CC20014D671 /* MapKit.framework */; };
-		48B9386A292CCAB00014D671 /* QNPayGiftViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = 48B93868292CCAB00014D671 /* QNPayGiftViewController.h */; };
+		48B9386A292CCAB00014D671 /* QNPayGiftViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = 48B93868292CCAB00014D671 /* QNPayGiftViewController.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		48B9386B292CCAB00014D671 /* QNPayGiftViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 48B93869292CCAB00014D671 /* QNPayGiftViewController.m */; };
-		48B93877292DEE490014D671 /* QNGiftMessageView.h in Headers */ = {isa = PBXBuildFile; fileRef = 48B93875292DEE490014D671 /* QNGiftMessageView.h */; };
+		48B93877292DEE490014D671 /* QNGiftMessageView.h in Headers */ = {isa = PBXBuildFile; fileRef = 48B93875292DEE490014D671 /* QNGiftMessageView.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		48B93878292DEE490014D671 /* QNGiftMessageView.m in Sources */ = {isa = PBXBuildFile; fileRef = 48B93876292DEE490014D671 /* QNGiftMessageView.m */; };
-		48B9387B292DEE590014D671 /* QNGiftMessagePannel.h in Headers */ = {isa = PBXBuildFile; fileRef = 48B93879292DEE590014D671 /* QNGiftMessagePannel.h */; };
+		48B9387B292DEE590014D671 /* QNGiftMessagePannel.h in Headers */ = {isa = PBXBuildFile; fileRef = 48B93879292DEE590014D671 /* QNGiftMessagePannel.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		48B9387C292DEE590014D671 /* QNGiftMessagePannel.m in Sources */ = {isa = PBXBuildFile; fileRef = 48B9387A292DEE590014D671 /* QNGiftMessagePannel.m */; };
-		48B9387F292DF91E0014D671 /* QNGiftOperation.h in Headers */ = {isa = PBXBuildFile; fileRef = 48B9387D292DF91E0014D671 /* QNGiftOperation.h */; };
+		48B9387F292DF91E0014D671 /* QNGiftOperation.h in Headers */ = {isa = PBXBuildFile; fileRef = 48B9387D292DF91E0014D671 /* QNGiftOperation.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		48B93880292DF91E0014D671 /* QNGiftOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 48B9387E292DF91E0014D671 /* QNGiftOperation.m */; };
-		48B93884292E12DA0014D671 /* QNGiftService.h in Headers */ = {isa = PBXBuildFile; fileRef = 48B93882292E12DA0014D671 /* QNGiftService.h */; };
+		48B93884292E12DA0014D671 /* QNGiftService.h in Headers */ = {isa = PBXBuildFile; fileRef = 48B93882292E12DA0014D671 /* QNGiftService.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		48B93885292E12DA0014D671 /* QNGiftService.m in Sources */ = {isa = PBXBuildFile; fileRef = 48B93883292E12DA0014D671 /* QNGiftService.m */; };
-		48B93889292E26590014D671 /* QNUserService.h in Headers */ = {isa = PBXBuildFile; fileRef = 48B93887292E26590014D671 /* QNUserService.h */; };
+		48B93889292E26590014D671 /* QNUserService.h in Headers */ = {isa = PBXBuildFile; fileRef = 48B93887292E26590014D671 /* QNUserService.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		48B9388A292E26590014D671 /* QNUserService.m in Sources */ = {isa = PBXBuildFile; fileRef = 48B93888292E26590014D671 /* QNUserService.m */; };
-		48B9388D292E399E0014D671 /* QNGiftMsgModel.h in Headers */ = {isa = PBXBuildFile; fileRef = 48B9388B292E399E0014D671 /* QNGiftMsgModel.h */; };
+		48B9388D292E399E0014D671 /* QNGiftMsgModel.h in Headers */ = {isa = PBXBuildFile; fileRef = 48B9388B292E399E0014D671 /* QNGiftMsgModel.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		48B9388E292E399E0014D671 /* QNGiftMsgModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 48B9388C292E399E0014D671 /* QNGiftMsgModel.m */; };
-		48B93896292E56C10014D671 /* QNGiftMessageCell.h in Headers */ = {isa = PBXBuildFile; fileRef = 48B93894292E56C10014D671 /* QNGiftMessageCell.h */; };
+		48B93896292E56C10014D671 /* QNGiftMessageCell.h in Headers */ = {isa = PBXBuildFile; fileRef = 48B93894292E56C10014D671 /* QNGiftMessageCell.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		48B93897292E56C10014D671 /* QNGiftMessageCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 48B93895292E56C10014D671 /* QNGiftMessageCell.m */; };
-		48B9389B292F1F5F0014D671 /* QNGiftPaySuccessView.h in Headers */ = {isa = PBXBuildFile; fileRef = 48B93899292F1F5F0014D671 /* QNGiftPaySuccessView.h */; };
+		48B9389B292F1F5F0014D671 /* QNGiftPaySuccessView.h in Headers */ = {isa = PBXBuildFile; fileRef = 48B93899292F1F5F0014D671 /* QNGiftPaySuccessView.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		48B9389C292F1F5F0014D671 /* QNGiftPaySuccessView.m in Sources */ = {isa = PBXBuildFile; fileRef = 48B9389A292F1F5F0014D671 /* QNGiftPaySuccessView.m */; };
-		48B938A0292F55640014D671 /* QNLikeService.h in Headers */ = {isa = PBXBuildFile; fileRef = 48B9389E292F55640014D671 /* QNLikeService.h */; };
+		48B938A0292F55640014D671 /* QNLikeService.h in Headers */ = {isa = PBXBuildFile; fileRef = 48B9389E292F55640014D671 /* QNLikeService.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		48B938A1292F55640014D671 /* QNLikeService.m in Sources */ = {isa = PBXBuildFile; fileRef = 48B9389F292F55640014D671 /* QNLikeService.m */; };
-		48B938A4292F5C0E0014D671 /* QNLikeResult.h in Headers */ = {isa = PBXBuildFile; fileRef = 48B938A2292F5C0E0014D671 /* QNLikeResult.h */; };
+		48B938A4292F5C0E0014D671 /* QNLikeResult.h in Headers */ = {isa = PBXBuildFile; fileRef = 48B938A2292F5C0E0014D671 /* QNLikeResult.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		48B938A5292F5C0E0014D671 /* QNLikeResult.m in Sources */ = {isa = PBXBuildFile; fileRef = 48B938A3292F5C0E0014D671 /* QNLikeResult.m */; };
-		48B938A9292F5FCB0014D671 /* QNLikeMenuView.h in Headers */ = {isa = PBXBuildFile; fileRef = 48B938A7292F5FCB0014D671 /* QNLikeMenuView.h */; };
+		48B938A9292F5FCB0014D671 /* QNLikeMenuView.h in Headers */ = {isa = PBXBuildFile; fileRef = 48B938A7292F5FCB0014D671 /* QNLikeMenuView.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		48B938AA292F5FCB0014D671 /* QNLikeMenuView.m in Sources */ = {isa = PBXBuildFile; fileRef = 48B938A8292F5FCB0014D671 /* QNLikeMenuView.m */; };
-		48B938AD292F5FDB0014D671 /* QNLikeBubbleView.h in Headers */ = {isa = PBXBuildFile; fileRef = 48B938AB292F5FDB0014D671 /* QNLikeBubbleView.h */; };
+		48B938AD292F5FDB0014D671 /* QNLikeBubbleView.h in Headers */ = {isa = PBXBuildFile; fileRef = 48B938AB292F5FDB0014D671 /* QNLikeBubbleView.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		48B938AE292F5FDB0014D671 /* QNLikeBubbleView.m in Sources */ = {isa = PBXBuildFile; fileRef = 48B938AC292F5FDB0014D671 /* QNLikeBubbleView.m */; };
-		48B938B1292F8EF10014D671 /* QNLikeNotify.h in Headers */ = {isa = PBXBuildFile; fileRef = 48B938AF292F8EF10014D671 /* QNLikeNotify.h */; };
+		48B938B1292F8EF10014D671 /* QNLikeNotify.h in Headers */ = {isa = PBXBuildFile; fileRef = 48B938AF292F8EF10014D671 /* QNLikeNotify.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		48B938B2292F8EF10014D671 /* QNLikeNotify.m in Sources */ = {isa = PBXBuildFile; fileRef = 48B938B0292F8EF10014D671 /* QNLikeNotify.m */; };
 		48C83DD82940C1E40002C11B /* PLSTArEffects.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 48C83DD62940C1E40002C11B /* PLSTArEffects.framework */; };
 		48C83DD92940C1E40002C11B /* QNIMSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 48C83DD72940C1E40002C11B /* QNIMSDK.framework */; platformFilter = ios; };
 		48E87A2C2926445800F33059 /* STLock.m in Sources */ = {isa = PBXBuildFile; fileRef = 48E878F52926445800F33059 /* STLock.m */; };
 		48E87A2D2926445800F33059 /* STEffectsTimer.m in Sources */ = {isa = PBXBuildFile; fileRef = 48E878F62926445800F33059 /* STEffectsTimer.m */; };
-		48E87A2E2926445800F33059 /* STMobileLog.h in Headers */ = {isa = PBXBuildFile; fileRef = 48E878F72926445800F33059 /* STMobileLog.h */; };
+		48E87A2E2926445800F33059 /* STMobileLog.h in Headers */ = {isa = PBXBuildFile; fileRef = 48E878F72926445800F33059 /* STMobileLog.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		48E87A2F2926445800F33059 /* NSBundle+language.m in Sources */ = {isa = PBXBuildFile; fileRef = 48E878F82926445800F33059 /* NSBundle+language.m */; };
 		48E87A302926445800F33059 /* STConvert.m in Sources */ = {isa = PBXBuildFile; fileRef = 48E878F92926445800F33059 /* STConvert.m */; };
-		48E87A312926445800F33059 /* STLock.h in Headers */ = {isa = PBXBuildFile; fileRef = 48E878FA2926445800F33059 /* STLock.h */; };
-		48E87A322926445800F33059 /* STEffectsTimer.h in Headers */ = {isa = PBXBuildFile; fileRef = 48E878FB2926445800F33059 /* STEffectsTimer.h */; };
-		48E87A332926445800F33059 /* STConvert.h in Headers */ = {isa = PBXBuildFile; fileRef = 48E878FC2926445800F33059 /* STConvert.h */; };
-		48E87A342926445800F33059 /* NSBundle+language.h in Headers */ = {isa = PBXBuildFile; fileRef = 48E878FD2926445800F33059 /* NSBundle+language.h */; };
+		48E87A312926445800F33059 /* STLock.h in Headers */ = {isa = PBXBuildFile; fileRef = 48E878FA2926445800F33059 /* STLock.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		48E87A322926445800F33059 /* STEffectsTimer.h in Headers */ = {isa = PBXBuildFile; fileRef = 48E878FB2926445800F33059 /* STEffectsTimer.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		48E87A332926445800F33059 /* STConvert.h in Headers */ = {isa = PBXBuildFile; fileRef = 48E878FC2926445800F33059 /* STConvert.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		48E87A342926445800F33059 /* NSBundle+language.h in Headers */ = {isa = PBXBuildFile; fileRef = 48E878FD2926445800F33059 /* NSBundle+language.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		48E87A352926445800F33059 /* STDefaultSettingDataSourseGenerator.m in Sources */ = {isa = PBXBuildFile; fileRef = 48E879002926445800F33059 /* STDefaultSettingDataSourseGenerator.m */; };
-		48E87A362926445800F33059 /* STDefaultSettingDataSourseGenerator.h in Headers */ = {isa = PBXBuildFile; fileRef = 48E879012926445800F33059 /* STDefaultSettingDataSourseGenerator.h */; };
-		48E87A372926445800F33059 /* DefaultBeautyParameters.h in Headers */ = {isa = PBXBuildFile; fileRef = 48E879022926445800F33059 /* DefaultBeautyParameters.h */; };
-		48E87A382926445800F33059 /* STDefaultSetting.h in Headers */ = {isa = PBXBuildFile; fileRef = 48E879032926445800F33059 /* STDefaultSetting.h */; };
+		48E87A362926445800F33059 /* STDefaultSettingDataSourseGenerator.h in Headers */ = {isa = PBXBuildFile; fileRef = 48E879012926445800F33059 /* STDefaultSettingDataSourseGenerator.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		48E87A372926445800F33059 /* DefaultBeautyParameters.h in Headers */ = {isa = PBXBuildFile; fileRef = 48E879022926445800F33059 /* DefaultBeautyParameters.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		48E87A382926445800F33059 /* STDefaultSetting.h in Headers */ = {isa = PBXBuildFile; fileRef = 48E879032926445800F33059 /* STDefaultSetting.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		48E87A392926445800F33059 /* STDefaultSetting.m in Sources */ = {isa = PBXBuildFile; fileRef = 48E879042926445800F33059 /* STDefaultSetting.m */; };
-		48E87A3A2926445800F33059 /* STCamera.h in Headers */ = {isa = PBXBuildFile; fileRef = 48E879062926445800F33059 /* STCamera.h */; };
+		48E87A3A2926445800F33059 /* STCamera.h in Headers */ = {isa = PBXBuildFile; fileRef = 48E879062926445800F33059 /* STCamera.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		48E87A3B2926445800F33059 /* STCamera.m in Sources */ = {isa = PBXBuildFile; fileRef = 48E879072926445800F33059 /* STCamera.m */; };
-		48E87A522926445800F33059 /* STColorConversion.h in Headers */ = {isa = PBXBuildFile; fileRef = 48E879242926445800F33059 /* STColorConversion.h */; };
-		48E87A532926445800F33059 /* STGLPreview3.h in Headers */ = {isa = PBXBuildFile; fileRef = 48E879252926445800F33059 /* STGLPreview3.h */; };
+		48E87A522926445800F33059 /* STColorConversion.h in Headers */ = {isa = PBXBuildFile; fileRef = 48E879242926445800F33059 /* STColorConversion.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		48E87A532926445800F33059 /* STGLPreview3.h in Headers */ = {isa = PBXBuildFile; fileRef = 48E879252926445800F33059 /* STGLPreview3.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		48E87A542926445800F33059 /* STGLShader.m in Sources */ = {isa = PBXBuildFile; fileRef = 48E879262926445800F33059 /* STGLShader.m */; };
-		48E87A552926445800F33059 /* STVFShader.h in Headers */ = {isa = PBXBuildFile; fileRef = 48E879272926445800F33059 /* STVFShader.h */; };
+		48E87A552926445800F33059 /* STVFShader.h in Headers */ = {isa = PBXBuildFile; fileRef = 48E879272926445800F33059 /* STVFShader.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		48E87A562926445800F33059 /* STGLPreview2.m in Sources */ = {isa = PBXBuildFile; fileRef = 48E879282926445800F33059 /* STGLPreview2.m */; };
 		48E87A572926445800F33059 /* STColorConversion.m in Sources */ = {isa = PBXBuildFile; fileRef = 48E879292926445800F33059 /* STColorConversion.m */; };
 		48E87A582926445800F33059 /* STGLPreview3.m in Sources */ = {isa = PBXBuildFile; fileRef = 48E8792A2926445800F33059 /* STGLPreview3.m */; };
-		48E87A592926445800F33059 /* STGLShader.h in Headers */ = {isa = PBXBuildFile; fileRef = 48E8792B2926445800F33059 /* STGLShader.h */; };
-		48E87A5A2926445800F33059 /* STGLPreview2.h in Headers */ = {isa = PBXBuildFile; fileRef = 48E8792C2926445800F33059 /* STGLPreview2.h */; };
+		48E87A592926445800F33059 /* STGLShader.h in Headers */ = {isa = PBXBuildFile; fileRef = 48E8792B2926445800F33059 /* STGLShader.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		48E87A5A2926445800F33059 /* STGLPreview2.h in Headers */ = {isa = PBXBuildFile; fileRef = 48E8792C2926445800F33059 /* STGLPreview2.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		48E87A5B2926445800F33059 /* STVFShader.m in Sources */ = {isa = PBXBuildFile; fileRef = 48E8792D2926445800F33059 /* STVFShader.m */; };
-		48E87A5C2926445800F33059 /* SenseArMaterialAction.h in Headers */ = {isa = PBXBuildFile; fileRef = 48E879302926445800F33059 /* SenseArMaterialAction.h */; };
-		48E87A5D2926445800F33059 /* SenseArMaterial.h in Headers */ = {isa = PBXBuildFile; fileRef = 48E879312926445800F33059 /* SenseArMaterial.h */; };
-		48E87A5E2926445800F33059 /* SenseArSourceService.h in Headers */ = {isa = PBXBuildFile; fileRef = 48E879322926445800F33059 /* SenseArSourceService.h */; };
-		48E87A5F2926445800F33059 /* SenseArMaterialService.h in Headers */ = {isa = PBXBuildFile; fileRef = 48E879332926445800F33059 /* SenseArMaterialService.h */; };
-		48E87A602926445800F33059 /* SenseArMaterialGroup.h in Headers */ = {isa = PBXBuildFile; fileRef = 48E879342926445800F33059 /* SenseArMaterialGroup.h */; };
+		48E87A5C2926445800F33059 /* SenseArMaterialAction.h in Headers */ = {isa = PBXBuildFile; fileRef = 48E879302926445800F33059 /* SenseArMaterialAction.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		48E87A5D2926445800F33059 /* SenseArMaterial.h in Headers */ = {isa = PBXBuildFile; fileRef = 48E879312926445800F33059 /* SenseArMaterial.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		48E87A5E2926445800F33059 /* SenseArSourceService.h in Headers */ = {isa = PBXBuildFile; fileRef = 48E879322926445800F33059 /* SenseArSourceService.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		48E87A5F2926445800F33059 /* SenseArMaterialService.h in Headers */ = {isa = PBXBuildFile; fileRef = 48E879332926445800F33059 /* SenseArMaterialService.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		48E87A602926445800F33059 /* SenseArMaterialGroup.h in Headers */ = {isa = PBXBuildFile; fileRef = 48E879342926445800F33059 /* SenseArMaterialGroup.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		48E87A622926445800F33059 /* libSenseArSourceService.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 48E879382926445800F33059 /* libSenseArSourceService.a */; };
 		48E87A632926445800F33059 /* EFMaterialDownloadManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 48E8793A2926445800F33059 /* EFMaterialDownloadManager.m */; };
 		48E87A642926445800F33059 /* EFDataSourceGenerator.m in Sources */ = {isa = PBXBuildFile; fileRef = 48E8793B2926445800F33059 /* EFDataSourceGenerator.m */; };
-		48E87A652926445800F33059 /* EFSenseArMaterialDataModels.h in Headers */ = {isa = PBXBuildFile; fileRef = 48E8793C2926445800F33059 /* EFSenseArMaterialDataModels.h */; };
+		48E87A652926445800F33059 /* EFSenseArMaterialDataModels.h in Headers */ = {isa = PBXBuildFile; fileRef = 48E8793C2926445800F33059 /* EFSenseArMaterialDataModels.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		48E87A662926445800F33059 /* NSString+sha1.m in Sources */ = {isa = PBXBuildFile; fileRef = 48E8793D2926445800F33059 /* NSString+sha1.m */; };
 		48E87A672926445800F33059 /* NSDictionary+sortedJson.m in Sources */ = {isa = PBXBuildFile; fileRef = 48E8793E2926445800F33059 /* NSDictionary+sortedJson.m */; };
 		48E87A682926445800F33059 /* EFResource.m in Sources */ = {isa = PBXBuildFile; fileRef = 48E8793F2926445800F33059 /* EFResource.m */; };
 		48E87A692926445800F33059 /* NSString+materialAes.m in Sources */ = {isa = PBXBuildFile; fileRef = 48E879402926445800F33059 /* NSString+materialAes.m */; };
 		48E87A6A2926445800F33059 /* NSData+meterialAes.m in Sources */ = {isa = PBXBuildFile; fileRef = 48E879412926445800F33059 /* NSData+meterialAes.m */; };
-		48E87A6B2926445800F33059 /* YYClassInfo.h in Headers */ = {isa = PBXBuildFile; fileRef = 48E879432926445800F33059 /* YYClassInfo.h */; };
-		48E87A6C2926445800F33059 /* YYModel.h in Headers */ = {isa = PBXBuildFile; fileRef = 48E879442926445800F33059 /* YYModel.h */; };
+		48E87A6B2926445800F33059 /* YYClassInfo.h in Headers */ = {isa = PBXBuildFile; fileRef = 48E879432926445800F33059 /* YYClassInfo.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		48E87A6C2926445800F33059 /* YYModel.h in Headers */ = {isa = PBXBuildFile; fileRef = 48E879442926445800F33059 /* YYModel.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		48E87A6D2926445800F33059 /* NSObject+YYModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 48E879452926445800F33059 /* NSObject+YYModel.m */; };
 		48E87A6E2926445800F33059 /* YYClassInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 48E879462926445800F33059 /* YYClassInfo.m */; };
 		48E87A6F2926445800F33059 /* YYImageCache.m in Sources */ = {isa = PBXBuildFile; fileRef = 48E879482926445800F33059 /* YYImageCache.m */; };
 		48E87A702926445800F33059 /* YYDiskCache.m in Sources */ = {isa = PBXBuildFile; fileRef = 48E8794A2926445800F33059 /* YYDiskCache.m */; };
-		48E87A712926445800F33059 /* YYKVStorage.h in Headers */ = {isa = PBXBuildFile; fileRef = 48E8794B2926445800F33059 /* YYKVStorage.h */; };
+		48E87A712926445800F33059 /* YYKVStorage.h in Headers */ = {isa = PBXBuildFile; fileRef = 48E8794B2926445800F33059 /* YYKVStorage.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		48E87A722926445800F33059 /* YYCache.m in Sources */ = {isa = PBXBuildFile; fileRef = 48E8794C2926445800F33059 /* YYCache.m */; };
-		48E87A732926445800F33059 /* YYMemoryCache.h in Headers */ = {isa = PBXBuildFile; fileRef = 48E8794D2926445800F33059 /* YYMemoryCache.h */; };
-		48E87A742926445800F33059 /* YYDiskCache.h in Headers */ = {isa = PBXBuildFile; fileRef = 48E8794E2926445800F33059 /* YYDiskCache.h */; };
-		48E87A752926445800F33059 /* YYCache.h in Headers */ = {isa = PBXBuildFile; fileRef = 48E8794F2926445800F33059 /* YYCache.h */; };
+		48E87A732926445800F33059 /* YYMemoryCache.h in Headers */ = {isa = PBXBuildFile; fileRef = 48E8794D2926445800F33059 /* YYMemoryCache.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		48E87A742926445800F33059 /* YYDiskCache.h in Headers */ = {isa = PBXBuildFile; fileRef = 48E8794E2926445800F33059 /* YYDiskCache.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		48E87A752926445800F33059 /* YYCache.h in Headers */ = {isa = PBXBuildFile; fileRef = 48E8794F2926445800F33059 /* YYCache.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		48E87A762926445800F33059 /* YYKVStorage.m in Sources */ = {isa = PBXBuildFile; fileRef = 48E879502926445800F33059 /* YYKVStorage.m */; };
 		48E87A772926445800F33059 /* YYMemoryCache.m in Sources */ = {isa = PBXBuildFile; fileRef = 48E879512926445800F33059 /* YYMemoryCache.m */; };
 		48E87A782926445800F33059 /* YYWebImageManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 48E879522926445800F33059 /* YYWebImageManager.m */; };
-		48E87A792926445800F33059 /* YYWebImageOperation.h in Headers */ = {isa = PBXBuildFile; fileRef = 48E879532926445800F33059 /* YYWebImageOperation.h */; };
-		48E87A7A2926445800F33059 /* YYImage.h in Headers */ = {isa = PBXBuildFile; fileRef = 48E879552926445800F33059 /* YYImage.h */; };
-		48E87A7B2926445800F33059 /* YYImageCoder.h in Headers */ = {isa = PBXBuildFile; fileRef = 48E879562926445800F33059 /* YYImageCoder.h */; };
-		48E87A7C2926445800F33059 /* YYFrameImage.h in Headers */ = {isa = PBXBuildFile; fileRef = 48E879572926445800F33059 /* YYFrameImage.h */; };
+		48E87A792926445800F33059 /* YYWebImageOperation.h in Headers */ = {isa = PBXBuildFile; fileRef = 48E879532926445800F33059 /* YYWebImageOperation.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		48E87A7A2926445800F33059 /* YYImage.h in Headers */ = {isa = PBXBuildFile; fileRef = 48E879552926445800F33059 /* YYImage.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		48E87A7B2926445800F33059 /* YYImageCoder.h in Headers */ = {isa = PBXBuildFile; fileRef = 48E879562926445800F33059 /* YYImageCoder.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		48E87A7C2926445800F33059 /* YYFrameImage.h in Headers */ = {isa = PBXBuildFile; fileRef = 48E879572926445800F33059 /* YYFrameImage.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		48E87A7D2926445800F33059 /* YYSpriteSheetImage.m in Sources */ = {isa = PBXBuildFile; fileRef = 48E879582926445800F33059 /* YYSpriteSheetImage.m */; };
-		48E87A7E2926445800F33059 /* YYAnimatedImageView.h in Headers */ = {isa = PBXBuildFile; fileRef = 48E879592926445800F33059 /* YYAnimatedImageView.h */; };
+		48E87A7E2926445800F33059 /* YYAnimatedImageView.h in Headers */ = {isa = PBXBuildFile; fileRef = 48E879592926445800F33059 /* YYAnimatedImageView.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		48E87A7F2926445800F33059 /* YYImage.m in Sources */ = {isa = PBXBuildFile; fileRef = 48E8795A2926445800F33059 /* YYImage.m */; };
 		48E87A802926445800F33059 /* YYImageCoder.m in Sources */ = {isa = PBXBuildFile; fileRef = 48E8795B2926445800F33059 /* YYImageCoder.m */; };
 		48E87A812926445800F33059 /* YYFrameImage.m in Sources */ = {isa = PBXBuildFile; fileRef = 48E8795C2926445800F33059 /* YYFrameImage.m */; };
 		48E87A822926445800F33059 /* YYAnimatedImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = 48E8795D2926445800F33059 /* YYAnimatedImageView.m */; };
-		48E87A832926445800F33059 /* YYSpriteSheetImage.h in Headers */ = {isa = PBXBuildFile; fileRef = 48E8795E2926445800F33059 /* YYSpriteSheetImage.h */; };
-		48E87A842926445800F33059 /* YYImageCache.h in Headers */ = {isa = PBXBuildFile; fileRef = 48E8795F2926445800F33059 /* YYImageCache.h */; };
-		48E87A852926445800F33059 /* YYWebImageManager.h in Headers */ = {isa = PBXBuildFile; fileRef = 48E879602926445800F33059 /* YYWebImageManager.h */; };
+		48E87A832926445800F33059 /* YYSpriteSheetImage.h in Headers */ = {isa = PBXBuildFile; fileRef = 48E8795E2926445800F33059 /* YYSpriteSheetImage.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		48E87A842926445800F33059 /* YYImageCache.h in Headers */ = {isa = PBXBuildFile; fileRef = 48E8795F2926445800F33059 /* YYImageCache.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		48E87A852926445800F33059 /* YYWebImageManager.h in Headers */ = {isa = PBXBuildFile; fileRef = 48E879602926445800F33059 /* YYWebImageManager.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		48E87A862926445800F33059 /* _YYWebImageSetter.m in Sources */ = {isa = PBXBuildFile; fileRef = 48E879622926445800F33059 /* _YYWebImageSetter.m */; };
-		48E87A872926445800F33059 /* UIButton+YYWebImage.h in Headers */ = {isa = PBXBuildFile; fileRef = 48E879632926445800F33059 /* UIButton+YYWebImage.h */; };
-		48E87A882926445800F33059 /* UIImageView+YYWebImage.h in Headers */ = {isa = PBXBuildFile; fileRef = 48E879642926445800F33059 /* UIImageView+YYWebImage.h */; };
-		48E87A892926445800F33059 /* CALayer+YYWebImage.h in Headers */ = {isa = PBXBuildFile; fileRef = 48E879652926445800F33059 /* CALayer+YYWebImage.h */; };
-		48E87A8A2926445800F33059 /* UIImage+YYWebImage.h in Headers */ = {isa = PBXBuildFile; fileRef = 48E879662926445800F33059 /* UIImage+YYWebImage.h */; };
-		48E87A8B2926445800F33059 /* MKAnnotationView+YYWebImage.h in Headers */ = {isa = PBXBuildFile; fileRef = 48E879672926445800F33059 /* MKAnnotationView+YYWebImage.h */; };
-		48E87A8C2926445800F33059 /* _YYWebImageSetter.h in Headers */ = {isa = PBXBuildFile; fileRef = 48E879682926445800F33059 /* _YYWebImageSetter.h */; };
+		48E87A872926445800F33059 /* UIButton+YYWebImage.h in Headers */ = {isa = PBXBuildFile; fileRef = 48E879632926445800F33059 /* UIButton+YYWebImage.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		48E87A882926445800F33059 /* UIImageView+YYWebImage.h in Headers */ = {isa = PBXBuildFile; fileRef = 48E879642926445800F33059 /* UIImageView+YYWebImage.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		48E87A892926445800F33059 /* CALayer+YYWebImage.h in Headers */ = {isa = PBXBuildFile; fileRef = 48E879652926445800F33059 /* CALayer+YYWebImage.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		48E87A8A2926445800F33059 /* UIImage+YYWebImage.h in Headers */ = {isa = PBXBuildFile; fileRef = 48E879662926445800F33059 /* UIImage+YYWebImage.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		48E87A8B2926445800F33059 /* MKAnnotationView+YYWebImage.h in Headers */ = {isa = PBXBuildFile; fileRef = 48E879672926445800F33059 /* MKAnnotationView+YYWebImage.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		48E87A8C2926445800F33059 /* _YYWebImageSetter.h in Headers */ = {isa = PBXBuildFile; fileRef = 48E879682926445800F33059 /* _YYWebImageSetter.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		48E87A8D2926445800F33059 /* UIButton+YYWebImage.m in Sources */ = {isa = PBXBuildFile; fileRef = 48E879692926445800F33059 /* UIButton+YYWebImage.m */; };
 		48E87A8E2926445800F33059 /* UIImageView+YYWebImage.m in Sources */ = {isa = PBXBuildFile; fileRef = 48E8796A2926445800F33059 /* UIImageView+YYWebImage.m */; };
 		48E87A8F2926445800F33059 /* MKAnnotationView+YYWebImage.m in Sources */ = {isa = PBXBuildFile; fileRef = 48E8796B2926445800F33059 /* MKAnnotationView+YYWebImage.m */; };
 		48E87A902926445800F33059 /* UIImage+YYWebImage.m in Sources */ = {isa = PBXBuildFile; fileRef = 48E8796C2926445800F33059 /* UIImage+YYWebImage.m */; };
 		48E87A912926445800F33059 /* CALayer+YYWebImage.m in Sources */ = {isa = PBXBuildFile; fileRef = 48E8796D2926445800F33059 /* CALayer+YYWebImage.m */; };
-		48E87A922926445800F33059 /* YYWebImage.h in Headers */ = {isa = PBXBuildFile; fileRef = 48E8796E2926445800F33059 /* YYWebImage.h */; };
+		48E87A922926445800F33059 /* YYWebImage.h in Headers */ = {isa = PBXBuildFile; fileRef = 48E8796E2926445800F33059 /* YYWebImage.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		48E87A932926445800F33059 /* YYWebImageOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 48E8796F2926445800F33059 /* YYWebImageOperation.m */; };
-		48E87A942926445800F33059 /* NSObject+YYModel.h in Headers */ = {isa = PBXBuildFile; fileRef = 48E879702926445800F33059 /* NSObject+YYModel.h */; };
+		48E87A942926445800F33059 /* NSObject+YYModel.h in Headers */ = {isa = PBXBuildFile; fileRef = 48E879702926445800F33059 /* NSObject+YYModel.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		48E87A952926445800F33059 /* EFSenseArMaterialDataModels.m in Sources */ = {isa = PBXBuildFile; fileRef = 48E879712926445800F33059 /* EFSenseArMaterialDataModels.m */; };
-		48E87A962926445800F33059 /* EFDataSourceGenerator.h in Headers */ = {isa = PBXBuildFile; fileRef = 48E879722926445800F33059 /* EFDataSourceGenerator.h */; };
-		48E87A972926445800F33059 /* EFMaterialDownloadManager.h in Headers */ = {isa = PBXBuildFile; fileRef = 48E879732926445800F33059 /* EFMaterialDownloadManager.h */; };
-		48E87A982926445800F33059 /* NSDictionary+sortedJson.h in Headers */ = {isa = PBXBuildFile; fileRef = 48E879742926445800F33059 /* NSDictionary+sortedJson.h */; };
-		48E87A992926445800F33059 /* WKWebView+AFNetworking.h in Headers */ = {isa = PBXBuildFile; fileRef = 48E879772926445800F33059 /* WKWebView+AFNetworking.h */; };
+		48E87A962926445800F33059 /* EFDataSourceGenerator.h in Headers */ = {isa = PBXBuildFile; fileRef = 48E879722926445800F33059 /* EFDataSourceGenerator.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		48E87A972926445800F33059 /* EFMaterialDownloadManager.h in Headers */ = {isa = PBXBuildFile; fileRef = 48E879732926445800F33059 /* EFMaterialDownloadManager.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		48E87A982926445800F33059 /* NSDictionary+sortedJson.h in Headers */ = {isa = PBXBuildFile; fileRef = 48E879742926445800F33059 /* NSDictionary+sortedJson.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		48E87A992926445800F33059 /* WKWebView+AFNetworking.h in Headers */ = {isa = PBXBuildFile; fileRef = 48E879772926445800F33059 /* WKWebView+AFNetworking.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		48E87A9A2926445800F33059 /* UIProgressView+AFNetworking.m in Sources */ = {isa = PBXBuildFile; fileRef = 48E879782926445800F33059 /* UIProgressView+AFNetworking.m */; };
-		48E87A9B2926445800F33059 /* UIButton+AFNetworking.h in Headers */ = {isa = PBXBuildFile; fileRef = 48E879792926445800F33059 /* UIButton+AFNetworking.h */; };
+		48E87A9B2926445800F33059 /* UIButton+AFNetworking.h in Headers */ = {isa = PBXBuildFile; fileRef = 48E879792926445800F33059 /* UIButton+AFNetworking.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		48E87A9C2926445800F33059 /* UIRefreshControl+AFNetworking.m in Sources */ = {isa = PBXBuildFile; fileRef = 48E8797A2926445800F33059 /* UIRefreshControl+AFNetworking.m */; };
-		48E87A9D2926445800F33059 /* UIImageView+AFNetworking.h in Headers */ = {isa = PBXBuildFile; fileRef = 48E8797B2926445800F33059 /* UIImageView+AFNetworking.h */; };
-		48E87A9E2926445800F33059 /* AFImageDownloader.h in Headers */ = {isa = PBXBuildFile; fileRef = 48E8797C2926445800F33059 /* AFImageDownloader.h */; };
+		48E87A9D2926445800F33059 /* UIImageView+AFNetworking.h in Headers */ = {isa = PBXBuildFile; fileRef = 48E8797B2926445800F33059 /* UIImageView+AFNetworking.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		48E87A9E2926445800F33059 /* AFImageDownloader.h in Headers */ = {isa = PBXBuildFile; fileRef = 48E8797C2926445800F33059 /* AFImageDownloader.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		48E87A9F2926445800F33059 /* AFNetworkActivityIndicatorManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 48E8797D2926445800F33059 /* AFNetworkActivityIndicatorManager.m */; };
-		48E87AA02926445800F33059 /* AFAutoPurgingImageCache.h in Headers */ = {isa = PBXBuildFile; fileRef = 48E8797E2926445800F33059 /* AFAutoPurgingImageCache.h */; };
-		48E87AA12926445800F33059 /* UIActivityIndicatorView+AFNetworking.h in Headers */ = {isa = PBXBuildFile; fileRef = 48E8797F2926445800F33059 /* UIActivityIndicatorView+AFNetworking.h */; };
+		48E87AA02926445800F33059 /* AFAutoPurgingImageCache.h in Headers */ = {isa = PBXBuildFile; fileRef = 48E8797E2926445800F33059 /* AFAutoPurgingImageCache.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		48E87AA12926445800F33059 /* UIActivityIndicatorView+AFNetworking.h in Headers */ = {isa = PBXBuildFile; fileRef = 48E8797F2926445800F33059 /* UIActivityIndicatorView+AFNetworking.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		48E87AA22926445800F33059 /* WKWebView+AFNetworking.m in Sources */ = {isa = PBXBuildFile; fileRef = 48E879802926445800F33059 /* WKWebView+AFNetworking.m */; };
-		48E87AA32926445800F33059 /* UIProgressView+AFNetworking.h in Headers */ = {isa = PBXBuildFile; fileRef = 48E879812926445800F33059 /* UIProgressView+AFNetworking.h */; };
+		48E87AA32926445800F33059 /* UIProgressView+AFNetworking.h in Headers */ = {isa = PBXBuildFile; fileRef = 48E879812926445800F33059 /* UIProgressView+AFNetworking.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		48E87AA42926445800F33059 /* UIImageView+AFNetworking.m in Sources */ = {isa = PBXBuildFile; fileRef = 48E879822926445800F33059 /* UIImageView+AFNetworking.m */; };
-		48E87AA52926445800F33059 /* UIKit+AFNetworking.h in Headers */ = {isa = PBXBuildFile; fileRef = 48E879832926445800F33059 /* UIKit+AFNetworking.h */; };
-		48E87AA62926445800F33059 /* UIRefreshControl+AFNetworking.h in Headers */ = {isa = PBXBuildFile; fileRef = 48E879842926445800F33059 /* UIRefreshControl+AFNetworking.h */; };
+		48E87AA52926445800F33059 /* UIKit+AFNetworking.h in Headers */ = {isa = PBXBuildFile; fileRef = 48E879832926445800F33059 /* UIKit+AFNetworking.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		48E87AA62926445800F33059 /* UIRefreshControl+AFNetworking.h in Headers */ = {isa = PBXBuildFile; fileRef = 48E879842926445800F33059 /* UIRefreshControl+AFNetworking.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		48E87AA72926445800F33059 /* UIButton+AFNetworking.m in Sources */ = {isa = PBXBuildFile; fileRef = 48E879852926445800F33059 /* UIButton+AFNetworking.m */; };
 		48E87AA82926445800F33059 /* UIActivityIndicatorView+AFNetworking.m in Sources */ = {isa = PBXBuildFile; fileRef = 48E879862926445800F33059 /* UIActivityIndicatorView+AFNetworking.m */; };
 		48E87AA92926445800F33059 /* AFAutoPurgingImageCache.m in Sources */ = {isa = PBXBuildFile; fileRef = 48E879872926445800F33059 /* AFAutoPurgingImageCache.m */; };
-		48E87AAA2926445800F33059 /* AFNetworkActivityIndicatorManager.h in Headers */ = {isa = PBXBuildFile; fileRef = 48E879882926445800F33059 /* AFNetworkActivityIndicatorManager.h */; };
+		48E87AAA2926445800F33059 /* AFNetworkActivityIndicatorManager.h in Headers */ = {isa = PBXBuildFile; fileRef = 48E879882926445800F33059 /* AFNetworkActivityIndicatorManager.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		48E87AAB2926445800F33059 /* AFImageDownloader.m in Sources */ = {isa = PBXBuildFile; fileRef = 48E879892926445800F33059 /* AFImageDownloader.m */; };
-		48E87AAC2926445800F33059 /* AFSecurityPolicy.h in Headers */ = {isa = PBXBuildFile; fileRef = 48E8798B2926445800F33059 /* AFSecurityPolicy.h */; };
-		48E87AAD2926445800F33059 /* AFNetworkReachabilityManager.h in Headers */ = {isa = PBXBuildFile; fileRef = 48E8798C2926445800F33059 /* AFNetworkReachabilityManager.h */; };
-		48E87AAE2926445800F33059 /* AFURLSessionManager.h in Headers */ = {isa = PBXBuildFile; fileRef = 48E8798D2926445800F33059 /* AFURLSessionManager.h */; };
-		48E87AAF2926445800F33059 /* AFURLRequestSerialization.h in Headers */ = {isa = PBXBuildFile; fileRef = 48E8798E2926445800F33059 /* AFURLRequestSerialization.h */; };
+		48E87AAC2926445800F33059 /* AFSecurityPolicy.h in Headers */ = {isa = PBXBuildFile; fileRef = 48E8798B2926445800F33059 /* AFSecurityPolicy.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		48E87AAD2926445800F33059 /* AFNetworkReachabilityManager.h in Headers */ = {isa = PBXBuildFile; fileRef = 48E8798C2926445800F33059 /* AFNetworkReachabilityManager.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		48E87AAE2926445800F33059 /* AFURLSessionManager.h in Headers */ = {isa = PBXBuildFile; fileRef = 48E8798D2926445800F33059 /* AFURLSessionManager.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		48E87AAF2926445800F33059 /* AFURLRequestSerialization.h in Headers */ = {isa = PBXBuildFile; fileRef = 48E8798E2926445800F33059 /* AFURLRequestSerialization.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		48E87AB02926445800F33059 /* AFURLResponseSerialization.m in Sources */ = {isa = PBXBuildFile; fileRef = 48E8798F2926445800F33059 /* AFURLResponseSerialization.m */; };
 		48E87AB12926445800F33059 /* AFHTTPSessionManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 48E879902926445800F33059 /* AFHTTPSessionManager.m */; };
-		48E87AB22926445800F33059 /* AFURLResponseSerialization.h in Headers */ = {isa = PBXBuildFile; fileRef = 48E879912926445800F33059 /* AFURLResponseSerialization.h */; };
+		48E87AB22926445800F33059 /* AFURLResponseSerialization.h in Headers */ = {isa = PBXBuildFile; fileRef = 48E879912926445800F33059 /* AFURLResponseSerialization.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		48E87AB32926445800F33059 /* AFURLSessionManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 48E879922926445800F33059 /* AFURLSessionManager.m */; };
 		48E87AB42926445800F33059 /* AFURLRequestSerialization.m in Sources */ = {isa = PBXBuildFile; fileRef = 48E879932926445800F33059 /* AFURLRequestSerialization.m */; };
-		48E87AB52926445800F33059 /* AFNetworking.h in Headers */ = {isa = PBXBuildFile; fileRef = 48E879942926445800F33059 /* AFNetworking.h */; };
+		48E87AB52926445800F33059 /* AFNetworking.h in Headers */ = {isa = PBXBuildFile; fileRef = 48E879942926445800F33059 /* AFNetworking.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		48E87AB62926445800F33059 /* AFNetworkReachabilityManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 48E879952926445800F33059 /* AFNetworkReachabilityManager.m */; };
 		48E87AB72926445800F33059 /* AFSecurityPolicy.m in Sources */ = {isa = PBXBuildFile; fileRef = 48E879962926445800F33059 /* AFSecurityPolicy.m */; };
-		48E87AB82926445800F33059 /* AFCompatibilityMacros.h in Headers */ = {isa = PBXBuildFile; fileRef = 48E879972926445800F33059 /* AFCompatibilityMacros.h */; };
-		48E87AB92926445800F33059 /* AFHTTPSessionManager.h in Headers */ = {isa = PBXBuildFile; fileRef = 48E879982926445800F33059 /* AFHTTPSessionManager.h */; };
-		48E87ABA2926445800F33059 /* NSString+sha1.h in Headers */ = {isa = PBXBuildFile; fileRef = 48E879992926445800F33059 /* NSString+sha1.h */; };
+		48E87AB82926445800F33059 /* AFCompatibilityMacros.h in Headers */ = {isa = PBXBuildFile; fileRef = 48E879972926445800F33059 /* AFCompatibilityMacros.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		48E87AB92926445800F33059 /* AFHTTPSessionManager.h in Headers */ = {isa = PBXBuildFile; fileRef = 48E879982926445800F33059 /* AFHTTPSessionManager.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		48E87ABA2926445800F33059 /* NSString+sha1.h in Headers */ = {isa = PBXBuildFile; fileRef = 48E879992926445800F33059 /* NSString+sha1.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		48E87ABB2926445800F33059 /* MBProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = 48E8799B2926445800F33059 /* MBProgressHUD.m */; };
-		48E87ABC2926445800F33059 /* MBProgressHUD.h in Headers */ = {isa = PBXBuildFile; fileRef = 48E8799C2926445800F33059 /* MBProgressHUD.h */; };
-		48E87ABE2926445800F33059 /* NSString+materialAes.h in Headers */ = {isa = PBXBuildFile; fileRef = 48E8799E2926445800F33059 /* NSString+materialAes.h */; };
-		48E87ABF2926445800F33059 /* EFDataSourcing.h in Headers */ = {isa = PBXBuildFile; fileRef = 48E8799F2926445800F33059 /* EFDataSourcing.h */; };
-		48E87AC02926445800F33059 /* EFResource.h in Headers */ = {isa = PBXBuildFile; fileRef = 48E879A02926445800F33059 /* EFResource.h */; };
-		48E87AC12926445800F33059 /* EFMaterialDownloadStatusManager.h in Headers */ = {isa = PBXBuildFile; fileRef = 48E879A22926445800F33059 /* EFMaterialDownloadStatusManager.h */; };
+		48E87ABC2926445800F33059 /* MBProgressHUD.h in Headers */ = {isa = PBXBuildFile; fileRef = 48E8799C2926445800F33059 /* MBProgressHUD.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		48E87ABE2926445800F33059 /* NSString+materialAes.h in Headers */ = {isa = PBXBuildFile; fileRef = 48E8799E2926445800F33059 /* NSString+materialAes.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		48E87ABF2926445800F33059 /* EFDataSourcing.h in Headers */ = {isa = PBXBuildFile; fileRef = 48E8799F2926445800F33059 /* EFDataSourcing.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		48E87AC02926445800F33059 /* EFResource.h in Headers */ = {isa = PBXBuildFile; fileRef = 48E879A02926445800F33059 /* EFResource.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		48E87AC12926445800F33059 /* EFMaterialDownloadStatusManager.h in Headers */ = {isa = PBXBuildFile; fileRef = 48E879A22926445800F33059 /* EFMaterialDownloadStatusManager.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		48E87AC32926445800F33059 /* NSDictionary+jsonFile.m in Sources */ = {isa = PBXBuildFile; fileRef = 48E879A42926445800F33059 /* NSDictionary+jsonFile.m */; };
 		48E87AC42926445800F33059 /* EFRemoteDataSourceHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 48E879A52926445800F33059 /* EFRemoteDataSourceHelper.m */; };
-		48E87AC52926445800F33059 /* EFStatusManagerDelegate.h in Headers */ = {isa = PBXBuildFile; fileRef = 48E879A62926445800F33059 /* EFStatusManagerDelegate.h */; };
+		48E87AC52926445800F33059 /* EFStatusManagerDelegate.h in Headers */ = {isa = PBXBuildFile; fileRef = 48E879A62926445800F33059 /* EFStatusManagerDelegate.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		48E87AC62926445800F33059 /* EFStorageHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 48E879A72926445800F33059 /* EFStorageHelper.m */; };
-		48E87AC72926445800F33059 /* NSObject+dictionary.h in Headers */ = {isa = PBXBuildFile; fileRef = 48E879A82926445800F33059 /* NSObject+dictionary.h */; };
-		48E87AC82926445800F33059 /* EFStatusModels.h in Headers */ = {isa = PBXBuildFile; fileRef = 48E879A92926445800F33059 /* EFStatusModels.h */; };
-		48E87AC92926445800F33059 /* EFAuthorizeAdapter.h in Headers */ = {isa = PBXBuildFile; fileRef = 48E879AA2926445800F33059 /* EFAuthorizeAdapter.h */; };
-		48E87ACA2926445800F33059 /* EFRemoteDataSourceHelper+groupInfos.h in Headers */ = {isa = PBXBuildFile; fileRef = 48E879AB2926445800F33059 /* EFRemoteDataSourceHelper+groupInfos.h */; };
+		48E87AC72926445800F33059 /* NSObject+dictionary.h in Headers */ = {isa = PBXBuildFile; fileRef = 48E879A82926445800F33059 /* NSObject+dictionary.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		48E87AC82926445800F33059 /* EFStatusModels.h in Headers */ = {isa = PBXBuildFile; fileRef = 48E879A92926445800F33059 /* EFStatusModels.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		48E87AC92926445800F33059 /* EFAuthorizeAdapter.h in Headers */ = {isa = PBXBuildFile; fileRef = 48E879AA2926445800F33059 /* EFAuthorizeAdapter.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		48E87ACA2926445800F33059 /* EFRemoteDataSourceHelper+groupInfos.h in Headers */ = {isa = PBXBuildFile; fileRef = 48E879AB2926445800F33059 /* EFRemoteDataSourceHelper+groupInfos.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		48E87ACB2926445800F33059 /* EFMachineVersion.m in Sources */ = {isa = PBXBuildFile; fileRef = 48E879AC2926445800F33059 /* EFMachineVersion.m */; };
 		48E87ACC2926445800F33059 /* EFGlobalSingleton.m in Sources */ = {isa = PBXBuildFile; fileRef = 48E879AD2926445800F33059 /* EFGlobalSingleton.m */; };
 		48E87ACD2926445800F33059 /* EFStatusManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 48E879AE2926445800F33059 /* EFStatusManager.m */; };
 		48E87ACE2926445800F33059 /* EFMaterialDownloadStatusManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 48E879AF2926445800F33059 /* EFMaterialDownloadStatusManager.m */; };
-		48E87AD02926445800F33059 /* EFRemoteDataSourceHelper.h in Headers */ = {isa = PBXBuildFile; fileRef = 48E879B12926445800F33059 /* EFRemoteDataSourceHelper.h */; };
-		48E87AD12926445800F33059 /* NSDictionary+jsonFile.h in Headers */ = {isa = PBXBuildFile; fileRef = 48E879B22926445800F33059 /* NSDictionary+jsonFile.h */; };
+		48E87AD02926445800F33059 /* EFRemoteDataSourceHelper.h in Headers */ = {isa = PBXBuildFile; fileRef = 48E879B12926445800F33059 /* EFRemoteDataSourceHelper.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		48E87AD12926445800F33059 /* NSDictionary+jsonFile.h in Headers */ = {isa = PBXBuildFile; fileRef = 48E879B22926445800F33059 /* NSDictionary+jsonFile.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		48E87AD22926445800F33059 /* NSObject+dictionary.m in Sources */ = {isa = PBXBuildFile; fileRef = 48E879B32926445800F33059 /* NSObject+dictionary.m */; };
 		48E87AD32926445800F33059 /* EFStatusModels.m in Sources */ = {isa = PBXBuildFile; fileRef = 48E879B42926445800F33059 /* EFStatusModels.m */; };
-		48E87AD42926445800F33059 /* EFStorageHelper.h in Headers */ = {isa = PBXBuildFile; fileRef = 48E879B52926445800F33059 /* EFStorageHelper.h */; };
-		48E87AD62926445800F33059 /* EFStatusManager.h in Headers */ = {isa = PBXBuildFile; fileRef = 48E879B72926445800F33059 /* EFStatusManager.h */; };
-		48E87AD72926445800F33059 /* EFGlobalSingleton.h in Headers */ = {isa = PBXBuildFile; fileRef = 48E879B82926445800F33059 /* EFGlobalSingleton.h */; };
-		48E87AD92926445800F33059 /* EFMachineVersion.h in Headers */ = {isa = PBXBuildFile; fileRef = 48E879BA2926445800F33059 /* EFMachineVersion.h */; };
+		48E87AD42926445800F33059 /* EFStorageHelper.h in Headers */ = {isa = PBXBuildFile; fileRef = 48E879B52926445800F33059 /* EFStorageHelper.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		48E87AD62926445800F33059 /* EFStatusManager.h in Headers */ = {isa = PBXBuildFile; fileRef = 48E879B72926445800F33059 /* EFStatusManager.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		48E87AD72926445800F33059 /* EFGlobalSingleton.h in Headers */ = {isa = PBXBuildFile; fileRef = 48E879B82926445800F33059 /* EFGlobalSingleton.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		48E87AD92926445800F33059 /* EFMachineVersion.h in Headers */ = {isa = PBXBuildFile; fileRef = 48E879BA2926445800F33059 /* EFMachineVersion.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		48E87ADB2926445800F33059 /* EFAuthorizeAdapter.m in Sources */ = {isa = PBXBuildFile; fileRef = 48E879BC2926445800F33059 /* EFAuthorizeAdapter.m */; };
 		48E87ADC2926445800F33059 /* EFRemoteDataSourceHelper+groupInfos.m in Sources */ = {isa = PBXBuildFile; fileRef = 48E879BD2926445800F33059 /* EFRemoteDataSourceHelper+groupInfos.m */; };
-		48E87ADD2926445800F33059 /* NSData+meterialAes.h in Headers */ = {isa = PBXBuildFile; fileRef = 48E879BE2926445800F33059 /* NSData+meterialAes.h */; };
+		48E87ADD2926445800F33059 /* NSData+meterialAes.h in Headers */ = {isa = PBXBuildFile; fileRef = 48E879BE2926445800F33059 /* NSData+meterialAes.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		48E87ADE2926445800F33059 /* STBaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 48E879BF2926445800F33059 /* STBaseViewController.m */; };
-		48E87ADF2926445800F33059 /* STCoreStateManagement.h in Headers */ = {isa = PBXBuildFile; fileRef = 48E879C22926445800F33059 /* STCoreStateManagement.h */; };
-		48E87AE02926445800F33059 /* STCoreStateManagementModel.h in Headers */ = {isa = PBXBuildFile; fileRef = 48E879C42926445800F33059 /* STCoreStateManagementModel.h */; };
+		48E87ADF2926445800F33059 /* STCoreStateManagement.h in Headers */ = {isa = PBXBuildFile; fileRef = 48E879C22926445800F33059 /* STCoreStateManagement.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		48E87AE02926445800F33059 /* STCoreStateManagementModel.h in Headers */ = {isa = PBXBuildFile; fileRef = 48E879C42926445800F33059 /* STCoreStateManagementModel.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		48E87AE12926445800F33059 /* STCoreStateManagementModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 48E879C52926445800F33059 /* STCoreStateManagementModel.m */; };
 		48E87AE22926445800F33059 /* STCoreStateManagementFilterModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 48E879C72926445800F33059 /* STCoreStateManagementFilterModel.m */; };
-		48E87AE32926445800F33059 /* STCoreStateManagementFilterModel.h in Headers */ = {isa = PBXBuildFile; fileRef = 48E879C82926445800F33059 /* STCoreStateManagementFilterModel.h */; };
-		48E87AE42926445800F33059 /* STCoreStateManagementValueChangeDelegate.h in Headers */ = {isa = PBXBuildFile; fileRef = 48E879C92926445800F33059 /* STCoreStateManagementValueChangeDelegate.h */; };
+		48E87AE32926445800F33059 /* STCoreStateManagementFilterModel.h in Headers */ = {isa = PBXBuildFile; fileRef = 48E879C82926445800F33059 /* STCoreStateManagementFilterModel.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		48E87AE42926445800F33059 /* STCoreStateManagementValueChangeDelegate.h in Headers */ = {isa = PBXBuildFile; fileRef = 48E879C92926445800F33059 /* STCoreStateManagementValueChangeDelegate.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		48E87AE52926445800F33059 /* STCoreStateManagement.m in Sources */ = {isa = PBXBuildFile; fileRef = 48E879CA2926445800F33059 /* STCoreStateManagement.m */; };
-		48E87AE62926445800F33059 /* STEffectsAudioPlayer.h in Headers */ = {isa = PBXBuildFile; fileRef = 48E879CC2926445800F33059 /* STEffectsAudioPlayer.h */; };
+		48E87AE62926445800F33059 /* STEffectsAudioPlayer.h in Headers */ = {isa = PBXBuildFile; fileRef = 48E879CC2926445800F33059 /* STEffectsAudioPlayer.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		48E87AE72926445800F33059 /* SystemSound.m in Sources */ = {isa = PBXBuildFile; fileRef = 48E879CD2926445800F33059 /* SystemSound.m */; };
-		48E87AE82926445800F33059 /* SoundInfomation.h in Headers */ = {isa = PBXBuildFile; fileRef = 48E879CE2926445800F33059 /* SoundInfomation.h */; };
+		48E87AE82926445800F33059 /* SoundInfomation.h in Headers */ = {isa = PBXBuildFile; fileRef = 48E879CE2926445800F33059 /* SoundInfomation.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		48E87AE92926445800F33059 /* STAudioManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 48E879CF2926445800F33059 /* STAudioManager.m */; };
 		48E87AEA2926445800F33059 /* STEffectsAudioPlayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 48E879D02926445800F33059 /* STEffectsAudioPlayer.m */; };
 		48E87AEB2926445800F33059 /* SoundInfomation.m in Sources */ = {isa = PBXBuildFile; fileRef = 48E879D12926445800F33059 /* SoundInfomation.m */; };
-		48E87AEC2926445800F33059 /* SystemSound.h in Headers */ = {isa = PBXBuildFile; fileRef = 48E879D22926445800F33059 /* SystemSound.h */; };
-		48E87AED2926445800F33059 /* STAudioManager.h in Headers */ = {isa = PBXBuildFile; fileRef = 48E879D32926445800F33059 /* STAudioManager.h */; };
-		48E87AEE2926445800F33059 /* STMovieRecorder.h in Headers */ = {isa = PBXBuildFile; fileRef = 48E879D52926445800F33059 /* STMovieRecorder.h */; };
+		48E87AEC2926445800F33059 /* SystemSound.h in Headers */ = {isa = PBXBuildFile; fileRef = 48E879D22926445800F33059 /* SystemSound.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		48E87AED2926445800F33059 /* STAudioManager.h in Headers */ = {isa = PBXBuildFile; fileRef = 48E879D32926445800F33059 /* STAudioManager.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		48E87AEE2926445800F33059 /* STMovieRecorder.h in Headers */ = {isa = PBXBuildFile; fileRef = 48E879D52926445800F33059 /* STMovieRecorder.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		48E87AEF2926445800F33059 /* STMovieRecorder.m in Sources */ = {isa = PBXBuildFile; fileRef = 48E879D62926445800F33059 /* STMovieRecorder.m */; };
-		48E87AF02926445800F33059 /* STBaseViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = 48E879D72926445800F33059 /* STBaseViewController.h */; };
-		48E87AF12926445800F33059 /* LicenseUtil.h in Headers */ = {isa = PBXBuildFile; fileRef = 48E879D92926445800F33059 /* LicenseUtil.h */; };
+		48E87AF02926445800F33059 /* STBaseViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = 48E879D72926445800F33059 /* STBaseViewController.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		48E87AF12926445800F33059 /* LicenseUtil.h in Headers */ = {isa = PBXBuildFile; fileRef = 48E879D92926445800F33059 /* LicenseUtil.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		48E87AF22926445800F33059 /* LicenseUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = 48E879DA2926445800F33059 /* LicenseUtil.m */; };
-		48E87AF32926445800F33059 /* STBMPDetailColVCell.h in Headers */ = {isa = PBXBuildFile; fileRef = 48E879DC2926445800F33059 /* STBMPDetailColVCell.h */; };
+		48E87AF32926445800F33059 /* STBMPDetailColVCell.h in Headers */ = {isa = PBXBuildFile; fileRef = 48E879DC2926445800F33059 /* STBMPDetailColVCell.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		48E87AF42926445900F33059 /* STBmpStrengthView.m in Sources */ = {isa = PBXBuildFile; fileRef = 48E879DD2926445800F33059 /* STBmpStrengthView.m */; };
-		48E87AF52926445900F33059 /* STBMPDetailColV.h in Headers */ = {isa = PBXBuildFile; fileRef = 48E879DE2926445800F33059 /* STBMPDetailColV.h */; };
-		48E87AF62926445900F33059 /* STPlayerControlBar.h in Headers */ = {isa = PBXBuildFile; fileRef = 48E879DF2926445800F33059 /* STPlayerControlBar.h */; };
+		48E87AF52926445900F33059 /* STBMPDetailColV.h in Headers */ = {isa = PBXBuildFile; fileRef = 48E879DE2926445800F33059 /* STBMPDetailColV.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		48E87AF62926445900F33059 /* STPlayerControlBar.h in Headers */ = {isa = PBXBuildFile; fileRef = 48E879DF2926445800F33059 /* STPlayerControlBar.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		48E87AF82926445900F33059 /* STButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 48E879E12926445800F33059 /* STButton.m */; };
-		48E87AF92926445900F33059 /* STSlideView.h in Headers */ = {isa = PBXBuildFile; fileRef = 48E879E22926445800F33059 /* STSlideView.h */; };
-		48E87AFA2926445900F33059 /* STScrollTitleView.h in Headers */ = {isa = PBXBuildFile; fileRef = 48E879E32926445800F33059 /* STScrollTitleView.h */; };
-		48E87AFB2926445900F33059 /* STViewButton.h in Headers */ = {isa = PBXBuildFile; fileRef = 48E879E42926445800F33059 /* STViewButton.h */; };
-		48E87AFC2926445900F33059 /* STFilterView.h in Headers */ = {isa = PBXBuildFile; fileRef = 48E879E52926445800F33059 /* STFilterView.h */; };
+		48E87AF92926445900F33059 /* STSlideView.h in Headers */ = {isa = PBXBuildFile; fileRef = 48E879E22926445800F33059 /* STSlideView.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		48E87AFA2926445900F33059 /* STScrollTitleView.h in Headers */ = {isa = PBXBuildFile; fileRef = 48E879E32926445800F33059 /* STScrollTitleView.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		48E87AFB2926445900F33059 /* STViewButton.h in Headers */ = {isa = PBXBuildFile; fileRef = 48E879E42926445800F33059 /* STViewButton.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		48E87AFC2926445900F33059 /* STFilterView.h in Headers */ = {isa = PBXBuildFile; fileRef = 48E879E52926445800F33059 /* STFilterView.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		48E87AFD2926445900F33059 /* STCommonObjectContainerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 48E879E62926445800F33059 /* STCommonObjectContainerView.m */; };
 		48E87AFE2926445900F33059 /* STTriggerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 48E879E72926445800F33059 /* STTriggerView.m */; };
-		48E87AFF2926445900F33059 /* STBMPCollectionView.h in Headers */ = {isa = PBXBuildFile; fileRef = 48E879E82926445800F33059 /* STBMPCollectionView.h */; };
+		48E87AFF2926445900F33059 /* STBMPCollectionView.h in Headers */ = {isa = PBXBuildFile; fileRef = 48E879E82926445800F33059 /* STBMPCollectionView.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		48E87B002926445900F33059 /* STMakeupDataModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 48E879E92926445800F33059 /* STMakeupDataModel.m */; };
-		48E87B012926445900F33059 /* STCollectionViewCell.h in Headers */ = {isa = PBXBuildFile; fileRef = 48E879EA2926445800F33059 /* STCollectionViewCell.h */; };
-		48E87B022926445900F33059 /* EffectsCollectionViewCell.h in Headers */ = {isa = PBXBuildFile; fileRef = 48E879EB2926445800F33059 /* EffectsCollectionViewCell.h */; };
+		48E87B012926445900F33059 /* STCollectionViewCell.h in Headers */ = {isa = PBXBuildFile; fileRef = 48E879EA2926445800F33059 /* STCollectionViewCell.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		48E87B022926445900F33059 /* EffectsCollectionViewCell.h in Headers */ = {isa = PBXBuildFile; fileRef = 48E879EB2926445800F33059 /* EffectsCollectionViewCell.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		48E87B032926445900F33059 /* STTitleViewItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 48E879EC2926445800F33059 /* STTitleViewItem.m */; };
-		48E87B042926445900F33059 /* STCollectionView.h in Headers */ = {isa = PBXBuildFile; fileRef = 48E879ED2926445800F33059 /* STCollectionView.h */; };
+		48E87B042926445900F33059 /* STCollectionView.h in Headers */ = {isa = PBXBuildFile; fileRef = 48E879ED2926445800F33059 /* STCollectionView.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		48E87B052926445900F33059 /* STCustomMemoryCache.m in Sources */ = {isa = PBXBuildFile; fileRef = 48E879EE2926445800F33059 /* STCustomMemoryCache.m */; };
-		48E87B062926445900F33059 /* EffectsCollectionView.h in Headers */ = {isa = PBXBuildFile; fileRef = 48E879EF2926445800F33059 /* EffectsCollectionView.h */; };
+		48E87B062926445900F33059 /* EffectsCollectionView.h in Headers */ = {isa = PBXBuildFile; fileRef = 48E879EF2926445800F33059 /* EffectsCollectionView.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		48E87B072926445900F33059 /* STParamUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = 48E879F02926445800F33059 /* STParamUtil.m */; };
 		48E87B082926445900F33059 /* STCustomCollectionView.m in Sources */ = {isa = PBXBuildFile; fileRef = 48E879F12926445800F33059 /* STCustomCollectionView.m */; };
-		48E87B092926445900F33059 /* STCommonObjectView.h in Headers */ = {isa = PBXBuildFile; fileRef = 48E879F22926445800F33059 /* STCommonObjectView.h */; };
-		48E87B0A2926445900F33059 /* UIView+Toast.h in Headers */ = {isa = PBXBuildFile; fileRef = 48E879F32926445800F33059 /* UIView+Toast.h */; };
-		48E87B0B2926445900F33059 /* STBMPCollectionViewCell.h in Headers */ = {isa = PBXBuildFile; fileRef = 48E879F42926445800F33059 /* STBMPCollectionViewCell.h */; };
+		48E87B092926445900F33059 /* STCommonObjectView.h in Headers */ = {isa = PBXBuildFile; fileRef = 48E879F22926445800F33059 /* STCommonObjectView.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		48E87B0A2926445900F33059 /* UIView+Toast.h in Headers */ = {isa = PBXBuildFile; fileRef = 48E879F32926445800F33059 /* UIView+Toast.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		48E87B0B2926445900F33059 /* STBMPCollectionViewCell.h in Headers */ = {isa = PBXBuildFile; fileRef = 48E879F42926445800F33059 /* STBMPCollectionViewCell.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		48E87B0C2926445900F33059 /* STBeautySlider.m in Sources */ = {isa = PBXBuildFile; fileRef = 48E879F52926445800F33059 /* STBeautySlider.m */; };
-		48E87B0D2926445900F33059 /* STCommonObjectContainerView.h in Headers */ = {isa = PBXBuildFile; fileRef = 48E879F62926445800F33059 /* STCommonObjectContainerView.h */; };
-		48E87B0E2926445900F33059 /* STTriggerView.h in Headers */ = {isa = PBXBuildFile; fileRef = 48E879F72926445800F33059 /* STTriggerView.h */; };
+		48E87B0D2926445900F33059 /* STCommonObjectContainerView.h in Headers */ = {isa = PBXBuildFile; fileRef = 48E879F62926445800F33059 /* STCommonObjectContainerView.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		48E87B0E2926445900F33059 /* STTriggerView.h in Headers */ = {isa = PBXBuildFile; fileRef = 48E879F72926445800F33059 /* STTriggerView.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		48E87B0F2926445900F33059 /* STFilterView.m in Sources */ = {isa = PBXBuildFile; fileRef = 48E879F82926445800F33059 /* STFilterView.m */; };
 		48E87B102926445900F33059 /* STViewButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 48E879F92926445800F33059 /* STViewButton.m */; };
 		48E87B112926445900F33059 /* STSlideView.m in Sources */ = {isa = PBXBuildFile; fileRef = 48E879FA2926445800F33059 /* STSlideView.m */; };
 		48E87B122926445900F33059 /* STScrollTitleView.m in Sources */ = {isa = PBXBuildFile; fileRef = 48E879FB2926445800F33059 /* STScrollTitleView.m */; };
-		48E87B132926445900F33059 /* STButton.h in Headers */ = {isa = PBXBuildFile; fileRef = 48E879FC2926445800F33059 /* STButton.h */; };
+		48E87B132926445900F33059 /* STButton.h in Headers */ = {isa = PBXBuildFile; fileRef = 48E879FC2926445800F33059 /* STButton.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		48E87B142926445900F33059 /* STPlayerControlBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 48E879FD2926445800F33059 /* STPlayerControlBar.m */; };
 		48E87B152926445900F33059 /* STBMPDetailColV.m in Sources */ = {isa = PBXBuildFile; fileRef = 48E879FE2926445800F33059 /* STBMPDetailColV.m */; };
-		48E87B162926445900F33059 /* STBmpStrengthView.h in Headers */ = {isa = PBXBuildFile; fileRef = 48E879FF2926445800F33059 /* STBmpStrengthView.h */; };
+		48E87B162926445900F33059 /* STBmpStrengthView.h in Headers */ = {isa = PBXBuildFile; fileRef = 48E879FF2926445800F33059 /* STBmpStrengthView.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		48E87B172926445900F33059 /* STBMPDetailColVCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 48E87A002926445800F33059 /* STBMPDetailColVCell.m */; };
 		48E87B182926445900F33059 /* STCollectionView.m in Sources */ = {isa = PBXBuildFile; fileRef = 48E87A012926445800F33059 /* STCollectionView.m */; };
-		48E87B1A2926445900F33059 /* STTitleViewItem.h in Headers */ = {isa = PBXBuildFile; fileRef = 48E87A032926445800F33059 /* STTitleViewItem.h */; };
+		48E87B1A2926445900F33059 /* STTitleViewItem.h in Headers */ = {isa = PBXBuildFile; fileRef = 48E87A032926445800F33059 /* STTitleViewItem.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		48E87B1B2926445900F33059 /* EffectsCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 48E87A042926445800F33059 /* EffectsCollectionViewCell.m */; };
 		48E87B1C2926445900F33059 /* STCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 48E87A052926445800F33059 /* STCollectionViewCell.m */; };
-		48E87B1D2926445900F33059 /* STMakeupDataModel.h in Headers */ = {isa = PBXBuildFile; fileRef = 48E87A062926445800F33059 /* STMakeupDataModel.h */; };
+		48E87B1D2926445900F33059 /* STMakeupDataModel.h in Headers */ = {isa = PBXBuildFile; fileRef = 48E87A062926445800F33059 /* STMakeupDataModel.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		48E87B1E2926445900F33059 /* STBMPCollectionView.m in Sources */ = {isa = PBXBuildFile; fileRef = 48E87A072926445800F33059 /* STBMPCollectionView.m */; };
 		48E87B1F2926445900F33059 /* STCommonObjectView.m in Sources */ = {isa = PBXBuildFile; fileRef = 48E87A082926445800F33059 /* STCommonObjectView.m */; };
-		48E87B202926445900F33059 /* STCustomCollectionView.h in Headers */ = {isa = PBXBuildFile; fileRef = 48E87A092926445800F33059 /* STCustomCollectionView.h */; };
-		48E87B212926445900F33059 /* STParamUtil.h in Headers */ = {isa = PBXBuildFile; fileRef = 48E87A0A2926445800F33059 /* STParamUtil.h */; };
-		48E87B222926445900F33059 /* STCustomMemoryCache.h in Headers */ = {isa = PBXBuildFile; fileRef = 48E87A0B2926445800F33059 /* STCustomMemoryCache.h */; };
+		48E87B202926445900F33059 /* STCustomCollectionView.h in Headers */ = {isa = PBXBuildFile; fileRef = 48E87A092926445800F33059 /* STCustomCollectionView.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		48E87B212926445900F33059 /* STParamUtil.h in Headers */ = {isa = PBXBuildFile; fileRef = 48E87A0A2926445800F33059 /* STParamUtil.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		48E87B222926445900F33059 /* STCustomMemoryCache.h in Headers */ = {isa = PBXBuildFile; fileRef = 48E87A0B2926445800F33059 /* STCustomMemoryCache.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		48E87B232926445900F33059 /* EffectsCollectionView.m in Sources */ = {isa = PBXBuildFile; fileRef = 48E87A0C2926445800F33059 /* EffectsCollectionView.m */; };
-		48E87B252926445900F33059 /* STBeautySlider.h in Headers */ = {isa = PBXBuildFile; fileRef = 48E87A0E2926445800F33059 /* STBeautySlider.h */; };
+		48E87B252926445900F33059 /* STBeautySlider.h in Headers */ = {isa = PBXBuildFile; fileRef = 48E87A0E2926445800F33059 /* STBeautySlider.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		48E87B262926445900F33059 /* STBMPCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 48E87A0F2926445800F33059 /* STBMPCollectionViewCell.m */; };
 		48E87B272926445900F33059 /* UIView+Toast.m in Sources */ = {isa = PBXBuildFile; fileRef = 48E87A102926445800F33059 /* UIView+Toast.m */; };
-		48E87B292926445900F33059 /* st_mobile_common.h in Headers */ = {isa = PBXBuildFile; fileRef = 48E87A152926445800F33059 /* st_mobile_common.h */; };
-		48E87B2A2926445900F33059 /* st_mobile_animal.h in Headers */ = {isa = PBXBuildFile; fileRef = 48E87A162926445800F33059 /* st_mobile_animal.h */; };
-		48E87B2B2926445900F33059 /* st_mobile_human_action.h in Headers */ = {isa = PBXBuildFile; fileRef = 48E87A172926445800F33059 /* st_mobile_human_action.h */; };
-		48E87B2C2926445900F33059 /* st_mobile_object.h in Headers */ = {isa = PBXBuildFile; fileRef = 48E87A182926445800F33059 /* st_mobile_object.h */; };
-		48E87B2D2926445900F33059 /* st_mobile_face_attribute.h in Headers */ = {isa = PBXBuildFile; fileRef = 48E87A192926445800F33059 /* st_mobile_face_attribute.h */; };
-		48E87B2E2926445900F33059 /* st_mobile_license.h in Headers */ = {isa = PBXBuildFile; fileRef = 48E87A1A2926445800F33059 /* st_mobile_license.h */; };
-		48E87B2F2926445900F33059 /* st_mobile_effect.h in Headers */ = {isa = PBXBuildFile; fileRef = 48E87A1B2926445800F33059 /* st_mobile_effect.h */; };
-		48E87B302926445900F33059 /* st_mobile_verify.h in Headers */ = {isa = PBXBuildFile; fileRef = 48E87A1C2926445800F33059 /* st_mobile_verify.h */; };
-		48E87B312926445900F33059 /* st_mobile_color_convert.h in Headers */ = {isa = PBXBuildFile; fileRef = 48E87A1D2926445800F33059 /* st_mobile_color_convert.h */; };
+		48E87B292926445900F33059 /* st_mobile_common.h in Headers */ = {isa = PBXBuildFile; fileRef = 48E87A152926445800F33059 /* st_mobile_common.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		48E87B2A2926445900F33059 /* st_mobile_animal.h in Headers */ = {isa = PBXBuildFile; fileRef = 48E87A162926445800F33059 /* st_mobile_animal.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		48E87B2B2926445900F33059 /* st_mobile_human_action.h in Headers */ = {isa = PBXBuildFile; fileRef = 48E87A172926445800F33059 /* st_mobile_human_action.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		48E87B2C2926445900F33059 /* st_mobile_object.h in Headers */ = {isa = PBXBuildFile; fileRef = 48E87A182926445800F33059 /* st_mobile_object.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		48E87B2D2926445900F33059 /* st_mobile_face_attribute.h in Headers */ = {isa = PBXBuildFile; fileRef = 48E87A192926445800F33059 /* st_mobile_face_attribute.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		48E87B2E2926445900F33059 /* st_mobile_license.h in Headers */ = {isa = PBXBuildFile; fileRef = 48E87A1A2926445800F33059 /* st_mobile_license.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		48E87B2F2926445900F33059 /* st_mobile_effect.h in Headers */ = {isa = PBXBuildFile; fileRef = 48E87A1B2926445800F33059 /* st_mobile_effect.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		48E87B302926445900F33059 /* st_mobile_verify.h in Headers */ = {isa = PBXBuildFile; fileRef = 48E87A1C2926445800F33059 /* st_mobile_verify.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		48E87B312926445900F33059 /* st_mobile_color_convert.h in Headers */ = {isa = PBXBuildFile; fileRef = 48E87A1D2926445800F33059 /* st_mobile_color_convert.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		48E87B392926445900F33059 /* VERSION in Resources */ = {isa = PBXBuildFile; fileRef = 48E87A262926445800F33059 /* VERSION */; };
 		48E87B3A2926445900F33059 /* libst_mobile.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 48E87A292926445800F33059 /* libst_mobile.a */; };
 		77062FAD287E795F00E9FD7D /* ShopSellListController.h in Headers */ = {isa = PBXBuildFile; fileRef = 77062FAB287E795F00E9FD7D /* ShopSellListController.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -432,45 +432,45 @@
 		77BE1F0A28C7342A007557E9 /* QRoomDataModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 77BE1F0828C7342A007557E9 /* QRoomDataModel.m */; };
 		77BE232528CB4424007557E9 /* QStatisticalService.h in Headers */ = {isa = PBXBuildFile; fileRef = 77BE232328CB4424007557E9 /* QStatisticalService.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		77BE232628CB4424007557E9 /* QStatisticalService.m in Sources */ = {isa = PBXBuildFile; fileRef = 77BE232428CB4424007557E9 /* QStatisticalService.m */; };
-		77BE233128D87177007557E9 /* WacthRecordController.h in Headers */ = {isa = PBXBuildFile; fileRef = 77BE232F28D87177007557E9 /* WacthRecordController.h */; };
+		77BE233128D87177007557E9 /* WacthRecordController.h in Headers */ = {isa = PBXBuildFile; fileRef = 77BE232F28D87177007557E9 /* WacthRecordController.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		77BE233228D87177007557E9 /* WacthRecordController.m in Sources */ = {isa = PBXBuildFile; fileRef = 77BE233028D87177007557E9 /* WacthRecordController.m */; };
-		77BE237028D8CAEC007557E9 /* QGCDTimerManager.h in Headers */ = {isa = PBXBuildFile; fileRef = 77BE235C28D8CAEB007557E9 /* QGCDTimerManager.h */; };
+		77BE237028D8CAEC007557E9 /* QGCDTimerManager.h in Headers */ = {isa = PBXBuildFile; fileRef = 77BE235C28D8CAEB007557E9 /* QGCDTimerManager.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		77BE237128D8CAEC007557E9 /* QSlider.m in Sources */ = {isa = PBXBuildFile; fileRef = 77BE235D28D8CAEB007557E9 /* QSlider.m */; };
-		77BE237228D8CAEC007557E9 /* QPlayerView.h in Headers */ = {isa = PBXBuildFile; fileRef = 77BE235E28D8CAEB007557E9 /* QPlayerView.h */; };
-		77BE237328D8CAEC007557E9 /* UINavigationController+QPlayerRotation.h in Headers */ = {isa = PBXBuildFile; fileRef = 77BE235F28D8CAEB007557E9 /* UINavigationController+QPlayerRotation.h */; };
-		77BE237528D8CAEC007557E9 /* QRotateAnimationView.h in Headers */ = {isa = PBXBuildFile; fileRef = 77BE236128D8CAEB007557E9 /* QRotateAnimationView.h */; };
-		77BE237628D8CAEC007557E9 /* UIViewController+QPlayerRotation.h in Headers */ = {isa = PBXBuildFile; fileRef = 77BE236228D8CAEB007557E9 /* UIViewController+QPlayerRotation.h */; };
+		77BE237228D8CAEC007557E9 /* QPlayerView.h in Headers */ = {isa = PBXBuildFile; fileRef = 77BE235E28D8CAEB007557E9 /* QPlayerView.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		77BE237328D8CAEC007557E9 /* UINavigationController+QPlayerRotation.h in Headers */ = {isa = PBXBuildFile; fileRef = 77BE235F28D8CAEB007557E9 /* UINavigationController+QPlayerRotation.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		77BE237528D8CAEC007557E9 /* QRotateAnimationView.h in Headers */ = {isa = PBXBuildFile; fileRef = 77BE236128D8CAEB007557E9 /* QRotateAnimationView.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		77BE237628D8CAEC007557E9 /* UIViewController+QPlayerRotation.h in Headers */ = {isa = PBXBuildFile; fileRef = 77BE236228D8CAEB007557E9 /* UIViewController+QPlayerRotation.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		77BE237728D8CAEC007557E9 /* UITabBarController+QPlayerRotation.m in Sources */ = {isa = PBXBuildFile; fileRef = 77BE236328D8CAEB007557E9 /* UITabBarController+QPlayerRotation.m */; };
 		77BE237828D8CAEC007557E9 /* QPlayerMaskView.m in Sources */ = {isa = PBXBuildFile; fileRef = 77BE236428D8CAEB007557E9 /* QPlayerMaskView.m */; };
 		77BE237928D8CAEC007557E9 /* UINavigationController+QPlayerRotation.m in Sources */ = {isa = PBXBuildFile; fileRef = 77BE236528D8CAEB007557E9 /* UINavigationController+QPlayerRotation.m */; };
-		77BE237A28D8CAEC007557E9 /* QSlider.h in Headers */ = {isa = PBXBuildFile; fileRef = 77BE236628D8CAEB007557E9 /* QSlider.h */; };
+		77BE237A28D8CAEC007557E9 /* QSlider.h in Headers */ = {isa = PBXBuildFile; fileRef = 77BE236628D8CAEB007557E9 /* QSlider.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		77BE237B28D8CAEC007557E9 /* QPlayerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 77BE236728D8CAEB007557E9 /* QPlayerView.m */; };
 		77BE237C28D8CAEC007557E9 /* QGCDTimerManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 77BE236828D8CAEB007557E9 /* QGCDTimerManager.m */; };
 		77BE237D28D8CAEC007557E9 /* UIViewController+QPlayerRotation.m in Sources */ = {isa = PBXBuildFile; fileRef = 77BE236928D8CAEC007557E9 /* UIViewController+QPlayerRotation.m */; };
 		77BE237E28D8CAEC007557E9 /* QRotateAnimationView.m in Sources */ = {isa = PBXBuildFile; fileRef = 77BE236A28D8CAEC007557E9 /* QRotateAnimationView.m */; };
-		77BE238028D8CAEC007557E9 /* QPlayerMaskView.h in Headers */ = {isa = PBXBuildFile; fileRef = 77BE236C28D8CAEC007557E9 /* QPlayerMaskView.h */; };
-		77BE238128D8CAEC007557E9 /* UITabBarController+QPlayerRotation.h in Headers */ = {isa = PBXBuildFile; fileRef = 77BE236D28D8CAEC007557E9 /* UITabBarController+QPlayerRotation.h */; };
-		77BE238728D94428007557E9 /* NSDate+QDate.h in Headers */ = {isa = PBXBuildFile; fileRef = 77BE238528D94428007557E9 /* NSDate+QDate.h */; };
+		77BE238028D8CAEC007557E9 /* QPlayerMaskView.h in Headers */ = {isa = PBXBuildFile; fileRef = 77BE236C28D8CAEC007557E9 /* QPlayerMaskView.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		77BE238128D8CAEC007557E9 /* UITabBarController+QPlayerRotation.h in Headers */ = {isa = PBXBuildFile; fileRef = 77BE236D28D8CAEC007557E9 /* UITabBarController+QPlayerRotation.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		77BE238728D94428007557E9 /* NSDate+QDate.h in Headers */ = {isa = PBXBuildFile; fileRef = 77BE238528D94428007557E9 /* NSDate+QDate.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		77BE238828D94428007557E9 /* NSDate+QDate.m in Sources */ = {isa = PBXBuildFile; fileRef = 77BE238628D94428007557E9 /* NSDate+QDate.m */; };
 		77BE239928D96EF1007557E9 /* PSPopListView.m in Sources */ = {isa = PBXBuildFile; fileRef = 77BE238A28D96EF0007557E9 /* PSPopListView.m */; };
-		77BE23A528D96EF1007557E9 /* PSPopListView.h in Headers */ = {isa = PBXBuildFile; fileRef = 77BE239628D96EF0007557E9 /* PSPopListView.h */; };
+		77BE23A528D96EF1007557E9 /* PSPopListView.h in Headers */ = {isa = PBXBuildFile; fileRef = 77BE239628D96EF0007557E9 /* PSPopListView.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		77BE24CC28FE91D1007557E9 /* DateTimePickerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 77BE24C628FE91D1007557E9 /* DateTimePickerView.m */; };
 		77BE24CD28FE91D1007557E9 /* MXSCycleScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = 77BE24C728FE91D1007557E9 /* MXSCycleScrollView.m */; };
 		77BE24CE28FE91D1007557E9 /* UIColor+HcdCustom.m in Sources */ = {isa = PBXBuildFile; fileRef = 77BE24C828FE91D1007557E9 /* UIColor+HcdCustom.m */; };
-		77BE24CF28FE91D1007557E9 /* DateTimePickerView.h in Headers */ = {isa = PBXBuildFile; fileRef = 77BE24C928FE91D1007557E9 /* DateTimePickerView.h */; };
-		77BE24D028FE91D1007557E9 /* UIColor+HcdCustom.h in Headers */ = {isa = PBXBuildFile; fileRef = 77BE24CA28FE91D1007557E9 /* UIColor+HcdCustom.h */; };
-		77BE24D128FE91D2007557E9 /* MXSCycleScrollView.h in Headers */ = {isa = PBXBuildFile; fileRef = 77BE24CB28FE91D1007557E9 /* MXSCycleScrollView.h */; };
-		77BE24D428FFA0A7007557E9 /* LiveBottomMoreView.h in Headers */ = {isa = PBXBuildFile; fileRef = 77BE24D228FFA0A7007557E9 /* LiveBottomMoreView.h */; };
+		77BE24CF28FE91D1007557E9 /* DateTimePickerView.h in Headers */ = {isa = PBXBuildFile; fileRef = 77BE24C928FE91D1007557E9 /* DateTimePickerView.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		77BE24D028FE91D1007557E9 /* UIColor+HcdCustom.h in Headers */ = {isa = PBXBuildFile; fileRef = 77BE24CA28FE91D1007557E9 /* UIColor+HcdCustom.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		77BE24D128FE91D2007557E9 /* MXSCycleScrollView.h in Headers */ = {isa = PBXBuildFile; fileRef = 77BE24CB28FE91D1007557E9 /* MXSCycleScrollView.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		77BE24D428FFA0A7007557E9 /* LiveBottomMoreView.h in Headers */ = {isa = PBXBuildFile; fileRef = 77BE24D228FFA0A7007557E9 /* LiveBottomMoreView.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		77BE24D528FFA0A7007557E9 /* LiveBottomMoreView.m in Sources */ = {isa = PBXBuildFile; fileRef = 77BE24D328FFA0A7007557E9 /* LiveBottomMoreView.m */; };
-		77BE24D828FFD403007557E9 /* WatchBottomMoreView.h in Headers */ = {isa = PBXBuildFile; fileRef = 77BE24D628FFD403007557E9 /* WatchBottomMoreView.h */; };
+		77BE24D828FFD403007557E9 /* WatchBottomMoreView.h in Headers */ = {isa = PBXBuildFile; fileRef = 77BE24D628FFD403007557E9 /* WatchBottomMoreView.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		77BE24D928FFD403007557E9 /* WatchBottomMoreView.m in Sources */ = {isa = PBXBuildFile; fileRef = 77BE24D728FFD403007557E9 /* WatchBottomMoreView.m */; };
-		77BE24F128FFED50007557E9 /* QNGiftView.h in Headers */ = {isa = PBXBuildFile; fileRef = 77BE24DC28FFED50007557E9 /* QNGiftView.h */; };
-		77BE24F528FFED50007557E9 /* QNGiftModel.h in Headers */ = {isa = PBXBuildFile; fileRef = 77BE24E028FFED50007557E9 /* QNGiftModel.h */; };
-		77BE24F628FFED50007557E9 /* QNHorizontalLayout.h in Headers */ = {isa = PBXBuildFile; fileRef = 77BE24E128FFED50007557E9 /* QNHorizontalLayout.h */; };
+		77BE24F128FFED50007557E9 /* QNGiftView.h in Headers */ = {isa = PBXBuildFile; fileRef = 77BE24DC28FFED50007557E9 /* QNGiftView.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		77BE24F528FFED50007557E9 /* QNGiftModel.h in Headers */ = {isa = PBXBuildFile; fileRef = 77BE24E028FFED50007557E9 /* QNGiftModel.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		77BE24F628FFED50007557E9 /* QNHorizontalLayout.h in Headers */ = {isa = PBXBuildFile; fileRef = 77BE24E128FFED50007557E9 /* QNHorizontalLayout.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		77BE24FB28FFED50007557E9 /* QNGiftView.m in Sources */ = {isa = PBXBuildFile; fileRef = 77BE24E628FFED50007557E9 /* QNGiftView.m */; };
 		77BE24FC28FFED50007557E9 /* QNGiftCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 77BE24E728FFED50007557E9 /* QNGiftCollectionViewCell.m */; };
 		77BE24FE28FFED50007557E9 /* QNGiftModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 77BE24E928FFED50007557E9 /* QNGiftModel.m */; };
-		77BE24FF28FFED50007557E9 /* QNGiftCollectionViewCell.h in Headers */ = {isa = PBXBuildFile; fileRef = 77BE24EA28FFED50007557E9 /* QNGiftCollectionViewCell.h */; };
+		77BE24FF28FFED50007557E9 /* QNGiftCollectionViewCell.h in Headers */ = {isa = PBXBuildFile; fileRef = 77BE24EA28FFED50007557E9 /* QNGiftCollectionViewCell.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		77BE250328FFED50007557E9 /* QNHorizontalLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 77BE24EE28FFED50007557E9 /* QNHorizontalLayout.m */; };
 		77E02E31284E245A00EE8A28 /* QNAudienceController.h in Headers */ = {isa = PBXBuildFile; fileRef = 77E02E2F284E245A00EE8A28 /* QNAudienceController.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		77E02E32284E245A00EE8A28 /* QNAudienceController.m in Sources */ = {isa = PBXBuildFile; fileRef = 77E02E30284E245A00EE8A28 /* QNAudienceController.m */; };
@@ -2149,43 +2149,27 @@
 				48E87AD72926445800F33059 /* EFGlobalSingleton.h in Headers */,
 				48E87B2D2926445900F33059 /* st_mobile_face_attribute.h in Headers */,
 				48E87A652926445800F33059 /* EFSenseArMaterialDataModels.h in Headers */,
-				776B1C73283C79BB00D85C73 /* QNCreateRoomParam.h in Headers */,
-				776B1C6E283C792B00D85C73 /* QLive.h in Headers */,
 				48E87A342926445800F33059 /* NSBundle+language.h in Headers */,
 				48E87A7C2926445800F33059 /* YYFrameImage.h in Headers */,
-				776B1C77283C79DB00D85C73 /* QNLiveRoomInfo.h in Headers */,
 				48E87A982926445800F33059 /* NSDictionary+sortedJson.h in Headers */,
 				48E87A332926445800F33059 /* STConvert.h in Headers */,
 				48E87AC72926445800F33059 /* NSObject+dictionary.h in Headers */,
 				77BE238728D94428007557E9 /* NSDate+QDate.h in Headers */,
-				776B1C82283CB2AA00D85C73 /* QNLiveUser.h in Headers */,
 				48E87B202926445900F33059 /* STCustomCollectionView.h in Headers */,
-				776B1C5A283C78D800D85C73 /* QNLiveKit.h in Headers */,
 				48E87A872926445800F33059 /* UIButton+YYWebImage.h in Headers */,
-				776B1C86283CB60D00D85C73 /* QNLiveRoomClient.h in Headers */,
 				48E87A962926445800F33059 /* EFDataSourceGenerator.h in Headers */,
-				776B1C8E283CBB2100D85C73 /* QNLivePushClient.h in Headers */,
 				48E87A9B2926445800F33059 /* UIButton+AFNetworking.h in Headers */,
-				776B1C92283CBBA100D85C73 /* QNCameraParams.h in Headers */,
-				77781C0A283D1337009DC71C /* QNPKSession.h in Headers */,
-				77781C0E283DD181009DC71C /* QPKService.h in Headers */,
 				48E87AF02926445800F33059 /* STBaseViewController.h in Headers */,
 				48E87A892926445800F33059 /* CALayer+YYWebImage.h in Headers */,
 				48E87AD62926445800F33059 /* EFStatusManager.h in Headers */,
 				48E87AFA2926445900F33059 /* STScrollTitleView.h in Headers */,
 				48E87AA12926445800F33059 /* UIActivityIndicatorView+AFNetworking.h in Headers */,
 				48E87AFF2926445900F33059 /* STBMPCollectionView.h in Headers */,
-				776B1CEE283D0D8100D85C73 /* QNMergeOption.h in Headers */,
-				77781C20283DD63C009DC71C /* QNChatRoomService.h in Headers */,
 				48E87AE82926445800F33059 /* SoundInfomation.h in Headers */,
 				48E87ABC2926445800F33059 /* MBProgressHUD.h in Headers */,
-				776B1CF2283D0F2000D85C73 /* LinkInvitation.h in Headers */,
 				48E87A8A2926445800F33059 /* UIImage+YYWebImage.h in Headers */,
 				48E87A552926445800F33059 /* STVFShader.h in Headers */,
 				77BE24CF28FE91D1007557E9 /* DateTimePickerView.h in Headers */,
-				776B1C96283CBBB800D85C73 /* QNMicrophoneParams.h in Headers */,
-				77781CE728449A60009DC71C /* QNLiveTypeDefines.h in Headers */,
-				776B1C8A283CB6B300D85C73 /* QNLiveService.h in Headers */,
 				48E87B2E2926445900F33059 /* st_mobile_license.h in Headers */,
 				48E87B2C2926445900F33059 /* st_mobile_object.h in Headers */,
 				48E87AF12926445800F33059 /* LicenseUtil.h in Headers */,
@@ -2194,47 +2178,31 @@
 				48E87B012926445900F33059 /* STCollectionViewCell.h in Headers */,
 				48E87A7E2926445800F33059 /* YYAnimatedImageView.h in Headers */,
 				48E87B1A2926445900F33059 /* STTitleViewItem.h in Headers */,
-				776B1CC8283CFEE800D85C73 /* QNLivePullClient.h in Headers */,
 				48E87ACA2926445800F33059 /* EFRemoteDataSourceHelper+groupInfos.h in Headers */,
 				48E87A792926445800F33059 /* YYWebImageOperation.h in Headers */,
 				48E87B042926445900F33059 /* STCollectionView.h in Headers */,
 				77BE24FF28FFED50007557E9 /* QNGiftCollectionViewCell.h in Headers */,
-				776B1CAF283CC87000D85C73 /* QNLivePrefixHeader.pch in Headers */,
 				48E87AAA2926445800F33059 /* AFNetworkActivityIndicatorManager.h in Headers */,
-				77781D7128486D3D009DC71C /* QTextMessageCell.h in Headers */,
 				48E87B2A2926445900F33059 /* st_mobile_animal.h in Headers */,
 				48E87AC12926445800F33059 /* EFMaterialDownloadStatusManager.h in Headers */,
-				77781D7028486D3D009DC71C /* QMessageBaseCell.h in Headers */,
-				77781D6628486D35009DC71C /* QInputBarControl.h in Headers */,
-				77781D5428486D13009DC71C /* LiveChatRoom.h in Headers */,
 				48E87A5E2926445800F33059 /* SenseArSourceService.h in Headers */,
 				48E87B0A2926445900F33059 /* UIView+Toast.h in Headers */,
 				48E87AD12926445800F33059 /* NSDictionary+jsonFile.h in Headers */,
-				77781D6528486D35009DC71C /* QInputView.h in Headers */,
 				48E87A5A2926445800F33059 /* STGLPreview2.h in Headers */,
 				48E87AD42926445800F33059 /* EFStorageHelper.h in Headers */,
 				48E87AA62926445800F33059 /* UIRefreshControl+AFNetworking.h in Headers */,
-				77781D9F28488932009DC71C /* QNBaseRTCController.h in Headers */,
 				48E87A602926445800F33059 /* SenseArMaterialGroup.h in Headers */,
 				48B9386A292CCAB00014D671 /* QNPayGiftViewController.h in Headers */,
-				77781D6828486D35009DC71C /* QEmojiCollectionCell.h in Headers */,
 				48E87AD92926445800F33059 /* EFMachineVersion.h in Headers */,
 				48E87AAF2926445800F33059 /* AFURLRequestSerialization.h in Headers */,
-				77EDC49F286DAD99002B4226 /* BeautyLiveViewController.h in Headers */,
 				77BE237A28D8CAEC007557E9 /* QSlider.h in Headers */,
 				48E87A752926445800F33059 /* YYCache.h in Headers */,
-				77781D6728486D35009DC71C /* QEmojiBoardView.h in Headers */,
 				77BE24F528FFED50007557E9 /* QNGiftModel.h in Headers */,
 				48E87B2F2926445900F33059 /* st_mobile_effect.h in Headers */,
 				48E87A2E2926445800F33059 /* STMobileLog.h in Headers */,
 				48E87A312926445800F33059 /* STLock.h in Headers */,
-				77781DA028488932009DC71C /* QLiveController.h in Headers */,
-				776B1CAC283CC6EC00D85C73 /* QLiveNetworkUtil.h in Headers */,
 				48E87B312926445900F33059 /* st_mobile_color_convert.h in Headers */,
 				48E87B162926445900F33059 /* STBmpStrengthView.h in Headers */,
-				776B1CD5283D024E00D85C73 /* QLinkMicService.h in Headers */,
-				776B1CD1283D010D00D85C73 /* QNMicLinker.h in Headers */,
-				77781D332845E56A009DC71C /* OnlineUserView.h in Headers */,
 				77BE237628D8CAEC007557E9 /* UIViewController+QPlayerRotation.h in Headers */,
 				48E87A3A2926445800F33059 /* STCamera.h in Headers */,
 				48E87A942926445800F33059 /* NSObject+YYModel.h in Headers */,
@@ -2250,10 +2218,6 @@
 				48E87A5C2926445800F33059 /* SenseArMaterialAction.h in Headers */,
 				77BE237228D8CAEC007557E9 /* QPlayerView.h in Headers */,
 				77BE24F628FFED50007557E9 /* QNHorizontalLayout.h in Headers */,
-				77781D322845E56A009DC71C /* RoomHostView.h in Headers */,
-				774E641D2848DB6800C9FB7F /* CreateSignalHandler.h in Headers */,
-				774E6422284DF8E800C9FB7F /* QMixStreamManager.h in Headers */,
-				77781D342845E56B009DC71C /* QLiveView.h in Headers */,
 				77BE237328D8CAEC007557E9 /* UINavigationController+QPlayerRotation.h in Headers */,
 				48E87A882926445800F33059 /* UIImageView+YYWebImage.h in Headers */,
 				48E87AAC2926445800F33059 /* AFSecurityPolicy.h in Headers */,
@@ -2261,10 +2225,8 @@
 				48E87AC82926445800F33059 /* EFStatusModels.h in Headers */,
 				48E87A992926445800F33059 /* WKWebView+AFNetworking.h in Headers */,
 				48E87AF52926445900F33059 /* STBMPDetailColV.h in Headers */,
-				777B7A7F284F4B0D005032B7 /* QRenderView.h in Headers */,
 				4808878429305EDF004A7878 /* QNLiveStatisticView.h in Headers */,
 				48E87B092926445900F33059 /* STCommonObjectView.h in Headers */,
-				777B7A83284F5A6F005032B7 /* QNPKInvitationListCell.h in Headers */,
 				48E87AB92926445800F33059 /* AFHTTPSessionManager.h in Headers */,
 				48E87A532926445800F33059 /* STGLPreview3.h in Headers */,
 				48B938A4292F5C0E0014D671 /* QNLikeResult.h in Headers */,
@@ -2272,116 +2234,154 @@
 				48E87A832926445800F33059 /* YYSpriteSheetImage.h in Headers */,
 				48E87B1D2926445900F33059 /* STMakeupDataModel.h in Headers */,
 				48E87A5D2926445800F33059 /* SenseArMaterial.h in Headers */,
-				777B7A6F284F1F78005032B7 /* QAlertView.h in Headers */,
 				48E87A382926445800F33059 /* STDefaultSetting.h in Headers */,
-				77781D482845FC68009DC71C /* BottomMenuView.h in Headers */,
-				77204D68285F755C0053B1AD /* QCreateLiveController.h in Headers */,
 				48B93877292DEE490014D671 /* QNGiftMessageView.h in Headers */,
 				48E87B2B2926445900F33059 /* st_mobile_human_action.h in Headers */,
 				48E87AAE2926445800F33059 /* AFURLSessionManager.h in Headers */,
-				777B7A73284F375A005032B7 /* LinkStateView.h in Headers */,
-				77204D83285F97A20053B1AD /* PubChatModel.h in Headers */,
 				48E87ABF2926445800F33059 /* EFDataSourcing.h in Headers */,
 				77BE237028D8CAEC007557E9 /* QGCDTimerManager.h in Headers */,
 				48E87AE32926445800F33059 /* STCoreStateManagementFilterModel.h in Headers */,
-				77204D67285F755C0053B1AD /* QLiveListController.h in Headers */,
 				48E87A7A2926445800F33059 /* YYImage.h in Headers */,
 				77BE24D028FE91D1007557E9 /* UIColor+HcdCustom.h in Headers */,
 				48E87A922926445800F33059 /* YYWebImage.h in Headers */,
 				48E87AAD2926445800F33059 /* AFNetworkReachabilityManager.h in Headers */,
 				77BE238028D8CAEC007557E9 /* QPlayerMaskView.h in Headers */,
 				48E87AE62926445800F33059 /* STEffectsAudioPlayer.h in Headers */,
-				77062FBE288005CE00E9FD7D /* GoodBuyItemCell.h in Headers */,
-				77204D86285F97A20053B1AD /* QInvitationModel.h in Headers */,
-				77062FB2287EA0A300E9FD7D /* GoodsModel.h in Headers */,
-				77204D65285F755C0053B1AD /* QNLiveListCell.h in Headers */,
-				77062FBA288004AA00E9FD7D /* ShopBuyListController.h in Headers */,
 				48E87AD02926445800F33059 /* EFRemoteDataSourceHelper.h in Headers */,
-				77062FAD287E795F00E9FD7D /* ShopSellListController.h in Headers */,
-				77062FB6287EAA8D00E9FD7D /* GoodSellItemCell.h in Headers */,
-				77204D59285981B00053B1AD /* CYProtocolManager.h in Headers */,
 				48E87B022926445900F33059 /* EffectsCollectionViewCell.h in Headers */,
 				77BE24D128FE91D2007557E9 /* MXSCycleScrollView.h in Headers */,
 				48E87AA32926445800F33059 /* UIProgressView+AFNetworking.h in Headers */,
 				48E87A6C2926445800F33059 /* YYModel.h in Headers */,
 				48E87A742926445800F33059 /* YYDiskCache.h in Headers */,
 				48E87A9D2926445800F33059 /* UIImageView+AFNetworking.h in Headers */,
-				777B7A87284F5BC5005032B7 /* QNPKInvitationListController.h in Headers */,
 				48B938B1292F8EF10014D671 /* QNLikeNotify.h in Headers */,
 				48E87A322926445800F33059 /* STEffectsTimer.h in Headers */,
-				77204D97285F9AF50053B1AD /* LinkOptionModel.h in Headers */,
 				48E87A372926445800F33059 /* DefaultBeautyParameters.h in Headers */,
 				48E87AC52926445800F33059 /* EFStatusManagerDelegate.h in Headers */,
 				48E87A852926445800F33059 /* YYWebImageManager.h in Headers */,
 				48B938A9292F5FCB0014D671 /* QNLikeMenuView.h in Headers */,
 				48E87AE02926445800F33059 /* STCoreStateManagementModel.h in Headers */,
-				77A11C6028854A7A00020149 /* BeautyBaseController.h in Headers */,
-				77A11C64288556AA00020149 /* CreateBeautyLiveController.h in Headers */,
 				48E87B252926445900F33059 /* STBeautySlider.h in Headers */,
-				77062FCA288062D600E9FD7D /* GoodsOperationCell.h in Headers */,
 				48E87A522926445800F33059 /* STColorConversion.h in Headers */,
 				48B93884292E12DA0014D671 /* QNGiftService.h in Headers */,
 				48E87AF32926445800F33059 /* STBMPDetailColVCell.h in Headers */,
 				48E87B062926445900F33059 /* EffectsCollectionView.h in Headers */,
-				7771869C2861B8A800C5CABC /* FDanmakuModel.h in Headers */,
 				48E87B0E2926445900F33059 /* STTriggerView.h in Headers */,
 				48E87AA02926445800F33059 /* AFAutoPurgingImageCache.h in Headers */,
-				7771869A2861B8A800C5CABC /* FDanmakuView.h in Headers */,
 				48E87AB52926445800F33059 /* AFNetworking.h in Headers */,
 				48E87A362926445800F33059 /* STDefaultSettingDataSourseGenerator.h in Headers */,
 				48E87AF92926445900F33059 /* STSlideView.h in Headers */,
 				77BE24D428FFA0A7007557E9 /* LiveBottomMoreView.h in Headers */,
-				77204D8B285F97A20053B1AD /* QIMModel.h in Headers */,
 				77BE24D828FFD403007557E9 /* WatchBottomMoreView.h in Headers */,
 				48E87ADD2926445800F33059 /* NSData+meterialAes.h in Headers */,
 				48B9387F292DF91E0014D671 /* QNGiftOperation.h in Headers */,
-				77062FD22880920000E9FD7D /* GoodStatusView.h in Headers */,
 				48E87A5F2926445800F33059 /* SenseArMaterialService.h in Headers */,
-				77062FCE288080D300E9FD7D /* GoodsOperationView.h in Headers */,
 				77BE233128D87177007557E9 /* WacthRecordController.h in Headers */,
 				48E87AC92926445800F33059 /* EFAuthorizeAdapter.h in Headers */,
 				48B9389B292F1F5F0014D671 /* QNGiftPaySuccessView.h in Headers */,
-				777186992861B8A800C5CABC /* FDanmakuModelProtocol.h in Headers */,
 				48E87AB82926445800F33059 /* AFCompatibilityMacros.h in Headers */,
-				77062FC62880294900E9FD7D /* ExplainingGoodView.h in Headers */,
 				48E87AC02926445800F33059 /* EFResource.h in Headers */,
-				77A11CC92889385800020149 /* QShopService.h in Headers */,
-				7771869B2861B8A800C5CABC /* CALayer+Aimate.h in Headers */,
 				48E87B132926445900F33059 /* STButton.h in Headers */,
 				48B9388D292E399E0014D671 /* QNGiftMsgModel.h in Headers */,
-				777186A32862C5D100C5CABC /* QToastView.h in Headers */,
-				77A11CDA288A724E00020149 /* UIImage+QNImage.h in Headers */,
-				77A11CD8288A724E00020149 /* UIColor+QNColor.h in Headers */,
 				48E87A842926445800F33059 /* YYImageCache.h in Headers */,
 				48E87B292926445900F33059 /* st_mobile_common.h in Headers */,
 				48E87A972926445800F33059 /* EFMaterialDownloadManager.h in Headers */,
 				48E87AEC2926445800F33059 /* SystemSound.h in Headers */,
-				7798A79A28814872009DEB27 /* UITableView+MoveCell.h in Headers */,
 				48E87A712926445800F33059 /* YYKVStorage.h in Headers */,
-				77758CDE28A4EE34005CBB59 /* QGradient.h in Headers */,
 				48E87AEE2926445800F33059 /* STMovieRecorder.h in Headers */,
-				77204D4E285873BF0053B1AD /* QRooms.h in Headers */,
 				48E87AED2926445800F33059 /* STAudioManager.h in Headers */,
 				77BE237528D8CAEC007557E9 /* QRotateAnimationView.h in Headers */,
 				48B938A0292F55640014D671 /* QNLikeService.h in Headers */,
-				77758CF128AA3B06005CBB59 /* QTagButton.h in Headers */,
-				77E02E31284E245A00EE8A28 /* QNAudienceController.h in Headers */,
-				77758CFA28AA529C005CBB59 /* UIViewController+QViewController.h in Headers */,
 				48E87B212926445900F33059 /* STParamUtil.h in Headers */,
 				48B9387B292DEE590014D671 /* QNGiftMessagePannel.h in Headers */,
 				48E87B222926445900F33059 /* STCustomMemoryCache.h in Headers */,
 				48B938AD292F5FDB0014D671 /* QNLikeBubbleView.h in Headers */,
 				48E87B0B2926445900F33059 /* STBMPCollectionViewCell.h in Headers */,
+				48E87A7B2926445800F33059 /* YYImageCoder.h in Headers */,
+				48B93889292E26590014D671 /* QNUserService.h in Headers */,
+				77BE238128D8CAEC007557E9 /* UITabBarController+QPlayerRotation.h in Headers */,
+				48E87A732926445800F33059 /* YYMemoryCache.h in Headers */,
+				48E87B302926445900F33059 /* st_mobile_verify.h in Headers */,
+				776B1C73283C79BB00D85C73 /* QNCreateRoomParam.h in Headers */,
+				776B1C6E283C792B00D85C73 /* QLive.h in Headers */,
+				776B1C77283C79DB00D85C73 /* QNLiveRoomInfo.h in Headers */,
+				776B1C82283CB2AA00D85C73 /* QNLiveUser.h in Headers */,
+				776B1C5A283C78D800D85C73 /* QNLiveKit.h in Headers */,
+				776B1C86283CB60D00D85C73 /* QNLiveRoomClient.h in Headers */,
+				776B1C8E283CBB2100D85C73 /* QNLivePushClient.h in Headers */,
+				776B1C92283CBBA100D85C73 /* QNCameraParams.h in Headers */,
+				77781C0A283D1337009DC71C /* QNPKSession.h in Headers */,
+				77781C0E283DD181009DC71C /* QPKService.h in Headers */,
+				776B1CEE283D0D8100D85C73 /* QNMergeOption.h in Headers */,
+				77781C20283DD63C009DC71C /* QNChatRoomService.h in Headers */,
+				776B1CF2283D0F2000D85C73 /* LinkInvitation.h in Headers */,
+				776B1C96283CBBB800D85C73 /* QNMicrophoneParams.h in Headers */,
+				77781CE728449A60009DC71C /* QNLiveTypeDefines.h in Headers */,
+				776B1C8A283CB6B300D85C73 /* QNLiveService.h in Headers */,
+				776B1CC8283CFEE800D85C73 /* QNLivePullClient.h in Headers */,
+				776B1CAF283CC87000D85C73 /* QNLivePrefixHeader.pch in Headers */,
+				77781D7128486D3D009DC71C /* QTextMessageCell.h in Headers */,
+				77781D7028486D3D009DC71C /* QMessageBaseCell.h in Headers */,
+				77781D6628486D35009DC71C /* QInputBarControl.h in Headers */,
+				77781D5428486D13009DC71C /* LiveChatRoom.h in Headers */,
+				77781D6528486D35009DC71C /* QInputView.h in Headers */,
+				77781D9F28488932009DC71C /* QNBaseRTCController.h in Headers */,
+				77781D6828486D35009DC71C /* QEmojiCollectionCell.h in Headers */,
+				77EDC49F286DAD99002B4226 /* BeautyLiveViewController.h in Headers */,
+				77781D6728486D35009DC71C /* QEmojiBoardView.h in Headers */,
+				77781DA028488932009DC71C /* QLiveController.h in Headers */,
+				776B1CAC283CC6EC00D85C73 /* QLiveNetworkUtil.h in Headers */,
+				776B1CD5283D024E00D85C73 /* QLinkMicService.h in Headers */,
+				776B1CD1283D010D00D85C73 /* QNMicLinker.h in Headers */,
+				77781D332845E56A009DC71C /* OnlineUserView.h in Headers */,
+				77781D322845E56A009DC71C /* RoomHostView.h in Headers */,
+				774E641D2848DB6800C9FB7F /* CreateSignalHandler.h in Headers */,
+				774E6422284DF8E800C9FB7F /* QMixStreamManager.h in Headers */,
+				77781D342845E56B009DC71C /* QLiveView.h in Headers */,
+				777B7A7F284F4B0D005032B7 /* QRenderView.h in Headers */,
+				777B7A83284F5A6F005032B7 /* QNPKInvitationListCell.h in Headers */,
+				777B7A6F284F1F78005032B7 /* QAlertView.h in Headers */,
+				77781D482845FC68009DC71C /* BottomMenuView.h in Headers */,
+				77204D68285F755C0053B1AD /* QCreateLiveController.h in Headers */,
+				777B7A73284F375A005032B7 /* LinkStateView.h in Headers */,
+				77204D83285F97A20053B1AD /* PubChatModel.h in Headers */,
+				77204D67285F755C0053B1AD /* QLiveListController.h in Headers */,
+				77062FBE288005CE00E9FD7D /* GoodBuyItemCell.h in Headers */,
+				77204D86285F97A20053B1AD /* QInvitationModel.h in Headers */,
+				77062FB2287EA0A300E9FD7D /* GoodsModel.h in Headers */,
+				77204D65285F755C0053B1AD /* QNLiveListCell.h in Headers */,
+				77062FBA288004AA00E9FD7D /* ShopBuyListController.h in Headers */,
+				77062FAD287E795F00E9FD7D /* ShopSellListController.h in Headers */,
+				77062FB6287EAA8D00E9FD7D /* GoodSellItemCell.h in Headers */,
+				77204D59285981B00053B1AD /* CYProtocolManager.h in Headers */,
+				777B7A87284F5BC5005032B7 /* QNPKInvitationListController.h in Headers */,
+				77204D97285F9AF50053B1AD /* LinkOptionModel.h in Headers */,
+				77A11C6028854A7A00020149 /* BeautyBaseController.h in Headers */,
+				77A11C64288556AA00020149 /* CreateBeautyLiveController.h in Headers */,
+				77062FCA288062D600E9FD7D /* GoodsOperationCell.h in Headers */,
+				7771869C2861B8A800C5CABC /* FDanmakuModel.h in Headers */,
+				7771869A2861B8A800C5CABC /* FDanmakuView.h in Headers */,
+				77204D8B285F97A20053B1AD /* QIMModel.h in Headers */,
+				77062FD22880920000E9FD7D /* GoodStatusView.h in Headers */,
+				77062FCE288080D300E9FD7D /* GoodsOperationView.h in Headers */,
+				777186992861B8A800C5CABC /* FDanmakuModelProtocol.h in Headers */,
+				77062FC62880294900E9FD7D /* ExplainingGoodView.h in Headers */,
+				77A11CC92889385800020149 /* QShopService.h in Headers */,
+				7771869B2861B8A800C5CABC /* CALayer+Aimate.h in Headers */,
+				777186A32862C5D100C5CABC /* QToastView.h in Headers */,
+				77A11CDA288A724E00020149 /* UIImage+QNImage.h in Headers */,
+				77A11CD8288A724E00020149 /* UIColor+QNColor.h in Headers */,
+				7798A79A28814872009DEB27 /* UITableView+MoveCell.h in Headers */,
+				77758CDE28A4EE34005CBB59 /* QGradient.h in Headers */,
+				77204D4E285873BF0053B1AD /* QRooms.h in Headers */,
+				77758CF128AA3B06005CBB59 /* QTagButton.h in Headers */,
+				77E02E31284E245A00EE8A28 /* QNAudienceController.h in Headers */,
+				77758CFA28AA529C005CBB59 /* UIViewController+QViewController.h in Headers */,
 				77758CF728AA4516005CBB59 /* UILabel+QAttributed.h in Headers */,
 				77BE1F0928C7342A007557E9 /* QRoomDataModel.h in Headers */,
 				77758CF028AA3B06005CBB59 /* QTagList.h in Headers */,
-				48E87A7B2926445800F33059 /* YYImageCoder.h in Headers */,
 				77BE232528CB4424007557E9 /* QStatisticalService.h in Headers */,
-				48B93889292E26590014D671 /* QNUserService.h in Headers */,
-				77BE238128D8CAEC007557E9 /* UITabBarController+QPlayerRotation.h in Headers */,
 				77781D5028460813009DC71C /* ImageButtonView.h in Headers */,
-				48E87A732926445800F33059 /* YYMemoryCache.h in Headers */,
-				48E87B302926445900F33059 /* st_mobile_verify.h in Headers */,
 				77781C41283DE000009DC71C /* Extension.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
