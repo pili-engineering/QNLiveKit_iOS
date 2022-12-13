@@ -41,6 +41,7 @@
 		48C83DD22940BBF20002C11B /* QNIMSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 48C83DD12940BBF20002C11B /* QNIMSDK.framework */; };
 		48C83DD32940BC000002C11B /* QNIMSDK.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 48C83DD12940BBF20002C11B /* QNIMSDK.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		48C83DD52940C0F40002C11B /* PLSTArEffects.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 48C83DD42940C0F40002C11B /* PLSTArEffects.framework */; };
+		48D4AC0829488687008C8464 /* STTestViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 48D4AC0429488687008C8464 /* STTestViewController.m */; };
 		776B1BDF28378CCD00D85C73 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 776B1BDE28378CCD00D85C73 /* AppDelegate.m */; };
 		776B1BE828378CCD00D85C73 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 776B1BE628378CCD00D85C73 /* Main.storyboard */; };
 		776B1BEA28378CCF00D85C73 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 776B1BE928378CCF00D85C73 /* Assets.xcassets */; };
@@ -159,6 +160,8 @@
 		48B9380A29272F9A0014D671 /* hairColor.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = hairColor.bundle; sourceTree = "<group>"; };
 		48C83DD12940BBF20002C11B /* QNIMSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QNIMSDK.framework; path = ../../frameworks/QNIMSDK.framework; sourceTree = "<group>"; };
 		48C83DD42940C0F40002C11B /* PLSTArEffects.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = PLSTArEffects.framework; path = ../../frameworks/PLSTArEffects.framework; sourceTree = "<group>"; };
+		48D4AC0429488687008C8464 /* STTestViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = STTestViewController.m; sourceTree = "<group>"; };
+		48D4AC0729488687008C8464 /* STTestViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = STTestViewController.h; sourceTree = "<group>"; };
 		56C877B9E14F409F1ED0326F /* Pods-QNLiveKitDemoTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-QNLiveKitDemoTests.debug.xcconfig"; path = "Target Support Files/Pods-QNLiveKitDemoTests/Pods-QNLiveKitDemoTests.debug.xcconfig"; sourceTree = "<group>"; };
 		5A2899F26391AE2088C5854B /* Pods_QNLiveKitDemoTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_QNLiveKitDemoTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		776B1BDA28378CCD00D85C73 /* QNLiveKitDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = QNLiveKitDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -386,6 +389,8 @@
 		776B1BDC28378CCD00D85C73 /* QNLiveKitDemo */ = {
 			isa = PBXGroup;
 			children = (
+				48D4AC0729488687008C8464 /* STTestViewController.h */,
+				48D4AC0429488687008C8464 /* STTestViewController.m */,
 				48C83DD42940C0F40002C11B /* PLSTArEffects.framework */,
 				48C83DD12940BBF20002C11B /* QNIMSDK.framework */,
 				77A11C5B288540EC00020149 /* BeautyResource */,
@@ -853,6 +858,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				77781C95283E1EE7009DC71C /* UIApplication+LaunchScreen.m in Sources */,
+				48D4AC0829488687008C8464 /* STTestViewController.m in Sources */,
 				77781C96283E1EE7009DC71C /* NSDate+QNCategory.m in Sources */,
 				77781C7C283E1E96009DC71C /* QNAppConficModel.m in Sources */,
 				77781C71283E1E7E009DC71C /* QNLoginInfoModel.m in Sources */,

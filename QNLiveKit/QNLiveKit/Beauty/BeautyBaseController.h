@@ -5,7 +5,8 @@
 //  Created by 郭茜 on 2022/7/18.
 //
 
-#import <QNLiveKit/QNLiveKit.h>
+//#import "QNLiveKit.h"
+
 #import "STBaseViewController.h"
 
 @class QNLiveRoomInfo,QNLivePushClient,QNLiveRoomClient,QNChatRoomService,LiveChatRoom,QNMergeOption,QPKService,QRenderView,FDanmakuView,QLinkMicService,PLSTEffectManager,PLSTDetector;
@@ -27,7 +28,7 @@ NS_ASSUME_NONNULL_BEGIN
 //商汤特效
 @property (nonatomic, strong) UIButton *effectButton;
 @property (nonatomic, assign) BOOL isNullSticker;
-@property (nonatomic, strong) PLSTEffectManager *effectManager;
+//@property (nonatomic, strong) PLSTEffectManager *effectManager;
 @property (nonatomic, strong) PLSTDetector *detector;
 
 @property (nonatomic, assign) BOOL isFirstWholeMakeUp;

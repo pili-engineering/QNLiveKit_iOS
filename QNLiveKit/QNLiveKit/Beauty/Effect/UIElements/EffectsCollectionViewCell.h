@@ -9,6 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "SenseArSourceService.h"
 #import "STParamUtil.h"
+#import "EFSenseArMaterialDataModels.h"
 typedef enum : NSUInteger {
     NotDownloaded = 0,
     IsDownloading,
