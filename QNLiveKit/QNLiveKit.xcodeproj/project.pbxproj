@@ -2529,10 +2529,8 @@
 					"\"${PODS_CONFIGURATION_BUILD_DIR}/AFNetworking/AFNetworking.framework/Headers\"",
 					"\"${PODS_CONFIGURATION_BUILD_DIR}/Masonry/Masonry.framework/Headers\"",
 					"\"${PODS_CONFIGURATION_BUILD_DIR}/SDWebImage/SDWebImage.framework/Headers\"",
-					"\"$(SRCROOT)/QNLiveKit/Beauty/Effect\"",
 					"\"$(SRCROOT)/QNLiveKit/PLSTArEffects.framework/Headers\"",
 					"\"$(SRCROOT)/QNLiveKit/PLSTArEffects.framework/Headers/core/include\"",
-					"\"$(SRCROOT)/QNLiveKit/Beauty/Effect/EFDataSoure\"",
 				);
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
@@ -2597,10 +2595,8 @@
 					"\"${PODS_CONFIGURATION_BUILD_DIR}/AFNetworking/AFNetworking.framework/Headers\"",
 					"\"${PODS_CONFIGURATION_BUILD_DIR}/Masonry/Masonry.framework/Headers\"",
 					"\"${PODS_CONFIGURATION_BUILD_DIR}/SDWebImage/SDWebImage.framework/Headers\"",
-					"\"$(SRCROOT)/QNLiveKit/Beauty/Effect\"",
 					"\"$(SRCROOT)/QNLiveKit/PLSTArEffects.framework/Headers\"",
 					"\"$(SRCROOT)/QNLiveKit/PLSTArEffects.framework/Headers/core/include\"",
-					"\"$(SRCROOT)/QNLiveKit/Beauty/Effect/EFDataSoure\"",
 				);
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
