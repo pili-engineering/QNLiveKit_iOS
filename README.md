@@ -39,13 +39,15 @@ SDK 依赖一下资源库，具体可以参考 QNLiveKitDemo/Podfile
       pod 'Masonry', '1.1.0'
       pod 'MJExtension','3.4.1'
       pod 'YYCategories','1.0.4'
+      pod 'YYModel','1.0.4'
+      pod 'YYWebImage','1.0.4'
       pod 'SDWebImage',' 5.12.2'
       pod 'AFNetworking','4.0.1'
       pod 'IQKeyboardManager','6.5.9'
       pod 'MBProgressHUD','1.2.0'
       pod 'MJRefresh', '3.5.0'
       pod 'SocketRocket','0.6.0'
-    
+
 
 
 
@@ -83,9 +85,9 @@ SDK 依赖一下资源库，具体可以参考 QNLiveKitDemo/Podfile
 ​         //Tips:如果需要使用内置美颜，在初始化后调用
 ​         [QLive setBeauty:YES]; 
 ​            
-        //直播列表页：
-        QLiveListController *listVc = [QLiveListController new];
-        [self.navigationController pushViewController:listVc animated:YES];
+​        //直播列表页：
+​        QLiveListController *listVc = [QLiveListController new];
+​        [self.navigationController pushViewController:listVc animated:YES];
 
 
 ​        
@@ -106,19 +108,19 @@ SDK 依赖一下资源库，具体可以参考 QNLiveKitDemo/Podfile
 ​    /// 房间业务管理
 ​    @interface QLive : NSObject
 ​    
-    // 初始化
-    + (void)initWithToken:(NSString *)token serverURL:(NSString *)serverURL errorBack:(nullable void (^)(NSError *error))errorBack;
-    //绑定用户信息
-    + (void)setUser:(NSString *)avatar nick:(NSString *)nick extension:(nullable NSDictionary *)extension;
-    //创建主播端
-    + (QNLivePushClient *)createPusherClient;
-    //创建观众端
-    + (QNLivePullClient *)createPlayerClient;
-    //获得直播场景
-    + (QRooms *)getRooms;
-    //获取自己的信息
-    + (void)getSelfUser:(void (^)(QNLiveUser *user))callBack;
-    
+​    // 初始化
+​    + (void)initWithToken:(NSString *)token serverURL:(NSString *)serverURL errorBack:(nullable void (^)(NSError *error))errorBack;
+​    //绑定用户信息
+​    + (void)setUser:(NSString *)avatar nick:(NSString *)nick extension:(nullable NSDictionary *)extension;
+​    //创建主播端
+​    + (QNLivePushClient *)createPusherClient;
+​    //创建观众端
+​    + (QNLivePullClient *)createPlayerClient;
+​    //获得直播场景
+​    + (QRooms *)getRooms;
+​    //获取自己的信息
+​    + (void)getSelfUser:(void (^)(QNLiveUser *user))callBack;
+​    
     @end
 
 
@@ -172,11 +174,11 @@ SDK 依赖一下资源库，具体可以参考 QNLiveKitDemo/Podfile
 ​    
 ​    @interface QRooms : NSObject
 ​    
-    /// 创建房间
-    /// @param param 创建房间参数
-    /// @param callBack 回调房间信息
-    - (void)createRoom:(QNCreateRoomParam *)param callBack:(nullable void (^)(QNLiveRoomInfo *roomInfo))callBack;
-    
+​    /// 创建房间
+​    /// @param param 创建房间参数
+​    /// @param callBack 回调房间信息
+​    - (void)createRoom:(QNCreateRoomParam *)param callBack:(nullable void (^)(QNLiveRoomInfo *roomInfo))callBack;
+​    
     /// 删除房间
     /// @param callBack 回调
     - (void)deleteRoom:(NSString *)liveId callBack:(void (^)(void))callBack;
@@ -352,11 +354,11 @@ SDK 依赖一下资源库，具体可以参考 QNLiveKitDemo/Podfile
 ​    
 ​    @interface QNChatRoomService : QNLiveService
 ​    
-    //添加聊天监听
-    - (void)addChatServiceListener:(id<QNChatRoomServiceListener>)listener;
-    //移除聊天监听
-    - (void)removeChatServiceListener;
-    
+​    //添加聊天监听
+​    - (void)addChatServiceListener:(id<QNChatRoomServiceListener>)listener;
+​    //移除聊天监听
+​    - (void)removeChatServiceListener;
+​    
     //发公聊消息
     - (void)sendPubChatMsg:(NSString *)msg callBack:(void (^)(QNIMMessageObject *msg))callBack;
     //发进房消息
@@ -386,6 +388,7 @@ SDK 依赖一下资源库，具体可以参考 QNLiveKitDemo/Podfile
     @end
 
    
+
 
 
 
