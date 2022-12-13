@@ -8,7 +8,8 @@
 
 #import "EffectsCollectionViewCell.h"
 #import "STParamUtil.h"
-#import "../EFDataSoure/YYModel/YYWebImage/YYWebImage.h"
+#import <YYWebImage/YYWebImage.h>
+
 @implementation EffectsCollectionViewCellModel
 
 @end

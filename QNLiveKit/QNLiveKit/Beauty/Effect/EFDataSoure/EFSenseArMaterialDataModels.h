@@ -8,7 +8,7 @@
 #import <Foundation/Foundation.h>
 #import "SenseArMaterialService.h"
 #import "EFDataSourcing.h"
-#import "YYModel.h"
+#import <YYModel/YYModel.h>
 
 #pragma mark - EFDataSourceModel
 @interface EFDataSourceModel : NSObject <EFDataSourcing, YYModel, NSCopying>

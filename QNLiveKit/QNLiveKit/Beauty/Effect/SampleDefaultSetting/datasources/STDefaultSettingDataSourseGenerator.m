@@ -14,7 +14,7 @@
 #import "SenseArMaterialService.h"
 #import "STCustomMemoryCache.h"
 #import "EffectsCollectionViewCell.h"
-#import "YYModel/YYWebImage/YYWebImage.h"
+#import <YYModel/YYModel.h>
 @implementation STDefaultSettingDataSourseGenerator
 
 /// 生成调整效果数据源

@@ -13,7 +13,8 @@
 #import "STDefaultSetting.h"
 
 #import "DefaultBeautyParameters.h"
-#import "YYModel/YYWebImage/YYWebImage.h"
+#import <YYModel/YYModel.h>
+
 @interface STBMPDetailColV ()
 
 @property (nonatomic, strong) STMakeupDataModel *bmpModel;
