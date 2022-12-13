@@ -11,7 +11,7 @@
 #import "UIView+Toast.h"
 #import "DefaultBeautyParameters.h"
 
-#import "EFDataSoure/YYModel/YYWebImage/YYWebImage.h"
+#import <YYModel/YYModel.h>
 //沙河路径
 #define kDocumentPath [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) firstObject]
 
