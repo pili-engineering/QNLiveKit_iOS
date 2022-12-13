@@ -8,7 +8,6 @@
 #import <UIKit/UIKit.h>
 #import "QNLiveService.h"
 #import "QNMicLinker.h"
-#import "QRenderView.h"
 #import "QNLiveRoomInfo.h"
 #import "QInvitationModel.h"
 #import "QNLiveUser.h"

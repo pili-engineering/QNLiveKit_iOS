@@ -8,7 +8,9 @@
 #import "QNTabBarViewController.h"
 #import "QNPersonalViewController.h"
 #import <QNLiveKit/QNLiveKit.h>
+#import <QNLiveUIKit/QNLiveUIKit.h>
 #import <YYCategories/YYCategories.h>
+#import <QNLiveUIKit/QLiveListController.h>
 @interface QNTabBarViewController ()
 
 @end

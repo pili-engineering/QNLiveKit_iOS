@@ -1,0 +1,29 @@
+source 'https://mirrors.tuna.tsinghua.edu.cn/git/CocoaPods/Specs.git'
+
+platform :ios, '10.0'
+
+target 'QNLiveUIKit' do
+  
+  use_frameworks!
+  
+  pod 'QNRTCKit-iOS','5.1.1'
+  pod 'PLPlayerKit', '3.4.7'
+  pod 'Masonry', '1.1.0'
+  pod 'SDWebImage',' 5.12.2'
+  pod 'AFNetworking','4.0.1'
+  pod 'MJExtension','3.4.1'
+  pod 'YYCategories','1.0.4'
+  pod 'YYModel','1.0.4'
+  pod 'YYWebImage','1.0.4'
+  pod 'MBProgressHUD','1.2.0'
+  pod 'MJRefresh', '3.5.0'
+  pod 'SocketRocket','0.6.0'  
+  pod 'IQKeyboardManager','6.5.9'
+
+  target 'QNLiveUIKitTests' do
+    inherit! :search_paths
+    # Pods for testing
+  end
+
+
+end

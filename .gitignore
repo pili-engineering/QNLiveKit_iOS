@@ -1,4 +1,21 @@
+## User settings
+xcuserdata/
+
+## Obj-C/Swift specific
+*.hmap
+
+## App packaging
+*.ipa
+*.dSYM.zip
+*.dSYM
+
+# CocoaPods
 Pods/
 *.xcworkspace
-*.lic
+
+
+# Mac OS X Finder and whatnot
 .DS_Store
+
+# license files
+*.lic

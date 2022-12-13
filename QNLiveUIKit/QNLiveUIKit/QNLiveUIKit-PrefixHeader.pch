@@ -1,0 +1,98 @@
+//
+//  QNLiveUIKit-PrefixHeader.pch
+//  QNLiveUIKit
+//
+//  Created by sheng wang on 2022/12/7.
+//
+
+#ifndef QNLiveUIKit_PrefixHeader_pch
+#define QNLiveUIKit_PrefixHeader_pch
+
+
+#define SCREEN_W [UIScreen mainScreen].bounds.size.width
+#define SCREEN_H [UIScreen mainScreen].bounds.size.height
+
+#define LIVE_LOGIN_TOKEN_KEY @"LIVE_LOGIN_TOKEN"
+#define LIVE_USER_AVATAR_KEY @"LIVE_USER_AVATAR"
+#define LIVE_ACCOUNT_ID_KEY @"LIVE_ACCOUNT_ID"
+#define LIVE_NICKNAME_KEY @"LIVE_NICKNAME"
+#define APPSERVER @"http://seallive.qiniuapi.com/"
+#define LIVE_IM_USER_ID_KEY @"LIVE_IM_USER_ID"
+#define LIVE_IM_USER_NAME_KEY @"LIVE_IM_USER_NAME"
+#define LIVE_IM_USER_PASSWORD_KEY @"LIVE_IM_USER_PASSWORD"
+#define Live_Token @"Live_Token"//直播token
+#define Live_URL @"Live_URL"//直播域名
+
+//TODO:UIKIT 这些定义需要统一
+#define liveroom_welcome  @"liveroom-welcome"
+#define liveroom_bye_bye  @"liveroom-bye-bye"//离开房间信令
+#define liveroom_pubchat  @"liveroom-pubchat"//公聊消息
+#define liveroom_pubchat_custom  @"liveroom-pubchat-custom"//自定义消息
+#define living_danmu  @"living_danmu" //弹幕信令
+#define liveroom_like  @"like_notify" //点赞消息
+#define liveroom_gift  @"gift_notify" //礼物消息
+
+#define liveroom_miclinker_join  @"liveroom_miclinker_join"//上麦
+#define liveroom_miclinker_left  @"liveroom_miclinker_left"//下麦
+#define liveroom_miclinker_kick  @"liveroom_miclinker_kick"//连麦踢人
+#define liveroom_miclinker_microphone_mute  @"liveroom_miclinker_microphone_mute"//本地麦克风状态
+#define liveroom_miclinker_camera_mute  @"liveroom_miclinker_camera_mute"//本地摄像头状态
+#define liveroom_miclinker_microphone_forbidden  @"liveroom_miclinker_microphone_forbidden"//管理员禁用
+#define liveroom_miclinker_camera_forbidden  @"liveroom_miclinker_camera_forbidden"
+#define liveroom_miclinker_extension_change  @"liveroom_miclinker_extension_change"
+
+#define liveroom_linkmic_invitation  @"liveroom_linkmic_invitation"//连麦邀请信令
+#define liveroom_pk_invitation  @"liveroom_pk_invitation"//pk邀请信令
+#define liveroom_pk_start  @"liveroom_pk_start"
+#define liveroom_pk_stop  @"liveroom_pk_stop"
+
+#define invite_send  @"invite_send"
+#define invite_cancel  @"invite_cancel"
+#define invite_accept  @"invite_accept"
+#define invite_reject  @"invite_reject"
+
+#define liveroom_shopping_explaining @"liveroom_shopping_explaining"//切换讲解商品
+#define liveroom_shopping_refresh @"liveroom_shopping_refresh"//商品列表有更新
+
+//get登录token
+#define LIVE_Login_token  [[NSUserDefaults standardUserDefaults] stringForKey:LIVE_LOGIN_TOKEN_KEY]
+//get头像
+#define LIVE_User_avatar  [[NSUserDefaults standardUserDefaults] stringForKey:LIVE_USER_AVATAR_KEY]
+//get用户ID
+#define LIVE_User_id  [[NSUserDefaults standardUserDefaults] stringForKey:LIVE_ACCOUNT_ID_KEY]
+//get用户昵称
+#define LIVE_User_nickname  [[NSUserDefaults standardUserDefaults] stringForKey:LIVE_NICKNAME_KEY]
+//getIM userid
+#define LIVE_IM_userId  [[NSUserDefaults standardUserDefaults] stringForKey:LIVE_IM_USER_ID_KEY]
+//get IM userName
+#define LIVE_IM_userName  [[NSUserDefaults standardUserDefaults] stringForKey:LIVE_IM_USER_NAME_KEY]
+//get IM psw
+#define LIVE_IM_psw  [[NSUserDefaults standardUserDefaults] stringForKey:LIVE_IM_USER_PASSWORD_KEY]
+//get直播token
+#define LIVE_Live_Token [[NSUserDefaults standardUserDefaults] stringForKey:Live_Token]
+//get直播域名
+#define LIVE_Live_URL [[NSUserDefaults standardUserDefaults] stringForKey:Live_URL]
+
+//接收IM消息通知
+#define ReceiveIMMessageNotification @"ReceiveIMMessageNotification"
+
+#import <QNRTCKit/QNRTCKit.h>
+#import <MJExtension/MJExtension.h>
+#import <Masonry/Masonry.h>
+#import <YYCategories/YYCategories.h>
+#import <SDWebImage/SDWebImage.h>
+#import <QNLiveKit/QNLiveKit.h>
+
+#import "UIImage+QNImage.h"
+
+#import "EFDataSourceGenerator.h"
+#import "EFStatusManager.h"
+
+#ifdef DLOG_ENABLE
+#define DLog(s,...) NSLog(@"%@", [NSString stringWithFormat:(s),##__VA_ARGS__])
+#else
+#define DLog(s,...)
+#endif
+#define ENABLE_MULTI_STICKER_TAB 0
+
+#endif /* QNLiveUIKit_PrefixHeader_pch */

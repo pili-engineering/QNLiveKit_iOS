@@ -13,7 +13,7 @@ target 'QNLiveKit' do
   pod 'YYWebImage','1.0.4'
   pod 'AFNetworking','4.0.1'
   pod 'MJExtension','3.4.1'
-  pod 'YYModel','1.0.4'
+  pod 'YYCategories','1.0.4'
 
   target 'QNLiveKitTests' do
     inherit! :search_paths

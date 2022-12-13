@@ -10,6 +10,7 @@
 		1F45E2BA83BC92BA3FD1524C /* Pods_QNLiveKitDemo_QNLiveKitDemoUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 382946EB5F00B1F6B3437C07 /* Pods_QNLiveKitDemo_QNLiveKitDemoUITests.framework */; };
 		33444C07CC64DB14DB74F57A /* Pods_QNLiveKitDemoTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5A2899F26391AE2088C5854B /* Pods_QNLiveKitDemoTests.framework */; };
 		4873565A29270F46008E7191 /* SENSEME.lic in Resources */ = {isa = PBXBuildFile; fileRef = 4873565929270F46008E7191 /* SENSEME.lic */; };
+		48B2D4B3294231530082A8D6 /* QNIMSDK.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 48C83DD12940BBF20002C11B /* QNIMSDK.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		48B937CE29271C670014D671 /* CoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 48B937CB29271C670014D671 /* CoreServices.framework */; };
 		48B937D229271CE60014D671 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 48B937D129271CE60014D671 /* MapKit.framework */; };
 		48B937D729271DC40014D671 /* all_categories.json in Resources */ = {isa = PBXBuildFile; fileRef = 48B937D429271DC40014D671 /* all_categories.json */; };
@@ -39,8 +40,8 @@
 		48B9381129272F9A0014D671 /* blush.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 48B9380929272F9A0014D671 /* blush.bundle */; };
 		48B9381229272F9A0014D671 /* hairColor.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 48B9380A29272F9A0014D671 /* hairColor.bundle */; };
 		48C83DD22940BBF20002C11B /* QNIMSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 48C83DD12940BBF20002C11B /* QNIMSDK.framework */; };
-		48C83DD32940BC000002C11B /* QNIMSDK.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 48C83DD12940BBF20002C11B /* QNIMSDK.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		48C83DD52940C0F40002C11B /* PLSTArEffects.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 48C83DD42940C0F40002C11B /* PLSTArEffects.framework */; };
+		48FAFAF52941C0E300D36503 /* QNLiveUIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 484C3ABD2940D48F00640FE4 /* QNLiveUIKit.framework */; };
 		776B1BDF28378CCD00D85C73 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 776B1BDE28378CCD00D85C73 /* AppDelegate.m */; };
 		776B1BE828378CCD00D85C73 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 776B1BE628378CCD00D85C73 /* Main.storyboard */; };
 		776B1BEA28378CCF00D85C73 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 776B1BE928378CCF00D85C73 /* Assets.xcassets */; };
@@ -80,6 +81,20 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
+		484C3ABC2940D48F00640FE4 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 484C3AB52940D48E00640FE4 /* QNLiveUIKit.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 484C3A9D2940D48E00640FE4;
+			remoteInfo = QNLiveUIKit;
+		};
+		484C3ABE2940D48F00640FE4 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 484C3AB52940D48E00640FE4 /* QNLiveUIKit.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 484C3AA52940D48E00640FE4;
+			remoteInfo = QNLiveUIKitTests;
+		};
 		776B1BF628378CCF00D85C73 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 776B1BD228378CCD00D85C73 /* Project object */;
@@ -111,13 +126,13 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
-		77781C81283E1EBC009DC71C /* Embed Frameworks */ = {
+		48B2D4B2294231270082A8D6 /* Embed Frameworks */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				48C83DD32940BC000002C11B /* QNIMSDK.framework in Embed Frameworks */,
+				48B2D4B3294231530082A8D6 /* QNIMSDK.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -128,6 +143,7 @@
 		078EC26835A6796B234936C4 /* Pods-QNLiveKitDemo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-QNLiveKitDemo.debug.xcconfig"; path = "Target Support Files/Pods-QNLiveKitDemo/Pods-QNLiveKitDemo.debug.xcconfig"; sourceTree = "<group>"; };
 		1B4CD739008C7D0755EFCAC9 /* Pods-QNLiveKitDemo-QNLiveKitDemoUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-QNLiveKitDemo-QNLiveKitDemoUITests.debug.xcconfig"; path = "Target Support Files/Pods-QNLiveKitDemo-QNLiveKitDemoUITests/Pods-QNLiveKitDemo-QNLiveKitDemoUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		382946EB5F00B1F6B3437C07 /* Pods_QNLiveKitDemo_QNLiveKitDemoUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_QNLiveKitDemo_QNLiveKitDemoUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		484C3AB52940D48E00640FE4 /* QNLiveUIKit.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = QNLiveUIKit.xcodeproj; path = ../QNLiveUIKit/QNLiveUIKit.xcodeproj; sourceTree = "<group>"; };
 		4873565929270F46008E7191 /* SENSEME.lic */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = SENSEME.lic; path = ../../../../../Documents/qiniu/iOS/beauty/SENSEME.lic; sourceTree = "<group>"; };
 		48B937CB29271C670014D671 /* CoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreServices.framework; path = System/Library/Frameworks/CoreServices.framework; sourceTree = SDKROOT; };
 		48B937D129271CE60014D671 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
@@ -243,6 +259,7 @@
 				7773669C2873E32100245EDB /* AssetsLibrary.framework in Frameworks */,
 				48B937D229271CE60014D671 /* MapKit.framework in Frameworks */,
 				777366952873074700245EDB /* QNLiveKit.framework in Frameworks */,
+				48FAFAF52941C0E300D36503 /* QNLiveUIKit.framework in Frameworks */,
 				C5993B91A021CD7EDC4A0F36 /* Pods_QNLiveKitDemo.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -277,6 +294,15 @@
 				86543AFAB4A8EADB1F77D392 /* Pods-QNLiveKitDemoTests.release.xcconfig */,
 			);
 			path = Pods;
+			sourceTree = "<group>";
+		};
+		484C3AB62940D48E00640FE4 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				484C3ABD2940D48F00640FE4 /* QNLiveUIKit.framework */,
+				484C3ABF2940D48F00640FE4 /* QNLiveUIKitTests.xctest */,
+			);
+			name = Products;
 			sourceTree = "<group>";
 		};
 		48B937D329271DA00014D671 /* helpers */ = {
@@ -363,6 +389,7 @@
 		776B1BD128378CCD00D85C73 = {
 			isa = PBXGroup;
 			children = (
+				484C3AB52940D48E00640FE4 /* QNLiveUIKit.xcodeproj */,
 				776B1C63283C78D800D85C73 /* QNLiveKit.xcodeproj */,
 				776B1BDC28378CCD00D85C73 /* QNLiveKitDemo */,
 				776B1BF828378CCF00D85C73 /* QNLiveKitDemoTests */,
@@ -574,7 +601,7 @@
 				776B1BD728378CCD00D85C73 /* Frameworks */,
 				776B1BD828378CCD00D85C73 /* Resources */,
 				620698CB770F1A7703408378 /* [CP] Embed Pods Frameworks */,
-				77781C81283E1EBC009DC71C /* Embed Frameworks */,
+				48B2D4B2294231270082A8D6 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
@@ -662,6 +689,10 @@
 					ProductGroup = 776B1C64283C78D800D85C73 /* Products */;
 					ProjectRef = 776B1C63283C78D800D85C73 /* QNLiveKit.xcodeproj */;
 				},
+				{
+					ProductGroup = 484C3AB62940D48E00640FE4 /* Products */;
+					ProjectRef = 484C3AB52940D48E00640FE4 /* QNLiveUIKit.xcodeproj */;
+				},
 			);
 			projectRoot = "";
 			targets = (
@@ -673,6 +704,20 @@
 /* End PBXProject section */
 
 /* Begin PBXReferenceProxy section */
+		484C3ABD2940D48F00640FE4 /* QNLiveUIKit.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = QNLiveUIKit.framework;
+			remoteRef = 484C3ABC2940D48F00640FE4 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		484C3ABF2940D48F00640FE4 /* QNLiveUIKitTests.xctest */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = QNLiveUIKitTests.xctest;
+			remoteRef = 484C3ABE2940D48F00640FE4 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
 		776B1C69283C78D900D85C73 /* QNLiveKit.framework */ = {
 			isa = PBXReferenceProxy;
 			fileType = wrapper.framework;
