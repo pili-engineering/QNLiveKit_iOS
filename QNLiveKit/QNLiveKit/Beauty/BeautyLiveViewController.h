@@ -6,7 +6,7 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "BeautyBaseController.h"
+#import "QNLiveKit.h"
 
 NS_ASSUME_NONNULL_BEGIN
 

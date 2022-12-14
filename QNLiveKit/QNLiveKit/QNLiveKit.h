@@ -52,9 +52,14 @@ FOUNDATION_EXPORT const unsigned char QNLiveKitVersionString[];
 #import "QRoomDataModel.h"
 #import "QStatisticalService.h"
 
+#import "BeautyBaseController.h"
+#import "BeautyLiveViewController.h"
 
-//#import "STBaseViewController.h"
-//#import "BeautyLiveViewController.h"
+#import "STBaseViewController.h"
+#import "SenseArMaterialService.h"
+#import "EFSenseArMaterialDataModels.h"
+#import "EFDataSourcing.h"
+
 
 
 // In this header, you should import all the public headers of your framework using statements like #import <QNLiveKit/PublicHeader.h>
