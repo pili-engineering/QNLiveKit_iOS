@@ -14,10 +14,8 @@
 #import "QRooms.h"
 #import <QNIMSDK/QNIMSDK.h>
 #import "QNAppService.h"
-#import "QLiveNetworkUtil.h"
 
 @interface QLive ()
-
 
 
 @end
@@ -49,6 +47,9 @@
     [[QLive sharedInstance] setBeauty:needBeauty];
 }
 
++ (QNLiveUser *)getLoginUser {
+    return [QNUserService sharedInstance].loginUser;
+}
 
 + (void)setUser:(NSString *)avatar nick:(NSString *)nick extension:(nullable NSDictionary *)extension {
     [[QLive sharedInstance] setUser:avatar nick:nick extension:extension];

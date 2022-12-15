@@ -50,6 +50,9 @@ NS_ASSUME_NONNULL_BEGIN
 + (void)setBeauty:(BOOL)needBeauty;
 
 
+/// 获取当前登录用户信息
++ (QNLiveUser *)getLoginUser;
+
 /// 设置登录用户的用户信息
 /// @param avatar 头像图片URL
 /// @param nick 昵称
