@@ -14,6 +14,7 @@
 #import "QRooms.h"
 #import <QNIMSDK/QNIMSDK.h>
 #import "QNAppService.h"
+#import "QLiveNetworkUtil.h"
 
 @interface QLive ()
 
@@ -171,9 +172,7 @@
         return;
     }
     
-    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
-    [defaults setObject:token forKey:Live_Token];
-    [defaults synchronize];
+    [self saveDefaultsToken:token];
     
     [[QNUserService sharedInstance] fetchLoginUserComplete:^(QNLiveUser * _Nonnull user) {
         [[QNIMClient sharedClient] signInByName:user.im_username password:user.im_password completion:^(QNIMError * error) {
@@ -186,6 +185,12 @@
     } failure:^(NSError * _Nullable error) {
         failure(error);
     }];
+}
+
+- (void)saveDefaultsToken:(NSString *)token {
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    [defaults setObject:token forKey:Live_Token];
+    [defaults synchronize];
 }
 
 - (void)setUser:(NSString *)avatar nick:(NSString *)nick extension:(nullable NSDictionary *)extension {
@@ -233,4 +238,13 @@
     return rooms;
 }
 
+- (void)refreshToken {
+    if (self.tokenGetter) {
+        [self.tokenGetter getTokenInfoWithComplete:^(NSString * _Nonnull token) {
+            [self saveDefaultsToken:token];
+        } failure:^(NSError * _Nullable error) {
+            
+        }];
+    }
+}
 @end

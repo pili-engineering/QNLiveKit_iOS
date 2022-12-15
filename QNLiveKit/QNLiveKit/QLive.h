@@ -68,7 +68,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 @property (nonatomic, strong) id<QLiveTokenGetter> tokenGetter;
 
-
+- (void)refreshToken;
 @end
 
 NS_ASSUME_NONNULL_END
