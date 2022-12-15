@@ -129,7 +129,7 @@
     [[QNUserService sharedInstance] fetchLoginUserComplete:^(QNLiveUser * _Nonnull user) {
         [[QNIMClient sharedClient] signInByName:user.im_username password:user.im_password completion:^(QNIMError * error) {
             NSLog(@"---七牛IM服务器连接状态-%li",[QNIMClient sharedClient].connectStatus);
-            if (error) {
+            if (error && error.errorCode != 0) {
                 NSError *loginError = [QNErrorUtil errorWithCode:QNLiveErrorLoginImFail message:@"login im failed" underlying:error];
                 failure(loginError);
             }
