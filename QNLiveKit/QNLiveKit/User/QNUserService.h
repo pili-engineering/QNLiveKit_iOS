@@ -12,7 +12,13 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface QNUserService : NSObject
 
+/// 当前登录用户信息
+@property (atomic, strong, readonly) QNLiveUser *loginUser;
+
 + (instancetype)sharedInstance;
+
+
+- (void)fetchLoginUserComplete:(void (^)(QNLiveUser *user))complete failure:(QNFailureCallback)failure;
 
 - (void)getUserByID:()userId complete:(void (^)(QNLiveUser *user))complete;
 
