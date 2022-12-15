@@ -17,9 +17,10 @@ typedef NS_ERROR_ENUM(QNLiveErrorDomain, QNLiveError) {
     QNLiveErrorInvalidConfig = 10001, // 配置文件错误
     QNLiveErrorFetchAppInfo  = 10002, // 获取应用配置信息错误
     
-    QNLiveErrorInvalidToken = 20001,  // 无效的token
-    QNLiveErrorLoginImFail = 20002,   // 登录IM失败
-    
+    QNLiveErrorInvalidToken   = 20001,  // 无效的token
+    QNLiveErrorGetUserInfo    = 20002, // 获取用户信息失败
+    QNLiveErrorLoginImFail    = 20003,   // 登录IM失败
+    QNLiveErrorUpdateUserInfo = 20004, //更新用户信息失败
 };
 
 

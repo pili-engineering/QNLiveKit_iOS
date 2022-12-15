@@ -54,6 +54,11 @@
     [[QLive sharedInstance] setUser:avatar nick:nick extension:extension];
 }
 
++ (void)setUser:(QNLiveUser *)userInfo complete:(QNCompleteCallback)complete failure:(QNFailureCallback)failure {
+    [[QLive sharedInstance] setUser:userInfo complete:complete failure:failure];
+}
+
+
 /// 创建主播端
 + (QNLivePushClient *)createPusherClient {
     return [[QLive sharedInstance] createPusherClient];
@@ -194,24 +199,32 @@
 }
 
 - (void)setUser:(NSString *)avatar nick:(NSString *)nick extension:(nullable NSDictionary *)extension {
-    
-    NSMutableDictionary *params = [NSMutableDictionary new];
-    params[@"nick"] = nick;
-    params[@"avatar"] = avatar;
-    params[@"extends"] = extension;
-    
-    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
-
-    [defaults setObject:nick forKey:LIVE_NICKNAME_KEY];
-    [defaults setObject:avatar forKey:LIVE_USER_AVATAR_KEY];
-    
-    [defaults synchronize];
-    
-    [QLiveNetworkUtil putRequestWithAction:@"client/user/user" params:params success:^(NSDictionary * _Nonnull responseData) {
-                      
-        } failure:^(NSError * _Nonnull error) {
-
+    QNLiveUser *user = [[QNLiveUser alloc] init];
+    user.nick = nick;
+    user.avatar = avatar;
+    if (extension) {
+        NSMutableArray<Extension *> *extList = [[NSMutableArray alloc] init];
+        [extension enumerateKeysAndObjectsUsingBlock:^(NSString * _Nonnull key, NSString * _Nonnull obj, BOOL * _Nonnull stop) {
+            if (key && obj) {
+                Extension *ext = [[Extension alloc] init];
+                ext.key = key;
+                ext.value = obj;
+                [extList addObject:ext];
+            }
         }];
+        
+        user.extension = [extList copy];
+    }
+    
+    [[QNUserService sharedInstance] setUser:user complete:^{
+        NSLog(@"set user info success");
+    } failure:^(NSError * _Nullable error) {
+        NSLog(@"set user info error %@", error);
+    }];
+}
+
+- (void)setUser:(QNLiveUser *)userInfo complete:(QNCompleteCallback)complete failure:(QNFailureCallback)failure {
+    [[QNUserService sharedInstance] setUser:userInfo complete:complete failure:failure];
 }
 
 //创建主播端

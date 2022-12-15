@@ -56,6 +56,13 @@ NS_ASSUME_NONNULL_BEGIN
 /// @param extension 扩展信息
 + (void)setUser:(NSString *)avatar nick:(NSString *)nick extension:(NSDictionary * _Nullable)extension;
 
+
+/// 设置登录用户的用户信息
+/// @param userInfo 用户信息
+/// @param complete 成功回调
+/// @param failure 失败回调
++ (void)setUser:(QNLiveUser *)userInfo complete:(QNCompleteCallback)complete failure:(QNFailureCallback)failure;
+
 /// 创建主播端
 + (QNLivePushClient *)createPusherClient;
 
