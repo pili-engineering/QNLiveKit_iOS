@@ -41,6 +41,8 @@
 		48B9381229272F9A0014D671 /* hairColor.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 48B9380A29272F9A0014D671 /* hairColor.bundle */; };
 		48C83DD22940BBF20002C11B /* QNIMSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 48C83DD12940BBF20002C11B /* QNIMSDK.framework */; };
 		48C83DD52940C0F40002C11B /* PLSTArEffects.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 48C83DD42940C0F40002C11B /* PLSTArEffects.framework */; };
+		48D4AC34294B0CF7008C8464 /* ApiDemoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 48D4AC33294B0CF7008C8464 /* ApiDemoViewController.m */; };
+		48D4AC39294B1277008C8464 /* QNDemoUserFetchLoginUser.m in Sources */ = {isa = PBXBuildFile; fileRef = 48D4AC38294B1277008C8464 /* QNDemoUserFetchLoginUser.m */; };
 		48FAFAF52941C0E300D36503 /* QNLiveUIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 484C3ABD2940D48F00640FE4 /* QNLiveUIKit.framework */; };
 		776B1BDF28378CCD00D85C73 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 776B1BDE28378CCD00D85C73 /* AppDelegate.m */; };
 		776B1BE828378CCD00D85C73 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 776B1BE628378CCD00D85C73 /* Main.storyboard */; };
@@ -175,6 +177,11 @@
 		48B9380A29272F9A0014D671 /* hairColor.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = hairColor.bundle; sourceTree = "<group>"; };
 		48C83DD12940BBF20002C11B /* QNIMSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QNIMSDK.framework; path = ../../frameworks/QNIMSDK.framework; sourceTree = "<group>"; };
 		48C83DD42940C0F40002C11B /* PLSTArEffects.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = PLSTArEffects.framework; path = ../../frameworks/PLSTArEffects.framework; sourceTree = "<group>"; };
+		48D4AC32294B0CF7008C8464 /* ApiDemoViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ApiDemoViewController.h; sourceTree = "<group>"; };
+		48D4AC33294B0CF7008C8464 /* ApiDemoViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ApiDemoViewController.m; sourceTree = "<group>"; };
+		48D4AC37294B1277008C8464 /* QNDemoUserFetchLoginUser.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = QNDemoUserFetchLoginUser.h; sourceTree = "<group>"; };
+		48D4AC38294B1277008C8464 /* QNDemoUserFetchLoginUser.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = QNDemoUserFetchLoginUser.m; sourceTree = "<group>"; };
+		48D4AC3A294B1432008C8464 /* QNApiDemo.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = QNApiDemo.h; sourceTree = "<group>"; };
 		56C877B9E14F409F1ED0326F /* Pods-QNLiveKitDemoTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-QNLiveKitDemoTests.debug.xcconfig"; path = "Target Support Files/Pods-QNLiveKitDemoTests/Pods-QNLiveKitDemoTests.debug.xcconfig"; sourceTree = "<group>"; };
 		5A2899F26391AE2088C5854B /* Pods_QNLiveKitDemoTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_QNLiveKitDemoTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		776B1BDA28378CCD00D85C73 /* QNLiveKitDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = QNLiveKitDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -373,6 +380,26 @@
 			path = Makeup;
 			sourceTree = "<group>";
 		};
+		48D4AC2D294B0BD5008C8464 /* ApiDemo */ = {
+			isa = PBXGroup;
+			children = (
+				48D4AC36294B0FFE008C8464 /* User */,
+				48D4AC32294B0CF7008C8464 /* ApiDemoViewController.h */,
+				48D4AC33294B0CF7008C8464 /* ApiDemoViewController.m */,
+				48D4AC3A294B1432008C8464 /* QNApiDemo.h */,
+			);
+			path = ApiDemo;
+			sourceTree = "<group>";
+		};
+		48D4AC36294B0FFE008C8464 /* User */ = {
+			isa = PBXGroup;
+			children = (
+				48D4AC37294B1277008C8464 /* QNDemoUserFetchLoginUser.h */,
+				48D4AC38294B1277008C8464 /* QNDemoUserFetchLoginUser.m */,
+			);
+			path = User;
+			sourceTree = "<group>";
+		};
 		709BCB3C3EEF0783D89437CF /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -418,6 +445,7 @@
 				77A11C5B288540EC00020149 /* BeautyResource */,
 				776B1BDD28378CCD00D85C73 /* AppDelegate.h */,
 				776B1BDE28378CCD00D85C73 /* AppDelegate.m */,
+				48D4AC2D294B0BD5008C8464 /* ApiDemo */,
 				77781C82283E1EE6009DC71C /* Tools */,
 				77781CC72840C768009DC71C /* Personal */,
 				77781C54283E1E7E009DC71C /* AppHome */,
@@ -909,6 +937,7 @@
 				77781CD72840C768009DC71C /* QNPersonalViewController.m in Sources */,
 				77781C76283E1E7E009DC71C /* QNAppStartPlayerController.m in Sources */,
 				77781C97283E1EE7009DC71C /* MBProgressHUD+QNShow.m in Sources */,
+				48D4AC34294B0CF7008C8464 /* ApiDemoViewController.m in Sources */,
 				77781CD62840C768009DC71C /* QNPersonInfoModel.m in Sources */,
 				776B1BDF28378CCD00D85C73 /* AppDelegate.m in Sources */,
 				77781C73283E1E7E009DC71C /* QNGlobalConfigurationModel.m in Sources */,
@@ -918,6 +947,7 @@
 				77781CD92840C768009DC71C /* QNAppRulesCell.m in Sources */,
 				77781C75283E1E7E009DC71C /* QNCountdownButton.m in Sources */,
 				77781C70283E1E7E009DC71C /* QNHomeListViewModel.m in Sources */,
+				48D4AC39294B1277008C8464 /* QNDemoUserFetchLoginUser.m in Sources */,
 				77781C9A283E1EE7009DC71C /* QNNetworkUtil.m in Sources */,
 				77781C6F283E1E7E009DC71C /* QNGlobalConfigurationViewModel.m in Sources */,
 				776B1BF028378CCF00D85C73 /* main.m in Sources */,

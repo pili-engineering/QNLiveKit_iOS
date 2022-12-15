@@ -27,4 +27,11 @@ typedef NS_ENUM(NSUInteger, QNLinkType) {
     QNLinkTypeMasterToMaster = 1,
 };
 
+// 无参数成功回调
+typedef void (^QNCompleteCallback)(void);
+
+// 失败回调
+typedef void (^QNFailureCallback)(NSError *_Nullable  error);
+
+
 #endif /* QNLiveTypeDefines_h */

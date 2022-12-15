@@ -18,7 +18,7 @@
 #import "QNTabBarViewController.h"
 #import <QNLiveKit/QNLiveKit.h>
 
-@interface AppDelegate ()
+@interface AppDelegate () <QLiveTokenGetter>
 @property (nonatomic , copy) NSString *urlStr;
 @end
 
@@ -26,45 +26,39 @@
 
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-    
     [self requestConficInfo];
     [self setUpStatusBar];
-    if (DEMO_Live_Token.length > 0) {
-        [self initQLive];
-    }
+    [self configQLive];
+    
     return YES;
 }
 
-- (void)initQLive {
-    __weak typeof(self)weakSelf = self;
-    [QLive initWithToken:DEMO_Live_Token serverURL:DEMOLiveAPI errorBack:^(NSError * _Nonnull error) {
+- (void)configQLive {
+    QLiveConfig *config = [[QLiveConfig alloc] init];
+    config.serverURL = DEMOLiveAPI;
+    
+    [QLive initWithConfig:config tokenGetter:nil complete:^{
+        NSLog(@"config qlive success");
         
-        //如果token过期
-        [weakSelf getLiveToken:^(NSString * _Nonnull token) {
-            
-            [QLive initWithToken:token serverURL:DEMOLiveAPI errorBack:nil];
-        }];
-        
+        [self authQLive];
+    } failure:^(NSError * _Nullable error) {
+        NSLog(@"config qlive error %@", error);
     }];
+    
     [QLive setBeauty:YES];
 }
 
-//获取liveToken
-- (void)getLiveToken:(nullable void (^)(NSString * _Nonnull token))callBack {
-    
-    NSString *action = [NSString stringWithFormat:@"live/auth_token?userID=%@&deviceID=%@",DEMO_User_id,@"111"];
-    [QNNetworkUtil getRequestWithAction:action params:nil success:^(NSDictionary *responseData) {
-        
-        NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
-        [defaults setObject:responseData[@"accessToken"] forKey:DEMO_LIVE_TOKEN];
-        [defaults synchronize];
-        
-        callBack(responseData[@"accessToken"]);
-
-        } failure:^(NSError *error) {
-        
+- (void)authQLive {
+    if (DEMO_Live_Token.length > 0) {
+        [QLive authWithToken:DEMO_Live_Token complete:^{
+            NSLog(@"auth qlive success");
+        } failure:^(NSError * _Nullable error) {
+            NSLog(@"auth qlive failed");
         }];
+    }
 }
+
+
 
 // 请求APP全局配置
 - (void)requestConficInfo {
@@ -141,6 +135,23 @@
     }
     
     [[UINavigationBar appearance] setBarTintColor:[UIColor colorWithHexString:@"007AFF"]];
+}
+
+- (void)getTokenInfoWithComplete:(void (^)(NSString * _Nonnull))complete failure:(QNFailureCallback)failure {
+    NSString *action = [NSString stringWithFormat:@"live/auth_token?userID=%@&deviceID=%@",DEMO_User_id,@"111"];
+    [QNNetworkUtil getRequestWithAction:action params:nil success:^(NSDictionary *responseData) {
+        
+        NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+        [defaults setObject:responseData[@"accessToken"] forKey:DEMO_LIVE_TOKEN];
+        [defaults synchronize];
+        
+        complete(responseData[@"accessToken"]);
+    } failure:^(NSError *error) {
+        if (failure) {
+            
+        }
+        failure(error);
+    }];
 }
 
 @end

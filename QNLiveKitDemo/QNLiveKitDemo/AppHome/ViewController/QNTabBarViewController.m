@@ -11,6 +11,7 @@
 #import <QNLiveUIKit/QNLiveUIKit.h>
 #import <YYCategories/YYCategories.h>
 #import <QNLiveUIKit/QLiveListController.h>
+#import "ApiDemoViewController.h"
 @interface QNTabBarViewController ()
 
 @end
@@ -38,6 +39,14 @@
     personalNav.tabBarItem.image = [UIImage imageNamed:@"icon_user"];
     personalNav.tabBarItem.selectedImage = [UIImage imageNamed:@"icon_user_selected"];
     [self addChildViewController:personalNav];
+    
+    
+    ApiDemoViewController *demoVc = [[ApiDemoViewController alloc]init];
+    UINavigationController *demoNav = [[UINavigationController alloc]initWithRootViewController:demoVc];
+    demoNav.tabBarItem.title = @"API测试";
+    demoNav.tabBarItem.image = [UIImage imageNamed:@"icon_user"];
+    demoNav.tabBarItem.selectedImage = [UIImage imageNamed:@"icon_user_selected"];
+    [self addChildViewController:demoNav];
 }
 
 

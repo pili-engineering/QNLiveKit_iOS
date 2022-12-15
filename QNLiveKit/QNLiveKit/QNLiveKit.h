@@ -19,7 +19,6 @@ FOUNDATION_EXPORT const unsigned char QNLiveKitVersionString[];
 #import "QNCameraParams.h"
 #import "QNMicrophoneParams.h"
 
-
 #import "Extension.h"
 #import "QLive.h"
 #import "QNLiveService.h"
@@ -52,9 +51,9 @@ FOUNDATION_EXPORT const unsigned char QNLiveKitVersionString[];
 #import "QNLikeService.h"
 #import "CreateSignalHandler.h"
 #import "QLiveNetworkUtil.h"
+#import "QNAppService.h"
+#import "QNLiveError.h"
 
-//#import "STBaseViewController.h"
-//#import "BeautyLiveViewController.h"
 
 
 // In this header, you should import all the public headers of your framework using statements like #import <QNLiveKit/PublicHeader.h>
