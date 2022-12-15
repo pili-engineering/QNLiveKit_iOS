@@ -17,12 +17,59 @@
 
 @interface QLive ()
 
+
+
 @end
 
 @implementation QLive
 
++ (instancetype)sharedInstance {
+    static QLive * instance = nil;
+    static dispatch_once_t onceToken;
+    dispatch_once(&onceToken, ^{
+        instance = [[self alloc] init];
+    });
+    return instance;
+}
 
-+ (void)initWithToken:(NSString *)token serverURL:(nonnull NSString *)serverURL errorBack:(nullable void (^)(NSError * _Nullable))errorBack{
++ (void)initWithToken:(NSString *)token serverURL:(nonnull NSString *)serverURL errorBack:(nullable void (^)(NSError * _Nullable))errorBack {
+    [[QLive sharedInstance] initWithToken:token serverURL:serverURL errorBack:errorBack];
+}
+
++ (void)initWithConfig:(QLiveConfig *)config tokenGetter:(id<QLiveTokenGetter>)tokenGetter complete:(QNCompleteCallback)complete failure:(QNFailureCallback)failure {
+    [[QLive sharedInstance] initWithConfig:config tokenGetter:tokenGetter complete:complete failure:failure];
+}
+
++ (void)authWithToken:(NSString *)token complete:(QNCompleteCallback)complete failure:(QNFailureCallback)failure {
+    [[QLive sharedInstance] authWithToken:token complete:complete failure:failure];
+}
+
++ (void)setBeauty:(BOOL)needBeauty {
+    [[QLive sharedInstance] setBeauty:needBeauty];
+}
+
+
++ (void)setUser:(NSString *)avatar nick:(NSString *)nick extension:(nullable NSDictionary *)extension {
+    [[QLive sharedInstance] setUser:avatar nick:nick extension:extension];
+}
+
+/// 创建主播端
++ (QNLivePushClient *)createPusherClient {
+    return [[QLive sharedInstance] createPusherClient];
+}
+
+/// 创建观众端
++ (QNLivePullClient *)createPlayerClient {
+    return [[QLive sharedInstance] createPlayerClient];
+}
+
+//获得直播场景
++ (QRooms *)getRooms {
+    return [[QLive sharedInstance] getRooms];
+}
+
+
+- (void)initWithToken:(NSString *)token serverURL:(nonnull NSString *)serverURL errorBack:(nullable void (^)(NSError * _Nullable))errorBack{
     if (token.length == 0) {
         NSError *error = [QNErrorUtil errorWithCode:QNLiveErrorInvalidToken message:@"empty token"];
         errorBack(error);
@@ -32,7 +79,7 @@
     QLiveConfig *config = [[QLiveConfig alloc] init];
     config.serverURL = serverURL;
     
-    [QLive initWithConfig:config complete:^{
+    [QLive initWithConfig:config tokenGetter:nil complete:^{
         [QLive authWithToken:token complete:^{
             
         } failure:^(NSError * _Nullable error) {
@@ -47,11 +94,13 @@
 
 
 
-+ (void)initWithConfig:(QLiveConfig *)config complete:(QNCompleteCallback)complete failure:(QNFailureCallback)failure {
-    [QLive saveDefaultsConfig:config];
+- (void)initWithConfig:(QLiveConfig *)config tokenGetter:(id<QLiveTokenGetter> _Nullable)tokenGetter complete:(QNCompleteCallback)complete failure:(QNFailureCallback)failure {
+    self.tokenGetter = tokenGetter;
+    
+    [self saveDefaultsConfig:config];
     
     [QNAppService getAppInfoWithComplete:^(QNAppInfo * _Nonnull appInfo) {
-        [QLive initApp:appInfo complete:complete failure:failure];
+        [self initApp:appInfo complete:complete failure:failure];
     } failure:^(NSError * _Nullable error) {
         NSLog(@"get appInfo error %@", error);
         error = [QNErrorUtil errorWithCode:QNLiveErrorFetchAppInfo message:@"get appInfo error" underlying:error];
@@ -62,7 +111,7 @@
 
 /// 必要信息存入 defaults
 /// @param config  配置信息
-+ (void)saveDefaultsConfig:(QLiveConfig *)config {
+- (void)saveDefaultsConfig:(QLiveConfig *)config {
     NSString *appendUrl = [config.serverURL stringByAppendingString:@"/%@"];
     
     NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
@@ -75,13 +124,13 @@
 /// @param appInfo 应用信息
 /// @param complete 成功回调
 /// @param failure 失败回调
-+ (void)initApp:(QNAppInfo *)appInfo complete:(QNCompleteCallback)complete failure:(QNFailureCallback)failure {
-    [QLive initImWithAppID:appInfo.IMAppID];
+- (void)initApp:(QNAppInfo *)appInfo complete:(QNCompleteCallback)complete failure:(QNFailureCallback)failure {
+    [self initImWithAppID:appInfo.IMAppID];
     
     complete();
 }
 
-+ (void)initImWithAppID:(NSString *)imAppId {
+- (void)initImWithAppID:(NSString *)imAppId {
     NSFileManager *fileManager = [NSFileManager defaultManager];
     
     NSString* dataDir = [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES).firstObject stringByAppendingPathComponent:@"ChatData"];
@@ -108,13 +157,13 @@
 }
 
 
-+ (void)setBeauty:(BOOL)needBeauty {
+- (void)setBeauty:(BOOL)needBeauty {
     QNLivePushClient *pushClient = [QNLivePushClient createPushClient];
     pushClient.needBeauty = needBeauty;
 }
 
 
-+ (void)authWithToken:(NSString *)token complete:(QNCompleteCallback)complete failure:(QNFailureCallback)failure {
+- (void)authWithToken:(NSString *)token complete:(QNCompleteCallback)complete failure:(QNFailureCallback)failure {
     if (token.length == 0) {
         NSLog(@"empty token");
         NSError *error = [QNErrorUtil errorWithCode:QNLiveErrorInvalidToken message:@"empty token"];
@@ -139,7 +188,7 @@
     }];
 }
 
-+ (void)setUser:(NSString *)avatar nick:(NSString *)nick extension:(nullable NSDictionary *)extension {
+- (void)setUser:(NSString *)avatar nick:(NSString *)nick extension:(nullable NSDictionary *)extension {
     
     NSMutableDictionary *params = [NSMutableDictionary new];
     params[@"nick"] = nick;
@@ -161,19 +210,21 @@
 }
 
 //创建主播端
-+ (QNLivePushClient *)createPusherClient {
+- (QNLivePushClient *)createPusherClient {
     
     QNLivePushClient *pushClient = [QNLivePushClient createPushClient];    
     return pushClient;
 }
+
 //创建观众端
-+ (QNLivePullClient *)createPlayerClient {
+- (QNLivePullClient *)createPlayerClient {
     QNLivePullClient *pullClient = [[QNLivePullClient alloc]init];
     return pullClient;
     
 }
+
 //获得直播场景
-+ (QRooms *)getRooms {
+- (QRooms *)getRooms {
     static QRooms *rooms;
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken,^{
@@ -181,30 +232,5 @@
     });
     return rooms;
 }
-
-//获取自己的信息
-//+ (void)getSelfUser:(void (^)(QNLiveUser * _Nullable, NSError * _Nullable))callBack {
-//    
-//    [QLiveNetworkUtil getRequestWithAction:@"client/user/profile" params:nil success:^(NSDictionary * _Nonnull responseData) {
-//        
-//        QNLiveUser *user = [QNLiveUser mj_objectWithKeyValues:responseData];
-//        
-//        NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
-//        [defaults setObject:user.user_id forKey:LIVE_ACCOUNT_ID_KEY];
-//        [defaults setObject:user.im_userid forKey:LIVE_IM_USER_ID_KEY];
-//        [defaults setObject:user.im_username forKey:LIVE_IM_USER_NAME_KEY];
-//        [defaults setObject:user.im_password forKey:LIVE_IM_USER_PASSWORD_KEY];
-//        [defaults setObject:user.nick forKey:LIVE_NICKNAME_KEY];
-//        [defaults setObject:user.avatar forKey:LIVE_USER_AVATAR_KEY];
-//        [defaults synchronize];
-//        
-//        callBack(user,nil);
-//        
-//        } failure:^(NSError * _Nonnull error) {
-//            callBack(nil,error);
-//        }];
-//}
-
-
 
 @end

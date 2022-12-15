@@ -28,7 +28,7 @@ typedef NS_ENUM(NSUInteger, QNLinkType) {
 };
 
 // 无参数成功回调
-typedef void (^QNCompleteCallback)();
+typedef void (^QNCompleteCallback)(void);
 
 // 失败回调
 typedef void (^QNFailureCallback)(NSError *_Nullable  error);
