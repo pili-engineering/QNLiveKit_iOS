@@ -105,14 +105,9 @@
     self.tokenGetter = tokenGetter;
     
     [self saveDefaultsConfig:config];
-    
-    [QNAppService getAppInfoWithComplete:^(QNAppInfo * _Nonnull appInfo) {
-        [self initApp:appInfo complete:complete failure:failure];
-    } failure:^(NSError * _Nullable error) {
-        NSLog(@"get appInfo error %@", error);
-        error = [QNErrorUtil errorWithCode:QNLiveErrorFetchAppInfo message:@"get appInfo error" underlying:error];
-        failure(error);
-    }];
+    if (complete) {
+        complete();
+    }
 }
 
 
@@ -177,18 +172,31 @@
         failure(error);
         return;
     }
-    
     [self saveDefaultsToken:token];
     
-    [[QNUserService sharedInstance] fetchLoginUserComplete:^(QNLiveUser * _Nonnull user) {
-        [[QNIMClient sharedClient] signInByName:user.im_username password:user.im_password completion:^(QNIMError * error) {
-            NSLog(@"---七牛IM服务器连接状态-%li",[QNIMClient sharedClient].connectStatus);
-            if (error && error.errorCode != 0) {
-                NSError *loginError = [QNErrorUtil errorWithCode:QNLiveErrorLoginImFail message:@"login im failed" underlying:error];
-                failure(loginError);
-            }
+    [self initLiveAppWithComplete:^{
+            [[QNUserService sharedInstance] fetchLoginUserComplete:^(QNLiveUser * _Nonnull user) {
+                [[QNIMClient sharedClient] signInByName:user.im_username password:user.im_password completion:^(QNIMError * error) {
+                    NSLog(@"---七牛IM服务器连接状态-%li",[QNIMClient sharedClient].connectStatus);
+                    if (error && error.errorCode != 0) {
+                        NSError *loginError = [QNErrorUtil errorWithCode:QNLiveErrorLoginImFail message:@"login im failed" underlying:error];
+                        failure(loginError);
+                    }
+                }];
+            } failure:^(NSError * _Nullable error) {
+                failure(error);
+            }];
+        } failure:^(NSError * _Nullable error) {
+            failure(error);
         }];
+}
+
+- (void)initLiveAppWithComplete:(QNCompleteCallback)complete failure:(QNFailureCallback)failure {
+    [QNAppService getAppInfoWithComplete:^(QNAppInfo * _Nonnull appInfo) {
+        [self initApp:appInfo complete:complete failure:failure];
     } failure:^(NSError * _Nullable error) {
+        NSLog(@"get appInfo error %@", error);
+        error = [QNErrorUtil errorWithCode:QNLiveErrorFetchAppInfo message:@"get appInfo error" underlying:error];
         failure(error);
     }];
 }
