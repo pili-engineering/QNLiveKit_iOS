@@ -6,6 +6,7 @@
 //
 
 #import "QLiveNetworkUtil.h"
+#import "QLive.h"
 //#import <YYCategories/YYCategories.h>
 #import <AFNetworking/AFNetworking.h>
 
@@ -239,16 +240,27 @@ NSInteger const Interval = 8;
 }
 
 + (void)dealFailure:(NSError *)error failure:(FailureBlock)failure {
-    
-    if (error.code == 401) {
-        NSString *action = [NSString stringWithFormat:@"live/auth_token?userID=%@&deviceID=1111",LIVE_User_id];
-        [QLiveNetworkUtil getRequestWithAction:action params:nil success:^(NSDictionary * _Nonnull responseData) {
-            
-            NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
-            [defaults setObject:responseData[@"accessToken"] forKey:Live_Token];
-            [defaults synchronize];
-            return;
-        } failure:^(NSError * _Nonnull error) {}];
+    NSData * data =error.userInfo[AFNetworkingOperationFailingURLResponseDataErrorKey];
+    NSInteger resultCode = 0;
+    if (data.length > 0) {
+        NSError *jsonError;
+        NSDictionary *liveError = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingMutableContainers error:&jsonError];
+        if (!jsonError) {
+            resultCode = [liveError[@"code"] intValue];
+        }
+    }
+    if (error.code == 401 && resultCode == 499) {
+        NSLog(@"toke timeout");
+        [[QLive sharedInstance] refreshToken];
+        
+//        NSString *action = [NSString stringWithFormat:@"live/auth_token?userID=%@&deviceID=1111",LIVE_User_id];
+//        [QLiveNetworkUtil getRequestWithAction:action params:nil success:^(NSDictionary * _Nonnull responseData) {
+//
+//            NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+//            [defaults setObject:responseData[@"accessToken"] forKey:Live_Token];
+//            [defaults synchronize];
+//            return;
+//        } failure:^(NSError * _Nonnull error) {}];
     }
 
     failure(error);
