@@ -128,7 +128,7 @@
         [self.roomHostView updateWith:roomInfo];
         [self.onlineUserView updateWith:roomInfo];
         
-        if (roomInfo.AnchorStatus == QNAnchorStatusLeave) {
+        if (roomInfo.anchor_status == QNAnchorStatusLeave) {
             [self.player.playerView  removeFromSuperview];
             [self.player stop];            
             self.masterLeaveLabel.hidden = NO;
