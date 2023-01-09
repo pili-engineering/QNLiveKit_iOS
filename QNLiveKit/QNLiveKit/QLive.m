@@ -265,7 +265,7 @@
         [self.tokenGetter getTokenInfoWithComplete:^(NSString * _Nonnull token) {
             [self saveDefaultsToken:token];
         } failure:^(NSError * _Nullable error) {
-            
+            NSLog(@"refresh token error %@", error);
         }];
     }
 }
