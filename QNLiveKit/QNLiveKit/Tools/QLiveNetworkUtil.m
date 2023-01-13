@@ -56,15 +56,17 @@ NSInteger const Interval = 8;
     AFHTTPSessionManager *manager = [QLiveNetworkUtil manager];
     
     [manager GET:requestUrl parameters:params headers:nil progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
-        NSLog(@"\n GET\n action : %@ \n HTTPRequestHeaders:%@ \n params:%@ \n responseObject = %@",requestUrl,manager.requestSerializer.HTTPRequestHeaders,params,responseObject);
+//        NSLog(@"\n GET\n action : %@ \n HTTPRequestHeaders:%@ \n params:%@ \n responseObject = %@",requestUrl,manager.requestSerializer.HTTPRequestHeaders,params,responseObject);
         [self dealSuccessResult:responseObject success:^(NSDictionary * _Nonnull responseData) {
             success(responseData);
                 } failure:^(NSError * _Nonnull error) {
                     failure(error);
+                    
                 }];
         
     } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
-        NSLog(@"\n GET\n action : %@ \n HTTPRequestHeaders:%@ \n params:%@ \n error = %@",requestUrl,manager.requestSerializer.HTTPRequestHeaders,params,error);
+        QLIVELogError(@"\n GET\n action : %@ \n HTTPRequestHeaders:%@ \n params:%@ \n error = %@",requestUrl,manager.requestSerializer.HTTPRequestHeaders,params,error);
+        
         [self dealFailure:error failure:^(NSError * _Nonnull error) {
             failure(error);
         }];
@@ -116,7 +118,7 @@ NSInteger const Interval = 8;
     NSString *requestUrl = [[NSString alloc]initWithFormat:url,action];
     
     [manager POST:requestUrl parameters:params headers:nil progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
-        NSLog(@"\n POST\n action : %@ \n HTTPRequestHeaders:%@ \n params:%@ \n responseObject = %@",requestUrl,manager.requestSerializer.HTTPRequestHeaders,params,responseObject);
+//        NSLog(@"\n POST\n action : %@ \n HTTPRequestHeaders:%@ \n params:%@ \n responseObject = %@",requestUrl,manager.requestSerializer.HTTPRequestHeaders,params,responseObject);
 
         [self dealSuccessResult:responseObject success:^(NSDictionary * _Nonnull responseData) {
             success(responseData);
@@ -181,7 +183,7 @@ NSInteger const Interval = 8;
     NSString *requestUrl = [[NSString alloc]initWithFormat:url,action];
     
     [manager DELETE:requestUrl parameters:params headers:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
-        NSLog(@"\n DELETE\n action : %@ \n HTTPRequestHeaders:%@ \n params:%@ \n responseObject = %@",requestUrl,manager.requestSerializer.HTTPRequestHeaders,params,responseObject);
+//        NSLog(@"\n DELETE\n action : %@ \n HTTPRequestHeaders:%@ \n params:%@ \n responseObject = %@",requestUrl,manager.requestSerializer.HTTPRequestHeaders,params,responseObject);
         [self dealSuccessResult:responseObject success:^(NSDictionary * _Nonnull responseData) {
             success(responseData);
                 } failure:^(NSError * _Nonnull error) {
@@ -206,7 +208,7 @@ NSInteger const Interval = 8;
     NSString *requestUrl = [[NSString alloc]initWithFormat:url,action];
     
     [manager PUT:requestUrl parameters:params headers:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
-        NSLog(@"\n PUT\n action : %@ \n HTTPRequestHeaders:%@ \n params:%@ \n responseObject = %@",requestUrl,manager.requestSerializer.HTTPRequestHeaders,params,responseObject);
+        QLIVELogError(@"\n PUT\n action : %@ \n HTTPRequestHeaders:%@ \n params:%@ \n responseObject = %@",requestUrl,manager.requestSerializer.HTTPRequestHeaders,params,responseObject);
         [self dealSuccessResult:responseObject success:^(NSDictionary * _Nonnull responseData) {
             success(responseData);
                 } failure:^(NSError * _Nonnull error) {
@@ -214,7 +216,7 @@ NSInteger const Interval = 8;
                 }];
         
     } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
-        NSLog(@"\n PUT\n action : %@ \n HTTPRequestHeaders:%@ \n params:%@ \n error = %@",requestUrl,manager.requestSerializer.HTTPRequestHeaders,params,error);
+        QLIVELogError(@"\n PUT\n action : %@ \n HTTPRequestHeaders:%@ \n params:%@ \n error = %@",requestUrl,manager.requestSerializer.HTTPRequestHeaders,params,error);
         [self dealFailure:error failure:^(NSError * _Nonnull error) {
             failure(error);
         }];
@@ -231,7 +233,9 @@ NSInteger const Interval = 8;
             [defaults setObject:responseData[@"accessToken"] forKey:Live_Token];
             [defaults synchronize];
             
-        } failure:^(NSError * _Nonnull error) {}];
+        } failure:^(NSError * _Nonnull error) {
+            QLIVELogError(@"action : %@ \n error = %@",action,error);
+        }];
         
         return;
     }

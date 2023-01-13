@@ -50,7 +50,6 @@
     [self startButton];
     [self turnAroundButton];
     [self closeButton];
-    
 }
 
 

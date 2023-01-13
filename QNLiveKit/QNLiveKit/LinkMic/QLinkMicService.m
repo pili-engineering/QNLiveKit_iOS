@@ -24,19 +24,29 @@
 
 @property (nonatomic,strong)CreateSignalHandler *creater;
 
+
+
 @end
 
 @implementation QLinkMicService
 
-- (instancetype)init {
+- (instancetype)initWithRoomInfo:(QNLiveRoomInfo *)roomInfo {
     if (self = [super init]) {
         [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(receiveIMMessageNotification:) name:ReceiveIMMessageNotification object:nil];
+        self.roomInfo = roomInfo;
+        _linkMicList = [[NSMutableArray alloc] init];
+        [self getAllLinker:^(NSArray<QNMicLinker *> * _Nonnull list) {
+            [_linkMicList addObjectsFromArray:list];
+            QLIVELogInfo(@"micLink getAllLinker (%d)",(int)list.count);
+        }];
+        
     }
     return self;
 }
 
 - (void)receiveIMMessageNotification:(NSNotification *)notice {
-    
+ 
+    QLIVELogInfo(@"IMMessage:\n %@",notice.userInfo);
     NSDictionary *dic = notice.userInfo;
     QIMModel *imModel = [QIMModel mj_objectWithKeyValues:dic.mj_keyValues];
     
@@ -44,23 +54,56 @@
         //上麦消息
         QNMicLinker *model = [QNMicLinker mj_objectWithKeyValues:imModel.data];
         
+        BOOL isHave = NO;
+        for (QNMicLinker *linker in self.linkMicList) {
+            if ([linker.user.user_id isEqual:model.user.user_id]) {
+                isHave = YES;
+            }
+        }
+        if (!isHave) {
+            [self.linkMicList addObject:model];
+        }
+       
         if ([self.micLinkerListener respondsToSelector:@selector(onUserJoinLink:)]) {
             [self.micLinkerListener onUserJoinLink:model];
         }
+        QLIVELogInfo(@"micLink join userID(%@)",model.user.user_id);
     } else if ([imModel.action isEqualToString:liveroom_miclinker_left]) {
-        //下麦消息
-        QNMicLinker *model = [QNMicLinker mj_objectWithKeyValues:imModel.data];
+        //下麦消息,json 未统一
+        
+        QNMicLinker2 *model0 = [QNMicLinker2 mj_objectWithKeyValues:imModel.data];
+        
+        QNMicLinker *model = [[QNMicLinker alloc] init];
+        model.user = [[QNLiveUser alloc] init];
+        model.user.user_id = model0.uid;
+        
+        for (QNMicLinker *linker in self.linkMicList) {
+            if ([linker.user.user_id isEqual:model.user.user_id]) {
+                [self.linkMicList removeObject:linker];
+                break;
+            }
+        }
         
         if ([self.micLinkerListener respondsToSelector:@selector(onUserLeaveLink:)]) {
             [self.micLinkerListener onUserLeaveLink:model];
         }
+        QLIVELogInfo(@"micLink leave userID(%@)",model.user.user_id);
+
     } else if ([imModel.action isEqualToString:liveroom_miclinker_microphone_mute]) {
         //开关音频消息
         LinkOptionModel *model = [LinkOptionModel mj_objectWithKeyValues:imModel.data];
         
+        for (QNMicLinker *linker in self.linkMicList) {
+            if ([linker.user.user_id isEqual:model.uid]) {
+                linker.mic = !model.mute;
+                break;
+            }
+        }
+        
         if ([self.micLinkerListener respondsToSelector:@selector(onUserMicrophoneStatusChange:mute:)]) {
             [self.micLinkerListener onUserMicrophoneStatusChange:model.uid mute:model.mute];
         }
+        QLIVELogInfo(@"micLink mic mut(%d) userID(%@)",model.mute,model.uid);
     } else if ([imModel.action isEqualToString:liveroom_miclinker_camera_mute]) {
         //开关视频消息
         LinkOptionModel *model = [LinkOptionModel mj_objectWithKeyValues:imModel.data];
@@ -68,6 +111,7 @@
         if ([self.micLinkerListener respondsToSelector:@selector(onUserCameraStatusChange:mute:)]) {
             [self.micLinkerListener onUserCameraStatusChange:model.uid mute:model.mute];
         }
+        QLIVELogInfo(@"micLink camera mut(%d) userID(%@)",model.mute,model.uid);
     } else if ([imModel.action isEqualToString:liveroom_miclinker_kick]) {
         //被踢消息
         LinkOptionModel *model = [LinkOptionModel mj_objectWithKeyValues:imModel.data];
@@ -79,9 +123,17 @@
             [[QNIMChatService sharedOption] sendMessage:message];
         }
         
+        for (QNMicLinker *linker in self.linkMicList) {
+            if ([linker.user.user_id isEqual:model.uid]) {
+                [self.linkMicList removeObject:linker];
+                break;
+            }
+        }
+        
         if ([self.micLinkerListener respondsToSelector:@selector(onUserBeKick:)]) {
             [self.micLinkerListener onUserBeKick:model];
         }
+        QLIVELogInfo(@"micLink kick userID(%@)",model.uid);
     } else if ([imModel.action isEqualToString:invite_send]) {
         //连麦邀请消息
         QInvitationModel *model = [QInvitationModel mj_objectWithKeyValues:imModel.data];
@@ -92,6 +144,7 @@
                 }
             }
         }
+        QLIVELogInfo(@"micLink invite_send invitationName(%@)",model.invitationName);
     }  else if ([imModel.action isEqualToString:invite_accept]) {
         //连麦邀请被接受
         QInvitationModel *model = [QInvitationModel mj_objectWithKeyValues:imModel.data];
@@ -100,6 +153,7 @@
                 [self.micLinkerListener onReceiveLinkInvitationAccept:model];
             }
         }
+        QLIVELogInfo(@"micLink invite_accept invitationName(%@)",model.invitationName);
     }  else if ([imModel.action isEqualToString:invite_reject]) {
         //连麦邀请被拒绝
         QInvitationModel *model = [QInvitationModel mj_objectWithKeyValues:imModel.data];
@@ -108,17 +162,20 @@
                 [self.micLinkerListener onReceiveLinkInvitationReject:model];
             }
         }
+        QLIVELogInfo(@"micLink invite_reject invitationName(%@)",model.invitationName);
     }
 }
 
 //发送连麦邀请
 - (void)ApplyLink:(QNLiveUser *)receiveUser {
+    QLIVELogInfo(@"micLink send ApplyLink");
     QNIMMessageObject *message = [self.creater  createInviteMessageWithInvitationName:liveroom_linkmic_invitation receiveRoomId:self.roomInfo.live_id receiveUser:receiveUser];
     [[QNIMChatService sharedOption] sendMessage:message];
 }
 
 //接受连麦
 - (void)AcceptLink:(QInvitationModel *)invitationModel{
+    QLIVELogInfo(@"micLink send AcceptLink");
     invitationModel.invitationName = liveroom_linkmic_invitation;
     QNIMMessageObject *message = [self.creater createAcceptInviteMessageWithInvitationName:liveroom_linkmic_invitation invitationModel:invitationModel];
     [[QNIMChatService sharedOption] sendMessage:message];
@@ -126,6 +183,7 @@
 
 //拒绝连麦
 - (void)RejectLink:(QInvitationModel *)invitationModel {
+    QLIVELogInfo(@"micLink send RejectLink");
     invitationModel.invitationName = liveroom_linkmic_invitation;
     QNIMMessageObject *message = [self.creater createRejectInviteMessageWithInvitationName:liveroom_linkmic_invitation invitationModel:invitationModel];
     [[QNIMChatService sharedOption] sendMessage:message];
@@ -148,9 +206,6 @@
 
 //上麦
 - (void)onMic:(BOOL)mic camera:(BOOL)camera extends:(nullable NSDictionary *)extends {
-    
-    [[QLive createPusherClient] enableCamera:nil renderView:nil];
-    
     [self sendOnMicMsg];
     
     NSMutableDictionary *params = [NSMutableDictionary dictionary];
@@ -189,6 +244,13 @@
 
 //下麦
 - (void)downMic{
+    QLIVELogInfo(@"micLink downMic");
+    for (QNMicLinker *linker in self.linkMicList) {
+        if ([linker.user.user_id isEqual:LIVE_User_id]) {
+            [self.linkMicList removeObject:linker];
+            break;
+        }
+    }
     
     [[QLive createPusherClient].rtcClient leave];
     [self sendDownMicMsg];
@@ -202,7 +264,6 @@
         
         } failure:^(NSError * _Nonnull error) {
         }];
-    
 }
 
 
@@ -218,6 +279,13 @@
     if ([type isEqualToString:@"mic"]) {
         [[QLive createPusherClient] muteMicrophone:!flag];
         [self sendMicrophoneMute:!flag];
+        for (QNMicLinker *linker in self.linkMicList) {
+            if ([linker.user.user_id isEqual:LIVE_User_id]) {
+                linker.mic = flag;
+                break;
+            }
+        }
+        
     } else {
         [[QLive createPusherClient] muteCamera:!flag];
         [self sendCameraMute:!flag];
@@ -302,19 +370,33 @@
 
 //发送下麦信令
 - (void)sendDownMicMsg {
+    QLIVELogInfo(@"micLink sendDownMicMsg");
     QNIMMessageObject *message = [self.creater  createDownMicMessage];
     [[QNIMChatService sharedOption] sendMessage:message];
 }
 
 - (void)sendMicrophoneMute:(BOOL)mute {
+    QLIVELogInfo(@"micLink sendMicrophoneMute (%d)",mute);
     QNIMMessageObject *message = [self.creater  createMicStatusMessage:!mute];
     [[QNIMChatService sharedOption] sendMessage:message];
     
 }
 - (void)sendCameraMute:(BOOL)mute {
+    QLIVELogInfo(@"micLink sendCameraMute (%d)",mute);
     QNIMMessageObject *message = [self.creater  createCameraStatusMessage:!mute];
     [[QNIMChatService sharedOption] sendMessage:message];
 }
+
+- (BOOL)isMicLinked:(NSString *)userID{
+    BOOL isLinked = NO;
+    for (QNMicLinker *linker in self.linkMicList) {
+        if ([linker.user.user_id isEqual:userID]) {
+            isLinked = YES;
+        }
+    }
+    return isLinked;
+}
+
 
 - (QNLiveUser *)user {
     

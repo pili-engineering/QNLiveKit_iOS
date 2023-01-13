@@ -147,6 +147,7 @@
         [defaults setObject:responseData[@"accessToken"] forKey:DEMO_LIVE_TOKEN];
         [defaults synchronize];
         
+
         [QLive authWithToken:responseData[@"accessToken"] complete:^{
             NSLog(@"qlive auth success");
         } failure:^(NSError * _Nullable error) {
