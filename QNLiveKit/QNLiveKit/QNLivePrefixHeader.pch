@@ -87,11 +87,52 @@
 #import "EFStatusManager.h"
 
 
-#ifdef DLOG_ENABLE
-#define DLog(s,...) NSLog(@"%@", [NSString stringWithFormat:(s),##__VA_ARGS__])
+typedef enum : NSUInteger {
+    QLIVELogLevelNone = 0,
+    QLIVELogLevelInfo = 1 << 0,
+    QLIVELogLevelDebug = 1 << 1,
+    QLIVELogLevelError = 1 << 2
+} QLIVELogLevel;
+
+#ifdef DEBUG
+#define QLIVE_LOG_LEVEL_DEBUG
 #else
-#define DLog(s,...)
+#define QLIVE_LOG_LEVEL_NONE
 #endif
+
+#ifdef QLIVE_LOG_LEVEL_NONE
+static const int QLIVE_LOG_LEVEL = QLIVELogLevelNone;
+#elif defined(QLIVE_LOG_LEVEL_Info)
+static const int QLIVE_LOG_LEVEL = QLIVELogLevelInfo;
+#elif defined(QLIVE_LOG_LEVEL_ERROR)
+static const int QLIVE_LOG_LEVEL = (QLIVELogLevelInfo | QLIVELogLevelError);
+#elif defined(QLIVE_LOG_LEVEL_DEBUG)
+static const int QLIVE_LOG_LEVEL = (QLIVELogLevelInfo | QLIVELogLevelError | QLIVELogLevelDebug);
+#endif
+
+#define QLIVELogInfo(fmt, ...)                \
+    if (QLIVE_LOG_LEVEL & QLIVELogLevelInfo) { \
+        QLIVELog(fmt, ##__VA_ARGS__);         \
+    }
+
+#define QLIVELogError(fmt, ...)                \
+    if (QLIVE_LOG_LEVEL & QLIVELogLevelError) { \
+        QLIVELog(fmt, ##__VA_ARGS__);          \
+    }
+
+#define QLIVELogDebug(fmt, ...)                \
+    if (QLIVE_LOG_LEVEL & QLIVELogLevelDebug) { \
+        QLIVELog(fmt, ##__VA_ARGS__);          \
+    }
+
+#define QLIVELog(fmt, ...)                                                                                                                                                                \
+    do {                                                                                                                                                                                 \
+        fprintf(stderr,"%s [QNLive] %s [Line %d] %s\n", [[[NSDate date] description] UTF8String], __PRETTY_FUNCTION__, __LINE__, [[NSString stringWithFormat:(fmt), ##__VA_ARGS__] UTF8String]); \
+    } while (0)
+
+
+
+
 #define ENABLE_MULTI_STICKER_TAB 0
 
 #endif /* QNLivePrefixHeader_pch */

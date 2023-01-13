@@ -93,8 +93,11 @@
 
 - (QRenderView *)remoteView {
     if (!_remoteView) {
-        _remoteView = [[QRenderView alloc]initWithFrame:CGRectZero];
+        _remoteView = [[QRenderView alloc]initWithFrame:CGRectMake(SCREEN_W - 120, 120, 100, 100)];
         _remoteView.fillMode = QNVideoFillModePreserveAspectRatioAndFill;
+        _remoteView.layer.cornerRadius = 50;
+        _remoteView.clipsToBounds = YES;
+        _remoteView.hidden = YES;
     }
     return _remoteView;
 }
@@ -125,8 +128,7 @@
 
 - (QLinkMicService *)linkService {
     if (!_linkService) {
-        _linkService = [[QLinkMicService alloc] init];
-        _linkService.roomInfo = self.roomInfo;
+        _linkService = [[QLinkMicService alloc] initWithRoomInfo:self.roomInfo];
     }
     return _linkService;
 }
