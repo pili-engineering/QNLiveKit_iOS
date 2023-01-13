@@ -10,3 +10,8 @@
 @implementation QNMicLinker
 
 @end
+
+@implementation QNMicLinker2
+
+@end
+

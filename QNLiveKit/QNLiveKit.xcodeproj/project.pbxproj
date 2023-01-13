@@ -399,6 +399,8 @@
 		77E02E32284E245A00EE8A28 /* QNAudienceController.m in Sources */ = {isa = PBXBuildFile; fileRef = 77E02E30284E245A00EE8A28 /* QNAudienceController.m */; };
 		77EDC49F286DAD99002B4226 /* BeautyLiveViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = 77EDC49D286DAD99002B4226 /* BeautyLiveViewController.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		77EDC4A0286DAD99002B4226 /* BeautyLiveViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 77EDC49E286DAD99002B4226 /* BeautyLiveViewController.m */; };
+		E375B0D1296D78820035EABD /* QNVoiceCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E375B0CF296D78810035EABD /* QNVoiceCollectionViewCell.m */; };
+		E375B0D2296D78820035EABD /* QNVoiceCollectionViewCell.h in Headers */ = {isa = PBXBuildFile; fileRef = E375B0D0296D78820035EABD /* QNVoiceCollectionViewCell.h */; };
 		F18E863D1EEF8227B50115B4 /* Pods_QNLiveKitTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 948C15C1847BC94017A63290 /* Pods_QNLiveKitTests.framework */; };
 /* End PBXBuildFile section */
 
@@ -836,6 +838,8 @@
 		948C15C1847BC94017A63290 /* Pods_QNLiveKitTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_QNLiveKitTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A065A22036BD2AFE4FD60568 /* Pods-QNLiveKit.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-QNLiveKit.release.xcconfig"; path = "Target Support Files/Pods-QNLiveKit/Pods-QNLiveKit.release.xcconfig"; sourceTree = "<group>"; };
 		AADF4E1ADDF332CEBB7AA08F /* Pods-QNLiveKitTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-QNLiveKitTests.debug.xcconfig"; path = "Target Support Files/Pods-QNLiveKitTests/Pods-QNLiveKitTests.debug.xcconfig"; sourceTree = "<group>"; };
+		E375B0CF296D78810035EABD /* QNVoiceCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QNVoiceCollectionViewCell.m; sourceTree = "<group>"; };
+		E375B0D0296D78820035EABD /* QNVoiceCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QNVoiceCollectionViewCell.h; sourceTree = "<group>"; };
 		E7FA04C2FAD7C9E74332DF0F /* Pods-QNLiveKit.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-QNLiveKit.debug.xcconfig"; path = "Target Support Files/Pods-QNLiveKit/Pods-QNLiveKit.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -1425,6 +1429,7 @@
 		776B1CCD283D00DB00D85C73 /* LinkMic */ = {
 			isa = PBXGroup;
 			children = (
+				E375B0CE296D78450035EABD /* View */,
 				776B1CCE283D00F400D85C73 /* Model */,
 				776B1CD3283D024E00D85C73 /* QLinkMicService.h */,
 				776B1CD4283D024E00D85C73 /* QLinkMicService.m */,
@@ -1795,6 +1800,15 @@
 			path = Beauty;
 			sourceTree = "<group>";
 		};
+		E375B0CE296D78450035EABD /* View */ = {
+			isa = PBXGroup;
+			children = (
+				E375B0D0296D78820035EABD /* QNVoiceCollectionViewCell.h */,
+				E375B0CF296D78810035EABD /* QNVoiceCollectionViewCell.m */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
 		E81476773C4F47A02AE7BF5E /* Pods */ = {
 			isa = PBXGroup;
 			children = (
@@ -1829,6 +1843,7 @@
 				77BE23A528D96EF1007557E9 /* PSPopListView.h in Headers */,
 				48E87ABE2926445800F33059 /* NSString+materialAes.h in Headers */,
 				48E87AFB2926445900F33059 /* STViewButton.h in Headers */,
+				E375B0D2296D78820035EABD /* QNVoiceCollectionViewCell.h in Headers */,
 				48E87AD72926445800F33059 /* EFGlobalSingleton.h in Headers */,
 				48E87B2D2926445900F33059 /* st_mobile_face_attribute.h in Headers */,
 				48E87A652926445800F33059 /* EFSenseArMaterialDataModels.h in Headers */,
@@ -2290,6 +2305,7 @@
 				77BE237E28D8CAEC007557E9 /* QRotateAnimationView.m in Sources */,
 				48B9387C292DEE590014D671 /* QNGiftMessagePannel.m in Sources */,
 				48E87A2F2926445800F33059 /* NSBundle+language.m in Sources */,
+				E375B0D1296D78820035EABD /* QNVoiceCollectionViewCell.m in Sources */,
 				77204D69285F755C0053B1AD /* QNLiveListCell.m in Sources */,
 				77BE237728D8CAEC007557E9 /* UITabBarController+QPlayerRotation.m in Sources */,
 				77BE24CC28FE91D1007557E9 /* DateTimePickerView.m in Sources */,

@@ -40,7 +40,7 @@ static NSString * const efSenseArMaterialServiceUserID = @"testUserID";
                     group.materialsArray = materialsArray.copy;
                     dispatch_group_leave(efDatasourceGroup);
                 } else {
-                    DLog(@"请求数据失败 : %@的数据结构错误", group.strGroupName);
+                    NSLog(@"请求数据失败 : %@的数据结构错误", group.strGroupName);
                 }
             }
         } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
@@ -50,7 +50,7 @@ static NSString * const efSenseArMaterialServiceUserID = @"testUserID";
         }];
     }
     dispatch_group_notify(efDatasourceGroup, dispatch_get_main_queue(), ^{
-        DLog(@"网络请求结束");
+        NSLog(@"网络请求结束");
         if (flag) {
             if (completeSuccess) completeSuccess(arrMaterialGroups);
         }else{

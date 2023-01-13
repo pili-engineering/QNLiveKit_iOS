@@ -54,9 +54,9 @@
     } else if (_efIsTrack(targetModel)) {
         [self _efSelecteStiker:targetModel withCurrentStorage:currentStorage andCacheStorage:cacheStorage];
     } else {
-        DLog(@"选中了未知类型");
+        NSLog(@"选中了未知类型");
     }
-    DLog(@"%@", targetModel.efName);
+    NSLog(@"%@", targetModel.efName);
 }
 
 - (EFRenderModel *)efHasSelectedTargetModel:(id<EFDataSourcing>)targetModel byCurrentStorage:(EFStatusModels **)currentStorage {

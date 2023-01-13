@@ -150,7 +150,7 @@
         
         [QLive initWithToken:responseData[@"accessToken"] serverURL:DEMOLiveAPI errorBack:^(NSError * _Nonnull error) {
             if (error) {
-                NSLog(@"QLive初始化错误%@",error);
+                NSLog(@"QLive 初始化错误%@",error);
             }
         }];
         [QLive setUser:user.avatar nick:user.nickname extension:nil];
