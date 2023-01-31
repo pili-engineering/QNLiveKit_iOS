@@ -143,21 +143,18 @@
     
     NSString *action = [NSString stringWithFormat:@"live/auth_token?userID=%@&deviceID=%@",user.accountId,deviceID];
     [QNNetworkUtil getRequestWithAction:action params:nil success:^(NSDictionary *responseData) {
-        
         NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
         [defaults setObject:responseData[@"accessToken"] forKey:DEMO_LIVE_TOKEN];
         [defaults synchronize];
         
-        [QLive initWithToken:responseData[@"accessToken"] serverURL:DEMOLiveAPI errorBack:^(NSError * _Nonnull error) {
-            if (error) {
-                NSLog(@"QLive初始化错误%@",error);
-            }
+        [QLive authWithToken:responseData[@"accessToken"] complete:^{
+            NSLog(@"qlive auth success");
+        } failure:^(NSError * _Nullable error) {
+            NSLog(@"QLive auth error %@", error);
         }];
-        [QLive setUser:user.avatar nick:user.nickname extension:nil];
-        [QLive setBeauty:YES];
-        } failure:^(NSError *error) {
-        
-        }];
+    } failure:^(NSError *error) {
+        NSLog(@"fetch accessToken error %@", error);
+    }];
 }
 
 //记录登录信息

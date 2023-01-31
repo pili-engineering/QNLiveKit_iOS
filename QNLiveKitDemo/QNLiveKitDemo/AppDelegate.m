@@ -37,7 +37,7 @@
     QLiveConfig *config = [[QLiveConfig alloc] init];
     config.serverURL = DEMOLiveAPI;
     
-    [QLive initWithConfig:config tokenGetter:nil complete:^{
+    [QLive initWithConfig:config tokenGetter:self complete:^{
         NSLog(@"config qlive success");
         
         [self authQLive];
