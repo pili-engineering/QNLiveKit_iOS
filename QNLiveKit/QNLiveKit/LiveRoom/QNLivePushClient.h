@@ -65,7 +65,6 @@ NS_ASSUME_NONNULL_BEGIN
 // 主播暂时离开直播
 - (void)leaveRoom;
 #pragma mark ---- 推流
-
 /// 启动视频采集
 - (void)enableCamera:(nullable QNCameraParams *)cameraParams renderView:(nullable QRenderView *)renderView;
 /// 切换摄像头

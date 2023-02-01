@@ -21,6 +21,16 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, assign)BOOL mic;
 //是否开摄像头
 @property (nonatomic, assign)BOOL camera;
+//流
+@property (nonatomic, strong) QNTrack *track;
+
+@end
+
+
+// 由于 json 未统一
+@interface QNMicLinker2 : QNMicLinker
+
+@property (nonatomic, copy)NSString *uid;
 
 @end
 
