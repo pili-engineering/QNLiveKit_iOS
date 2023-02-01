@@ -17,7 +17,6 @@
 #import "QNLiveUser.h"
 #import "QNMergeOption.h"
 #import "QNMicrophoneParams.h"
-#import "QRenderView.h"
 #import "QRooms.h"
 
 @interface QNLivePushClient () <QNRTCClientDelegate, QNRoomsListener>

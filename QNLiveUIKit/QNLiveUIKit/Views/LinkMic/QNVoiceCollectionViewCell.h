@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import "QRenderView.h"
-#import "QNMicLinker.h"
+#import <QNLiveKit/QNLiveKit.h>
 
 NS_ASSUME_NONNULL_BEGIN
 

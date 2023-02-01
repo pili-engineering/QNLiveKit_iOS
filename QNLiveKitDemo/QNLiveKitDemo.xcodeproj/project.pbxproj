@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		1F45E2BA83BC92BA3FD1524C /* Pods_QNLiveKitDemo_QNLiveKitDemoUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 382946EB5F00B1F6B3437C07 /* Pods_QNLiveKitDemo_QNLiveKitDemoUITests.framework */; };
 		33444C07CC64DB14DB74F57A /* Pods_QNLiveKitDemoTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5A2899F26391AE2088C5854B /* Pods_QNLiveKitDemoTests.framework */; };
+		483AC938298A0A99000F1B9E /* QNIMSDK.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 48C83DD12940BBF20002C11B /* QNIMSDK.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		48B937CE29271C670014D671 /* CoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 48B937CB29271C670014D671 /* CoreServices.framework */; };
 		48B937D229271CE60014D671 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 48B937D129271CE60014D671 /* MapKit.framework */; };
 		48B937D729271DC40014D671 /* all_categories.json in Resources */ = {isa = PBXBuildFile; fileRef = 48B937D429271DC40014D671 /* all_categories.json */; };
@@ -78,7 +79,6 @@
 		77781CDC2840C768009DC71C /* QNPersonInfoTopView.m in Sources */ = {isa = PBXBuildFile; fileRef = 77781CD22840C768009DC71C /* QNPersonInfoTopView.m */; };
 		77A8D2082876CB77001A3C2C /* my_sticker.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 77A8D1FB2876CB77001A3C2C /* my_sticker.bundle */; };
 		C5993B91A021CD7EDC4A0F36 /* Pods_QNLiveKitDemo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F467E60A07D600FCAAE77FD1 /* Pods_QNLiveKitDemo.framework */; };
-		E375B0CA296BBAE10035EABD /* SENSEME.lic in Resources */ = {isa = PBXBuildFile; fileRef = E375B0C9296BBAE10035EABD /* SENSEME.lic */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -133,7 +133,7 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				48B2D4B3294231530082A8D6 /* QNIMSDK.framework in Embed Frameworks */,
+				483AC938298A0A99000F1B9E /* QNIMSDK.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -145,8 +145,6 @@
 		1B4CD739008C7D0755EFCAC9 /* Pods-QNLiveKitDemo-QNLiveKitDemoUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-QNLiveKitDemo-QNLiveKitDemoUITests.debug.xcconfig"; path = "Target Support Files/Pods-QNLiveKitDemo-QNLiveKitDemoUITests/Pods-QNLiveKitDemo-QNLiveKitDemoUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		382946EB5F00B1F6B3437C07 /* Pods_QNLiveKitDemo_QNLiveKitDemoUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_QNLiveKitDemo_QNLiveKitDemoUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		484C3AB52940D48E00640FE4 /* QNLiveUIKit.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = QNLiveUIKit.xcodeproj; path = ../QNLiveUIKit/QNLiveUIKit.xcodeproj; sourceTree = "<group>"; };
-		4873565929270F46008E7191 /* SENSEME.lic */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = SENSEME.lic; path = ../../../../../Documents/qiniu/iOS/beauty/SENSEME.lic; sourceTree = "<group>"; };
-
 		48B937CB29271C670014D671 /* CoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreServices.framework; path = System/Library/Frameworks/CoreServices.framework; sourceTree = SDKROOT; };
 		48B937D129271CE60014D671 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		48B937D429271DC40014D671 /* all_categories.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = all_categories.json; sourceTree = "<group>"; };
@@ -252,7 +250,6 @@
 		86543AFAB4A8EADB1F77D392 /* Pods-QNLiveKitDemoTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-QNLiveKitDemoTests.release.xcconfig"; path = "Target Support Files/Pods-QNLiveKitDemoTests/Pods-QNLiveKitDemoTests.release.xcconfig"; sourceTree = "<group>"; };
 		B31E3F409ADE08D9D13B003F /* Pods-QNLiveKitDemo-QNLiveKitDemoUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-QNLiveKitDemo-QNLiveKitDemoUITests.release.xcconfig"; path = "Target Support Files/Pods-QNLiveKitDemo-QNLiveKitDemoUITests/Pods-QNLiveKitDemo-QNLiveKitDemoUITests.release.xcconfig"; sourceTree = "<group>"; };
 		B86C108BE2C7758CCFFA24C9 /* Pods-QNLiveKitDemo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-QNLiveKitDemo.release.xcconfig"; path = "Target Support Files/Pods-QNLiveKitDemo/Pods-QNLiveKitDemo.release.xcconfig"; sourceTree = "<group>"; };
-		E375B0C9296BBAE10035EABD /* SENSEME.lic */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = SENSEME.lic; path = ../../../../../../../SENSEME.lic; sourceTree = "<group>"; };
 		F467E60A07D600FCAAE77FD1 /* Pods_QNLiveKitDemo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_QNLiveKitDemo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -590,7 +587,6 @@
 		77A11C5B288540EC00020149 /* BeautyResource */ = {
 			isa = PBXGroup;
 			children = (
-				E375B0C9296BBAE10035EABD /* SENSEME.lic */,
 				77A8D1EA2876CB77001A3C2C /* resources */,
 			);
 			path = BeautyResource;
@@ -794,7 +790,6 @@
 				48B937F129272F4A0014D671 /* M_SenseME_DogFace_p_2.0.0.1.model in Resources */,
 				48B9380129272F910014D671 /* DeliciousFoodFilters.bundle in Resources */,
 				48B937FF29272F910014D671 /* SceneryFilters.bundle in Resources */,
-				E375B0CA296BBAE10035EABD /* SENSEME.lic in Resources */,
 				776B1BE828378CCD00D85C73 /* Main.storyboard in Resources */,
 				48B937DB29271DD00014D671 /* effects_service_group_list.json in Resources */,
 				48B937DD29271DDA0014D671 /* material_group_map_rulues.json in Resources */,

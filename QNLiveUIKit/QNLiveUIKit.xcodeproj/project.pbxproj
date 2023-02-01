@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		483AC932298A084F000F1B9E /* QNVoiceCollectionViewCell.h in Headers */ = {isa = PBXBuildFile; fileRef = 483AC930298A084F000F1B9E /* QNVoiceCollectionViewCell.h */; };
+		483AC933298A084F000F1B9E /* QNVoiceCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 483AC931298A084F000F1B9E /* QNVoiceCollectionViewCell.m */; };
 		484C3AA62940D48E00640FE4 /* QNLiveUIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 484C3A9D2940D48E00640FE4 /* QNLiveUIKit.framework */; };
 		484C3AAB2940D48E00640FE4 /* QNLiveUIKitTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 484C3AAA2940D48E00640FE4 /* QNLiveUIKitTests.m */; };
 		484C3AAC2940D48E00640FE4 /* QNLiveUIKit.h in Headers */ = {isa = PBXBuildFile; fileRef = 484C3AA02940D48E00640FE4 /* QNLiveUIKit.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -366,6 +368,8 @@
 		20908CABF435D1D23D595DDD /* Pods_QNLiveUIKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_QNLiveUIKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		27C92F7C377A4B4168291660 /* Pods-QNLiveUIKitTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-QNLiveUIKitTests.release.xcconfig"; path = "Target Support Files/Pods-QNLiveUIKitTests/Pods-QNLiveUIKitTests.release.xcconfig"; sourceTree = "<group>"; };
 		38B8174D34C46A1A1B71348C /* Pods-QNLiveUIKitTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-QNLiveUIKitTests.debug.xcconfig"; path = "Target Support Files/Pods-QNLiveUIKitTests/Pods-QNLiveUIKitTests.debug.xcconfig"; sourceTree = "<group>"; };
+		483AC930298A084F000F1B9E /* QNVoiceCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QNVoiceCollectionViewCell.h; sourceTree = "<group>"; };
+		483AC931298A084F000F1B9E /* QNVoiceCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QNVoiceCollectionViewCell.m; sourceTree = "<group>"; };
 		484C3A9D2940D48E00640FE4 /* QNLiveUIKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = QNLiveUIKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		484C3AA02940D48E00640FE4 /* QNLiveUIKit.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = QNLiveUIKit.h; sourceTree = "<group>"; };
 		484C3AA52940D48E00640FE4 /* QNLiveUIKitTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = QNLiveUIKitTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -739,6 +743,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		483AC92F298A084F000F1B9E /* LinkMic */ = {
+			isa = PBXGroup;
+			children = (
+				483AC930298A084F000F1B9E /* QNVoiceCollectionViewCell.h */,
+				483AC931298A084F000F1B9E /* QNVoiceCollectionViewCell.m */,
+			);
+			path = LinkMic;
+			sourceTree = "<group>";
+		};
 		484C3A932940D48E00640FE4 = {
 			isa = PBXGroup;
 			children = (
@@ -888,6 +901,7 @@
 		485F24082940DA6500484CB6 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				483AC92F298A084F000F1B9E /* LinkMic */,
 				485F23D22940DA6500484CB6 /* Like */,
 				485F23DB2940DA6500484CB6 /* ToolView */,
 				485F23E82940DA6500484CB6 /* LiveView */,
@@ -1686,6 +1700,7 @@
 				48B2D46B29422E110082A8D6 /* NSString+sha1.h in Headers */,
 				48B2D43A29422DBD0082A8D6 /* STDefaultSetting.h in Headers */,
 				485F26682940DCD100484CB6 /* QNEmojiBoardView.h in Headers */,
+				483AC932298A084F000F1B9E /* QNVoiceCollectionViewCell.h in Headers */,
 				485F26C22940DCF600484CB6 /* QTagButton.h in Headers */,
 				48B2D3CD29422B5D0082A8D6 /* UIView+Toast.h in Headers */,
 				48B2D42729422D320082A8D6 /* QNGiftPaySuccessView.h in Headers */,
@@ -2016,6 +2031,7 @@
 				485F26C12940DCF600484CB6 /* PSPopListView.m in Sources */,
 				485F26782940DCD100484CB6 /* CALayer+Aimate.m in Sources */,
 				48B2D39D29422A100082A8D6 /* STDefaultSettingDataSourseGenerator.m in Sources */,
+				483AC933298A084F000F1B9E /* QNVoiceCollectionViewCell.m in Sources */,
 				48B2D4A429422F0B0082A8D6 /* QCreateLiveController.m in Sources */,
 				48B2D37F294223F20082A8D6 /* QLiveView.m in Sources */,
 				485F26852940DCD100484CB6 /* LiveChatRoom.m in Sources */,

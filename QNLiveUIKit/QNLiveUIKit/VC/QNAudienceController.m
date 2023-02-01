@@ -9,35 +9,24 @@
 #import "ExplainingGoodView.h"
 #import "FDanmakuModel.h"
 #import "FDanmakuView.h"
-#import "GoodsModel.h"
 #import "LinkStateView.h"
 #import "LiveChatRoom.h"
 #import "OnlineUserView.h"
-#import "PubChatModel.h"
-#import "QIMModel.h"
-#import "QLinkMicService.h"
-#import "QLiveNetworkUtil.h"
 #import "QNPayGiftViewController.h"
 #import "QNAudienceController.h"
-#import "QNChatRoomService.h"
 #import "QNGiftMessagePannel.h"
-#import "QNGiftModel.h"
 #import "QNGiftPaySuccessView.h"
 #import "QNGiftView.h"
 #import "QNLikeBubbleView.h"
 #import "QNLikeMenuView.h"
-#import "QNLiveRoomClient.h"
-#import "QNLiveRoomInfo.h"
-#import "QNLiveUser.h"
-#import "QNMicLinker.h"
 #import "QNPayGiftViewController.h"
-#import "QNVoiceCollectionViewCell.h"
 #import "QRenderView.h"
 #import "QToastView.h"
 #import "RoomHostView.h"
 #import "ShopBuyListController.h"
 #import "WacthRecordController.h"
 #import "WatchBottomMoreView.h"
+#import "QNVoiceCollectionViewCell.h"
 #import <PLPlayerKit/PLPlayerKit.h>
 #import <QNIMSDK/QNIMSDK.h>
 
@@ -136,7 +125,7 @@ static NSString *cellIdentifier = @"AddCollectionViewCell";
     }
     self.player.playerView.hidden = NO;
     [self.player playWithURL:[NSURL URLWithString:url] sameSource:NO];
-    QLIVELogInfo(@"playWithURL url(%@)",url);
+//    QLIVELogInfo(@"playWithURL url(%@)",url);
 }
 
 - (void)player:(nonnull PLPlayer *)player stoppedWithError:(nullable NSError *)error {
