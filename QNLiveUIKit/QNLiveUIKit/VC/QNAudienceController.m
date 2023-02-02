@@ -191,7 +191,9 @@ static NSString *cellIdentifier = @"AddCollectionViewCell";
 
           [self.linkMicList addObject:linker];
           linker.track = [QLive createPusherClient].localVideoTrack;
-          [self.micLinkerCollectionView reloadData];
+          dispatch_async(dispatch_get_main_queue(), ^{
+              [self.micLinkerCollectionView reloadData];
+          });
 
           [self popLinkSLotHidden:NO];
       } else if (state == QNConnectionStateDisconnected) {
@@ -241,7 +243,9 @@ static NSString *cellIdentifier = @"AddCollectionViewCell";
               } else {
                   [self.currentTracks setObject:track forKey:userID];
                   [self updateTrack:track userID:userID];
-                  [self.micLinkerCollectionView reloadData];
+                  dispatch_async(dispatch_get_main_queue(), ^{
+                      [self.micLinkerCollectionView reloadData];
+                  });
               }
 
           } else {

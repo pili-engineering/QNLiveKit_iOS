@@ -186,6 +186,7 @@ static NSString *cellIdentifier = @"AddCollectionViewCell";
                   self.preview.frame = CGRectMake(0, 130, SCREEN_W / 2, SCREEN_W / 1.5);
                   self.remoteView.frame = CGRectMake(SCREEN_W / 2, 130, SCREEN_W / 2, SCREEN_W / 1.5);
                   self.remoteView.layer.cornerRadius = 0;
+                  [videoTrack play:self.remoteView];
 
                   [[[QLive createPusherClient] getMixStreamManager] updateMixStreamSize:CGSizeMake(720, 419)];
                   CameraMergeOption *userOption = [CameraMergeOption new];

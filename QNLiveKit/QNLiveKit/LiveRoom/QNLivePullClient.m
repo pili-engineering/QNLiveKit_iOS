@@ -52,7 +52,7 @@
 //离开直播
 - (void)leaveRoom:(NSString *)roomID{
     
-    NSString *action = [NSString stringWithFormat:@"client//live/room/user/%@",roomID];
+    NSString *action = [NSString stringWithFormat:@"client/live/room/user/%@",roomID];
     [QLiveNetworkUtil deleteRequestWithAction:action params:nil success:^(NSDictionary * _Nonnull responseData) {
         
         } failure:^(NSError * _Nonnull error) {

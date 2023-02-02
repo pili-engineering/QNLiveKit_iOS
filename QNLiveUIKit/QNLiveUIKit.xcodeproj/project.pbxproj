@@ -111,7 +111,6 @@
 		485F26FE2940DFB600484CB6 /* AssetsLibrary.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 485F26FD2940DFB600484CB6 /* AssetsLibrary.framework */; };
 		485F27002940DFC200484CB6 /* CoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 485F26FF2940DFC200484CB6 /* CoreServices.framework */; };
 		485F27022940DFC900484CB6 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 485F27012940DFC900484CB6 /* MapKit.framework */; };
-		485F27042940E12F00484CB6 /* QNLiveKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 485F27032940E12F00484CB6 /* QNLiveKit.framework */; };
 		485F27142940E32E00484CB6 /* NSDate+QDate.m in Sources */ = {isa = PBXBuildFile; fileRef = 485F27082940E32E00484CB6 /* NSDate+QDate.m */; };
 		485F27152940E32E00484CB6 /* UIImage+QNImage.m in Sources */ = {isa = PBXBuildFile; fileRef = 485F27092940E32E00484CB6 /* UIImage+QNImage.m */; };
 		485F27162940E32E00484CB6 /* CYProtocolManager.h in Headers */ = {isa = PBXBuildFile; fileRef = 485F270A2940E32E00484CB6 /* CYProtocolManager.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -338,6 +337,7 @@
 		48B2D4AC29422F0B0082A8D6 /* QNAudienceController.m in Sources */ = {isa = PBXBuildFile; fileRef = 485F240A2940DA6F00484CB6 /* QNAudienceController.m */; };
 		48B2D4AD29422F0B0082A8D6 /* QNBaseRTCController.h in Headers */ = {isa = PBXBuildFile; fileRef = 485F240B2940DA6F00484CB6 /* QNBaseRTCController.h */; };
 		670D286E1238CCE4D7E78507 /* Pods_QNLiveUIKitTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 53CF74E9CA939006D827C93C /* Pods_QNLiveUIKitTests.framework */; };
+		E3B907FE298B6AB600B96ADF /* QNLiveKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 485F27032940E12F00484CB6 /* QNLiveKit.framework */; };
 		F239C44CF0C70FB3E3E429EE /* Pods_QNLiveUIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 20908CABF435D1D23D595DDD /* Pods_QNLiveUIKit.framework */; };
 /* End PBXBuildFile section */
 
@@ -350,19 +350,6 @@
 			remoteInfo = QNLiveUIKit;
 		};
 /* End PBXContainerItemProxy section */
-
-/* Begin PBXCopyFilesBuildPhase section */
-		485F27062940E12F00484CB6 /* Embed Frameworks */ = {
-			isa = PBXCopyFilesBuildPhase;
-			buildActionMask = 2147483647;
-			dstPath = "";
-			dstSubfolderSpec = 10;
-			files = (
-			);
-			name = "Embed Frameworks";
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		20908CABF435D1D23D595DDD /* Pods_QNLiveUIKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_QNLiveUIKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -720,10 +707,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				484C3AC62940D71400640FE4 /* QNIMSDK.framework in Frameworks */,
-				485F27042940E12F00484CB6 /* QNLiveKit.framework in Frameworks */,
 				48B2D40F29422CC00082A8D6 /* libSenseArSourceService.a in Frameworks */,
 				484C3AC72940D71400640FE4 /* PLSTArEffects.framework in Frameworks */,
 				485F27002940DFC200484CB6 /* CoreServices.framework in Frameworks */,
+				E3B907FE298B6AB600B96ADF /* QNLiveKit.framework in Frameworks */,
 				48B2D41029422CC40082A8D6 /* libst_mobile.a in Frameworks */,
 				485F27022940DFC900484CB6 /* MapKit.framework in Frameworks */,
 				485F26FE2940DFB600484CB6 /* AssetsLibrary.framework in Frameworks */,
@@ -1754,7 +1741,6 @@
 				484C3A992940D48E00640FE4 /* Sources */,
 				484C3A9A2940D48E00640FE4 /* Frameworks */,
 				484C3A9B2940D48E00640FE4 /* Resources */,
-				485F27062940E12F00484CB6 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
