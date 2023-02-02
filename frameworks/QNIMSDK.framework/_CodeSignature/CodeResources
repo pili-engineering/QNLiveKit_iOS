@@ -14,7 +14,7 @@
 		</data>
 		<key>Headers/QNIMChatService.h</key>
 		<data>
-		GsumxNz5Y5BrhJpvme915SHfYIQ=
+		1SWlZ9Dd0ccyYwWHBcQz5feFH/E=
 		</data>
 		<key>Headers/QNIMChatServiceProtocol.h</key>
 		<data>
@@ -22,7 +22,7 @@
 		</data>
 		<key>Headers/QNIMClient.h</key>
 		<data>
-		9pmhlVy1/UlXGmY4qw3r9AVZIxg=
+		s0a4+nd5THGgoAJBPFd7eYsVCk8=
 		</data>
 		<key>Headers/QNIMConversation.h</key>
 		<data>
@@ -34,7 +34,7 @@
 		</data>
 		<key>Headers/QNIMDefines.h</key>
 		<data>
-		J3z/8ij9Mf+GXs9f2dddf8+f1rs=
+		cy8UiUhAr6Tr2NkAjL+DQ9NmK6A=
 		</data>
 		<key>Headers/QNIMDevice.h</key>
 		<data>
@@ -42,7 +42,7 @@
 		</data>
 		<key>Headers/QNIMError.h</key>
 		<data>
-		QrgxFJuoDENxZ3JsXB3Y7wOPFIM=
+		3LMstff5rDom/MTrSD5+vg3isZY=
 		</data>
 		<key>Headers/QNIMFileAttachment.h</key>
 		<data>
@@ -98,7 +98,7 @@
 		</data>
 		<key>Headers/QNIMMessageAttachment.h</key>
 		<data>
-		ju5LzTr8hlmJ7SjAx1+zAySP2Rs=
+		BV0LE09xjwKe90moaQR4oWn+a/I=
 		</data>
 		<key>Headers/QNIMMessageConfig.h</key>
 		<data>
@@ -114,7 +114,7 @@
 		</data>
 		<key>Headers/QNIMMessageSetting.h</key>
 		<data>
-		WxduJKHedgJeK0sHs5g9dlbrPd8=
+		f7p6nt+pCmhRnmQbDt0j/M0HBsw=
 		</data>
 		<key>Headers/QNIMPushService.h</key>
 		<data>
@@ -150,7 +150,7 @@
 		</data>
 		<key>Headers/QNIMUserService.h</key>
 		<data>
-		wOskdXEzcSlXH/1s7VyC0RYxRTU=
+		jR0cZoZ9zKsdy+ANcMAGuM+FbQA=
 		</data>
 		<key>Headers/QNIMUserServiceProtocol.h</key>
 		<data>
@@ -166,11 +166,11 @@
 		</data>
 		<key>Headers/QNSDKConfig.h</key>
 		<data>
-		uasoESRzPqF57MznSfo0pfR4aI8=
+		crl2S3nX7klY0cWJOLmU7NIFws0=
 		</data>
 		<key>Info.plist</key>
 		<data>
-		xCwi8JRDbFqu7eca3u2onKj+qr4=
+		WhYNL+KD7AQvEfJNcGnmeSQ3qh8=
 		</data>
 		<key>Modules/module.modulemap</key>
 		<data>
@@ -205,11 +205,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			GsumxNz5Y5BrhJpvme915SHfYIQ=
+			1SWlZ9Dd0ccyYwWHBcQz5feFH/E=
 			</data>
 			<key>hash2</key>
 			<data>
-			7oc1w7SySKiUxJz45DdXH2gfisx6DQL5PKaMQCFs8pY=
+			Fb3eyepcE8SDemwXTwU20HgfCyKHwagjDg3x3/UIDlY=
 			</data>
 		</dict>
 		<key>Headers/QNIMChatServiceProtocol.h</key>
@@ -227,11 +227,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			9pmhlVy1/UlXGmY4qw3r9AVZIxg=
+			s0a4+nd5THGgoAJBPFd7eYsVCk8=
 			</data>
 			<key>hash2</key>
 			<data>
-			XxRU9VxtW1+AZxblsK3Tr7adiVucSCBAw6hM8K+Lvww=
+			BVZ/ln237uaHG1MJRT8jqLRWan9i93a5GbBvcOuck9U=
 			</data>
 		</dict>
 		<key>Headers/QNIMConversation.h</key>
@@ -260,11 +260,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			J3z/8ij9Mf+GXs9f2dddf8+f1rs=
+			cy8UiUhAr6Tr2NkAjL+DQ9NmK6A=
 			</data>
 			<key>hash2</key>
 			<data>
-			VuxupTkxJvmOtJPa7DgJPod6HAe6yFKP09vvZ0pyPu0=
+			m1/kbl5Klcwo1u4ZilYYZdCiUJxGLju+8bAG3NsqHyg=
 			</data>
 		</dict>
 		<key>Headers/QNIMDevice.h</key>
@@ -282,11 +282,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			QrgxFJuoDENxZ3JsXB3Y7wOPFIM=
+			3LMstff5rDom/MTrSD5+vg3isZY=
 			</data>
 			<key>hash2</key>
 			<data>
-			kMJQ+cO8hw09LfGYek2UT0HN37Adzblwh5+nSsmzo+A=
+			ZopdYMVi9iPkDcc3X5vbtIimdXX9/sdcV/EUe9EeqVU=
 			</data>
 		</dict>
 		<key>Headers/QNIMFileAttachment.h</key>
@@ -436,11 +436,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			ju5LzTr8hlmJ7SjAx1+zAySP2Rs=
+			BV0LE09xjwKe90moaQR4oWn+a/I=
 			</data>
 			<key>hash2</key>
 			<data>
-			dP0dIQNRSiX3N6dUqiJ6IhryrgkClErvXYKekL9iw0o=
+			suSzYUzbDFR4JNW0iPpFEbNjV1HF1uCsGUtnqQiWQ70=
 			</data>
 		</dict>
 		<key>Headers/QNIMMessageConfig.h</key>
@@ -480,11 +480,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			WxduJKHedgJeK0sHs5g9dlbrPd8=
+			f7p6nt+pCmhRnmQbDt0j/M0HBsw=
 			</data>
 			<key>hash2</key>
 			<data>
-			kZ1boCTaRRtyjnt7BG5sNJwHGzCTm5QlI1TBj9PCNdM=
+			7oDxxnJboXQCAETVKYimmPLoYx99t/fp8tgbaCTLjMk=
 			</data>
 		</dict>
 		<key>Headers/QNIMPushService.h</key>
@@ -579,11 +579,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			wOskdXEzcSlXH/1s7VyC0RYxRTU=
+			jR0cZoZ9zKsdy+ANcMAGuM+FbQA=
 			</data>
 			<key>hash2</key>
 			<data>
-			j5MQ8VFQ40l98f5xsJ88gVjlCCjJwiYczlgQylNZ/9c=
+			xeiecSp5PqQwHgDGkNTIDGLLxEu28O1gsFVBoLRlft0=
 			</data>
 		</dict>
 		<key>Headers/QNIMUserServiceProtocol.h</key>
@@ -623,11 +623,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			uasoESRzPqF57MznSfo0pfR4aI8=
+			crl2S3nX7klY0cWJOLmU7NIFws0=
 			</data>
 			<key>hash2</key>
 			<data>
-			yQOaTCy0hlZiNZiMGsdBzos2fvEcAVvRib7kCwGFbGM=
+			sCChimjv5W3rBD1zH0ZntGomsYrB6bq6Wm3kXzktKYQ=
 			</data>
 		</dict>
 		<key>Modules/module.modulemap</key>

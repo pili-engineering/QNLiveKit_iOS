@@ -27,8 +27,6 @@ NS_ASSUME_NONNULL_BEGIN
 
 - (void)addDelegate:(id<QNIMChatServiceProtocol>)aDelegate;
 
-- (void)addDelegate:(id<QNIMChatServiceProtocol>)aDelegate delegateQueue:(dispatch_queue_t)aQueue;
-
 - (void)removeDelegate:(id<QNIMChatServiceProtocol>)aDelegate;
 
 /**

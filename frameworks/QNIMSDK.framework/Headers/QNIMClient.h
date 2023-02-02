@@ -50,13 +50,6 @@ NS_ASSUME_NONNULL_BEGIN
         completion:(void(^)(QNIMError *error))aCompletionBlock;
 
 /**
- * 通过用户ID和token登录
- **/
-//- (void)signInById:(long long)userId withToken:(NSString *)token
-//        completion:(void(^)(QNIMError *error))aCompletionBlock;
-
-
-/**
  * 通过用户名自动登录（要求之前成功登录过，登录速度较快）
  **/
 - (void)fastSignInByName:(NSString *)name
@@ -75,6 +68,12 @@ NS_ASSUME_NONNULL_BEGIN
  **/
 - (void)signOutID:(NSInteger)userID
 ignoreUnbindDevice:(BOOL)ignoreUnbindDevice
+   completion:(void(^)(QNIMError *error))aCompletionBlock;
+
+/**
+ * 删除账号
+ **/
+- (void)deleteAccountWithPassword:(NSString *)password
    completion:(void(^)(QNIMError *error))aCompletionBlock;
 
 

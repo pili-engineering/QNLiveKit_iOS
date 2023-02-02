@@ -43,6 +43,12 @@ typedef NS_ENUM(NSUInteger, QNIMAttachmentDownloadStatus) {
 @property (nonatomic,copy) NSString *aDisplayName;
 @property (nonatomic,copy) NSString *url;
 @property (nonatomic,assign) int duration;
+@property (nonatomic) double latitude;
+@property (nonatomic) double longitude;
+@property (nonatomic) CGSize videoSize;
+@property (nonatomic,copy) NSString *thumbnailUrl;
+
+@property (nonatomic,copy) NSString *address;
 /**
  文件大小
  */

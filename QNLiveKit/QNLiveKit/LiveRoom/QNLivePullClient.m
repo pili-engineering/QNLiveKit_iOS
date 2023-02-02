@@ -65,7 +65,7 @@
     PLPlayFormat format = kPLPLAY_FORMAT_UnKnown;
     
     [option setOptionValue:@(format) forKey:PLPlayerOptionKeyVideoPreferFormat];
-    [option setOptionValue:@(kPLLogNone) forKey:PLPlayerOptionKeyLogLevel];
+    [option setOptionValue:@(kPLLogError) forKey:PLPlayerOptionKeyLogLevel];
     
     self.player = [PLPlayer playerWithURL:[NSURL URLWithString:url] option:option];
     [view insertSubview:self.player.playerView atIndex:2];

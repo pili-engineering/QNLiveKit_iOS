@@ -34,7 +34,7 @@
 
 //添加聊天监听
 - (void)addChatServiceListener:(id<QNChatRoomServiceListener>)listener{
-    
+    QLIVELogInfo(@"QNChatRoomService addListener (%@)",listener);
     self.groupId = self.roomInfo.chat_id;
     self.roomId = self.roomInfo.live_id;
     [[QNIMGroupService sharedOption] joinGroupWithGroupId:self.groupId message:@"" completion:^(QNIMError * _Nonnull error) {
@@ -43,12 +43,13 @@
         }
     }];
     
-    [[QNIMChatService sharedOption] addDelegate:self delegateQueue:dispatch_get_main_queue()];
+    [[QNIMChatService sharedOption] addDelegate:self];
     self.chatRoomListener = listener;
 }
 
 //移除聊天监听
 - (void)removeChatServiceListener{
+    QLIVELogInfo(@"QNChatRoomService removeListener");
     [[QNIMGroupService sharedOption] leaveGroupWithGroupId:self.groupId completion:^(QNIMError * _Nonnull error) {
         if (!error) {
             self.isMember = NO;
@@ -60,7 +61,7 @@
 
 //发公聊消息
 - (void)sendPubChatMsg:(NSString *)msg callBack:(nonnull void (^)(QNIMMessageObject * _Nonnull))callBack{
-
+    QLIVELogInfo(@"QNChatRoomService send (%@)",msg);
     if (self.isMember) {
         QNIMMessageObject *message = [self.creater createChatMessage:msg];
         [[QNIMChatService sharedOption] sendMessage:message];
@@ -118,7 +119,7 @@
 
 //禁言
 - (void)muteUser:(NSString *)msg memberId:(NSString *)memberId duration:(long long)duration isMute:(BOOL)isMute {
-    
+    QLIVELogInfo(@"QNChatRoomService muteUser (%@)",msg);
 }
 
     
@@ -140,6 +141,7 @@
     [[NSNotificationCenter defaultCenter] postNotificationName:ReceiveIMMessageNotification object:nil userInfo:msg.content.mj_keyValues];
     
     QIMModel *imModel = [QIMModel mj_objectWithKeyValues:msg.content.mj_keyValues];
+    QLIVELogInfo(@"QNChatRoomService receiveImMessage (%@)",imModel.action);
     
     if ([imModel.action isEqualToString:liveroom_pubchat]) {
         //公聊消息
@@ -195,6 +197,10 @@
         _creater = [[CreateSignalHandler alloc]initWithToId:self.groupId roomId:self.roomId];
     }
     return _creater;
+}
+
+-(void)dealloc{
+    [[QNIMChatService sharedOption] removeDelegate:self];
 }
 
 @end

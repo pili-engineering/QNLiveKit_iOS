@@ -45,6 +45,7 @@
 }
 
 - (void)setTotal:(NSInteger)total {
+    NSLog(@"sunmu---点赞数 （%d）",total);
     if (total == 0) {
         [self.totalLabel setHidden:YES];
     } else {

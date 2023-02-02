@@ -63,11 +63,11 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  下载头像
 
- @param profile 用户信息
+ @param qProfile 用户信息
  @param aProgress 下载进度
  @param aCompletion 回调
  */
-- (void)downloadAvatarWithProfile:(QNIMUserProfile *)profile
+- (void)downloadAvatarWithProfile:(QNIMUserProfile *)qProfile
                         thumbnail:(BOOL)thumbnail
                          progress:(void(^)(int progress, QNIMError *error))aProgress
                        completion:(void(^)(QNIMUserProfile *profile, QNIMError *error))aCompletion;
