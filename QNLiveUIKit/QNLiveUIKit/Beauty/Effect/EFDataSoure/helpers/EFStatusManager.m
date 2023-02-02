@@ -357,7 +357,7 @@ static NSString * efCachePath;
             [self.efDelegate efStatusManager:self statusChanged:renderModel];
         } else {
             if (renderModel.efStrength != 0) {
-                DLog(@"恢复了 %@ %f", renderModel.efName, renderModel.efStrength);
+                NSLog(@"恢复了 %@ %f", renderModel.efName, renderModel.efStrength);
                 [self.efDelegate efStatusManager:self statusChanged:renderModel];
             }
         }

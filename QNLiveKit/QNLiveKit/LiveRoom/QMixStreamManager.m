@@ -42,6 +42,14 @@
 
 //开始混流转推
 - (void)startMixStreamJob {
+    static int serialnum = 0;
+    serialnum ++;
+    if ([self.publishUrl containsString:@"?"]) {
+        self.mergeConfig.publishUrl = [NSString stringWithFormat:@"%@&serialnum=%d",self.publishUrl,serialnum];
+    }else{
+        self.mergeConfig.publishUrl = [NSString stringWithFormat:@"%@?serialnum=%d",self.publishUrl,serialnum];
+    }
+    QLIVELogInfo(@"MixStream startMixStreamJob url(%@)",self.mergeConfig.publishUrl);
     [self.client startLiveStreamingWithTranscoding:self.mergeConfig];
 }
 

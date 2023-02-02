@@ -49,6 +49,10 @@ NS_ASSUME_NONNULL_BEGIN
 
 @property (nonatomic, weak)id<MicLinkerListener> micLinkerListener;
 
+@property (nonatomic, strong) NSMutableArray<QNMicLinker *> *linkMicList;
+
+
+- (instancetype)initWithRoomInfo:(QNLiveRoomInfo *)roomInfo;
 //获取当前房间所有连麦用户
 - (void)getAllLinker:(void (^)(NSArray <QNMicLinker *> *list))callBack;
 
@@ -72,6 +76,9 @@ NS_ASSUME_NONNULL_BEGIN
 
 //拒绝连麦
 - (void)RejectLink:(QInvitationModel *)invitationModel;
+
+// 是否在连麦中
+- (BOOL)isMicLinked:(NSString *)userID;
 
 @end
 
