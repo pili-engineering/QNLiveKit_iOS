@@ -1178,6 +1178,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				TARGETED_DEVICE_FAMILY = "1,2";
+				USER_HEADER_SEARCH_PATHS = "\"$(SRCROOT)/../QNLiveUIKit/QNLiveUIKit/Beauty/Effect\"";
 			};
 			name = Debug;
 		};
@@ -1244,6 +1245,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				TARGETED_DEVICE_FAMILY = "1,2";
+				USER_HEADER_SEARCH_PATHS = "\"$(SRCROOT)/../QNLiveUIKit/QNLiveUIKit/Beauty/Effect\"";
 			};
 			name = Release;
 		};

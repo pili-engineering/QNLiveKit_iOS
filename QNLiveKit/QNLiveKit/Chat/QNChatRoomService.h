@@ -11,7 +11,7 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-@class PubChatModel,QNLiveUser,QNPKSession,QInvitationModel,QNIMMessageObject,QNIMError;
+@class PubChatModel,QNLiveUser,QNPKSession,QInvitationModel,QNIMMessageObject,QNIMError,QNIMGroupBannedMember,QNIMGroupMember;
 //聊天室监听
 @protocol QNChatRoomServiceListener <NSObject>
 @optional
@@ -44,8 +44,43 @@ NS_ASSUME_NONNULL_BEGIN
 - (void)sendWelComeMsg:(void (^)(QNIMMessageObject *msg))callBack;
 //发离开消息
 - (void)sendLeaveMsg;
+//私聊消息
+- (void)sendCustomC2CMsg:(NSString *)msg memberID:(NSString *)memberID callBack:(void (^)(QNIMMessageObject *msg))callBack;
+// 自定义群聊
+- (void)sendCustomGroupMsg:(NSString *)msg callBack:(void (^)(QNIMMessageObject *msg))callBack;
+
+// 踢人
+- (void)kickUserMsg:(NSString *)msg memberID:(NSString *)memberID callBack:(void(^)(QNIMError *error))aCompletionBlock;
+
 //禁言
-//- (void)muteUser:(NSString *)msg memberId:(NSString *)memberId duration:(long long)duration isMute:(BOOL)isMute;
+- (void)muteUserMsg:(NSString *)msg memberId:(NSString *)memberId duration:(long long)duration isMute:(BOOL)isMute callBack:(void(^)(QNIMError *error))aCompletionBlock;
+
+// 禁言列表
+- (void)getBannedMembersCompletion:(void(^)(NSArray<QNIMGroupBannedMember *> *bannedMemberList,
+                                        QNIMError *error))aCompletionBlock;
+
+//@param-isBlock:是否拉黑    @param-memberID:成员im ID    @param-callBack:回调
+- (void)blockUserMemberId:(NSString *)memberId isBlock:(BOOL)isBlock callBack:(void(^)(QNIMError *error))aCompletionBlock;
+
+/**
+ * 获取黑名单
+ **/
+- (void)getBlockListForceRefresh:(BOOL)forceRefresh
+                     completion:(void(^)(NSArray<QNIMGroupMember *> *groupMember,QNIMError *error))aCompletionBlock;
+
+/**
+  添加管理员
+ */
+- (void)addAdminsWithAdmins:(NSArray<NSNumber *> *)admins
+          message:(NSString *)message
+                  completion:(void(^)(QNIMError *error))aCompletionBlock;
+
+/**
+  移除管理员
+ */
+- (void)removeAdminsWithAdmins:(NSArray<NSNumber *> *)admins
+          message:(NSString *)message
+                  completion:(void(^)(QNIMError *error))aCompletionBlock;
 
 @end
 

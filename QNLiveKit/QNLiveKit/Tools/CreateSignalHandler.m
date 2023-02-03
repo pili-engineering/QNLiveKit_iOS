@@ -93,7 +93,7 @@
     return message;
 }
 
-//生成自定义消息
+//生成自定义消息 组
 - (QNIMMessageObject *)createCustomMessage:(NSString *)content {
     
     PubChatModel *model = [self messageWithAction:liveroom_pubchat_custom content:content];
@@ -103,6 +103,20 @@
     messageModel.data = model.mj_keyValues;
     
     QNIMMessageObject *message = [[QNIMMessageObject alloc]initWithQNIMMessageText:messageModel.mj_JSONString fromId:LIVE_IM_userId.longLongValue toId:self.toId.longLongValue type:QNIMMessageTypeGroup conversationId:self.toId.longLongValue];
+    message.senderName = LIVE_User_nickname;
+    return message;
+}
+
+//生成自定义消息 私聊
+- (QNIMMessageObject *)createCustomC2CMessage:(NSString *)content {
+    
+    PubChatModel *model = [self messageWithAction:liveroom_pubchat_custom content:content];
+    
+    QIMModel *messageModel = [QIMModel new];
+    messageModel.action = liveroom_pubchat_custom;
+    messageModel.data = model.mj_keyValues;
+    
+    QNIMMessageObject *message = [[QNIMMessageObject alloc]initWithQNIMMessageText:messageModel.mj_JSONString fromId:LIVE_IM_userId.longLongValue toId:self.toId.longLongValue type:QNIMMessageTypeSingle conversationId:self.toId.longLongValue];
     message.senderName = LIVE_User_nickname;
     return message;
 }
