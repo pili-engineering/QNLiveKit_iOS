@@ -52,7 +52,7 @@ static NSString *cellIdentifier = @"AddCollectionViewCell";
 }
 
 - (void)viewWillAppear:(BOOL)animated {
-    self.player.mute = NO;
+
 }
 
 - (void)viewDidLoad {
@@ -604,11 +604,8 @@ static NSString *cellIdentifier = @"AddCollectionViewCell";
       if (weakSelf.goodClickedBlock) {
           weakSelf.goodClickedBlock(itemModel);
       }
-      weakSelf.player.mute = YES;
     };
     vc.watchRecordBlock = ^(GoodsModel *_Nonnull itemModel) {
-      weakSelf.player.mute = YES;
-
       WacthRecordController *vc = [[WacthRecordController alloc] initWithModel:itemModel roomInfo:weakSelf.roomInfo];
       vc.modalPresentationStyle = UIModalPresentationFullScreen;
       vc.buyClickedBlock = ^(GoodsModel *_Nonnull itemModel) {

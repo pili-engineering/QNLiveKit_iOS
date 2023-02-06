@@ -155,9 +155,16 @@
 
 //@param-isBlock:是否拉黑    @param-memberID:成员im ID    @param-callBack:回调
 - (void)blockUserMemberId:(NSString *)memberId isBlock:(BOOL)isBlock callBack:(void(^)(QNIMError *error))aCompletionBlock{
-    [[QNIMGroupService sharedOption] blockMembersWithGroupId:self.groupId members:@[@(memberId.longLongValue)] completion:^(QNIMError * _Nonnull error) {
-            aCompletionBlock(error);
-    }];
+    if (isBlock) {
+        [[QNIMGroupService sharedOption] blockMembersWithGroupId:self.groupId members:@[@(memberId.longLongValue)] completion:^(QNIMError * _Nonnull error) {
+                aCompletionBlock(error);
+        }];
+    }else{
+        [[QNIMGroupService sharedOption] unblockMemberWithGroupId:self.groupId members:@[@(memberId.longLongValue)] completion:^(QNIMError * _Nonnull error) {
+                aCompletionBlock(error);
+        }];
+    }
+
 }
 
 /**
