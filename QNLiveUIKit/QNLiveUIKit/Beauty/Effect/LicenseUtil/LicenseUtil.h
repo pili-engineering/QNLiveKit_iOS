@@ -22,6 +22,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 + (BOOL)isCheckedActiveCode;
 
+-(void)checkLicense:(void (^)(BOOL status))callback;
+
 @end
 
 NS_ASSUME_NONNULL_END

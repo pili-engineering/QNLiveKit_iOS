@@ -27,3 +27,4 @@ FOUNDATION_EXPORT const unsigned char QNLiveUIKitVersionString[];
 #import "QNAudienceController.h"
 #import "ShopSellListController.h"
 #import "QTagList.h"
+#import "LicenseUtil.h"

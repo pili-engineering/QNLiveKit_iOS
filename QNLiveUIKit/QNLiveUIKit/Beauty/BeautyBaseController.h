@@ -24,11 +24,15 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, strong) QPKService * pkService;
 @property (nonatomic, strong) QLinkMicService *linkService;
 
+//关闭直播间的回调
+@property (nonatomic, copy) void (^closeClickedBlock)(QNLiveRoomInfo *roomInfo);
+
+//暂时离开直播间的回调
+@property (nonatomic, copy) void (^leaveClickedBlock)(QNLiveRoomInfo *roomInfo);
+
 //商汤特效
 @property (nonatomic, strong) UIButton *effectButton;
 @property (nonatomic, assign) BOOL isNullSticker;
-@property (nonatomic, strong) PLSTEffectManager *effectManager;
-@property (nonatomic, strong) PLSTDetector *detector;
 
 @property (nonatomic, assign) BOOL isFirstWholeMakeUp;
 
@@ -41,11 +45,6 @@ NS_ASSUME_NONNULL_BEGIN
 
 - (void)updateFirstEnterUI;
 
-//关闭直播间的回调
-@property (nonatomic, copy) void (^closeClickedBlock)(QNLiveRoomInfo *roomInfo);
-
-//暂时离开直播间的回调
-@property (nonatomic, copy) void (^leaveClickedBlock)(QNLiveRoomInfo *roomInfo);
 
 @end
 

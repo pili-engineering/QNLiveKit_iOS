@@ -87,7 +87,7 @@ NS_ASSUME_NONNULL_BEGIN
 }
 
 @property (nonatomic, strong) PLSTEffectManager *effectManager;
-
+@property (nonatomic, strong) PLSTDetector *detector;
 
 @property (nonatomic, strong) NSData *licenseData;
 //@property (nonatomic, strong) STCustomMemoryCache *effectsDataSource;

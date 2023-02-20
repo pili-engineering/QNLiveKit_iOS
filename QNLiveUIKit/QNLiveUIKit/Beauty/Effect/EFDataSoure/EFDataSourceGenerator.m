@@ -54,7 +54,9 @@ static NSString * const EFDefaultBeautyParametersKey = @"EFDefaultBeautyParamete
     // 1. 生成所有大类数组
     NSString *jsonFileName = ENABLE_MULTI_STICKER_TAB ? @"all_categories" : @"all_categories_without_multi";
     NSDictionary * rootDict = [NSDictionary efTakeOutDatasourceFromJson:jsonFileName];
+    NSLog(@"qqq----%@",rootDict);
     __block EFDataSourceModel * rootModel = [EFDataSourceModel yy_modelWithDictionary:rootDict];
+    NSLog(@"00000");
     
     if (![EFMachineVersion canShowCartonOfEffcts0805]) {
         NSMutableArray * effectArray = [[rootModel.efSubDataSources[3] efSubDataSources] mutableCopy];

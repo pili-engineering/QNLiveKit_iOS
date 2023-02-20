@@ -337,6 +337,10 @@
 		48B2D4AC29422F0B0082A8D6 /* QNAudienceController.m in Sources */ = {isa = PBXBuildFile; fileRef = 485F240A2940DA6F00484CB6 /* QNAudienceController.m */; };
 		48B2D4AD29422F0B0082A8D6 /* QNBaseRTCController.h in Headers */ = {isa = PBXBuildFile; fileRef = 485F240B2940DA6F00484CB6 /* QNBaseRTCController.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		670D286E1238CCE4D7E78507 /* Pods_QNLiveUIKitTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 53CF74E9CA939006D827C93C /* Pods_QNLiveUIKitTests.framework */; };
+		E379407C2990D67700E11A90 /* QNLicenseModel.h in Headers */ = {isa = PBXBuildFile; fileRef = E379407A2990D67700E11A90 /* QNLicenseModel.h */; };
+		E379407D2990D67700E11A90 /* QNLicenseModel.m in Sources */ = {isa = PBXBuildFile; fileRef = E379407B2990D67700E11A90 /* QNLicenseModel.m */; };
+		E3A97B28299F577D00922978 /* QNBeautyManager.h in Headers */ = {isa = PBXBuildFile; fileRef = E3A97B26299F577D00922978 /* QNBeautyManager.h */; };
+		E3A97B29299F577D00922978 /* QNBeautyManager.m in Sources */ = {isa = PBXBuildFile; fileRef = E3A97B27299F577D00922978 /* QNBeautyManager.m */; };
 		E3B907FE298B6AB600B96ADF /* QNLiveKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 485F27032940E12F00484CB6 /* QNLiveKit.framework */; };
 		F239C44CF0C70FB3E3E429EE /* Pods_QNLiveUIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 20908CABF435D1D23D595DDD /* Pods_QNLiveUIKit.framework */; };
 /* End PBXBuildFile section */
@@ -699,6 +703,10 @@
 		53CF74E9CA939006D827C93C /* Pods_QNLiveUIKitTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_QNLiveUIKitTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		9FC5D5A9EFCAF2237533FBEB /* Pods-QNLiveUIKit.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-QNLiveUIKit.debug.xcconfig"; path = "Target Support Files/Pods-QNLiveUIKit/Pods-QNLiveUIKit.debug.xcconfig"; sourceTree = "<group>"; };
 		C9CC48CED01B886A7BB565CC /* Pods-QNLiveUIKit.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-QNLiveUIKit.release.xcconfig"; path = "Target Support Files/Pods-QNLiveUIKit/Pods-QNLiveUIKit.release.xcconfig"; sourceTree = "<group>"; };
+		E379407A2990D67700E11A90 /* QNLicenseModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = QNLicenseModel.h; sourceTree = "<group>"; };
+		E379407B2990D67700E11A90 /* QNLicenseModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = QNLicenseModel.m; sourceTree = "<group>"; };
+		E3A97B26299F577D00922978 /* QNBeautyManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = QNBeautyManager.h; sourceTree = "<group>"; };
+		E3A97B27299F577D00922978 /* QNBeautyManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = QNBeautyManager.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -1141,6 +1149,8 @@
 			children = (
 				485F24DE2940DB1E00484CB6 /* LicenseUtil.h */,
 				485F24DF2940DB1E00484CB6 /* LicenseUtil.m */,
+				E379407A2990D67700E11A90 /* QNLicenseModel.h */,
+				E379407B2990D67700E11A90 /* QNLicenseModel.m */,
 			);
 			path = LicenseUtil;
 			sourceTree = "<group>";
@@ -1205,13 +1215,6 @@
 			path = UIElements;
 			sourceTree = "<group>";
 		};
-		485F25172940DB1E00484CB6 /* license */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = license;
-			sourceTree = "<group>";
-		};
 		485F25212940DB1E00484CB6 /* include */ = {
 			isa = PBXGroup;
 			children = (
@@ -1255,7 +1258,6 @@
 		485F25272940DB1E00484CB6 /* st_mobile_sdk */ = {
 			isa = PBXGroup;
 			children = (
-				485F25172940DB1E00484CB6 /* license */,
 				485F25212940DB1E00484CB6 /* include */,
 				485F25222940DB1E00484CB6 /* VERSION */,
 				485F25262940DB1E00484CB6 /* lib */,
@@ -1294,6 +1296,8 @@
 				485F252C2940DB1E00484CB6 /* CreateBeautyLiveController.m */,
 				485F252D2940DB1E00484CB6 /* BeautyBaseController.h */,
 				485F252E2940DB1E00484CB6 /* BeautyBaseController.m */,
+				E3A97B26299F577D00922978 /* QNBeautyManager.h */,
+				E3A97B27299F577D00922978 /* QNBeautyManager.m */,
 			);
 			path = Beauty;
 			sourceTree = "<group>";
@@ -1683,6 +1687,7 @@
 				48B2D43029422D410082A8D6 /* QNLiveListCell.h in Headers */,
 				48B2D44829422DEF0082A8D6 /* EFMaterialDownloadManager.h in Headers */,
 				48B2D3EB29422BBF0082A8D6 /* EFSenseArMaterialDataModels.h in Headers */,
+				E3A97B28299F577D00922978 /* QNBeautyManager.h in Headers */,
 				48B2D48D29422E330082A8D6 /* NSData+meterialAes.h in Headers */,
 				48B2D3BF29422B5D0082A8D6 /* STScrollTitleView.h in Headers */,
 				48B2D41729422D0D0082A8D6 /* OnlineUserView.h in Headers */,
@@ -1716,6 +1721,7 @@
 				485F26C22940DCF600484CB6 /* QTagButton.h in Headers */,
 				485F26B72940DCF600484CB6 /* PSPopListView.h in Headers */,
 				485F271F2940E32E00484CB6 /* NSDate+QDate.h in Headers */,
+				E379407C2990D67700E11A90 /* QNLicenseModel.h in Headers */,
 				485F26B92940DCF600484CB6 /* GoodSellItemCell.h in Headers */,
 				485F26BD2940DCF600484CB6 /* UILabel+QAttributed.h in Headers */,
 				485F26CE2940DCF600484CB6 /* UINavigationController+QPlayerRotation.h in Headers */,
@@ -1881,11 +1887,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				485F27142940E32E00484CB6 /* NSDate+QDate.m in Sources */,
+				E3A97B29299F577D00922978 /* QNBeautyManager.m in Sources */,
 				48B2D3D229422B5D0082A8D6 /* STBeautySlider.m in Sources */,
 				485F26D62940DCF600484CB6 /* QRotateAnimationView.m in Sources */,
 				48B2D3A229422A360082A8D6 /* STColorConversion.m in Sources */,
 				485F26342940DCBF00484CB6 /* QNPKInvitationListCell.m in Sources */,
 				48B2D47129422E290082A8D6 /* EFStorageHelper.m in Sources */,
+				E379407D2990D67700E11A90 /* QNLicenseModel.m in Sources */,
 				48B2D3DE29422B5D0082A8D6 /* STBMPDetailColV.m in Sources */,
 				48B2D3AB29422A650082A8D6 /* NSData+meterialAes.m in Sources */,
 				485F26792940DCD100484CB6 /* FDanmakuModel.m in Sources */,

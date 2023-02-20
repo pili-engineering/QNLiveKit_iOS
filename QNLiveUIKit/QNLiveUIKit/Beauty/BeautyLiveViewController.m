@@ -46,14 +46,11 @@ static NSString *cellIdentifier = @"AddCollectionViewCell";
 
 @implementation BeautyLiveViewController
 
-+ (void)initialize {
-    NSString *path = [[NSBundle mainBundle] pathForResource:@"SENSEME" ofType:@"lic"];
-    NSData *license = [NSData dataWithContentsOfFile:path];
-    [[STDefaultSetting sharedInstace] checkActiveCodeWithData:license];
-}
+
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
     _currentTracks = [[NSMutableDictionary alloc] init];
     [self setupMicLinkerListView];
 
@@ -83,7 +80,6 @@ static NSString *cellIdentifier = @"AddCollectionViewCell";
     [self.view addSubview:self.closeButton];
     [self.view addSubview:self.giftMessagePannel];
     [self.view addSubview:self.statisticView];
-    [self setupSenseAR];
     [self setupBottomMenuView];
 
     [self.chatService sendWelComeMsg:^(QNIMMessageObject *_Nonnull msg) {
@@ -134,6 +130,7 @@ static NSString *cellIdentifier = @"AddCollectionViewCell";
       if (state == QNConnectionStateConnected) {
       } else if (state == QNConnectionStateDisconnected) {
           [self.chatService sendLeaveMsg];
+          [[QLive createPusherClient] leaveRoom];
           [self dismissViewControllerAnimated:YES completion:nil];
       }
     });
@@ -213,7 +210,7 @@ static NSString *cellIdentifier = @"AddCollectionViewCell";
     res.animal_result = &animalResult;
     res.humanResult = &result;
 
-    [self updateFirstEnterUI];
+//    [self updateFirstEnterUI];
 
     QNDetectConfig detectConfig;
     memset(&detectConfig, 0, sizeof(QNDetectConfig));

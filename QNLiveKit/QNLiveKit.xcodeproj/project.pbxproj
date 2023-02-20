@@ -99,7 +99,6 @@
 		77BE232628CB4424007557E9 /* QStatisticalService.m in Sources */ = {isa = PBXBuildFile; fileRef = 77BE232428CB4424007557E9 /* QStatisticalService.m */; };
 		77BE24F528FFED50007557E9 /* QNGiftModel.h in Headers */ = {isa = PBXBuildFile; fileRef = 77BE24E028FFED50007557E9 /* QNGiftModel.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		77BE24FE28FFED50007557E9 /* QNGiftModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 77BE24E928FFED50007557E9 /* QNGiftModel.m */; };
-
 		F18E863D1EEF8227B50115B4 /* Pods_QNLiveKitTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 948C15C1847BC94017A63290 /* Pods_QNLiveKitTests.framework */; };
 /* End PBXBuildFile section */
 
@@ -234,8 +233,6 @@
 		948C15C1847BC94017A63290 /* Pods_QNLiveKitTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_QNLiveKitTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A065A22036BD2AFE4FD60568 /* Pods-QNLiveKit.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-QNLiveKit.release.xcconfig"; path = "Target Support Files/Pods-QNLiveKit/Pods-QNLiveKit.release.xcconfig"; sourceTree = "<group>"; };
 		AADF4E1ADDF332CEBB7AA08F /* Pods-QNLiveKitTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-QNLiveKitTests.debug.xcconfig"; path = "Target Support Files/Pods-QNLiveKitTests/Pods-QNLiveKitTests.debug.xcconfig"; sourceTree = "<group>"; };
-		E375B0CF296D78810035EABD /* QNVoiceCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QNVoiceCollectionViewCell.m; sourceTree = "<group>"; };
-		E375B0D0296D78820035EABD /* QNVoiceCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QNVoiceCollectionViewCell.h; sourceTree = "<group>"; };
 		E7FA04C2FAD7C9E74332DF0F /* Pods-QNLiveKit.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-QNLiveKit.debug.xcconfig"; path = "Target Support Files/Pods-QNLiveKit/Pods-QNLiveKit.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -307,13 +304,6 @@
 			path = App;
 			sourceTree = "<group>";
 		};
-		48D4AC232949D7AD008C8464 /* IM */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = IM;
-			sourceTree = "<group>";
-		};
 		48D4AC24294AA807008C8464 /* Errors */ = {
 			isa = PBXGroup;
 			children = (
@@ -376,7 +366,6 @@
 				48C83DD72940C1E40002C11B /* QNIMSDK.framework */,
 				48D4AC152949B888008C8464 /* App */,
 				48D4AC24294AA807008C8464 /* Errors */,
-				48D4AC232949D7AD008C8464 /* IM */,
 				48B9389D292F55510014D671 /* Like */,
 				48B93886292E263F0014D671 /* User */,
 				48B93881292E12BC0014D671 /* Gift */,
@@ -464,7 +453,6 @@
 		776B1CCD283D00DB00D85C73 /* LinkMic */ = {
 			isa = PBXGroup;
 			children = (
-				E375B0CE296D78450035EABD /* View */,
 				776B1CCE283D00F400D85C73 /* Model */,
 				776B1CD3283D024E00D85C73 /* QLinkMicService.h */,
 				776B1CD4283D024E00D85C73 /* QLinkMicService.m */,
@@ -562,7 +550,6 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-
 				48D4AC2B294AAA39008C8464 /* QNLiveError.h in Headers */,
 				48D4AC1C2949B8EA008C8464 /* QLiveConfig.h in Headers */,
 				48D4AC202949D288008C8464 /* QNAppService.h in Headers */,
@@ -783,7 +770,6 @@
 				776B1CD6283D024E00D85C73 /* QLinkMicService.m in Sources */,
 				77204D8C285F97A20053B1AD /* QInvitationModel.m in Sources */,
 				48B938A1292F55640014D671 /* QNLikeService.m in Sources */,
-
 				776B1C78283C79DB00D85C73 /* QNLiveRoomInfo.m in Sources */,
 				48D4AC212949D288008C8464 /* QNAppService.m in Sources */,
 				776B1C87283CB60D00D85C73 /* QNLiveRoomClient.m in Sources */,

@@ -43,6 +43,8 @@ static NSString *cellIdentifier = @"AddCollectionViewCell";
 @property (nonatomic, strong) NSMutableArray<QNMicLinker *> *linkMicList;
 @property (nonatomic, strong) UICollectionView *micLinkerCollectionView;
 @property (nonatomic, strong) NSMutableDictionary<NSString *, QNTrack *> *currentTracks;
+
+@property (nonatomic, strong) NSArray *bottomMenuOpen;
 @end
 
 @implementation QNAudienceController
@@ -58,6 +60,8 @@ static NSString *cellIdentifier = @"AddCollectionViewCell";
 - (void)viewDidLoad {
     [super viewDidLoad];
 
+    if(!_bottomMenuOpen) _bottomMenuOpen = @[@1,@1,@1,@1];
+    
     _currentTracks = [[NSMutableDictionary alloc] init];
 
     [self setupBottomMenuView];
@@ -443,42 +447,55 @@ static NSString *cellIdentifier = @"AddCollectionViewCell";
     [self.renderBackgroundView addSubview:_micLinkerCollectionView];
 }
 
+- (void)bottomMenuUseConfig:(NSArray *)array{
+    _bottomMenuOpen = [array copy];
+    [self setupBottomMenuView];
+}
+
 - (void)setupBottomMenuView {
     NSMutableArray *slotList = [NSMutableArray array];
     __weak typeof(self) weakSelf = self;
 
     // 弹幕
-    ImageButtonView *message = [[ImageButtonView alloc] initWithFrame:CGRectZero];
-    [message bundleNormalImage:@"icon_danmu" selectImage:@"icon_danmu"];
-    message.clickBlock = ^(BOOL selected) {
-      [weakSelf.chatRoomView commentBtnPressedWithPubchat:NO];
-    };
-    [slotList addObject:message];
+    if( [_bottomMenuOpen[0] intValue]) {
+        ImageButtonView *message = [[ImageButtonView alloc] initWithFrame:CGRectZero];
+        [message bundleNormalImage:@"icon_danmu" selectImage:@"icon_danmu"];
+        message.clickBlock = ^(BOOL selected) {
+            [weakSelf.chatRoomView commentBtnPressedWithPubchat:NO];
+        };
+        [slotList addObject:message];
+    }
 
     // 购物车
-    ImageButtonView *shopping = [[ImageButtonView alloc] initWithFrame:CGRectZero];
-    [shopping bundleNormalImage:@"shopping" selectImage:@"shopping"];
-    shopping.clickBlock = ^(BOOL selected) {
-      [weakSelf popGoodListView];
-    };
-    [slotList addObject:shopping];
+    if( [_bottomMenuOpen[1] intValue]) {
+        ImageButtonView *shopping = [[ImageButtonView alloc] initWithFrame:CGRectZero];
+        [shopping bundleNormalImage:@"shopping" selectImage:@"shopping"];
+        shopping.clickBlock = ^(BOOL selected) {
+            [weakSelf popGoodListView];
+        };
+        [slotList addObject:shopping];
+    }
 
-    QNLikeMenuView *likeView = [[QNLikeMenuView alloc] initWithFrame:CGRectZero];
-    [likeView bundleNormalImage:@"like_click" selectImage:@"like_click"];
-    likeView.roomInfo = self.roomInfo;
-    likeView.clickBlock = ^(BOOL selected) {
-      [weakSelf showLikeBubble];
-    };
-    [slotList addObject:likeView];
-    self.likeMenuView = likeView;
+        if( [_bottomMenuOpen[2] intValue]) {
+            QNLikeMenuView *likeView = [[QNLikeMenuView alloc] initWithFrame:CGRectZero];
+            [likeView bundleNormalImage:@"like_click" selectImage:@"like_click"];
+            likeView.roomInfo = self.roomInfo;
+            likeView.clickBlock = ^(BOOL selected) {
+                [weakSelf showLikeBubble];
+            };
+            [slotList addObject:likeView];
+            self.likeMenuView = likeView;
+        }
 
     // 更多
-    ImageButtonView *more = [[ImageButtonView alloc] initWithFrame:CGRectZero];
-    [more bundleNormalImage:@"icon_more" selectImage:@"icon_more"];
-    more.clickBlock = ^(BOOL selected) {
-      [weakSelf popMoreView];
-    };
-    [slotList addObject:more];
+        if( [_bottomMenuOpen[3] intValue]) {
+            ImageButtonView *more = [[ImageButtonView alloc] initWithFrame:CGRectZero];
+            [more bundleNormalImage:@"icon_more" selectImage:@"icon_more"];
+            more.clickBlock = ^(BOOL selected) {
+                [weakSelf popMoreView];
+            };
+            [slotList addObject:more];
+        }
 
     [self.bottomMenuView updateWithSlotList:slotList.copy];
 }

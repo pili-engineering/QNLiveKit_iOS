@@ -1468,6 +1468,7 @@ NSString *getFilePath(NSString *path){
 }
 
 
+
 - (NSString *)getSHA1StringWithData:(NSData *)data
 {
     uint8_t digest[CC_SHA1_DIGEST_LENGTH];

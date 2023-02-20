@@ -19,6 +19,8 @@ typedef void (^FailureBlock)(NSError *error);
 + (void)deleteRequestWithAction:(NSString *)action params:(nullable NSDictionary *)params success:(SuccessBlock)success failure:(FailureBlock)failure;
 + (void)putRequestWithAction:(NSString *)action params:(nullable NSDictionary *)params success:(SuccessBlock)success failure:(FailureBlock)failure;
 
+- (void)updateHeadToken;
+
 @end
 
 NS_ASSUME_NONNULL_END

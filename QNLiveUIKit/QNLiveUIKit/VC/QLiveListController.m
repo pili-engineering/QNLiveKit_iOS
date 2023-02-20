@@ -50,6 +50,7 @@
     }];
 }
 
+
 - (void)createButton {
     UIButton *button = [[UIButton alloc]initWithFrame:CGRectMake((SCREEN_W - 200)/2, SCREEN_H - 150, 200, 40)];
     button.backgroundColor = [UIColor blueColor];
@@ -68,9 +69,11 @@
     }
     
     if ([QLive createPusherClient].needBeauty) {
-        CreateBeautyLiveController *vc = [CreateBeautyLiveController new];
-        vc.modalPresentationStyle = UIModalPresentationFullScreen;
-        [self presentViewController:vc animated:YES completion:nil];
+        dispatch_async(dispatch_get_main_queue(), ^(void) {
+          CreateBeautyLiveController *vc = [CreateBeautyLiveController new];
+          vc.modalPresentationStyle = UIModalPresentationFullScreen;
+          [self presentViewController:vc animated:YES completion:nil];
+        });
     } else {
         QCreateLiveController *vc = [QCreateLiveController new];
         vc.modalPresentationStyle = UIModalPresentationFullScreen;
@@ -151,6 +154,7 @@
         }
         QNAudienceController *vc = [QNAudienceController new];
         vc.roomInfo = model;
+        [vc bottomMenuUseConfig:@[@1,@0,@1,@1]];
         vc.modalPresentationStyle = UIModalPresentationFullScreen;
         [self presentViewController:vc animated:YES completion:nil];
                 

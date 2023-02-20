@@ -181,7 +181,12 @@
                     if (error && error.errorCode != 0) {
                         NSError *loginError = [QNErrorUtil errorWithCode:QNLiveErrorLoginImFail message:@"login im failed" underlying:error];
                         failure(loginError);
+                    } else {
+                        if (complete) {
+                            complete();
+                        }
                     }
+
                 }];
             } failure:^(NSError * _Nullable error) {
                 failure(error);
