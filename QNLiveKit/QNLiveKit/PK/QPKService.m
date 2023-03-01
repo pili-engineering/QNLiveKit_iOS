@@ -107,7 +107,21 @@
        if ([self.delegate respondsToSelector:@selector(onReceiveStopPKSession:)]) {
            [self.delegate onReceiveStopPKSession:model];
        }
+   }  else if ([imModel.action isEqualToString:liveroom_pk_extends]) {
+
+       QInvitationModel *model = [QInvitationModel mj_objectWithKeyValues:imModel.data];
+       
+
+       
+       QExtension *extension = [[QExtension alloc] init];
+       extension.key = model.extends.allKeys[0];
+       extension.value = model.extends[extension.key];
+                   
+       if ([self.delegate respondsToSelector:@selector(onReceivePKExtensionChange:)]) {
+           [self.delegate onReceivePKExtensionChange:extension];
+       }
    }
+
 }
 
 - (void)beginPK:(QNPKSession *)pkSession callBack:(nullable void (^)(void))callBack {

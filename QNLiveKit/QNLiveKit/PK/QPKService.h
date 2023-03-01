@@ -25,6 +25,12 @@ NS_ASSUME_NONNULL_BEGIN
 //pk结束
 - (void)onReceiveStopPKSession:(QNPKSession *)pkSession;
 
+/**
+ * 有pk扩展字段变化
+ * @param extension 某个自定义字段
+ */
+- (void)onReceivePKExtensionChange:(QExtension *)extension;
+
 @end
 
 @interface QPKService : QNLiveService
