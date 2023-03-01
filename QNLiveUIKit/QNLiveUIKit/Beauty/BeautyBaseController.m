@@ -22,6 +22,7 @@
 
 @implementation BeautyBaseController
 
+#ifdef useBeauty
 #pragma mark - effect
 
 -(void)dealloc{
@@ -1415,7 +1416,7 @@
 //    self.coreStateMangement.stickerConf = iAction;
 //}
 #pragma mark - senseMeEffects --------------------  end --------------------
-
+#endif
 
 
 //获取某人的画面

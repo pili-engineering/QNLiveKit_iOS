@@ -203,6 +203,7 @@ static NSString *cellIdentifier = @"AddCollectionViewCell";
 - (void)localVideoTrack:(QNLocalVideoTrack *)localVideoTrack didGetPixelBuffer:(CVPixelBufferRef)pixelBuffer {
     QNCameraVideoTrack *track = (QNCameraVideoTrack *)localVideoTrack;
 
+#ifdef useBeauty
     static st_mobile_human_action_t result;
     static st_mobile_animal_face_t animalResult;
     QNAllResult res;
@@ -219,6 +220,7 @@ static NSString *cellIdentifier = @"AddCollectionViewCell";
 
     [self.detector detect:pixelBuffer cameraOrientation:track.videoOrientation detectConfig:detectConfig allResult:&res];
     [self.effectManager processBuffer:pixelBuffer cameraOrientation:track.videoOrientation detectResult:&res];
+#endif
 }
 
 #pragma mark---------QNChatRoomServiceListener
@@ -530,12 +532,14 @@ static NSString *cellIdentifier = @"AddCollectionViewCell";
     self.moreView.cameraMirrorBlock = ^(BOOL mute) {
       [QNLivePushClient createPushClient].localVideoTrack.previewMirrorFrontFacing = !mute;
     };
+#ifdef useBeauty
     self.moreView.beautyBlock = ^{
       [weakSelf clickBottomViewButton:weakSelf.beautyBtn];
     };
     self.moreView.effectsBlock = ^{
       [weakSelf clickBottomViewButton:weakSelf.specialEffectsBtn];
     };
+#endif
     [self.view addSubview:self.moreView];
 }
 

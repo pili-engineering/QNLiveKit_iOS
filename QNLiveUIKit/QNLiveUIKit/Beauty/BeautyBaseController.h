@@ -7,12 +7,18 @@
 
 #import <QNLiveKit/QNLiveKit.h>
 #import "STBaseViewController.h"
+#define  useBeauty
 
 @class QNLiveRoomInfo,QNLivePushClient,QNLiveRoomClient,QNChatRoomService,LiveChatRoom,QNMergeOption,QPKService,QRenderView,FDanmakuView,QLinkMicService,PLSTEffectManager,PLSTDetector;
 
 NS_ASSUME_NONNULL_BEGIN
 
+#ifdef useBeauty
 @interface BeautyBaseController : STBaseViewController
+#else
+@interface BeautyBaseController : UIViewController
+#endif
+
 
 @property (nonatomic, strong) QRenderView *preview;//自己画面的预览视图
 @property (nonatomic, strong) QRenderView *remoteView;//远端画面

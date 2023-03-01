@@ -52,6 +52,7 @@
 
 
 - (void)localVideoTrack:(QNLocalVideoTrack *)localVideoTrack didGetPixelBuffer:(CVPixelBufferRef)pixelBuffer {
+#ifdef useBeauty
     
     QNCameraVideoTrack *track = (QNCameraVideoTrack *)localVideoTrack;
     
@@ -71,6 +72,7 @@
     
     [self.detector detect:pixelBuffer cameraOrientation:track.videoOrientation detectConfig:detectConfig allResult:&res];
     [self.effectManager processBuffer:pixelBuffer cameraOrientation:track.videoOrientation detectResult:&res];
+#endif
 }
 
 - (UITextField *)titleTf {
@@ -108,9 +110,11 @@
 }
 
 //美颜
+#ifdef useBeauty
 - (void)beautyButtonClick {
     [self clickBottomViewButton:self.beautyBtn];
 }
+#endif
 
 //翻转摄像头
 - (void)turnAroundButtonClick {
