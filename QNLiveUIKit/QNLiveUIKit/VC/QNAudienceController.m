@@ -152,32 +152,22 @@ static NSString *cellIdentifier = @"AddCollectionViewCell";
 }
 
 - (void)updateRoomInfo {
-    [[QLive createPusherClient] roomHeartBeart:self.roomInfo.live_id];
-    [[QLive getRooms] getRoomInfo:self.roomInfo.live_id
-                         callBack:^(QNLiveRoomInfo *_Nonnull roomInfo) {
-                           self.roomInfo = roomInfo;
-                           [self.roomHostView updateWith:roomInfo];
-                           [self.onlineUserView updateWith:roomInfo];
-
-                           if (roomInfo.anchor_status == QNAnchorStatusLeave) {
-                               self.player.playerView.hidden = YES;
-                               [self.player stop];
-                               self.masterLeaveLabel.hidden = NO;
-                           } else {
-                               self.masterLeaveLabel.hidden = YES;
-
-                               //            if (self.roomInfo.pk_id.length == 0) {
-                               //                self.player.playerView.frame = self.view.frame;
-                               //            } else {
-                               //                self.player.playerView.frame = CGRectMake(0, 150, SCREEN_W, SCREEN_W *0.6);
-                               //            }
-                           }
-                         }];
-    [self getExplainGood];
     __weak typeof(self) weakSelf = self;
-    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(3 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-      [weakSelf updateRoomInfo];
-    });
+    [[QLive createPusherClient] startRoomHeartBeart:self.roomInfo.live_id callBack:^(QNLiveRoomInfo * _Nonnull roomInfo) {
+        weakSelf.roomInfo = roomInfo;
+        [weakSelf.roomHostView updateWith:roomInfo];
+        [weakSelf.onlineUserView updateWith:roomInfo];
+
+        if (roomInfo.anchor_status == QNAnchorStatusLeave) {
+            weakSelf.player.playerView.hidden = YES;
+            [weakSelf.player stop];
+            weakSelf.masterLeaveLabel.hidden = NO;
+        } else {
+            weakSelf.masterLeaveLabel.hidden = YES;
+        }
+        
+        [weakSelf getExplainGood];
+    }];
 }
 
 #pragma mark---------QNPushClientListener

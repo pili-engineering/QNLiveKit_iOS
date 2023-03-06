@@ -85,6 +85,8 @@
 
 // 主播停止直播
 - (void)closeRoom {
+    [self stopRoomHeartBeart];
+    
     NSString *action = [NSString stringWithFormat:@"client/live/room/%@", self.roomInfo.live_id];
     [QLiveNetworkUtil deleteRequestWithAction:action
                                        params:@{}
