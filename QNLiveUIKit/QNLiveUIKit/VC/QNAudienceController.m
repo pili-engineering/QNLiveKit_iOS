@@ -129,7 +129,7 @@ static NSString *cellIdentifier = @"AddCollectionViewCell";
     }
     self.player.playerView.hidden = NO;
     [self.player playWithURL:[NSURL URLWithString:url] sameSource:NO];
-//    QLIVELogInfo(@"playWithURL url(%@)",url);
+    NSLog(@"playWithURL url(%@)",url);
 }
 
 - (void)player:(nonnull PLPlayer *)player stoppedWithError:(nullable NSError *)error {

@@ -36,6 +36,8 @@
     NSDictionary *dic = notice.userInfo;
     QIMModel *imModel = [QIMModel mj_objectWithKeyValues:dic.mj_keyValues];
     
+    QLIVELog(@"IM (%@)",imModel.action);
+    
     if ([imModel.action isEqualToString:invite_send]) {
        //收到pk邀请消息
        QInvitationModel *model = [QInvitationModel mj_objectWithKeyValues:imModel.data];
@@ -92,7 +94,6 @@
                    [self.delegate onReceiveStartPKSession:model];
                }
                 [self beginPK:model callBack:nil];
-                [self PKStarted];
            }];
            
        } else {
@@ -110,8 +111,6 @@
    }  else if ([imModel.action isEqualToString:liveroom_pk_extends]) {
 
        QInvitationModel *model = [QInvitationModel mj_objectWithKeyValues:imModel.data];
-       
-
        
        QExtension *extension = [[QExtension alloc] init];
        extension.key = model.extends.allKeys[0];
@@ -141,6 +140,7 @@
 
     [[QLive createPusherClient].rtcClient startRoomMediaRelay:config completeCallback:^(NSDictionary *state, NSError *error) {
         [self sendStartPKMessage:pkSession singleMsg:NO];
+        [self PKStarted];
     }];
     
 }
