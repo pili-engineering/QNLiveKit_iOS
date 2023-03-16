@@ -34,7 +34,7 @@
 
 //添加聊天监听
 - (void)addChatServiceListener:(id<QNChatRoomServiceListener>)listener{
-    
+    QLIVELogInfo(@"QNChatRoomService addListener (%@)",listener);
     self.groupId = self.roomInfo.chat_id;
     self.roomId = self.roomInfo.live_id;
     [[QNIMGroupService sharedOption] joinGroupWithGroupId:self.groupId message:@"" completion:^(QNIMError * _Nonnull error) {
@@ -43,12 +43,13 @@
         }
     }];
     
-    [[QNIMChatService sharedOption] addDelegate:self delegateQueue:dispatch_get_main_queue()];
+    [[QNIMChatService sharedOption] addDelegate:self];
     self.chatRoomListener = listener;
 }
 
 //移除聊天监听
 - (void)removeChatServiceListener{
+    QLIVELogInfo(@"QNChatRoomService removeListener");
     [[QNIMGroupService sharedOption] leaveGroupWithGroupId:self.groupId completion:^(QNIMError * _Nonnull error) {
         if (!error) {
             self.isMember = NO;
@@ -60,7 +61,7 @@
 
 //发公聊消息
 - (void)sendPubChatMsg:(NSString *)msg callBack:(nonnull void (^)(QNIMMessageObject * _Nonnull))callBack{
-
+    QLIVELogInfo(@"QNChatRoomService send (%@)",msg);
     if (self.isMember) {
         QNIMMessageObject *message = [self.creater createChatMessage:msg];
         [[QNIMChatService sharedOption] sendMessage:message];
@@ -81,7 +82,7 @@
     if (self.isMember) {
         callBack();
     } else {
-        [[QNIMGroupService sharedOption] joinGroupWithGroupId:self.groupId message:@"" completion:^(QNIMError * _Nonnull error) {
+        [[QNIMGroupService sharedOption]  joinGroupWithGroupId:self.groupId message:@"" completion:^(QNIMError * _Nonnull error) {
             if (!error) {
                 self.isMember = YES;                
             }
@@ -116,9 +117,83 @@
     
 }
 
-//禁言
-- (void)muteUser:(NSString *)msg memberId:(NSString *)memberId duration:(long long)duration isMute:(BOOL)isMute {
+//私聊消息
+- (void)sendCustomC2CMsg:(NSString *)msg memberID:(NSString *)memberID callBack:(void (^)(QNIMMessageObject *msg))callBack{
+    QNIMMessageObject *message = [[QNIMMessageObject alloc]initWithQNIMMessageText:msg fromId:LIVE_IM_userId.longLongValue toId:memberID.longLongValue type:QNIMMessageTypeSingle conversationId:memberID.longLongValue];
+    message.senderName = LIVE_User_nickname;
+    [[QNIMChatService sharedOption] sendMessage:message];
     
+}
+// 自定义群聊
+- (void)sendCustomGroupMsg:(NSString *)msg callBack:(void (^)(QNIMMessageObject *msg))callBack{
+    QNIMMessageObject *message = [[QNIMMessageObject alloc]initWithQNIMMessageText:msg fromId:LIVE_IM_userId.longLongValue toId:self.groupId.longLongValue type:QNIMMessageTypeGroup conversationId:self.groupId.longLongValue];
+    message.senderName = LIVE_User_nickname;
+    [[QNIMChatService sharedOption] sendMessage:message];
+}
+
+// 踢人
+- (void)kickUserMsg:(NSString *)msg memberID:(NSString *)memberID callBack:(void(^)(QNIMError *error))aCompletionBlock;{
+    [[QNIMGroupService sharedOption] removeMembersWithGroupId:self.groupId memberlist:@[@(memberID.longLongValue)] reason:@"" completion:^(QNIMError * _Nonnull error) {
+            aCompletionBlock(error);
+    }];
+}
+
+//禁言
+- (void)muteUserMsg:(NSString *)msg memberId:(NSString *)memberId duration:(long long)duration isMute:(BOOL)isMute callBack:(void(^)(QNIMError *error))aCompletionBlock{
+    [[QNIMGroupService sharedOption] banMembers:@[@(memberId.longLongValue)] groupId:self.groupId reason:msg duration:duration completion:^(QNIMError * _Nonnull error) {
+            aCompletionBlock(error);
+    }];
+}
+
+// 禁言列表
+- (void)getBannedMembersCompletion:(void(^)(NSArray<QNIMGroupBannedMember *> *bannedMemberList,
+                                        QNIMError *error))aCompletionBlock{
+    [[QNIMGroupService sharedOption] getBannedMembersWithGroupId:self.groupId completion:^(NSArray<QNIMGroupBannedMember *> * _Nonnull bannedMemberList, QNIMError * _Nonnull error) {
+        aCompletionBlock(bannedMemberList,error);
+    }];
+}
+
+//@param-isBlock:是否拉黑    @param-memberID:成员im ID    @param-callBack:回调
+- (void)blockUserMemberId:(NSString *)memberId isBlock:(BOOL)isBlock callBack:(void(^)(QNIMError *error))aCompletionBlock{
+    if (isBlock) {
+        [[QNIMGroupService sharedOption] blockMembersWithGroupId:self.groupId members:@[@(memberId.longLongValue)] completion:^(QNIMError * _Nonnull error) {
+                aCompletionBlock(error);
+        }];
+    }else{
+        [[QNIMGroupService sharedOption] unblockMemberWithGroupId:self.groupId members:@[@(memberId.longLongValue)] completion:^(QNIMError * _Nonnull error) {
+                aCompletionBlock(error);
+        }];
+    }
+
+}
+
+/**
+ * 获取黑名单
+ **/
+- (void)getBlockListForceRefresh:(BOOL)forceRefresh
+                     completion:(void(^)(NSArray<QNIMGroupMember *> *groupMember,QNIMError *error))aCompletionBlock{
+    [[QNIMGroupService sharedOption] getBlockListWithGroupId:self.groupId forceRefresh:forceRefresh completion:^(NSArray<QNIMGroupMember *> * _Nonnull groupMember, QNIMError * _Nonnull error) {
+            aCompletionBlock(groupMember,error);
+    }];
+}
+
+/**
+  添加管理员
+ */
+- (void)addAdminsWithAdmins:(NSArray<NSNumber *> *)admins
+          message:(NSString *)message
+                  completion:(void(^)(QNIMError *error))aCompletionBlock{
+    [[QNIMGroupService sharedOption] addAdminsWithGroupId:self.groupId admins:admins message:message completion:^(QNIMError * _Nonnull error) {
+            aCompletionBlock(error);
+    }];
+}
+
+- (void)removeAdminsWithAdmins:(NSArray<NSNumber *> *)admins
+          message:(NSString *)message
+                  completion:(void(^)(QNIMError *error))aCompletionBlock{
+    [[QNIMGroupService sharedOption] removeAdminsWithGroupId:self.groupId admins:admins reason:@"" completion:^(QNIMError * _Nonnull error) {
+        aCompletionBlock(error);
+    }];
 }
 
     
@@ -140,6 +215,7 @@
     [[NSNotificationCenter defaultCenter] postNotificationName:ReceiveIMMessageNotification object:nil userInfo:msg.content.mj_keyValues];
     
     QIMModel *imModel = [QIMModel mj_objectWithKeyValues:msg.content.mj_keyValues];
+    QLIVELogInfo(@"QNChatRoomService receiveImMessage (%@)",imModel.action);
     
     if ([imModel.action isEqualToString:liveroom_pubchat]) {
         //公聊消息
@@ -178,7 +254,7 @@
         }
     } else if ([imModel.action isEqualToString:liveroom_like]) {
 //        PubChatModel *model = [PubChatModel mj_objectWithKeyValues:imModel.data];
-        
+
         if ([self.chatRoomListener respondsToSelector:@selector(onReceivedLikeMsg:)]) {
             [self.chatRoomListener onReceivedLikeMsg:msg];
         }
@@ -190,11 +266,16 @@
     }
 }
 
+
 - (CreateSignalHandler *)creater {
     if (!_creater) {
         _creater = [[CreateSignalHandler alloc]initWithToId:self.groupId roomId:self.roomId];
     }
     return _creater;
+}
+
+-(void)dealloc{
+    [[QNIMChatService sharedOption] removeDelegate:self];
 }
 
 @end

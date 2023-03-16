@@ -36,10 +36,13 @@ NSInteger const Interval = 8;
     manager.requestSerializer = [AFJSONRequestSerializer serializer];
     manager.responseSerializer = [AFJSONResponseSerializer serializer];
     
+//    manager.completionQueue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0);
+    
     NSString *token = LIVE_Live_Token;
     if (token.length > 0) {
         [manager.requestSerializer setValue:token forHTTPHeaderField:@"Authorization"];
-    }
+        QLIVELogError(@"set token %@",token);
+    };
     [manager.requestSerializer setValue:@"application/json" forHTTPHeaderField:@"Content-Type"];
     
     return manager;
@@ -54,7 +57,6 @@ NSInteger const Interval = 8;
     }
     NSString *requestUrl = [[NSString alloc]initWithFormat:url,action];
     AFHTTPSessionManager *manager = [QLiveNetworkUtil manager];
-    
     [manager GET:requestUrl parameters:params headers:nil progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
 //        NSLog(@"\n GET\n action : %@ \n HTTPRequestHeaders:%@ \n params:%@ \n responseObject = %@",requestUrl,manager.requestSerializer.HTTPRequestHeaders,params,responseObject);
         [self dealSuccessResult:responseObject success:^(NSDictionary * _Nonnull responseData) {
@@ -244,27 +246,21 @@ NSInteger const Interval = 8;
 }
 
 + (void)dealFailure:(NSError *)error failure:(FailureBlock)failure {
-    NSData * data =error.userInfo[AFNetworkingOperationFailingURLResponseDataErrorKey];
+    NSData *data = error.userInfo[AFNetworkingOperationFailingURLResponseDataErrorKey];
+    NSHTTPURLResponse *response = error.userInfo[AFNetworkingOperationFailingURLResponseErrorKey];
     NSInteger resultCode = 0;
-    if (data.length > 0) {
+    if (data.length) {
         NSError *jsonError;
         NSDictionary *liveError = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingMutableContainers error:&jsonError];
-        if (!jsonError) {
+        
+        if (!jsonError ) {
             resultCode = [liveError[@"code"] intValue];
         }
     }
-    if (error.code == 401 && resultCode == 499) {
+    if (response.statusCode == 401 && resultCode == 499) {
         NSLog(@"toke timeout");
         [[QLive sharedInstance] refreshToken];
         
-//        NSString *action = [NSString stringWithFormat:@"live/auth_token?userID=%@&deviceID=1111",LIVE_User_id];
-//        [QLiveNetworkUtil getRequestWithAction:action params:nil success:^(NSDictionary * _Nonnull responseData) {
-//
-//            NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
-//            [defaults setObject:responseData[@"accessToken"] forKey:Live_Token];
-//            [defaults synchronize];
-//            return;
-//        } failure:^(NSError * _Nonnull error) {}];
     }
 
     failure(error);

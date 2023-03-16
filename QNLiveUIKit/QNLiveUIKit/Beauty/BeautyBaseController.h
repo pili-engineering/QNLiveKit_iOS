@@ -7,12 +7,18 @@
 
 #import <QNLiveKit/QNLiveKit.h>
 #import "STBaseViewController.h"
+#define  useBeauty
 
 @class QNLiveRoomInfo,QNLivePushClient,QNLiveRoomClient,QNChatRoomService,LiveChatRoom,QNMergeOption,QPKService,QRenderView,FDanmakuView,QLinkMicService,PLSTEffectManager,PLSTDetector;
 
 NS_ASSUME_NONNULL_BEGIN
 
+#ifdef useBeauty
 @interface BeautyBaseController : STBaseViewController
+#else
+@interface BeautyBaseController : UIViewController
+#endif
+
 
 @property (nonatomic, strong) QRenderView *preview;//自己画面的预览视图
 @property (nonatomic, strong) QRenderView *remoteView;//远端画面
@@ -24,11 +30,15 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, strong) QPKService * pkService;
 @property (nonatomic, strong) QLinkMicService *linkService;
 
+//关闭直播间的回调
+@property (nonatomic, copy) void (^closeClickedBlock)(QNLiveRoomInfo *roomInfo);
+
+//暂时离开直播间的回调
+@property (nonatomic, copy) void (^leaveClickedBlock)(QNLiveRoomInfo *roomInfo);
+
 //商汤特效
 @property (nonatomic, strong) UIButton *effectButton;
 @property (nonatomic, assign) BOOL isNullSticker;
-@property (nonatomic, strong) PLSTEffectManager *effectManager;
-@property (nonatomic, strong) PLSTDetector *detector;
 
 @property (nonatomic, assign) BOOL isFirstWholeMakeUp;
 
@@ -41,11 +51,6 @@ NS_ASSUME_NONNULL_BEGIN
 
 - (void)updateFirstEnterUI;
 
-//关闭直播间的回调
-@property (nonatomic, copy) void (^closeClickedBlock)(QNLiveRoomInfo *roomInfo);
-
-//暂时离开直播间的回调
-@property (nonatomic, copy) void (^leaveClickedBlock)(QNLiveRoomInfo *roomInfo);
 
 @end
 

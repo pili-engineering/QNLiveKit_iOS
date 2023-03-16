@@ -43,6 +43,8 @@ static NSString *cellIdentifier = @"AddCollectionViewCell";
 @property (nonatomic, strong) NSMutableArray<QNMicLinker *> *linkMicList;
 @property (nonatomic, strong) UICollectionView *micLinkerCollectionView;
 @property (nonatomic, strong) NSMutableDictionary<NSString *, QNTrack *> *currentTracks;
+
+@property (nonatomic, strong) NSArray *bottomMenuOpen;
 @end
 
 @implementation QNAudienceController
@@ -52,12 +54,14 @@ static NSString *cellIdentifier = @"AddCollectionViewCell";
 }
 
 - (void)viewWillAppear:(BOOL)animated {
-    self.player.mute = NO;
+
 }
 
 - (void)viewDidLoad {
     [super viewDidLoad];
 
+    if(!_bottomMenuOpen) _bottomMenuOpen = @[@1,@1,@1,@1];
+    
     _currentTracks = [[NSMutableDictionary alloc] init];
 
     [self setupBottomMenuView];
@@ -109,7 +113,7 @@ static NSString *cellIdentifier = @"AddCollectionViewCell";
         PLPlayFormat format = kPLPLAY_FORMAT_UnKnown;
 
         [option setOptionValue:@(format) forKey:PLPlayerOptionKeyVideoPreferFormat];
-        [option setOptionValue:@(kPLLogNone) forKey:PLPlayerOptionKeyLogLevel];
+        [option setOptionValue:@(kPLLogError) forKey:PLPlayerOptionKeyLogLevel];
 
         self.player = [PLPlayer playerWithURL:[NSURL URLWithString:url] option:option];
         [self.view insertSubview:self.player.playerView atIndex:2];
@@ -125,7 +129,7 @@ static NSString *cellIdentifier = @"AddCollectionViewCell";
     }
     self.player.playerView.hidden = NO;
     [self.player playWithURL:[NSURL URLWithString:url] sameSource:NO];
-//    QLIVELogInfo(@"playWithURL url(%@)",url);
+    NSLog(@"playWithURL url(%@)",url);
 }
 
 - (void)player:(nonnull PLPlayer *)player stoppedWithError:(nullable NSError *)error {
@@ -148,32 +152,22 @@ static NSString *cellIdentifier = @"AddCollectionViewCell";
 }
 
 - (void)updateRoomInfo {
-    [[QLive createPusherClient] roomHeartBeart:self.roomInfo.live_id];
-    [[QLive getRooms] getRoomInfo:self.roomInfo.live_id
-                         callBack:^(QNLiveRoomInfo *_Nonnull roomInfo) {
-                           self.roomInfo = roomInfo;
-                           [self.roomHostView updateWith:roomInfo];
-                           [self.onlineUserView updateWith:roomInfo];
-
-                           if (roomInfo.anchor_status == QNAnchorStatusLeave) {
-                               self.player.playerView.hidden = YES;
-                               [self.player stop];
-                               self.masterLeaveLabel.hidden = NO;
-                           } else {
-                               self.masterLeaveLabel.hidden = YES;
-
-                               //            if (self.roomInfo.pk_id.length == 0) {
-                               //                self.player.playerView.frame = self.view.frame;
-                               //            } else {
-                               //                self.player.playerView.frame = CGRectMake(0, 150, SCREEN_W, SCREEN_W *0.6);
-                               //            }
-                           }
-                         }];
-    [self getExplainGood];
     __weak typeof(self) weakSelf = self;
-    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(3 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-      [weakSelf updateRoomInfo];
-    });
+    [[QLive createPusherClient] startRoomHeartBeart:self.roomInfo.live_id callBack:^(QNLiveRoomInfo * _Nonnull roomInfo) {
+        weakSelf.roomInfo = roomInfo;
+        [weakSelf.roomHostView updateWith:roomInfo];
+        [weakSelf.onlineUserView updateWith:roomInfo];
+
+        if (roomInfo.anchor_status == QNAnchorStatusLeave) {
+            weakSelf.player.playerView.hidden = YES;
+            [weakSelf.player stop];
+            weakSelf.masterLeaveLabel.hidden = NO;
+        } else {
+            weakSelf.masterLeaveLabel.hidden = YES;
+        }
+        
+        [weakSelf getExplainGood];
+    }];
 }
 
 #pragma mark---------QNPushClientListener
@@ -191,7 +185,9 @@ static NSString *cellIdentifier = @"AddCollectionViewCell";
 
           [self.linkMicList addObject:linker];
           linker.track = [QLive createPusherClient].localVideoTrack;
-          [self.micLinkerCollectionView reloadData];
+          dispatch_async(dispatch_get_main_queue(), ^{
+              [self.micLinkerCollectionView reloadData];
+          });
 
           [self popLinkSLotHidden:NO];
       } else if (state == QNConnectionStateDisconnected) {
@@ -241,7 +237,9 @@ static NSString *cellIdentifier = @"AddCollectionViewCell";
               } else {
                   [self.currentTracks setObject:track forKey:userID];
                   [self updateTrack:track userID:userID];
-                  [self.micLinkerCollectionView reloadData];
+                  dispatch_async(dispatch_get_main_queue(), ^{
+                      [self.micLinkerCollectionView reloadData];
+                  });
               }
 
           } else {
@@ -439,42 +437,55 @@ static NSString *cellIdentifier = @"AddCollectionViewCell";
     [self.renderBackgroundView addSubview:_micLinkerCollectionView];
 }
 
+- (void)bottomMenuUseConfig:(NSArray *)array{
+    _bottomMenuOpen = [array copy];
+    [self setupBottomMenuView];
+}
+
 - (void)setupBottomMenuView {
     NSMutableArray *slotList = [NSMutableArray array];
     __weak typeof(self) weakSelf = self;
 
     // 弹幕
-    ImageButtonView *message = [[ImageButtonView alloc] initWithFrame:CGRectZero];
-    [message bundleNormalImage:@"icon_danmu" selectImage:@"icon_danmu"];
-    message.clickBlock = ^(BOOL selected) {
-      [weakSelf.chatRoomView commentBtnPressedWithPubchat:NO];
-    };
-    [slotList addObject:message];
+    if( [_bottomMenuOpen[0] intValue]) {
+        ImageButtonView *message = [[ImageButtonView alloc] initWithFrame:CGRectZero];
+        [message bundleNormalImage:@"icon_danmu" selectImage:@"icon_danmu"];
+        message.clickBlock = ^(BOOL selected) {
+            [weakSelf.chatRoomView commentBtnPressedWithPubchat:NO];
+        };
+        [slotList addObject:message];
+    }
 
     // 购物车
-    ImageButtonView *shopping = [[ImageButtonView alloc] initWithFrame:CGRectZero];
-    [shopping bundleNormalImage:@"shopping" selectImage:@"shopping"];
-    shopping.clickBlock = ^(BOOL selected) {
-      [weakSelf popGoodListView];
-    };
-    [slotList addObject:shopping];
+    if( [_bottomMenuOpen[1] intValue]) {
+        ImageButtonView *shopping = [[ImageButtonView alloc] initWithFrame:CGRectZero];
+        [shopping bundleNormalImage:@"shopping" selectImage:@"shopping"];
+        shopping.clickBlock = ^(BOOL selected) {
+            [weakSelf popGoodListView];
+        };
+        [slotList addObject:shopping];
+    }
 
-    QNLikeMenuView *likeView = [[QNLikeMenuView alloc] initWithFrame:CGRectZero];
-    [likeView bundleNormalImage:@"like_click" selectImage:@"like_click"];
-    likeView.roomInfo = self.roomInfo;
-    likeView.clickBlock = ^(BOOL selected) {
-      [weakSelf showLikeBubble];
-    };
-    [slotList addObject:likeView];
-    self.likeMenuView = likeView;
+        if( [_bottomMenuOpen[2] intValue]) {
+            QNLikeMenuView *likeView = [[QNLikeMenuView alloc] initWithFrame:CGRectZero];
+            [likeView bundleNormalImage:@"like_click" selectImage:@"like_click"];
+            likeView.roomInfo = self.roomInfo;
+            likeView.clickBlock = ^(BOOL selected) {
+                [weakSelf showLikeBubble];
+            };
+            [slotList addObject:likeView];
+            self.likeMenuView = likeView;
+        }
 
     // 更多
-    ImageButtonView *more = [[ImageButtonView alloc] initWithFrame:CGRectZero];
-    [more bundleNormalImage:@"icon_more" selectImage:@"icon_more"];
-    more.clickBlock = ^(BOOL selected) {
-      [weakSelf popMoreView];
-    };
-    [slotList addObject:more];
+        if( [_bottomMenuOpen[3] intValue]) {
+            ImageButtonView *more = [[ImageButtonView alloc] initWithFrame:CGRectZero];
+            [more bundleNormalImage:@"icon_more" selectImage:@"icon_more"];
+            more.clickBlock = ^(BOOL selected) {
+                [weakSelf popMoreView];
+            };
+            [slotList addObject:more];
+        }
 
     [self.bottomMenuView updateWithSlotList:slotList.copy];
 }
@@ -600,11 +611,8 @@ static NSString *cellIdentifier = @"AddCollectionViewCell";
       if (weakSelf.goodClickedBlock) {
           weakSelf.goodClickedBlock(itemModel);
       }
-      weakSelf.player.mute = YES;
     };
     vc.watchRecordBlock = ^(GoodsModel *_Nonnull itemModel) {
-      weakSelf.player.mute = YES;
-
       WacthRecordController *vc = [[WacthRecordController alloc] initWithModel:itemModel roomInfo:weakSelf.roomInfo];
       vc.modalPresentationStyle = UIModalPresentationFullScreen;
       vc.buyClickedBlock = ^(GoodsModel *_Nonnull itemModel) {

@@ -42,7 +42,9 @@ NS_ASSUME_NONNULL_BEGIN
 - (void)getUserList:(NSString *)roomId pageNumber:(NSInteger)pageNumber pageSize:(NSInteger)pageSize callBack:(void (^)(NSArray<QNLiveUser *> * _Nonnull))callBack;
 
 //房间心跳
-- (void)roomHeartBeart:(NSString *)roomId;
+- (void)startRoomHeartBeart:(NSString *)roomId callBack:(nullable void (^)(QNLiveRoomInfo *roomInfo))callBack;
+
+-(void)stopRoomHeartBeart;
 
 //更新直播扩展信息
 - (void)updateRoom:(NSString *)roomId extension:(NSString *)extension callBack:(void (^)(void))callBack;

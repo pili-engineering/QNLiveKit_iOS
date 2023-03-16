@@ -79,6 +79,8 @@
 		77781CDC2840C768009DC71C /* QNPersonInfoTopView.m in Sources */ = {isa = PBXBuildFile; fileRef = 77781CD22840C768009DC71C /* QNPersonInfoTopView.m */; };
 		77A8D2082876CB77001A3C2C /* my_sticker.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 77A8D1FB2876CB77001A3C2C /* my_sticker.bundle */; };
 		C5993B91A021CD7EDC4A0F36 /* Pods_QNLiveKitDemo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F467E60A07D600FCAAE77FD1 /* Pods_QNLiveKitDemo.framework */; };
+		E37940772990B12800E11A90 /* SENSEME.lic in Resources */ = {isa = PBXBuildFile; fileRef = E37940762990B12800E11A90 /* SENSEME.lic */; };
+		E37940792990B13700E11A90 /* SENSEME.lic in Resources */ = {isa = PBXBuildFile; fileRef = E37940782990B13700E11A90 /* SENSEME.lic */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -250,6 +252,8 @@
 		86543AFAB4A8EADB1F77D392 /* Pods-QNLiveKitDemoTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-QNLiveKitDemoTests.release.xcconfig"; path = "Target Support Files/Pods-QNLiveKitDemoTests/Pods-QNLiveKitDemoTests.release.xcconfig"; sourceTree = "<group>"; };
 		B31E3F409ADE08D9D13B003F /* Pods-QNLiveKitDemo-QNLiveKitDemoUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-QNLiveKitDemo-QNLiveKitDemoUITests.release.xcconfig"; path = "Target Support Files/Pods-QNLiveKitDemo-QNLiveKitDemoUITests/Pods-QNLiveKitDemo-QNLiveKitDemoUITests.release.xcconfig"; sourceTree = "<group>"; };
 		B86C108BE2C7758CCFFA24C9 /* Pods-QNLiveKitDemo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-QNLiveKitDemo.release.xcconfig"; path = "Target Support Files/Pods-QNLiveKitDemo/Pods-QNLiveKitDemo.release.xcconfig"; sourceTree = "<group>"; };
+		E37940762990B12800E11A90 /* SENSEME.lic */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = SENSEME.lic; path = ../../../../../../../SENSEME.lic; sourceTree = "<group>"; };
+		E37940782990B13700E11A90 /* SENSEME.lic */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = SENSEME.lic; path = ../../../../../../../SENSEME.lic; sourceTree = "<group>"; };
 		F467E60A07D600FCAAE77FD1 /* Pods_QNLiveKitDemo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_QNLiveKitDemo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -446,6 +450,7 @@
 				48D4AC2D294B0BD5008C8464 /* ApiDemo */,
 				77781C82283E1EE6009DC71C /* Tools */,
 				77781CC72840C768009DC71C /* Personal */,
+				E379406F2990B10000E11A90 /* Res */,
 				77781C54283E1E7E009DC71C /* AppHome */,
 				776B1BE628378CCD00D85C73 /* Main.storyboard */,
 				776B1BE928378CCF00D85C73 /* Assets.xcassets */,
@@ -566,6 +571,7 @@
 		77781CC72840C768009DC71C /* Personal */ = {
 			isa = PBXGroup;
 			children = (
+				E37940762990B12800E11A90 /* SENSEME.lic */,
 				77781CC82840C768009DC71C /* QNPersonInfoTopView.h */,
 				77781CC92840C768009DC71C /* QNPersonalViewModel.h */,
 				77781CCA2840C768009DC71C /* QNPersonInfoModel.m */,
@@ -612,6 +618,14 @@
 				77A8D1FB2876CB77001A3C2C /* my_sticker.bundle */,
 			);
 			path = StickerZipAndIcons;
+			sourceTree = "<group>";
+		};
+		E379406F2990B10000E11A90 /* Res */ = {
+			isa = PBXGroup;
+			children = (
+				E37940782990B13700E11A90 /* SENSEME.lic */,
+			);
+			path = Res;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -765,6 +779,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				48B937FE29272F910014D671 /* PortraitFilters.bundle in Resources */,
+				E37940792990B13700E11A90 /* SENSEME.lic in Resources */,
 				77A8D2082876CB77001A3C2C /* my_sticker.bundle in Resources */,
 				48B9381229272F9A0014D671 /* hairColor.bundle in Resources */,
 				48B937F029272F4A0014D671 /* M_SenseME_Verify_p_3.118.0.1.model in Resources */,
@@ -790,6 +805,7 @@
 				48B937F129272F4A0014D671 /* M_SenseME_DogFace_p_2.0.0.1.model in Resources */,
 				48B9380129272F910014D671 /* DeliciousFoodFilters.bundle in Resources */,
 				48B937FF29272F910014D671 /* SceneryFilters.bundle in Resources */,
+				E37940772990B12800E11A90 /* SENSEME.lic in Resources */,
 				776B1BE828378CCD00D85C73 /* Main.storyboard in Resources */,
 				48B937DB29271DD00014D671 /* effects_service_group_list.json in Resources */,
 				48B937DD29271DDA0014D671 /* material_group_map_rulues.json in Resources */,
@@ -1178,6 +1194,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				TARGETED_DEVICE_FAMILY = "1,2";
+				USER_HEADER_SEARCH_PATHS = "\"$(SRCROOT)/../QNLiveUIKit/QNLiveUIKit/Beauty/Effect\"";
 			};
 			name = Debug;
 		};
@@ -1244,6 +1261,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				TARGETED_DEVICE_FAMILY = "1,2";
+				USER_HEADER_SEARCH_PATHS = "\"$(SRCROOT)/../QNLiveUIKit/QNLiveUIKit/Beauty/Effect\"";
 			};
 			name = Release;
 		};

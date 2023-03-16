@@ -9,6 +9,7 @@
 #import "QRenderView.h"
 #import "BeautyLiveViewController.h"
 #import "DateTimePickerView.h"
+#import "LicenseUtil.h"
 
 @interface CreateBeautyLiveController () <QNLocalVideoTrackDelegate>
 @property (nonatomic, strong) UITextField *titleTf;
@@ -21,26 +22,23 @@
 
 @implementation CreateBeautyLiveController
 
-+ (void)initialize {
-    NSString* path = [[NSBundle mainBundle] pathForResource:@"SENSEME" ofType:@"lic"];
-    NSData* license = [NSData dataWithContentsOfFile:path];
-    [[STDefaultSetting sharedInstace] checkActiveCodeWithData:license];
-}
 
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
-    [[QLive createPusherClient] enableCamera:nil renderView:self.preview];
-    [self setupSenseAR];
-    [[QLive createPusherClient] setVideoFrameListener:self];
+
 }
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    UIImageView *bg = [[UIImageView alloc]initWithImage:[UIImage imageNamed:@"live_bg"]];
-    bg.frame = self.view.frame;
-    [self.view addSubview:bg];
-    
-    [bg addSubview:self.preview];
+    [[QLive createPusherClient] enableCamera:nil renderView:self.preview];
+
+    [[QLive createPusherClient] setVideoFrameListener:self];
+//    UIImageView *bg = [[UIImageView alloc]initWithImage:[UIImage imageNamed:@"live_bg"]];
+//    bg.frame = self.view.frame;
+//    [self.view addSubview:bg];
+//    [self.view sendSubviewToBack:bg];
+//    
+//    [bg addSubview:self.preview];
         
     [self titleTf];
     [self commendTf];
@@ -54,6 +52,7 @@
 
 
 - (void)localVideoTrack:(QNLocalVideoTrack *)localVideoTrack didGetPixelBuffer:(CVPixelBufferRef)pixelBuffer {
+#ifdef useBeauty
     
     QNCameraVideoTrack *track = (QNCameraVideoTrack *)localVideoTrack;
     
@@ -64,7 +63,7 @@
     res.animal_result = &animalResult;
     res.humanResult = &result;
     
-    [self updateFirstEnterUI];
+//    [self updateFirstEnterUI];
     
     QNDetectConfig detectConfig;
     memset(&detectConfig, 0, sizeof(QNDetectConfig));
@@ -73,6 +72,7 @@
     
     [self.detector detect:pixelBuffer cameraOrientation:track.videoOrientation detectConfig:detectConfig allResult:&res];
     [self.effectManager processBuffer:pixelBuffer cameraOrientation:track.videoOrientation detectResult:&res];
+#endif
 }
 
 - (UITextField *)titleTf {
@@ -110,9 +110,11 @@
 }
 
 //美颜
+#ifdef useBeauty
 - (void)beautyButtonClick {
     [self clickBottomViewButton:self.beautyBtn];
 }
+#endif
 
 //翻转摄像头
 - (void)turnAroundButtonClick {

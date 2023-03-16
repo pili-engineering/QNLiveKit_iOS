@@ -22,6 +22,7 @@ typedef NS_ENUM(NSUInteger, QNIMConnectStatus) {
 typedef NS_ENUM(NSUInteger, QNIMSignInStatus) {
     QNIMSignInStatusSignOut,
     QNIMSignInStatusSignIn,
+    QNIMSignInStatusSigningIn,//登录中
 };
 
 typedef NS_ENUM(NSUInteger, QNIMLogLevel) {

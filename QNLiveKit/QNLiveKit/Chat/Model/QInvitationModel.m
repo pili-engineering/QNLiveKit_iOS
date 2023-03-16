@@ -46,3 +46,7 @@
 }
 @end
 
+@implementation QExtension
+
+@end
+

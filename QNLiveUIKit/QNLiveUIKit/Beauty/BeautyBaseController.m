@@ -13,6 +13,7 @@
 #import "FDanmakuView.h"
 #import "LiveChatRoom.h"
 #import <PLSTArEffects/PLSTArEffects.h>
+#import "QNBeautyManager.h"
 
 
 @interface BeautyBaseController ()
@@ -21,11 +22,11 @@
 
 @implementation BeautyBaseController
 
+#ifdef useBeauty
 #pragma mark - effect
-+ (void)initialize {
-    NSString* path = [[NSBundle mainBundle] pathForResource:@"SENSEME" ofType:@"lic"];
-    NSData* license = [NSData dataWithContentsOfFile:path];
-    [[STDefaultSetting sharedInstace] checkActiveCodeWithData:license];
+
+-(void)dealloc{
+    NSLog(@"BeautyBaseController dealloc");
 }
 
 - (void)effectButtonDidClick:(UIButton *)sender {
@@ -33,40 +34,6 @@
     self.specialEffectsBtn.hidden = sender.selected;
     self.beautyBtn.hidden = sender.selected;
 }
-
-
--(void)setupSenseAR{
-    self.effectManager = [[PLSTEffectManager alloc] initWithContext:[[EAGLContext alloc] initWithAPI:kEAGLRenderingAPIOpenGLES2] handleConfig:EFFECT_CONFIG_NONE];
-    self.effectManager.effectOn = YES;
-    
-    [STDefaultSetting sharedInstace].effectManager = self.effectManager;
-    
-    _detector = [[PLSTDetector alloc] initWithConfig:ST_MOBILE_HUMAN_ACTION_DEFAULT_CONFIG_VIDEO];
-    NSAssert(_detector, @"");
-
-    [_detector setModelPath:[[NSBundle mainBundle] pathForResource:@"model" ofType:@"bundle"]];
-    
-    //猫脸检测
-    NSString *catFaceModel = [[NSBundle mainBundle] pathForResource:@"M_SenseME_CatFace_p_3.2.0.1" ofType:@"model"];
-    [_detector addAnimalModelModel:catFaceModel];
-    
-    //狗脸检测
-    NSString *dogFaceModelPath = [[NSBundle mainBundle] pathForResource:@"M_SenseME_DogFace_p_2.0.0.1" ofType:@"model"];
-    [_detector addAnimalModelModel:dogFaceModelPath];
-    
-    //获取美颜数据源
-    self.coreStateMangement.curEffectBeautyType = STEffectsTypeBeautyWholeMakeup;
-    [self setupDefaultValus];
-    [self setupSubviews];
-//    _hEffectHandle = [_effectManager getMobileEffectHandle];
-    
-    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.5 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-        STNewBeautyCollectionViewModel *model = self.wholeMakeUpModels[0];
-        model.selected = YES;
-        [self handleBeautyTypeChanged:model];
-    });
-}
-
 
 - (void)setupSubviews {
     [super setupSubviews];
@@ -721,7 +688,34 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+
     [self setupBG];
+    
+    //获取美颜数据源
+    self.coreStateMangement.curEffectBeautyType = STEffectsTypeBeautyWholeMakeup;
+    [self setupDefaultValus];
+    [self setupSubviews];
+    
+    [[QNBeautyManager shardManager] initSuccess:^(BOOL state) {
+        if (state){
+            self.effectManager = [[QNBeautyManager shardManager] getEffectManager];
+            self.detector = [[QNBeautyManager shardManager] getDetector];
+            [STDefaultSetting sharedInstace].effectManager = self.effectManager;
+            [self setDefaultBeautyValues];
+
+        }else{
+            NSLog(@"鉴权失败");
+        }
+    }];
+    
+//    _hEffectHandle = [_effectManager getMobileEffectHandle];
+    
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1.0 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+        STNewBeautyCollectionViewModel *model = self.wholeMakeUpModels[0];
+        model.selected = YES;
+        [self handleBeautyTypeChanged:model];
+    });
+    
 }
 
 - (void)setupBG {
@@ -729,6 +723,7 @@
     UIImageView *bg = [[UIImageView alloc]initWithImage:[UIImage imageNamed:@"live_bg"]];
     bg.frame = self.view.frame;
     [self.view addSubview:bg];
+    [self.view sendSubviewToBack:bg];
     
     self.renderBackgroundView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, SCREEN_W, SCREEN_H)];
     [self.view insertSubview:self.renderBackgroundView atIndex:1];
@@ -1421,7 +1416,7 @@
 //    self.coreStateMangement.stickerConf = iAction;
 //}
 #pragma mark - senseMeEffects --------------------  end --------------------
-
+#endif
 
 
 //获取某人的画面

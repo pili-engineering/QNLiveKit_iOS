@@ -9,11 +9,16 @@
 #import "QLiveNetworkUtil.h"
 #import "QNLiveUser.h"
 #import "QNLiveRoomInfo.h"
+#import "QNLiveKit.h"
 
 
 @interface QNLiveRoomClient ()<QNRoomLifeCycleListener>
 
+@property (nonatomic,strong) NSTimer *mTimer;
 
+@property (nonatomic,copy) void (^getRoomCallBack)(QNLiveRoomInfo *info);
+
+@property (nonatomic,copy) NSString *roomId;
 @end
 
 @implementation QNLiveRoomClient
@@ -25,21 +30,46 @@
     [QLiveNetworkUtil getRequestWithAction:action params:nil success:^(NSDictionary * _Nonnull responseData) {
         NSArray <QNLiveUser *> *list = [QNLiveUser mj_objectArrayWithKeyValuesArray:responseData[@"list"]];
         callBack(list);
-        } failure:^(NSError * _Nonnull error) {
-            callBack(nil);
-        }];
+    } failure:^(NSError * _Nonnull error) {
+        callBack(nil);
+    }];
 }
 
 //房间心跳
-- (void)roomHeartBeart:(NSString *)roomId {
+- (void)startRoomHeartBeart:(NSString *)roomId callBack:(nullable void (^)(QNLiveRoomInfo *roomInfo))callBack {
+    QLIVELog(@"startRoomHeartBeart...");
+    _roomId = roomId;
+    _getRoomCallBack = callBack;
+    [self roomHeartBeart];
+    if (!_mTimer) {
+        _mTimer = [NSTimer scheduledTimerWithTimeInterval:8 target:self selector:@selector(roomHeartBeart) userInfo:nil repeats:YES];
+    }
     
-    NSString *action = [NSString stringWithFormat:@"client/live/room/heartbeat/%@",roomId];
+}
+
+- (void)roomHeartBeart{
+    QLIVELog(@"roomHeartBeart...");
+    NSString *action = [NSString stringWithFormat:@"client/live/room/heartbeat/%@",self.roomId];
     [QLiveNetworkUtil getRequestWithAction:action params:nil success:^(NSDictionary * _Nonnull responseData) {
         
-        } failure:^(NSError * _Nonnull error) {
-            
-        }];
+    } failure:^(NSError * _Nonnull error) {
+        
+    }];
+    
+    __weak typeof(self) weakSelf = self;
+    [[QLive getRooms] getRoomInfo:self.roomId callBack:^(QNLiveRoomInfo * _Nonnull roomInfo) {
+        if (weakSelf.getRoomCallBack) {
+            weakSelf.getRoomCallBack(roomInfo);
+        }
+    }];
 }
+
+-(void)stopRoomHeartBeart{
+    [_mTimer invalidate];
+    _mTimer = nil;
+}
+
+
 
 //更新直播扩展信息
 - (void)updateRoom:(NSString *)roomId extension:(NSString *)extension callBack:(void (^)(void))callBack{
@@ -47,17 +77,17 @@
     NSMutableDictionary *params = [NSMutableDictionary dictionary];
     params[@"live_id"] = roomId;
     params[@"extends"] = extension;
-
-    [QLiveNetworkUtil putRequestWithAction:@"client/live/room/extends" params:params success:^(NSDictionary * _Nonnull responseData) {        
+    
+    [QLiveNetworkUtil putRequestWithAction:@"client/live/room/extends" params:params success:^(NSDictionary * _Nonnull responseData) {
         
         if ([self.roomLifeCycleListener respondsToSelector:@selector(onRoomExtensions:)]) {
             [self.roomLifeCycleListener onRoomExtensions:extension];
         }
         callBack();
         
-        } failure:^(NSError * _Nonnull error) {
-            callBack();
-        }];
+    } failure:^(NSError * _Nonnull error) {
+        callBack();
+    }];
 }
 
 //某个房间在线用户
@@ -66,9 +96,9 @@
     [QLiveNetworkUtil getRequestWithAction:action params:nil success:^(NSDictionary * _Nonnull responseData) {
         NSArray <QNLiveUser *> *list = [QNLiveUser mj_objectArrayWithKeyValuesArray:responseData[@"list"]];
         callBack(list);
-        } failure:^(NSError * _Nonnull error) {
-            callBack(nil);
-        }];
+    } failure:^(NSError * _Nonnull error) {
+        callBack(nil);
+    }];
 }
 
 //使用用户ID搜索用户
@@ -78,9 +108,9 @@
     [QLiveNetworkUtil getRequestWithAction:action params:nil success:^(NSDictionary * _Nonnull responseData) {
         QNLiveUser *user = [QNLiveUser mj_objectWithKeyValues:responseData];
         callBack(user);
-        } failure:^(NSError * _Nonnull error) {
-            callBack(nil);
-        }];
+    } failure:^(NSError * _Nonnull error) {
+        callBack(nil);
+    }];
 }
 
 //使用用户im uid 搜索用户
@@ -91,9 +121,9 @@
     [QLiveNetworkUtil getRequestWithAction:@"client/user/imusers" params:params success:^(NSDictionary * _Nonnull responseData) {
         QNLiveUser *user = [QNLiveUser mj_objectWithKeyValues:responseData];
         callBack(user);
-        } failure:^(NSError * _Nonnull error) {
-            callBack(nil);
-        }];
+    } failure:^(NSError * _Nonnull error) {
+        callBack(nil);
+    }];
 }
 
 

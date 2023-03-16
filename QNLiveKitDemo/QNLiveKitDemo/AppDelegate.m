@@ -17,6 +17,7 @@
 #import "UIApplication+LaunchScreen.h"
 #import "QNTabBarViewController.h"
 #import <QNLiveKit/QNLiveKit.h>
+#import <QNLiveUIKit/QNLiveUIKit.h>
 
 @interface AppDelegate () <QLiveTokenGetter>
 @property (nonatomic , copy) NSString *urlStr;

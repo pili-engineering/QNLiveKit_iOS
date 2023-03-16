@@ -13,12 +13,12 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  推送开关
  */
-@property (nonatomic,assign, readonly) BOOL mPushEnabled;
+@property (nonatomic,assign) BOOL mPushEnabled;
 
 /**
  推送详情
  */
-@property (nonatomic,assign, readonly) BOOL mPushDetail;
+@property (nonatomic,assign) BOOL mPushDetail;
 
 /**
  对方收到推送消息时显示的名称
@@ -28,17 +28,17 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  推送声音
  */
-@property (nonatomic,assign, readonly) BOOL mNotificationSound;
+@property (nonatomic,assign) BOOL mNotificationSound;
 
 /**
  推送通知震动
  */
-@property (nonatomic,assign, readonly) BOOL mNotificationVibrate;
+@property (nonatomic,assign) BOOL mNotificationVibrate;
 
 /**
  自动下载附件
  */
-@property (nonatomic,assign, readonly) BOOL mAutoDownloadAttachment;
+@property (nonatomic,assign) BOOL mAutoDownloadAttachment;
 
 
 @property (nonatomic,assign) int silenceStartTime;

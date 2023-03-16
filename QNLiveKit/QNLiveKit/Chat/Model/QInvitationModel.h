@@ -35,6 +35,17 @@ NS_ASSUME_NONNULL_BEGIN
 
 @property(nonatomic, copy) NSString *invitationName;
 
+@property (nonatomic, copy) NSDictionary *extends;
+
+@end
+
+
+@interface QExtension : NSObject
+//跨房会话ID
+@property (nonatomic, copy)NSString *key;
+//跨房token
+@property (nonatomic, copy)NSString *value;
+
 @end
 
 NS_ASSUME_NONNULL_END

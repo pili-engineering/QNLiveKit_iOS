@@ -62,6 +62,7 @@
 #define liveroom_pk_invitation  @"liveroom_pk_invitation"//pk邀请信令
 #define liveroom_pk_start  @"liveroom_pk_start"
 #define liveroom_pk_stop  @"liveroom_pk_stop"
+#define liveroom_pk_extends  @"liveroom_pk_extends"
 
 #define invite_send  @"invite_send"
 #define invite_cancel  @"invite_cancel"

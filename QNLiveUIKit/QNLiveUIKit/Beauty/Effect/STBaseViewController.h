@@ -29,9 +29,9 @@
 
 #import "STCoreStateManagement.h"
 #import "STDefaultSettingDataSourseGenerator.h"
-#import "EFDataSoure/EFResource.h"
-#import "EFDataSoure/EFSenseArMaterialDataModels.h"
-#import "EFDataSoure/EFDataSourceGenerator.h"
+#import "EFResource.h"
+#import "EFSenseArMaterialDataModels.h"
+#import "EFDataSourceGenerator.h"
 typedef NS_ENUM(NSInteger, STWriterRecordingStatus){
     STWriterRecordingStatusIdle = 0,
     STWriterRecordingStatusStartingRecording,
@@ -87,7 +87,7 @@ NS_ASSUME_NONNULL_BEGIN
 }
 
 @property (nonatomic, strong) PLSTEffectManager *effectManager;
-
+@property (nonatomic, strong) PLSTDetector *detector;
 
 @property (nonatomic, strong) NSData *licenseData;
 //@property (nonatomic, strong) STCustomMemoryCache *effectsDataSource;

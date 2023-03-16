@@ -46,14 +46,11 @@ static NSString *cellIdentifier = @"AddCollectionViewCell";
 
 @implementation BeautyLiveViewController
 
-+ (void)initialize {
-    NSString *path = [[NSBundle mainBundle] pathForResource:@"SENSEME" ofType:@"lic"];
-    NSData *license = [NSData dataWithContentsOfFile:path];
-    [[STDefaultSetting sharedInstace] checkActiveCodeWithData:license];
-}
+
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
     _currentTracks = [[NSMutableDictionary alloc] init];
     [self setupMicLinkerListView];
 
@@ -83,7 +80,6 @@ static NSString *cellIdentifier = @"AddCollectionViewCell";
     [self.view addSubview:self.closeButton];
     [self.view addSubview:self.giftMessagePannel];
     [self.view addSubview:self.statisticView];
-    [self setupSenseAR];
     [self setupBottomMenuView];
 
     [self.chatService sendWelComeMsg:^(QNIMMessageObject *_Nonnull msg) {
@@ -113,18 +109,13 @@ static NSString *cellIdentifier = @"AddCollectionViewCell";
 }
 
 - (void)updateRoomInfo {
-    [[QLive createPusherClient] roomHeartBeart:self.roomInfo.live_id];
-    [[QLive getRooms] getRoomInfo:self.roomInfo.live_id
-                         callBack:^(QNLiveRoomInfo *_Nonnull roomInfo) {
-                           self.roomInfo = roomInfo;
-                           [self.roomHostView updateWith:roomInfo];
-                           [self.onlineUserView updateWith:roomInfo];
-                           [self.statisticView updateWith:roomInfo];
-                         }];
     __weak typeof(self) weakSelf = self;
-    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(3 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-      [weakSelf updateRoomInfo];
-    });
+    [[QLive createPusherClient] startRoomHeartBeart:self.roomInfo.live_id callBack:^(QNLiveRoomInfo * _Nonnull roomInfo) {
+        weakSelf.roomInfo = roomInfo;
+        [weakSelf.roomHostView updateWith:roomInfo];
+        [weakSelf.onlineUserView updateWith:roomInfo];
+        [weakSelf.statisticView updateWith:roomInfo];
+    }];
 }
 
 #pragma mark---------QNPushClientListener
@@ -134,7 +125,9 @@ static NSString *cellIdentifier = @"AddCollectionViewCell";
       if (state == QNConnectionStateConnected) {
       } else if (state == QNConnectionStateDisconnected) {
           [self.chatService sendLeaveMsg];
+          [[QLive createPusherClient] leaveRoom];
           [self dismissViewControllerAnimated:YES completion:nil];
+          [[QLive createPusherClient] stopRoomHeartBeart];
       }
     });
 }
@@ -186,6 +179,7 @@ static NSString *cellIdentifier = @"AddCollectionViewCell";
                   self.preview.frame = CGRectMake(0, 130, SCREEN_W / 2, SCREEN_W / 1.5);
                   self.remoteView.frame = CGRectMake(SCREEN_W / 2, 130, SCREEN_W / 2, SCREEN_W / 1.5);
                   self.remoteView.layer.cornerRadius = 0;
+                  [videoTrack play:self.remoteView];
 
                   [[[QLive createPusherClient] getMixStreamManager] updateMixStreamSize:CGSizeMake(720, 419)];
                   CameraMergeOption *userOption = [CameraMergeOption new];
@@ -205,6 +199,7 @@ static NSString *cellIdentifier = @"AddCollectionViewCell";
 - (void)localVideoTrack:(QNLocalVideoTrack *)localVideoTrack didGetPixelBuffer:(CVPixelBufferRef)pixelBuffer {
     QNCameraVideoTrack *track = (QNCameraVideoTrack *)localVideoTrack;
 
+#ifdef useBeauty
     static st_mobile_human_action_t result;
     static st_mobile_animal_face_t animalResult;
     QNAllResult res;
@@ -212,7 +207,7 @@ static NSString *cellIdentifier = @"AddCollectionViewCell";
     res.animal_result = &animalResult;
     res.humanResult = &result;
 
-    [self updateFirstEnterUI];
+//    [self updateFirstEnterUI];
 
     QNDetectConfig detectConfig;
     memset(&detectConfig, 0, sizeof(QNDetectConfig));
@@ -221,6 +216,7 @@ static NSString *cellIdentifier = @"AddCollectionViewCell";
 
     [self.detector detect:pixelBuffer cameraOrientation:track.videoOrientation detectConfig:detectConfig allResult:&res];
     [self.effectManager processBuffer:pixelBuffer cameraOrientation:track.videoOrientation detectResult:&res];
+#endif
 }
 
 #pragma mark---------QNChatRoomServiceListener
@@ -532,12 +528,14 @@ static NSString *cellIdentifier = @"AddCollectionViewCell";
     self.moreView.cameraMirrorBlock = ^(BOOL mute) {
       [QNLivePushClient createPushClient].localVideoTrack.previewMirrorFrontFacing = !mute;
     };
+#ifdef useBeauty
     self.moreView.beautyBlock = ^{
       [weakSelf clickBottomViewButton:weakSelf.beautyBtn];
     };
     self.moreView.effectsBlock = ^{
       [weakSelf clickBottomViewButton:weakSelf.specialEffectsBtn];
     };
+#endif
     [self.view addSubview:self.moreView];
 }
 

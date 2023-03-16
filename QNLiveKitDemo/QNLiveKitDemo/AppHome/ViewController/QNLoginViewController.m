@@ -147,9 +147,9 @@
         [defaults setObject:responseData[@"accessToken"] forKey:DEMO_LIVE_TOKEN];
         [defaults synchronize];
         
-
         [QLive authWithToken:responseData[@"accessToken"] complete:^{
             NSLog(@"qlive auth success");
+            [self pushMainViewControl];
         } failure:^(NSError * _Nullable error) {
             NSLog(@"QLive auth error %@", error);
         }];
@@ -167,11 +167,14 @@
     [defaults setObject:loginModel.nickname forKey:DEMO_NICKNAME_KEY];
 //    [defaults setObject:loginModel.avatar forKey:];
     [defaults synchronize];
+}
 
+- (void)pushMainViewControl{
     QNTabBarViewController *tabBarVc = [[QNTabBarViewController alloc]init];
     UIWindow *window =  [[[UIApplication sharedApplication] windows] objectAtIndex:0];
     window.rootViewController = tabBarVc;
 }
+
 
 - (void)getSmsCode {
     NSMutableDictionary *params = [NSMutableDictionary dictionary];

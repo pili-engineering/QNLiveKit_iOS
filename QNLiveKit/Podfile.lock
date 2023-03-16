@@ -19,9 +19,9 @@ PODS:
   - PLPlayerKit (3.4.7):
     - PLPlayerKit/iphoneos (= 3.4.7)
   - PLPlayerKit/iphoneos (3.4.7)
-  - QNRTCKit-iOS (5.0.0):
-    - QNRTCKit-iOS/Core (= 5.0.0)
-  - QNRTCKit-iOS/Core (5.0.0)
+  - QNRTCKit-iOS (5.1.1):
+    - QNRTCKit-iOS/Core (= 5.1.1)
+  - QNRTCKit-iOS/Core (5.1.1)
   - SDWebImage (5.12.2):
     - SDWebImage/Core (= 5.12.2)
   - SDWebImage/Core (5.12.2)
@@ -41,7 +41,7 @@ DEPENDENCIES:
   - Masonry (= 1.1.0)
   - MJExtension (= 3.4.1)
   - PLPlayerKit (= 3.4.7)
-  - QNRTCKit-iOS (= 5.0.0)
+  - QNRTCKit-iOS (= 5.1.1)
   - SDWebImage (= 5.12.2)
   - YYCategories (= 1.0.4)
   - YYWebImage (= 1.0.4)
@@ -64,13 +64,13 @@ SPEC CHECKSUMS:
   Masonry: 678fab65091a9290e40e2832a55e7ab731aad201
   MJExtension: 21c5f6f8c4d5d8844b7ae8fbae08fed0b501f961
   PLPlayerKit: a4c6da506dc4ae368ae71a95b49e2256f33c0de7
-  QNRTCKit-iOS: 02b624c22c604127414152424beae31c1139830c
+  QNRTCKit-iOS: 08b1dd6140d54a228d49627b408db2001ca535a4
   SDWebImage: 240e5c12b592fb1268c1d03b8c90d90e8c2ffe82
   YYCache: 8105b6638f5e849296c71f331ff83891a4942952
   YYCategories: 6bcd4314c6661a561410dce4a793379ebd306abd
   YYImage: 1e1b62a9997399593e4b9c4ecfbbabbf1d3f3b54
   YYWebImage: 0431ed108e104527669b86f75efd58958425cca2
 
-PODFILE CHECKSUM: 85fa3390d980c75fe7eb377ce769b118de8109bb
+PODFILE CHECKSUM: e635514f52bddf388d2e5f281f6407f9a528bc9b
 
-COCOAPODS: 1.11.3
+COCOAPODS: 1.11.2

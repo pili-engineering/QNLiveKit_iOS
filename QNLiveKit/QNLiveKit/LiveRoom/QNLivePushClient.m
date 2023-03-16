@@ -85,6 +85,8 @@
 
 // 主播停止直播
 - (void)closeRoom {
+    [self stopRoomHeartBeart];
+    
     NSString *action = [NSString stringWithFormat:@"client/live/room/%@", self.roomInfo.live_id];
     [QLiveNetworkUtil deleteRequestWithAction:action
                                        params:@{}
@@ -128,7 +130,7 @@
 - (void)enableCamera:(nullable QNCameraParams *)cameraParams renderView:(nullable QRenderView *)renderView {
     if (cameraParams.width) {
         CGSize videoEncodeSize = CGSizeMake(cameraParams.width ?: 720, cameraParams.height ?: 1280);
-        QNVideoEncoderConfig *config = [[QNVideoEncoderConfig alloc] initWithBitrate:cameraParams.bitrate ?: 1500 * 1000 videoEncodeSize:videoEncodeSize videoFrameRate:cameraParams.fps ?: 15];
+        QNVideoEncoderConfig *config = [[QNVideoEncoderConfig alloc] initWithBitrate:cameraParams.bitrate ?: 1500 videoEncodeSize:videoEncodeSize videoFrameRate:cameraParams.fps ?: 15];
         QNCameraVideoTrackConfig *cameraConfig = [[QNCameraVideoTrackConfig alloc] initWithSourceTag:cameraParams.tag ?: @"camera" config:config multiStreamEnable:NO];
         self.localVideoTrack = [QNRTC createCameraVideoTrackWithConfig:cameraConfig];
         self.localVideoTrack.videoFrameRate = cameraParams.fps;
@@ -277,7 +279,7 @@
 - (QNCameraVideoTrack *)localVideoTrack {
     if (!_localVideoTrack) {
         CGSize videoEncodeSize = CGSizeMake(720, 1280);
-        QNVideoEncoderConfig *config = [[QNVideoEncoderConfig alloc] initWithBitrate:1500 * 1000 videoEncodeSize:videoEncodeSize videoFrameRate:15];
+        QNVideoEncoderConfig *config = [[QNVideoEncoderConfig alloc] initWithBitrate:1500 videoEncodeSize:videoEncodeSize videoFrameRate:15];
         QNCameraVideoTrackConfig *cameraConfig = [[QNCameraVideoTrackConfig alloc] initWithSourceTag:@"camera" config:config multiStreamEnable:NO];
         _localVideoTrack = [QNRTC createCameraVideoTrackWithConfig:cameraConfig];
         //        _localVideoTrack.previewMirrorFrontFacing = NO;
