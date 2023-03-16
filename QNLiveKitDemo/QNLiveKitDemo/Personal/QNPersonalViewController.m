@@ -125,9 +125,7 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
     
-    if (indexPath.section == 1) {
-        [self popChangeNameAlert];
-    } else if (indexPath.section ==2) {
+    if (indexPath.section ==2) {
         __weak typeof(self)weakSelf = self;
         [QNNetworkUtil postRequestWithAction:@"signOut" params:nil success:^(NSDictionary *responseData) {
             
@@ -140,7 +138,7 @@
             weakSelf.view.window.rootViewController = navigationController;
             
         } failure:^(NSError *error) {
-                    
+            
         }];
     }
     
