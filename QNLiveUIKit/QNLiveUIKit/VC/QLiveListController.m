@@ -8,10 +8,8 @@
 #import "QLiveListController.h"
 #import <QNLiveKit/QNLiveKit.h>
 #import "QNLiveListCell.h"
-#import "QCreateLiveController.h"
-#import "CreateBeautyLiveController.h"
-#import "QLiveController.h"
-#import "BeautyLiveViewController.h"
+#import "QNCreateLiveController.h"
+#import "QNLiveViewController.h"
 #import "QNAudienceController.h"
 
 @interface QLiveListController ()<UICollectionViewDelegate,UICollectionViewDataSource>
@@ -70,7 +68,7 @@
     
     
     dispatch_async(dispatch_get_main_queue(), ^(void) {
-        CreateBeautyLiveController *vc = [CreateBeautyLiveController new];
+        QNCreateLiveController *vc = [QNCreateLiveController new];
         vc.modalPresentationStyle = UIModalPresentationFullScreen;
         [self presentViewController:vc animated:YES completion:nil];
     });
@@ -108,7 +106,7 @@
         
         
         //带美颜
-        BeautyLiveViewController *vc = [BeautyLiveViewController new];
+        QNLiveViewController *vc = [QNLiveViewController new];
         vc.roomInfo = model;
         vc.leaveClickedBlock = ^(QNLiveRoomInfo * _Nonnull roomInfo) {
             if (weakSelf.masterLeaveLiveBlock) {

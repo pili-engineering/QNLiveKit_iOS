@@ -1,11 +1,11 @@
 //
-//  BeautyBaseController.m
+//  QNLiveBaseController.m
 //  QNLiveKit
 //
 //  Created by 郭茜 on 2022/7/18.
 //
 
-#import "BeautyBaseController.h"
+#import "QNLiveBaseController.h"
 #import "RoomHostView.h"
 #import "OnlineUserView.h"
 #import "BottomMenuView.h"
@@ -18,16 +18,16 @@
 #import "QNBeautyManager.h"
 #endif
 
-@interface BeautyBaseController ()
+@interface QNLiveBaseController ()
 
 @end
 
-@implementation BeautyBaseController
+@implementation QNLiveBaseController
 
 
 
 -(void)dealloc{
-    NSLog(@"BeautyBaseController dealloc");
+    NSLog(@"QNLiveBaseController dealloc");
 }
 
 #ifdef useBeauty

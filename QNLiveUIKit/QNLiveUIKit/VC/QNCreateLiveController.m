@@ -1,53 +1,79 @@
 //
-//  QCreateLiveController.m
-//  QNLiveKitDemo
+//  QNCreateLiveController.m
+//  QNLiveKit
 //
-//  Created by 郭茜 on 2022/5/30.
+//  Created by 郭茜 on 2022/7/18.
 //
 
-#import "QCreateLiveController.h"
+#import "QNCreateLiveController.h"
 #import "QRenderView.h"
-#import "QLiveController.h"
-#import "QLiveController.h"
+#import "QNLiveViewController.h"
 #import "DateTimePickerView.h"
 
-@interface QCreateLiveController ()
+@interface QNCreateLiveController () <QNLocalVideoTrackDelegate>
 @property (nonatomic, strong) UITextField *titleTf;
 @property (nonatomic, strong) UITextField *commendTf;
 @property (nonatomic, strong) UIButton *nowButton;
 @property (nonatomic, strong) UIButton *waitButton;
 @property (nonatomic, strong) UITextField *liveTimeTf;
 @property (nonatomic, strong) DateTimePickerView * dateTimePickerView;
-@property (nonatomic, strong) QRenderView *preview;//自己画面的预览视图
-
 @end
 
-@implementation QCreateLiveController
+@implementation QNCreateLiveController
+
 
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
-    [[QLive createPusherClient] enableCamera:nil renderView:self.preview];
+
 }
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    UIImageView *bg = [[UIImageView alloc]initWithImage:[UIImage imageNamed:@"live_bg"]];
-    bg.frame = self.view.frame;
-    [self.view addSubview:bg];
-    
-    self.preview = [[QRenderView alloc] init];
-    self.preview.frame = self.view.frame;
-    self.preview.fillMode = QNVideoFillModePreserveAspectRatioAndFill;
-    [bg addSubview:self.preview];
-
     [[QLive createPusherClient] enableCamera:nil renderView:self.preview];
-    
+
+    [[QLive createPusherClient] setVideoFrameListener:self];
+//    UIImageView *bg = [[UIImageView alloc]initWithImage:[UIImage imageNamed:@"live_bg"]];
+//    bg.frame = self.view.frame;
+//    [self.view addSubview:bg];
+//    [self.view sendSubviewToBack:bg];
+//    
+//    [bg addSubview:self.preview];
+        
     [self titleTf];
     [self commendTf];
     [self selectPoint];
-    [self startButton];
-    [self closeButton];
+    [self liveTimeTf];
+#ifdef useBeauty
+    [self beautyButton];
+#endif
     
+    [self startButton];
+    [self turnAroundButton];
+    [self closeButton];
+}
+
+
+- (void)localVideoTrack:(QNLocalVideoTrack *)localVideoTrack didGetPixelBuffer:(CVPixelBufferRef)pixelBuffer {
+#ifdef useBeauty
+    QNCameraVideoTrack *track = (QNCameraVideoTrack *)localVideoTrack;
+    
+    static st_mobile_human_action_t result;
+    static st_mobile_animal_face_t animalResult;
+    QNAllResult res;
+    memset(&res, 0, sizeof(res));
+    res.animal_result = &animalResult;
+    res.humanResult = &result;
+    
+//    [self updateFirstEnterUI];
+    
+    QNDetectConfig detectConfig;
+    memset(&detectConfig, 0, sizeof(QNDetectConfig));
+    detectConfig.humanConfig = [self.effectManager getEffectDetectConfig];
+    detectConfig.animalConfig = [self.effectManager getEffectAnimalDetectConfig];
+    
+    [self.detector detect:pixelBuffer cameraOrientation:track.videoOrientation detectConfig:detectConfig allResult:&res];
+    [self.effectManager processBuffer:pixelBuffer cameraOrientation:track.videoOrientation detectResult:&res];
+#endif
 }
 
 - (UITextField *)titleTf {
@@ -82,6 +108,43 @@
         
     }
     return _commendTf;
+}
+
+#ifdef useBeauty
+//美颜
+- (void)beautyButtonClick {
+    [self clickBottomViewButton:self.beautyBtn];
+}
+#endif
+//翻转摄像头
+- (void)turnAroundButtonClick {
+    [[QNLivePushClient createPushClient] switchCamera];
+}
+
+- (void)beautyButton {
+    UIButton *button = [[UIButton alloc]initWithFrame:CGRectMake((SCREEN_W - 200)/2 - 60, SCREEN_H - 100, 40, 40)];
+    [button setImage:[UIImage imageNamed:@"create_beauty"] forState:UIControlStateNormal];
+    [button addTarget:self action:@selector(beautyButtonClick) forControlEvents:UIControlEventTouchUpInside];
+    [self.view addSubview:button];
+}
+
+- (void)selectPoint {
+    NSArray *selectArr = @[@"live_time", @"now_select",@"wait_select"];
+    NSArray *disSelectArr = @[@"live_time",@"now_disSelect",@"wait_disSelect"];
+    for (int i = 0; i < 3; i ++) {
+        UIButton *button = [[UIButton alloc]initWithFrame:CGRectMake(20 + (80 + 30) *i, 200, 80, 30)];
+        [button setImage:[UIImage imageNamed:disSelectArr[i]] forState:UIControlStateNormal];
+        [button setImage:[UIImage imageNamed:selectArr[i]] forState:UIControlStateSelected];
+        [button addTarget:self action:@selector(livebeginSelect:) forControlEvents:UIControlEventTouchUpInside];
+        [self.view addSubview:button];
+        if (i == 1) {
+            self.nowButton = button;
+        }
+        if (i == 2) {
+            self.waitButton = button;
+        }
+        self.nowButton.selected = YES;
+    }
 }
 
 - (UITextField *)liveTimeTf {
@@ -130,25 +193,6 @@
     }
 }
 
-- (void)selectPoint {
-    NSArray *selectArr = @[@"live_time", @"now_select",@"wait_select"];
-    NSArray *disSelectArr = @[@"live_time",@"now_disSelect",@"wait_disSelect"];
-    for (int i = 0; i < 3; i ++) {
-        UIButton *button = [[UIButton alloc]initWithFrame:CGRectMake(20 + (80 + 30) *i, 200, 80, 30)];
-        [button setImage:[UIImage imageNamed:disSelectArr[i]] forState:UIControlStateNormal];
-        [button setImage:[UIImage imageNamed:selectArr[i]] forState:UIControlStateSelected];
-        [button addTarget:self action:@selector(livebeginSelect:) forControlEvents:UIControlEventTouchUpInside];
-        [self.view addSubview:button];
-        if (i == 1) {
-            self.nowButton = button;
-        }
-        if (i == 2) {
-            self.waitButton = button;
-        }
-        self.nowButton.selected = YES;
-    }
-}
-
 - (void)livebeginSelect:(UIButton *)btn {
     if (btn == self.waitButton) {
         self.waitButton.selected = !self.waitButton.selected;
@@ -159,6 +203,7 @@
     }
     
     self.liveTimeTf.hidden = !self.waitButton.selected;
+    
 }
 
 - (void)startButton {
@@ -167,6 +212,13 @@
     button.layer.cornerRadius = 20;
     [button setImage:[UIImage imageNamed:@"begin_live"] forState:UIControlStateNormal];
     [button addTarget:self action:@selector(createLive) forControlEvents:UIControlEventTouchUpInside];
+    [self.view addSubview:button];
+}
+
+- (void)turnAroundButton {
+    UIButton *button = [[UIButton alloc]initWithFrame:CGRectMake((SCREEN_W - 200)/2 + 20 + 200, SCREEN_H - 100, 40, 40)];
+    [button setImage:[UIImage imageNamed:@"create_turn_around"] forState:UIControlStateNormal];
+    [button addTarget:self action:@selector(turnAroundButtonClick) forControlEvents:UIControlEventTouchUpInside];
     [self.view addSubview:button];
 }
 
@@ -192,20 +244,16 @@
     if (self.waitButton.selected == YES) {
         params.start_at = [self.liveTimeTf.text stringByAppendingString:@":00"];
     }
+    
 //    params.extension = @"";
     
     [[QLive getRooms] createRoom:params callBack:^(QNLiveRoomInfo * _Nonnull roomInfo) {
-        if (!roomInfo) {
-            return;
-        }
-        
-        QLiveController *vc = [QLiveController new];
+
+        QNLiveViewController *vc = [QNLiveViewController new];
         vc.roomInfo = roomInfo;
         vc.modalPresentationStyle = UIModalPresentationFullScreen;
         [self presentViewController:vc animated:YES completion:nil];
     }];
 }
-
-
 
 @end

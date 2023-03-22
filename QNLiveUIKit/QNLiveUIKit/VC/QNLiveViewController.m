@@ -1,11 +1,11 @@
 //
-//  BeautyLiveViewController.m
+//  QNLiveViewController.m
 //  QNLiveKit
 //
 //  Created by 郭茜 on 2022/6/30.
 //
 
-#import "BeautyLiveViewController.h"
+#import "QNLiveViewController.h"
 #import "BottomMenuView.h"
 #import "ExplainingGoodView.h"
 #import "FDanmakuModel.h"
@@ -30,7 +30,7 @@
 
 static NSString *cellIdentifier = @"AddCollectionViewCell";
 
-@interface BeautyLiveViewController () <QNPushClientListener, QNRoomLifeCycleListener, QNPushClientListener, QNChatRoomServiceListener, FDanmakuViewProtocol, LiveChatRoomViewDelegate, MicLinkerListener, PKServiceListener, QNLocalVideoTrackDelegate, UICollectionViewDelegate, UICollectionViewDataSource>
+@interface QNLiveViewController () <QNPushClientListener, QNRoomLifeCycleListener, QNPushClientListener, QNChatRoomServiceListener, FDanmakuViewProtocol, LiveChatRoomViewDelegate, MicLinkerListener, PKServiceListener, QNLocalVideoTrackDelegate, UICollectionViewDelegate, UICollectionViewDataSource>
 
 @property (nonatomic, strong) QNLiveRoomInfo *selectPkRoomInfo;
 @property (nonatomic, strong) QNPKSession *pkSession;   // 正在进行的pk
@@ -45,7 +45,7 @@ static NSString *cellIdentifier = @"AddCollectionViewCell";
 
 @end
 
-@implementation BeautyLiveViewController
+@implementation QNLiveViewController
 
 
 

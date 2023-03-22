@@ -131,9 +131,9 @@
 		48B2D385294225B20082A8D6 /* QRenderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 485F23D62940DA6500484CB6 /* QRenderView.m */; };
 		48B2D386294225BA0082A8D6 /* QToastView.m in Sources */ = {isa = PBXBuildFile; fileRef = 485F23D82940DA6500484CB6 /* QToastView.m */; };
 		48B2D387294225BD0082A8D6 /* QGradient.m in Sources */ = {isa = PBXBuildFile; fileRef = 485F23DA2940DA6500484CB6 /* QGradient.m */; };
-		48B2D388294227700082A8D6 /* BeautyLiveViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 485F252A2940DB1E00484CB6 /* BeautyLiveViewController.m */; };
-		48B2D389294227740082A8D6 /* CreateBeautyLiveController.m in Sources */ = {isa = PBXBuildFile; fileRef = 485F252C2940DB1E00484CB6 /* CreateBeautyLiveController.m */; };
-		48B2D38A294227790082A8D6 /* BeautyBaseController.m in Sources */ = {isa = PBXBuildFile; fileRef = 485F252E2940DB1E00484CB6 /* BeautyBaseController.m */; };
+		48B2D388294227700082A8D6 /* QNLiveViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 485F252A2940DB1E00484CB6 /* QNLiveViewController.m */; };
+		48B2D389294227740082A8D6 /* QNCreateLiveController.m in Sources */ = {isa = PBXBuildFile; fileRef = 485F252C2940DB1E00484CB6 /* QNCreateLiveController.m */; };
+		48B2D38A294227790082A8D6 /* QNLiveBaseController.m in Sources */ = {isa = PBXBuildFile; fileRef = 485F252E2940DB1E00484CB6 /* QNLiveBaseController.m */; };
 		48B2D38E2942295B0082A8D6 /* DateTimePickerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 485F24022940DA6500484CB6 /* DateTimePickerView.m */; };
 		48B2D390294229650082A8D6 /* MXSCycleScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = 485F24042940DA6500484CB6 /* MXSCycleScrollView.m */; };
 		48B2D391294229700082A8D6 /* QNGiftCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 485F23F12940DA6500484CB6 /* QNGiftCollectionViewCell.m */; };
@@ -320,15 +320,11 @@
 		48B2D49D29422E5B0082A8D6 /* STMovieRecorder.h in Headers */ = {isa = PBXBuildFile; fileRef = 485F24DA2940DB1E00484CB6 /* STMovieRecorder.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		48B2D49E29422E610082A8D6 /* LicenseUtil.h in Headers */ = {isa = PBXBuildFile; fileRef = 485F24DE2940DB1E00484CB6 /* LicenseUtil.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		48B2D49F29422E610082A8D6 /* LicenseUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = 485F24DF2940DB1E00484CB6 /* LicenseUtil.m */; };
-		48B2D4A029422E7A0082A8D6 /* CreateBeautyLiveController.h in Headers */ = {isa = PBXBuildFile; fileRef = 485F252B2940DB1E00484CB6 /* CreateBeautyLiveController.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		48B2D4A129422E7A0082A8D6 /* BeautyBaseController.h in Headers */ = {isa = PBXBuildFile; fileRef = 485F252D2940DB1E00484CB6 /* BeautyBaseController.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		48B2D4A229422E7A0082A8D6 /* BeautyLiveViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = 485F25292940DB1E00484CB6 /* BeautyLiveViewController.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		48B2D4A029422E7A0082A8D6 /* QNCreateLiveController.h in Headers */ = {isa = PBXBuildFile; fileRef = 485F252B2940DB1E00484CB6 /* QNCreateLiveController.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		48B2D4A129422E7A0082A8D6 /* QNLiveBaseController.h in Headers */ = {isa = PBXBuildFile; fileRef = 485F252D2940DB1E00484CB6 /* QNLiveBaseController.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		48B2D4A229422E7A0082A8D6 /* QNLiveViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = 485F25292940DB1E00484CB6 /* QNLiveViewController.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		48B2D4A329422F020082A8D6 /* QLiveListController.m in Sources */ = {isa = PBXBuildFile; fileRef = 485F24122940DA6F00484CB6 /* QLiveListController.m */; };
-		48B2D4A429422F0B0082A8D6 /* QCreateLiveController.m in Sources */ = {isa = PBXBuildFile; fileRef = 485F240E2940DA6F00484CB6 /* QCreateLiveController.m */; };
-		48B2D4A529422F0B0082A8D6 /* QLiveController.h in Headers */ = {isa = PBXBuildFile; fileRef = 485F240F2940DA6F00484CB6 /* QLiveController.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		48B2D4A629422F0B0082A8D6 /* QCreateLiveController.h in Headers */ = {isa = PBXBuildFile; fileRef = 485F240D2940DA6F00484CB6 /* QCreateLiveController.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		48B2D4A729422F0B0082A8D6 /* QNPayGiftViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = 485F24132940DA6F00484CB6 /* QNPayGiftViewController.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		48B2D4A829422F0B0082A8D6 /* QLiveController.m in Sources */ = {isa = PBXBuildFile; fileRef = 485F24102940DA6F00484CB6 /* QLiveController.m */; };
 		48B2D4A929422F0B0082A8D6 /* QNBaseRTCController.m in Sources */ = {isa = PBXBuildFile; fileRef = 485F240C2940DA6F00484CB6 /* QNBaseRTCController.m */; };
 		48B2D4AA29422F0B0082A8D6 /* QNAudienceController.h in Headers */ = {isa = PBXBuildFile; fileRef = 485F24092940DA6F00484CB6 /* QNAudienceController.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		48B2D4AB29422F0B0082A8D6 /* QNPayGiftViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 485F24142940DA6F00484CB6 /* QNPayGiftViewController.m */; };
@@ -431,25 +427,21 @@
 		C91CA22929C7FEA600501D33 /* QPlayerView.h in Headers */ = {isa = PBXBuildFile; fileRef = 485F26AD2940DCF500484CB6 /* QPlayerView.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		C91CA22A29C7FEAA00501D33 /* ExplainingGoodView.m in Sources */ = {isa = PBXBuildFile; fileRef = 485F26AF2940DCF500484CB6 /* ExplainingGoodView.m */; };
 		C91CA22B29C7FEAA00501D33 /* QGCDTimerManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 485F26AE2940DCF500484CB6 /* QGCDTimerManager.m */; };
-		C91CA22C29C7FEBC00501D33 /* BeautyLiveViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = 485F25292940DB1E00484CB6 /* BeautyLiveViewController.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		C91CA22C29C7FEBC00501D33 /* QNLiveViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = 485F25292940DB1E00484CB6 /* QNLiveViewController.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		C91CA22D29C7FEBC00501D33 /* QNBeautyManager.h in Headers */ = {isa = PBXBuildFile; fileRef = E3A97B26299F577D00922978 /* QNBeautyManager.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		C91CA22E29C7FEBC00501D33 /* BeautyBaseController.h in Headers */ = {isa = PBXBuildFile; fileRef = 485F252D2940DB1E00484CB6 /* BeautyBaseController.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		C91CA22F29C7FEBC00501D33 /* CreateBeautyLiveController.m in Sources */ = {isa = PBXBuildFile; fileRef = 485F252C2940DB1E00484CB6 /* CreateBeautyLiveController.m */; };
-		C91CA23129C7FEBC00501D33 /* BeautyLiveViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 485F252A2940DB1E00484CB6 /* BeautyLiveViewController.m */; };
-		C91CA23229C7FEBC00501D33 /* BeautyBaseController.m in Sources */ = {isa = PBXBuildFile; fileRef = 485F252E2940DB1E00484CB6 /* BeautyBaseController.m */; };
-		C91CA23329C7FEBC00501D33 /* CreateBeautyLiveController.h in Headers */ = {isa = PBXBuildFile; fileRef = 485F252B2940DB1E00484CB6 /* CreateBeautyLiveController.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		C91CA22E29C7FEBC00501D33 /* QNLiveBaseController.h in Headers */ = {isa = PBXBuildFile; fileRef = 485F252D2940DB1E00484CB6 /* QNLiveBaseController.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		C91CA22F29C7FEBC00501D33 /* QNCreateLiveController.m in Sources */ = {isa = PBXBuildFile; fileRef = 485F252C2940DB1E00484CB6 /* QNCreateLiveController.m */; };
+		C91CA23129C7FEBC00501D33 /* QNLiveViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 485F252A2940DB1E00484CB6 /* QNLiveViewController.m */; };
+		C91CA23229C7FEBC00501D33 /* QNLiveBaseController.m in Sources */ = {isa = PBXBuildFile; fileRef = 485F252E2940DB1E00484CB6 /* QNLiveBaseController.m */; };
+		C91CA23329C7FEBC00501D33 /* QNCreateLiveController.h in Headers */ = {isa = PBXBuildFile; fileRef = 485F252B2940DB1E00484CB6 /* QNCreateLiveController.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		C91CA23429C7FEC400501D33 /* QNAudienceController.m in Sources */ = {isa = PBXBuildFile; fileRef = 485F240A2940DA6F00484CB6 /* QNAudienceController.m */; };
 		C91CA23529C7FEC400501D33 /* QNPayGiftViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 485F24142940DA6F00484CB6 /* QNPayGiftViewController.m */; };
 		C91CA23629C7FEC400501D33 /* QNAudienceController.h in Headers */ = {isa = PBXBuildFile; fileRef = 485F24092940DA6F00484CB6 /* QNAudienceController.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		C91CA23729C7FEC400501D33 /* QLiveListController.h in Headers */ = {isa = PBXBuildFile; fileRef = 485F24112940DA6F00484CB6 /* QLiveListController.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		C91CA23829C7FEC400501D33 /* QCreateLiveController.h in Headers */ = {isa = PBXBuildFile; fileRef = 485F240D2940DA6F00484CB6 /* QCreateLiveController.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		C91CA23929C7FEC400501D33 /* QNPayGiftViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = 485F24132940DA6F00484CB6 /* QNPayGiftViewController.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		C91CA23A29C7FEC400501D33 /* QNBaseRTCController.h in Headers */ = {isa = PBXBuildFile; fileRef = 485F240B2940DA6F00484CB6 /* QNBaseRTCController.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		C91CA23B29C7FEC400501D33 /* QNBaseRTCController.m in Sources */ = {isa = PBXBuildFile; fileRef = 485F240C2940DA6F00484CB6 /* QNBaseRTCController.m */; };
-		C91CA23C29C7FEC400501D33 /* QLiveController.h in Headers */ = {isa = PBXBuildFile; fileRef = 485F240F2940DA6F00484CB6 /* QLiveController.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		C91CA23D29C7FEC400501D33 /* QLiveController.m in Sources */ = {isa = PBXBuildFile; fileRef = 485F24102940DA6F00484CB6 /* QLiveController.m */; };
 		C91CA23E29C7FEC400501D33 /* QLiveListController.m in Sources */ = {isa = PBXBuildFile; fileRef = 485F24122940DA6F00484CB6 /* QLiveListController.m */; };
-		C91CA23F29C7FEC400501D33 /* QCreateLiveController.m in Sources */ = {isa = PBXBuildFile; fileRef = 485F240E2940DA6F00484CB6 /* QCreateLiveController.m */; };
 		C91CA24029C7FECB00501D33 /* QNVoiceCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 483AC931298A084F000F1B9E /* QNVoiceCollectionViewCell.m */; };
 		C91CA24129C7FECB00501D33 /* QNVoiceCollectionViewCell.h in Headers */ = {isa = PBXBuildFile; fileRef = 483AC930298A084F000F1B9E /* QNVoiceCollectionViewCell.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		C91CA24229C7FECF00501D33 /* QNLikeMenuView.h in Headers */ = {isa = PBXBuildFile; fileRef = 485F23CE2940DA6500484CB6 /* QNLikeMenuView.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -515,6 +507,7 @@
 		C91CA27F29C7FEF500501D33 /* NSDate+QDate.m in Sources */ = {isa = PBXBuildFile; fileRef = 485F27082940E32E00484CB6 /* NSDate+QDate.m */; };
 		C91CA28029C7FEF500501D33 /* QNConfigurationUI.h in Headers */ = {isa = PBXBuildFile; fileRef = C91CA15B29C415B900501D33 /* QNConfigurationUI.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		C91CA28129C7FEF500501D33 /* UIImage+QNImage.m in Sources */ = {isa = PBXBuildFile; fileRef = 485F27092940E32E00484CB6 /* UIImage+QNImage.m */; };
+		C9274BC529CAA3AE00B151C5 /* QNBeautyManager.m in Sources */ = {isa = PBXBuildFile; fileRef = E3A97B27299F577D00922978 /* QNBeautyManager.m */; };
 		C9D2DB5529C82A3300D15755 /* QNLiveKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C9D2DB5429C82A3300D15755 /* QNLiveKit.framework */; };
 		C9D2DB5629C82A3300D15755 /* QNLiveKit.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = C9D2DB5429C82A3300D15755 /* QNLiveKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		C9D2DB5829C82A5C00D15755 /* QNIMSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 484C3AC42940D71400640FE4 /* QNIMSDK.framework */; platformFilter = ios; };
@@ -619,10 +612,6 @@
 		485F240A2940DA6F00484CB6 /* QNAudienceController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = QNAudienceController.m; sourceTree = "<group>"; };
 		485F240B2940DA6F00484CB6 /* QNBaseRTCController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QNBaseRTCController.h; sourceTree = "<group>"; };
 		485F240C2940DA6F00484CB6 /* QNBaseRTCController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QNBaseRTCController.m; sourceTree = "<group>"; };
-		485F240D2940DA6F00484CB6 /* QCreateLiveController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QCreateLiveController.h; sourceTree = "<group>"; };
-		485F240E2940DA6F00484CB6 /* QCreateLiveController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QCreateLiveController.m; sourceTree = "<group>"; };
-		485F240F2940DA6F00484CB6 /* QLiveController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QLiveController.h; sourceTree = "<group>"; };
-		485F24102940DA6F00484CB6 /* QLiveController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QLiveController.m; sourceTree = "<group>"; };
 		485F24112940DA6F00484CB6 /* QLiveListController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QLiveListController.h; sourceTree = "<group>"; };
 		485F24122940DA6F00484CB6 /* QLiveListController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QLiveListController.m; sourceTree = "<group>"; };
 		485F24132940DA6F00484CB6 /* QNPayGiftViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = QNPayGiftViewController.h; sourceTree = "<group>"; };
@@ -784,12 +773,12 @@
 		485F25202940DB1E00484CB6 /* st_mobile_color_convert.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = st_mobile_color_convert.h; sourceTree = "<group>"; };
 		485F25222940DB1E00484CB6 /* VERSION */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = VERSION; sourceTree = "<group>"; };
 		485F25232940DB1E00484CB6 /* libst_mobile.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libst_mobile.a; sourceTree = "<group>"; };
-		485F25292940DB1E00484CB6 /* BeautyLiveViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BeautyLiveViewController.h; sourceTree = "<group>"; };
-		485F252A2940DB1E00484CB6 /* BeautyLiveViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BeautyLiveViewController.m; sourceTree = "<group>"; };
-		485F252B2940DB1E00484CB6 /* CreateBeautyLiveController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CreateBeautyLiveController.h; sourceTree = "<group>"; };
-		485F252C2940DB1E00484CB6 /* CreateBeautyLiveController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CreateBeautyLiveController.m; sourceTree = "<group>"; };
-		485F252D2940DB1E00484CB6 /* BeautyBaseController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BeautyBaseController.h; sourceTree = "<group>"; };
-		485F252E2940DB1E00484CB6 /* BeautyBaseController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BeautyBaseController.m; sourceTree = "<group>"; };
+		485F25292940DB1E00484CB6 /* QNLiveViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = QNLiveViewController.h; sourceTree = "<group>"; };
+		485F252A2940DB1E00484CB6 /* QNLiveViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = QNLiveViewController.m; sourceTree = "<group>"; };
+		485F252B2940DB1E00484CB6 /* QNCreateLiveController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = QNCreateLiveController.h; sourceTree = "<group>"; };
+		485F252C2940DB1E00484CB6 /* QNCreateLiveController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = QNCreateLiveController.m; sourceTree = "<group>"; };
+		485F252D2940DB1E00484CB6 /* QNLiveBaseController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = QNLiveBaseController.h; sourceTree = "<group>"; };
+		485F252E2940DB1E00484CB6 /* QNLiveBaseController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = QNLiveBaseController.m; sourceTree = "<group>"; };
 		485F262C2940DCBF00484CB6 /* QNPKInvitationListController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QNPKInvitationListController.m; sourceTree = "<group>"; };
 		485F262D2940DCBF00484CB6 /* QNPKInvitationListController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QNPKInvitationListController.h; sourceTree = "<group>"; };
 		485F262F2940DCBF00484CB6 /* QNPKInvitationListCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QNPKInvitationListCell.h; sourceTree = "<group>"; };
@@ -1128,14 +1117,18 @@
 		485F24152940DA6F00484CB6 /* VC */ = {
 			isa = PBXGroup;
 			children = (
+				485F25292940DB1E00484CB6 /* QNLiveViewController.h */,
+				485F252A2940DB1E00484CB6 /* QNLiveViewController.m */,
+				485F252B2940DB1E00484CB6 /* QNCreateLiveController.h */,
+				485F252C2940DB1E00484CB6 /* QNCreateLiveController.m */,
+				485F252D2940DB1E00484CB6 /* QNLiveBaseController.h */,
+				485F252E2940DB1E00484CB6 /* QNLiveBaseController.m */,
+				E3A97B26299F577D00922978 /* QNBeautyManager.h */,
+				E3A97B27299F577D00922978 /* QNBeautyManager.m */,
 				485F24092940DA6F00484CB6 /* QNAudienceController.h */,
 				485F240A2940DA6F00484CB6 /* QNAudienceController.m */,
 				485F240B2940DA6F00484CB6 /* QNBaseRTCController.h */,
 				485F240C2940DA6F00484CB6 /* QNBaseRTCController.m */,
-				485F240D2940DA6F00484CB6 /* QCreateLiveController.h */,
-				485F240E2940DA6F00484CB6 /* QCreateLiveController.m */,
-				485F240F2940DA6F00484CB6 /* QLiveController.h */,
-				485F24102940DA6F00484CB6 /* QLiveController.m */,
 				485F24112940DA6F00484CB6 /* QLiveListController.h */,
 				485F24122940DA6F00484CB6 /* QLiveListController.m */,
 				485F24132940DA6F00484CB6 /* QNPayGiftViewController.h */,
@@ -1506,14 +1499,6 @@
 			isa = PBXGroup;
 			children = (
 				485F25282940DB1E00484CB6 /* Effect */,
-				485F25292940DB1E00484CB6 /* BeautyLiveViewController.h */,
-				485F252A2940DB1E00484CB6 /* BeautyLiveViewController.m */,
-				485F252B2940DB1E00484CB6 /* CreateBeautyLiveController.h */,
-				485F252C2940DB1E00484CB6 /* CreateBeautyLiveController.m */,
-				485F252D2940DB1E00484CB6 /* BeautyBaseController.h */,
-				485F252E2940DB1E00484CB6 /* BeautyBaseController.m */,
-				E3A97B26299F577D00922978 /* QNBeautyManager.h */,
-				E3A97B27299F577D00922978 /* QNBeautyManager.m */,
 			);
 			path = Beauty;
 			sourceTree = "<group>";
@@ -1796,7 +1781,6 @@
 				485F266C2940DCD100484CB6 /* QNMessageBaseCell.h in Headers */,
 				485F26DB2940DCF600484CB6 /* ShopBuyListController.h in Headers */,
 				485F267C2940DCD100484CB6 /* CALayer+Aimate.h in Headers */,
-				48B2D4A529422F0B0082A8D6 /* QLiveController.h in Headers */,
 				485F26762940DCD100484CB6 /* QEmojiCollectionCell.h in Headers */,
 				485F26DC2940DCF600484CB6 /* ShopSellListController.h in Headers */,
 				485F26732940DCD100484CB6 /* QInputBarControl.h in Headers */,
@@ -1838,7 +1822,7 @@
 				48B2D49129422E4A0082A8D6 /* STCoreStateManagementFilterModel.h in Headers */,
 				48B2D3E829422B5D0082A8D6 /* STBmpStrengthView.h in Headers */,
 				48B2D3D429422B5D0082A8D6 /* STBMPDetailColVCell.h in Headers */,
-				48B2D4A129422E7A0082A8D6 /* BeautyBaseController.h in Headers */,
+				48B2D4A129422E7A0082A8D6 /* QNLiveBaseController.h in Headers */,
 				48B2D49729422E530082A8D6 /* SoundInfomation.h in Headers */,
 				48B2D41529422D050082A8D6 /* LiveBottomMoreView.h in Headers */,
 				48B2D47B29422E290082A8D6 /* EFGlobalSingleton.h in Headers */,
@@ -1887,7 +1871,7 @@
 				48B2D43829422DB70082A8D6 /* STDefaultSettingDataSourseGenerator.h in Headers */,
 				48B2D3CA29422B5D0082A8D6 /* STPlayerControlBar.h in Headers */,
 				48B2D48829422E290082A8D6 /* EFStatusManagerDelegate.h in Headers */,
-				48B2D4A229422E7A0082A8D6 /* BeautyLiveViewController.h in Headers */,
+				48B2D4A229422E7A0082A8D6 /* QNLiveViewController.h in Headers */,
 				48B2D46B29422E110082A8D6 /* NSString+sha1.h in Headers */,
 				48B2D43A29422DBD0082A8D6 /* STDefaultSetting.h in Headers */,
 				483AC932298A084F000F1B9E /* QNVoiceCollectionViewCell.h in Headers */,
@@ -1898,8 +1882,7 @@
 				48B2D42529422D320082A8D6 /* QNGiftView.h in Headers */,
 				48B2D47029422E1F0082A8D6 /* EFDataSourcing.h in Headers */,
 				48B2D44229422DD80082A8D6 /* SenseArMaterialGroup.h in Headers */,
-				48B2D4A629422F0B0082A8D6 /* QCreateLiveController.h in Headers */,
-				48B2D4A029422E7A0082A8D6 /* CreateBeautyLiveController.h in Headers */,
+				48B2D4A029422E7A0082A8D6 /* QNCreateLiveController.h in Headers */,
 				48B2D44729422DEF0082A8D6 /* NSDictionary+sortedJson.h in Headers */,
 				48B2D42B29422D320082A8D6 /* QNHorizontalLayout.h in Headers */,
 				48B2D3DB29422B5D0082A8D6 /* EffectsCollectionView.h in Headers */,
@@ -1994,7 +1977,6 @@
 				C91CA1CF29C7FE5400501D33 /* BottomMenuSlot.h in Headers */,
 				C91CA1E829C7FE6700501D33 /* QEmojiCollectionCell.h in Headers */,
 				C91CA26B29C7FEE700501D33 /* QNGiftMessagePannel.h in Headers */,
-				C91CA23C29C7FEC400501D33 /* QLiveController.h in Headers */,
 				C91CA1EF29C7FE6D00501D33 /* FDanmakuModelProtocol.h in Headers */,
 				C91CA21929C7FE9700501D33 /* QTagButton.h in Headers */,
 				C91CA20A29C7FE9200501D33 /* UILabel+QAttributed.h in Headers */,
@@ -2003,7 +1985,7 @@
 				C91CA24E29C7FEDA00501D33 /* QLiveView.h in Headers */,
 				C91CA25229C7FEDA00501D33 /* RoomHostView.h in Headers */,
 				C91CA23929C7FEC400501D33 /* QNPayGiftViewController.h in Headers */,
-				C91CA23329C7FEBC00501D33 /* CreateBeautyLiveController.h in Headers */,
+				C91CA23329C7FEBC00501D33 /* QNCreateLiveController.h in Headers */,
 				C91CA22929C7FEA600501D33 /* QPlayerView.h in Headers */,
 				C91CA27429C7FEF500501D33 /* UIImage+QNImage.h in Headers */,
 				C91CA1D029C7FE5400501D33 /* QNInternalViewSlot.h in Headers */,
@@ -2031,7 +2013,6 @@
 				C91CA27A29C7FEF500501D33 /* NSDate+QDate.h in Headers */,
 				C91CA24729C7FED500501D33 /* QAlertView.h in Headers */,
 				C91CA1EE29C7FE6700501D33 /* QInputBarControl.h in Headers */,
-				C91CA23829C7FEC400501D33 /* QCreateLiveController.h in Headers */,
 				C91CA1E429C7FE5F00501D33 /* QNMessageBaseCell.h in Headers */,
 				C91CA27729C7FEF500501D33 /* CYProtocolManager.h in Headers */,
 				C91CA1F629C7FE7200501D33 /* QMessageBaseCell.h in Headers */,
@@ -2041,13 +2022,13 @@
 				C91CA22D29C7FEBC00501D33 /* QNBeautyManager.h in Headers */,
 				C91CA26329C7FEE700501D33 /* QNGiftMessageView.h in Headers */,
 				C91CA20029C7FE8600501D33 /* QNPKInvitationListCell.h in Headers */,
-				C91CA22C29C7FEBC00501D33 /* BeautyLiveViewController.h in Headers */,
+				C91CA22C29C7FEBC00501D33 /* QNLiveViewController.h in Headers */,
 				C91CA27D29C7FEF500501D33 /* QNLiveUIKit.h in Headers */,
 				C91CA27029C7FEEC00501D33 /* MXSCycleScrollView.h in Headers */,
 				C91CA26529C7FEE700501D33 /* QNGiftOperation.h in Headers */,
 				C91CA25A29C7FEE000501D33 /* LiveBottomMoreView.h in Headers */,
 				C91CA24129C7FECB00501D33 /* QNVoiceCollectionViewCell.h in Headers */,
-				C91CA22E29C7FEBC00501D33 /* BeautyBaseController.h in Headers */,
+				C91CA22E29C7FEBC00501D33 /* QNLiveBaseController.h in Headers */,
 				C91CA1D729C7FE5400501D33 /* OnlineUserSlot.h in Headers */,
 				C91CA1FA29C7FE7200501D33 /* QNGiftMessageCell.h in Headers */,
 			);
@@ -2148,8 +2129,8 @@
 			projectRoot = "";
 			targets = (
 				484C3AA42940D48E00640FE4 /* QNLiveUIKitTests */,
-				C91CA1B629C7FC5700501D33 /* QNLiveUIKit_NO_Beauty */,
 				484C3A9C2940D48E00640FE4 /* QNLiveUIKit_Beauty */,
+				C91CA1B629C7FC5700501D33 /* QNLiveUIKit_NO_Beauty */,
 			);
 		};
 /* End PBXProject section */
@@ -2301,7 +2282,6 @@
 				485F26652940DCD100484CB6 /* QNEmojiCollectionCell.m in Sources */,
 				48B2D3E129422B5D0082A8D6 /* STCustomMemoryCache.m in Sources */,
 				48B2D47E29422E290082A8D6 /* EFGlobalSingleton.m in Sources */,
-				48B2D4A829422F0B0082A8D6 /* QLiveController.m in Sources */,
 				485F27152940E32E00484CB6 /* UIImage+QNImage.m in Sources */,
 				48B2D47329422E290082A8D6 /* NSObject+dictionary.m in Sources */,
 				485F26DF2940DCF600484CB6 /* ShopBuyListController.m in Sources */,
@@ -2369,7 +2349,7 @@
 				485F26BC2940DCF600484CB6 /* GoodBuyItemCell.m in Sources */,
 				48B2D4AC29422F0B0082A8D6 /* QNAudienceController.m in Sources */,
 				48B2D49829422E530082A8D6 /* SystemSound.m in Sources */,
-				48B2D388294227700082A8D6 /* BeautyLiveViewController.m in Sources */,
+				48B2D388294227700082A8D6 /* QNLiveViewController.m in Sources */,
 				48B2D39A294229FB0082A8D6 /* STEffectsTimer.m in Sources */,
 				48B2D393294229780082A8D6 /* QNHorizontalLayout.m in Sources */,
 				485F26BF2940DCF600484CB6 /* GoodSellItemCell.m in Sources */,
@@ -2381,7 +2361,7 @@
 				48B2D381294224010082A8D6 /* LinkStateView.m in Sources */,
 				48B2D387294225BD0082A8D6 /* QGradient.m in Sources */,
 				48B2D48F29422E420082A8D6 /* STCoreStateManagement.m in Sources */,
-				48B2D38A294227790082A8D6 /* BeautyBaseController.m in Sources */,
+				48B2D38A294227790082A8D6 /* QNLiveBaseController.m in Sources */,
 				485F26F82940DD8800484CB6 /* BottomMenuSlot.m in Sources */,
 				48B2D41129422D050082A8D6 /* LiveBottomMoreView.m in Sources */,
 				48B2D3A729422A570082A8D6 /* NSString+sha1.m in Sources */,
@@ -2390,7 +2370,7 @@
 				48B2D3A429422A3D0082A8D6 /* STVFShader.m in Sources */,
 				48B2D48329422E290082A8D6 /* EFStatusManager.m in Sources */,
 				48B2D3CF29422B5D0082A8D6 /* UIView+Toast.m in Sources */,
-				48B2D389294227740082A8D6 /* CreateBeautyLiveController.m in Sources */,
+				48B2D389294227740082A8D6 /* QNCreateLiveController.m in Sources */,
 				485F26D42940DCF600484CB6 /* QPlayerView.m in Sources */,
 				485F26622940DCD100484CB6 /* QNEmojiBoardView.m in Sources */,
 				48B2D38E2942295B0082A8D6 /* DateTimePickerView.m in Sources */,
@@ -2399,7 +2379,6 @@
 				485F26782940DCD100484CB6 /* CALayer+Aimate.m in Sources */,
 				48B2D39D29422A100082A8D6 /* STDefaultSettingDataSourseGenerator.m in Sources */,
 				483AC933298A084F000F1B9E /* QNVoiceCollectionViewCell.m in Sources */,
-				48B2D4A429422F0B0082A8D6 /* QCreateLiveController.m in Sources */,
 				48B2D37F294223F20082A8D6 /* QLiveView.m in Sources */,
 				485F26852940DCD100484CB6 /* LiveChatRoom.m in Sources */,
 				48B2D41629422D050082A8D6 /* WatchBottomMoreView.m in Sources */,
@@ -2429,11 +2408,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				C91CA1EC29C7FE6700501D33 /* QEmojiCollectionCell.m in Sources */,
-				C91CA23D29C7FEC400501D33 /* QLiveController.m in Sources */,
+				C9274BC529CAA3AE00B151C5 /* QNBeautyManager.m in Sources */,
 				C91CA27329C7FEEC00501D33 /* QNLiveListCell.m in Sources */,
 				C91CA24029C7FECB00501D33 /* QNVoiceCollectionViewCell.m in Sources */,
 				C91CA1FF29C7FE8100501D33 /* QNPKInvitationListController.m in Sources */,
-				C91CA23F29C7FEC400501D33 /* QCreateLiveController.m in Sources */,
 				C91CA23429C7FEC400501D33 /* QNAudienceController.m in Sources */,
 				C91CA21629C7FE9700501D33 /* QTagList.m in Sources */,
 				C91CA25F29C7FEE000501D33 /* WatchBottomMoreView.m in Sources */,
@@ -2442,7 +2420,7 @@
 				C91CA1F129C7FE6D00501D33 /* FDanmakuModel.m in Sources */,
 				C91CA26729C7FEE700501D33 /* QNGiftPaySuccessView.m in Sources */,
 				C91CA20329C7FE8B00501D33 /* ShopSellListController.m in Sources */,
-				C91CA22F29C7FEBC00501D33 /* CreateBeautyLiveController.m in Sources */,
+				C91CA22F29C7FEBC00501D33 /* QNCreateLiveController.m in Sources */,
 				C91CA1D829C7FE5400501D33 /* QNInternalViewSlot.m in Sources */,
 				C91CA1FB29C7FE7200501D33 /* QNGiftMessageCell.m in Sources */,
 				C91CA20129C7FE8600501D33 /* QNPKInvitationListCell.m in Sources */,
@@ -2450,7 +2428,7 @@
 				C91CA20629C7FE8B00501D33 /* ShopBuyListController.m in Sources */,
 				C91CA23529C7FEC400501D33 /* QNPayGiftViewController.m in Sources */,
 				C91CA25C29C7FEE000501D33 /* BottomMenuView.m in Sources */,
-				C91CA23229C7FEBC00501D33 /* BeautyBaseController.m in Sources */,
+				C91CA23229C7FEBC00501D33 /* QNLiveBaseController.m in Sources */,
 				C91CA1F829C7FE7200501D33 /* QMessageBaseCell.m in Sources */,
 				C91CA21429C7FE9700501D33 /* UILabel+QAttributed.m in Sources */,
 				C91CA20929C7FE9200501D33 /* PSPopListView.m in Sources */,
@@ -2478,7 +2456,7 @@
 				C91CA20B29C7FE9200501D33 /* GoodSellItemCell.m in Sources */,
 				C91CA1DF29C7FE5A00501D33 /* QNEmojiBoardView.m in Sources */,
 				C91CA22829C7FEA600501D33 /* QSlider.m in Sources */,
-				C91CA23129C7FEBC00501D33 /* BeautyLiveViewController.m in Sources */,
+				C91CA23129C7FEBC00501D33 /* QNLiveViewController.m in Sources */,
 				C91CA1E529C7FE5F00501D33 /* QNTextMessageCell.m in Sources */,
 				C91CA25629C7FEDA00501D33 /* LinkStateView.m in Sources */,
 				C91CA27129C7FEEC00501D33 /* MXSCycleScrollView.m in Sources */,

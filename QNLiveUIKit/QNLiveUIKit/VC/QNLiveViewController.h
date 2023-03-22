@@ -1,18 +1,18 @@
 //
-//  BeautyLiveViewController.h
+//  QNLiveViewController.h
 //  QNLiveKit
 //
 //  Created by 郭茜 on 2022/6/30.
 //
 
 #import <UIKit/UIKit.h>
-#import "BeautyBaseController.h"
+#import "QNLiveBaseController.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
 @class QNLiveRoomInfo,QNLivePushClient,QNLiveRoomClient,QNChatRoomService,LiveChatRoom,QNMergeOption,QPKService,QRenderView,FDanmakuView,QLinkMicService,RoomHostView,OnlineUserView,ImageButtonView,BottomMenuView,STBaseViewController,QStatisticalService,QNGiftMessagePannel;
 
-@interface BeautyLiveViewController : BeautyBaseController
+@interface QNLiveViewController : QNLiveBaseController
 
 @property (nonatomic, strong) RoomHostView *roomHostView;//房主槽位
 @property (nonatomic, strong) OnlineUserView *onlineUserView;//右上角在线人数槽位

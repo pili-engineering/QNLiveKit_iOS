@@ -1,5 +1,5 @@
 //
-//  BeautyBaseController.h
+//  QNLiveBaseController.h
 //  QNLiveKit
 //
 //  Created by 郭茜 on 2022/7/18.
@@ -16,9 +16,9 @@
 NS_ASSUME_NONNULL_BEGIN
 
 #ifdef useBeauty
-@interface BeautyBaseController : STBaseViewController
+@interface QNLiveBaseController : STBaseViewController
 #else
-@interface BeautyBaseController : UIViewController
+@interface QNLiveBaseController : UIViewController
 #endif
 
 
