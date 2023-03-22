@@ -16,7 +16,7 @@
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "484C3A9C2940D48E00640FE4"
                BuildableName = "QNLiveUIKit.framework"
-               BlueprintName = "QNLiveUIKit"
+               BlueprintName = "QNLiveUIKit_Beauty"
                ReferencedContainer = "container:QNLiveUIKit.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
@@ -62,7 +62,7 @@
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "484C3A9C2940D48E00640FE4"
             BuildableName = "QNLiveUIKit.framework"
-            BlueprintName = "QNLiveUIKit"
+            BlueprintName = "QNLiveUIKit_Beauty"
             ReferencedContainer = "container:QNLiveUIKit.xcodeproj">
          </BuildableReference>
       </MacroExpansion>

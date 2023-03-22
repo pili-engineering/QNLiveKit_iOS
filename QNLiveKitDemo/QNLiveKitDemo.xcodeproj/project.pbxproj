@@ -80,7 +80,6 @@
 		C5993B91A021CD7EDC4A0F36 /* Pods_QNLiveKitDemo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F467E60A07D600FCAAE77FD1 /* Pods_QNLiveKitDemo.framework */; };
 		C91CA16629C4377F00501D33 /* config.conf in Resources */ = {isa = PBXBuildFile; fileRef = C91CA16129C4377700501D33 /* config.conf */; };
 		C9274BCA29CAD74300B151C5 /* QNLiveUIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C91CA28429C8001F00501D33 /* QNLiveUIKit.framework */; };
-		C9274BCB29CAD74400B151C5 /* QNLiveUIKit.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = C91CA28429C8001F00501D33 /* QNLiveUIKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		E37940772990B12800E11A90 /* SENSEME.lic in Resources */ = {isa = PBXBuildFile; fileRef = E37940762990B12800E11A90 /* SENSEME.lic */; };
 		E37940792990B13700E11A90 /* SENSEME.lic in Resources */ = {isa = PBXBuildFile; fileRef = E37940782990B13700E11A90 /* SENSEME.lic */; };
 /* End PBXBuildFile section */
@@ -144,7 +143,6 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				C9274BCB29CAD74400B151C5 /* QNLiveUIKit.framework in Embed Frameworks */,
 				483AC938298A0A99000F1B9E /* QNIMSDK.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
@@ -320,8 +318,8 @@
 			isa = PBXGroup;
 			children = (
 				484C3ABF2940D48F00640FE4 /* QNLiveUIKitTests.xctest */,
-				C91CA28429C8001F00501D33 /* QNLiveUIKit.framework */,
 				484C3ABD2940D48F00640FE4 /* QNLiveUIKit.framework */,
+				C91CA28429C8001F00501D33 /* QNLiveUIKit.framework */,
 			);
 			name = Products;
 			sourceTree = "<group>";
