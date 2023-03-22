@@ -29,6 +29,7 @@
 #import "QNVoiceCollectionViewCell.h"
 #import <PLPlayerKit/PLPlayerKit.h>
 #import <QNIMSDK/QNIMSDK.h>
+#import "QNConfigurationUI.h"
 
 static NSString *cellIdentifier = @"AddCollectionViewCell";
 
@@ -437,17 +438,12 @@ static NSString *cellIdentifier = @"AddCollectionViewCell";
     [self.renderBackgroundView addSubview:_micLinkerCollectionView];
 }
 
-- (void)bottomMenuUseConfig:(NSArray *)array{
-    _bottomMenuOpen = [array copy];
-    [self setupBottomMenuView];
-}
-
 - (void)setupBottomMenuView {
     NSMutableArray *slotList = [NSMutableArray array];
     __weak typeof(self) weakSelf = self;
 
     // 弹幕
-    if( [_bottomMenuOpen[0] intValue]) {
+    if(![[QNConfigurationUI shardManager] getHiddenWithName:@"bulletScreen"]) {
         ImageButtonView *message = [[ImageButtonView alloc] initWithFrame:CGRectZero];
         [message bundleNormalImage:@"icon_danmu" selectImage:@"icon_danmu"];
         message.clickBlock = ^(BOOL selected) {
@@ -457,7 +453,7 @@ static NSString *cellIdentifier = @"AddCollectionViewCell";
     }
 
     // 购物车
-    if( [_bottomMenuOpen[1] intValue]) {
+    if( ![[QNConfigurationUI shardManager] getHiddenWithName:@"gift"]) {
         ImageButtonView *shopping = [[ImageButtonView alloc] initWithFrame:CGRectZero];
         [shopping bundleNormalImage:@"shopping" selectImage:@"shopping"];
         shopping.clickBlock = ^(BOOL selected) {
@@ -466,7 +462,7 @@ static NSString *cellIdentifier = @"AddCollectionViewCell";
         [slotList addObject:shopping];
     }
 
-        if( [_bottomMenuOpen[2] intValue]) {
+        if( ![[QNConfigurationUI shardManager] getHiddenWithName:@"like"]) {
             QNLikeMenuView *likeView = [[QNLikeMenuView alloc] initWithFrame:CGRectZero];
             [likeView bundleNormalImage:@"like_click" selectImage:@"like_click"];
             likeView.roomInfo = self.roomInfo;
@@ -478,7 +474,7 @@ static NSString *cellIdentifier = @"AddCollectionViewCell";
         }
 
     // 更多
-        if( [_bottomMenuOpen[3] intValue]) {
+    if(![[QNConfigurationUI shardManager] getHiddenWithName:@"mic"] && ![[QNConfigurationUI shardManager] getHiddenWithName:@"gift"]) {
             ImageButtonView *more = [[ImageButtonView alloc] initWithFrame:CGRectZero];
             [more bundleNormalImage:@"icon_more" selectImage:@"icon_more"];
             more.clickBlock = ^(BOOL selected) {
@@ -501,7 +497,6 @@ static NSString *cellIdentifier = @"AddCollectionViewCell";
 
 - (void)popMoreView {
     __weak typeof(self) weakSelf = self;
-
     if (!_moreView) {
         _moreView = [[WatchBottomMoreView alloc] initWithFrame:CGRectMake(0, SCREEN_H - 200, SCREEN_W, 200)];
         _moreView.giftBlock = ^{
@@ -516,6 +511,9 @@ static NSString *cellIdentifier = @"AddCollectionViewCell";
                 [weakSelf popLinkSLotHidden:NO];
             }
         };
+        
+        _moreView.gift.hidden = [[QNConfigurationUI shardManager] getHiddenWithName:@"gift"];
+        _moreView.link.hidden = [[QNConfigurationUI shardManager] getHiddenWithName:@"mic"];
     }
 
     [self.view addSubview:_moreView];

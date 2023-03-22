@@ -48,6 +48,7 @@
       pushClient.rtcClient = [QNRTC createRTCClient:config];
       [pushClient.rtcClient setClientRole:QNClientRoleBroadcaster completeCallback:nil];
       pushClient.rtcClient.delegate = pushClient;
+         
 
       QLIVELogInfo(@"init");
     });
@@ -106,6 +107,11 @@
     [self.localVideoTrack play:nil];
     [self.localVideoTrack stopCapture];
     [self.rtcClient leave];
+    [self.localVideoTrack setBeautifyModeOn:NO];
+#ifdef coreBeauty
+    [self.localVideoTrack setBeautifyModeOn:YES];
+#endif
+    
     QLIVELogInfo(@"close room");
 }
 

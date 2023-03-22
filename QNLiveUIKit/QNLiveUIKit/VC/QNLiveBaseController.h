@@ -1,22 +1,24 @@
 //
-//  BeautyBaseController.h
+//  QNLiveBaseController.h
 //  QNLiveKit
 //
 //  Created by 郭茜 on 2022/7/18.
 //
 
 #import <QNLiveKit/QNLiveKit.h>
-#import "STBaseViewController.h"
-#define  useBeauty
+#import "UIViewController+QViewController.h"
 
+#ifdef useBeauty
+#import "STBaseViewController.h"
+#endif
 @class QNLiveRoomInfo,QNLivePushClient,QNLiveRoomClient,QNChatRoomService,LiveChatRoom,QNMergeOption,QPKService,QRenderView,FDanmakuView,QLinkMicService,PLSTEffectManager,PLSTDetector;
 
 NS_ASSUME_NONNULL_BEGIN
 
 #ifdef useBeauty
-@interface BeautyBaseController : STBaseViewController
+@interface QNLiveBaseController : STBaseViewController
 #else
-@interface BeautyBaseController : UIViewController
+@interface QNLiveBaseController : UIViewController
 #endif
 
 

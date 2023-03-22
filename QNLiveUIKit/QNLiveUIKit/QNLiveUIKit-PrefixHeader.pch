@@ -9,6 +9,11 @@
 #define QNLiveUIKit_PrefixHeader_pch
 
 
+//是否开启内置美颜
+//#define  coreBeauty
+
+//#define useBeauty
+
 #define SCREEN_W [UIScreen mainScreen].bounds.size.width
 #define SCREEN_H [UIScreen mainScreen].bounds.size.height
 
@@ -82,7 +87,6 @@
 #import <YYCategories/YYCategories.h>
 #import <SDWebImage/SDWebImage.h>
 #import <QNLiveKit/QNLiveKit.h>
-
 #import "UIImage+QNImage.h"
 
 #import "EFDataSourceGenerator.h"

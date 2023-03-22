@@ -21,8 +21,6 @@ NS_ASSUME_NONNULL_BEGIN
 //商品点击回调
 @property (nonatomic, copy) void (^goodClickedBlock)(GoodsModel *itemModel);
 
-// [0,1,0，1] 表示 BottomMenu 只显示购物车
-- (void)bottomMenuUseConfig:(NSArray *)array;
 
 @end
 

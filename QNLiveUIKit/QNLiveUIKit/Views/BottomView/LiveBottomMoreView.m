@@ -8,9 +8,11 @@
 #import "LiveBottomMoreView.h"
 #import "BottomMenuView.h"
 #import "ImageButtonView.h"
+#import "QNConfigurationUI.h"
+
 @interface LiveBottomMoreView ()
 
-@property (nonatomic, assign) BOOL beauty;
+//@property (nonatomic, assign) BOOL beauty;
 
 @end
 
@@ -24,22 +26,14 @@
     return self;
 }
 
-- (instancetype)initWithFrame:(CGRect)frame beauty:(BOOL)beauty {
-    if (self = [super initWithFrame:frame]) {
-        self.beauty = beauty;
-        self.backgroundColor = [[UIColor blackColor] colorWithAlphaComponent:0.8];
-        [self createUI];
-    }
-    return self;
-}
-
 - (void)createUI {
     BottomMenuView *bottomMenuView;
-    if (self.beauty) {
-        bottomMenuView = [[BottomMenuView alloc]initWithFrame:CGRectMake(0, 0, self.frame.size.width, self.frame.size.height)];
-    } else {
-        bottomMenuView = [[BottomMenuView alloc]initWithFrame:CGRectMake(0, 0, self.frame.size.width * 3 / 5, self.frame.size.height)];
-    }
+#ifdef useBeauty
+    bottomMenuView = [[BottomMenuView alloc]initWithFrame:CGRectMake(0, 0, self.frame.size.width, self.frame.size.height)];
+#else
+    bottomMenuView = [[BottomMenuView alloc]initWithFrame:CGRectMake(0, 0, self.frame.size.width * 3 / 5, self.frame.size.height)];
+#endif
+    
     [self addSubview:bottomMenuView];
     
     UILabel *label = [[UILabel alloc]initWithFrame:CGRectMake(0, 25, SCREEN_W, 20)];
@@ -88,7 +82,7 @@
     };
     [slotList addObject:mirror];
     
-    if (self.beauty) {
+#ifdef useBeauty
     //美颜
         ImageButtonView *beauty = [[ImageButtonView alloc]initWithFrame:CGRectZero];
         [beauty bundleNormalImage:@"icon_beauty" selectImage:@"icon_beauty"];
@@ -110,7 +104,8 @@
             [weakSelf removeFromSuperview];
         };
         [slotList addObject:specialEffects];
-    }
+#endif
+
         
     [bottomMenuView updateWithSlotList:slotList.copy];
     

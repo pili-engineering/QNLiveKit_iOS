@@ -1,11 +1,11 @@
 //
-//  BeautyLiveViewController.m
+//  QNLiveViewController.m
 //  QNLiveKit
 //
 //  Created by 郭茜 on 2022/6/30.
 //
 
-#import "BeautyLiveViewController.h"
+#import "QNLiveViewController.h"
 #import "BottomMenuView.h"
 #import "ExplainingGoodView.h"
 #import "FDanmakuModel.h"
@@ -26,10 +26,11 @@
 #import <QNRTCKit/QNRTCKit.h>
 #import "QNVoiceCollectionViewCell.h"
 #import "ImageButtonView.h"
+#import "QNConfigurationUI.h"
 
 static NSString *cellIdentifier = @"AddCollectionViewCell";
 
-@interface BeautyLiveViewController () <QNPushClientListener, QNRoomLifeCycleListener, QNPushClientListener, QNChatRoomServiceListener, FDanmakuViewProtocol, LiveChatRoomViewDelegate, MicLinkerListener, PKServiceListener, QNLocalVideoTrackDelegate, UICollectionViewDelegate, UICollectionViewDataSource>
+@interface QNLiveViewController () <QNPushClientListener, QNRoomLifeCycleListener, QNPushClientListener, QNChatRoomServiceListener, FDanmakuViewProtocol, LiveChatRoomViewDelegate, MicLinkerListener, PKServiceListener, QNLocalVideoTrackDelegate, UICollectionViewDelegate, UICollectionViewDataSource>
 
 @property (nonatomic, strong) QNLiveRoomInfo *selectPkRoomInfo;
 @property (nonatomic, strong) QNPKSession *pkSession;   // 正在进行的pk
@@ -44,7 +45,7 @@ static NSString *cellIdentifier = @"AddCollectionViewCell";
 
 @end
 
-@implementation BeautyLiveViewController
+@implementation QNLiveViewController
 
 
 
@@ -472,37 +473,43 @@ static NSString *cellIdentifier = @"AddCollectionViewCell";
     __weak typeof(self) weakSelf = self;
 
     // 弹幕
-    ImageButtonView *message = [[ImageButtonView alloc] initWithFrame:CGRectZero];
-    [message bundleNormalImage:@"icon_danmu" selectImage:@"icon_danmu"];
-    message.clickBlock = ^(BOOL selected) {
-      [weakSelf.chatRoomView commentBtnPressedWithPubchat:NO];
-    };
-    [slotList addObject:message];
+    if(![[QNConfigurationUI shardManager] getHiddenWithName:@"bulletScreen"]){
+        ImageButtonView *message = [[ImageButtonView alloc] initWithFrame:CGRectZero];
+        [message bundleNormalImage:@"icon_danmu" selectImage:@"icon_danmu"];
+        message.clickBlock = ^(BOOL selected) {
+          [weakSelf.chatRoomView commentBtnPressedWithPubchat:NO];
+        };
+        [slotList addObject:message];
+    }
+    
+    if(![[QNConfigurationUI shardManager] getHiddenWithName:@"relay"]){
+        // pk
+        ImageButtonView *pk = [[ImageButtonView alloc] initWithFrame:CGRectZero];
+        [pk bundleNormalImage:@"pk" selectImage:@"end_pk"];
+        pk.clickBlock = ^(BOOL selected) {
+          if (selected) {
+              [[QLive getRooms] listRoom:1
+                                pageSize:20
+                                callBack:^(NSArray<QNLiveRoomInfo *> *_Nonnull list) {
+                                  [weakSelf popInvitationPKView:list];
+                                }];
+          } else {
+              [weakSelf stopPK];
+          }
+        };
+        [slotList addObject:pk];
+        self.pkSlot = pk;
+    }
 
-    // pk
-    ImageButtonView *pk = [[ImageButtonView alloc] initWithFrame:CGRectZero];
-    [pk bundleNormalImage:@"pk" selectImage:@"end_pk"];
-    pk.clickBlock = ^(BOOL selected) {
-      if (selected) {
-          [[QLive getRooms] listRoom:1
-                            pageSize:20
-                            callBack:^(NSArray<QNLiveRoomInfo *> *_Nonnull list) {
-                              [weakSelf popInvitationPKView:list];
-                            }];
-      } else {
-          [weakSelf stopPK];
-      }
-    };
-    [slotList addObject:pk];
-    self.pkSlot = pk;
-
-    // 购物车
-    ImageButtonView *shopping = [[ImageButtonView alloc] initWithFrame:CGRectZero];
-    [shopping bundleNormalImage:@"shopping" selectImage:@"shopping"];
-    shopping.clickBlock = ^(BOOL selected) {
-      [weakSelf popGoodListView];
-    };
-    [slotList addObject:shopping];
+    if(![[QNConfigurationUI shardManager] getHiddenWithName:@"item"]){
+        // 购物车
+        ImageButtonView *shopping = [[ImageButtonView alloc] initWithFrame:CGRectZero];
+        [shopping bundleNormalImage:@"shopping" selectImage:@"shopping"];
+        shopping.clickBlock = ^(BOOL selected) {
+          [weakSelf popGoodListView];
+        };
+        [slotList addObject:shopping];
+    }
 
     // 更多
     ImageButtonView *more = [[ImageButtonView alloc] initWithFrame:CGRectZero];
@@ -512,12 +519,14 @@ static NSString *cellIdentifier = @"AddCollectionViewCell";
     };
     [slotList addObject:more];
 
+
+
     [self.bottomMenuView updateWithSlotList:slotList.copy];
 }
 
 - (void)popMoreView {
     __weak typeof(self) weakSelf = self;
-    self.moreView = [[LiveBottomMoreView alloc] initWithFrame:CGRectMake(0, SCREEN_H - 200, SCREEN_W, 200) beauty:YES];
+    self.moreView = [[LiveBottomMoreView alloc] initWithFrame:CGRectMake(0, SCREEN_H - 200, SCREEN_W, 200)];
 
     self.moreView.cameraChangeBlock = ^{
       [[QNLivePushClient createPushClient] switchCamera];
@@ -528,6 +537,7 @@ static NSString *cellIdentifier = @"AddCollectionViewCell";
     self.moreView.cameraMirrorBlock = ^(BOOL mute) {
       [QNLivePushClient createPushClient].localVideoTrack.previewMirrorFrontFacing = !mute;
     };
+    
 #ifdef useBeauty
     self.moreView.beautyBlock = ^{
       [weakSelf clickBottomViewButton:weakSelf.beautyBtn];

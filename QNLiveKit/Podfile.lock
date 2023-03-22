@@ -47,7 +47,7 @@ DEPENDENCIES:
   - YYWebImage (= 1.0.4)
 
 SPEC REPOS:
-  https://mirrors.tuna.tsinghua.edu.cn/git/CocoaPods/Specs.git:
+  trunk:
     - AFNetworking
     - Masonry
     - MJExtension
@@ -71,6 +71,6 @@ SPEC CHECKSUMS:
   YYImage: 1e1b62a9997399593e4b9c4ecfbbabbf1d3f3b54
   YYWebImage: 0431ed108e104527669b86f75efd58958425cca2
 
-PODFILE CHECKSUM: e635514f52bddf388d2e5f281f6407f9a528bc9b
+PODFILE CHECKSUM: ebb08f748d173f59a8d799b79cd7523301ee833e
 
-COCOAPODS: 1.11.3
+COCOAPODS: 1.12.0

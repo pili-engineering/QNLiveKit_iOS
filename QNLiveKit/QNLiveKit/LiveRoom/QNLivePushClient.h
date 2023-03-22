@@ -50,9 +50,6 @@ NS_ASSUME_NONNULL_BEGIN
 //本地视频track
 @property (nonatomic, strong) QNCameraVideoTrack *localVideoTrack;
 
-//是否使用了内置美颜功能
-@property (nonatomic, assign) BOOL needBeauty;
-
 //初始化
 + (instancetype)createPushClient;
 //销毁
