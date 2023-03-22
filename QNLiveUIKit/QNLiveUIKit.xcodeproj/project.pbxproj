@@ -118,7 +118,6 @@
 		485F27182940E32E00484CB6 /* UITableView+MoveCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 485F270C2940E32E00484CB6 /* UITableView+MoveCell.m */; };
 		485F27192940E32E00484CB6 /* CYProtocolManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 485F270D2940E32E00484CB6 /* CYProtocolManager.m */; };
 		485F271A2940E32E00484CB6 /* UIViewController+QViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = 485F270E2940E32E00484CB6 /* UIViewController+QViewController.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		485F271C2940E32E00484CB6 /* UIViewController+QViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 485F27102940E32E00484CB6 /* UIViewController+QViewController.m */; };
 		485F271D2940E32E00484CB6 /* UIImage+QNImage.h in Headers */ = {isa = PBXBuildFile; fileRef = 485F27112940E32E00484CB6 /* UIImage+QNImage.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		485F271F2940E32E00484CB6 /* NSDate+QDate.h in Headers */ = {isa = PBXBuildFile; fileRef = 485F27132940E32E00484CB6 /* NSDate+QDate.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		48B2D37D294222DC0082A8D6 /* QLiveListController.h in Headers */ = {isa = PBXBuildFile; fileRef = 485F24112940DA6F00484CB6 /* QLiveListController.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -219,7 +218,6 @@
 		48B2D3EA29422B5D0082A8D6 /* STMakeupDataModel.h in Headers */ = {isa = PBXBuildFile; fileRef = 485F250B2940DB1E00484CB6 /* STMakeupDataModel.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		48B2D3EB29422BBF0082A8D6 /* EFSenseArMaterialDataModels.h in Headers */ = {isa = PBXBuildFile; fileRef = 485F24412940DB1E00484CB6 /* EFSenseArMaterialDataModels.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		48B2D40F29422CC00082A8D6 /* libSenseArSourceService.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 485F243B2940DB1E00484CB6 /* libSenseArSourceService.a */; };
-		48B2D41029422CC40082A8D6 /* libst_mobile.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 485F25232940DB1E00484CB6 /* libst_mobile.a */; };
 		48B2D41129422D050082A8D6 /* LiveBottomMoreView.m in Sources */ = {isa = PBXBuildFile; fileRef = 485F23EC2940DA6500484CB6 /* LiveBottomMoreView.m */; };
 		48B2D41229422D050082A8D6 /* BottomMenuView.h in Headers */ = {isa = PBXBuildFile; fileRef = 485F23E92940DA6500484CB6 /* BottomMenuView.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		48B2D41329422D050082A8D6 /* WatchBottomMoreView.h in Headers */ = {isa = PBXBuildFile; fileRef = 485F23ED2940DA6500484CB6 /* WatchBottomMoreView.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -336,13 +334,198 @@
 		48B2D4AB29422F0B0082A8D6 /* QNPayGiftViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 485F24142940DA6F00484CB6 /* QNPayGiftViewController.m */; };
 		48B2D4AC29422F0B0082A8D6 /* QNAudienceController.m in Sources */ = {isa = PBXBuildFile; fileRef = 485F240A2940DA6F00484CB6 /* QNAudienceController.m */; };
 		48B2D4AD29422F0B0082A8D6 /* QNBaseRTCController.h in Headers */ = {isa = PBXBuildFile; fileRef = 485F240B2940DA6F00484CB6 /* QNBaseRTCController.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		670D286E1238CCE4D7E78507 /* Pods_QNLiveUIKitTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 53CF74E9CA939006D827C93C /* Pods_QNLiveUIKitTests.framework */; };
+		793EF3472ADDCFC2BF2A8B18 /* Pods_QNLiveUIKitTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E416B25A49C67B2668988E68 /* Pods_QNLiveUIKitTests.framework */; };
+		C9074B9C29C84BEB00761359 /* libst_mobile.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 485F25232940DB1E00484CB6 /* libst_mobile.a */; };
+		C91CA15D29C415B900501D33 /* QNConfigurationUI.h in Headers */ = {isa = PBXBuildFile; fileRef = C91CA15B29C415B900501D33 /* QNConfigurationUI.h */; };
+		C91CA15E29C415B900501D33 /* QNConfigurationUI.m in Sources */ = {isa = PBXBuildFile; fileRef = C91CA15C29C415B900501D33 /* QNConfigurationUI.m */; };
+		C91CA1CF29C7FE5400501D33 /* BottomMenuSlot.h in Headers */ = {isa = PBXBuildFile; fileRef = 485F26EC2940DD8800484CB6 /* BottomMenuSlot.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		C91CA1D029C7FE5400501D33 /* QNInternalViewSlot.h in Headers */ = {isa = PBXBuildFile; fileRef = 485F26E62940DD8800484CB6 /* QNInternalViewSlot.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		C91CA1D129C7FE5400501D33 /* RoomHostSlot.h in Headers */ = {isa = PBXBuildFile; fileRef = 485F26E72940DD8800484CB6 /* RoomHostSlot.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		C91CA1D229C7FE5400501D33 /* ItemSlot.h in Headers */ = {isa = PBXBuildFile; fileRef = 485F26EE2940DD8800484CB6 /* ItemSlot.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		C91CA1D329C7FE5400501D33 /* RoomHostSlot.m in Sources */ = {isa = PBXBuildFile; fileRef = 485F26E92940DD8800484CB6 /* RoomHostSlot.m */; };
+		C91CA1D429C7FE5400501D33 /* OnlineUserSlot.m in Sources */ = {isa = PBXBuildFile; fileRef = 485F26EB2940DD8800484CB6 /* OnlineUserSlot.m */; };
+		C91CA1D529C7FE5400501D33 /* ItemSlot.m in Sources */ = {isa = PBXBuildFile; fileRef = 485F26ED2940DD8800484CB6 /* ItemSlot.m */; };
+		C91CA1D629C7FE5400501D33 /* BottomMenuSlot.m in Sources */ = {isa = PBXBuildFile; fileRef = 485F26EA2940DD8800484CB6 /* BottomMenuSlot.m */; };
+		C91CA1D729C7FE5400501D33 /* OnlineUserSlot.h in Headers */ = {isa = PBXBuildFile; fileRef = 485F26E82940DD8800484CB6 /* OnlineUserSlot.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		C91CA1D829C7FE5400501D33 /* QNInternalViewSlot.m in Sources */ = {isa = PBXBuildFile; fileRef = 485F26E42940DD8800484CB6 /* QNInternalViewSlot.m */; };
+		C91CA1D929C7FE5A00501D33 /* QNInputBarControl.h in Headers */ = {isa = PBXBuildFile; fileRef = 485F263C2940DCD100484CB6 /* QNInputBarControl.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		C91CA1DA29C7FE5A00501D33 /* QNInputBarControl.m in Sources */ = {isa = PBXBuildFile; fileRef = 485F26382940DCD100484CB6 /* QNInputBarControl.m */; };
+		C91CA1DB29C7FE5A00501D33 /* QNEmojiCollectionCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 485F263A2940DCD100484CB6 /* QNEmojiCollectionCell.m */; };
+		C91CA1DC29C7FE5A00501D33 /* QNInputView.h in Headers */ = {isa = PBXBuildFile; fileRef = 485F263B2940DCD100484CB6 /* QNInputView.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		C91CA1DD29C7FE5A00501D33 /* ISEmojiList.plist in Resources */ = {isa = PBXBuildFile; fileRef = 485F26392940DCD100484CB6 /* ISEmojiList.plist */; };
+		C91CA1DE29C7FE5A00501D33 /* QNInputView.m in Sources */ = {isa = PBXBuildFile; fileRef = 485F26362940DCD100484CB6 /* QNInputView.m */; };
+		C91CA1DF29C7FE5A00501D33 /* QNEmojiBoardView.m in Sources */ = {isa = PBXBuildFile; fileRef = 485F26372940DCD100484CB6 /* QNEmojiBoardView.m */; };
+		C91CA1E029C7FE5A00501D33 /* QNEmojiBoardView.h in Headers */ = {isa = PBXBuildFile; fileRef = 485F263D2940DCD100484CB6 /* QNEmojiBoardView.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		C91CA1E129C7FE5A00501D33 /* QNEmojiCollectionCell.h in Headers */ = {isa = PBXBuildFile; fileRef = 485F263E2940DCD100484CB6 /* QNEmojiCollectionCell.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		C91CA1E229C7FE5F00501D33 /* QNTextMessageCell.h in Headers */ = {isa = PBXBuildFile; fileRef = 485F26432940DCD100484CB6 /* QNTextMessageCell.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		C91CA1E329C7FE5F00501D33 /* QNMessageBaseCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 485F26402940DCD100484CB6 /* QNMessageBaseCell.m */; };
+		C91CA1E429C7FE5F00501D33 /* QNMessageBaseCell.h in Headers */ = {isa = PBXBuildFile; fileRef = 485F26422940DCD100484CB6 /* QNMessageBaseCell.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		C91CA1E529C7FE5F00501D33 /* QNTextMessageCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 485F26412940DCD100484CB6 /* QNTextMessageCell.m */; };
+		C91CA1E629C7FE6700501D33 /* EmojiList.plist in Resources */ = {isa = PBXBuildFile; fileRef = 485F264F2940DCD100484CB6 /* EmojiList.plist */; };
+		C91CA1E729C7FE6700501D33 /* QEmojiBoardView.m in Sources */ = {isa = PBXBuildFile; fileRef = 485F26482940DCD100484CB6 /* QEmojiBoardView.m */; };
+		C91CA1E829C7FE6700501D33 /* QEmojiCollectionCell.h in Headers */ = {isa = PBXBuildFile; fileRef = 485F264E2940DCD100484CB6 /* QEmojiCollectionCell.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		C91CA1E929C7FE6700501D33 /* QInputView.m in Sources */ = {isa = PBXBuildFile; fileRef = 485F264A2940DCD100484CB6 /* QInputView.m */; };
+		C91CA1EA29C7FE6700501D33 /* QInputBarControl.m in Sources */ = {isa = PBXBuildFile; fileRef = 485F26462940DCD100484CB6 /* QInputBarControl.m */; };
+		C91CA1EB29C7FE6700501D33 /* QInputView.h in Headers */ = {isa = PBXBuildFile; fileRef = 485F26472940DCD100484CB6 /* QInputView.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		C91CA1EC29C7FE6700501D33 /* QEmojiCollectionCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 485F26492940DCD100484CB6 /* QEmojiCollectionCell.m */; };
+		C91CA1ED29C7FE6700501D33 /* QEmojiBoardView.h in Headers */ = {isa = PBXBuildFile; fileRef = 485F264D2940DCD100484CB6 /* QEmojiBoardView.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		C91CA1EE29C7FE6700501D33 /* QInputBarControl.h in Headers */ = {isa = PBXBuildFile; fileRef = 485F264B2940DCD100484CB6 /* QInputBarControl.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		C91CA1EF29C7FE6D00501D33 /* FDanmakuModelProtocol.h in Headers */ = {isa = PBXBuildFile; fileRef = 485F26532940DCD100484CB6 /* FDanmakuModelProtocol.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		C91CA1F029C7FE6D00501D33 /* FDanmakuView.h in Headers */ = {isa = PBXBuildFile; fileRef = 485F26542940DCD100484CB6 /* FDanmakuView.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		C91CA1F129C7FE6D00501D33 /* FDanmakuModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 485F26522940DCD100484CB6 /* FDanmakuModel.m */; };
+		C91CA1F229C7FE6D00501D33 /* FDanmakuView.m in Sources */ = {isa = PBXBuildFile; fileRef = 485F26572940DCD100484CB6 /* FDanmakuView.m */; };
+		C91CA1F329C7FE6D00501D33 /* CALayer+Aimate.h in Headers */ = {isa = PBXBuildFile; fileRef = 485F26552940DCD100484CB6 /* CALayer+Aimate.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		C91CA1F429C7FE6D00501D33 /* FDanmakuModel.h in Headers */ = {isa = PBXBuildFile; fileRef = 485F26562940DCD100484CB6 /* FDanmakuModel.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		C91CA1F529C7FE6D00501D33 /* CALayer+Aimate.m in Sources */ = {isa = PBXBuildFile; fileRef = 485F26512940DCD100484CB6 /* CALayer+Aimate.m */; };
+		C91CA1F629C7FE7200501D33 /* QMessageBaseCell.h in Headers */ = {isa = PBXBuildFile; fileRef = 485F265E2940DCD100484CB6 /* QMessageBaseCell.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		C91CA1F729C7FE7200501D33 /* QTextMessageCell.h in Headers */ = {isa = PBXBuildFile; fileRef = 485F265C2940DCD100484CB6 /* QTextMessageCell.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		C91CA1F829C7FE7200501D33 /* QMessageBaseCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 485F265B2940DCD100484CB6 /* QMessageBaseCell.m */; };
+		C91CA1F929C7FE7200501D33 /* QTextMessageCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 485F26592940DCD100484CB6 /* QTextMessageCell.m */; };
+		C91CA1FA29C7FE7200501D33 /* QNGiftMessageCell.h in Headers */ = {isa = PBXBuildFile; fileRef = 485F265A2940DCD100484CB6 /* QNGiftMessageCell.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		C91CA1FB29C7FE7200501D33 /* QNGiftMessageCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 485F265D2940DCD100484CB6 /* QNGiftMessageCell.m */; };
+		C91CA1FC29C7FE7600501D33 /* LiveChatRoom.m in Sources */ = {isa = PBXBuildFile; fileRef = 485F265F2940DCD100484CB6 /* LiveChatRoom.m */; };
+		C91CA1FD29C7FE7600501D33 /* LiveChatRoom.h in Headers */ = {isa = PBXBuildFile; fileRef = 485F26602940DCD100484CB6 /* LiveChatRoom.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		C91CA1FE29C7FE8100501D33 /* QNPKInvitationListController.h in Headers */ = {isa = PBXBuildFile; fileRef = 485F262D2940DCBF00484CB6 /* QNPKInvitationListController.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		C91CA1FF29C7FE8100501D33 /* QNPKInvitationListController.m in Sources */ = {isa = PBXBuildFile; fileRef = 485F262C2940DCBF00484CB6 /* QNPKInvitationListController.m */; };
+		C91CA20029C7FE8600501D33 /* QNPKInvitationListCell.h in Headers */ = {isa = PBXBuildFile; fileRef = 485F262F2940DCBF00484CB6 /* QNPKInvitationListCell.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		C91CA20129C7FE8600501D33 /* QNPKInvitationListCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 485F26302940DCBF00484CB6 /* QNPKInvitationListCell.m */; };
+		C91CA20229C7FE8B00501D33 /* WacthRecordController.h in Headers */ = {isa = PBXBuildFile; fileRef = 485F26B62940DCF500484CB6 /* WacthRecordController.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		C91CA20329C7FE8B00501D33 /* ShopSellListController.m in Sources */ = {isa = PBXBuildFile; fileRef = 485F26B42940DCF500484CB6 /* ShopSellListController.m */; };
+		C91CA20429C7FE8B00501D33 /* ShopSellListController.h in Headers */ = {isa = PBXBuildFile; fileRef = 485F26B22940DCF500484CB6 /* ShopSellListController.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		C91CA20529C7FE8B00501D33 /* WacthRecordController.m in Sources */ = {isa = PBXBuildFile; fileRef = 485F26B32940DCF500484CB6 /* WacthRecordController.m */; };
+		C91CA20629C7FE8B00501D33 /* ShopBuyListController.m in Sources */ = {isa = PBXBuildFile; fileRef = 485F26B52940DCF500484CB6 /* ShopBuyListController.m */; };
+		C91CA20729C7FE8B00501D33 /* ShopBuyListController.h in Headers */ = {isa = PBXBuildFile; fileRef = 485F26B12940DCF500484CB6 /* ShopBuyListController.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		C91CA20829C7FE9200501D33 /* GoodBuyItemCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 485F268D2940DCF500484CB6 /* GoodBuyItemCell.m */; };
+		C91CA20929C7FE9200501D33 /* PSPopListView.m in Sources */ = {isa = PBXBuildFile; fileRef = 485F26922940DCF500484CB6 /* PSPopListView.m */; };
+		C91CA20A29C7FE9200501D33 /* UILabel+QAttributed.h in Headers */ = {isa = PBXBuildFile; fileRef = 485F268E2940DCF500484CB6 /* UILabel+QAttributed.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		C91CA20B29C7FE9200501D33 /* GoodSellItemCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 485F26902940DCF500484CB6 /* GoodSellItemCell.m */; };
+		C91CA20C29C7FE9200501D33 /* GoodsOperationView.h in Headers */ = {isa = PBXBuildFile; fileRef = 485F268C2940DCF500484CB6 /* GoodsOperationView.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		C91CA20D29C7FE9200501D33 /* GoodsOperationCell.h in Headers */ = {isa = PBXBuildFile; fileRef = 485F26892940DCF500484CB6 /* GoodsOperationCell.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		C91CA20E29C7FE9200501D33 /* PSPopListView.h in Headers */ = {isa = PBXBuildFile; fileRef = 485F26882940DCF500484CB6 /* PSPopListView.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		C91CA20F29C7FE9200501D33 /* ExplainingGoodView.h in Headers */ = {isa = PBXBuildFile; fileRef = 485F268F2940DCF500484CB6 /* ExplainingGoodView.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		C91CA21029C7FE9200501D33 /* GoodSellItemCell.h in Headers */ = {isa = PBXBuildFile; fileRef = 485F268A2940DCF500484CB6 /* GoodSellItemCell.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		C91CA21129C7FE9200501D33 /* GoodStatusView.m in Sources */ = {isa = PBXBuildFile; fileRef = 485F268B2940DCF500484CB6 /* GoodStatusView.m */; };
+		C91CA21229C7FE9200501D33 /* GoodsOperationCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 485F26912940DCF500484CB6 /* GoodsOperationCell.m */; };
+		C91CA21329C7FE9700501D33 /* QTagButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 485F26962940DCF500484CB6 /* QTagButton.m */; };
+		C91CA21429C7FE9700501D33 /* UILabel+QAttributed.m in Sources */ = {isa = PBXBuildFile; fileRef = 485F26992940DCF500484CB6 /* UILabel+QAttributed.m */; };
+		C91CA21529C7FE9700501D33 /* GoodStatusView.h in Headers */ = {isa = PBXBuildFile; fileRef = 485F269B2940DCF500484CB6 /* GoodStatusView.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		C91CA21629C7FE9700501D33 /* QTagList.m in Sources */ = {isa = PBXBuildFile; fileRef = 485F26972940DCF500484CB6 /* QTagList.m */; };
+		C91CA21729C7FE9700501D33 /* QTagList.h in Headers */ = {isa = PBXBuildFile; fileRef = 485F26952940DCF500484CB6 /* QTagList.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		C91CA21829C7FE9700501D33 /* GoodBuyItemCell.h in Headers */ = {isa = PBXBuildFile; fileRef = 485F26982940DCF500484CB6 /* GoodBuyItemCell.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		C91CA21929C7FE9700501D33 /* QTagButton.h in Headers */ = {isa = PBXBuildFile; fileRef = 485F26942940DCF500484CB6 /* QTagButton.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		C91CA21A29C7FE9700501D33 /* GoodsOperationView.m in Sources */ = {isa = PBXBuildFile; fileRef = 485F269A2940DCF500484CB6 /* GoodsOperationView.m */; };
+		C91CA21B29C7FE9E00501D33 /* QGCDTimerManager.h in Headers */ = {isa = PBXBuildFile; fileRef = 485F269D2940DCF500484CB6 /* QGCDTimerManager.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		C91CA21C29C7FEA100501D33 /* UINavigationController+QPlayerRotation.h in Headers */ = {isa = PBXBuildFile; fileRef = 485F26A22940DCF500484CB6 /* UINavigationController+QPlayerRotation.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		C91CA21D29C7FEA100501D33 /* UITabBarController+QPlayerRotation.h in Headers */ = {isa = PBXBuildFile; fileRef = 485F26A32940DCF500484CB6 /* UITabBarController+QPlayerRotation.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		C91CA21E29C7FEA100501D33 /* UITabBarController+QPlayerRotation.m in Sources */ = {isa = PBXBuildFile; fileRef = 485F26A12940DCF500484CB6 /* UITabBarController+QPlayerRotation.m */; };
+		C91CA21F29C7FEA100501D33 /* UIViewController+QPlayerRotation.m in Sources */ = {isa = PBXBuildFile; fileRef = 485F26A42940DCF500484CB6 /* UIViewController+QPlayerRotation.m */; };
+		C91CA22029C7FEA100501D33 /* UIViewController+QPlayerRotation.h in Headers */ = {isa = PBXBuildFile; fileRef = 485F26A02940DCF500484CB6 /* UIViewController+QPlayerRotation.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		C91CA22129C7FEA100501D33 /* UINavigationController+QPlayerRotation.m in Sources */ = {isa = PBXBuildFile; fileRef = 485F269F2940DCF500484CB6 /* UINavigationController+QPlayerRotation.m */; };
+		C91CA22229C7FEA600501D33 /* QPlayerMaskView.m in Sources */ = {isa = PBXBuildFile; fileRef = 485F26A82940DCF500484CB6 /* QPlayerMaskView.m */; };
+		C91CA22329C7FEA600501D33 /* QPlayerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 485F26A92940DCF500484CB6 /* QPlayerView.m */; };
+		C91CA22429C7FEA600501D33 /* QRotateAnimationView.h in Headers */ = {isa = PBXBuildFile; fileRef = 485F26A62940DCF500484CB6 /* QRotateAnimationView.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		C91CA22529C7FEA600501D33 /* QSlider.h in Headers */ = {isa = PBXBuildFile; fileRef = 485F26AA2940DCF500484CB6 /* QSlider.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		C91CA22629C7FEA600501D33 /* QRotateAnimationView.m in Sources */ = {isa = PBXBuildFile; fileRef = 485F26AB2940DCF500484CB6 /* QRotateAnimationView.m */; };
+		C91CA22729C7FEA600501D33 /* QPlayerMaskView.h in Headers */ = {isa = PBXBuildFile; fileRef = 485F26AC2940DCF500484CB6 /* QPlayerMaskView.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		C91CA22829C7FEA600501D33 /* QSlider.m in Sources */ = {isa = PBXBuildFile; fileRef = 485F26A72940DCF500484CB6 /* QSlider.m */; };
+		C91CA22929C7FEA600501D33 /* QPlayerView.h in Headers */ = {isa = PBXBuildFile; fileRef = 485F26AD2940DCF500484CB6 /* QPlayerView.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		C91CA22A29C7FEAA00501D33 /* ExplainingGoodView.m in Sources */ = {isa = PBXBuildFile; fileRef = 485F26AF2940DCF500484CB6 /* ExplainingGoodView.m */; };
+		C91CA22B29C7FEAA00501D33 /* QGCDTimerManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 485F26AE2940DCF500484CB6 /* QGCDTimerManager.m */; };
+		C91CA22C29C7FEBC00501D33 /* BeautyLiveViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = 485F25292940DB1E00484CB6 /* BeautyLiveViewController.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		C91CA22D29C7FEBC00501D33 /* QNBeautyManager.h in Headers */ = {isa = PBXBuildFile; fileRef = E3A97B26299F577D00922978 /* QNBeautyManager.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		C91CA22E29C7FEBC00501D33 /* BeautyBaseController.h in Headers */ = {isa = PBXBuildFile; fileRef = 485F252D2940DB1E00484CB6 /* BeautyBaseController.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		C91CA22F29C7FEBC00501D33 /* CreateBeautyLiveController.m in Sources */ = {isa = PBXBuildFile; fileRef = 485F252C2940DB1E00484CB6 /* CreateBeautyLiveController.m */; };
+		C91CA23129C7FEBC00501D33 /* BeautyLiveViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 485F252A2940DB1E00484CB6 /* BeautyLiveViewController.m */; };
+		C91CA23229C7FEBC00501D33 /* BeautyBaseController.m in Sources */ = {isa = PBXBuildFile; fileRef = 485F252E2940DB1E00484CB6 /* BeautyBaseController.m */; };
+		C91CA23329C7FEBC00501D33 /* CreateBeautyLiveController.h in Headers */ = {isa = PBXBuildFile; fileRef = 485F252B2940DB1E00484CB6 /* CreateBeautyLiveController.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		C91CA23429C7FEC400501D33 /* QNAudienceController.m in Sources */ = {isa = PBXBuildFile; fileRef = 485F240A2940DA6F00484CB6 /* QNAudienceController.m */; };
+		C91CA23529C7FEC400501D33 /* QNPayGiftViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 485F24142940DA6F00484CB6 /* QNPayGiftViewController.m */; };
+		C91CA23629C7FEC400501D33 /* QNAudienceController.h in Headers */ = {isa = PBXBuildFile; fileRef = 485F24092940DA6F00484CB6 /* QNAudienceController.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		C91CA23729C7FEC400501D33 /* QLiveListController.h in Headers */ = {isa = PBXBuildFile; fileRef = 485F24112940DA6F00484CB6 /* QLiveListController.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		C91CA23829C7FEC400501D33 /* QCreateLiveController.h in Headers */ = {isa = PBXBuildFile; fileRef = 485F240D2940DA6F00484CB6 /* QCreateLiveController.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		C91CA23929C7FEC400501D33 /* QNPayGiftViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = 485F24132940DA6F00484CB6 /* QNPayGiftViewController.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		C91CA23A29C7FEC400501D33 /* QNBaseRTCController.h in Headers */ = {isa = PBXBuildFile; fileRef = 485F240B2940DA6F00484CB6 /* QNBaseRTCController.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		C91CA23B29C7FEC400501D33 /* QNBaseRTCController.m in Sources */ = {isa = PBXBuildFile; fileRef = 485F240C2940DA6F00484CB6 /* QNBaseRTCController.m */; };
+		C91CA23C29C7FEC400501D33 /* QLiveController.h in Headers */ = {isa = PBXBuildFile; fileRef = 485F240F2940DA6F00484CB6 /* QLiveController.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		C91CA23D29C7FEC400501D33 /* QLiveController.m in Sources */ = {isa = PBXBuildFile; fileRef = 485F24102940DA6F00484CB6 /* QLiveController.m */; };
+		C91CA23E29C7FEC400501D33 /* QLiveListController.m in Sources */ = {isa = PBXBuildFile; fileRef = 485F24122940DA6F00484CB6 /* QLiveListController.m */; };
+		C91CA23F29C7FEC400501D33 /* QCreateLiveController.m in Sources */ = {isa = PBXBuildFile; fileRef = 485F240E2940DA6F00484CB6 /* QCreateLiveController.m */; };
+		C91CA24029C7FECB00501D33 /* QNVoiceCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 483AC931298A084F000F1B9E /* QNVoiceCollectionViewCell.m */; };
+		C91CA24129C7FECB00501D33 /* QNVoiceCollectionViewCell.h in Headers */ = {isa = PBXBuildFile; fileRef = 483AC930298A084F000F1B9E /* QNVoiceCollectionViewCell.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		C91CA24229C7FECF00501D33 /* QNLikeMenuView.h in Headers */ = {isa = PBXBuildFile; fileRef = 485F23CE2940DA6500484CB6 /* QNLikeMenuView.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		C91CA24329C7FECF00501D33 /* QNLikeBubbleView.m in Sources */ = {isa = PBXBuildFile; fileRef = 485F23D12940DA6500484CB6 /* QNLikeBubbleView.m */; };
+		C91CA24429C7FECF00501D33 /* QNLikeMenuView.m in Sources */ = {isa = PBXBuildFile; fileRef = 485F23CF2940DA6500484CB6 /* QNLikeMenuView.m */; };
+		C91CA24529C7FECF00501D33 /* QNLikeBubbleView.h in Headers */ = {isa = PBXBuildFile; fileRef = 485F23D02940DA6500484CB6 /* QNLikeBubbleView.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		C91CA24629C7FED500501D33 /* QGradient.h in Headers */ = {isa = PBXBuildFile; fileRef = 485F23D92940DA6500484CB6 /* QGradient.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		C91CA24729C7FED500501D33 /* QAlertView.h in Headers */ = {isa = PBXBuildFile; fileRef = 485F23D32940DA6500484CB6 /* QAlertView.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		C91CA24829C7FED500501D33 /* QRenderView.h in Headers */ = {isa = PBXBuildFile; fileRef = 485F23D52940DA6500484CB6 /* QRenderView.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		C91CA24929C7FED500501D33 /* QToastView.h in Headers */ = {isa = PBXBuildFile; fileRef = 485F23D72940DA6500484CB6 /* QToastView.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		C91CA24A29C7FED500501D33 /* QAlertView.m in Sources */ = {isa = PBXBuildFile; fileRef = 485F23D42940DA6500484CB6 /* QAlertView.m */; };
+		C91CA24B29C7FED500501D33 /* QRenderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 485F23D62940DA6500484CB6 /* QRenderView.m */; };
+		C91CA24C29C7FED500501D33 /* QToastView.m in Sources */ = {isa = PBXBuildFile; fileRef = 485F23D82940DA6500484CB6 /* QToastView.m */; };
+		C91CA24D29C7FED500501D33 /* QGradient.m in Sources */ = {isa = PBXBuildFile; fileRef = 485F23DA2940DA6500484CB6 /* QGradient.m */; };
+		C91CA24E29C7FEDA00501D33 /* QLiveView.h in Headers */ = {isa = PBXBuildFile; fileRef = 485F23E22940DA6500484CB6 /* QLiveView.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		C91CA24F29C7FEDA00501D33 /* ImageButtonView.h in Headers */ = {isa = PBXBuildFile; fileRef = 485F23DC2940DA6500484CB6 /* ImageButtonView.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		C91CA25029C7FEDA00501D33 /* LinkStateView.h in Headers */ = {isa = PBXBuildFile; fileRef = 485F23DE2940DA6500484CB6 /* LinkStateView.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		C91CA25129C7FEDA00501D33 /* QLiveView.m in Sources */ = {isa = PBXBuildFile; fileRef = 485F23E32940DA6500484CB6 /* QLiveView.m */; };
+		C91CA25229C7FEDA00501D33 /* RoomHostView.h in Headers */ = {isa = PBXBuildFile; fileRef = 485F23E42940DA6500484CB6 /* RoomHostView.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		C91CA25329C7FEDA00501D33 /* RoomHostView.m in Sources */ = {isa = PBXBuildFile; fileRef = 485F23E52940DA6500484CB6 /* RoomHostView.m */; };
+		C91CA25429C7FEDA00501D33 /* QNLiveStatisticView.h in Headers */ = {isa = PBXBuildFile; fileRef = 485F23E62940DA6500484CB6 /* QNLiveStatisticView.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		C91CA25529C7FEDA00501D33 /* QNLiveStatisticView.m in Sources */ = {isa = PBXBuildFile; fileRef = 485F23E72940DA6500484CB6 /* QNLiveStatisticView.m */; };
+		C91CA25629C7FEDA00501D33 /* LinkStateView.m in Sources */ = {isa = PBXBuildFile; fileRef = 485F23DF2940DA6500484CB6 /* LinkStateView.m */; };
+		C91CA25729C7FEDA00501D33 /* OnlineUserView.h in Headers */ = {isa = PBXBuildFile; fileRef = 485F23E02940DA6500484CB6 /* OnlineUserView.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		C91CA25829C7FEDA00501D33 /* OnlineUserView.m in Sources */ = {isa = PBXBuildFile; fileRef = 485F23E12940DA6500484CB6 /* OnlineUserView.m */; };
+		C91CA25929C7FEDA00501D33 /* ImageButtonView.m in Sources */ = {isa = PBXBuildFile; fileRef = 485F23DD2940DA6500484CB6 /* ImageButtonView.m */; };
+		C91CA25A29C7FEE000501D33 /* LiveBottomMoreView.h in Headers */ = {isa = PBXBuildFile; fileRef = 485F23EB2940DA6500484CB6 /* LiveBottomMoreView.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		C91CA25B29C7FEE000501D33 /* LiveBottomMoreView.m in Sources */ = {isa = PBXBuildFile; fileRef = 485F23EC2940DA6500484CB6 /* LiveBottomMoreView.m */; };
+		C91CA25C29C7FEE000501D33 /* BottomMenuView.m in Sources */ = {isa = PBXBuildFile; fileRef = 485F23EA2940DA6500484CB6 /* BottomMenuView.m */; };
+		C91CA25D29C7FEE000501D33 /* WatchBottomMoreView.h in Headers */ = {isa = PBXBuildFile; fileRef = 485F23ED2940DA6500484CB6 /* WatchBottomMoreView.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		C91CA25E29C7FEE000501D33 /* BottomMenuView.h in Headers */ = {isa = PBXBuildFile; fileRef = 485F23E92940DA6500484CB6 /* BottomMenuView.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		C91CA25F29C7FEE000501D33 /* WatchBottomMoreView.m in Sources */ = {isa = PBXBuildFile; fileRef = 485F23EE2940DA6500484CB6 /* WatchBottomMoreView.m */; };
+		C91CA26029C7FEE700501D33 /* QNGiftCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 485F23F12940DA6500484CB6 /* QNGiftCollectionViewCell.m */; };
+		C91CA26129C7FEE700501D33 /* QNHorizontalLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 485F23F52940DA6500484CB6 /* QNHorizontalLayout.m */; };
+		C91CA26229C7FEE700501D33 /* QNGiftCollectionViewCell.h in Headers */ = {isa = PBXBuildFile; fileRef = 485F23F02940DA6500484CB6 /* QNGiftCollectionViewCell.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		C91CA26329C7FEE700501D33 /* QNGiftMessageView.h in Headers */ = {isa = PBXBuildFile; fileRef = 485F23F62940DA6500484CB6 /* QNGiftMessageView.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		C91CA26429C7FEE700501D33 /* QNGiftView.m in Sources */ = {isa = PBXBuildFile; fileRef = 485F23F32940DA6500484CB6 /* QNGiftView.m */; };
+		C91CA26529C7FEE700501D33 /* QNGiftOperation.h in Headers */ = {isa = PBXBuildFile; fileRef = 485F23FA2940DA6500484CB6 /* QNGiftOperation.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		C91CA26629C7FEE700501D33 /* QNGiftView.h in Headers */ = {isa = PBXBuildFile; fileRef = 485F23F22940DA6500484CB6 /* QNGiftView.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		C91CA26729C7FEE700501D33 /* QNGiftPaySuccessView.m in Sources */ = {isa = PBXBuildFile; fileRef = 485F23FD2940DA6500484CB6 /* QNGiftPaySuccessView.m */; };
+		C91CA26829C7FEE700501D33 /* QNGiftMessageView.m in Sources */ = {isa = PBXBuildFile; fileRef = 485F23F72940DA6500484CB6 /* QNGiftMessageView.m */; };
+		C91CA26929C7FEE700501D33 /* QNHorizontalLayout.h in Headers */ = {isa = PBXBuildFile; fileRef = 485F23F42940DA6500484CB6 /* QNHorizontalLayout.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		C91CA26A29C7FEE700501D33 /* QNGiftMessagePannel.m in Sources */ = {isa = PBXBuildFile; fileRef = 485F23F92940DA6500484CB6 /* QNGiftMessagePannel.m */; };
+		C91CA26B29C7FEE700501D33 /* QNGiftMessagePannel.h in Headers */ = {isa = PBXBuildFile; fileRef = 485F23F82940DA6500484CB6 /* QNGiftMessagePannel.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		C91CA26C29C7FEE700501D33 /* QNGiftOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 485F23FB2940DA6500484CB6 /* QNGiftOperation.m */; };
+		C91CA26D29C7FEE700501D33 /* QNGiftPaySuccessView.h in Headers */ = {isa = PBXBuildFile; fileRef = 485F23FC2940DA6500484CB6 /* QNGiftPaySuccessView.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		C91CA26E29C7FEEC00501D33 /* DateTimePickerView.h in Headers */ = {isa = PBXBuildFile; fileRef = 485F24012940DA6500484CB6 /* DateTimePickerView.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		C91CA26F29C7FEEC00501D33 /* DateTimePickerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 485F24022940DA6500484CB6 /* DateTimePickerView.m */; };
+		C91CA27029C7FEEC00501D33 /* MXSCycleScrollView.h in Headers */ = {isa = PBXBuildFile; fileRef = 485F24032940DA6500484CB6 /* MXSCycleScrollView.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		C91CA27129C7FEEC00501D33 /* MXSCycleScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = 485F24042940DA6500484CB6 /* MXSCycleScrollView.m */; };
+		C91CA27229C7FEEC00501D33 /* QNLiveListCell.h in Headers */ = {isa = PBXBuildFile; fileRef = 485F24062940DA6500484CB6 /* QNLiveListCell.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		C91CA27329C7FEEC00501D33 /* QNLiveListCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 485F24072940DA6500484CB6 /* QNLiveListCell.m */; };
+		C91CA27429C7FEF500501D33 /* UIImage+QNImage.h in Headers */ = {isa = PBXBuildFile; fileRef = 485F27112940E32E00484CB6 /* UIImage+QNImage.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		C91CA27529C7FEF500501D33 /* UITableView+MoveCell.h in Headers */ = {isa = PBXBuildFile; fileRef = 485F270B2940E32E00484CB6 /* UITableView+MoveCell.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		C91CA27629C7FEF500501D33 /* CYProtocolManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 485F270D2940E32E00484CB6 /* CYProtocolManager.m */; };
+		C91CA27729C7FEF500501D33 /* CYProtocolManager.h in Headers */ = {isa = PBXBuildFile; fileRef = 485F270A2940E32E00484CB6 /* CYProtocolManager.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		C91CA27929C7FEF500501D33 /* UIViewController+QViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = 485F270E2940E32E00484CB6 /* UIViewController+QViewController.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		C91CA27A29C7FEF500501D33 /* NSDate+QDate.h in Headers */ = {isa = PBXBuildFile; fileRef = 485F27132940E32E00484CB6 /* NSDate+QDate.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		C91CA27B29C7FEF500501D33 /* QNConfigurationUI.m in Sources */ = {isa = PBXBuildFile; fileRef = C91CA15C29C415B900501D33 /* QNConfigurationUI.m */; };
+		C91CA27C29C7FEF500501D33 /* UITableView+MoveCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 485F270C2940E32E00484CB6 /* UITableView+MoveCell.m */; };
+		C91CA27D29C7FEF500501D33 /* QNLiveUIKit.h in Headers */ = {isa = PBXBuildFile; fileRef = 484C3AA02940D48E00640FE4 /* QNLiveUIKit.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		C91CA27E29C7FEF500501D33 /* QNLiveUIKit-PrefixHeader.pch in Headers */ = {isa = PBXBuildFile; fileRef = 484C3AC22940D62000640FE4 /* QNLiveUIKit-PrefixHeader.pch */; settings = {ATTRIBUTES = (Public, ); }; };
+		C91CA27F29C7FEF500501D33 /* NSDate+QDate.m in Sources */ = {isa = PBXBuildFile; fileRef = 485F27082940E32E00484CB6 /* NSDate+QDate.m */; };
+		C91CA28029C7FEF500501D33 /* QNConfigurationUI.h in Headers */ = {isa = PBXBuildFile; fileRef = C91CA15B29C415B900501D33 /* QNConfigurationUI.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		C91CA28129C7FEF500501D33 /* UIImage+QNImage.m in Sources */ = {isa = PBXBuildFile; fileRef = 485F27092940E32E00484CB6 /* UIImage+QNImage.m */; };
+		C9D2DB5529C82A3300D15755 /* QNLiveKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C9D2DB5429C82A3300D15755 /* QNLiveKit.framework */; };
+		C9D2DB5629C82A3300D15755 /* QNLiveKit.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = C9D2DB5429C82A3300D15755 /* QNLiveKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		C9D2DB5829C82A5C00D15755 /* QNIMSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 484C3AC42940D71400640FE4 /* QNIMSDK.framework */; platformFilter = ios; };
+		C9D2DB5929C82A5C00D15755 /* QNIMSDK.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 484C3AC42940D71400640FE4 /* QNIMSDK.framework */; platformFilter = ios; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		C9D2DB6729C83C0800D15755 /* UIViewController+QViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 485F27102940E32E00484CB6 /* UIViewController+QViewController.m */; };
+		C9D2DB6829C83C0900D15755 /* UIViewController+QViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 485F27102940E32E00484CB6 /* UIViewController+QViewController.m */; };
 		E379407C2990D67700E11A90 /* QNLicenseModel.h in Headers */ = {isa = PBXBuildFile; fileRef = E379407A2990D67700E11A90 /* QNLicenseModel.h */; };
 		E379407D2990D67700E11A90 /* QNLicenseModel.m in Sources */ = {isa = PBXBuildFile; fileRef = E379407B2990D67700E11A90 /* QNLicenseModel.m */; };
 		E3A97B28299F577D00922978 /* QNBeautyManager.h in Headers */ = {isa = PBXBuildFile; fileRef = E3A97B26299F577D00922978 /* QNBeautyManager.h */; };
 		E3A97B29299F577D00922978 /* QNBeautyManager.m in Sources */ = {isa = PBXBuildFile; fileRef = E3A97B27299F577D00922978 /* QNBeautyManager.m */; };
 		E3B907FE298B6AB600B96ADF /* QNLiveKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 485F27032940E12F00484CB6 /* QNLiveKit.framework */; };
-		F239C44CF0C70FB3E3E429EE /* Pods_QNLiveUIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 20908CABF435D1D23D595DDD /* Pods_QNLiveUIKit.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -355,10 +538,24 @@
 		};
 /* End PBXContainerItemProxy section */
 
+/* Begin PBXCopyFilesBuildPhase section */
+		C9D2DB5729C82A3300D15755 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				C9D2DB5929C82A5C00D15755 /* QNIMSDK.framework in Embed Frameworks */,
+				C9D2DB5629C82A3300D15755 /* QNLiveKit.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
-		20908CABF435D1D23D595DDD /* Pods_QNLiveUIKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_QNLiveUIKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		27C92F7C377A4B4168291660 /* Pods-QNLiveUIKitTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-QNLiveUIKitTests.release.xcconfig"; path = "Target Support Files/Pods-QNLiveUIKitTests/Pods-QNLiveUIKitTests.release.xcconfig"; sourceTree = "<group>"; };
-		38B8174D34C46A1A1B71348C /* Pods-QNLiveUIKitTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-QNLiveUIKitTests.debug.xcconfig"; path = "Target Support Files/Pods-QNLiveUIKitTests/Pods-QNLiveUIKitTests.debug.xcconfig"; sourceTree = "<group>"; };
+		1C16433F056EAADF912A5F68 /* Pods-QNLiveUIKit_Beauty.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-QNLiveUIKit_Beauty.debug.xcconfig"; path = "Target Support Files/Pods-QNLiveUIKit_Beauty/Pods-QNLiveUIKit_Beauty.debug.xcconfig"; sourceTree = "<group>"; };
+		26CC34C9C657224A06E32685 /* Pods-QNLiveUIKit_Beauty.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-QNLiveUIKit_Beauty.release.xcconfig"; path = "Target Support Files/Pods-QNLiveUIKit_Beauty/Pods-QNLiveUIKit_Beauty.release.xcconfig"; sourceTree = "<group>"; };
 		483AC930298A084F000F1B9E /* QNVoiceCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QNVoiceCollectionViewCell.h; sourceTree = "<group>"; };
 		483AC931298A084F000F1B9E /* QNVoiceCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QNVoiceCollectionViewCell.m; sourceTree = "<group>"; };
 		484C3A9D2940D48E00640FE4 /* QNLiveUIKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = QNLiveUIKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -700,13 +897,21 @@
 		485F27102940E32E00484CB6 /* UIViewController+QViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+QViewController.m"; sourceTree = "<group>"; };
 		485F27112940E32E00484CB6 /* UIImage+QNImage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+QNImage.h"; sourceTree = "<group>"; };
 		485F27132940E32E00484CB6 /* NSDate+QDate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDate+QDate.h"; sourceTree = "<group>"; };
-		53CF74E9CA939006D827C93C /* Pods_QNLiveUIKitTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_QNLiveUIKitTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		9FC5D5A9EFCAF2237533FBEB /* Pods-QNLiveUIKit.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-QNLiveUIKit.debug.xcconfig"; path = "Target Support Files/Pods-QNLiveUIKit/Pods-QNLiveUIKit.debug.xcconfig"; sourceTree = "<group>"; };
-		C9CC48CED01B886A7BB565CC /* Pods-QNLiveUIKit.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-QNLiveUIKit.release.xcconfig"; path = "Target Support Files/Pods-QNLiveUIKit/Pods-QNLiveUIKit.release.xcconfig"; sourceTree = "<group>"; };
+		809A245549E5F385A868828D /* Pods-QNLiveUIKit.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-QNLiveUIKit.debug.xcconfig"; path = "Target Support Files/Pods-QNLiveUIKit/Pods-QNLiveUIKit.debug.xcconfig"; sourceTree = "<group>"; };
+		8277E13BD337B0081738E11A /* Pods-QNLiveUIKitTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-QNLiveUIKitTests.release.xcconfig"; path = "Target Support Files/Pods-QNLiveUIKitTests/Pods-QNLiveUIKitTests.release.xcconfig"; sourceTree = "<group>"; };
+		925C02D90AD4B0C4D7B9807F /* Pods_QNLiveUIKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_QNLiveUIKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		934FC6682441E3B9CDE5E45E /* Pods_QNLiveUIKit_Beauty.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_QNLiveUIKit_Beauty.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		C91CA15B29C415B900501D33 /* QNConfigurationUI.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = QNConfigurationUI.h; sourceTree = "<group>"; };
+		C91CA15C29C415B900501D33 /* QNConfigurationUI.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = QNConfigurationUI.m; sourceTree = "<group>"; };
+		C91CA1B729C7FC5700501D33 /* QNLiveUIKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = QNLiveUIKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		C9D2DB5429C82A3300D15755 /* QNLiveKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = QNLiveKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		D77E6889D4AE9F4116CBEA87 /* Pods-QNLiveUIKit.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-QNLiveUIKit.release.xcconfig"; path = "Target Support Files/Pods-QNLiveUIKit/Pods-QNLiveUIKit.release.xcconfig"; sourceTree = "<group>"; };
 		E379407A2990D67700E11A90 /* QNLicenseModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = QNLicenseModel.h; sourceTree = "<group>"; };
 		E379407B2990D67700E11A90 /* QNLicenseModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = QNLicenseModel.m; sourceTree = "<group>"; };
 		E3A97B26299F577D00922978 /* QNBeautyManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = QNBeautyManager.h; sourceTree = "<group>"; };
 		E3A97B27299F577D00922978 /* QNBeautyManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = QNBeautyManager.m; sourceTree = "<group>"; };
+		E416B25A49C67B2668988E68 /* Pods_QNLiveUIKitTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_QNLiveUIKitTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		E87811CF88E41F2BD2FE2BCB /* Pods-QNLiveUIKitTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-QNLiveUIKitTests.debug.xcconfig"; path = "Target Support Files/Pods-QNLiveUIKitTests/Pods-QNLiveUIKitTests.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -716,13 +921,12 @@
 			files = (
 				484C3AC62940D71400640FE4 /* QNIMSDK.framework in Frameworks */,
 				48B2D40F29422CC00082A8D6 /* libSenseArSourceService.a in Frameworks */,
+				C9074B9C29C84BEB00761359 /* libst_mobile.a in Frameworks */,
 				484C3AC72940D71400640FE4 /* PLSTArEffects.framework in Frameworks */,
 				485F27002940DFC200484CB6 /* CoreServices.framework in Frameworks */,
 				E3B907FE298B6AB600B96ADF /* QNLiveKit.framework in Frameworks */,
-				48B2D41029422CC40082A8D6 /* libst_mobile.a in Frameworks */,
 				485F27022940DFC900484CB6 /* MapKit.framework in Frameworks */,
 				485F26FE2940DFB600484CB6 /* AssetsLibrary.framework in Frameworks */,
-				F239C44CF0C70FB3E3E429EE /* Pods_QNLiveUIKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -731,7 +935,16 @@
 			buildActionMask = 2147483647;
 			files = (
 				484C3AA62940D48E00640FE4 /* QNLiveUIKit.framework in Frameworks */,
-				670D286E1238CCE4D7E78507 /* Pods_QNLiveUIKitTests.framework in Frameworks */,
+				793EF3472ADDCFC2BF2A8B18 /* Pods_QNLiveUIKitTests.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C91CA1B429C7FC5700501D33 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C9D2DB5529C82A3300D15755 /* QNLiveKit.framework in Frameworks */,
+				C9D2DB5829C82A5C00D15755 /* QNIMSDK.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -765,6 +978,7 @@
 			children = (
 				484C3A9D2940D48E00640FE4 /* QNLiveUIKit.framework */,
 				484C3AA52940D48E00640FE4 /* QNLiveUIKitTests.xctest */,
+				C91CA1B729C7FC5700501D33 /* QNLiveUIKit.framework */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -791,6 +1005,8 @@
 				485F27072940E1FB00484CB6 /* Tools */,
 				484C3AA02940D48E00640FE4 /* QNLiveUIKit.h */,
 				484C3AC22940D62000640FE4 /* QNLiveUIKit-PrefixHeader.pch */,
+				C91CA15B29C415B900501D33 /* QNConfigurationUI.h */,
+				C91CA15C29C415B900501D33 /* QNConfigurationUI.m */,
 			);
 			path = QNLiveUIKit;
 			sourceTree = "<group>";
@@ -1538,10 +1754,12 @@
 		D3FA116ABD2D472388CAB289 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				9FC5D5A9EFCAF2237533FBEB /* Pods-QNLiveUIKit.debug.xcconfig */,
-				C9CC48CED01B886A7BB565CC /* Pods-QNLiveUIKit.release.xcconfig */,
-				38B8174D34C46A1A1B71348C /* Pods-QNLiveUIKitTests.debug.xcconfig */,
-				27C92F7C377A4B4168291660 /* Pods-QNLiveUIKitTests.release.xcconfig */,
+				1C16433F056EAADF912A5F68 /* Pods-QNLiveUIKit_Beauty.debug.xcconfig */,
+				26CC34C9C657224A06E32685 /* Pods-QNLiveUIKit_Beauty.release.xcconfig */,
+				E87811CF88E41F2BD2FE2BCB /* Pods-QNLiveUIKitTests.debug.xcconfig */,
+				8277E13BD337B0081738E11A /* Pods-QNLiveUIKitTests.release.xcconfig */,
+				809A245549E5F385A868828D /* Pods-QNLiveUIKit.debug.xcconfig */,
+				D77E6889D4AE9F4116CBEA87 /* Pods-QNLiveUIKit.release.xcconfig */,
 			);
 			path = Pods;
 			sourceTree = "<group>";
@@ -1549,12 +1767,14 @@
 		E27D764BB5B3E2BC723A3608 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				C9D2DB5429C82A3300D15755 /* QNLiveKit.framework */,
 				485F27032940E12F00484CB6 /* QNLiveKit.framework */,
 				485F27012940DFC900484CB6 /* MapKit.framework */,
 				485F26FF2940DFC200484CB6 /* CoreServices.framework */,
 				485F26FD2940DFB600484CB6 /* AssetsLibrary.framework */,
-				20908CABF435D1D23D595DDD /* Pods_QNLiveUIKit.framework */,
-				53CF74E9CA939006D827C93C /* Pods_QNLiveUIKitTests.framework */,
+				934FC6682441E3B9CDE5E45E /* Pods_QNLiveUIKit_Beauty.framework */,
+				E416B25A49C67B2668988E68 /* Pods_QNLiveUIKitTests.framework */,
+				925C02D90AD4B0C4D7B9807F /* Pods_QNLiveUIKit.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -1628,6 +1848,7 @@
 				48B2D42329422D1C0082A8D6 /* QRenderView.h in Headers */,
 				48B2D3D329422B5D0082A8D6 /* STTitleViewItem.h in Headers */,
 				48B2D3EA29422B5D0082A8D6 /* STMakeupDataModel.h in Headers */,
+				C91CA15D29C415B900501D33 /* QNConfigurationUI.h in Headers */,
 				48B2D48129422E290082A8D6 /* EFMaterialDownloadStatusManager.h in Headers */,
 				48B2D47829422E290082A8D6 /* EFRemoteDataSourceHelper.h in Headers */,
 				48B2D3D029422B5D0082A8D6 /* STSlideView.h in Headers */,
@@ -1735,14 +1956,111 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		C91CA1B229C7FC5700501D33 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C91CA24629C7FED500501D33 /* QGradient.h in Headers */,
+				C91CA23729C7FEC400501D33 /* QLiveListController.h in Headers */,
+				C91CA27929C7FEF500501D33 /* UIViewController+QViewController.h in Headers */,
+				C91CA1E229C7FE5F00501D33 /* QNTextMessageCell.h in Headers */,
+				C91CA24529C7FECF00501D33 /* QNLikeBubbleView.h in Headers */,
+				C91CA24229C7FECF00501D33 /* QNLikeMenuView.h in Headers */,
+				C91CA1F329C7FE6D00501D33 /* CALayer+Aimate.h in Headers */,
+				C91CA21529C7FE9700501D33 /* GoodStatusView.h in Headers */,
+				C91CA27E29C7FEF500501D33 /* QNLiveUIKit-PrefixHeader.pch in Headers */,
+				C91CA25029C7FEDA00501D33 /* LinkStateView.h in Headers */,
+				C91CA1D929C7FE5A00501D33 /* QNInputBarControl.h in Headers */,
+				C91CA26229C7FEE700501D33 /* QNGiftCollectionViewCell.h in Headers */,
+				C91CA20729C7FE8B00501D33 /* ShopBuyListController.h in Headers */,
+				C91CA21D29C7FEA100501D33 /* UITabBarController+QPlayerRotation.h in Headers */,
+				C91CA25E29C7FEE000501D33 /* BottomMenuView.h in Headers */,
+				C91CA26D29C7FEE700501D33 /* QNGiftPaySuccessView.h in Headers */,
+				C91CA1D129C7FE5400501D33 /* RoomHostSlot.h in Headers */,
+				C91CA26629C7FEE700501D33 /* QNGiftView.h in Headers */,
+				C91CA22729C7FEA600501D33 /* QPlayerMaskView.h in Headers */,
+				C91CA1FD29C7FE7600501D33 /* LiveChatRoom.h in Headers */,
+				C91CA20C29C7FE9200501D33 /* GoodsOperationView.h in Headers */,
+				C91CA27529C7FEF500501D33 /* UITableView+MoveCell.h in Headers */,
+				C91CA21829C7FE9700501D33 /* GoodBuyItemCell.h in Headers */,
+				C91CA21C29C7FEA100501D33 /* UINavigationController+QPlayerRotation.h in Headers */,
+				C91CA22429C7FEA600501D33 /* QRotateAnimationView.h in Headers */,
+				C91CA1EB29C7FE6700501D33 /* QInputView.h in Headers */,
+				C91CA25D29C7FEE000501D33 /* WatchBottomMoreView.h in Headers */,
+				C91CA1D229C7FE5400501D33 /* ItemSlot.h in Headers */,
+				C91CA20D29C7FE9200501D33 /* GoodsOperationCell.h in Headers */,
+				C91CA22029C7FEA100501D33 /* UIViewController+QPlayerRotation.h in Headers */,
+				C91CA24F29C7FEDA00501D33 /* ImageButtonView.h in Headers */,
+				C91CA1CF29C7FE5400501D33 /* BottomMenuSlot.h in Headers */,
+				C91CA1E829C7FE6700501D33 /* QEmojiCollectionCell.h in Headers */,
+				C91CA26B29C7FEE700501D33 /* QNGiftMessagePannel.h in Headers */,
+				C91CA23C29C7FEC400501D33 /* QLiveController.h in Headers */,
+				C91CA1EF29C7FE6D00501D33 /* FDanmakuModelProtocol.h in Headers */,
+				C91CA21929C7FE9700501D33 /* QTagButton.h in Headers */,
+				C91CA20A29C7FE9200501D33 /* UILabel+QAttributed.h in Headers */,
+				C91CA21B29C7FE9E00501D33 /* QGCDTimerManager.h in Headers */,
+				C91CA20E29C7FE9200501D33 /* PSPopListView.h in Headers */,
+				C91CA24E29C7FEDA00501D33 /* QLiveView.h in Headers */,
+				C91CA25229C7FEDA00501D33 /* RoomHostView.h in Headers */,
+				C91CA23929C7FEC400501D33 /* QNPayGiftViewController.h in Headers */,
+				C91CA23329C7FEBC00501D33 /* CreateBeautyLiveController.h in Headers */,
+				C91CA22929C7FEA600501D33 /* QPlayerView.h in Headers */,
+				C91CA27429C7FEF500501D33 /* UIImage+QNImage.h in Headers */,
+				C91CA1D029C7FE5400501D33 /* QNInternalViewSlot.h in Headers */,
+				C91CA25429C7FEDA00501D33 /* QNLiveStatisticView.h in Headers */,
+				C91CA25729C7FEDA00501D33 /* OnlineUserView.h in Headers */,
+				C91CA27229C7FEEC00501D33 /* QNLiveListCell.h in Headers */,
+				C91CA21729C7FE9700501D33 /* QTagList.h in Headers */,
+				C91CA20429C7FE8B00501D33 /* ShopSellListController.h in Headers */,
+				C91CA1FE29C7FE8100501D33 /* QNPKInvitationListController.h in Headers */,
+				C91CA26E29C7FEEC00501D33 /* DateTimePickerView.h in Headers */,
+				C91CA26929C7FEE700501D33 /* QNHorizontalLayout.h in Headers */,
+				C91CA22529C7FEA600501D33 /* QSlider.h in Headers */,
+				C91CA28029C7FEF500501D33 /* QNConfigurationUI.h in Headers */,
+				C91CA1F729C7FE7200501D33 /* QTextMessageCell.h in Headers */,
+				C91CA1DC29C7FE5A00501D33 /* QNInputView.h in Headers */,
+				C91CA23A29C7FEC400501D33 /* QNBaseRTCController.h in Headers */,
+				C91CA23629C7FEC400501D33 /* QNAudienceController.h in Headers */,
+				C91CA24929C7FED500501D33 /* QToastView.h in Headers */,
+				C91CA21029C7FE9200501D33 /* GoodSellItemCell.h in Headers */,
+				C91CA1ED29C7FE6700501D33 /* QEmojiBoardView.h in Headers */,
+				C91CA20229C7FE8B00501D33 /* WacthRecordController.h in Headers */,
+				C91CA1E029C7FE5A00501D33 /* QNEmojiBoardView.h in Headers */,
+				C91CA1E129C7FE5A00501D33 /* QNEmojiCollectionCell.h in Headers */,
+				C91CA1F029C7FE6D00501D33 /* FDanmakuView.h in Headers */,
+				C91CA27A29C7FEF500501D33 /* NSDate+QDate.h in Headers */,
+				C91CA24729C7FED500501D33 /* QAlertView.h in Headers */,
+				C91CA1EE29C7FE6700501D33 /* QInputBarControl.h in Headers */,
+				C91CA23829C7FEC400501D33 /* QCreateLiveController.h in Headers */,
+				C91CA1E429C7FE5F00501D33 /* QNMessageBaseCell.h in Headers */,
+				C91CA27729C7FEF500501D33 /* CYProtocolManager.h in Headers */,
+				C91CA1F629C7FE7200501D33 /* QMessageBaseCell.h in Headers */,
+				C91CA20F29C7FE9200501D33 /* ExplainingGoodView.h in Headers */,
+				C91CA24829C7FED500501D33 /* QRenderView.h in Headers */,
+				C91CA1F429C7FE6D00501D33 /* FDanmakuModel.h in Headers */,
+				C91CA22D29C7FEBC00501D33 /* QNBeautyManager.h in Headers */,
+				C91CA26329C7FEE700501D33 /* QNGiftMessageView.h in Headers */,
+				C91CA20029C7FE8600501D33 /* QNPKInvitationListCell.h in Headers */,
+				C91CA22C29C7FEBC00501D33 /* BeautyLiveViewController.h in Headers */,
+				C91CA27D29C7FEF500501D33 /* QNLiveUIKit.h in Headers */,
+				C91CA27029C7FEEC00501D33 /* MXSCycleScrollView.h in Headers */,
+				C91CA26529C7FEE700501D33 /* QNGiftOperation.h in Headers */,
+				C91CA25A29C7FEE000501D33 /* LiveBottomMoreView.h in Headers */,
+				C91CA24129C7FECB00501D33 /* QNVoiceCollectionViewCell.h in Headers */,
+				C91CA22E29C7FEBC00501D33 /* BeautyBaseController.h in Headers */,
+				C91CA1D729C7FE5400501D33 /* OnlineUserSlot.h in Headers */,
+				C91CA1FA29C7FE7200501D33 /* QNGiftMessageCell.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXHeadersBuildPhase section */
 
 /* Begin PBXNativeTarget section */
-		484C3A9C2940D48E00640FE4 /* QNLiveUIKit */ = {
+		484C3A9C2940D48E00640FE4 /* QNLiveUIKit_Beauty */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 484C3AAF2940D48E00640FE4 /* Build configuration list for PBXNativeTarget "QNLiveUIKit" */;
+			buildConfigurationList = 484C3AAF2940D48E00640FE4 /* Build configuration list for PBXNativeTarget "QNLiveUIKit_Beauty" */;
 			buildPhases = (
-				2BE99329B00636A1A7F93BFC /* [CP] Check Pods Manifest.lock */,
+				C4C7EA70B4AE4C9F67B94478 /* [CP] Check Pods Manifest.lock */,
 				484C3A982940D48E00640FE4 /* Headers */,
 				484C3A992940D48E00640FE4 /* Sources */,
 				484C3A9A2940D48E00640FE4 /* Frameworks */,
@@ -1752,7 +2070,7 @@
 			);
 			dependencies = (
 			);
-			name = QNLiveUIKit;
+			name = QNLiveUIKit_Beauty;
 			productName = QNLiveUIKit;
 			productReference = 484C3A9D2940D48E00640FE4 /* QNLiveUIKit.framework */;
 			productType = "com.apple.product-type.framework";
@@ -1761,7 +2079,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 484C3AB22940D48E00640FE4 /* Build configuration list for PBXNativeTarget "QNLiveUIKitTests" */;
 			buildPhases = (
-				D5109FA39D3A47F04DE49A27 /* [CP] Check Pods Manifest.lock */,
+				430853FEAA8EA1ED2CDA6DC8 /* [CP] Check Pods Manifest.lock */,
 				484C3AA12940D48E00640FE4 /* Sources */,
 				484C3AA22940D48E00640FE4 /* Frameworks */,
 				484C3AA32940D48E00640FE4 /* Resources */,
@@ -1775,6 +2093,26 @@
 			productName = QNLiveUIKitTests;
 			productReference = 484C3AA52940D48E00640FE4 /* QNLiveUIKitTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		C91CA1B629C7FC5700501D33 /* QNLiveUIKit_NO_Beauty */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = C91CA1C829C7FC5800501D33 /* Build configuration list for PBXNativeTarget "QNLiveUIKit_NO_Beauty" */;
+			buildPhases = (
+				0BF903D51324D6EA80FFAA3E /* [CP] Check Pods Manifest.lock */,
+				C91CA1B229C7FC5700501D33 /* Headers */,
+				C91CA1B329C7FC5700501D33 /* Sources */,
+				C91CA1B429C7FC5700501D33 /* Frameworks */,
+				C91CA1B529C7FC5700501D33 /* Resources */,
+				C9D2DB5729C82A3300D15755 /* Embed Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = QNLiveUIKit_NO_Beauty;
+			productName = QNLiveUIKit_Beauty;
+			productReference = C91CA1B729C7FC5700501D33 /* QNLiveUIKit.framework */;
+			productType = "com.apple.product-type.framework";
 		};
 /* End PBXNativeTarget section */
 
@@ -1791,6 +2129,9 @@
 					484C3AA42940D48E00640FE4 = {
 						CreatedOnToolsVersion = 13.4.1;
 					};
+					C91CA1B629C7FC5700501D33 = {
+						CreatedOnToolsVersion = 14.2;
+					};
 				};
 			};
 			buildConfigurationList = 484C3A972940D48E00640FE4 /* Build configuration list for PBXProject "QNLiveUIKit" */;
@@ -1806,8 +2147,9 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				484C3A9C2940D48E00640FE4 /* QNLiveUIKit */,
 				484C3AA42940D48E00640FE4 /* QNLiveUIKitTests */,
+				C91CA1B629C7FC5700501D33 /* QNLiveUIKit_NO_Beauty */,
+				484C3A9C2940D48E00640FE4 /* QNLiveUIKit_Beauty */,
 			);
 		};
 /* End PBXProject section */
@@ -1832,10 +2174,19 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		C91CA1B529C7FC5700501D33 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C91CA1DD29C7FE5A00501D33 /* ISEmojiList.plist in Resources */,
+				C91CA1E629C7FE6700501D33 /* EmojiList.plist in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		2BE99329B00636A1A7F93BFC /* [CP] Check Pods Manifest.lock */ = {
+		0BF903D51324D6EA80FFAA3E /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -1857,7 +2208,7 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
-		D5109FA39D3A47F04DE49A27 /* [CP] Check Pods Manifest.lock */ = {
+		430853FEAA8EA1ED2CDA6DC8 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -1879,6 +2230,28 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
+		C4C7EA70B4AE4C9F67B94478 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-QNLiveUIKit_Beauty-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -1893,6 +2266,7 @@
 				48B2D3A229422A360082A8D6 /* STColorConversion.m in Sources */,
 				485F26342940DCBF00484CB6 /* QNPKInvitationListCell.m in Sources */,
 				48B2D47129422E290082A8D6 /* EFStorageHelper.m in Sources */,
+				C91CA15E29C415B900501D33 /* QNConfigurationUI.m in Sources */,
 				E379407D2990D67700E11A90 /* QNLicenseModel.m in Sources */,
 				48B2D3DE29422B5D0082A8D6 /* STBMPDetailColV.m in Sources */,
 				48B2D3AB29422A650082A8D6 /* NSData+meterialAes.m in Sources */,
@@ -1970,7 +2344,6 @@
 				485F26C52940DCF600484CB6 /* QTagList.m in Sources */,
 				48B2D41E29422D160082A8D6 /* QNLikeBubbleView.m in Sources */,
 				48B2D384294225AC0082A8D6 /* QAlertView.m in Sources */,
-				485F271C2940E32E00484CB6 /* UIViewController+QViewController.m in Sources */,
 				48B2D4A929422F0B0082A8D6 /* QNBaseRTCController.m in Sources */,
 				485F26BA2940DCF600484CB6 /* GoodStatusView.m in Sources */,
 				48B2D3BA29422B540082A8D6 /* STTriggerView.m in Sources */,
@@ -2037,6 +2410,7 @@
 				48B2D44629422DEF0082A8D6 /* EFSenseArMaterialDataModels.m in Sources */,
 				48B2D385294225B20082A8D6 /* QRenderView.m in Sources */,
 				48B2D43129422D930082A8D6 /* STCoreStateManagementModel.m in Sources */,
+				C9D2DB6829C83C0900D15755 /* UIViewController+QViewController.m in Sources */,
 				48B2D39C29422A020082A8D6 /* STConvert.m in Sources */,
 				485F26D02940DCF600484CB6 /* UIViewController+QPlayerRotation.m in Sources */,
 			);
@@ -2050,12 +2424,105 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		C91CA1B329C7FC5700501D33 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C91CA1EC29C7FE6700501D33 /* QEmojiCollectionCell.m in Sources */,
+				C91CA23D29C7FEC400501D33 /* QLiveController.m in Sources */,
+				C91CA27329C7FEEC00501D33 /* QNLiveListCell.m in Sources */,
+				C91CA24029C7FECB00501D33 /* QNVoiceCollectionViewCell.m in Sources */,
+				C91CA1FF29C7FE8100501D33 /* QNPKInvitationListController.m in Sources */,
+				C91CA23F29C7FEC400501D33 /* QCreateLiveController.m in Sources */,
+				C91CA23429C7FEC400501D33 /* QNAudienceController.m in Sources */,
+				C91CA21629C7FE9700501D33 /* QTagList.m in Sources */,
+				C91CA25F29C7FEE000501D33 /* WatchBottomMoreView.m in Sources */,
+				C91CA21E29C7FEA100501D33 /* UITabBarController+QPlayerRotation.m in Sources */,
+				C91CA1E929C7FE6700501D33 /* QInputView.m in Sources */,
+				C91CA1F129C7FE6D00501D33 /* FDanmakuModel.m in Sources */,
+				C91CA26729C7FEE700501D33 /* QNGiftPaySuccessView.m in Sources */,
+				C91CA20329C7FE8B00501D33 /* ShopSellListController.m in Sources */,
+				C91CA22F29C7FEBC00501D33 /* CreateBeautyLiveController.m in Sources */,
+				C91CA1D829C7FE5400501D33 /* QNInternalViewSlot.m in Sources */,
+				C91CA1FB29C7FE7200501D33 /* QNGiftMessageCell.m in Sources */,
+				C91CA20129C7FE8600501D33 /* QNPKInvitationListCell.m in Sources */,
+				C91CA25829C7FEDA00501D33 /* OnlineUserView.m in Sources */,
+				C91CA20629C7FE8B00501D33 /* ShopBuyListController.m in Sources */,
+				C91CA23529C7FEC400501D33 /* QNPayGiftViewController.m in Sources */,
+				C91CA25C29C7FEE000501D33 /* BottomMenuView.m in Sources */,
+				C91CA23229C7FEBC00501D33 /* BeautyBaseController.m in Sources */,
+				C91CA1F829C7FE7200501D33 /* QMessageBaseCell.m in Sources */,
+				C91CA21429C7FE9700501D33 /* UILabel+QAttributed.m in Sources */,
+				C91CA20929C7FE9200501D33 /* PSPopListView.m in Sources */,
+				C91CA1FC29C7FE7600501D33 /* LiveChatRoom.m in Sources */,
+				C9D2DB6729C83C0800D15755 /* UIViewController+QViewController.m in Sources */,
+				C91CA26429C7FEE700501D33 /* QNGiftView.m in Sources */,
+				C91CA1DB29C7FE5A00501D33 /* QNEmojiCollectionCell.m in Sources */,
+				C91CA24C29C7FED500501D33 /* QToastView.m in Sources */,
+				C91CA1DE29C7FE5A00501D33 /* QNInputView.m in Sources */,
+				C91CA22229C7FEA600501D33 /* QPlayerMaskView.m in Sources */,
+				C91CA21F29C7FEA100501D33 /* UIViewController+QPlayerRotation.m in Sources */,
+				C91CA1D329C7FE5400501D33 /* RoomHostSlot.m in Sources */,
+				C91CA1E729C7FE6700501D33 /* QEmojiBoardView.m in Sources */,
+				C91CA27B29C7FEF500501D33 /* QNConfigurationUI.m in Sources */,
+				C91CA1D529C7FE5400501D33 /* ItemSlot.m in Sources */,
+				C91CA21A29C7FE9700501D33 /* GoodsOperationView.m in Sources */,
+				C91CA24A29C7FED500501D33 /* QAlertView.m in Sources */,
+				C91CA1E329C7FE5F00501D33 /* QNMessageBaseCell.m in Sources */,
+				C91CA27629C7FEF500501D33 /* CYProtocolManager.m in Sources */,
+				C91CA25929C7FEDA00501D33 /* ImageButtonView.m in Sources */,
+				C91CA22329C7FEA600501D33 /* QPlayerView.m in Sources */,
+				C91CA26129C7FEE700501D33 /* QNHorizontalLayout.m in Sources */,
+				C91CA20529C7FE8B00501D33 /* WacthRecordController.m in Sources */,
+				C91CA26C29C7FEE700501D33 /* QNGiftOperation.m in Sources */,
+				C91CA20B29C7FE9200501D33 /* GoodSellItemCell.m in Sources */,
+				C91CA1DF29C7FE5A00501D33 /* QNEmojiBoardView.m in Sources */,
+				C91CA22829C7FEA600501D33 /* QSlider.m in Sources */,
+				C91CA23129C7FEBC00501D33 /* BeautyLiveViewController.m in Sources */,
+				C91CA1E529C7FE5F00501D33 /* QNTextMessageCell.m in Sources */,
+				C91CA25629C7FEDA00501D33 /* LinkStateView.m in Sources */,
+				C91CA27129C7FEEC00501D33 /* MXSCycleScrollView.m in Sources */,
+				C91CA26029C7FEE700501D33 /* QNGiftCollectionViewCell.m in Sources */,
+				C91CA23B29C7FEC400501D33 /* QNBaseRTCController.m in Sources */,
+				C91CA1DA29C7FE5A00501D33 /* QNInputBarControl.m in Sources */,
+				C91CA22629C7FEA600501D33 /* QRotateAnimationView.m in Sources */,
+				C91CA28129C7FEF500501D33 /* UIImage+QNImage.m in Sources */,
+				C91CA21129C7FE9200501D33 /* GoodStatusView.m in Sources */,
+				C91CA24B29C7FED500501D33 /* QRenderView.m in Sources */,
+				C91CA22B29C7FEAA00501D33 /* QGCDTimerManager.m in Sources */,
+				C91CA24D29C7FED500501D33 /* QGradient.m in Sources */,
+				C91CA21329C7FE9700501D33 /* QTagButton.m in Sources */,
+				C91CA25529C7FEDA00501D33 /* QNLiveStatisticView.m in Sources */,
+				C91CA24429C7FECF00501D33 /* QNLikeMenuView.m in Sources */,
+				C91CA25129C7FEDA00501D33 /* QLiveView.m in Sources */,
+				C91CA27F29C7FEF500501D33 /* NSDate+QDate.m in Sources */,
+				C91CA26A29C7FEE700501D33 /* QNGiftMessagePannel.m in Sources */,
+				C91CA1D429C7FE5400501D33 /* OnlineUserSlot.m in Sources */,
+				C91CA22129C7FEA100501D33 /* UINavigationController+QPlayerRotation.m in Sources */,
+				C91CA26829C7FEE700501D33 /* QNGiftMessageView.m in Sources */,
+				C91CA1F529C7FE6D00501D33 /* CALayer+Aimate.m in Sources */,
+				C91CA24329C7FECF00501D33 /* QNLikeBubbleView.m in Sources */,
+				C91CA1F929C7FE7200501D33 /* QTextMessageCell.m in Sources */,
+				C91CA23E29C7FEC400501D33 /* QLiveListController.m in Sources */,
+				C91CA22A29C7FEAA00501D33 /* ExplainingGoodView.m in Sources */,
+				C91CA20829C7FE9200501D33 /* GoodBuyItemCell.m in Sources */,
+				C91CA27C29C7FEF500501D33 /* UITableView+MoveCell.m in Sources */,
+				C91CA21229C7FE9200501D33 /* GoodsOperationCell.m in Sources */,
+				C91CA1EA29C7FE6700501D33 /* QInputBarControl.m in Sources */,
+				C91CA1F229C7FE6D00501D33 /* FDanmakuView.m in Sources */,
+				C91CA1D629C7FE5400501D33 /* BottomMenuSlot.m in Sources */,
+				C91CA25B29C7FEE000501D33 /* LiveBottomMoreView.m in Sources */,
+				C91CA25329C7FEDA00501D33 /* RoomHostView.m in Sources */,
+				C91CA26F29C7FEEC00501D33 /* DateTimePickerView.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
 		484C3AA82940D48E00640FE4 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 484C3A9C2940D48E00640FE4 /* QNLiveUIKit */;
+			target = 484C3A9C2940D48E00640FE4 /* QNLiveUIKit_Beauty */;
 			targetProxy = 484C3AA72940D48E00640FE4 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
@@ -2179,7 +2646,7 @@
 		};
 		484C3AB02940D48E00640FE4 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 9FC5D5A9EFCAF2237533FBEB /* Pods-QNLiveUIKit.debug.xcconfig */;
+			baseConfigurationReference = 1C16433F056EAADF912A5F68 /* Pods-QNLiveUIKit_Beauty.debug.xcconfig */;
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
@@ -2205,6 +2672,11 @@
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "$(PROJECT_DIR)/QNLiveUIKit/QNLiveUIKit-PrefixHeader.pch";
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"$(inherited)",
+					"COCOAPODS=1",
+					"useBeauty=1",
+				);
 				GENERATE_INFOPLIST_FILE = YES;
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
@@ -2219,6 +2691,7 @@
 					"\"${PODS_CONFIGURATION_BUILD_DIR}/YYCategories/YYCategories.framework/Headers\"",
 					"\"$(SRCROOT)/QNLiveUIKit/Beauty/Effect/EFDataSoure\"",
 				);
+				IBC_MODULE = "$(PRODUCT_MODULE_NAME)";
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -2234,7 +2707,8 @@
 				MACH_O_TYPE = staticlib;
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.qiniu.QNLiveUIKit;
-				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				PRODUCT_MODULE_NAME = QNLiveUIKit;
+				PRODUCT_NAME = QNLiveUIKit;
 				SKIP_INSTALL = YES;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -2243,7 +2717,7 @@
 		};
 		484C3AB12940D48E00640FE4 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = C9CC48CED01B886A7BB565CC /* Pods-QNLiveUIKit.release.xcconfig */;
+			baseConfigurationReference = 26CC34C9C657224A06E32685 /* Pods-QNLiveUIKit_Beauty.release.xcconfig */;
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
@@ -2269,6 +2743,11 @@
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "$(PROJECT_DIR)/QNLiveUIKit/QNLiveUIKit-PrefixHeader.pch";
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"$(inherited)",
+					"COCOAPODS=1",
+					"useBeauty=1",
+				);
 				GENERATE_INFOPLIST_FILE = YES;
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
@@ -2283,6 +2762,7 @@
 					"\"${PODS_CONFIGURATION_BUILD_DIR}/YYCategories/YYCategories.framework/Headers\"",
 					"\"$(SRCROOT)/QNLiveUIKit/Beauty/Effect/EFDataSoure\"",
 				);
+				IBC_MODULE = "$(PRODUCT_MODULE_NAME)";
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -2299,7 +2779,8 @@
 				MARKETING_VERSION = 1.0;
 				ONLY_ACTIVE_ARCH = YES;
 				PRODUCT_BUNDLE_IDENTIFIER = com.qiniu.QNLiveUIKit;
-				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				PRODUCT_MODULE_NAME = QNLiveUIKit;
+				PRODUCT_NAME = QNLiveUIKit;
 				SKIP_INSTALL = YES;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -2308,7 +2789,7 @@
 		};
 		484C3AB32940D48E00640FE4 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 38B8174D34C46A1A1B71348C /* Pods-QNLiveUIKitTests.debug.xcconfig */;
+			baseConfigurationReference = E87811CF88E41F2BD2FE2BCB /* Pods-QNLiveUIKitTests.debug.xcconfig */;
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
@@ -2324,7 +2805,7 @@
 		};
 		484C3AB42940D48E00640FE4 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 27C92F7C377A4B4168291660 /* Pods-QNLiveUIKitTests.release.xcconfig */;
+			baseConfigurationReference = 8277E13BD337B0081738E11A /* Pods-QNLiveUIKitTests.release.xcconfig */;
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
@@ -2334,6 +2815,110 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.qiniu.QNLiveUIKitTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = NO;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		C91CA1C929C7FC5800501D33 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 809A245549E5F385A868828D /* Pods-QNLiveUIKit.debug.xcconfig */;
+			buildSettings = {
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DEVELOPMENT_TEAM = W2TP34G2MM;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/AFNetworking\"",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/IQKeyboardManager\"",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/MBProgressHUD\"",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/MJExtension\"",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/MJRefresh\"",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/Masonry\"",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/SDWebImage\"",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/SocketRocket\"",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/YYCache\"",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/YYCategories\"",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/YYImage\"",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/YYModel\"",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/YYWebImage\"",
+					"\"${PODS_ROOT}/PLPlayerKit/Pod/Library\"",
+					"\"${PODS_ROOT}/QNRTCKit-iOS/Pod/iphoneos\"",
+					"\"$(SRCROOT)/../frameworks\"",
+				);
+				GCC_PREFIX_HEADER = "$(PROJECT_DIR)/QNLiveUIKit/QNLiveUIKit-PrefixHeader.pch";
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 15.2;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				LIBRARY_SEARCH_PATHS = "$(inherited)";
+				MACH_O_TYPE = staticlib;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.mumu.QNLiveUIKit-Beauty";
+				PRODUCT_NAME = QNLiveUIKit;
+				SKIP_INSTALL = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		C91CA1CA29C7FC5800501D33 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = D77E6889D4AE9F4116CBEA87 /* Pods-QNLiveUIKit.release.xcconfig */;
+			buildSettings = {
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DEVELOPMENT_TEAM = W2TP34G2MM;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/AFNetworking\"",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/IQKeyboardManager\"",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/MBProgressHUD\"",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/MJExtension\"",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/MJRefresh\"",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/Masonry\"",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/SDWebImage\"",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/SocketRocket\"",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/YYCache\"",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/YYCategories\"",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/YYImage\"",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/YYModel\"",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/YYWebImage\"",
+					"\"${PODS_ROOT}/PLPlayerKit/Pod/Library\"",
+					"\"${PODS_ROOT}/QNRTCKit-iOS/Pod/iphoneos\"",
+					"\"$(SRCROOT)/../frameworks\"",
+				);
+				GCC_PREFIX_HEADER = "$(PROJECT_DIR)/QNLiveUIKit/QNLiveUIKit-PrefixHeader.pch";
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 15.2;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				LIBRARY_SEARCH_PATHS = "$(inherited)";
+				MACH_O_TYPE = staticlib;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.mumu.QNLiveUIKit-Beauty";
+				PRODUCT_NAME = QNLiveUIKit;
+				SKIP_INSTALL = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
@@ -2350,7 +2935,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		484C3AAF2940D48E00640FE4 /* Build configuration list for PBXNativeTarget "QNLiveUIKit" */ = {
+		484C3AAF2940D48E00640FE4 /* Build configuration list for PBXNativeTarget "QNLiveUIKit_Beauty" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				484C3AB02940D48E00640FE4 /* Debug */,
@@ -2364,6 +2949,15 @@
 			buildConfigurations = (
 				484C3AB32940D48E00640FE4 /* Debug */,
 				484C3AB42940D48E00640FE4 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		C91CA1C829C7FC5800501D33 /* Build configuration list for PBXNativeTarget "QNLiveUIKit_NO_Beauty" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C91CA1C929C7FC5800501D33 /* Debug */,
+				C91CA1CA29C7FC5800501D33 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

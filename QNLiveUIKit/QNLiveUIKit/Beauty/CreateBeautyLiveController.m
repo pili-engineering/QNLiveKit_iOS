@@ -9,7 +9,6 @@
 #import "QRenderView.h"
 #import "BeautyLiveViewController.h"
 #import "DateTimePickerView.h"
-#import "LicenseUtil.h"
 
 @interface CreateBeautyLiveController () <QNLocalVideoTrackDelegate>
 @property (nonatomic, strong) UITextField *titleTf;
@@ -44,7 +43,10 @@
     [self commendTf];
     [self selectPoint];
     [self liveTimeTf];
+#ifdef useBeauty
     [self beautyButton];
+#endif
+    
     [self startButton];
     [self turnAroundButton];
     [self closeButton];
@@ -109,13 +111,12 @@
     return _commendTf;
 }
 
-//美颜
 #ifdef useBeauty
+//美颜
 - (void)beautyButtonClick {
     [self clickBottomViewButton:self.beautyBtn];
 }
 #endif
-
 //翻转摄像头
 - (void)turnAroundButtonClick {
     [[QNLivePushClient createPushClient] switchCamera];

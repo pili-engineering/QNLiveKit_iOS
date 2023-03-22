@@ -17,6 +17,7 @@
 #import "UIApplication+LaunchScreen.h"
 #import "QNTabBarViewController.h"
 #import <QNLiveKit/QNLiveKit.h>
+//#import <QNLiveUIKit_Beauty/QNLiveUIKit.h>
 #import <QNLiveUIKit/QNLiveUIKit.h>
 
 @interface AppDelegate () <QLiveTokenGetter>
@@ -45,8 +46,6 @@
     } failure:^(NSError * _Nullable error) {
         NSLog(@"config qlive error %@", error);
     }];
-    
-    [QLive setBeauty:YES];
 }
 
 - (void)authQLive {

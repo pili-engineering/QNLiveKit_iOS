@@ -42,7 +42,6 @@
 		48C83DD52940C0F40002C11B /* PLSTArEffects.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 48C83DD42940C0F40002C11B /* PLSTArEffects.framework */; };
 		48D4AC34294B0CF7008C8464 /* ApiDemoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 48D4AC33294B0CF7008C8464 /* ApiDemoViewController.m */; };
 		48D4AC39294B1277008C8464 /* QNDemoUserFetchLoginUser.m in Sources */ = {isa = PBXBuildFile; fileRef = 48D4AC38294B1277008C8464 /* QNDemoUserFetchLoginUser.m */; };
-		48FAFAF52941C0E300D36503 /* QNLiveUIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 484C3ABD2940D48F00640FE4 /* QNLiveUIKit.framework */; };
 		776B1BDF28378CCD00D85C73 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 776B1BDE28378CCD00D85C73 /* AppDelegate.m */; };
 		776B1BE828378CCD00D85C73 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 776B1BE628378CCD00D85C73 /* Main.storyboard */; };
 		776B1BEA28378CCF00D85C73 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 776B1BE928378CCF00D85C73 /* Assets.xcassets */; };
@@ -79,6 +78,8 @@
 		77781CDC2840C768009DC71C /* QNPersonInfoTopView.m in Sources */ = {isa = PBXBuildFile; fileRef = 77781CD22840C768009DC71C /* QNPersonInfoTopView.m */; };
 		77A8D2082876CB77001A3C2C /* my_sticker.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 77A8D1FB2876CB77001A3C2C /* my_sticker.bundle */; };
 		C5993B91A021CD7EDC4A0F36 /* Pods_QNLiveKitDemo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F467E60A07D600FCAAE77FD1 /* Pods_QNLiveKitDemo.framework */; };
+		C9074BA529C854FB00761359 /* QNLiveUIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 484C3ABD2940D48F00640FE4 /* QNLiveUIKit.framework */; };
+		C91CA16629C4377F00501D33 /* config.conf in Resources */ = {isa = PBXBuildFile; fileRef = C91CA16129C4377700501D33 /* config.conf */; };
 		E37940772990B12800E11A90 /* SENSEME.lic in Resources */ = {isa = PBXBuildFile; fileRef = E37940762990B12800E11A90 /* SENSEME.lic */; };
 		E37940792990B13700E11A90 /* SENSEME.lic in Resources */ = {isa = PBXBuildFile; fileRef = E37940782990B13700E11A90 /* SENSEME.lic */; };
 /* End PBXBuildFile section */
@@ -125,6 +126,13 @@
 			proxyType = 2;
 			remoteGlobalIDString = 776B1C53283C78D800D85C73;
 			remoteInfo = QNLiveKitTests;
+		};
+		C91CA28329C8001F00501D33 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 484C3AB52940D48E00640FE4 /* QNLiveUIKit.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = C91CA1B729C7FC5700501D33;
+			remoteInfo = QNLiveUIKit;
 		};
 /* End PBXContainerItemProxy section */
 
@@ -252,6 +260,10 @@
 		86543AFAB4A8EADB1F77D392 /* Pods-QNLiveKitDemoTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-QNLiveKitDemoTests.release.xcconfig"; path = "Target Support Files/Pods-QNLiveKitDemoTests/Pods-QNLiveKitDemoTests.release.xcconfig"; sourceTree = "<group>"; };
 		B31E3F409ADE08D9D13B003F /* Pods-QNLiveKitDemo-QNLiveKitDemoUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-QNLiveKitDemo-QNLiveKitDemoUITests.release.xcconfig"; path = "Target Support Files/Pods-QNLiveKitDemo-QNLiveKitDemoUITests/Pods-QNLiveKitDemo-QNLiveKitDemoUITests.release.xcconfig"; sourceTree = "<group>"; };
 		B86C108BE2C7758CCFFA24C9 /* Pods-QNLiveKitDemo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-QNLiveKitDemo.release.xcconfig"; path = "Target Support Files/Pods-QNLiveKitDemo/Pods-QNLiveKitDemo.release.xcconfig"; sourceTree = "<group>"; };
+		C91CA16129C4377700501D33 /* config.conf */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = config.conf; sourceTree = "<group>"; };
+		C91CA19329C7FC3300501D33 /* QNLiveUIKit_Beauty.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = QNLiveUIKit_Beauty.h; sourceTree = "<group>"; };
+		C91CA19429C7FC3300501D33 /* QNLiveUIKit_Beauty.docc */ = {isa = PBXFileReference; lastKnownFileType = folder.documentationcatalog; path = QNLiveUIKit_Beauty.docc; sourceTree = "<group>"; };
+		C91CA1A129C7FC3300501D33 /* QNLiveUIKit_BeautyTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = QNLiveUIKit_BeautyTests.m; sourceTree = "<group>"; };
 		E37940762990B12800E11A90 /* SENSEME.lic */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = SENSEME.lic; path = ../../../../../../../SENSEME.lic; sourceTree = "<group>"; };
 		E37940782990B13700E11A90 /* SENSEME.lic */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = SENSEME.lic; path = ../../../../../../../SENSEME.lic; sourceTree = "<group>"; };
 		F467E60A07D600FCAAE77FD1 /* Pods_QNLiveKitDemo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_QNLiveKitDemo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -268,7 +280,7 @@
 				7773669C2873E32100245EDB /* AssetsLibrary.framework in Frameworks */,
 				48B937D229271CE60014D671 /* MapKit.framework in Frameworks */,
 				777366952873074700245EDB /* QNLiveKit.framework in Frameworks */,
-				48FAFAF52941C0E300D36503 /* QNLiveUIKit.framework in Frameworks */,
+				C9074BA529C854FB00761359 /* QNLiveUIKit.framework in Frameworks */,
 				C5993B91A021CD7EDC4A0F36 /* Pods_QNLiveKitDemo.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -308,8 +320,9 @@
 		484C3AB62940D48E00640FE4 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				484C3ABD2940D48F00640FE4 /* QNLiveUIKit.framework */,
 				484C3ABF2940D48F00640FE4 /* QNLiveUIKitTests.xctest */,
+				C91CA28429C8001F00501D33 /* QNLiveUIKit.framework */,
+				484C3ABD2940D48F00640FE4 /* QNLiveUIKit.framework */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -423,6 +436,8 @@
 				776B1BDC28378CCD00D85C73 /* QNLiveKitDemo */,
 				776B1BF828378CCF00D85C73 /* QNLiveKitDemoTests */,
 				776B1C0228378CCF00D85C73 /* QNLiveKitDemoUITests */,
+				C91CA19229C7FC3300501D33 /* QNLiveUIKit_Beauty */,
+				C91CA1A029C7FC3300501D33 /* QNLiveUIKit_BeautyTests */,
 				776B1BDB28378CCD00D85C73 /* Products */,
 				2EDCB5774C61906547692C7C /* Pods */,
 				709BCB3C3EEF0783D89437CF /* Frameworks */,
@@ -444,6 +459,7 @@
 			children = (
 				48C83DD42940C0F40002C11B /* PLSTArEffects.framework */,
 				48C83DD12940BBF20002C11B /* QNIMSDK.framework */,
+				C91CA16129C4377700501D33 /* config.conf */,
 				77A11C5B288540EC00020149 /* BeautyResource */,
 				776B1BDD28378CCD00D85C73 /* AppDelegate.h */,
 				776B1BDE28378CCD00D85C73 /* AppDelegate.m */,
@@ -620,6 +636,23 @@
 			path = StickerZipAndIcons;
 			sourceTree = "<group>";
 		};
+		C91CA19229C7FC3300501D33 /* QNLiveUIKit_Beauty */ = {
+			isa = PBXGroup;
+			children = (
+				C91CA19329C7FC3300501D33 /* QNLiveUIKit_Beauty.h */,
+				C91CA19429C7FC3300501D33 /* QNLiveUIKit_Beauty.docc */,
+			);
+			path = QNLiveUIKit_Beauty;
+			sourceTree = "<group>";
+		};
+		C91CA1A029C7FC3300501D33 /* QNLiveUIKit_BeautyTests */ = {
+			isa = PBXGroup;
+			children = (
+				C91CA1A129C7FC3300501D33 /* QNLiveUIKit_BeautyTests.m */,
+			);
+			path = QNLiveUIKit_BeautyTests;
+			sourceTree = "<group>";
+		};
 		E379406F2990B10000E11A90 /* Res */ = {
 			isa = PBXGroup;
 			children = (
@@ -771,6 +804,13 @@
 			remoteRef = 776B1C6A283C78D900D85C73 /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
+		C91CA28429C8001F00501D33 /* QNLiveUIKit.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = QNLiveUIKit.framework;
+			remoteRef = C91CA28329C8001F00501D33 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
 /* End PBXReferenceProxy section */
 
 /* Begin PBXResourcesBuildPhase section */
@@ -792,6 +832,7 @@
 				48B937D729271DC40014D671 /* all_categories.json in Resources */,
 				48B9380E29272F9A0014D671 /* wholemakeup.bundle in Resources */,
 				48B9380B29272F9A0014D671 /* eyelash.bundle in Resources */,
+				C91CA16629C4377F00501D33 /* config.conf in Resources */,
 				48B937E029271E230014D671 /* STViewButton.xib in Resources */,
 				48B9380C29272F9A0014D671 /* lips.bundle in Resources */,
 				48B9380029272F910014D671 /* StillLifeFilters.bundle in Resources */,

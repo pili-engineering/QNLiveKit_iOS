@@ -48,6 +48,17 @@
                ReferencedContainer = "container:QNLiveKitDemo.xcodeproj">
             </BuildableReference>
          </TestableReference>
+         <TestableReference
+            skipped = "NO"
+            parallelizable = "YES">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "C91CA19929C7FC3300501D33"
+               BuildableName = "QNLiveUIKit_BeautyTests.xctest"
+               BlueprintName = "QNLiveUIKit_BeautyTests"
+               ReferencedContainer = "container:QNLiveKitDemo.xcodeproj">
+            </BuildableReference>
+         </TestableReference>
       </Testables>
    </TestAction>
    <LaunchAction

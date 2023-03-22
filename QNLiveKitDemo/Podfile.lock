@@ -59,7 +59,7 @@ DEPENDENCIES:
   - YYWebImage (= 1.0.4)
 
 SPEC REPOS:
-  https://mirrors.tuna.tsinghua.edu.cn/git/CocoaPods/Specs.git:
+  trunk:
     - AFNetworking
     - Bugly
     - IQKeyboardManager
@@ -78,7 +78,7 @@ SPEC REPOS:
     - YYWebImage
 
 SPEC CHECKSUMS:
-  AFNetworking: 7864c38297c79aaca1500c33288e429c3451fdce
+  AFNetworking: 3bd23d814e976cd148d7d44c3ab78017b744cd58
   Bugly: afe841bba2ea6de6d432a3c125240a5e75949c55
   IQKeyboardManager: 241cc94ccabc9deb8f8bd7d12f00d73288d13ecc
   Masonry: 678fab65091a9290e40e2832a55e7ab731aad201
@@ -95,6 +95,6 @@ SPEC CHECKSUMS:
   YYModel: 2a7fdd96aaa4b86a824e26d0c517de8928c04b30
   YYWebImage: 0431ed108e104527669b86f75efd58958425cca2
 
-PODFILE CHECKSUM: bc6b2d2b64fed56aceebe41363c37c1dc2829792
+PODFILE CHECKSUM: edda550160a9835cfaa90f3032194e70ce818078
 
-COCOAPODS: 1.11.2
+COCOAPODS: 1.12.0

@@ -6,9 +6,11 @@
 //
 
 #import <QNLiveKit/QNLiveKit.h>
-#import "STBaseViewController.h"
-#define  useBeauty
+#import "UIViewController+QViewController.h"
 
+#ifdef useBeauty
+#import "STBaseViewController.h"
+#endif
 @class QNLiveRoomInfo,QNLivePushClient,QNLiveRoomClient,QNChatRoomService,LiveChatRoom,QNMergeOption,QPKService,QRenderView,FDanmakuView,QLinkMicService,PLSTEffectManager,PLSTDetector;
 
 NS_ASSUME_NONNULL_BEGIN

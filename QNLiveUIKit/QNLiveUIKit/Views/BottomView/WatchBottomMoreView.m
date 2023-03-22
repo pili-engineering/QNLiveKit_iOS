@@ -47,6 +47,7 @@
         }
         [weakSelf removeFromSuperview];
     };
+    _gift = gift;
     [slotList addObject:gift];
     
     //连麦
@@ -59,8 +60,8 @@
         [weakSelf removeFromSuperview];
     };
     [slotList addObject:link];
-        
-    [bottomMenuView updateWithSlotList:slotList.copy];
+    _link = link;
+    [bottomMenuView updateWithSlotList:slotList];
     
 }
 

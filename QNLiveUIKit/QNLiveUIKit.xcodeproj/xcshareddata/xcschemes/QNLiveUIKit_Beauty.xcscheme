@@ -14,9 +14,9 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "C91CA1B629C7FC5700501D33"
+               BlueprintIdentifier = "484C3A9C2940D48E00640FE4"
                BuildableName = "QNLiveUIKit.framework"
-               BlueprintName = "QNLiveUIKit_NO_Beauty"
+               BlueprintName = "QNLiveUIKit_Beauty"
                ReferencedContainer = "container:QNLiveUIKit.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
@@ -50,9 +50,9 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "C91CA1B629C7FC5700501D33"
+            BlueprintIdentifier = "484C3A9C2940D48E00640FE4"
             BuildableName = "QNLiveUIKit.framework"
-            BlueprintName = "QNLiveUIKit_NO_Beauty"
+            BlueprintName = "QNLiveUIKit_Beauty"
             ReferencedContainer = "container:QNLiveUIKit.xcodeproj">
          </BuildableReference>
       </MacroExpansion>

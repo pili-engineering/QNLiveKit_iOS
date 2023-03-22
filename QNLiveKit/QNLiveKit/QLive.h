@@ -45,11 +45,6 @@ NS_ASSUME_NONNULL_BEGIN
 + (void)authWithToken:(NSString *)token complete:(QNCompleteCallback)complete failure:(QNFailureCallback)failure;
 
 
-/// 设置是否开启美颜功能
-/// @param needBeauty YES 开启；NO 不开启
-+ (void)setBeauty:(BOOL)needBeauty;
-
-
 /// 获取当前登录用户信息
 + (QNLiveUser *)getLoginUser;
 

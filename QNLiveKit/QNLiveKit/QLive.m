@@ -43,10 +43,6 @@
     [[QLive sharedInstance] authWithToken:token complete:complete failure:failure];
 }
 
-+ (void)setBeauty:(BOOL)needBeauty {
-    [[QLive sharedInstance] setBeauty:needBeauty];
-}
-
 + (QNLiveUser *)getLoginUser {
     return [QNUserService sharedInstance].loginUser;
 }
@@ -156,12 +152,6 @@
     QNSDKConfig *config = [[QNSDKConfig alloc]initConfigWithDataDir:dataDir cacheDir:cacheDir pushCertName:@"" userAgent:phone];
     config.appID = imAppId;
     [[QNIMClient sharedClient] registerWithSDKConfig:config];
-}
-
-
-- (void)setBeauty:(BOOL)needBeauty {
-    QNLivePushClient *pushClient = [QNLivePushClient createPushClient];
-    pushClient.needBeauty = needBeauty;
 }
 
 
