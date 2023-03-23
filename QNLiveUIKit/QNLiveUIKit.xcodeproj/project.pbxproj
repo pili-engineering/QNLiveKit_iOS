@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		43FFA0D4A8C8BA34AF6E2AA4 /* Pods_QNLiveUIKit_NO_Beauty.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1DB8D84D2C646451BF1E876F /* Pods_QNLiveUIKit_NO_Beauty.framework */; };
 		483AC932298A084F000F1B9E /* QNVoiceCollectionViewCell.h in Headers */ = {isa = PBXBuildFile; fileRef = 483AC930298A084F000F1B9E /* QNVoiceCollectionViewCell.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		483AC933298A084F000F1B9E /* QNVoiceCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 483AC931298A084F000F1B9E /* QNVoiceCollectionViewCell.m */; };
 		484C3AA62940D48E00640FE4 /* QNLiveUIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 484C3A9D2940D48E00640FE4 /* QNLiveUIKit.framework */; };
@@ -331,6 +332,7 @@
 		48B2D4AC29422F0B0082A8D6 /* QNAudienceController.m in Sources */ = {isa = PBXBuildFile; fileRef = 485F240A2940DA6F00484CB6 /* QNAudienceController.m */; };
 		48B2D4AD29422F0B0082A8D6 /* QNBaseRTCController.h in Headers */ = {isa = PBXBuildFile; fileRef = 485F240B2940DA6F00484CB6 /* QNBaseRTCController.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		793EF3472ADDCFC2BF2A8B18 /* Pods_QNLiveUIKitTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E416B25A49C67B2668988E68 /* Pods_QNLiveUIKitTests.framework */; };
+		B18CB41D7AC6271EFAEF83EE /* Pods_QNLiveUIKit_Beauty.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 934FC6682441E3B9CDE5E45E /* Pods_QNLiveUIKit_Beauty.framework */; };
 		C9074B9C29C84BEB00761359 /* libst_mobile.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 485F25232940DB1E00484CB6 /* libst_mobile.a */; };
 		C91CA15D29C415B900501D33 /* QNConfigurationUI.h in Headers */ = {isa = PBXBuildFile; fileRef = C91CA15B29C415B900501D33 /* QNConfigurationUI.h */; };
 		C91CA15E29C415B900501D33 /* QNConfigurationUI.m in Sources */ = {isa = PBXBuildFile; fileRef = C91CA15C29C415B900501D33 /* QNConfigurationUI.m */; };
@@ -548,6 +550,7 @@
 
 /* Begin PBXFileReference section */
 		1C16433F056EAADF912A5F68 /* Pods-QNLiveUIKit_Beauty.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-QNLiveUIKit_Beauty.debug.xcconfig"; path = "Target Support Files/Pods-QNLiveUIKit_Beauty/Pods-QNLiveUIKit_Beauty.debug.xcconfig"; sourceTree = "<group>"; };
+		1DB8D84D2C646451BF1E876F /* Pods_QNLiveUIKit_NO_Beauty.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_QNLiveUIKit_NO_Beauty.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		26CC34C9C657224A06E32685 /* Pods-QNLiveUIKit_Beauty.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-QNLiveUIKit_Beauty.release.xcconfig"; path = "Target Support Files/Pods-QNLiveUIKit_Beauty/Pods-QNLiveUIKit_Beauty.release.xcconfig"; sourceTree = "<group>"; };
 		483AC930298A084F000F1B9E /* QNVoiceCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QNVoiceCollectionViewCell.h; sourceTree = "<group>"; };
 		483AC931298A084F000F1B9E /* QNVoiceCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QNVoiceCollectionViewCell.m; sourceTree = "<group>"; };
@@ -886,10 +889,12 @@
 		485F27102940E32E00484CB6 /* UIViewController+QViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+QViewController.m"; sourceTree = "<group>"; };
 		485F27112940E32E00484CB6 /* UIImage+QNImage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+QNImage.h"; sourceTree = "<group>"; };
 		485F27132940E32E00484CB6 /* NSDate+QDate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDate+QDate.h"; sourceTree = "<group>"; };
+		7DE865B3C4AB1C6F12600E60 /* Pods-QNLiveUIKit_NO_Beauty.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-QNLiveUIKit_NO_Beauty.debug.xcconfig"; path = "Target Support Files/Pods-QNLiveUIKit_NO_Beauty/Pods-QNLiveUIKit_NO_Beauty.debug.xcconfig"; sourceTree = "<group>"; };
 		809A245549E5F385A868828D /* Pods-QNLiveUIKit.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-QNLiveUIKit.debug.xcconfig"; path = "Target Support Files/Pods-QNLiveUIKit/Pods-QNLiveUIKit.debug.xcconfig"; sourceTree = "<group>"; };
 		8277E13BD337B0081738E11A /* Pods-QNLiveUIKitTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-QNLiveUIKitTests.release.xcconfig"; path = "Target Support Files/Pods-QNLiveUIKitTests/Pods-QNLiveUIKitTests.release.xcconfig"; sourceTree = "<group>"; };
 		925C02D90AD4B0C4D7B9807F /* Pods_QNLiveUIKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_QNLiveUIKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		934FC6682441E3B9CDE5E45E /* Pods_QNLiveUIKit_Beauty.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_QNLiveUIKit_Beauty.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		A6CF38529F7F9226CEBA4C3B /* Pods-QNLiveUIKit_NO_Beauty.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-QNLiveUIKit_NO_Beauty.release.xcconfig"; path = "Target Support Files/Pods-QNLiveUIKit_NO_Beauty/Pods-QNLiveUIKit_NO_Beauty.release.xcconfig"; sourceTree = "<group>"; };
 		C91CA15B29C415B900501D33 /* QNConfigurationUI.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = QNConfigurationUI.h; sourceTree = "<group>"; };
 		C91CA15C29C415B900501D33 /* QNConfigurationUI.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = QNConfigurationUI.m; sourceTree = "<group>"; };
 		C91CA1B729C7FC5700501D33 /* QNLiveUIKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = QNLiveUIKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -916,6 +921,7 @@
 				E3B907FE298B6AB600B96ADF /* QNLiveKit.framework in Frameworks */,
 				485F27022940DFC900484CB6 /* MapKit.framework in Frameworks */,
 				485F26FE2940DFB600484CB6 /* AssetsLibrary.framework in Frameworks */,
+				B18CB41D7AC6271EFAEF83EE /* Pods_QNLiveUIKit_Beauty.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -934,6 +940,7 @@
 			files = (
 				C9D2DB5529C82A3300D15755 /* QNLiveKit.framework in Frameworks */,
 				C9D2DB5829C82A5C00D15755 /* QNIMSDK.framework in Frameworks */,
+				43FFA0D4A8C8BA34AF6E2AA4 /* Pods_QNLiveUIKit_NO_Beauty.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1745,6 +1752,8 @@
 				8277E13BD337B0081738E11A /* Pods-QNLiveUIKitTests.release.xcconfig */,
 				809A245549E5F385A868828D /* Pods-QNLiveUIKit.debug.xcconfig */,
 				D77E6889D4AE9F4116CBEA87 /* Pods-QNLiveUIKit.release.xcconfig */,
+				7DE865B3C4AB1C6F12600E60 /* Pods-QNLiveUIKit_NO_Beauty.debug.xcconfig */,
+				A6CF38529F7F9226CEBA4C3B /* Pods-QNLiveUIKit_NO_Beauty.release.xcconfig */,
 			);
 			path = Pods;
 			sourceTree = "<group>";
@@ -1760,6 +1769,7 @@
 				934FC6682441E3B9CDE5E45E /* Pods_QNLiveUIKit_Beauty.framework */,
 				E416B25A49C67B2668988E68 /* Pods_QNLiveUIKitTests.framework */,
 				925C02D90AD4B0C4D7B9807F /* Pods_QNLiveUIKit.framework */,
+				1DB8D84D2C646451BF1E876F /* Pods_QNLiveUIKit_NO_Beauty.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -2182,7 +2192,7 @@
 			outputFileListPaths = (
 			);
 			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-QNLiveUIKit-checkManifestLockResult.txt",
+				"$(DERIVED_FILE_DIR)/Pods-QNLiveUIKit_NO_Beauty-checkManifestLockResult.txt",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -2799,7 +2809,7 @@
 		};
 		C91CA1C929C7FC5800501D33 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 809A245549E5F385A868828D /* Pods-QNLiveUIKit.debug.xcconfig */;
+			baseConfigurationReference = 7DE865B3C4AB1C6F12600E60 /* Pods-QNLiveUIKit_NO_Beauty.debug.xcconfig */;
 			buildSettings = {
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
 				CODE_SIGN_STYLE = Automatic;
@@ -2851,7 +2861,7 @@
 		};
 		C91CA1CA29C7FC5800501D33 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = D77E6889D4AE9F4116CBEA87 /* Pods-QNLiveUIKit.release.xcconfig */;
+			baseConfigurationReference = A6CF38529F7F9226CEBA4C3B /* Pods-QNLiveUIKit_NO_Beauty.release.xcconfig */;
 			buildSettings = {
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
 				CODE_SIGN_STYLE = Automatic;

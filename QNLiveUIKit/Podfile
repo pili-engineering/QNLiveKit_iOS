@@ -26,7 +26,7 @@ target 'QNLiveUIKit_Beauty' do
 
 end
 
-target 'QNLiveUIKit' do
+target 'QNLiveUIKit_NO_Beauty' do
   
   use_frameworks!
   
