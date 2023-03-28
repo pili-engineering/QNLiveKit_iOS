@@ -580,9 +580,18 @@ static NSString *cellIdentifier = @"AddCollectionViewCell";
 
     [QLiveNetworkUtil postRequestWithAction:@"client/gift/send"
         params:dic
-        success:^(NSDictionary *_Nonnull responseData) {
-          NSLog(@"success %@", responseData);
-          [self showPaySuccessView];
+                                    success:^(NSDictionary *_Nonnull responseData) {
+        NSLog(@"success %@", responseData);
+        if(responseData[@"code"] != 0){
+            if(responseData[@"message"]){
+                [QToastView showToast:responseData[@"message"]];
+            }else{
+                [QToastView showToast:@"支付失败"];
+            }
+        }else{
+            [self showPaySuccessView];
+        }
+        
         }
         failure:^(NSError *_Nonnull error) {
           NSLog(@"gift send error %@", error);

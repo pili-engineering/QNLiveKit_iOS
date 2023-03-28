@@ -58,7 +58,7 @@ NSInteger const Interval = 8;
     NSString *requestUrl = [[NSString alloc]initWithFormat:url,action];
     AFHTTPSessionManager *manager = [QLiveNetworkUtil manager];
     [manager GET:requestUrl parameters:params headers:nil progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
-//        NSLog(@"\n GET\n action : %@ \n HTTPRequestHeaders:%@ \n params:%@ \n responseObject = %@",requestUrl,manager.requestSerializer.HTTPRequestHeaders,params,responseObject);
+        NSLog(@"\n GET\n action : %@ \n HTTPRequestHeaders:%@ \n params:%@ \n responseObject = %@",requestUrl,manager.requestSerializer.HTTPRequestHeaders,params,responseObject);
         [self dealSuccessResult:responseObject success:^(NSDictionary * _Nonnull responseData) {
             success(responseData);
                 } failure:^(NSError * _Nonnull error) {
@@ -120,7 +120,7 @@ NSInteger const Interval = 8;
     NSString *requestUrl = [[NSString alloc]initWithFormat:url,action];
     
     [manager POST:requestUrl parameters:params headers:nil progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
-//        NSLog(@"\n POST\n action : %@ \n HTTPRequestHeaders:%@ \n params:%@ \n responseObject = %@",requestUrl,manager.requestSerializer.HTTPRequestHeaders,params,responseObject);
+        NSLog(@"\n POST\n action : %@ \n HTTPRequestHeaders:%@ \n params:%@ \n responseObject = %@",requestUrl,manager.requestSerializer.HTTPRequestHeaders,params,responseObject);
 
         [self dealSuccessResult:responseObject success:^(NSDictionary * _Nonnull responseData) {
             success(responseData);
@@ -241,7 +241,14 @@ NSInteger const Interval = 8;
         
         return;
     }
-    success(responseObject[@"data"] ?: @{});
+    if (![responseObject[@"code"] isEqualToNumber:@(0)]&&![responseObject[@"code"] isEqualToNumber:@(200)]) {
+        // 处理请求失败的情况
+        success(@{ @"message": responseObject[@"message"], @"code": responseObject[@"code"] });
+    } else {
+        // 处理请求成功的情况
+        success(responseObject[@"data"] ?: @{});
+    }
+//    success(responseObject[@"data"] ?: @{});
 
 }
 
