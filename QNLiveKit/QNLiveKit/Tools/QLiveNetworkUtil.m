@@ -241,7 +241,14 @@ NSInteger const Interval = 8;
         
         return;
     }
-    success(responseObject[@"data"] ?: @{});
+    if (![responseObject[@"code"] isEqualToNumber:@(0)] && ![responseObject[@"code"] isEqualToNumber:@(200)]) {
+        // 处理请求失败的情况
+        success(@{ @"message": responseObject[@"message"], @"code": responseObject[@"code"] });
+    } else {
+        // 处理请求成功的情况
+        success(responseObject[@"data"] ?: @{});
+    }
+//    success(responseObject[@"data"] ?: @{});
 
 }
 
