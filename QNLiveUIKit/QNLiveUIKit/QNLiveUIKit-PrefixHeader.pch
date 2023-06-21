@@ -17,6 +17,9 @@
 #define SCREEN_W [UIScreen mainScreen].bounds.size.width
 #define SCREEN_H [UIScreen mainScreen].bounds.size.height
 
+#define QNRGBA(r,g,b,a)  [UIColor colorWithRed:(r)/255.0f green:(g)/255.0f blue:(b)/255.0f alpha:(a)]
+#define QNHEXCOLOR(c)    [UIColor colorWithRed:((c>>16)&0xFF)/255.0 green:((c>>8)&0xFF)/255.0 blue:(c&0xFF)/255.0 alpha:1.0]
+
 #define LIVE_LOGIN_TOKEN_KEY @"LIVE_LOGIN_TOKEN"
 #define LIVE_USER_AVATAR_KEY @"LIVE_USER_AVATAR"
 #define LIVE_ACCOUNT_ID_KEY @"LIVE_ACCOUNT_ID"

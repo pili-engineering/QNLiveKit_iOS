@@ -53,8 +53,8 @@ FOUNDATION_EXPORT const unsigned char QNLiveKitVersionString[];
 #import "QLiveNetworkUtil.h"
 #import "QNAppService.h"
 #import "QNLiveError.h"
-
-
+#import "QNPKExtendsModel.h"
+#import "QNPKInfo.h"
 
 // In this header, you should import all the public headers of your framework using statements like #import <QNLiveKit/PublicHeader.h>
 

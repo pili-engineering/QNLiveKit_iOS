@@ -42,10 +42,17 @@
         
         QNLiveRoomInfo *model = [QNLiveRoomInfo mj_objectWithKeyValues:responseData];
         self.roomInfo = model;
-        callBack(model);
+        if (callBack) {
+            callBack(model);
+        }
+        
+        //发送进房成功通知
+        [[NSNotificationCenter defaultCenter] postNotificationName:ReceivePullClientJoinedRoom object:model];
 
         } failure:^(NSError * _Nonnull error) {
-            callBack(nil);
+            if (callBack) {
+                callBack(nil);
+            }
         }];
 }
 

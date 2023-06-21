@@ -27,8 +27,13 @@
 #import "QNVoiceCollectionViewCell.h"
 #import "ImageButtonView.h"
 #import "QNConfigurationUI.h"
+#import "QNPKView.h"
+#import "QNPKStrategyConfig.h"
+#import "QNPKViewUpdateUtil.h"
 
 static NSString *cellIdentifier = @"AddCollectionViewCell";
+
+#pragma mark - QNLiveViewController
 
 @interface QNLiveViewController () <QNPushClientListener, QNRoomLifeCycleListener, QNPushClientListener, QNChatRoomServiceListener, FDanmakuViewProtocol, LiveChatRoomViewDelegate, MicLinkerListener, PKServiceListener, QNLocalVideoTrackDelegate, UICollectionViewDelegate, UICollectionViewDataSource>
 
@@ -38,6 +43,8 @@ static NSString *cellIdentifier = @"AddCollectionViewCell";
 @property (nonatomic, strong) ImageButtonView *pkSlot;
 @property (nonatomic, strong) LiveBottomMoreView *moreView;
 @property (nonatomic, strong) QNLiveStatisticView *statisticView;
+@property (nonatomic, strong) QNPKView *pkView;
+@property (nonatomic, assign) bool isInviting;
 
 @property (nonatomic, strong) NSMutableArray<QNMicLinker *> *linkMicList;
 @property (nonatomic, strong) UICollectionView *micLinkerCollectionView;
@@ -45,9 +52,22 @@ static NSString *cellIdentifier = @"AddCollectionViewCell";
 
 @end
 
+#pragma mark - QNLiveViewController (PK)
+//PK扩展
+@interface QNLiveViewController (PK)
+
+//展示PK视图
+- (void)showPKView;
+//关闭PK视图
+- (void)dismissPKView;
+//主动结束PK
+- (void)stopPK;
+
+@end
+
+#pragma mark - QNLiveViewController
+
 @implementation QNLiveViewController
-
-
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -58,7 +78,7 @@ static NSString *cellIdentifier = @"AddCollectionViewCell";
     [[QLive createPusherClient] setVideoFrameListener:self];
     [[QLive createPusherClient] enableCamera:nil renderView:self.preview];
     [QLive createPusherClient].pushClientListener = self;
-
+    
     self.pkService.delegate = self;
     self.danmakuView.delegate = self;
     self.chatRoomView.delegate = self;
@@ -176,11 +196,16 @@ static NSString *cellIdentifier = @"AddCollectionViewCell";
           if (track.kind == QNTrackKindVideo) {
               QNRemoteVideoTrack *videoTrack = (QNRemoteVideoTrack *)track;
 
-              if (self.pk_other_user) {
+              if (self.pk_other_user) { //PK时，显示两个直播画面
                   self.preview.frame = CGRectMake(0, 130, SCREEN_W / 2, SCREEN_W / 1.5);
                   self.remoteView.frame = CGRectMake(SCREEN_W / 2, 130, SCREEN_W / 2, SCREEN_W / 1.5);
                   self.remoteView.layer.cornerRadius = 0;
                   [videoTrack play:self.remoteView];
+                  
+                  //如果pk流程走完，早于视频流回调，则把隐藏的pk视图显示
+                  if (self.pkView) {
+                      self.pkView.hidden = false;
+                  }
 
                   [[[QLive createPusherClient] getMixStreamManager] updateMixStreamSize:CGSizeMake(720, 419)];
                   CameraMergeOption *userOption = [CameraMergeOption new];
@@ -367,48 +392,6 @@ static NSString *cellIdentifier = @"AddCollectionViewCell";
         }];
 }
 
-// 接收到pk邀请
-- (void)onReceivePKInvitation:(QInvitationModel *)model {
-    NSString *title = [model.invitation.linkInvitation.initiator.nick stringByAppendingString:@"邀请您PK，是否同意？"];
-    [QAlertView showBaseAlertWithTitle:title
-        content:@""
-        cancelHandler:^(UIAlertAction *_Nonnull action) {
-
-        }
-        confirmHandler:^(UIAlertAction *_Nonnull action) {
-          [self.pkService AcceptPK:model];
-          self.pk_other_user = model.invitation.linkInvitation.initiator;
-        }];
-}
-
-// 收到同意pk邀请
-- (void)onReceivePKInvitationAccept:(QNPKSession *)model {
-    [QToastView showToast:@"对方主播同意pk"];
-    self.pkSlot.selected = YES;
-    self.pk_other_user = model.receiver;
-}
-
-// 收到开始pk信令
-- (void)onReceiveStartPKSession:(QNPKSession *)pkSession {
-    [QToastView showToast:@"pk马上开始"];
-    self.pk_other_user = pkSession.initiator;
-    self.pkSlot.selected = YES;
-}
-
-// 收到结束pk消息
-- (void)onReceiveStopPKSession:(QNPKSession *)pkSession {
-    [self stopPK];
-}
-
-// 主动结束pk
-- (void)stopPK {
-    self.pkSlot.selected = NO;
-    self.preview.frame = self.view.frame;
-    [self.renderBackgroundView bringSubviewToFront:self.preview];
-    self.pk_other_user = nil;
-    [self.pkService stopPK:nil];
-}
-
 #pragma mark - SubViews
 - (RoomHostView *)roomHostView {
     if (!_roomHostView) {
@@ -558,25 +541,25 @@ static NSString *cellIdentifier = @"AddCollectionViewCell";
 }
 
 - (void)closeViewController {
+    __weak typeof(self) weakSelf = self;
     [QAlertView showThreeActionAlertWithTitle:@"确定关闭直播间吗？"
         content:@"关闭后无法再进入该直播间"
         firstAction:@"结束直播"
         firstHandler:^(UIAlertAction *_Nonnull action) {
-          if (self.pk_other_user) {
-              [self stopPK];
+          if (weakSelf.pk_other_user) {
+              [weakSelf stopPK];
           }
-          [self.chatService sendLeaveMsg];
+          [weakSelf.chatService sendLeaveMsg];
           [[QLive createPusherClient] closeRoom];
-          [self dismissViewControllerWithCount:2 animated:YES];
+          [weakSelf dismissViewControllerWithCount:2 animated:YES];
         }
         secondAction:@"仅暂停直播"
         secondHandler:^(UIAlertAction *_Nonnull action) {
-          if (self.pk_other_user) {
-              [self stopPK];
+          if (weakSelf.pk_other_user) {
+              [weakSelf stopPK];
           }
-
           [[QLive createPusherClient] leaveRoom];
-          [self dismissViewControllerWithCount:2 animated:YES];
+          [weakSelf dismissViewControllerWithCount:2 animated:YES];
         }
         threeHandler:^(UIAlertAction *_Nonnull action){
 
@@ -589,9 +572,14 @@ static NSString *cellIdentifier = @"AddCollectionViewCell";
     QNPKInvitationListController *vc = [[QNPKInvitationListController alloc] initWithList:resultList];
     __weak typeof(self) weakSelf = self;
     vc.invitationClickedBlock = ^(QNLiveRoomInfo *_Nonnull itemModel) {
-      [weakSelf.pkService applyPK:itemModel.live_id receiveUser:itemModel.anchor_info];
-      weakSelf.selectPkRoomInfo = itemModel;
-      [QToastView showToast:@"pk邀请已发送"];
+        //邀请PK
+        [weakSelf.pkService applyPK:itemModel.live_id receiveUser:itemModel.anchor_info];
+        weakSelf.selectPkRoomInfo = itemModel;
+        [QToastView showToast:@"pk邀请已发送"];
+    };
+    vc.cancelBlock = ^{
+        //恢复PK按钮状态
+        weakSelf.pkSlot.selected = NO;
     };
     [self addChildViewController:vc];
     [self.view addSubview:vc.view];
@@ -603,12 +591,15 @@ static NSString *cellIdentifier = @"AddCollectionViewCell";
     }];
 }
 
-// 筛除掉自己的直播间
+// 过滤掉自己的直播间，且只展示（正开播的）直播间
 - (NSArray<QNLiveRoomInfo *> *)filterListWithList:(NSArray<QNLiveRoomInfo *> *)list {
     NSMutableArray *resultList = [NSMutableArray array];
     for (QNLiveRoomInfo *room in list) {
         if (![room.anchor_info.user_id isEqualToString:LIVE_User_id]) {
-            [resultList addObject:room];
+            //并且，过滤出（正开播的）直播间列表
+            if (room.anchor_status == QNAnchorStatusOnline) { //在线状态
+                [resultList addObject:room];
+            }
         }
     }
     return resultList;
@@ -660,6 +651,170 @@ static NSString *cellIdentifier = @"AddCollectionViewCell";
         _statisticView.roomInfo = self.roomInfo;
     }
     return _statisticView;
+}
+
+@end
+
+
+#pragma mark - QNLiveViewController (PK)
+//PK扩展
+@implementation QNLiveViewController (PK)
+
+#pragma mark - PKServiceListener
+
+// 接收到pk邀请
+- (void)onReceivePKInvitation:(QInvitationModel *)model {
+    //避免被多个主播邀请、或多次邀请
+    if (self.isInviting) return;
+    self.isInviting = true;
+    
+    NSString *title = [model.invitation.linkInvitation.initiator.nick stringByAppendingString:@"邀请您PK，是否同意？"];
+    __weak typeof(self) weakSelf = self;
+    [QAlertView showBaseAlertWithTitle:title
+        content:@""
+        cancelHandler:^(UIAlertAction *_Nonnull action) {
+            weakSelf.isInviting = false;
+            //拒绝PK
+            [weakSelf.pkService rejectPK:model];
+        }
+        confirmHandler:^(UIAlertAction *_Nonnull action) {
+            weakSelf.isInviting = false;
+            //接受PK
+            [weakSelf.pkService acceptPK:model];
+            weakSelf.pk_other_user = model.invitation.linkInvitation.initiator;
+        }];
+}
+
+// 收到同意pk邀请
+- (void)onReceivePKInvitationAccept:(QNPKSession *)pkSession {
+
+    [QToastView showToast:@"对方主播同意pk"];
+    self.pkSlot.selected = YES;
+    self.pk_other_user = pkSession.receiver;
+    
+    /**
+     添加（业务的）PK可扩展字段
+     */
+    QNPKStrategyConfig *config = [[QNPKStrategyConfig alloc] init];
+    //PK总时长
+    config.totalDuration = @"180";
+    //PK打榜持续时间
+    config.pkDuration = @"120";
+    //PK惩罚持续时间
+    config.penaltyDuration = @"60";
+    //添加到 extensions 扩展字段
+    pkSession.extensions = [NSDictionary dictionaryWithDictionary:config.mj_keyValues];
+    
+    __weak typeof(self) weakSelf = self;
+    
+    //开始PK
+    //（同时设置20秒超时）
+    [self.pkService startPK:pkSession timeoutInterval:20 success:^(QNPKSession * _Nullable pkSession) {
+        //启动PK成功
+        //（发起方）保存pkSession
+        weakSelf.pkSession = pkSession;
+        //（发起方）展示PK覆盖视图
+        [weakSelf showPKView];
+    } failure:^(NSError * _Nonnull error) {
+        //启动PK失败
+        [weakSelf stopPK];
+    } timeout:^{
+        //启动PK超时
+        [weakSelf stopPK];
+    }];
+}
+
+//PK邀请被拒绝
+- (void)onReceivePKInvitationReject:(QInvitationModel *)model {
+    [QToastView showToast:@"对方主播拒绝pk"];
+    self.pkSlot.selected = NO;
+    self.pk_other_user = nil;
+}
+
+// 收到开始pk信令
+- (void)onReceiveStartPKSession:(QNPKSession *)pkSession {
+    [QToastView showToast:@"pk马上开始"];
+    self.pk_other_user = pkSession.initiator;
+    self.pkSlot.selected = YES;
+    //（接受方）保存pkSession
+    self.pkSession = pkSession;
+    
+    //（接受方）展示PK覆盖视图
+    [self showPKView];
+}
+
+// 收到结束pk消息
+- (void)onReceiveStopPKSession:(QNPKSession *)pkSession {
+    [self stopPK];
+}
+
+//pk扩展字段有变化
+- (void)onReceivePKExtendsChange:(QNPKExtendsModel *)model {
+    //更新PK覆盖视图的分数（主播端、观众端共用）
+    [QNPKViewUpdateUtil updatePKScoreView:model.extends forPKView:self.pkView];
+}
+
+#pragma mark - Private Methods
+
+//展示PK视图
+- (void)showPKView {
+    if (!self.pkView) {
+        self.pkView = [[QNPKView alloc] initWithFrame:CGRectZero];
+        [self.view addSubview:self.pkView];
+        [self.pkView mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.left.equalTo(self.view);
+            make.right.equalTo(self.view);
+            make.height.mas_equalTo(22);
+            make.top.equalTo(self.preview.mas_bottom);
+        }];
+        
+        //如果是全屏，说明还未拉到另一个PK主播的流，先隐藏PK视图；等流回调里，再展示PK覆盖视图
+        if (CGRectEqualToRect(self.preview.frame, self.view.frame)) {
+            self.pkView.hidden = true;
+        }
+        
+        //更新分数视图
+        [QNPKViewUpdateUtil updatePKScoreView:self.pkSession.extensions forPKView:self.pkView];
+
+        //计算倒计时（剩余）总时间
+        double totalDuration = [QNPKViewUpdateUtil getPKCountDownDuration:self.pkSession.startTimeStamp extensions:self.pkSession.extensions];
+        //PK惩罚持续时间
+        double penaltyDuration = [QNPKViewUpdateUtil getPKPenaltyDuration:self.pkSession.extensions];
+        
+        __weak typeof(self) weakSelf = self;
+        //启动倒计时
+        [self.pkView startPKCountDown:totalDuration penaltyDuration:penaltyDuration onFinish:^{
+            //倒计时结束，主动调一次停止PK方法
+            [weakSelf stopPK];
+        }];
+        NSLog(@"===== PK开始");
+    }
+}
+
+//关闭PK视图
+- (void)dismissPKView {
+    if (self.pkView) {
+        //停止倒计时
+        [self.pkView stopPKCountDown];
+        //并移除视图
+        [self.pkView removeFromSuperview];
+        self.pkView = nil;
+    }
+}
+
+//主动结束PK
+- (void)stopPK {
+    if (self.pk_other_user) {
+        //关闭PK视图
+        [self dismissPKView];
+        NSLog(@"===== PK已停止");
+        
+        self.pkSlot.selected = NO;
+        self.preview.frame = self.view.frame;
+        [self.renderBackgroundView bringSubviewToFront:self.preview];
+        self.pk_other_user = nil;
+        [self.pkService stopPK:nil failure:nil];
+    }
 }
 
 @end

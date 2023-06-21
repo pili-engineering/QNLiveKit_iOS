@@ -13,6 +13,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface QNPKInvitationListController : UIViewController
 
+@property (nonatomic, copy) void (^ _Nullable cancelBlock)(void);
 @property (nonatomic, copy) void (^invitationClickedBlock)(QNLiveRoomInfo *itemModel);
 
 - (instancetype)initWithList:(NSArray<QNLiveRoomInfo *> *)list;
