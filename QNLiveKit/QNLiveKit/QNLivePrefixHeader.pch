@@ -62,7 +62,7 @@
 #define liveroom_pk_invitation  @"liveroom_pk_invitation"//pk邀请信令
 #define liveroom_pk_start  @"liveroom_pk_start"
 #define liveroom_pk_stop  @"liveroom_pk_stop"
-#define liveroom_pk_extends  @"liveroom_pk_extends"
+#define liveroom_pk_extends  @"pk_extends_notify" //PK扩展字段变更
 
 #define invite_send  @"invite_send"
 #define invite_cancel  @"invite_cancel"
@@ -76,6 +76,9 @@
 
 //接收IM消息通知
 #define ReceiveIMMessageNotification @"ReceiveIMMessageNotification"
+
+//（观众端）加入房间消息通知
+#define ReceivePullClientJoinedRoom @"receivePullClientJoinedRoom"
 
 #import <QNRTCKit/QNRTCKit.h>
 #import <MJExtension/MJExtension.h>

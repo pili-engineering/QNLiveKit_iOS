@@ -28,6 +28,10 @@
 
 -(void)dealloc{
     NSLog(@"QNLiveBaseController dealloc");
+    //确保 _chatService 能正常销毁
+    if (_chatService) {
+        [_chatService removeChatServiceListener];
+    }
 }
 
 #ifdef useBeauty

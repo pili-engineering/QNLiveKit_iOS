@@ -332,6 +332,26 @@
 		48B2D4AC29422F0B0082A8D6 /* QNAudienceController.m in Sources */ = {isa = PBXBuildFile; fileRef = 485F240A2940DA6F00484CB6 /* QNAudienceController.m */; };
 		48B2D4AD29422F0B0082A8D6 /* QNBaseRTCController.h in Headers */ = {isa = PBXBuildFile; fileRef = 485F240B2940DA6F00484CB6 /* QNBaseRTCController.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		793EF3472ADDCFC2BF2A8B18 /* Pods_QNLiveUIKitTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E416B25A49C67B2668988E68 /* Pods_QNLiveUIKitTests.framework */; };
+		A22E58EE2A36B6CD008D2987 /* QNPKView.h in Headers */ = {isa = PBXBuildFile; fileRef = A22E58EC2A36B6CC008D2987 /* QNPKView.h */; };
+		A22E58EF2A36B6CD008D2987 /* QNPKView.h in Headers */ = {isa = PBXBuildFile; fileRef = A22E58EC2A36B6CC008D2987 /* QNPKView.h */; };
+		A22E58F02A36B6CD008D2987 /* QNPKView.m in Sources */ = {isa = PBXBuildFile; fileRef = A22E58ED2A36B6CC008D2987 /* QNPKView.m */; };
+		A22E58F12A36B6CD008D2987 /* QNPKView.m in Sources */ = {isa = PBXBuildFile; fileRef = A22E58ED2A36B6CC008D2987 /* QNPKView.m */; };
+		A2A728D02A371D0A00B789DC /* QNCountDownTimer.h in Headers */ = {isa = PBXBuildFile; fileRef = A2A728CE2A371D0A00B789DC /* QNCountDownTimer.h */; };
+		A2A728D12A371D0A00B789DC /* QNCountDownTimer.h in Headers */ = {isa = PBXBuildFile; fileRef = A2A728CE2A371D0A00B789DC /* QNCountDownTimer.h */; };
+		A2A728D22A371D0A00B789DC /* QNCountDownTimer.m in Sources */ = {isa = PBXBuildFile; fileRef = A2A728CF2A371D0A00B789DC /* QNCountDownTimer.m */; };
+		A2A728D32A371D0A00B789DC /* QNCountDownTimer.m in Sources */ = {isa = PBXBuildFile; fileRef = A2A728CF2A371D0A00B789DC /* QNCountDownTimer.m */; };
+		A2A728D62A381BA000B789DC /* QNTimeFormatUtil.h in Headers */ = {isa = PBXBuildFile; fileRef = A2A728D42A381BA000B789DC /* QNTimeFormatUtil.h */; };
+		A2A728D72A381BA000B789DC /* QNTimeFormatUtil.h in Headers */ = {isa = PBXBuildFile; fileRef = A2A728D42A381BA000B789DC /* QNTimeFormatUtil.h */; };
+		A2A728D82A381BA000B789DC /* QNTimeFormatUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = A2A728D52A381BA000B789DC /* QNTimeFormatUtil.m */; };
+		A2A728D92A381BA000B789DC /* QNTimeFormatUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = A2A728D52A381BA000B789DC /* QNTimeFormatUtil.m */; };
+		A2D3356F2A405BBB0028DE4B /* QNPKStrategyConfig.h in Headers */ = {isa = PBXBuildFile; fileRef = A2D3356D2A405BBB0028DE4B /* QNPKStrategyConfig.h */; };
+		A2D335702A405BBB0028DE4B /* QNPKStrategyConfig.h in Headers */ = {isa = PBXBuildFile; fileRef = A2D3356D2A405BBB0028DE4B /* QNPKStrategyConfig.h */; };
+		A2D335712A405BBB0028DE4B /* QNPKStrategyConfig.m in Sources */ = {isa = PBXBuildFile; fileRef = A2D3356E2A405BBB0028DE4B /* QNPKStrategyConfig.m */; };
+		A2D335722A405BBB0028DE4B /* QNPKStrategyConfig.m in Sources */ = {isa = PBXBuildFile; fileRef = A2D3356E2A405BBB0028DE4B /* QNPKStrategyConfig.m */; };
+		A2D335752A40612E0028DE4B /* QNPKViewUpdateUtil.h in Headers */ = {isa = PBXBuildFile; fileRef = A2D335732A40612E0028DE4B /* QNPKViewUpdateUtil.h */; };
+		A2D335762A40612E0028DE4B /* QNPKViewUpdateUtil.h in Headers */ = {isa = PBXBuildFile; fileRef = A2D335732A40612E0028DE4B /* QNPKViewUpdateUtil.h */; };
+		A2D335772A40612E0028DE4B /* QNPKViewUpdateUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = A2D335742A40612E0028DE4B /* QNPKViewUpdateUtil.m */; };
+		A2D335782A40612E0028DE4B /* QNPKViewUpdateUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = A2D335742A40612E0028DE4B /* QNPKViewUpdateUtil.m */; };
 		B18CB41D7AC6271EFAEF83EE /* Pods_QNLiveUIKit_Beauty.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 934FC6682441E3B9CDE5E45E /* Pods_QNLiveUIKit_Beauty.framework */; };
 		C9074B9C29C84BEB00761359 /* libst_mobile.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 485F25232940DB1E00484CB6 /* libst_mobile.a */; };
 		C91CA15D29C415B900501D33 /* QNConfigurationUI.h in Headers */ = {isa = PBXBuildFile; fileRef = C91CA15B29C415B900501D33 /* QNConfigurationUI.h */; };
@@ -894,6 +914,16 @@
 		8277E13BD337B0081738E11A /* Pods-QNLiveUIKitTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-QNLiveUIKitTests.release.xcconfig"; path = "Target Support Files/Pods-QNLiveUIKitTests/Pods-QNLiveUIKitTests.release.xcconfig"; sourceTree = "<group>"; };
 		925C02D90AD4B0C4D7B9807F /* Pods_QNLiveUIKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_QNLiveUIKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		934FC6682441E3B9CDE5E45E /* Pods_QNLiveUIKit_Beauty.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_QNLiveUIKit_Beauty.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		A22E58EC2A36B6CC008D2987 /* QNPKView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = QNPKView.h; sourceTree = "<group>"; };
+		A22E58ED2A36B6CC008D2987 /* QNPKView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = QNPKView.m; sourceTree = "<group>"; };
+		A2A728CE2A371D0A00B789DC /* QNCountDownTimer.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = QNCountDownTimer.h; sourceTree = "<group>"; };
+		A2A728CF2A371D0A00B789DC /* QNCountDownTimer.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = QNCountDownTimer.m; sourceTree = "<group>"; };
+		A2A728D42A381BA000B789DC /* QNTimeFormatUtil.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = QNTimeFormatUtil.h; sourceTree = "<group>"; };
+		A2A728D52A381BA000B789DC /* QNTimeFormatUtil.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = QNTimeFormatUtil.m; sourceTree = "<group>"; };
+		A2D3356D2A405BBB0028DE4B /* QNPKStrategyConfig.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = QNPKStrategyConfig.h; sourceTree = "<group>"; };
+		A2D3356E2A405BBB0028DE4B /* QNPKStrategyConfig.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = QNPKStrategyConfig.m; sourceTree = "<group>"; };
+		A2D335732A40612E0028DE4B /* QNPKViewUpdateUtil.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = QNPKViewUpdateUtil.h; sourceTree = "<group>"; };
+		A2D335742A40612E0028DE4B /* QNPKViewUpdateUtil.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = QNPKViewUpdateUtil.m; sourceTree = "<group>"; };
 		A6CF38529F7F9226CEBA4C3B /* Pods-QNLiveUIKit_NO_Beauty.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-QNLiveUIKit_NO_Beauty.release.xcconfig"; path = "Target Support Files/Pods-QNLiveUIKit_NO_Beauty/Pods-QNLiveUIKit_NO_Beauty.release.xcconfig"; sourceTree = "<group>"; };
 		C91CA15B29C415B900501D33 /* QNConfigurationUI.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = QNConfigurationUI.h; sourceTree = "<group>"; };
 		C91CA15C29C415B900501D33 /* QNConfigurationUI.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = QNConfigurationUI.m; sourceTree = "<group>"; };
@@ -1522,6 +1552,8 @@
 		485F25312940DB5800484CB6 /* PK */ = {
 			isa = PBXGroup;
 			children = (
+				A2D3356C2A405B180028DE4B /* Model */,
+				A2A728CD2A37047300B789DC /* Tools */,
 				485F262B2940DCBF00484CB6 /* VC */,
 				485F262E2940DCBF00484CB6 /* View */,
 			);
@@ -1552,6 +1584,8 @@
 			children = (
 				485F262F2940DCBF00484CB6 /* QNPKInvitationListCell.h */,
 				485F26302940DCBF00484CB6 /* QNPKInvitationListCell.m */,
+				A22E58EC2A36B6CC008D2987 /* QNPKView.h */,
+				A22E58ED2A36B6CC008D2987 /* QNPKView.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -1743,6 +1777,28 @@
 			path = Tools;
 			sourceTree = "<group>";
 		};
+		A2A728CD2A37047300B789DC /* Tools */ = {
+			isa = PBXGroup;
+			children = (
+				A2A728CE2A371D0A00B789DC /* QNCountDownTimer.h */,
+				A2A728CF2A371D0A00B789DC /* QNCountDownTimer.m */,
+				A2A728D42A381BA000B789DC /* QNTimeFormatUtil.h */,
+				A2A728D52A381BA000B789DC /* QNTimeFormatUtil.m */,
+				A2D335732A40612E0028DE4B /* QNPKViewUpdateUtil.h */,
+				A2D335742A40612E0028DE4B /* QNPKViewUpdateUtil.m */,
+			);
+			path = Tools;
+			sourceTree = "<group>";
+		};
+		A2D3356C2A405B180028DE4B /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				A2D3356D2A405BBB0028DE4B /* QNPKStrategyConfig.h */,
+				A2D3356E2A405BBB0028DE4B /* QNPKStrategyConfig.m */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
 		D3FA116ABD2D472388CAB289 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
@@ -1796,10 +1852,12 @@
 				485F26732940DCD100484CB6 /* QInputBarControl.h in Headers */,
 				485F26F62940DD8800484CB6 /* OnlineUserSlot.h in Headers */,
 				485F26802940DCD100484CB6 /* QNGiftMessageCell.h in Headers */,
+				A22E58EE2A36B6CD008D2987 /* QNPKView.h in Headers */,
 				485F26CA2940DCF600484CB6 /* QGCDTimerManager.h in Headers */,
 				485F26C62940DCF600484CB6 /* GoodBuyItemCell.h in Headers */,
 				484C3AC32940D62000640FE4 /* QNLiveUIKit-PrefixHeader.pch in Headers */,
 				485F26D82940DCF600484CB6 /* QPlayerView.h in Headers */,
+				A2D335752A40612E0028DE4B /* QNPKViewUpdateUtil.h in Headers */,
 				48B2D44529422DD80082A8D6 /* SenseArMaterial.h in Headers */,
 				48B2D47629422E290082A8D6 /* EFStorageHelper.h in Headers */,
 				48B2D3E729422B5D0082A8D6 /* STParamUtil.h in Headers */,
@@ -1838,6 +1896,7 @@
 				48B2D47B29422E290082A8D6 /* EFGlobalSingleton.h in Headers */,
 				48B2D3C929422B5D0082A8D6 /* STCollectionViewCell.h in Headers */,
 				48B2D49429422E530082A8D6 /* STAudioManager.h in Headers */,
+				A2A728D02A371D0A00B789DC /* QNCountDownTimer.h in Headers */,
 				48B2D43D29422DCD0082A8D6 /* STGLPreview3.h in Headers */,
 				48B2D42329422D1C0082A8D6 /* QRenderView.h in Headers */,
 				48B2D3D329422B5D0082A8D6 /* STTitleViewItem.h in Headers */,
@@ -1848,6 +1907,7 @@
 				48B2D3D029422B5D0082A8D6 /* STSlideView.h in Headers */,
 				48B2D3CB29422B5D0082A8D6 /* STCommonObjectView.h in Headers */,
 				48B2D42A29422D320082A8D6 /* QNGiftMessagePannel.h in Headers */,
+				A2A728D62A381BA000B789DC /* QNTimeFormatUtil.h in Headers */,
 				48B2D3E329422B5D0082A8D6 /* STFilterView.h in Headers */,
 				48B2D3E229422B5D0082A8D6 /* STBMPDetailColV.h in Headers */,
 				48B2D47729422E290082A8D6 /* EFStatusModels.h in Headers */,
@@ -1906,6 +1966,7 @@
 				48B2D3BF29422B5D0082A8D6 /* STScrollTitleView.h in Headers */,
 				48B2D41729422D0D0082A8D6 /* OnlineUserView.h in Headers */,
 				48B2D3E029422B5D0082A8D6 /* STCustomMemoryCache.h in Headers */,
+				A2D3356F2A405BBB0028DE4B /* QNPKStrategyConfig.h in Headers */,
 				48B2D49A29422E530082A8D6 /* SystemSound.h in Headers */,
 				48B2D42229422D1C0082A8D6 /* QToastView.h in Headers */,
 				48B2D3D529422B5D0082A8D6 /* STCommonObjectContainerView.h in Headers */,
@@ -1960,6 +2021,7 @@
 				C91CA24529C7FECF00501D33 /* QNLikeBubbleView.h in Headers */,
 				C91CA24229C7FECF00501D33 /* QNLikeMenuView.h in Headers */,
 				C91CA1F329C7FE6D00501D33 /* CALayer+Aimate.h in Headers */,
+				A22E58EF2A36B6CD008D2987 /* QNPKView.h in Headers */,
 				C91CA21529C7FE9700501D33 /* GoodStatusView.h in Headers */,
 				C91CA27E29C7FEF500501D33 /* QNLiveUIKit-PrefixHeader.pch in Headers */,
 				C91CA25029C7FEDA00501D33 /* LinkStateView.h in Headers */,
@@ -1984,6 +2046,7 @@
 				C91CA20D29C7FE9200501D33 /* GoodsOperationCell.h in Headers */,
 				C91CA22029C7FEA100501D33 /* UIViewController+QPlayerRotation.h in Headers */,
 				C91CA24F29C7FEDA00501D33 /* ImageButtonView.h in Headers */,
+				A2D335762A40612E0028DE4B /* QNPKViewUpdateUtil.h in Headers */,
 				C91CA1CF29C7FE5400501D33 /* BottomMenuSlot.h in Headers */,
 				C91CA1E829C7FE6700501D33 /* QEmojiCollectionCell.h in Headers */,
 				C91CA26B29C7FEE700501D33 /* QNGiftMessagePannel.h in Headers */,
@@ -2000,6 +2063,7 @@
 				C91CA27429C7FEF500501D33 /* UIImage+QNImage.h in Headers */,
 				C91CA1D029C7FE5400501D33 /* QNInternalViewSlot.h in Headers */,
 				C91CA25429C7FEDA00501D33 /* QNLiveStatisticView.h in Headers */,
+				A2A728D72A381BA000B789DC /* QNTimeFormatUtil.h in Headers */,
 				C91CA25729C7FEDA00501D33 /* OnlineUserView.h in Headers */,
 				C91CA27229C7FEEC00501D33 /* QNLiveListCell.h in Headers */,
 				C91CA21729C7FE9700501D33 /* QTagList.h in Headers */,
@@ -2016,6 +2080,7 @@
 				C91CA24929C7FED500501D33 /* QToastView.h in Headers */,
 				C91CA21029C7FE9200501D33 /* GoodSellItemCell.h in Headers */,
 				C91CA1ED29C7FE6700501D33 /* QEmojiBoardView.h in Headers */,
+				A2D335702A405BBB0028DE4B /* QNPKStrategyConfig.h in Headers */,
 				C91CA20229C7FE8B00501D33 /* WacthRecordController.h in Headers */,
 				C91CA1E029C7FE5A00501D33 /* QNEmojiBoardView.h in Headers */,
 				C91CA1E129C7FE5A00501D33 /* QNEmojiCollectionCell.h in Headers */,
@@ -2037,6 +2102,7 @@
 				C91CA27029C7FEEC00501D33 /* MXSCycleScrollView.h in Headers */,
 				C91CA26529C7FEE700501D33 /* QNGiftOperation.h in Headers */,
 				C91CA25A29C7FEE000501D33 /* LiveBottomMoreView.h in Headers */,
+				A2A728D12A371D0A00B789DC /* QNCountDownTimer.h in Headers */,
 				C91CA24129C7FECB00501D33 /* QNVoiceCollectionViewCell.h in Headers */,
 				C91CA22E29C7FEBC00501D33 /* QNLiveBaseController.h in Headers */,
 				C91CA1D729C7FE5400501D33 /* OnlineUserSlot.h in Headers */,
@@ -2272,6 +2338,7 @@
 				48B2D3C229422B5D0082A8D6 /* STSlideView.m in Sources */,
 				48B2D3C029422B5D0082A8D6 /* STTitleViewItem.m in Sources */,
 				48B2D3822942240C0082A8D6 /* RoomHostView.m in Sources */,
+				A2D335712A405BBB0028DE4B /* QNPKStrategyConfig.m in Sources */,
 				48B2D3B729422B360082A8D6 /* STBmpStrengthView.m in Sources */,
 				48B2D3BE29422B5D0082A8D6 /* STCollectionView.m in Sources */,
 				485F26C82940DCF600484CB6 /* GoodsOperationView.m in Sources */,
@@ -2286,8 +2353,10 @@
 				48B2D3A629422A530082A8D6 /* EFDataSourceGenerator.m in Sources */,
 				48B2D41F29422D160082A8D6 /* QNLikeMenuView.m in Sources */,
 				485F26F72940DD8800484CB6 /* RoomHostSlot.m in Sources */,
+				A2A728D22A371D0A00B789DC /* QNCountDownTimer.m in Sources */,
 				48B2D4A329422F020082A8D6 /* QLiveListController.m in Sources */,
 				48B2D42F29422D3E0082A8D6 /* QNLiveListCell.m in Sources */,
+				A22E58F02A36B6CD008D2987 /* QNPKView.m in Sources */,
 				485F26CB2940DCF600484CB6 /* UINavigationController+QPlayerRotation.m in Sources */,
 				485F26652940DCD100484CB6 /* QNEmojiCollectionCell.m in Sources */,
 				48B2D3E129422B5D0082A8D6 /* STCustomMemoryCache.m in Sources */,
@@ -2325,6 +2394,7 @@
 				48B2D49F29422E610082A8D6 /* LicenseUtil.m in Sources */,
 				48B2D396294229860082A8D6 /* QNGiftOperation.m in Sources */,
 				48B2D3A329422A390082A8D6 /* STGLPreview3.m in Sources */,
+				A2D335772A40612E0028DE4B /* QNPKViewUpdateUtil.m in Sources */,
 				485F26D92940DCF600484CB6 /* QGCDTimerManager.m in Sources */,
 				48B2D3C729422B5D0082A8D6 /* EffectsCollectionViewCell.m in Sources */,
 				485F26FB2940DD8800484CB6 /* ItemSlot.m in Sources */,
@@ -2374,6 +2444,7 @@
 				48B2D38A294227790082A8D6 /* QNLiveBaseController.m in Sources */,
 				485F26F82940DD8800484CB6 /* BottomMenuSlot.m in Sources */,
 				48B2D41129422D050082A8D6 /* LiveBottomMoreView.m in Sources */,
+				A2A728D82A381BA000B789DC /* QNTimeFormatUtil.m in Sources */,
 				48B2D3A729422A570082A8D6 /* NSString+sha1.m in Sources */,
 				485F267E2940DCD100484CB6 /* FDanmakuView.m in Sources */,
 				48B2D390294229650082A8D6 /* MXSCycleScrollView.m in Sources */,
@@ -2435,6 +2506,7 @@
 				C91CA1FB29C7FE7200501D33 /* QNGiftMessageCell.m in Sources */,
 				C91CA20129C7FE8600501D33 /* QNPKInvitationListCell.m in Sources */,
 				C91CA25829C7FEDA00501D33 /* OnlineUserView.m in Sources */,
+				A2A728D92A381BA000B789DC /* QNTimeFormatUtil.m in Sources */,
 				C91CA20629C7FE8B00501D33 /* ShopBuyListController.m in Sources */,
 				C91CA23529C7FEC400501D33 /* QNPayGiftViewController.m in Sources */,
 				C91CA25C29C7FEE000501D33 /* BottomMenuView.m in Sources */,
@@ -2442,6 +2514,7 @@
 				C91CA1F829C7FE7200501D33 /* QMessageBaseCell.m in Sources */,
 				C91CA21429C7FE9700501D33 /* UILabel+QAttributed.m in Sources */,
 				C91CA20929C7FE9200501D33 /* PSPopListView.m in Sources */,
+				A2D335722A405BBB0028DE4B /* QNPKStrategyConfig.m in Sources */,
 				C91CA1FC29C7FE7600501D33 /* LiveChatRoom.m in Sources */,
 				C9D2DB6729C83C0800D15755 /* UIViewController+QViewController.m in Sources */,
 				C91CA26429C7FEE700501D33 /* QNGiftView.m in Sources */,
@@ -2451,6 +2524,7 @@
 				C91CA22229C7FEA600501D33 /* QPlayerMaskView.m in Sources */,
 				C91CA21F29C7FEA100501D33 /* UIViewController+QPlayerRotation.m in Sources */,
 				C91CA1D329C7FE5400501D33 /* RoomHostSlot.m in Sources */,
+				A22E58F12A36B6CD008D2987 /* QNPKView.m in Sources */,
 				C91CA1E729C7FE6700501D33 /* QEmojiBoardView.m in Sources */,
 				C91CA27B29C7FEF500501D33 /* QNConfigurationUI.m in Sources */,
 				C91CA1D529C7FE5400501D33 /* ItemSlot.m in Sources */,
@@ -2459,6 +2533,7 @@
 				C91CA1E329C7FE5F00501D33 /* QNMessageBaseCell.m in Sources */,
 				C91CA27629C7FEF500501D33 /* CYProtocolManager.m in Sources */,
 				C91CA25929C7FEDA00501D33 /* ImageButtonView.m in Sources */,
+				A2D335782A40612E0028DE4B /* QNPKViewUpdateUtil.m in Sources */,
 				C91CA22329C7FEA600501D33 /* QPlayerView.m in Sources */,
 				C91CA26129C7FEE700501D33 /* QNHorizontalLayout.m in Sources */,
 				C91CA20529C7FE8B00501D33 /* WacthRecordController.m in Sources */,
@@ -2475,6 +2550,7 @@
 				C91CA1DA29C7FE5A00501D33 /* QNInputBarControl.m in Sources */,
 				C91CA22629C7FEA600501D33 /* QRotateAnimationView.m in Sources */,
 				C91CA28129C7FEF500501D33 /* UIImage+QNImage.m in Sources */,
+				A2A728D32A371D0A00B789DC /* QNCountDownTimer.m in Sources */,
 				C91CA21129C7FE9200501D33 /* GoodStatusView.m in Sources */,
 				C91CA24B29C7FED500501D33 /* QRenderView.m in Sources */,
 				C91CA22B29C7FEAA00501D33 /* QGCDTimerManager.m in Sources */,

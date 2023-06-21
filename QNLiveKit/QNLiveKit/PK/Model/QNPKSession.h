@@ -7,31 +7,64 @@
 
 #import <Foundation/Foundation.h>
 #import "QNLiveUser.h"
+
 NS_ASSUME_NONNULL_BEGIN
 
+#pragma mark - QNPKStatus
+
+typedef enum {
+    QNPKStatusWaitAgree = 0,    //等待接收方同意
+    QNPKStatusInitSuccess = 2,  //发起方已经完成跨房，等待对方完成
+    QNPKStatusRecvSuccess = 3,  //接收方已经完成跨房，等待对方完成
+    QNPKStatusSuccess = 4,      //两方都完成跨房
+    QNPKStatusStopped = 6,      //结束
+} QNPKStatus;
+
+
+#pragma mark - QNPKSession
+
 @interface QNPKSession : NSObject
-//PK场次ID
-@property (nonatomic, copy)NSString *sessionId;
-//跨房会话ID
-@property (nonatomic, copy)NSString *relay_id;
-//跨房token
-@property (nonatomic, copy)NSString *relay_token;
+//跨房PK会话ID
+@property (nonatomic, copy) NSString *sessionId;
 //发起方
-@property (nonatomic, strong)QNLiveUser *initiator;
+@property (nonatomic, strong) QNLiveUser *initiator;
 //接受方
-@property (nonatomic, strong)QNLiveUser *receiver;
+@property (nonatomic, strong) QNLiveUser *receiver;
 //发起方所在房间
-@property (nonatomic, copy)NSString *initiatorRoomId;
+@property (nonatomic, copy) NSString *initiatorRoomId;
 //接受方所在房间
-@property (nonatomic, copy)NSString *receiverRoomId;
-//扩展字段
-@property (nonatomic, copy)NSString *extensions;
-//跨房状态，此时的状态有：0，等待接收方同意；1，接收方已同意（目的房间不需要确认）
-@property (nonatomic, assign)NSInteger relay_status;
+@property (nonatomic, copy) NSString *receiverRoomId;
+//PK状态
+@property (nonatomic, assign) QNPKStatus status;
 //pk开始时间戳
-@property (nonatomic, assign)long long startTimeStamp;
+@property (nonatomic, assign) long long startTimeStamp;
+
+/*
+ //PK总时长
+ @"TotalDuration": @"180",
+ //PK打榜持续时间
+ @"pkDuration": @"120",
+ //PK惩罚持续时间
+ @"penaltyDuration": @"60"
+ //PK积分
+ @"pkIntegral": JSON字符串（可反序列化成 QNPKIntegralModel 对象）
+ */
+//PK扩展字段
+@property (nonatomic, strong) NSDictionary *extensions;
+
 @end
 
+
+#pragma mark - QNPKSession (fromInvitation)
+
+@class QInvitationModel;
+
+@interface QNPKSession (fromInvitation)
+
+// QInvitationModel -> QNPKSession
++ (instancetype)fromInvitationModel:(QInvitationModel *)invitationModel;
+
+@end
 
 
 NS_ASSUME_NONNULL_END

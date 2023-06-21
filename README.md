@@ -389,15 +389,14 @@ vc.modalPresentationStyle = UIModalPresentationFullScreen;
 
 //申请pk
 - (void)applyPK:(NSString *)receiveRoomId receiveUser:(QNLiveUser *)receiveUser;
-
 //接受PK申请
-- (void)AcceptPK:(QInvitationModel *)invitationModel;
-
+- (void)acceptPK:(QInvitationModel *)invitationModel;
 //拒绝PK申请
-- (void)sendPKReject:(QInvitationModel *)invitationModel;
-
+- (void)rejectPK:(QInvitationModel *)invitationModel;
 //结束pk
-- (void)stopPK:(nullable void (^)(void))callBack;
+- (void)stopPK:(nullable void (^)(void))success failure:(nullable QNPKFailureBlock)failure;
+//开始PK
+- (void)startPK:(QNPKSession *)pkSession timeoutInterval:(double)timeoutInterval success:(nullable QNPKSuccessBlock)success failure:(nullable QNPKFailureBlock)failure timeout:(nullable QNPKTimeoutBlock)timeout;
 
 @end
 ```
@@ -409,20 +408,17 @@ vc.modalPresentationStyle = UIModalPresentationFullScreen;
 @optional
 //收到PK邀请
 - (void)onReceivePKInvitation:(QInvitationModel *)model;
-//PK邀请被接受
-- (void)onReceivePKInvitationAccept:(QNPKSession *)model;
 //PK邀请被拒绝
 - (void)onReceivePKInvitationReject:(QInvitationModel *)model;
+//PK邀请被接受
+- (void)onReceivePKInvitationAccept:(QNPKSession *)pkSession;
 //PK开始
 - (void)onReceiveStartPKSession:(QNPKSession *)pkSession;
 //pk结束
 - (void)onReceiveStopPKSession:(QNPKSession *)pkSession;
-
-/**
- * 有pk扩展字段变化
- * @param extension 某个自定义字段
- */
-- (void)onReceivePKExtensionChange:(QExtension *)extension;
+//pk扩展字段有变化
+//（可在model.extends中，添加自定义字段）
+- (void)onReceivePKExtendsChange:(QNPKExtendsModel *)model;
 
 @end 
 ```

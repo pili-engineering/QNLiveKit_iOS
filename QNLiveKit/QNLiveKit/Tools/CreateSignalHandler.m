@@ -256,17 +256,18 @@
 }
 
 //开始pk
--(QNIMMessageObject *)createStartPKMessage:(QNPKSession *)pkSession singleMsg:(BOOL)singleMsg {
+- (QNIMMessageObject *)createStartPKMessage:(QNPKSession *)pkSession singleMsg:(BOOL)singleMsg {
     
     QIMModel *model = [QIMModel new];
     model.action = liveroom_pk_start;
     model.data = pkSession.mj_keyValues;
     
-    if (singleMsg) {
+    if (singleMsg) { //c2c消息
         QNIMMessageObject *message = [[QNIMMessageObject alloc]initWithQNIMMessageText:model.mj_JSONString fromId:LIVE_IM_userId.longLongValue toId:pkSession.receiver.im_userid.longLongValue type:QNIMMessageTypeSingle conversationId:pkSession.receiver.im_userid.longLongValue];
         message.senderName = LIVE_User_nickname;
         return message;
     }
+    //group群消息
     QNIMMessageObject *message = [[QNIMMessageObject alloc]initWithQNIMMessageText:model.mj_JSONString fromId:LIVE_IM_userId.longLongValue toId:self.toId.longLongValue type:QNIMMessageTypeGroup conversationId:self.toId.longLongValue];
     message.senderName = LIVE_User_nickname;
     return message;

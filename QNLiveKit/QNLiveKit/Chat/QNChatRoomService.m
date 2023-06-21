@@ -37,9 +37,15 @@
     QLIVELogInfo(@"QNChatRoomService addListener (%@)",listener);
     self.groupId = self.roomInfo.chat_id;
     self.roomId = self.roomInfo.live_id;
+    __weak typeof(self) weakSelf = self;
     [[QNIMGroupService sharedOption] joinGroupWithGroupId:self.groupId message:@"" completion:^(QNIMError * _Nonnull error) {
-        if (!error) {
-            self.isMember = YES;
+        if (error) {
+            //当仅暂停直播时，IM并没有退，所以会报"User is already in group."的提示，此时需要把isMember设置为YES，避免"正式'结束直播'时，不发送退出IM房间消息"
+            if (error.errorCode == QNIMGroupMemberExist) {
+                weakSelf.isMember = YES;
+            }
+        } else {
+            weakSelf.isMember = YES;
         }
     }];
     
@@ -102,19 +108,11 @@
 }
 
 - (void)sendLeaveMsg {
+    //如果在IM直播间内容，则发送离开；如果不在，就不操作
     if (self.isMember) {
         QNIMMessageObject *message = [self.creater createLeaveRoomMessage];
         [[QNIMChatService sharedOption] sendMessage:message];
-    } else {
-        [[QNIMGroupService sharedOption] joinGroupWithGroupId:self.groupId message:@"" completion:^(QNIMError * _Nonnull error) {
-            if (!error) {
-                self.isMember = YES;
-                QNIMMessageObject *message = [self.creater createLeaveRoomMessage];
-                [[QNIMChatService sharedOption] sendMessage:message];
-            }
-        }];
     }
-    
 }
 
 //私聊消息

@@ -98,6 +98,12 @@
 		77BE232628CB4424007557E9 /* QStatisticalService.m in Sources */ = {isa = PBXBuildFile; fileRef = 77BE232428CB4424007557E9 /* QStatisticalService.m */; };
 		77BE24F528FFED50007557E9 /* QNGiftModel.h in Headers */ = {isa = PBXBuildFile; fileRef = 77BE24E028FFED50007557E9 /* QNGiftModel.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		77BE24FE28FFED50007557E9 /* QNGiftModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 77BE24E928FFED50007557E9 /* QNGiftModel.m */; };
+		A28EDD962A39BB8D00088C5F /* QNPKInfo.h in Headers */ = {isa = PBXBuildFile; fileRef = A28EDD942A39BB8D00088C5F /* QNPKInfo.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		A28EDD972A39BB8D00088C5F /* QNPKInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = A28EDD952A39BB8D00088C5F /* QNPKInfo.m */; };
+		A28EDD9A2A3A07F000088C5F /* QNPKExtendsModel.h in Headers */ = {isa = PBXBuildFile; fileRef = A28EDD982A3A07F000088C5F /* QNPKExtendsModel.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		A28EDD9B2A3A07F000088C5F /* QNPKExtendsModel.m in Sources */ = {isa = PBXBuildFile; fileRef = A28EDD992A3A07F000088C5F /* QNPKExtendsModel.m */; };
+		A29339D42A3C4F9200EAEE81 /* QNPKRespModel.h in Headers */ = {isa = PBXBuildFile; fileRef = A29339D22A3C4F9200EAEE81 /* QNPKRespModel.h */; };
+		A29339D52A3C4F9200EAEE81 /* QNPKRespModel.m in Sources */ = {isa = PBXBuildFile; fileRef = A29339D32A3C4F9200EAEE81 /* QNPKRespModel.m */; };
 		F18E863D1EEF8227B50115B4 /* Pods_QNLiveKitTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 948C15C1847BC94017A63290 /* Pods_QNLiveKitTests.framework */; };
 /* End PBXBuildFile section */
 
@@ -230,6 +236,12 @@
 		93FD8D2BCC60F127C6FB7DA1 /* Pods_QNLiveKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_QNLiveKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		948C15C1847BC94017A63290 /* Pods_QNLiveKitTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_QNLiveKitTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A065A22036BD2AFE4FD60568 /* Pods-QNLiveKit.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-QNLiveKit.release.xcconfig"; path = "Target Support Files/Pods-QNLiveKit/Pods-QNLiveKit.release.xcconfig"; sourceTree = "<group>"; };
+		A28EDD942A39BB8D00088C5F /* QNPKInfo.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = QNPKInfo.h; sourceTree = "<group>"; };
+		A28EDD952A39BB8D00088C5F /* QNPKInfo.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = QNPKInfo.m; sourceTree = "<group>"; };
+		A28EDD982A3A07F000088C5F /* QNPKExtendsModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = QNPKExtendsModel.h; sourceTree = "<group>"; };
+		A28EDD992A3A07F000088C5F /* QNPKExtendsModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = QNPKExtendsModel.m; sourceTree = "<group>"; };
+		A29339D22A3C4F9200EAEE81 /* QNPKRespModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = QNPKRespModel.h; sourceTree = "<group>"; };
+		A29339D32A3C4F9200EAEE81 /* QNPKRespModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = QNPKRespModel.m; sourceTree = "<group>"; };
 		AADF4E1ADDF332CEBB7AA08F /* Pods-QNLiveKitTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-QNLiveKitTests.debug.xcconfig"; path = "Target Support Files/Pods-QNLiveKitTests/Pods-QNLiveKitTests.debug.xcconfig"; sourceTree = "<group>"; };
 		E7FA04C2FAD7C9E74332DF0F /* Pods-QNLiveKit.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-QNLiveKit.debug.xcconfig"; path = "Target Support Files/Pods-QNLiveKit/Pods-QNLiveKit.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -482,6 +494,12 @@
 			children = (
 				77781C08283D1337009DC71C /* QNPKSession.h */,
 				77781C09283D1337009DC71C /* QNPKSession.m */,
+				A28EDD942A39BB8D00088C5F /* QNPKInfo.h */,
+				A28EDD952A39BB8D00088C5F /* QNPKInfo.m */,
+				A28EDD982A3A07F000088C5F /* QNPKExtendsModel.h */,
+				A28EDD992A3A07F000088C5F /* QNPKExtendsModel.m */,
+				A29339D22A3C4F9200EAEE81 /* QNPKRespModel.h */,
+				A29339D32A3C4F9200EAEE81 /* QNPKRespModel.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -560,6 +578,7 @@
 				776B1C8E283CBB2100D85C73 /* QNLivePushClient.h in Headers */,
 				776B1C92283CBBA100D85C73 /* QNCameraParams.h in Headers */,
 				77781C0A283D1337009DC71C /* QNPKSession.h in Headers */,
+				A28EDD9A2A3A07F000088C5F /* QNPKExtendsModel.h in Headers */,
 				77781C0E283DD181009DC71C /* QPKService.h in Headers */,
 				776B1CEE283D0D8100D85C73 /* QNMergeOption.h in Headers */,
 				77781C20283DD63C009DC71C /* QNChatRoomService.h in Headers */,
@@ -571,6 +590,7 @@
 				776B1CAF283CC87000D85C73 /* QNLivePrefixHeader.pch in Headers */,
 				776B1CAC283CC6EC00D85C73 /* QLiveNetworkUtil.h in Headers */,
 				776B1CD5283D024E00D85C73 /* QLinkMicService.h in Headers */,
+				A29339D42A3C4F9200EAEE81 /* QNPKRespModel.h in Headers */,
 				776B1CD1283D010D00D85C73 /* QNMicLinker.h in Headers */,
 				774E6422284DF8E800C9FB7F /* QMixStreamManager.h in Headers */,
 				77204D83285F97A20053B1AD /* PubChatModel.h in Headers */,
@@ -589,6 +609,7 @@
 				77BE1F0928C7342A007557E9 /* QRoomDataModel.h in Headers */,
 				77BE232528CB4424007557E9 /* QStatisticalService.h in Headers */,
 				77781C41283DE000009DC71C /* Extension.h in Headers */,
+				A28EDD962A39BB8D00088C5F /* QNPKInfo.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -744,6 +765,7 @@
 				77204D87285F97A20053B1AD /* QIMModel.m in Sources */,
 				48D4AC1D2949B8EA008C8464 /* QLiveConfig.m in Sources */,
 				776B1C74283C79BB00D85C73 /* QNCreateRoomParam.m in Sources */,
+				A28EDD972A39BB8D00088C5F /* QNPKInfo.m in Sources */,
 				48B9388A292E26590014D671 /* QNUserService.m in Sources */,
 				485F27222940E37E00484CB6 /* CreateSignalHandler.m in Sources */,
 				48B93885292E12DA0014D671 /* QNGiftService.m in Sources */,
@@ -751,6 +773,7 @@
 				776B1C93283CBBA100D85C73 /* QNCameraParams.m in Sources */,
 				77BE24FE28FFED50007557E9 /* QNGiftModel.m in Sources */,
 				776B1C83283CB2AA00D85C73 /* QNLiveUser.m in Sources */,
+				A28EDD9B2A3A07F000088C5F /* QNPKExtendsModel.m in Sources */,
 				77204D88285F97A20053B1AD /* PubChatModel.m in Sources */,
 				776B1CAD283CC6EC00D85C73 /* QLiveNetworkUtil.m in Sources */,
 				776B1CF3283D0F2000D85C73 /* LinkInvitation.m in Sources */,
@@ -769,6 +792,7 @@
 				776B1C78283C79DB00D85C73 /* QNLiveRoomInfo.m in Sources */,
 				48D4AC212949D288008C8464 /* QNAppService.m in Sources */,
 				776B1C87283CB60D00D85C73 /* QNLiveRoomClient.m in Sources */,
+				A29339D52A3C4F9200EAEE81 /* QNPKRespModel.m in Sources */,
 				77204D98285F9AF50053B1AD /* LinkOptionModel.m in Sources */,
 				77781C21283DD63C009DC71C /* QNChatRoomService.m in Sources */,
 				776B1CEF283D0D8100D85C73 /* QNMergeOption.m in Sources */,

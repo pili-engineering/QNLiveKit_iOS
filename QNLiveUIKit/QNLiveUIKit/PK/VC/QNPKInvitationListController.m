@@ -13,7 +13,6 @@
 @property (nonatomic, strong) UITableView *tableView;
 @property (nonatomic, strong) NSArray <QNLiveRoomInfo *> *ListModel;
 @property (nonatomic, strong) UILabel *label;
-@property (nonatomic, strong) UIButton *button;
 @end
 
 @implementation QNPKInvitationListController
@@ -49,6 +48,10 @@
 }
 
 - (void)dismissController {
+    if (self.cancelBlock) {
+        self.cancelBlock();
+        self.cancelBlock = nil;
+    }
     [self removeFromParentViewController];
     [self.view removeFromSuperview];
 }
@@ -99,7 +102,6 @@
         _tableView.dataSource = self;
         _tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
         [self.view addSubview:_tableView];
-        [self.view bringSubviewToFront:_button];
         [_tableView mas_makeConstraints:^(MASConstraintMaker *make) {
             make.left.right.bottom.equalTo(self.view);
             make.top.equalTo(self.label.mas_bottom).offset(10);
@@ -109,23 +111,6 @@
         
     }
     return _tableView;
-}
-
-- (UIButton *)button {
-    if (!_button) {
-        _button = [[UIButton alloc]init];
-        [_button setTitle:@"确认" forState:UIControlStateNormal];
-        [_button setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
-        _button.titleLabel.font = [UIFont systemFontOfSize:15];
-        [_button addTarget:self action:@selector(buttonClicked) forControlEvents:UIControlEventTouchUpInside];
-        [self.view addSubview:_button];
-        [self.view bringSubviewToFront:_button];
-        [_button mas_makeConstraints:^(MASConstraintMaker *make) {
-            make.left.right.bottom.equalTo(self.view);
-            make.height.mas_equalTo(65);
-        }];
-    }
-    return _button;
 }
 
 @end

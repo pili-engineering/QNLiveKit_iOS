@@ -21,9 +21,17 @@
 
 @implementation QNBaseRTCController
 
+- (void)dealloc {
+    //确保 _chatService 能正常销毁
+    if (_chatService) {
+        [_chatService removeChatServiceListener];
+    }
+}
+
 - (void)viewDidDisappear:(BOOL)animated {
     [self.chatService removeChatServiceListener];
     [[QLive createPlayerClient] leaveRoom:self.roomInfo.live_id];
+    [super viewDidDisappear:animated];
 }
 
 - (void)viewDidLoad {

@@ -30,8 +30,12 @@
 #import <PLPlayerKit/PLPlayerKit.h>
 #import <QNIMSDK/QNIMSDK.h>
 #import "QNConfigurationUI.h"
+#import "QNPKView.h"
+#import "QNPKViewUpdateUtil.h"
 
 static NSString *cellIdentifier = @"AddCollectionViewCell";
+
+#pragma mark - QNAudienceController
 
 @interface QNAudienceController () <QNChatRoomServiceListener, QNPushClientListener, LiveChatRoomViewDelegate, FDanmakuViewProtocol, PLPlayerDelegate, MicLinkerListener, PKServiceListener, GiftViewDelegate, UICollectionViewDelegate, UICollectionViewDataSource>
 @property (nonatomic, strong) UILabel *masterLeaveLabel;
@@ -40,13 +44,29 @@ static NSString *cellIdentifier = @"AddCollectionViewCell";
 @property (nonatomic, strong) QNLikeMenuView *likeMenuView;
 
 @property (nonatomic, strong) WatchBottomMoreView *moreView;
+@property (nonatomic, strong) QNPKView *pkView;
 
 @property (nonatomic, strong) NSMutableArray<QNMicLinker *> *linkMicList;
 @property (nonatomic, strong) UICollectionView *micLinkerCollectionView;
 @property (nonatomic, strong) NSMutableDictionary<NSString *, QNTrack *> *currentTracks;
 
 @property (nonatomic, strong) NSArray *bottomMenuOpen;
+
 @end
+
+#pragma mark - QNAudienceController (PK)
+//PK扩展
+@interface QNAudienceController (PK)
+
+//展示PK视图
+- (void)showPKView:(QNPKSession *)pkSession;
+//关闭PK视图
+- (void)dismissPKView;
+
+@end
+
+
+#pragma mark - QNAudienceController
 
 @implementation QNAudienceController
 
@@ -77,12 +97,11 @@ static NSString *cellIdentifier = @"AddCollectionViewCell";
 
     [[QLive createPlayerClient] joinRoom:self.roomInfo.live_id
                                 callBack:^(QNLiveRoomInfo *_Nonnull roomInfo) {
-                                  weakSelf.roomInfo = roomInfo;
-                                  [weakSelf playWithUrl:roomInfo.rtmp_url];
-                                  [weakSelf updateRoomInfo];
-
-                                  weakSelf.linkMicList = weakSelf.linkService.linkMicList;
-                                  weakSelf.linkService.micLinkerListener = weakSelf;
+                                    weakSelf.roomInfo = roomInfo;
+                                    [weakSelf playWithUrl:roomInfo.rtmp_url];
+                                    [weakSelf updateRoomInfo];
+                                    weakSelf.linkMicList = weakSelf.linkService.linkMicList;
+                                    weakSelf.linkService.micLinkerListener = weakSelf;
                                 }];
 
     [self.chatService sendWelComeMsg:^(QNIMMessageObject *_Nonnull msg) {
@@ -148,6 +167,10 @@ static NSString *cellIdentifier = @"AddCollectionViewCell";
 }
 
 - (void)stopPlay {
+    
+    //关闭PK视图
+    [self dismissPKView];
+    
     self.player.playerView.hidden = YES;
     [self.player stop];
 }
@@ -327,20 +350,6 @@ static NSString *cellIdentifier = @"AddCollectionViewCell";
     if ([micLinker.uid isEqualToString:LIVE_User_id]) {
         [self playWithUrl:self.roomInfo.rtmp_url];
     }
-}
-
-// 收到主播开始pk信令
-- (void)onReceiveStartPKSession:(QNPKSession *)pkSession {
-    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(3 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-      [self replayPlayer];
-    });
-}
-
-// 收到主播结束pk信令
-- (void)onReceiveStopPKSession:(QNPKSession *)pkSession {
-    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(3 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-      [self replayPlayer];
-    });
 }
 
 - (void)replayPlayer {
@@ -526,7 +535,7 @@ static NSString *cellIdentifier = @"AddCollectionViewCell";
 }
 
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
-    NSLog(@"QLive 连麦人数---%d", self.linkMicList.count);
+    NSLog(@"QLive 连麦人数 --- %@", @(self.linkMicList.count));
 
     return self.linkMicList.count;
 }
@@ -717,4 +726,83 @@ static NSString *cellIdentifier = @"AddCollectionViewCell";
     }
     return _paySuccessView;
 }
+@end
+
+
+#pragma mark - QNAudienceController (PK)
+
+@implementation QNAudienceController (PK)
+
+#pragma mark - PKServiceListener
+
+// 收到主播开始pk信令
+- (void)onReceiveStartPKSession:(QNPKSession *)pkSession {
+    __weak typeof(self)weakSelf = self;
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(3 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+        [weakSelf replayPlayer];
+        //展示PK视图
+        [weakSelf showPKView:pkSession];
+    });
+}
+
+// 收到主播结束pk信令
+- (void)onReceiveStopPKSession:(QNPKSession *)pkSession {
+    __weak typeof(self)weakSelf = self;
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(3 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+        //关闭PK视图
+        [weakSelf dismissPKView];
+        [weakSelf replayPlayer];
+    });
+}
+
+//pk扩展字段有变化
+- (void)onReceivePKExtendsChange:(QNPKExtendsModel *)model {
+    //更新PK覆盖视图的分数（主播端、观众端共用）
+    [QNPKViewUpdateUtil updatePKScoreView:model.extends forPKView:self.pkView];
+}
+
+#pragma mark - Private Methods
+
+//展示PK视图
+- (void)showPKView:(QNPKSession *)pkSession {
+    if (!self.pkView) {
+        self.pkView = [[QNPKView alloc] initWithFrame:CGRectZero];
+        [self.view addSubview:self.pkView];
+        [self.pkView mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.left.equalTo(self.view);
+            make.right.equalTo(self.view);
+            make.height.mas_equalTo(22);
+            //TODO:? 修改
+            //make.top.equalTo(self.preview.mas_bottom);
+            make.top.mas_equalTo((150 + SCREEN_W * 0.6));
+        }];
+        
+        //更新分数视图
+        [QNPKViewUpdateUtil updatePKScoreView:pkSession.extensions forPKView:self.pkView];
+
+        //计算倒计时（剩余）总时间
+        double totalDuration = [QNPKViewUpdateUtil getPKCountDownDuration:pkSession.startTimeStamp extensions:pkSession.extensions];
+        //PK惩罚持续时间
+        double penaltyDuration = [QNPKViewUpdateUtil getPKPenaltyDuration:pkSession.extensions];
+
+        //启动倒计时
+        [self.pkView startPKCountDown:totalDuration penaltyDuration:penaltyDuration onFinish:^{
+            //PK结束
+        }];
+    }
+}
+
+//关闭PK视图
+- (void)dismissPKView {
+    if (self.pkView) {
+        //停止倒计时
+        [self.pkView stopPKCountDown];
+        //并移除视图
+        [self.pkView removeFromSuperview];
+        self.pkView = nil;
+    }
+}
+
+
+
 @end
