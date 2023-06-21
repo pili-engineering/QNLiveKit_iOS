@@ -24,6 +24,13 @@
 
 @implementation ShopBuyListController
 
+- (void)dealloc {
+    //确保 _chatService 能正常销毁
+    if (_chatService) {
+        [_chatService removeChatServiceListener];
+    }
+}
+
 - (instancetype)initWithLiveInfo:(QNLiveRoomInfo *)liveInfo{
     if (self = [super init]) {
         self.liveID = liveInfo.live_id;
